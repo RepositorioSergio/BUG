@@ -95,7 +95,7 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
     <soapenv:Body>
         <ns6:HotelAvail xmlns:ns6="http://services.enginexml.rumbonet.riu.com">
             <ns6:in0>
-                <ns1:AdultsCount xmlns:ns1="http://dtos.enginexml.rumbonet.riu.com">2</ns1:AdultsCount>
+                <ns1:AdultsCount xmlns:ns1="http://dtos.enginexml.rumbonet.riu.com">1</ns1:AdultsCount>
                 <ns1:ChildCount xmlns:ns1="http://dtos.enginexml.rumbonet.riu.com">0</ns1:ChildCount>
                 <ns1:CountryCode xmlns:ns1="http://dtos.enginexml.rumbonet.riu.com">ES</ns1:CountryCode>
                 <HotelList xmlns="http://dtos.enginexml.rumbonet.riu.com">
@@ -112,7 +112,7 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                 <RoomList xmlns="http://dtos.enginexml.rumbonet.riu.com">
                     <RoomConfig>
                         <RoomStayCandidate>
-                            <AdultsCount>2</AdultsCount>
+                            <AdultsCount>1</AdultsCount>
                             <ChildCount>0</ChildCount>
                             <InfantsCount>0</InfantsCount>
                         </RoomStayCandidate>
