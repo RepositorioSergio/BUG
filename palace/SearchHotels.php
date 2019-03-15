@@ -16,7 +16,7 @@ $filter = new \Zend\I18n\Filter\NumberFormat($NumberFormat, 2);
 unset($tmp);
 $sfilter = array();
 $palace = false;
-error_log("\r\n COMECOU PALACE TARDE \r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\n COMECOU PALACE \r\n", 3, "/srv/www/htdocs/error_log");
 $db = new \Zend\Db\Adapter\Adapter($config);
 $sql = "select name, country_id, zone_id,city_xml23, latitude, longitude from cities where id=" . $destination;
 $statement2 = $db->createStatement($sql);
