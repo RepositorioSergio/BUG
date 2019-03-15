@@ -148,8 +148,8 @@ error_log("\r\n ANTES IF\r\n", 3, "/srv/www/htdocs/error_log");
         <ns:GetAvailability_AllHotels>
             <ava:availabilityRequest>
                 <ava:data>
-                <ava1:arrival_date>2019-09-20T00:00:00</ava1:arrival_date>
-                <ava1:departure_date>2019-09-22T00:00:00</ava1:departure_date>
+                <ava1:arrival_date>2019-05-20T00:00:00</ava1:arrival_date>
+                <ava1:departure_date>2019-05-22T00:00:00</ava1:departure_date>
                 <ava1:AgencyCode>' . $palaceresortsAgencyCode . '</ava1:AgencyCode>
                 <ava1:adultos>2</ava1:adultos>
                 <ava1:menores>0</ava1:menores>
@@ -175,6 +175,7 @@ error_log("\r\n ANTES IF\r\n", 3, "/srv/www/htdocs/error_log");
             "Content-type: text/xml",
             "Cache-Control: no-cache",
             "Pragma: no-cache",
+            "Host: api.palaceresorts.com",
             "SOAPAction: http://localhost/xmlschemas/enterpriseservice/16-07-2009/GetAvailability_AllHotels",
             "Content-length: " . strlen($raw)
         ); // SOAPAction: your op URL
