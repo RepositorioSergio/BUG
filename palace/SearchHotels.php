@@ -150,12 +150,13 @@ error_log("\r\n ANTES IF\r\n", 3, "/srv/www/htdocs/error_log");
                 <ava:data>
                 <ava1:arrival_date>2019-05-20T00:00:00</ava1:arrival_date>
                 <ava1:departure_date>2019-05-22T00:00:00</ava1:departure_date>
-                <ava1:AgencyCode>' . $palaceresortsAgencyCode . '</ava1:AgencyCode>
                 <ava1:adultos>2</ava1:adultos>
                 <ava1:menores>0</ava1:menores>
                 <ava1:baby>0</ava1:baby>
                 <ava1:child>0</ava1:child>
                 <ava1:kid>0</ava1:kid>
+                <ava1:idioma>EN</idioma>
+                <ava1:agency_cd>' . $palaceresortsAgencyCode . '</ava1:agency_cd>
                 </ava:data>
                 <ava:AuthInfo>
                 <aut:Recnum>0</aut:Recnum>
@@ -180,11 +181,10 @@ error_log("\r\n ANTES IF\r\n", 3, "/srv/www/htdocs/error_log");
             "Content-length: " . strlen($raw)
         ); // SOAPAction: your op URL
         
-        $url = "https://api.palaceresorts.com/EnterpriseServiceInterface/ServiceInterface.asmx";
 
         $startTime = microtime();
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
-        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_URL, $palaceresortswebserviceurl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         // curl_setopt($ch, CURLOPT_USERPWD, $soapUser . ":" . $soapPassword); // username and password - declared at the top of the doc
         // curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
