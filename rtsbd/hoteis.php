@@ -435,62 +435,416 @@ if ($CityEventList->length > 0) {
     $CityEventList = "";
 }
 
+$sql = new Sql($db);
+$insert = $sql->insert();
+$insert->into('hoteis');
+$insert->values(array(
+    'datetime_created' => time(),
+    'datetime_updated' => 0,
+    'LanguageCode' => $LanguageCode,
+    'LanguageName' => $LanguageName,
+    'NationalityCode' => $NationalityCode,
+    'NationalityName' => $NationalityName,
+    'ContinentCode' => $ContinentCode,
+    'CityCode' => $CityCode,
+    'CityEname' => $CityEname,
+    'CityName' => $CityName,
+    'CountryCode' => $CountryCode,
+    'CountryEname' => $CountryEname,
+    'CountryName' => $CountryName,
+    'StateCode' => $StateCode,
+    'StateEname' => $StateEname,
+    'StateName' => $StateName,
+    'CheckInDate' => $CheckInDate,
+    'CheckInWeekday' => $CheckInWeekday,
+    'CheckOutDate' => $CheckOutDate,
+    'CheckOutWeekday' => $CheckOutWeekday,
+    'Duration' => $Duration,
+    'CheckInLeftDays' => $CheckInLeftDays,
+    'ItemName' => $ItemName,
+    'ItemCode' => $ItemCode,
+    'ItemNo' => $ItemNo,
+    'StarRating' => $StarRating,
+    'LocationCode' => $LocationCode,
+    'AvailableHotelOnly' => $AvailableHotelOnly,
+    'RecommendHotelOnly' => $RecommendHotelOnly,
+    'TotalResultCount' => $TotalResultCount,
+    'ExchangeConvertDate' => $ExchangeConvertDate,
+    'SellingCurrencyCode' => $SellingCurrencyCode,
+    'ClientCurrencyCode' => $ClientCurrencyCode,
+    'SellingConvertRate' => $SellingConvertRate,
+    'CityEventList' => $CityEventList
+), $insert::VALUES_MERGE);
+$statement = $sql->prepareStatementForSqlObject($insert);
+$results = $statement->execute();
+$db->getDriver()
+    ->getConnection()
+    ->disconnect();
 
 
-for ($iAux = 0; $iAux < $node->length; $iAux ++) {
-    $tipo = $node->item($iAUX)->getElementsByTagName("tipo");
-    if ($tipo->length > 0) {
-        $tipo = $tipo->item(0)->nodeValue;
-    } else {
-        $tipo = "";
-    }
-
-
-    $sql = new Sql($db);
-    $select = $sql->select();
-    $select->from('travelplan_arbolResponseRowTypeCont');
-    $select->where(array(
-        'codigo' => $codigo
-    ));
-    $statement = $sql->prepareStatementForSqlObject($select);
-    $result = $statement->execute();
-    $result->buffer();
-    $customers = array();
-    if ($result->valid()) {
-        $data = $result->current();
-        $id = $data['codigo'];
-        if (count($id) > 0) {
-            $sql = new Sql($db);
-            $data = array(
-                'datetime_created' => time(),
-                'datetime_updated' => 1,
-                'tipo' => $tipo,
-                'codigo' => $codigo,
-                'descr' => $desc,
-                'codZona' => $codZona,
-                'descZona' => $descZona,
-                'cadenaDestino' => $cadenaDestino,
-                'residente' => $residente
-            );
-            $where['codigo = ?'] = $codigo;
-            $update = $sql->update('travelplan_arbolResponseRowTypeCont', $data, $where);
-            $db->getDriver()
-                ->getConnection()
-                ->disconnect();
+$HotelSearchList = $node->item(0)->getElementsByTagName("HotelSearchList");
+if ($HotelSearchList->length > 0) {
+    $HotelItemInfo = $HotelSearchList->item(0)->getElementsByTagName("HotelItemInfo");
+    if ($HotelItemInfo->length > 0) {
+        $ItemCode = $HotelItemInfo->item(0)->getElementsByTagName("ItemCode");
+        if ($ItemCode->length > 0) {
+            $ItemCode = $ItemCode->item(0)->nodeValue;
         } else {
+            $ItemCode = "";
+        }
+        $ItemName = $HotelItemInfo->item(0)->getElementsByTagName("ItemName");
+        if ($ItemName->length > 0) {
+            $ItemName = $ItemName->item(0)->nodeValue;
+        } else {
+            $ItemName = "";
+        }
+        $StarRating = $HotelItemInfo->item(0)->getElementsByTagName("StarRating");
+        if ($StarRating->length > 0) {
+            $StarRating = $StarRating->item(0)->nodeValue;
+        } else {
+            $StarRating = "";
+        }
+        $RecommendYn = $HotelItemInfo->item(0)->getElementsByTagName("RecommendYn");
+        if ($RecommendYn->length > 0) {
+            $RecommendYn = $RecommendYn->item(0)->nodeValue;
+        } else {
+            $RecommendYn = "";
+        }
+        $ExpertReportYn = $HotelItemInfo->item(0)->getElementsByTagName("ExpertReportYn");
+        if ($ExpertReportYn->length > 0) {
+            $ExpertReportYn = $ExpertReportYn->item(0)->nodeValue;
+        } else {
+            $ExpertReportYn = "";
+        }
+        $FirstImageFileName = $HotelItemInfo->item(0)->getElementsByTagName("FirstImageFileName");
+        if ($FirstImageFileName->length > 0) {
+            $FirstImageFileName = $FirstImageFileName->item(0)->nodeValue;
+        } else {
+            $FirstImageFileName = "";
+        }
+        $HotelDescription = $HotelItemInfo->item(0)->getElementsByTagName("HotelDescription");
+        if ($HotelDescription->length > 0) {
+            $HotelDescription = $HotelDescription->item(0)->nodeValue;
+        } else {
+            $HotelDescription = "";
+        }
+        $BackpackYn = $HotelItemInfo->item(0)->getElementsByTagName("BackpackYn");
+        if ($BackpackYn->length > 0) {
+            $BackpackYn = $BackpackYn->item(0)->nodeValue;
+        } else {
+            $BackpackYn = "";
+        }
+        $BusinessYn = $HotelItemInfo->item(0)->getElementsByTagName("BusinessYn");
+        if ($BusinessYn->length > 0) {
+            $BusinessYn = $BusinessYn->item(0)->nodeValue;
+        } else {
+            $BusinessYn = "";
+        }
+        $HoneymoonYn = $HotelItemInfo->item(0)->getElementsByTagName("HoneymoonYn");
+        if ($HoneymoonYn->length > 0) {
+            $HoneymoonYn = $HoneymoonYn->item(0)->nodeValue;
+        } else {
+            $HoneymoonYn = "";
+        }
+        $FairYn = $HotelItemInfo->item(0)->getElementsByTagName("FairYn");
+        if ($FairYn->length > 0) {
+            $FairYn = $FairYn->item(0)->nodeValue;
+        } else {
+            $FairYn = "";
+        }
+        $AirPackYn = $HotelItemInfo->item(0)->getElementsByTagName("AirPackYn");
+        if ($AirPackYn->length > 0) {
+            $AirPackYn = $AirPackYn->item(0)->nodeValue;
+        } else {
+            $AirPackYn = "";
+        }
+        $BookingCount = $HotelItemInfo->item(0)->getElementsByTagName("BookingCount");
+        if ($BookingCount->length > 0) {
+            $BookingCount = $BookingCount->item(0)->nodeValue;
+        } else {
+            $BookingCount = "";
+        }
+        $LocationList = $HotelItemInfo->item(0)->getElementsByTagName("LocationList");
+        if ($LocationList->length > 0) {
+            $LocationList = $LocationList->item(0)->nodeValue;
+        } else {
+            $LocationList = "";
+        }
+
+        $GeoCode = $HotelItemInfo->item(0)->getElementsByTagName("GeoCode");
+        if ($GeoCode->length > 0) {
+            $Latitude = $GeoCode->item(0)->getElementsByTagName("Latitude");
+            if ($Latitude->length > 0) {
+                $Latitude = $Latitude->item(0)->nodeValue;
+            } else {
+                $Latitude = "";
+            }
+            $Longitude = $GeoCode->item(0)->getElementsByTagName("Longitude");
+            if ($Longitude->length > 0) {
+                $Longitude = $Longitude->item(0)->nodeValue;
+            } else {
+                $Longitude = "";
+            }
+        }
+
+        $PriceList = $HotelItemInfo->item(0)->getElementsByTagName("PriceList");
+        if ($PriceList->length > 0) {
+            $PriceInfo = $PriceList->item(0)->getElementsByTagName("PriceInfo");
+            if ($PriceInfo->length > 0) {
+                $PriceInfoItemNo = $PriceInfo->item(0)->getElementsByTagName("ItemNo");
+                if ($PriceInfoItemNo->length > 0) {
+                    $PriceInfoItemNo = $PriceInfoItemNo->item(0)->nodeValue;
+                } else {
+                    $PriceInfoItemNo = "";
+                }
+                $PriceInfoItemCode = $PriceInfo->item(0)->getElementsByTagName("ItemCode");
+                if ($PriceInfoItemCode->length > 0) {
+                    $PriceInfoItemCode = $PriceInfoItemCode->item(0)->nodeValue;
+                } else {
+                    $PriceInfoItemCode = "";
+                }
+                $SupplierCompCode = $PriceInfo->item(0)->getElementsByTagName("SupplierCompCode");
+                if ($SupplierCompCode->length > 0) {
+                    $SupplierCompCode = $SupplierCompCode->item(0)->nodeValue;
+                } else {
+                    $SupplierCompCode = "";
+                }
+                $RoomTypeCode = $PriceInfo->item(0)->getElementsByTagName("RoomTypeCode");
+                if ($RoomTypeCode->length > 0) {
+                    $RoomTypeCode = $RoomTypeCode->item(0)->nodeValue;
+                } else {
+                    $RoomTypeCode = "";
+                }
+                $RoomTypeName = $PriceInfo->item(0)->getElementsByTagName("RoomTypeName");
+                if ($RoomTypeName->length > 0) {
+                    $RoomTypeName = $RoomTypeName->item(0)->nodeValue;
+                } else {
+                    $RoomTypeName = "";
+                }
+                $BreakfastTypeName = $PriceInfo->item(0)->getElementsByTagName("BreakfastTypeName");
+                if ($BreakfastTypeName->length > 0) {
+                    $BreakfastTypeName = $BreakfastTypeName->item(0)->nodeValue;
+                } else {
+                    $BreakfastTypeName = "";
+                }
+                $AddBreakfastTypeName = $PriceInfo->item(0)->getElementsByTagName("AddBreakfastTypeName");
+                if ($AddBreakfastTypeName->length > 0) {
+                    $AddBreakfastTypeName = $AddBreakfastTypeName->item(0)->nodeValue;
+                } else {
+                    $AddBreakfastTypeName = "";
+                }
+                $PriceComment = $PriceInfo->item(0)->getElementsByTagName("PriceComment");
+                if ($PriceComment->length > 0) {
+                    $PriceComment = $PriceComment->item(0)->nodeValue;
+                } else {
+                    $PriceComment = "";
+                }
+                $FareRateType = $PriceInfo->item(0)->getElementsByTagName("FareRateType");
+                if ($FareRateType->length > 0) {
+                    $FareRateType = $FareRateType->item(0)->nodeValue;
+                } else {
+                    $FareRateType = "";
+                }
+                $PriceStatus = $PriceInfo->item(0)->getElementsByTagName("PriceStatus");
+                if ($PriceStatus->length > 0) {
+                    $PriceStatus = $PriceStatus->item(0)->nodeValue;
+                } else {
+                    $PriceStatus = "";
+                }
+                $NetCurrencyCode = $PriceInfo->item(0)->getElementsByTagName("NetCurrencyCode");
+                if ($NetCurrencyCode->length > 0) {
+                    $NetCurrencyCode = $NetCurrencyCode->item(0)->nodeValue;
+                } else {
+                    $NetCurrencyCode = "";
+                }
+                $NetConvertRate = $PriceInfo->item(0)->getElementsByTagName("NetConvertRate");
+                if ($NetConvertRate->length > 0) {
+                    $NetConvertRate = $NetConvertRate->item(0)->nodeValue;
+                } else {
+                    $NetConvertRate = "";
+                }
+                $SellerNetPrice = $PriceInfo->item(0)->getElementsByTagName("SellerNetPrice");
+                if ($SellerNetPrice->length > 0) {
+                    $SellerNetPrice = $SellerNetPrice->item(0)->nodeValue;
+                } else {
+                    $SellerNetPrice = "";
+                }
+                $LocalNetPrice = $PriceInfo->item(0)->getElementsByTagName("LocalNetPrice");
+                if ($LocalNetPrice->length > 0) {
+                    $LocalNetPrice = $LocalNetPrice->item(0)->nodeValue;
+                } else {
+                    $LocalNetPrice = "";
+                }
+                $SellerMarkupPrice = $PriceInfo->item(0)->getElementsByTagName("SellerMarkupPrice");
+                if ($SellerMarkupPrice->length > 0) {
+                    $SellerMarkupPrice = $SellerMarkupPrice->item(0)->nodeValue;
+                } else {
+                    $SellerMarkupPrice = "";
+                }
+                $RecommendClientPrice = $PriceInfo->item(0)->getElementsByTagName("RecommendClientPrice");
+                if ($RecommendClientPrice->length > 0) {
+                    $RecommendClientPrice = $RecommendClientPrice->item(0)->nodeValue;
+                } else {
+                    $RecommendClientPrice = "";
+                }
+                $SellerClientPrice = $PriceInfo->item(0)->getElementsByTagName("SellerClientPrice");
+                if ($SellerClientPrice->length > 0) {
+                    $SellerClientPrice = $SellerClientPrice->item(0)->nodeValue;
+                } else {
+                    $SellerClientPrice = "";
+                }
+                $DoubleBedYn = $PriceInfo->item(0)->getElementsByTagName("DoubleBedYn");
+                if ($DoubleBedYn->length > 0) {
+                    $DoubleBedYn = $DoubleBedYn->item(0)->nodeValue;
+                } else {
+                    $DoubleBedYn = "";
+                }
+
+                $SupplierPromotion = $PriceInfo->item(0)->getElementsByTagName("SupplierPromotion");
+                if ($SupplierPromotion->length > 0) {
+                    $PromotionName = $SupplierPromotion->item(0)->getElementsByTagName("PromotionName");
+                    if ($PromotionName->length > 0) {
+                        $PromotionName = $PromotionName->item(0)->nodeValue;
+                    } else {
+                        $PromotionName = "";
+                    }
+                    $PromotionDescription = $SupplierPromotion->item(0)->getElementsByTagName("PromotionDescription");
+                    if ($PromotionDescription->length > 0) {
+                        $PromotionDescription = $PromotionDescription->item(0)->nodeValue;
+                    } else {
+                        $PromotionDescription = "";
+                    }
+                }
+
+                $sql = new Sql($db);
+                $insert = $sql->insert();
+                $insert->into('hoteis_ItemInfo');
+                $insert->values(array(
+                    'datetime_created' => time(),
+                    'datetime_updated' => 0,
+                    'ItemCode' => $ItemCode,
+                    'ItemName' => $ItemName,
+                    'StarRating' => $StarRating,
+                    'RecommendYn' => $RecommendYn,
+                    'ExpertReportYn' => $ExpertReportYn,
+                    'FirstImageFileName' => $FirstImageFileName,
+                    'HotelDescription' => $HotelDescription,
+                    'BackpackYn' => $BackpackYn,
+                    'BusinessYn' => $BusinessYn,
+                    'HoneymoonYn' => $HoneymoonYn,
+                    'FairYn' => $FairYn,
+                    'AirPackYn' => $AirPackYn,
+                    'BookingCount' => $BookingCount,
+                    'LocationList' => $LocationList,
+                    'Latitude' => $Latitude,
+                    'Longitude' => $Longitude,
+                    'PriceInfoItemNo' => $PriceInfoItemNo,
+                    'PriceInfoItemCode' => $PriceInfoItemCode,
+                    'SupplierCompCode' => $SupplierCompCode,
+                    'RoomTypeCode' => $RoomTypeCode,
+                    'RoomTypeName' => $RoomTypeName,
+                    'BreakfastTypeName' => $BreakfastTypeName,
+                    'AddBreakfastTypeName' => $AddBreakfastTypeName,
+                    'PriceComment' => $PriceComment,
+                    'FareRateType' => $FareRateType,
+                    'PriceStatus' => $PriceStatus,
+                    'NetCurrencyCode' => $NetCurrencyCode,
+                    'NetConvertRate' => $NetConvertRate,
+                    'SellerNetPrice' => $SellerNetPrice,
+                    'LocalNetPrice' => $LocalNetPrice,
+                    'SellerMarkupPrice' => $SellerMarkupPrice,
+                    'RecommendClientPrice' => $RecommendClientPrice,
+                    'SellerClientPrice' => $SellerClientPrice,
+                    'DoubleBedYn' => $DoubleBedYn,
+                    'PromotionName' => $PromotionName,
+                    'PromotionDescription' => $PromotionDescription
+                ), $insert::VALUES_MERGE);
+                $statement = $sql->prepareStatementForSqlObject($insert);
+                $results = $statement->execute();
+                $db->getDriver()
+                    ->getConnection()
+                    ->disconnect();
+
+
+                $PriceBreakdown = $PriceInfo->item(0)->getElementsByTagName("PriceBreakdown");
+                if ($PriceBreakdown->length > 0) {
+                    for ($j=0; $j < $PriceBreakdown->length; $j++) { 
+                        $Date = $PriceBreakdown->item($j)->getElementsByTagName("Date");
+                        if ($Date->length > 0) {
+                            $Date = $Date->item(0)->nodeValue;
+                        } else {
+                            $Date = "";
+                        }
+                        $Price = $PriceBreakdown->item($j)->getElementsByTagName("Price");
+                        if ($Price->length > 0) {
+                            $Price = $Price->item(0)->nodeValue;
+                        } else {
+                            $Price = "";
+                        }
+
+                        $sql = new Sql($db);
+                        $insert = $sql->insert();
+                        $insert->into('hoteis_PriceBreakdown');
+                        $insert->values(array(
+                            'datetime_created' => time(),
+                            'datetime_updated' => 0,
+                            'Date' => $Date,
+                            'Price' => $Price,
+                            'ItemCode' => $ItemCode
+                        ), $insert::VALUES_MERGE);
+                        $statement = $sql->prepareStatementForSqlObject($insert);
+                        $results = $statement->execute();
+                        $db->getDriver()
+                            ->getConnection()
+                            ->disconnect();
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+$RoomList = $node->item(0)->getElementsByTagName("RoomList");
+if ($RoomList->length > 0) {
+    $RoomInfo = $RoomList->item(0)->getElementsByTagName("RoomInfo");
+    if ($RoomInfo->length > 0) {
+        for ($i = 0; $i < $RoomInfo->length; $i ++) {
+            $BedTypeCode = $RoomInfo->item($i)->getElementsByTagName("BedTypeCode");
+            if ($BedTypeCode->length > 0) {
+                $BedTypeCode = $BedTypeCode->item(0)->nodeValue;
+            } else {
+                $BedTypeCode = "";
+            }
+            $RoomCount = $RoomInfo->item($i)->getElementsByTagName("RoomCount");
+            if ($RoomCount->length > 0) {
+                $RoomCount = $RoomCount->item(0)->nodeValue;
+            } else {
+                $RoomCount = "";
+            }
+            $ChlidAge1 = $RoomInfo->item($i)->getElementsByTagName("ChlidAge1");
+            if ($ChlidAge1->length > 0) {
+                $ChlidAge1 = $ChlidAge1->item(0)->nodeValue;
+            } else {
+                $ChlidAge1 = "";
+            }
+            $ChlidAge2 = $ChlidAge2->item($i)->getElementsByTagName("ChlidAge2");
+            if ($ChlidAge2->length > 0) {
+                $ChlidAge2 = $ChlidAge2->item(0)->nodeValue;
+            } else {
+                $ChlidAge2 = "";
+            }
+        
             $sql = new Sql($db);
             $insert = $sql->insert();
-            $insert->into('travelplan_arbolResponseRowTypeCont');
+            $insert->into('hoteis_RoomInfo');
             $insert->values(array(
                 'datetime_created' => time(),
                 'datetime_updated' => 0,
-                'tipo' => $tipo,
-                'codigo' => $codigo,
-                'descr' => $desc,
-                'codZona' => $codZona,
-                'descZona' => $descZona,
-                'cadenaDestino' => $cadenaDestino,
-                'residente' => $residente
+                'BedTypeCode' => $BedTypeCode,
+                'RoomCount' => $RoomCount,
+                'ChlidAge1' => $ChlidAge1,
+                'ChlidAge2' => $ChlidAge2
             ), $insert::VALUES_MERGE);
             $statement = $sql->prepareStatementForSqlObject($insert);
             $results = $statement->execute();
@@ -498,26 +852,6 @@ for ($iAux = 0; $iAux < $node->length; $iAux ++) {
                 ->getConnection()
                 ->disconnect();
         }
-    } else {
-        $sql = new Sql($db);
-        $insert = $sql->insert();
-        $insert->into('travelplan_arbolResponseRowTypeCont');
-        $insert->values(array(
-            'datetime_created' => time(),
-            'datetime_updated' => 0,
-            'tipo' => $tipo,
-            'codigo' => $codigo,
-            'descr' => $desc,
-            'codZona' => $codZona,
-            'descZona' => $descZona,
-            'cadenaDestino' => $cadenaDestino,
-            'residente' => $residente
-        ), $insert::VALUES_MERGE);
-        $statement = $sql->prepareStatementForSqlObject($insert);
-        $results = $statement->execute();
-        $db->getDriver()
-            ->getConnection()
-            ->disconnect();
     }
 }
 
