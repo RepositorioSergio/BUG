@@ -32,7 +32,11 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $affiliate_id = 0;
 $branch_filter = "";
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.avisbudget.php');
+echo $return;
+echo "PASSOU 0";
+echo $return;
+
+$config = new \Zend\Config\Config(include '../config/autoload/globlal.avisbudget.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -41,6 +45,9 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
+echo $return;
+echo "PASSOU 1";
+echo $return;
 
 
 $raw = '<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance" xmlns:xsd="http://www.w3.org/1999/XMLSchema">
@@ -91,6 +98,9 @@ $raw = '<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envel
 </SOAP-ENV:Envelope>';
 
 $url = 'https://qaservices.carrental.com/wsbang/HTTPSOAPRouter/ws9071';
+echo $return;
+echo "PASSOU 2";
+echo $return;
 
 $client = new Client();
 $client->setOptions(array(
@@ -103,6 +113,10 @@ $client->setHeaders(array(
     "Accept: text/xml",
     "Content-length: " . strlen($raw)
 ));
+
+echo $return;
+echo "PASSOU 3";
+echo $return;
 
 $client->setUri($url);
 $client->setMethod('POST');
@@ -125,8 +139,8 @@ die();
 echo "<xmp>";
 var_dump($response);
 echo "</xmp>";
-die();
-$config = new \Zend\Config\Config(include '../config/autoload/global.avisbudget.php');
+
+$config = new \Zend\Config\Config(include '../config/autoload/globlal.avisbudget.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -462,5 +476,5 @@ if ($VehVendorAvails->length > 0) {
 $db->getDriver()
     ->getConnection()
     ->disconnect();
-echo 'Done';
+echo '<br/>Done';
 ?>

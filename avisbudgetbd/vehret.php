@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU VEHRES";
+echo "COMECOU VEHRET";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -53,44 +53,22 @@ $raw = '<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envel
 </SOAP-ENV:Header>
 <SOAP-ENV:Body>
     <ns:Request xmlns:ns="http://wsg.avis.com/wsbang">
-        <OTA_VehResRQ xmlns:xsi="http://www.w3.org/2008/XMLSchema-instance" Version="1.0">
-        <POS> 
-<Source> 
-<RequestorID Type="1" ID="CTMTours"/> 
-</Source> 
-<Source> 
-<RequestorID Type="5" ID="91502994"/> 
-</Source> 
-</POS> 
-<VehResRQCore Status="Available"> 
-<VehRentalCore PickUpDateTime="2019-11-24T12:00:00" ReturnDateTime="2019-11-26T14:00:00"> 
-<PickUpLocation LocationCode="JFK"></PickUpLocation> 
-<ReturnLocation LocationCode="JFK"></ReturnLocation> 
-</VehRentalCore> 
-<Customer> 
-<Primary> 
-<PersonName> 
-<GivenName>Andre</GivenName> 
-<Surname>Cebola</Surname> 
-</PersonName> 
-<CitizenCountryName Code="US"></CitizenCountryName> 
-</Primary> 
-</Customer> 
-<VendorPref CompanyShortName="Avis">Avis Rent-A-Car</VendorPref> 
-<VehPref AirConditionPref="Preferred" TransmissionPref="Preferred" TransmissionType="Automatic" ClassPref="Preferred" TypePref="Preferred"> 
-<VehType VehicleCategory="1"></VehType> 
-<VehClass Size="1"></VehClass> 
-<VehGroup GroupType="SIPP" GroupValue="ECAR"></VehGroup> 
-</VehPref> 
-<RateQualifier RateCategory="3" RateQualifier="LC"/> 
-</VehResRQCore> 
-<VehResRQInfo> 
-<RentalPaymentPref> 
-<Voucher Identifier="12345678" ValueType="FixedValue" ElectronicIndicator="true"/> 
-<PaymentAmount Amount="300.00" CurrencyCode="USD"/> 
-</RentalPaymentPref> 
-</VehResRQInfo> 
-      </OTA_VehResRQ>
+    <OTA_VehRetResRQ xmlns:xsi="http://www.w3.org/2008/XMLSchema-instance" Version="1.0">
+    <POS>
+          <Source>
+            <RequestorID Type="1" ID="CTMTours"/>
+          </Source>
+    </POS>
+    <VehRetResRQCore>
+        <UniqueID Type="14" ID="11063888US3"/>
+        <PersonName>
+            <Surname>Cebola</Surname>
+        </PersonName>
+       </VehRetResRQCore>
+        <VehRetResRQInfo>
+          <Vendor CompanyShortName="Avis"/>
+        </VehRetResRQInfo>
+     </OTA_VehRetResRQ>
 </ns:Request>
 </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>';
@@ -146,10 +124,11 @@ $inputDoc->loadXML($response);
 $Envelope = $inputDoc->getElementsByTagName("Envelope");
 $Body = $Envelope->item(0)->getElementsByTagName("Body");
 $Response = $Body->item(0)->getElementsByTagName("Response");
-$OTA_VehCancelRS = $Response->item(0)->getElementsByTagName("OTA_VehCancelRS");
-$VehCancelRSCore = $OTA_VehCancelRS->item(0)->getElementsByTagName("VehCancelRSCore");
+$OTA_VehRetResRS = $Response->item(0)->getElementsByTagName("OTA_VehRetResRS");
+$TID = $OTA_VehRetResRS->item(0)->getAttribute("TID");
+$VehRetResRSCore = $OTA_VehRetResRS->item(0)->getElementsByTagName("VehRetResRSCore");
 
-$VehReservation = $VehCancelRSCore->item(0)->getElementsByTagName("VehReservation");
+$VehReservation = $VehRetResRSCore->item(0)->getElementsByTagName("VehReservation");
 if ($VehReservation->length > 0) {
     $Customer = $VehReservation->item(0)->getElementsByTagName("Customer");
     if ($Customer->length > 0) {
@@ -199,7 +178,7 @@ if ($VehReservation->length > 0) {
             try {
                 $sql = new Sql($db);
                 $insert = $sql->insert();
-                $insert->into('vehres_VehRentalCore');
+                $insert->into('vehret');
                 $insert->values(array(
                     'ID' => $ID,
                     'datetime_created' => time(),
@@ -257,7 +236,7 @@ if ($VehReservation->length > 0) {
             try {
                 $sql = new Sql($db);
                 $insert = $sql->insert();
-                $insert->into('vehres_Vehicle');
+                $insert->into('vehret_Vehicle');
                 $insert->values(array(
                     'datetime_created' => time(),
                     'datetime_updated' => 0,
@@ -305,7 +284,7 @@ if ($VehReservation->length > 0) {
             try {
                 $sql = new Sql($db);
                 $insert = $sql->insert();
-                $insert->into('vehres_RentalRate');
+                $insert->into('vehret_RentalRate');
                 $insert->values(array(
                     'datetime_created' => time(),
                     'datetime_updated' => 0,
@@ -362,7 +341,7 @@ if ($VehReservation->length > 0) {
                         try {
                             $sql = new Sql($db);
                             $insert = $sql->insert();
-                            $insert->into('vehres_VehicleCharge');
+                            $insert->into('vehret_VehicleCharge');
                             $insert->values(array(
                                 'datetime_created' => time(),
                                 'datetime_updated' => 0,
@@ -409,84 +388,31 @@ if ($VehReservation->length > 0) {
         }
 
         try {
-          $sql = new Sql($db);
-          $insert = $sql->insert();
-          $insert->into('vehres');
-          $insert->values(array(
-              'datetime_created' => time(),
-              'datetime_updated' => 0,
-              'CurrencyCode' => $CurrencyCode,
-              'EstimatedTotalAmount' => $EstimatedTotalAmount,
-              'RateTotalAmount' => $RateTotalAmount
-          ), $insert::VALUES_MERGE);
-          $statement = $sql->prepareStatementForSqlObject($insert);
-          $results = $statement->execute();
-          $db->getDriver()
-          ->getConnection()
-          ->disconnect();
-      } catch (\Exception $e) {
-          echo $return;
-          echo "ERRO CHARGE: " . $e;
-          echo $return;
-      }
+            $sql = new Sql($db);
+            $insert = $sql->insert();
+            $insert->into('vehret_TotalCharge');
+            $insert->values(array(
+                'datetime_created' => time(),
+                'datetime_updated' => 0,
+                'CurrencyCode' => $CurrencyCode,
+                'EstimatedTotalAmount' => $EstimatedTotalAmount,
+                'RateTotalAmount' => $RateTotalAmount
+            ), $insert::VALUES_MERGE);
+            $statement = $sql->prepareStatementForSqlObject($insert);
+            $results = $statement->execute();
+            $db->getDriver()
+            ->getConnection()
+            ->disconnect();
+        } catch (\Exception $e) {
+            echo $return;
+            echo "ERRO CHARGE: " . $e;
+            echo $return;
+        }
     }
 
     //VehSegmentInfo
-    $VehSegmentInfo = $VehAvailRSCore->item(0)->getElementsByTagName("VehSegmentInfo");
+    $VehSegmentInfo = $VehReservation->item(0)->getElementsByTagName("VehSegmentInfo");
     if ($VehSegmentInfo->length > 0) {
-
-        $RentalPaymentAmount = $VehSegmentInfo->item(0)->getElementsByTagName("RentalPaymentAmount");
-        if ($RentalPaymentAmount->length > 0) {
-            $Voucher = $RentalPaymentAmount->item(0)->getElementsByTagName("Voucher");
-            if ($Voucher->length > 0) {
-                $Identifier = $Voucher->item(0)->getAttribute("Identifier");
-            }
-            $PaymentAmount = $RentalPaymentAmount->item(0)->getElementsByTagName("PaymentAmount");
-            if ($PaymentAmount->length > 0) {
-                $CurrencyCode = $PaymentAmount->item(0)->getAttribute("CurrencyCode");
-                $Amount = $PaymentAmount->item(0)->getAttribute("Amount");
-            }
-        }
-
-        $VendorMessages = $VehSegmentInfo->item(0)->getElementsByTagName("VendorMessages");
-        if ($VendorMessages->length > 0) {
-            $VendorMessage = $VendorMessages->item(0)->getElementsByTagName("VendorMessage");
-            if ($VendorMessage->length > 0) {
-                $SubSection = $VendorMessage->item(0)->getElementsByTagName("SubSection");
-                if ($SubSection->length > 0) {
-                    $Paragraph = $SubSection->item(0)->getElementsByTagName("Paragraph");
-                    if ($Paragraph->length > 0) {
-                        $Text2 = "";
-                        $Text = $Paragraph->item(0)->getElementsByTagName("Text");
-                        for ($s=0; $s < $Text->length; $s++) { 
-                            $Text2 = $Text->item($s)->nodeValue;
-                            try {
-                                $sql = new Sql($db);
-                                $insert = $sql->insert();
-                                $insert->into('vehres_VendorMessage');
-                                $insert->values(array(
-                                    'datetime_created' => time(),
-                                    'datetime_updated' => 0,
-                                    'Identifier' => $Identifier,
-                                    'CurrencyCode' => $CurrencyCode,
-                                    'Amount' => $Amount,
-                                    'Text' => $Text2
-                                ), $insert::VALUES_MERGE);
-                                $statement = $sql->prepareStatementForSqlObject($insert);
-                                $results = $statement->execute();
-                                $db->getDriver()
-                                ->getConnection()
-                                ->disconnect();
-                            } catch (\Exception $e) {
-                                echo $return;
-                                echo "ERRO LOC2: " . $e;
-                                echo $return;
-                            }
-                        }
-                    }
-                }
-            }
-        }
 
       $LocationDetails = $VehSegmentInfo->item(0)->getElementsByTagName("LocationDetails");
       if ($LocationDetails->length > 0) {
@@ -551,7 +477,7 @@ if ($VehReservation->length > 0) {
           try {
             $sql = new Sql($db);
             $insert = $sql->insert();
-            $insert->into('vehres_Location');
+            $insert->into('vehret_Location');
             $insert->values(array(
                 'datetime_created' => time(),
                 'datetime_updated' => 0,
@@ -584,6 +510,103 @@ if ($VehReservation->length > 0) {
         }
         }
       }
+
+      $RentalPaymentAmount = $VehSegmentInfo->item(0)->getElementsByTagName("RentalPaymentAmount");
+        if ($RentalPaymentAmount->length > 0) {
+            $Voucher = $RentalPaymentAmount->item(0)->getElementsByTagName("Voucher");
+            if ($Voucher->length > 0) {
+                $Identifier = $Voucher->item(0)->getAttribute("Identifier");
+            }
+            $PaymentAmount = $RentalPaymentAmount->item(0)->getElementsByTagName("PaymentAmount");
+            if ($PaymentAmount->length > 0) {
+                $CurrencyCode = $PaymentAmount->item(0)->getAttribute("CurrencyCode");
+                $Amount = $PaymentAmount->item(0)->getAttribute("Amount");
+            }
+        }
+
+        $VendorMessages = $VehSegmentInfo->item(0)->getElementsByTagName("VendorMessages");
+        if ($VendorMessages->length > 0) {
+            $VendorMessage = $VendorMessages->item(0)->getElementsByTagName("VendorMessage");
+            if ($VendorMessage->length > 0) {
+                $SubSection = $VendorMessage->item(0)->getElementsByTagName("SubSection");
+                if ($SubSection->length > 0) {
+                    $Paragraph = $SubSection->item(0)->getElementsByTagName("Paragraph");
+                    if ($Paragraph->length > 0) {
+                        $Text2 = "";
+                        $Text = $Paragraph->item(0)->getElementsByTagName("Text");
+                        for ($s=0; $s < $Text->length; $s++) { 
+                            $Text2 = $Text->item($s)->nodeValue;
+                            try {
+                                $sql = new Sql($db);
+                                $insert = $sql->insert();
+                                $insert->into('vehret_VendorMessage');
+                                $insert->values(array(
+                                    'datetime_created' => time(),
+                                    'datetime_updated' => 0,
+                                    'Identifier' => $Identifier,
+                                    'CurrencyCode' => $CurrencyCode,
+                                    'Amount' => $Amount,
+                                    'Text' => $Text2
+                                ), $insert::VALUES_MERGE);
+                                $statement = $sql->prepareStatementForSqlObject($insert);
+                                $results = $statement->execute();
+                                $db->getDriver()
+                                ->getConnection()
+                                ->disconnect();
+                            } catch (\Exception $e) {
+                                echo $return;
+                                echo "ERRO LOC2: " . $e;
+                                echo $return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//VehSegmentInfo
+$VehSegmentInfo = $VehAvailRSCore->item(0)->getElementsByTagName("VehSegmentInfo");
+if ($VehSegmentInfo->length > 0) {
+
+    try {
+        $sql = new Sql($db);
+        $insert = $sql->insert();
+        $insert->into('vehavail');
+        $insert->values(array(
+            'datetime_created' => time(),
+            'datetime_updated' => 0,
+            'ReturnDateTime' => $ReturnDateTime,
+            'PickUpDateTime' => $PickUpDateTime,
+            'PickUpLocationCodeContext' => $PickUpLocationCodeContext,
+            'PickUpLocationLocationCode' => $PickUpLocationLocationCode,
+            'ReturnLocationCodeContext' => $ReturnLocationCodeContext,
+            'ReturnLocationLocationCode' => $ReturnLocationLocationCode,
+            'Vendor' => $Vendor,
+            'Code' => $Code,
+            'Name' => $Name,
+            'CodeContext' => $CodeContext,
+            'ExtendedLocationCode' => $ExtendedLocationCode,
+            'AtAirport' => $AtAirport,
+            'PhoneNumber' => $PhoneNumber,
+            'StreetNmbr' => $StreetNmbr,
+            'CityName' => $CityName,
+            'PostalCode' => $PostalCode,
+            'StateCode' => $StateCode,
+            'StateProv' => $StateProv,
+            'CountryCode' => $CountryCode,
+            'CountryName' => $CountryName
+        ), $insert::VALUES_MERGE);
+        $statement = $sql->prepareStatementForSqlObject($insert);
+        $results = $statement->execute();
+        $db->getDriver()
+        ->getConnection()
+        ->disconnect();
+    } catch (\Exception $e) {
+        echo $return;
+        echo "Error: " . $e;
+        echo $return;
     }
 }
 
