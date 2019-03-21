@@ -122,7 +122,7 @@ $raw = "<?xml version='1.0' encoding='utf-8'?>
 xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>
 <soap:Header>
     <BaseInfo xmlns='http://www.rts.co.kr/'>
-        <SiteCode>" . $rtsSiteCode . "-00</SiteCode>
+        <SiteCode>" . $rtsSiteCode . "</SiteCode>
         <Password>" . $rtsPassword . "</Password>
         <RequestType>NetPartner</RequestType>
     </BaseInfo>
@@ -133,8 +133,8 @@ xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.
         <LanguageCode>AR</LanguageCode>
         <TravelerNationality>AR</TravelerNationality>
         <CityCode>ROM</CityCode>
-        <CheckInDate>2019-04-14</CheckInDate>
-        <CheckOutDate>2019-04-17</CheckOutDate>
+        <CheckInDate>2019-06-14</CheckInDate>
+        <CheckOutDate>2019-06-17</CheckOutDate>
         <StarRating>0</StarRating>
         <LocationCode></LocationCode>
         <SupplierCompCode></SupplierCompCode>
@@ -172,14 +172,78 @@ xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.
 </soap:Body>
 </soap:Envelope>";
 
-$params = array(
-    "claveEntidad" => $trapsaturpackagesEntityKey,
-    "login" => $trapsaturpackagesLogin,
-    "password" => $trapsaturpackagesPassword,
-    "idioma" => "es"
+$BaseInfo = array(
+    "SiteCode" => $rtsSiteCode,
+    "Password" => $rtsPassword,
+    "Password" => "NetPartner"
 );
+
+$Header = array("BaseInfo" => $BaseInfo);
+
+$GuestsInfo2 = array(
+    'AdultCount' => 2, 
+    'ChildCount' => 1,
+    'RoomCount' => 1, 
+    'ChildAge1' => 5,
+    'ChildAge2' => 0
+);
+
+$GuestsInfo1 = array(
+    'AdultCount' => 2, 
+    'ChildCount' => 0,
+    'RoomCount' => 1, 
+    'ChildAge1' => 0,
+    'ChildAge2' => 0
+);
+
+$GuestList = array(
+    'GuestsInfo' => $GuestsInfo1, 
+    'GuestsInfo' => $GuestsInfo2 
+);
+
+$ItemCodeInfo = array(
+    'ItemCode' => '', 
+    'ItemNo' => 0 
+);
+
+$ItemCodeList = array(
+    'ItemCodeInfo' =>  $ItemCodeInfo
+);
+
+$HotelSearchListNetGuestCount = array(
+    'LanguageCode' => 'AR', 
+    'TravelerNationality' => 'AR',
+    'LanguageCode' => 'AR',
+    'CityCode' => 'ROM',
+    'CheckInDate' => '2019-10-14',
+    'CheckOutDate' => '2019-10-17',
+    'StarRating' => 0,
+    'LocationCode' => '',
+    'SupplierCompCode' => '',
+    'AvailableHotelOnly' => true,
+    'RecommendHotelOnly' => false,
+    'ClientCurrencyCode' => 'USD',
+    'ItemName' => '',
+    'SellerMarkup' => '*1',
+    'CompareYn' => false,
+    'SortType' => '',
+    'ItemCodeList' => $ItemCodeList,
+    'GuestList' => $GuestList
+);
+
+$GetHotelSearchListForCustomerCount = array(
+    "HotelSearchListNetGuestCount" => $HotelSearchListNetGuestCount
+);
+
+$Body = array("GetHotelSearchListForCustomerCount" => $GetHotelSearchListForCustomerCount);
+
+$params = array(
+    "Header" => $Header,
+    "Body" => $Body
+);
+
 try {
-    $client = new SoapClient($rtsServiceURL . 'WebServiceProjects/NetWebService/WsHotelProducts.asmx', array(
+    $client = new SoapClient($rtsServiceURL . 'WebServiceProjects/NetWebService/WsHotelProducts.asmx?wsdl', array(
         'compression' => SOAP_COMPRESSION_ACCEPT | SOAP_COMPRESSION_GZIP,
         "trace" => 1,
         "exceptions" => true,
@@ -190,13 +254,13 @@ try {
     var_dump($e);
     die();
 }
-echo $return;
-echo "PASSOU 1";
-echo $return;
-// var_dump($client);
+echo '<xmp>';
+var_dump($client->__getFunctions());
+echo '</xmp>';
+
 try {
     $client->__soapCall('GetHotelSearchListForCustomerCount', array(
-        $raw
+        $params
     ));
 } catch (\Exception $e) {
     var_dump($e);
@@ -213,7 +277,7 @@ echo "RESPONSE";
 echo $response;
 echo $return; */
 echo '<xmp>';
-var_dump($response);
+var_dump($xmlresult);
 echo '</xmp>';
 die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.rts.php');

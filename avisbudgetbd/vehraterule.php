@@ -69,7 +69,7 @@ $raw = '<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envel
           </VehRentalCore>
           <VehicleInfo TypePref="Only" TransmissionPref="Only" TransmissionType="Automatic" AirConditionPref="Only" ClassPref="Only">
             <VehType VehicleCategory="1"/>
-            <VehClass Size="4"/>
+            <VehClass Size="1"/>
           </VehicleInfo>
           <RateQualifier RateQualifier="LC"/>
           <CustomerID Type="1" ID="US"/>

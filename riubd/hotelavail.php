@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU RIU<br/>";
+echo "COMECOU AVAIL<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -85,7 +85,6 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-
 $date = new DateTime("NOW");
 $timestamp = $date->format( "Y-m-d\TH:i:s.v" );
 
@@ -97,7 +96,7 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
             <ns6:in0>
                 <ns1:AdultsCount xmlns:ns1="http://dtos.enginexml.rumbonet.riu.com">2</ns1:AdultsCount>
                 <ns1:ChildCount xmlns:ns1="http://dtos.enginexml.rumbonet.riu.com">0</ns1:ChildCount>
-                <ns1:CountryCode xmlns:ns1="http://dtos.enginexml.rumbonet.riu.com">ES</ns1:CountryCode>
+                <ns1:CountryCode xmlns:ns1="http://dtos.enginexml.rumbonet.riu.com">PE</ns1:CountryCode>
                 <HotelList xmlns="http://dtos.enginexml.rumbonet.riu.com">
                     <HotelsList>
                         <ns2:int xmlns:ns2="http://services.common.rumbonet.riu.com">216</ns2:int>
@@ -143,6 +142,9 @@ $client->setHeaders(array(
 
 $client->setUri($riuServiceURL);
 $client->setMethod('POST');
+$client->setCookies(array(
+    'JSESSIONID' => '28B5AE4BD091D21F9CC6E58BD86AAF88'
+));
 $client->setRawBody($raw);
 $response = $client->send();
 if ($response->isSuccess()) {
@@ -162,8 +164,8 @@ echo "<br/>RESPONSE";
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
-die();
-$config = new \Zend\Config\Config(include '../config/autoload/global.RIU.php');
+
+$config = new \Zend\Config\Config(include '../config/autoload/global.riu.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -256,16 +258,6 @@ for ($i=0; $i < $node->length; $i++) {
         $rateReference = "";
     }
 
-    $translationTHabs = $node->item($i)->getElementsByTagName("translationTHabs");
-    if ($translationTHabs->length > 0) {
-        $listTHabs = $translationTHabs->item(0)->getElementsByTagName("listTHabs");
-        if ($listTHabs->length > 0) {
-            $listTHabs = $listTHabs->item(0)->nodeValue;
-        } else {
-            $listTHabs = "";
-        }
-    }
-
     $roomList = $node->item($i)->getElementsByTagName("roomList");
     if ($roomList->length > 0) {
         $RoomStayGroup = $roomList->item(0)->getElementsByTagName("RoomStayGroup");
@@ -339,7 +331,6 @@ for ($i=0; $i < $node->length; $i++) {
             'typePrice' => $typePrice,
             'promocode' => $promocode,
             'rateReference' => $rateReference,
-            'listTHabs' => $listTHabs,
             'RSGamount' => $RSGamount,
             'mealPlan' => $mealPlan,
             'roomTypeCode' => $roomTypeCode,
@@ -357,6 +348,91 @@ for ($i=0; $i < $node->length; $i++) {
         echo $return;
         echo "ERRO HOTEL: " . $e;
         echo $return;
+    }
+
+    $translationTHabs = $node->item($i)->getElementsByTagName("translationTHabs");
+    if ($translationTHabs->length > 0) {
+        $listTHabs = $translationTHabs->item(0)->getElementsByTagName("listTHabs");
+        if ($listTHabs->length > 0) {
+            $THabsDto = $listTHabs->item(0)->getElementsByTagName("THabsDto");
+            if ($THabsDto->length > 0) {
+                $codTha = $THabsDto->item(0)->getElementsByTagName("codTha");
+                if ($codTha->length > 0) {
+                    $codTha = $codTha->item(0)->nodeValue;
+                } else {
+                    $codTha = "";
+                }
+                $hotel = $THabsDto->item(0)->getElementsByTagName("hotel");
+                if ($hotel->length > 0) {
+                    $hotel = $hotel->item(0)->nodeValue;
+                } else {
+                    $hotel = "";
+                }
+
+                try {
+                    $sql = new Sql($db);
+                    $insert = $sql->insert();
+                    $insert->into('hotelavail_listTHabs');
+                    $insert->values(array(
+                        'datetime_created' => time(),
+                        'datetime_updated' => 0,
+                        'codTha' => $codTha,
+                        'hotel' => $hotel
+                    ), $insert::VALUES_MERGE);
+                    $statement = $sql->prepareStatementForSqlObject($insert);
+                    $results = $statement->execute();
+                    $db->getDriver()
+                        ->getConnection()
+                        ->disconnect();
+                } catch (\Exception $e) {
+                    echo $return;
+                    echo "ERRO HOTELL: " . $e;
+                    echo $return;
+                }
+
+                $listTranslation = $THabsDto->item(0)->getElementsByTagName("listTranslation");
+                if ($listTranslation->length > 0) {
+                    $TranslationDto = $listTranslation->item(0)->getElementsByTagName("TranslationDto");
+                    if ($TranslationDto->length > 0) {
+                        for ($l=0; $l < $TranslationDto->length; $l++) { 
+                            $description = $TranslationDto->item($l)->getElementsByTagName("description");
+                            if ($description->length > 0) {
+                                $description = $description->item(0)->nodeValue;
+                            } else {
+                                $description = "";
+                            }
+                            $language = $TranslationDto->item($l)->getElementsByTagName("language");
+                            if ($language->length > 0) {
+                                $language = $language->item(0)->nodeValue;
+                            } else {
+                                $language = "";
+                            }
+
+                            try {
+                                $sql = new Sql($db);
+                                $insert = $sql->insert();
+                                $insert->into('hotelavail_listTranslation');
+                                $insert->values(array(
+                                    'datetime_created' => time(),
+                                    'datetime_updated' => 0,
+                                    'description' => $description,
+                                    'language' => $language
+                                ), $insert::VALUES_MERGE);
+                                $statement = $sql->prepareStatementForSqlObject($insert);
+                                $results = $statement->execute();
+                                $db->getDriver()
+                                    ->getConnection()
+                                    ->disconnect();
+                            } catch (\Exception $e) {
+                                echo $return;
+                                echo "ERRO HOTELT: " . $e;
+                                echo $return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
 } 
