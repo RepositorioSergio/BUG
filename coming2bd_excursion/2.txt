@@ -1,0 +1,58 @@
+COMECOU MEETPOINT
+NjVBNVQ0TDU4NV9DVE07MTU1NDEzNDcwOTc0OTt7CiAgImNsY19jb2RpZ28iIDogIkNUTSIsCiAgImNsY19ub21jb20iIDogIkNUTSBUT1VSUyAoQ09TVEFNQVIgVFJBVkVMIENSVUlTRSZUT1VSUykiLAogICJjbGNfcG9zaWJsZXNfc2VydmljaW9zIiA6ICJFWEhNVCIKfTt7CiAgInN1cl9jb2RpZ28iIDogIjAwMiIsCiAgInN1cl9kaXJlY2Npb24iIDogIkVBU1QgT0FLTEFORCBQQVJLIiwKICAic3VyX2lkbV9jb2RpZ28iIDogIkVTIiwKICAic3VyX25vbWNvbSIgOiAiQ1RNIFRPVVJTIgp9O09OO0NUTTtDVE05NjMyO0NUTTtOO1NEUw==
+
+{
+    "token":"NjVBNVQ0TDU4NV9DVE07MTU1NDEzNDcwOTc0OTt7CiAgImNsY19jb2RpZ28iIDogIkNUTSIsCiAgImNsY19ub21jb20iIDogIkNUTSBUT1VSUyAoQ09TVEFNQVIgVFJBVkVMIENSVUlTRSZUT1VSUykiLAogICJjbGNfcG9zaWJsZXNfc2VydmljaW9zIiA6ICJFWEhNVCIKfTt7CiAgInN1cl9jb2RpZ28iIDogIjAwMiIsCiAgInN1cl9kaXJlY2Npb24iIDogIkVBU1QgT0FLTEFORCBQQVJLIiwKICAic3VyX2lkbV9jb2RpZ28iIDogIkVTIiwKICAic3VyX25vbWNvbSIgOiAiQ1RNIFRPVVJTIgp9O09OO0NUTTtDVE05NjMyO0NUTTtOO1NEUw==",
+    "language": "ES",
+    "destination":"TCI",
+    "excursionList":["1LORO"]
+}
+
+{"excursionList":[{"code":"1LORO","datesByMarket":null,"pointList":[{"code":null,"hotelCode":"DIRECTTFS","hotelName":"PRESENTACION DIRECTA","lobbyCode":"DIRECTOS","lobbyName":"PRESENTACION DIRECTA","time":"10:00"},{"code":null,"hotelCode":"DIRECTOS","hotelName":"PRESENTACION DIRECTA","lobbyCode":"DIRECTOS","lobbyName":"PRESENTACION DIRECTA","time":"10:00"}]}]}
+
+<xmp>array(1) {
+  ["excursionList"]=>
+  array(1) {
+    [0]=>
+    array(3) {
+      ["code"]=>
+      string(5) "1LORO"
+      ["datesByMarket"]=>
+      NULL
+      ["pointList"]=>
+      array(2) {
+        [0]=>
+        array(6) {
+          ["code"]=>
+          NULL
+          ["hotelCode"]=>
+          string(9) "DIRECTTFS"
+          ["hotelName"]=>
+          string(20) "PRESENTACION DIRECTA"
+          ["lobbyCode"]=>
+          string(8) "DIRECTOS"
+          ["lobbyName"]=>
+          string(20) "PRESENTACION DIRECTA"
+          ["time"]=>
+          string(5) "10:00"
+        }
+        [1]=>
+        array(6) {
+          ["code"]=>
+          NULL
+          ["hotelCode"]=>
+          string(8) "DIRECTOS"
+          ["hotelName"]=>
+          string(20) "PRESENTACION DIRECTA"
+          ["lobbyCode"]=>
+          string(8) "DIRECTOS"
+          ["lobbyName"]=>
+          string(20) "PRESENTACION DIRECTA"
+          ["time"]=>
+          string(5) "10:00"
+        }
+      }
+    }
+  }
+}
+</xmp>Done

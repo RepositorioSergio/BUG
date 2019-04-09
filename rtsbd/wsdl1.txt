@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.rts.co.kr/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://www.rts.co.kr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Hotel Product Web Service : Hotel Search, Hotel Information</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.rts.co.kr/">
+      <s:element name="GetHotelSearchList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HotelSearchListNet" type="tns:ST_GetHotelSearchListNet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ST_GetHotelSearchListNet">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LanguageCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TravelerNationality" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CityCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CheckInDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CheckOutDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StarRating" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SupplierCompCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AvailableHotelOnly" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecommendHotelOnly" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientCurrencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SellerMarkup" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompareYn" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SortType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCodeList" type="tns:ArrayOfItemCodeInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoomsList" type="tns:ArrayOfRoomsInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfItemCodeInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ItemCodeInfo" nillable="true" type="tns:ItemCodeInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemCodeInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemNo" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRoomsInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RoomsInfo" nillable="true" type="tns:RoomsInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RoomsInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BedTypeCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RoomCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChildAge1" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChildAge2" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetHotelSearchListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHotelSearchListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BaseInfo" type="tns:BaseInfo" />
+      <s:complexType name="BaseInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SiteCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestType" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetHotelInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HotelInformationRTSWS" type="tns:ArrayOfST_GetHotelInformationRTSWS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfST_GetHotelInformationRTSWS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ST_GetHotelInformationRTSWS" type="tns:ST_GetHotelInformationRTSWS" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ST_GetHotelInformationRTSWS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LanguageCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetHotelInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHotelInformationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHotelInfoSummary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HotelInfoSummary" type="tns:ST_GetHotelInfoSummaryNet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ST_GetHotelInfoSummaryNet">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LanguageCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NationalityCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoomTypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SellerClientPrice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SellingCurrencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SellerNetPrice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PriceStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecommendClientPrice" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetHotelInfoSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHotelInfoSummaryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHotelPriceCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ItemNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SalesSiteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NetPartnerPrice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RoomTypeCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckInDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientCurrencyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SellerMarkup" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHotelPriceCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHotelPriceCheckResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHotelSearchListForCustomerCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HotelSearchListNetGuestCount" type="tns:ST_GetHotelSearchListNetForGuestCount" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ST_GetHotelSearchListNetForGuestCount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LanguageCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TravelerNationality" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CityCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CheckInDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CheckOutDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StarRating" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SupplierCompCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AvailableHotelOnly" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecommendHotelOnly" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientCurrencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SellerMarkup" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompareYn" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SortType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCodeList" type="tns:ArrayOfItemCodeInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="GuestList" type="tns:ArrayOfGuestsInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfGuestsInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GuestsInfo" nillable="true" type="tns:GuestsInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GuestsInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AdultCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChildCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RoomCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChildAge1" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChildAge2" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetHotelSearchListForCustomerCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHotelSearchListForCustomerCountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRemarkHotelInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HotelSearchListNet" type="tns:ST_GetHotelSearchListNet" />
+            <s:element minOccurs="0" maxOccurs="1" name="RoomTypeCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRemarkHotelInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRemarkHotelInformationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRemarkHotelInformationForCustomerCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HotelSearchListNetGuestCount" type="tns:ST_GetHotelSearchListNetForGuestCount" />
+            <s:element minOccurs="0" maxOccurs="1" name="RoomTypeCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRemarkHotelInformationForCustomerCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRemarkHotelInformationForCustomerCountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetHotelSearchListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHotelSearchList" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelSearchListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHotelSearchListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelSearchListBaseInfo">
+    <wsdl:part name="BaseInfo" element="tns:BaseInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHotelInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHotelInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelInformationBaseInfo">
+    <wsdl:part name="BaseInfo" element="tns:BaseInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelInfoSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:GetHotelInfoSummary" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelInfoSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:GetHotelInfoSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelInfoSummaryBaseInfo">
+    <wsdl:part name="BaseInfo" element="tns:BaseInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelPriceCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHotelPriceCheck" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelPriceCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHotelPriceCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelPriceCheckBaseInfo">
+    <wsdl:part name="BaseInfo" element="tns:BaseInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelSearchListForCustomerCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHotelSearchListForCustomerCount" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelSearchListForCustomerCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHotelSearchListForCustomerCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelSearchListForCustomerCountBaseInfo">
+    <wsdl:part name="BaseInfo" element="tns:BaseInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetRemarkHotelInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRemarkHotelInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetRemarkHotelInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRemarkHotelInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRemarkHotelInformationBaseInfo">
+    <wsdl:part name="BaseInfo" element="tns:BaseInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetRemarkHotelInformationForCustomerCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRemarkHotelInformationForCustomerCount" />
+  </wsdl:message>
+  <wsdl:message name="GetRemarkHotelInformationForCustomerCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRemarkHotelInformationForCustomerCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRemarkHotelInformationForCustomerCountBaseInfo">
+    <wsdl:part name="BaseInfo" element="tns:BaseInfo" />
+  </wsdl:message>
+  <wsdl:portType name="WebServicesSoap">
+    <wsdl:operation name="GetHotelSearchList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(Hotel Search) Search hotels in a city by condition. Provide hotel list including short description, price, and availability.</wsdl:documentation>
+      <wsdl:input message="tns:GetHotelSearchListSoapIn" />
+      <wsdl:output message="tns:GetHotelSearchListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHotelInformation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(Hotel Information) Get hotel information with hotel code</wsdl:documentation>
+      <wsdl:input message="tns:GetHotelInformationSoapIn" />
+      <wsdl:output message="tns:GetHotelInformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHotelInfoSummary">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(플래쉬맵오버레이어) 간단한 호텔 정보를 조회한다.</wsdl:documentation>
+      <wsdl:input message="tns:GetHotelInfoSummarySoapIn" />
+      <wsdl:output message="tns:GetHotelInfoSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHotelPriceCheck">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(호텔 요금 변경 체크) 검색된 가격과 실제 예약시 들어갈 가격이 같은지 체크한다.</wsdl:documentation>
+      <wsdl:input message="tns:GetHotelPriceCheckSoapIn" />
+      <wsdl:output message="tns:GetHotelPriceCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHotelSearchListForCustomerCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(Hotel Search) Search hotels in a city by condition. Provide hotel list including short description, price, and availability.</wsdl:documentation>
+      <wsdl:input message="tns:GetHotelSearchListForCustomerCountSoapIn" />
+      <wsdl:output message="tns:GetHotelSearchListForCustomerCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRemarkHotelInformation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(호텔Remark조회) 해당호텔의 룸타입별 Remark를 조회한다. RemarksHotelInformation </wsdl:documentation>
+      <wsdl:input message="tns:GetRemarkHotelInformationSoapIn" />
+      <wsdl:output message="tns:GetRemarkHotelInformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRemarkHotelInformationForCustomerCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">(호텔Remark조회) 해당호텔의 룸타입별 Remark를 조회한다. RemarksHotelInformation </wsdl:documentation>
+      <wsdl:input message="tns:GetRemarkHotelInformationForCustomerCountSoapIn" />
+      <wsdl:output message="tns:GetRemarkHotelInformationForCustomerCountSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServicesSoap" type="tns:WebServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetHotelSearchList">
+      <soap:operation soapAction="http://www.rts.co.kr/GetHotelSearchList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHotelSearchListBaseInfo" part="BaseInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotelInformation">
+      <soap:operation soapAction="http://www.rts.co.kr/GetHotelInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHotelInformationBaseInfo" part="BaseInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotelInfoSummary">
+      <soap:operation soapAction="http://www.rts.co.kr/GetHotelInfoSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHotelInfoSummaryBaseInfo" part="BaseInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotelPriceCheck">
+      <soap:operation soapAction="http://www.rts.co.kr/GetHotelPriceCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHotelPriceCheckBaseInfo" part="BaseInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotelSearchListForCustomerCount">
+      <soap:operation soapAction="http://www.rts.co.kr/GetHotelSearchListForCustomerCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHotelSearchListForCustomerCountBaseInfo" part="BaseInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRemarkHotelInformation">
+      <soap:operation soapAction="http://www.rts.co.kr/GetRemarkHotelInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetRemarkHotelInformationBaseInfo" part="BaseInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRemarkHotelInformationForCustomerCount">
+      <soap:operation soapAction="http://www.rts.co.kr/GetRemarkHotelInformationForCustomerCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetRemarkHotelInformationForCustomerCountBaseInfo" part="BaseInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServicesSoap12" type="tns:WebServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetHotelSearchList">
+      <soap12:operation soapAction="http://www.rts.co.kr/GetHotelSearchList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetHotelSearchListBaseInfo" part="BaseInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotelInformation">
+      <soap12:operation soapAction="http://www.rts.co.kr/GetHotelInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetHotelInformationBaseInfo" part="BaseInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotelInfoSummary">
+      <soap12:operation soapAction="http://www.rts.co.kr/GetHotelInfoSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetHotelInfoSummaryBaseInfo" part="BaseInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotelPriceCheck">
+      <soap12:operation soapAction="http://www.rts.co.kr/GetHotelPriceCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetHotelPriceCheckBaseInfo" part="BaseInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotelSearchListForCustomerCount">
+      <soap12:operation soapAction="http://www.rts.co.kr/GetHotelSearchListForCustomerCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetHotelSearchListForCustomerCountBaseInfo" part="BaseInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRemarkHotelInformation">
+      <soap12:operation soapAction="http://www.rts.co.kr/GetRemarkHotelInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetRemarkHotelInformationBaseInfo" part="BaseInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRemarkHotelInformationForCustomerCount">
+      <soap12:operation soapAction="http://www.rts.co.kr/GetRemarkHotelInformationForCustomerCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetRemarkHotelInformationForCustomerCountBaseInfo" part="BaseInfo" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServices">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Hotel Product Web Service : Hotel Search, Hotel Information</wsdl:documentation>
+    <wsdl:port name="WebServicesSoap" binding="tns:WebServicesSoap">
+      <soap:address location="http://devwsar.rts.net/WsHotelProducts.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServicesSoap12" binding="tns:WebServicesSoap12">
+      <soap12:address location="http://devwsar.rts.net/WsHotelProducts.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

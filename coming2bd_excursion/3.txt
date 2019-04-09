@@ -1,0 +1,117 @@
+COMECOU PRE
+
+{
+"token": "NjVBNVQ0TDU4NV9DVE07MTU1NDEzNDcwOTc0OTt7CiAgImNsY19jb2RpZ28iIDogIkNUTSIsCiAgImNsY19ub21jb20iIDogIkNUTSBUT1VSUyAoQ09TVEFNQVIgVFJBVkVMIENSVUlTRSZUT1VSUykiLAogICJjbGNfcG9zaWJsZXNfc2VydmljaW9zIiA6ICJFWEhNVCIKfTt7CiAgInN1cl9jb2RpZ28iIDogIjAwMiIsCiAgInN1cl9kaXJlY2Npb24iIDogIkVBU1QgT0FLTEFORCBQQVJLIiwKICAic3VyX2lkbV9jb2RpZ28iIDogIkVTIiwKICAic3VyX25vbWNvbSIgOiAiQ1RNIFRPVVJTIgp9O09OO0NUTTtDVE05NjMyO0NUTTtOO1NEUw==", "language": "ES", "excursionList" : [{ "excursionID":"EXC016841263556529760", "hotel":"DIRECTTFS",
+"lobby":"DIRECTOS",
+"date":"20190601",
+"language": "DE"
+}
+],
+"preBook" : "true" }
+
+<xmp>array(2) {
+  ["bookingToken"]=>
+  string(23) "BLQ016841643467020158#1"
+  ["excursionList"]=>
+  array(1) {
+    [0]=>
+    array(10) {
+      ["code"]=>
+      string(5) "1LORO"
+      ["title"]=>
+      string(27) "LORO PARQUE:  SOLO ENTRADA."
+      ["groupInfo"]=>
+      array(2) {
+        ["code"]=>
+        string(8) "LOROPARK"
+        ["name"]=>
+        string(27) "PARQUE TEMATICO LORO PARQUE"
+      }
+      ["selectedDate"]=>
+      string(8) "20190601"
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(70.669)
+        ["commission"]=>
+        float(12.471)
+        ["adultsPrice"]=>
+        float(41.57)
+        ["kidsPrice"]=>
+        float(0)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(83.14)
+      }
+      ["datesByMarket"]=>
+      NULL
+      ["cancelFeeList"]=>
+      array(2) {
+        [0]=>
+        array(4) {
+          ["currency"]=>
+          array(1) {
+            ["code"]=>
+            string(3) "USD"
+          }
+          ["price"]=>
+          float(41.57)
+          ["fromDate"]=>
+          string(8) "20190530"
+          ["toDate"]=>
+          string(8) "20190530"
+        }
+        [1]=>
+        array(4) {
+          ["currency"]=>
+          array(1) {
+            ["code"]=>
+            string(3) "USD"
+          }
+          ["price"]=>
+          float(83.14)
+          ["fromDate"]=>
+          string(8) "20190531"
+          ["toDate"]=>
+          string(8) "20190601"
+        }
+      }
+      ["voucher"]=>
+      string(1045) "La fecha, la hora de salida y el punto de encuentro para la excursión reservada requieren confirmación. Para ello, rogamos contacte con su representante Coming2 en el hotel o con nuestras oficinas según datos de contacto.
+De Lunes a Viernes de 09.00hrs a 13.00hrs y de 16:00hrs a 19:00hrs y Sábados de 09.00hrs a 13.00hrs: +34 922 372 280
+EMERGENCIAS: +34 609 689 021Coming2 se reserva el derecho de cancelar o modificar los programas de excursiones en los siguientes supuestos: en caso de que no existiera un número mínimo de inscripciones o si antes o después de la salida surgieran situaciones imprevistas que impidieran su realización. Coming2 no se hace responsable de las inclemencias del tiempo ni de objetos olvidados en los autocares o durante el transcurso de las excursiones. Rogamos estéatento siempre a sus pertenencias. Presentación en el punto de encuentro 10 minutos antes de la hora de salida marcada. 
+IMPORTANTE: Debe llevar la indumentaria, calzado, enseres y documentación necesaria para la excursión contratada."
+      ["meetPoint"]=>
+      array(6) {
+        ["code"]=>
+        string(3) "TFR"
+        ["hotelCode"]=>
+        string(9) "DIRECTTFS"
+        ["hotelName"]=>
+        string(20) "PRESENTACION DIRECTA"
+        ["lobbyCode"]=>
+        string(8) "DIRECTOS"
+        ["lobbyName"]=>
+        string(20) "PRESENTACION DIRECTA"
+        ["time"]=>
+        string(5) "10:00"
+      }
+    }
+  }
+}
+</xmp>

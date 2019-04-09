@@ -1,4 +1,5 @@
 <?php
+use Zend\Http\Client;
 use Zend\Db\Adapter\Adapter;
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\ResultSet\ResultSet;
@@ -10,18 +11,20 @@ $translator = new Translator();
 $valid = 0;
 $hid = 0;
 $shid = 0;
+error_log("\r\n COMECOU RIU POLICIES \r\n", 3, "/srv/www/htdocs/error_log");
+$db = new \Zend\Db\Adapter\Adapter($config);
 try {
-    $db = new \Zend\Db\Adapter\Adapter($config);
-    $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_travelplan where session_id='$session_id'";
+    $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_riu where session_id='$session_id'";
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
-} catch (Exception $e) {
+} catch (\Exception $e) {
     $logger = new Logger();
     $writer = new Writer\Stream('/srv/www/htdocs/error_log');
     $logger->addWriter($writer);
     $logger->info($e->getMessage());
 }
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $data = unserialize(base64_decode($row_settings["data"]));
@@ -38,6 +41,7 @@ if ($row_settings->valid()) {
     $index = $searchsettings['index'];
     $ipaddress = $searchsettings['ipaddress'];
     $nationality = $searchsettings['nationality'];
+    error_log("\r\n nationality  $nationality \r\n", 3, "/srv/www/htdocs/error_log");
     $residency = $searchsettings['residency'];
     $rooms = $searchsettings['rooms'];
     $adt = $searchsettings['adt'];
@@ -48,92 +52,58 @@ if ($row_settings->valid()) {
     return false;
 }
 
-$db = new \Zend\Db\Adapter\Adapter($config);
-$sql = "select value from settings where name='enabletravelplan' and affiliate_id=$affiliate_id" . $branch_filter;
+error_log("\r\n COMECA ENABLE \r\n", 3, "/srv/www/htdocs/error_log");
+$affiliate_id = 0;
+$sql = "select value from settings where name='enableriu' and affiliate_id=$affiliate_id" . $branch_filter;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
+$row_settings->buffer();
 if ($row_settings->valid()) {
-    $affiliate_id_travelplan = $affiliate_id;
+    $affiliate_id_riu = $affiliate_id;
 } else {
-    $affiliate_id_travelplan = 0;
+    $affiliate_id_riu = 0;
 }
-
-$sql = "select value from settings where name='TravelPlanuser' and affiliate_id=$affiliate_id_travelplan" . $branch_filter;
+$sql = "select value from settings where name='riuLoginEmail' and affiliate_id=$affiliate_id_riu" . $branch_filter;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $TravelPlanuser = $row_settings['value'];
+    $riuLoginEmail = $row_settings['value'];
 }
-$sql = "select value from settings where name='TravelPlanpassword' and affiliate_id=$affiliate_id_travelplan" . $branch_filter;
+error_log("\r\n riuLoginEmail: $riuLoginEmail \r\n", 3, "/srv/www/htdocs/error_log");
+$sql = "select value from settings where name='riuPassword' and affiliate_id=$affiliate_id_riu" . $branch_filter;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $TravelPlanpassword = base64_decode($row_settings['value']);
+    $riuPassword = base64_decode($row_settings['value']);
 }
-$sql = "select value from settings where name='TravelPlanMarkup' and affiliate_id=$affiliate_id_travelplan" . $branch_filter;
+$sql = "select value from settings where name='riuServiceURL' and affiliate_id=$affiliate_id_riu" . $branch_filter;
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$result = $statement->execute();
+$result->buffer();
+if ($result->valid()) {
+    $row = $result->current();
+    $riuServiceURL = $row['value'];
+}
+error_log("\r\n riuServiceURL: $riuServiceURL \r\n", 3, "/srv/www/htdocs/error_log");
+$sql = "select value from settings where name='riuMarkup' and affiliate_id=$affiliate_id_riu";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $TravelPlanMarkup = (double) $row_settings['value'];
+    $riuMarkup = (double) $row_settings['value'];
 } else {
-    $TravelPlanMarkup = 0;
+    $riuMarkup = 0;
 }
-$sql = "select value from settings where name='TravelPlanserviceURL' and affiliate_id=$affiliate_id_travelplan" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $TravelPlanserviceURL = $row_settings['value'];
-}
-$sql = "select value from settings where name='TravelPlanSystem' and affiliate_id=$affiliate_id_travelplan" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $TravelPlanSystem = $row_settings['value'];
-}
-$sql = "select value from settings where name='TravelPlanSalesChannel' and affiliate_id=$affiliate_id_travelplan" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $TravelPlanSalesChannel = $row_settings['value'];
-}
-$sql = "select value from settings where name='TravelPlanlanguage' and affiliate_id=$affiliate_id_travelplan" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $TravelPlanlanguage = $row_settings['value'];
-}
-$sql = "select value from settings where name='TravelPlanConnectionString' and affiliate_id=$affiliate_id_travelplan". $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $TravelPlanConnectionString = $row_settings['value'];
-}
-
 
 $breakdown = array();
 for ($w = 0; $w < count($quoteid); $w ++) {
@@ -172,6 +142,7 @@ foreach ($breakdown as $k => $v) {
     foreach ($v as $key => $value) {
         if ($shid == 0) {
             $shid = $value['shid'];
+            $HotelId = $value['hotelid'];
         } else {
             if ($shid != $value['shid']) {
                 // We can't book two rooms from two suppliers
@@ -180,23 +151,531 @@ foreach ($breakdown as $k => $v) {
             }
         }
 
+        
         $item = array();
-        $total = $total + $value['total'];
+        $cancelation_string = "";
+        $cancelation_deadline = 0;
+        $cancelation_details = "";
+
+        $JSESSIONID = $value['JSESSIONID'];
+        error_log("\r\n JSESSIONID  $JSESSIONID \r\n", 3, "/srv/www/htdocs/error_log");
+        $rateHotel = $value['rateHotel'];
+        $quoteType = $value['quoteType'];
+        $MealPlan = $value['meal'];
+        $RoomTypeCode = $value['RoomTypeCode'];
+
+        error_log("\r\n PASSOU 1 \r\n", 3, "/srv/www/htdocs/error_log");
+
+        $raw = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <soap:Body>
+            <HotelBookingRule xmlns="http://services.enginexml.rumbonet.riu.com">
+                <in0 xmlns="http://services.enginexml.rumbonet.riu.com">
+                    <AdultsCount xmlns="http://dtos.enginexml.rumbonet.riu.com">' . $selectedAdults[$c] . '</AdultsCount>
+                    <ChildCount xmlns="http://dtos.enginexml.rumbonet.riu.com">' . $selectedChildren[$c] . '</ChildCount>
+                    <CountryCode xmlns="http://dtos.enginexml.rumbonet.riu.com">PE</CountryCode>
+                    <HotelID xmlns="http://dtos.enginexml.rumbonet.riu.com">' . $HotelId . '</HotelID>
+                    <HotelReservationCode xmlns="http://dtos.enginexml.rumbonet.riu.com" xsi:nil="true" />
+                    <HotelReservationID xmlns="http://dtos.enginexml.rumbonet.riu.com">0</HotelReservationID>
+                    <InfantsCount xmlns="http://dtos.enginexml.rumbonet.riu.com">0</InfantsCount>
+                    <Language xmlns="http://dtos.enginexml.rumbonet.riu.com">PT</Language>
+                    <MealPlan xmlns="http://dtos.enginexml.rumbonet.riu.com">' . $MealPlan . '</MealPlan>
+                    <promocode xmlns="http://dtos.enginexml.rumbonet.riu.com"/>
+                    <quoteType xmlns="http://dtos.enginexml.rumbonet.riu.com">' . $quoteType . '</quoteType>
+                    <RateHotel xmlns="http://dtos.enginexml.rumbonet.riu.com">' . $rateHotel . '</RateHotel>
+                    <rateReference xmlns="http://dtos.enginexml.rumbonet.riu.com" xsi:nil="true" />
+                    <RoomList xmlns="http://dtos.enginexml.rumbonet.riu.com">
+                        <RoomConfig>
+                            <RoomStayCandidateRule>
+                                <AdultsCount>' . $selectedAdults[$c] . '</AdultsCount>
+                                <Ages xsi:nil="true" />
+                                <ChildCount>' . $selectedChildren[$c] . '</ChildCount>
+                                <InfantsCount>0</InfantsCount>
+                                <RoomTypeCode>' . $RoomTypeCode . '</RoomTypeCode>
+                            </RoomStayCandidateRule>
+                        </RoomConfig>
+                    </RoomList>
+                    <RoomsCount xmlns="http://dtos.enginexml.rumbonet.riu.com">' . $rooms . '</RoomsCount>
+                    <StayDateEnd xmlns="http://dtos.enginexml.rumbonet.riu.com">20191209</StayDateEnd>
+                    <StayDateStart xmlns="http://dtos.enginexml.rumbonet.riu.com">20191206</StayDateStart>
+                </in0>
+            </HotelBookingRule>
+        </soap:Body>
+        </soap:Envelope>';
+
+        error_log("\r\n PASSOU 2 \r\n", 3, "/srv/www/htdocs/error_log");
+
+        $client = new Client();
+        $client->setOptions(array(
+            'timeout' => 100,
+            'sslverifypeer' => false,
+            'sslverifyhost' => false
+        ));
+        $client->setHeaders(array(
+            "Content-type: text/xml;charset=\"utf-8\"",
+            "Accept: text/xml",
+            "Cache-Control: no-cache",
+            "Pragma: no-cache",
+            "Content-length: ".strlen($raw)
+        ));
+
+        error_log("\r\n PASSOU AQUI \r\n", 3, "/srv/www/htdocs/error_log");
+        $client->setUri($riuServiceURL);
+        $client->setMethod('POST');
+        $client->setCookies(array(
+            'JSESSIONID' => $JSESSIONID
+        ));
+        $client->setRawBody($raw);
+        $response2 = $client->send();
+        if ($response2->isSuccess()) {
+        $response2 = $response2->getBody();
+        } else {
+        $logger = new Logger();
+        $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+        $logger->addWriter($writer);
+        $logger->info($client->getUri());
+        $logger->info($response2->getStatusCode() . " - " . $response2->getReasonPhrase());
+        error_log("\r\n ERRO: " .  $response2->getReasonPhrase() . " \r\n", 3, "/srv/www/htdocs/error_log");
+        echo $return;
+        echo $response2->getStatusCode() . " - " . $response2->getReasonPhrase();
+        echo $return;
+        die();
+        }
+        error_log("\r\n RESPONSE:  $response2 \r\n", 3, "/srv/www/htdocs/error_log");
+        error_log("\r\n PASSOU 3 \r\n", 3, "/srv/www/htdocs/error_log");
+
+        try {
+            $sql = new Sql($db);
+            $insert = $sql->insert();
+            $insert->into('log_riu');
+            $insert->values(array(
+                'datetime_created' => time(),
+                'filename' => 'Policies.php',
+                'errorline' => "",
+                'errormessage' => $$riuServiceURL . $raw,
+                'sqlcontext' => $responseCurl,
+                'errcontext' => ''
+            ), $insert::VALUES_MERGE);
+            $statement = $sql->prepareStatementForSqlObject($insert);
+            $results = $statement->execute();
+        } catch (\Exception $e) {
+            $logger = new Logger();
+            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+            $logger->addWriter($writer);
+            $logger->info($e->getMessage());
+        }
+
+        $vector = array();
+
+        $inputDoc = new DOMDocument();
+        $inputDoc->loadXML($response2);
+        $Envelope = $inputDoc->getElementsByTagName("Envelope");
+        $Body = $Envelope->item(0)->getElementsByTagName("Body");
+        $HotelBookingRuleResponse = $Body->item(0)->getElementsByTagName("HotelBookingRuleResponse");
+        $HotelBookingRuleResponse2 = $HotelBookingRuleResponse->item(0)->getElementsByTagName("HotelBookingRuleResponse");
+        $bookingRule = $HotelBookingRuleResponse2->item(0)->getElementsByTagName("bookingRule");
+        if ($bookingRule->length > 0) {
+            $adultsCount = $bookingRule->item(0)->getElementsByTagName("adultsCount");
+            if ($adultsCount->length > 0) {
+                $adultsCount = $adultsCount->item(0)->nodeValue;
+            } else {
+                $adultsCount = "";
+            }
+            $bookingAmount = $bookingRule->item(0)->getElementsByTagName("bookingAmount");
+            if ($bookingAmount->length > 0) {
+                $bookingAmount = $bookingAmount->item(0)->nodeValue;
+            } else {
+                $bookingAmount = "";
+            }
+            $childCount = $bookingRule->item(0)->getElementsByTagName("childCount");
+            if ($childCount->length > 0) {
+                $childCount = $childCount->item(0)->nodeValue;
+            } else {
+                $childCount = "";
+            }
+            $currencyCode = $bookingRule->item(0)->getElementsByTagName("currencyCode");
+            if ($currencyCode->length > 0) {
+                $currencyCode = $currencyCode->item(0)->nodeValue;
+            } else {
+                $currencyCode = "";
+            }
+            $hotelID = $bookingRule->item(0)->getElementsByTagName("hotelID");
+            if ($hotelID->length > 0) {
+                $hotelID = $hotelID->item(0)->nodeValue;
+            } else {
+                $hotelID = "";
+            }
+            $impPromocode = $bookingRule->item(0)->getElementsByTagName("impPromocode");
+            if ($impPromocode->length > 0) {
+                $impPromocode = $impPromocode->item(0)->nodeValue;
+            } else {
+                $impPromocode = "";
+            }
+            $infantsCount = $bookingRule->item(0)->getElementsByTagName("infantsCount");
+            if ($infantsCount->length > 0) {
+                $infantsCount = $infantsCount->item(0)->nodeValue;
+            } else {
+                $infantsCount = "";
+            }
+            $mealPlan = $bookingRule->item(0)->getElementsByTagName("mealPlan");
+            if ($mealPlan->length > 0) {
+                $mealPlan = $mealPlan->item(0)->nodeValue;
+            } else {
+                $mealPlan = "";
+            }
+            $numDays = $bookingRule->item(0)->getElementsByTagName("numDays");
+            if ($numDays->length > 0) {
+                $numDays = $numDays->item(0)->nodeValue;
+            } else {
+                $numDays = "";
+            }
+            $promocode = $bookingRule->item(0)->getElementsByTagName("promocode");
+            if ($promocode->length > 0) {
+                $promocode = $promocode->item(0)->nodeValue;
+            } else {
+                $promocode = "";
+            }
+            $quoteType = $bookingRule->item(0)->getElementsByTagName("quoteType");
+            if ($quoteType->length > 0) {
+                $quoteType = $quoteType->item(0)->nodeValue;
+            } else {
+                $quoteType = "";
+            }
+            $rateHotel = $bookingRule->item(0)->getElementsByTagName("rateHotel");
+            if ($rateHotel->length > 0) {
+                $rateHotel = $rateHotel->item(0)->nodeValue;
+            } else {
+                $rateHotel = "";
+            }
+            $rateReference = $bookingRule->item(0)->getElementsByTagName("rateReference");
+            if ($rateReference->length > 0) {
+                $rateReference = $rateReference->item(0)->nodeValue;
+            } else {
+                $rateReference = "";
+            }
+            $rateType = $bookingRule->item(0)->getElementsByTagName("rateType");
+            if ($rateType->length > 0) {
+                $rateType = $rateType->item(0)->nodeValue;
+            } else {
+                $rateType = "";
+            }
+            $roomsCount = $bookingRule->item(0)->getElementsByTagName("roomsCount");
+            if ($roomsCount->length > 0) {
+                $roomsCount = $roomsCount->item(0)->nodeValue;
+            } else {
+                $roomsCount = "";
+            }
+            $stayDateEnd = $bookingRule->item(0)->getElementsByTagName("stayDateEnd");
+            if ($stayDateEnd->length > 0) {
+                $stayDateEnd = $stayDateEnd->item(0)->nodeValue;
+            } else {
+                $stayDateEnd = "";
+            }
+            $stayDateStart = $bookingRule->item(0)->getElementsByTagName("stayDateStart");
+            if ($stayDateStart->length > 0) {
+                $stayDateStart = $stayDateStart->item(0)->nodeValue;
+            } else {
+                $stayDateStart = "";
+            }
+            $typePrice = $bookingRule->item(0)->getElementsByTagName("typePrice");
+            if ($typePrice->length > 0) {
+                $typePrice = $typePrice->item(0)->nodeValue;
+            } else {
+                $typePrice = "";
+            }
+            $bookingRulePenalties = $bookingRule->item(0)->getElementsByTagName("bookingRulePenalties");
+            if ($bookingRulePenalties->length > 0) {
+                //cancelPenalties
+                $cancelPenalties = $bookingRulePenalties->item(0)->getElementsByTagName("cancelPenalties");
+                if ($cancelPenalties->length > 0) {
+                    $CPamount = $cancelPenalties->item(0)->getElementsByTagName("amount");
+                    if ($CPamount->length > 0) {
+                        $CPamount = $CPamount->item(0)->nodeValue;
+                    } else {
+                        $CPamount = "";
+                    }
+                    $CPdays = $cancelPenalties->item(0)->getElementsByTagName("days");
+                    if ($CPdays->length > 0) {
+                        $CPdays = $CPdays->item(0)->nodeValue;
+                    } else {
+                        $CPdays = "";
+                    }
+                    $CPpercent = $cancelPenalties->item(0)->getElementsByTagName("percent");
+                    if ($CPpercent->length > 0) {
+                        $CPpercent = $CPpercent->item(0)->nodeValue;
+                    } else {
+                        $CPpercent = "";
+                    }
+                    $CPreleaseDays = $cancelPenalties->item(0)->getElementsByTagName("releaseDays");
+                    if ($CPreleaseDays->length > 0) {
+                        $CPreleaseDays = $CPreleaseDays->item(0)->nodeValue;
+                    } else {
+                        $CPreleaseDays = "";
+                    }
+                    $CPtotalAmount = $cancelPenalties->item(0)->getElementsByTagName("totalAmount");
+                    if ($CPtotalAmount->length > 0) {
+                        $CPtotalAmount = $CPtotalAmount->item(0)->nodeValue;
+                    } else {
+                        $CPtotalAmount = "";
+                    }
+                }
+
+                //modificationPenalties
+                $modificationPenalties = $bookingRulePenalties->item(0)->getElementsByTagName("modificationPenalties");
+                if ($modificationPenalties->length > 0) {
+                    $MPamount = $modificationPenalties->item(0)->getElementsByTagName("amount");
+                    if ($MPamount->length > 0) {
+                        $MPamount = $MPamount->item(0)->nodeValue;
+                    } else {
+                        $MPamount = "";
+                    }
+                    $MPdays = $modificationPenalties->item(0)->getElementsByTagName("days");
+                    if ($MPdays->length > 0) {
+                        $MPdays = $MPdays->item(0)->nodeValue;
+                    } else {
+                        $MPdays = "";
+                    }
+                    $MPpercent = $modificationPenalties->item(0)->getElementsByTagName("percent");
+                    if ($MPpercent->length > 0) {
+                        $MPpercent = $MPpercent->item(0)->nodeValue;
+                    } else {
+                        $MPpercent = "";
+                    }
+                    $MPreleaseDays = $modificationPenalties->item(0)->getElementsByTagName("releaseDays");
+                    if ($MPreleaseDays->length > 0) {
+                        $MPreleaseDays = $MPreleaseDays->item(0)->nodeValue;
+                    } else {
+                        $MPreleaseDays = "";
+                    }
+                    $MPtotalAmount = $modificationPenalties->item(0)->getElementsByTagName("totalAmount");
+                    if ($MPtotalAmount->length > 0) {
+                        $MPtotalAmount = $MPtotalAmount->item(0)->nodeValue;
+                    } else {
+                        $MPtotalAmount = "";
+                    }
+                }
+
+                //noShowPenalties
+                $noShowPenalties = $bookingRulePenalties->item(0)->getElementsByTagName("noShowPenalties");
+                if ($noShowPenalties->length > 0) {
+                    $SPamount = $noShowPenalties->item(0)->getElementsByTagName("amount");
+                    if ($SPamount->length > 0) {
+                        $SPamount = $SPamount->item(0)->nodeValue;
+                    } else {
+                        $SPamount = "";
+                    }
+                    $SPdays = $noShowPenalties->item(0)->getElementsByTagName("days");
+                    if ($SPdays->length > 0) {
+                        $SPdays = $SPdays->item(0)->nodeValue;
+                    } else {
+                        $SPdays = "";
+                    }
+                    $SPpercent = $noShowPenalties->item(0)->getElementsByTagName("percent");
+                    if ($SPpercent->length > 0) {
+                        $SPpercent = $SPpercent->item(0)->nodeValue;
+                    } else {
+                        $SPpercent = "";
+                    }
+                    $SPreleaseDays = $noShowPenalties->item(0)->getElementsByTagName("releaseDays");
+                    if ($SPreleaseDays->length > 0) {
+                        $SPreleaseDays = $SPreleaseDays->item(0)->nodeValue;
+                    } else {
+                        $SPreleaseDays = "";
+                    }
+                    $SPtotalAmount = $noShowPenalties->item(0)->getElementsByTagName("totalAmount");
+                    if ($SPtotalAmount->length > 0) {
+                        $SPtotalAmount = $SPtotalAmount->item(0)->nodeValue;
+                    } else {
+                        $SPtotalAmount = "";
+                    }
+                }
+            }
+
+            $roomStayList = $bookingRule->item(0)->getElementsByTagName("roomStayList");
+            if ($roomStayList->length > 0) {
+                $RoomStay = $roomStayList->item(0)->getElementsByTagName("RoomStay");
+                if ($RoomStay->length > 0) {
+                    $mealPlanSupplementPeriodsList = $RoomStay->item(0)->getElementsByTagName("mealPlanSupplementPeriodsList");
+                    if ($mealPlanSupplementPeriodsList->length > 0) {
+                        $mealPlanSupplementPeriodsList = $mealPlanSupplementPeriodsList->item(0)->nodeValue;
+                    } else {
+                        $mealPlanSupplementPeriodsList = "";
+                    }
+                    $pricesPeriodsList = $RoomStay->item(0)->getElementsByTagName("pricesPeriodsList");
+                    if ($pricesPeriodsList->length > 0) {
+                        $pricesPeriodsList = $pricesPeriodsList->item(0)->nodeValue;
+                    } else {
+                        $pricesPeriodsList = "";
+                    }
+                    $roomAmount = $RoomStay->item(0)->getElementsByTagName("roomAmount");
+                    if ($roomAmount->length > 0) {
+                        $roomAmount = $roomAmount->item(0)->nodeValue;
+                    } else {
+                        $roomAmount = "";
+                    }
+                    $roomNumber = $RoomStay->item(0)->getElementsByTagName("roomNumber");
+                    if ($roomNumber->length > 0) {
+                        $roomNumber = $roomNumber->item(0)->nodeValue;
+                    } else {
+                        $roomNumber = "";
+                    }
+                    $roomTypeCode = $RoomStay->item(0)->getElementsByTagName("roomTypeCode");
+                    if ($roomTypeCode->length > 0) {
+                        $roomTypeCode = $roomTypeCode->item(0)->nodeValue;
+                    } else {
+                        $roomTypeCode = "";
+                    }
+
+                    $roomGuestsList = $RoomStay->item(0)->getElementsByTagName("roomGuestsList");
+                    if ($roomGuestsList->length > 0) {
+                        $RoomGuests = $roomGuestsList->item(0)->getElementsByTagName("RoomGuests");
+                        if ($RoomGuests->length > 0) {
+                            for ($k=0; $k < $RoomGuests->length; $k++) { 
+                                $age = $RoomGuests->item($k)->getElementsByTagName("age");
+                                if ($age->length > 0) {
+                                    $age = $age->item(0)->nodeValue;
+                                } else {
+                                    $age = "";
+                                }
+                                $guestNumber = $RoomGuests->item($k)->getElementsByTagName("guestNumber");
+                                if ($guestNumber->length > 0) {
+                                    $guestNumber = $guestNumber->item(0)->nodeValue;
+                                } else {
+                                    $guestNumber = "";
+                                }
+                                $typeGuestCode = $RoomGuests->item($k)->getElementsByTagName("typeGuestCode");
+                                if ($typeGuestCode->length > 0) {
+                                    $typeGuestCode = $typeGuestCode->item(0)->nodeValue;
+                                } else {
+                                    $typeGuestCode = "";
+                                }
+                                $pricePeriodsList = $RoomGuests->item($k)->getElementsByTagName("pricePeriodsList");
+                                if ($pricePeriodsList->length > 0) {
+                                    $PricePeriods = $pricePeriodsList->item(0)->getElementsByTagName("PricePeriods");
+                                    if ($PricePeriods->length > 0) {
+                                        $amount = $PricePeriods->item(0)->getElementsByTagName("amount");
+                                        if ($amount->length > 0) {
+                                            $amount = $amount->item(0)->nodeValue;
+                                        } else {
+                                            $amount = "";
+                                        }
+                                        $amountPerNight = $PricePeriods->item(0)->getElementsByTagName("amountPerNight");
+                                        if ($amountPerNight->length > 0) {
+                                            $amountPerNight = $amountPerNight->item(0)->nodeValue;
+                                        } else {
+                                            $amountPerNight = "";
+                                        }
+                                        $stayDateEnd = $PricePeriods->item(0)->getElementsByTagName("stayDateEnd");
+                                        if ($stayDateEnd->length > 0) {
+                                            $stayDateEnd = $stayDateEnd->item(0)->nodeValue;
+                                        } else {
+                                            $stayDateEnd = "";
+                                        }
+                                        $stayDateStart = $PricePeriods->item(0)->getElementsByTagName("stayDateStart");
+                                        if ($stayDateStart->length > 0) {
+                                            $stayDateStart = $stayDateStart->item(0)->nodeValue;
+                                        } else {
+                                            $stayDateStart = "";
+                                        }
+                                        $value = $PricePeriods->item(0)->getElementsByTagName("value");
+                                        if ($value->length > 0) {
+                                            $value = $value->item(0)->nodeValue;
+                                        } else {
+                                            $value = "";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            $amountsList = $bookingRule->item(0)->getElementsByTagName("amountsList");
+            if ($amountsList->length > 0) {
+                $Amounts = $amountsList->item(0)->getElementsByTagName("Amounts");
+                if ($Amounts->length > 0) {
+                    for ($j=0; $j < $Amounts->length; $j++) { 
+                        $concept = $Amounts->item($j)->getElementsByTagName("concept");
+                        if ($concept->length > 0) {
+                            $concept = $concept->item(0)->nodeValue;
+                        } else {
+                            $concept = "";
+                        }
+                        $netAmount = $Amounts->item($j)->getElementsByTagName("netAmount");
+                        if ($netAmount->length > 0) {
+                            $netAmount = $netAmount->item(0)->nodeValue;
+                        } else {
+                            $netAmount = "";
+                        }
+                        $quote = $Amounts->item($j)->getElementsByTagName("quote");
+                        if ($quote->length > 0) {
+                            $quote = $quote->item(0)->nodeValue;
+                        } else {
+                            $quote = "";
+                        }
+                        $taxesList = $Amounts->item($j)->getElementsByTagName("taxesList");
+                        if ($taxesList->length > 0) {
+                            $taxesList = $taxesList->item(0)->nodeValue;
+                        } else {
+                            $taxesList = "";
+                        }
+                        $totalAmount = $Amounts->item($j)->getElementsByTagName("totalAmount");
+                        if ($totalAmount->length > 0) {
+                            $totalAmount = $totalAmount->item(0)->nodeValue;
+                        } else {
+                            $totalAmount = "";
+                        }
+                    }
+                }
+            }
+        }
+
+        $pricebreakdown = array();
+        $pricebreakdownCount = 0;
+        for ($rZZ = 0; $rZZ < $Nights; $rZZ ++) {
+            $pricebreakdown[$pricebreakdownCount]['date'] = strftime("%d %b %Y", mktime(0, 0, 0, date("m", $from), date("d", $from) + $rZZ, date("y", $from)));
+            $amount = $bookingAmount / $Nights;
+            if ($riuMarkup != 0) {
+                $amount = $amount + (($amount * $riuMarkup) / 100);
+            }
+            // Geo target markup
+            if ($internalmarkup != 0) {
+                $amount = $amount + (($amount * $internalmarkup) / 100);
+            }
+            // Agent markup
+            if ($agent_markup != 0) {
+                $amount = $amount + (($amount * $agent_markup) / 100);
+            }
+            // Fallback Markup
+            if ($riuMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
+                $amount = $amount + (($amount * $HotelsMarkupFallback) / 100);
+            }
+            // Agent discount
+            if ($agent_discount != 0) {
+                $amount = $amount - (($amount * $agent_discount) / 100);
+            }
+            if ($scurrency != "" and $currency != $scurrency) {
+                $amount = $CurrencyConverter->convert($amount, $currency, $scurrency);
+            }
+            $pricebreakdown[$pricebreakdownCount]['price'] = $filter->filter($amount);
+            $pricebreakdown[$pricebreakdownCount]['priceplain'] = $amount;
+            $pricebreakdownCount = $pricebreakdownCount + 1;
+        }
+        if ($cancelation_string != "") {
+            $cancelation_string .= "<br/><br/>";
+        }
+        $cancelation_string .= $translator->translate("Charge") . " " . number_format($CPtotalAmount, 2, '.', '') . " " . $translator->translate("if cancelled on or after") . " ";
+        $cancelation_string .= $CPdays . ' days';
+        $cancelation_deadline = $CPdays . ' days';
+        $total = $total + $bookingAmount;
         $item['name'] = $value['name'];
         $item['room'] = $value['room'];
-        $item['RoomTypeCode'] = $value['RoomTypeCode'];
+        $item['RoomTypeCode'] = $RoomTypeCode;
         $item['RoomDescription'] = $value['RoomDescription'];
-        $item['NonRefundable'] = $value['NonRefundable'];
-        $item['meal'] = $value['meal'];
-        if ($tax > 0) {
-            $tot = $value['total'] - floatval($tax);
-            $item['subtotal'] = $filter->filter(floatval($tot));
-            $item['tax'] = $filter->filter(floatval($tax));
-        } else {
-            $item['tax'] = "";
-            $tot = $value['total'];
-            $item['subtotal'] = $filter->filter(floatval($tot));
-        }
+        $item['meal'] = $mealPlan;
+        $total = $total + $bookingAmount;
+        $tot = $bookingAmount;
         $item['total'] = $filter->filter($tot);
         $item['totalplain'] = number_format($tot, 2, '.', '');
         $avg = $tot / $nights;
@@ -205,184 +684,43 @@ foreach ($breakdown as $k => $v) {
         $item['adults'] = $selectedAdults[$c];
         $item['children'] = $selectedChildren[$c];
         $item['children_ages'] = json_decode(json_encode($selectedChildrenAges[$c]), false);
-        // Get Cancellation Policies
-        // $client = new SoapClient($touricoholidayserviceurl, array(
-        // 'compression' => SOAP_COMPRESSION_ACCEPT | SOAP_COMPRESSION_GZIP,
-        // "trace" => 1,
-        // "exceptions" => 0,
-        // 'soap_version' => SOAP_1_1
-        // ));
-        // $ns = 'http://schemas.tourico.com/webservices/authentication';
-        // $dataAuth = array(
-        // 'LoginName' => new SoapVar($touricoholidayslogin, XSD_STRING, null, null, null, $ns),
-        // 'Password' => new SoapVar($touricoholidayspassword, XSD_STRING, null, null, null, $ns),
-        // 'Culture' => new SoapVar($Culture, XSD_STRING, null, null, null, $ns),
-        // 'Version' => new SoapVar($Version, XSD_STRING, null, null, null, $ns)
-        // );
-        // $hBody = new SoapVar($dataAuth, SOAP_ENC_OBJECT);
-        // $header = new SoapHeader($ns, 'AuthenticationHeader', $hBody);
-        // $client->__setSoapHeaders(array(
-        // $header
-        // ));
-        // $hotelRoomTypeId_array[$k] = $selectedRows[$k]['QuoteId'];
-        // $occupId_array[$k] = $selectedRows[$k]['RoomTypecode'];
-        // $bbId_array[$k] = $selectedRows[$k]['bedTypeId'];
-        // $params = array();
-        // $params['nResId'] = "0";
-        // $params['hotelId'] = $shid;
-        // $params['hotelRoomTypeId'] = $value['hrtid'];
-        // $params['productId'] = $value['pid'];
-        // $params['dtCheckIn'] = strftime("%Y-%m-%d", $fromHotelbeds);
-        // $params['dtCheckOut'] = strftime("%Y-%m-%d", $toHotelbeds);
-        // $ns = "http://schemas.tourico.com/webservices/hotelv3";
-        // try {
-        // $client->__soapCall('GetCancellationPolicies', array(
-        // $params
-        // ), array(
-        // 'uri' => '"http://tourico.com/webservices/hotelv3'
-        // ));
-        // } catch (Exception $e) {
-        // try {
-        // $db2 = new \Zend\Db\Adapter\Adapter($config);
-        // $sql = new Sql($db2);
-        // $insert = $sql->insert();
-        // $insert->into('log_tourico');
-        // $insert->values(array(
-        // 'datetime_created' => time(),
-        // 'filename' => 'Policies.php',
-        // 'errorline' => 0,
-        // 'errormessage' => "Exception",
-        // 'sqlcontext' => $e->getMessage(),
-        // 'errcontext' => ''
-        // ), $insert::VALUES_MERGE);
-        // $statement = $sql->prepareStatementForSqlObject($insert);
-        // $results = $statement->execute();
-        // $db2->getDriver()
-        // ->getConnection()
-        // ->disconnect();
-        // } catch (Exception $e) {
-        // $logger = new Logger();
-        // $writer = new Writer\Stream('/srv/www/htdocs/error_log');
-        // $logger->addWriter($writer);
-        // $logger->info($e->getMessage());
-        // }
-        // }
-        // $xmlresult = $client->__getLastRequest();
-        // $xmlresult = $client->__getLastRequest();
-        // try {
-        // $db2 = new \Zend\Db\Adapter\Adapter($config);
-        // $sql = new Sql($db2);
-        // $insert = $sql->insert();
-        // $insert->into('log_tourico');
-        // $insert->values(array(
-        // 'datetime_created' => time(),
-        // 'filename' => 'Policies.php',
-        // 'errorline' => 0,
-        // 'errormessage' => $xmlresult,
-        // 'sqlcontext' => $xmlresult,
-        // 'errcontext' => ''
-        // ), $insert::VALUES_MERGE);
-        // $statement = $sql->prepareStatementForSqlObject($insert);
-        // $results = $statement->execute();
-        // $db2->getDriver()
-        // ->getConnection()
-        // ->disconnect();
-        // } catch (Exception $e) {
-        // $logger = new Logger();
-        // $writer = new Writer\Stream('/srv/www/htdocs/error_log');
-        // $logger->addWriter($writer);
-        // $logger->info($e->getMessage());
-        // }
-        // $cancelation_string = "";
-        // $inputDoc = new DOMDocument();
-        // $inputDoc->loadXML($client->__getLastResponse());
-        // $node = $inputDoc->getElementsByTagName("CancelPolicy");
-        // if ($node->length > 0) {
-        // $node = $inputDoc->getElementsByTagName("CancelPenalty");
-        // if ($node->length > 0) {
-        // for ($cCancelPenalty = 0; $cCancelPenalty < $node->length; $cCancelPenalty ++) {
-        // $Deadline = $node->item($cCancelPenalty)->getElementsByTagName("Deadline");
-        // if ($Deadline->length > 0) {
-        // $OffsetUnitMultiplier = $Deadline->item(0)->getAttribute("OffsetUnitMultiplier");
-        // $OffsetTimeUnit = $Deadline->item(0)->getAttribute("OffsetTimeUnit");
-        // if ($OffsetUnitMultiplier > 24) {
-        // if (strtolower($OffsetTimeUnit) == "hour") {
-        // $OffsetTimeUnit = $translator->translate("days");
-        // $OffsetUnitMultiplier = $OffsetUnitMultiplier / 24;
-        // }
-        // }
-        // $OffsetDropTime = $Deadline->item(0)->getAttribute("OffsetDropTime");
-        // }
-        // $AmountPercent = $node->item($cCancelPenalty)->getElementsByTagName("AmountPercent");
-        // if ($AmountPercent->length > 0) {
-        // $NmbrOfNights = $AmountPercent->item(0)->getAttribute("NmbrOfNights");
-        // $BasisType = $AmountPercent->item(0)->getAttribute("BasisType");
-        // }
-        // if ($cancelation_string != "") {
-        // $cancelation_string = $cancelation_string . "<br/><br/>";
-        // }
-        // if ($OffsetDropTime == "BeforeArrival") {
-        // $OffsetDropTime2 = $translator->translate("before checkin date");
-        // } else {
-        // $OffsetDropTime2 = $translator->translate("after booking is made");
-        // }
-        // if ($BasisType == "Nights") {
-        // if ($NmbrOfNights == 1) {
-        // $BasisType = $translator->translate("night");
-        // } else {
-        // $BasisType = $translator->translate("nights");
-        // }
-        // }
-        // if ($OffsetDropTime == "BeforeArrival" and $OffsetUnitMultiplier == 0) {
-        // $cancelation_string = $cancelation_string . $translator->translate("Charge") . " " . $NmbrOfNights . " " . $BasisType . " " . $translator->translate("if") . " " . $translator->translate("No show") . " " . $translator->translate(" - No show means that the guest did not cancel the reservation and did not stay at the hotel during the reserved period of time");
-        // } else {
-        // $reason = $translator->translate("if cancelled");
-        // $cancelation_string = $cancelation_string . $translator->translate("Charge") . " " . $NmbrOfNights . " " . $BasisType . " " . $reason . " " . $OffsetUnitMultiplier . " " . strtolower($OffsetTimeUnit) . " " . $OffsetDropTime2;
-        // }
-        // }
-        // }
-        // }
-        // $item['cancelpolicy'] = $cancelation_string;
-        // EOF Policies
+        $item['cancelpolicy'] = $cancelation_string;
+        $item['cancelpolicy_deadline'] = $cancelation_deadline;
+        $item['cancelpolicy_deadlinetimestamp'] = $cancelation_deadline;
+        
         array_push($roombreakdown, $item);
     }
     $c ++;
 }
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
+$hotel = array();
+$sql = "select sid from xmlhotels_mriu where sid='" . $shid . "' and hid=" . $hid;
+$statement = $db->createStatement($sql);
 try {
-    $db = new \Zend\Db\Adapter\Adapter($config);
-    $hotel = array();
-    $sql = "select sid from xmlhotels_mtravelplan where sid=" . $shid . " and hid=" . $hid;
-    $statement = $db->createStatement($sql);
     $statement->prepare();
-    $row_hotel = $statement->execute();
-    if (! $row_hotel->valid()) {
-        $response['error'] = "Unable to handle request #5";
-        return false;
-    }
-    $db->getDriver()
-        ->getConnection()
-        ->disconnect();
-} catch (Exception $e) {
+} catch (\Exception $e) {
     $logger = new Logger();
     $writer = new Writer\Stream('/srv/www/htdocs/error_log');
     $logger->addWriter($writer);
     $logger->info($e->getMessage());
 }
-$db = new \Zend\Db\Adapter\Adapter($config);
+$row_hotel = $statement->execute();
+$row_hotel->buffer();
+if (! $row_hotel->valid()) {
+    $response['error'] = "Unable to handle request #5";
+    return false;
+}
 $sql = "select description as name, stars, hotel_info, address_1, address_2, address_3, address_4, latitude, longitude, city, city_name, seo, zipcode, country from xmlhotels where id=" . $hid;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 try {
     $row_hotel = $statement->execute();
-} catch (Exception $e) {
+} catch (\Exception $e) {
     $logger = new Logger();
     $writer = new Writer\Stream('/srv/www/htdocs/error_log');
     $logger->addWriter($writer);
     $logger->info($e->getMessage());
 }
+$row_hotel->buffer();
 if ($row_hotel->valid()) {
     $row_hotel = $row_hotel->current();
     if ($starsArray[$row_hotel['stars']]['stars']) {
@@ -390,42 +728,36 @@ if ($row_hotel->valid()) {
     } else {
         $row_hotel['stars'] = 0;
     }
-    $db2 = new \Zend\Db\Adapter\Adapter($config);
     $sql = "select name from countries where id=" . (int) $row_hotel['country'];
-    $statement2 = $db2->createStatement($sql);
+    $statement2 = $db->createStatement($sql);
     $statement2->prepare();
     try {
         $row_country = $statement2->execute();
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
         $logger = new Logger();
         $writer = new Writer\Stream('/srv/www/htdocs/error_log');
         $logger->addWriter($writer);
         $logger->info($e->getMessage());
     }
+    $row_country->buffer();
     if ($row_country->valid()) {
         $row_country = $row_country->current();
         $row_hotel['country_name'] = $row_country['name'];
     } else {
         $row_hotel['country_name'] = "";
     }
-    $db2->getDriver()
-        ->getConnection()
-        ->disconnect();
     $hotel = $row_hotel;
 } else {
     $response['error'] = "Unable to handle request #6";
     return false;
 }
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
 $images = array();
 try {
-    $db = new \Zend\Db\Adapter\Adapter($config);
     $sql = "select url, description from xmlhotels_images where hotel_id=" . $hid . " order by sortorder";
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $result = $statement->execute();
+    $result->buffer();
     if ($result instanceof ResultInterface && $result->isQueryResult()) {
         $resultSet = new ResultSet();
         $resultSet->initialize($result);
@@ -436,19 +768,20 @@ try {
             array_push($images, $item);
         }
     }
-    $db->getDriver()
-        ->getConnection()
-        ->disconnect();
-} catch (Exception $e) {
+} catch (\Exception $e) {
     $logger = new Logger();
     $writer = new Writer\Stream('/srv/www/htdocs/error_log');
     $logger->addWriter($writer);
     $logger->info($e->getMessage());
 }
+$db->getDriver()
+    ->getConnection()
+    ->disconnect();
 $response['hotel'] = $hotel;
 $response['hotel']['images'] = $images;
 $response['breakdown'] = $roombreakdown;
 $response['total'] = $filter->filter($total);
 $response['totalplain'] = number_format($total, 2, '.', '');
 $response['searchsettings'] = $searchsettings;
+$response['code'] = $vector['code'];
 ?>

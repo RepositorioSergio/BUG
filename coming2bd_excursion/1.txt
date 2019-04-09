@@ -1,0 +1,6412 @@
+COMECOU AVAIL
+{
+    "token":"ODU1TDJNRlpWOF9DVE07MTU1NDEzNzEwODM5Mjt7CiAgImNsY19jb2RpZ28iIDogIkNUTSIsCiAgImNsY19ub21jb20iIDogIkNUTSBUT1VSUyAoQ09TVEFNQVIgVFJBVkVMIENSVUlTRSZUT1VSUykiLAogICJjbGNfcG9zaWJsZXNfc2VydmljaW9zIiA6ICJFWEhNVCIKfTt7CiAgInN1cl9jb2RpZ28iIDogIjAwMiIsCiAgInN1cl9kaXJlY2Npb24iIDogIkVBU1QgT0FLTEFORCBQQVJLIiwKICAic3VyX2lkbV9jb2RpZ28iIDogIkVTIiwKICAic3VyX25vbWNvbSIgOiAiQ1RNIFRPVVJTIgp9O09OO0NUTTtDVE05NjMyO0NUTTtOO1NEUw==",
+    "language":"ES",
+    "destination":"TCI",
+    "adults":2,
+    "kids":2,
+    "babies":0,
+    "initialDate":"20190601",
+    "finalDate":"20190608"
+}
+<xmp>array(1) {
+  ["excursions"]=>
+  array(21) {
+    [0]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263556529760"
+      ["code"]=>
+      string(5) "1LORO"
+      ["title"]=>
+      string(34) "Loro Parque - Solo Entrada - Norte"
+      ["url"]=>
+      string(53) "/es/excursion/tenerife/loro-parque-solo-entrada-norte"
+      ["description"]=>
+      string(1624) "<p style="text-align: justify;">	El &ldquo;must de Tenerife situado en el Puerto de la Cruz. Podr&aacute;n visitar este excepcional parque para&iacute;so<br />	de excepcionales jardines tropicales y sus muchas atracciones como:</p><p>	<br />	Show de orcas, katandra, treetops, nutrias, show de delfines, leones marinos, loro show, aquarium,<br />	gorilas, la isla del tigre y para los mas peque&ntilde;os &ldquo;kinderlandia&rdquo;. En 1972 el parque abri&oacute; oficialmente sus puertas al publico tiene una extensi&oacute;n de 135.000m2 y ha recibido desde su inauguraci&oacute;n 40 millones de turistas. Por todo el recinto hay dispersas numerosas especies de plantas tropicales y subtropicales. Posee una colecci&oacute;n de mas de 200 palmeras procedentes de todo el mundo. Orquidadearium con una numerosa representaci&oacute;n de orqu&iacute;deas. Jard&iacute;n de cactus. Jard&iacute;n de dragos, arboles end&eacute;micos de Macaronesia y costa atl&aacute;ntica del Norte de &Aacute;frica. La jungla, parte mas antigua del parque. Cuenta con la mayor colecci&oacute;n de papagayos de todo el planeta. En sus instalaciones tambi&eacute;n hay tigres, panteras aligatores, iguanas, tortugas, chimpaces, gorilas y nutrias entre otras especies. Orcas y lobos marinos. Pinguinario con diferentes especies y acuario</p><p>	El parque tiene el primer espect&aacute;culo de papagayos en vuelo libre de Europa. Exhibici&oacute;n de delfines, orcas y leones marinos.&nbsp;Tiene una fundaci&oacute;n que promueve la conservaci&oacute;n, protecci&oacute;n y recuperaci&oacute;n de especies en peligro de&nbsp;extinci&oacute;n.</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(true)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(8) "LOROPARK"
+        ["title"]=>
+        string(26) "Loro Parque - Solo Entrada"
+        ["description"]=>
+        string(263) "<p style="text-align: justify;">	Visite este excepcional parque de jardines tropicales situado en el Puerto de la Cruz. Disfrute de sus atracciones y shows, su orquidarium , los papagayos, y Kinderlandia, un para&iacute;so para los m&aacute;s peque&ntilde;os.</p>"
+        ["themesList"]=>
+        array(5) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ESPEC"
+            ["name"]=>
+            string(13) "ESPECTÁCULOS"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(4) "NATU"
+            ["name"]=>
+            string(10) "NATURALEZA"
+          }
+          [4]=>
+          array(2) {
+            ["code"]=>
+            string(5) "PARQT"
+            ["name"]=>
+            string(18) "PARQUES TEMÁTICOS"
+          }
+        }
+        ["featureList"]=>
+        array(2) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(25) "Desde 09:30 am a 17:30 pm"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(23) "OBSERVACIONESRELEVANTES"
+            ["name"]=>
+            string(130) "<p>Niños de 1 a 5 años son gratuito<br />El parque ofrece transporte gratuito desde el Puerto de la Cruz (consultar paradas)</p>"
+          }
+        }
+        ["imageList"]=>
+        array(1) {
+          [0]=>
+          string(59) "/co2content/co2image/1418244902225/delfines-saltando-1-.jpg"
+        }
+        ["url"]=>
+        string(47) "/es/excursion/tenerife/loro-parque-solo-entrada"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(70.669)
+        ["commission"]=>
+        float(12.471)
+        ["adultsPrice"]=>
+        float(41.57)
+        ["kidsPrice"]=>
+        float(0)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(83.14)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(70.669)
+        ["commission"]=>
+        float(12.471)
+        ["adultsPrice"]=>
+        float(41.57)
+        ["kidsPrice"]=>
+        float(0)
+        ["babiesPrice"]=>
+        float(0)
+        ["price"]=>
+        float(83.14)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(7) {
+        ["DE"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["RU"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["PT"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["EN"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["IT"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["FR"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["ES"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+      }
+      ["featureList"]=>
+      array(8) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Calzado cómodo"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(12) "Ropa cómoda"
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(14) "Algo de abrigo"
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(16) "Cámara de fotos"
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(12) "Gafas de sol"
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(15) "Protector solar"
+        }
+        [6]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(13) "Día Completo"
+        }
+        [7]=>
+        array(2) {
+          ["code"]=>
+          string(23) "OBSERVACIONESRELEVANTES"
+          ["name"]=>
+          string(118) "Niños de 1 a 5 años son gratuito El parque ofrece transporte gratuito desde el Puerto de la Cruz (consultar paradas)"
+        }
+      }
+      ["imageList"]=>
+      array(9) {
+        [0]=>
+        string(54) "/co2content/co2image/1418244902029/TFR_TFI_1LORO_2.PNG"
+        [1]=>
+        string(48) "/co2content/co2image/1418244902057/flamencos.jpg"
+        [2]=>
+        string(51) "/co2content/co2image/1418244902085/entrada-loro.jpg"
+        [3]=>
+        string(54) "/co2content/co2image/1418244902113/TFR_TFI_1LORO_4.png"
+        [4]=>
+        string(54) "/co2content/co2image/1418244902141/TFR_TFI_1LORO_5.png"
+        [5]=>
+        string(54) "/co2content/co2image/1418244902169/TFR_TFI_1LORO_6.png"
+        [6]=>
+        string(51) "/co2content/co2image/1418244902197/highlporcas5.jpg"
+        [7]=>
+        string(59) "/co2content/co2image/1418244902225/delfines-saltando-1-.jpg"
+        [8]=>
+        string(46) "/co2content/co2image/1418244902253/pajaros.jpg"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [1]=>
+    array(18) {
+      ["availableToken"]=>
+      string(21) "EXC016841263557699981"
+      ["code"]=>
+      string(5) "1SIAM"
+      ["title"]=>
+      string(38) "Siam Park desde Norte - Solo Entrada -"
+      ["url"]=>
+      string(58) "/es/excursion/tenerife/siam-park-desde-norte-solo-entrada-"
+      ["subtitle"]=>
+      string(11) "Desde Norte"
+      ["description"]=>
+      string(2170) "<p style="text-align: justify;">	El parque acu&aacute;tico mas espectacular de Europa se encuentra en Tenerife, Siam Park donde&nbsp;se combina el ex&oacute;tico misterio del antiguo reino de Siam, con las atracciones mas avanzadas e<br />	impactantes para toda la familia y para todos los gustos.<br />	Siam Park se ha convertido en el nuevo reino del agua en Tenerife consolidandose como uno de los<br />	mejores parques acu&aacute;ticos del mundo, se inauguro en 2008. Al Siam Park se puede llegar de la siguiente forma.-&nbsp;Guagua Siam Park bus que realiza recogidas en Los Cristianos,Americas y Costa Adeje. En el bus Titsa quedandose en estaci&oacute;n de Las Americas se puede llegar caminando aprox 5 minutos. En coche por la autopista del sur desde Santa Cruz coger la salida 28,29. Desde autopista Sur coger salida 28&nbsp;Atracciones mas importantes.-&nbsp;El Dragon.-Tome asiento en un flotador junto a sus amigos y pronto se encontrara cogiendo velocidad&nbsp;hasta verse propulsado frente de las fauces del dragon, basta informar que en ese momento se ira de&nbsp;arriba a abajo experimentando el efecto gravedad cero.&nbsp;Tower of Power.-La atraccion mas representativa del Siam Park, le dejara boquiabierto. Se asciende a&nbsp;lo alto de la torre, coge aire y agarrate fuerte mientras bajas por una pendiente casi vertical de 25 mtrs&nbsp;en caida libre hasta emerger a traves de un misterioso acuario.<br />	Mahia Tahia River.-Relax mientras se flota por un rio serpeante a traves de un mundo de peces&nbsp;tropicales,paisajes de frondosa vegetaci&ograve;n y cascadas.<br />	Siam Beach.-Tome el sol y relajese mientras disfrutas de bellas vistas o tomas un sabroso aperitivo en&nbsp;nuestra playa de arena blanca donde su aguas de color turquesa, palmeras y arquitectura thai te<br />	transportan al paraiso directamente agua a 24&ordm; c&nbsp;The Giant.-Nuestro Gigante te transporta a un mundo de aventura y misterio mientras te vas&nbsp;deslizasdando das vueltas en su embudo gigante.<br />	The Volcano.-La luz desaparece y la velocidad aumenta mientras entramos en el volcan. Dentro de su&nbsp;crater la emocion aumenta con la oscuridad rota.</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(true)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(8) "SIAMPARK"
+        ["title"]=>
+        string(9) "Siam Park"
+        ["description"]=>
+        string(266) "<p style="text-align: justify;">	El parque acu&aacute;tico mas espectacular de Europa se encuentra en Tenerife, Siam Park: donde se combina el ex&oacute;tico misterio del antiguo reino de Siam con las atracciones mas avanzadas e impactantes para toda la familia.</p>"
+        ["themesList"]=>
+        array(4) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(4) "AGUA"
+            ["name"]=>
+            string(22) "BAÑO, SNORKEL O BUCEO"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(5) "PARQT"
+            ["name"]=>
+            string(18) "PARQUES TEMÁTICOS"
+          }
+        }
+        ["featureList"]=>
+        array(4) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(8) "Bañador"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(11) "Crema solar"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(53) "No esta permitida la entrada de alimentos ni bebidas."
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(39) "HORA INICIO: 10h00HORA FIN:       17h30"
+          }
+        }
+        ["imageList"]=>
+        array(1) {
+          [0]=>
+          string(54) "/co2content/co2image/1418244905417/TFR_TFI_2SIAM_6.PNG"
+        }
+        ["url"]=>
+        string(32) "/es/excursion/tenerife/siam-park"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(118.422)
+        ["commission"]=>
+        float(20.898)
+        ["adultsPrice"]=>
+        float(41.57)
+        ["kidsPrice"]=>
+        float(28.09)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(139.32)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(118.422)
+        ["commission"]=>
+        float(20.898)
+        ["adultsPrice"]=>
+        float(41.57)
+        ["kidsPrice"]=>
+        float(28.09)
+        ["babiesPrice"]=>
+        float(0)
+        ["price"]=>
+        float(139.32)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(7) {
+        ["DE"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["RU"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["PT"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["EN"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["IT"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["FR"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["ES"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+      }
+      ["featureList"]=>
+      array(10) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Calzado cómodo"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(12) "Ropa cómoda"
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(8) "Bañador"
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(12) "Gafas de sol"
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(15) "Protector solar"
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(6) "Toalla"
+        }
+        [6]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(17) "Sandalias de agua"
+        }
+        [7]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(39) "DIA COMPLETO  INICIO: 10:00  FIN: 17:00"
+        }
+        [8]=>
+        array(2) {
+          ["code"]=>
+          string(7) "INCLUYE"
+          ["name"]=>
+          string(12) "Solo Entrada"
+        }
+        [9]=>
+        array(2) {
+          ["code"]=>
+          string(23) "OBSERVACIONESRELEVANTES"
+          ["name"]=>
+          string(32) "Niños Gratis hasta los 3 años."
+        }
+      }
+      ["imageList"]=>
+      array(7) {
+        [0]=>
+        string(54) "/co2content/co2image/1418244905417/TFR_TFI_2SIAM_6.PNG"
+        [1]=>
+        string(54) "/co2content/co2image/1418244905445/TFR_TFI_1SIAM_2.png"
+        [2]=>
+        string(47) "/co2content/co2image/1418244905473/elefante.jpg"
+        [3]=>
+        string(54) "/co2content/co2image/1418244905501/TFR_TFI_1SIAM_4.png"
+        [4]=>
+        string(54) "/co2content/co2image/1418244905529/TFR_TFI_1SIAM_5.png"
+        [5]=>
+        string(54) "/co2content/co2image/1418244905557/TFR_TFI_1SIAM_6.png"
+        [6]=>
+        string(58) "/co2content/co2image/1418244905585/mai-thai-river-tube.jpg"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [2]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263558587200"
+      ["code"]=>
+      string(4) "1TEA"
+      ["title"]=>
+      string(41) "Teide Icod Garachico Masca desde el Norte"
+      ["url"]=>
+      string(64) "/es/excursion/tenerife/teide-icod-garachico-masca-desde-el-norte"
+      ["description"]=>
+      string(1422) "<p style="text-align: justify;">	Salida desde Puerto de la Cruz hacia Icod de los Vinos con tiempo libre para visita del Drago Milenario y la Iglesia de San Marcos ( No incluido en el precio).&nbsp;A continuaci&oacute;n, visita a la Villa y Puerto de Garachico, ( Castillo San Miguel, Iglesia Santa Ana, Convento San Francisco,...). Los Silos, Buenavista del Norte, subida por la carretera de El Palmar hasta el Caser&iacute;o de Masca, en el Parque Rural de Teno, con tiempo libre para visita. Salida hacia el municipio de Santiago del Teide , con parada en el mirador de Cherfe. Por el barrio de Arguayo, en el municipio de Gu&iacute;a de Isora, Chio con parada para la comida ( No incluida ). Subida&nbsp; al Parque Nacional del Teide, si las condicones climat&oacute;ligicas lo permiten, breve parada para vista panor&aacute;mica Mirador de Pico Viejo de las islas de la Gomera, El Hierro y La Palma, para continuar el ascenso&nbsp; hasta llegar a Boca de Tauce. Llano de Ucanca, tiempo libre en los Roques de Garc&iacute;a y La Ruleta. Durante el recorrido dentro del Parque Naciinal vistas panor&aacute;micas del Tiede, La Piedea Pom&eacute;z y Monta&ntilde;a Blanca ( situada a 2.373 metros de altura ), breve parada para servicios. Descenso por los montes del Valle de la Orotava, por la carretera de Aguamansa, para seguir en direcci&oacute;n al Puerto de la Cruz , dando por finalizada esta excursi&oacute;n.</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(true)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(5) "TEIDE"
+        ["title"]=>
+        string(30) "Teide, Masca, Icod y Garachico"
+        ["description"]=>
+        string(246) "<p style="text-align: justify;">	Tour en el que se visitaremos el Parque Nacional del Teide y los Pueblos del noroeste de la isla: Masca, Icod, famoso por su Drago Milenario, y Villa y Puerto de Garachico, donde disfrutaremos de tiempo libre.</p>"
+        ["themesList"]=>
+        array(3) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "AVENT"
+            ["name"]=>
+            string(18) "DEPORTE Y AVENTURA"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+        }
+        ["featureList"]=>
+        array(8) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(13) "Ropa Cómoda."
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(16) "Calzado cómodo."
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(24) "Alguna prenda de abrigo."
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(17) "Cámara de fotos."
+          }
+          [4]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(13) "Gafas de sol."
+          }
+          [5]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(16) "Protector Solar."
+          }
+          [6]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(14) "Día Completo."
+          }
+          [7]=>
+          array(2) {
+            ["code"]=>
+            string(23) "OBSERVACIONESRELEVANTES"
+            ["name"]=>
+            string(19) "Comida no incluida."
+          }
+        }
+        ["imageList"]=>
+        array(17) {
+          [0]=>
+          string(53) "/co2content/co2image/1418244907517/TFR_TFI_1TEA_1.PNG"
+          [1]=>
+          string(53) "/co2content/co2image/1418244907769/TFR_TFI_1TEA_2.png"
+          [2]=>
+          string(53) "/co2content/co2image/1418244907797/TFR_TFI_1TEA_3.png"
+          [3]=>
+          string(53) "/co2content/co2image/1418244907825/TFR_TFI_1TEA_4.png"
+          [4]=>
+          string(47) "/co2content/co2image/1418244907853/vilaflor.jpg"
+          [5]=>
+          string(53) "/co2content/co2image/1418244907881/vista-vilaflor.jpg"
+          [6]=>
+          string(54) "/co2content/co2image/1418244907909/teide-tajinaste.jpg"
+          [7]=>
+          string(50) "/co2content/co2image/1418244907937/teideroques.jpg"
+          [8]=>
+          string(54) "/co2content/co2image/1418244907965/orotava2alta-1-.jpg"
+          [9]=>
+          string(51) "/co2content/co2image/1418244907545/valle-ucanca.jpg"
+          [10]=>
+          string(47) "/co2content/co2image/1418244907573/la-tarta.jpg"
+          [11]=>
+          string(58) "/co2content/co2image/1418244907601/valle-de-la-orotava.jpg"
+          [12]=>
+          string(46) "/co2content/co2image/1418244907629/teide-6.jpg"
+          [13]=>
+          string(52) "/co2content/co2image/1418244907657/casa-balcones.jpg"
+          [14]=>
+          string(54) "/co2content/co2image/1418244907685/casa-balcones-1.jpg"
+          [15]=>
+          string(58) "/co2content/co2image/1418244907713/villa-de-la-orotava.jpg"
+          [16]=>
+          string(51) "/co2content/co2image/1418244907741/teide-retama.jpg"
+        }
+        ["url"]=>
+        string(51) "/es/excursion/tenerife/teide-masca-icod-y-garachico"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(102.464)
+        ["commission"]=>
+        float(25.616)
+        ["adultsPrice"]=>
+        float(42.69)
+        ["kidsPrice"]=>
+        float(21.35)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(128.08)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(102.464)
+        ["commission"]=>
+        float(25.616)
+        ["adultsPrice"]=>
+        float(42.69)
+        ["kidsPrice"]=>
+        float(21.35)
+        ["babiesPrice"]=>
+        float(0)
+        ["price"]=>
+        float(128.08)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(6) {
+        ["DE"]=>
+        array(2) {
+          [0]=>
+          string(8) "20190603"
+          [1]=>
+          string(8) "20190606"
+        }
+        ["PT"]=>
+        array(2) {
+          [0]=>
+          string(8) "20190603"
+          [1]=>
+          string(8) "20190606"
+        }
+        ["EN"]=>
+        array(2) {
+          [0]=>
+          string(8) "20190603"
+          [1]=>
+          string(8) "20190606"
+        }
+        ["IT"]=>
+        array(2) {
+          [0]=>
+          string(8) "20190603"
+          [1]=>
+          string(8) "20190606"
+        }
+        ["FR"]=>
+        array(2) {
+          [0]=>
+          string(8) "20190603"
+          [1]=>
+          string(8) "20190606"
+        }
+        ["ES"]=>
+        array(2) {
+          [0]=>
+          string(8) "20190603"
+          [1]=>
+          string(8) "20190606"
+        }
+      }
+      ["featureList"]=>
+      array(8) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(12) "Ropa cómoda"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Algo de abrigo."
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Calzado cómodo"
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(12) "Gafas de sol"
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(19) "Camara fotográfica"
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(15) "Protector solar"
+        }
+        [6]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(10) "Medio Día"
+        }
+        [7]=>
+        array(2) {
+          ["code"]=>
+          string(23) "OBSERVACIONESRELEVANTES"
+          ["name"]=>
+          string(41) "Entrada Iglesia de San Marcos No incluida"
+        }
+      }
+      ["imageList"]=>
+      array(17) {
+        [0]=>
+        string(53) "/co2content/co2image/1418244907517/TFR_TFI_1TEA_1.PNG"
+        [1]=>
+        string(53) "/co2content/co2image/1418244907769/TFR_TFI_1TEA_2.png"
+        [2]=>
+        string(53) "/co2content/co2image/1418244907797/TFR_TFI_1TEA_3.png"
+        [3]=>
+        string(53) "/co2content/co2image/1418244907825/TFR_TFI_1TEA_4.png"
+        [4]=>
+        string(47) "/co2content/co2image/1418244907853/vilaflor.jpg"
+        [5]=>
+        string(53) "/co2content/co2image/1418244907881/vista-vilaflor.jpg"
+        [6]=>
+        string(54) "/co2content/co2image/1418244907909/teide-tajinaste.jpg"
+        [7]=>
+        string(50) "/co2content/co2image/1418244907937/teideroques.jpg"
+        [8]=>
+        string(54) "/co2content/co2image/1418244907965/orotava2alta-1-.jpg"
+        [9]=>
+        string(51) "/co2content/co2image/1418244907545/valle-ucanca.jpg"
+        [10]=>
+        string(47) "/co2content/co2image/1418244907573/la-tarta.jpg"
+        [11]=>
+        string(58) "/co2content/co2image/1418244907601/valle-de-la-orotava.jpg"
+        [12]=>
+        string(46) "/co2content/co2image/1418244907629/teide-6.jpg"
+        [13]=>
+        string(52) "/co2content/co2image/1418244907657/casa-balcones.jpg"
+        [14]=>
+        string(54) "/co2content/co2image/1418244907685/casa-balcones-1.jpg"
+        [15]=>
+        string(58) "/co2content/co2image/1418244907713/villa-de-la-orotava.jpg"
+        [16]=>
+        string(51) "/co2content/co2image/1418244907741/teide-retama.jpg"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [3]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263560539488"
+      ["code"]=>
+      string(4) "1TEI"
+      ["title"]=>
+      string(30) "Teide - Orotava desde el Norte"
+      ["url"]=>
+      string(51) "/es/excursion/tenerife/teide-orotava-desde-el-norte"
+      ["description"]=>
+      string(950) "<p style="text-align: justify;">	Iniciaremos la excursi&oacute;n desde el Puerto de la Cruz, con la visita al pueblo de La Orotava: a la Plaza del Ayuntamiento, la iglesia de La Concepci&oacute;n&hellip; Seguiremos por la carretera de Aguamansa hacia el Teide. Haremos parada en la Margarita de Piedra. Una vez lleguemos al &quot;Parque Nacional del Teide&quot; visitaremos: El Portillo de la Villa, la Monta&ntilde;a Blanca (2.373 m. de altura), La Piedra P&oacute;mez, La Ruleta y Roques de Garc&iacute;a (Mirador Llano de Ucanca). Continuaremos con una parada en un restaurante de la zona para un almuerzo (opcional). Despu&eacute;s nos dirigiremos hacia Iza&ntilde;a, pasando por el Mirador del Diablillo, La Tarta, Fuentes del Joco, Mirador de Ortu&ntilde;o, para continuar bajando hacia La Esperanza, donde enlazaremos con la autov&iacute;a a la altura de La Laguna, para, finalmente, regresar sobre las 17.00 h. al Puerto de la Cruz.&nbsp;</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(true)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(8) "TEIDEDCN"
+        ["title"]=>
+        string(33) "Teide y La Orotava desde el Norte"
+        ["description"]=>
+        string(237) "<p>	Visita a La Villa de la Orotava y Parque Nacional del Teide y sus lugares de inter&eacute;s: El Portillo, Monta&ntilde;a Blanca, Piedra P&oacute;mez, La Ruleta, etc. Posteriormente haremos una parada en restaurante para almuerzo.</p>"
+        ["themesList"]=>
+        array(3) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "AVENT"
+            ["name"]=>
+            string(18) "DEPORTE Y AVENTURA"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+        }
+        ["featureList"]=>
+        array(8) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(16) "Calzado cómodo."
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(13) "Ropa Cómoda."
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(24) "Alguna prenda de abrigo."
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(17) "Cámara de fotos."
+          }
+          [4]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(12) "Gafas de sol"
+          }
+          [5]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(15) "Protector solar"
+          }
+          [6]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(13) "Día Completo"
+          }
+          [7]=>
+          array(2) {
+            ["code"]=>
+            string(23) "OBSERVACIONESRELEVANTES"
+            ["name"]=>
+            string(18) "Almuerzo opcional."
+          }
+        }
+        ["imageList"]=>
+        array(6) {
+          [0]=>
+          string(53) "/co2content/co2image/1418244906985/TFR_TFI_1TEI_6.PNG"
+          [1]=>
+          string(55) "/co2content/co2image/1418244907013/TFR_TFI_1TEI-M_2.png"
+          [2]=>
+          string(55) "/co2content/co2image/1418244907041/TFR_TFI_1TEI-M_3.png"
+          [3]=>
+          string(55) "/co2content/co2image/1418244907069/TFR_TFI_1TEI-M_4.png"
+          [4]=>
+          string(55) "/co2content/co2image/1418244907097/TFR_TFI_1TEI-M_5.png"
+          [5]=>
+          string(55) "/co2content/co2image/1418244907125/TFR_TFI_1TEI-M_6.png"
+        }
+        ["url"]=>
+        string(56) "/es/excursion/tenerife/teide-y-la-orotava-desde-el-norte"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(83.584)
+        ["commission"]=>
+        float(20.896)
+        ["adultsPrice"]=>
+        float(34.83)
+        ["kidsPrice"]=>
+        float(17.41)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(104.48)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(83.584)
+        ["commission"]=>
+        float(20.896)
+        ["adultsPrice"]=>
+        float(34.83)
+        ["kidsPrice"]=>
+        float(17.41)
+        ["babiesPrice"]=>
+        float(0)
+        ["price"]=>
+        float(104.48)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(3) {
+        ["PT"]=>
+        array(4) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190604"
+          [2]=>
+          string(8) "20190606"
+          [3]=>
+          string(8) "20190608"
+        }
+        ["EN"]=>
+        array(4) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190604"
+          [2]=>
+          string(8) "20190606"
+          [3]=>
+          string(8) "20190608"
+        }
+        ["ES"]=>
+        array(4) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190604"
+          [2]=>
+          string(8) "20190606"
+          [3]=>
+          string(8) "20190608"
+        }
+      }
+      ["featureList"]=>
+      array(8) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(16) "Calzado cómodo."
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(13) "Ropa cómoda."
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Algo de abrigo."
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(16) "Cámara de fotos"
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(12) "Gafas de sol"
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(15) "Protector solar"
+        }
+        [6]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(13) "Día Completo"
+        }
+        [7]=>
+        array(2) {
+          ["code"]=>
+          string(23) "OBSERVACIONESRELEVANTES"
+          ["name"]=>
+          string(70) "Almuerzo Opcional.  Por motivos operativos la ruta se puede modificar."
+        }
+      }
+      ["imageList"]=>
+      array(6) {
+        [0]=>
+        string(53) "/co2content/co2image/1418244906985/TFR_TFI_1TEI_6.PNG"
+        [1]=>
+        string(55) "/co2content/co2image/1418244907013/TFR_TFI_1TEI-M_2.png"
+        [2]=>
+        string(55) "/co2content/co2image/1418244907041/TFR_TFI_1TEI-M_3.png"
+        [3]=>
+        string(55) "/co2content/co2image/1418244907069/TFR_TFI_1TEI-M_4.png"
+        [4]=>
+        string(55) "/co2content/co2image/1418244907097/TFR_TFI_1TEI-M_5.png"
+        [5]=>
+        string(55) "/co2content/co2image/1418244907125/TFR_TFI_1TEI-M_6.png"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [4]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263562400057"
+      ["code"]=>
+      string(6) "1TEI-M"
+      ["title"]=>
+      string(31) "Teide Medio día desde el Norte"
+      ["url"]=>
+      string(53) "/es/excursion/tenerife/teide-medio-dia-desde-el-norte"
+      ["description"]=>
+      string(438) "<p style="text-align: justify;">	Partiremos desde&nbsp; Puerto de la Cruz para subir al Parque Nacional atravesando el Valle de La Orotava.<br />	Visitaremos los Roques de Garc&iacute;a, donde tendr&aacute;n tiempo libre. A continuaci&oacute;n volveremos al telef&eacute;rico a recoger a los que hubieran subido. Para finalizar&nbsp; continuaremos de regreso bajando por Aguamansa hacia nuestro punto de partida, el Puerto de la Cruz.</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(true)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(8) "TEIDEMDN"
+        ["title"]=>
+        string(31) "Teide Medio día desde el Norte"
+        ["description"]=>
+        string(221) "<p>	Partimos del Puerto de la Cruz e iniciamos a trav&eacute;s del Valle de La Orotava la subida al Parque Nacional, donde podemos disfrutar del espectacular paisaje de las Ca&ntilde;adas y la majestuosidad del Teide.</p>"
+        ["themesList"]=>
+        array(3) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "AVENT"
+            ["name"]=>
+            string(18) "DEPORTE Y AVENTURA"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+        }
+        ["featureList"]=>
+        array(6) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(11) "Ropa ligera"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(15) "Calzado cómodo"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(11) "Crema solar"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(23) "Alguna prenda de abrigo"
+          }
+          [4]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(33) "No olvide su cámara fotográfica"
+          }
+          [5]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(10) "Medio día"
+          }
+        }
+        ["imageList"]=>
+        array(3) {
+          [0]=>
+          string(53) "/co2content/co2image/1418244907293/TFR_TFI_1TEI_2.PNG"
+          [1]=>
+          string(68) "/co2content/co2image/1418244907321/ca-adas-teide-llano-de-ucanca.jpg"
+          [2]=>
+          string(53) "/co2content/co2image/1418244907349/ca-adas-roques.jpg"
+        }
+        ["url"]=>
+        string(53) "/es/excursion/tenerife/teide-medio-dia-desde-el-norte"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(70.112)
+        ["commission"]=>
+        float(17.528)
+        ["adultsPrice"]=>
+        float(29.21)
+        ["kidsPrice"]=>
+        float(14.61)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(87.64)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(70.112)
+        ["commission"]=>
+        float(17.528)
+        ["adultsPrice"]=>
+        float(29.21)
+        ["kidsPrice"]=>
+        float(14.61)
+        ["babiesPrice"]=>
+        float(0)
+        ["price"]=>
+        float(87.64)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(6) {
+        ["DE"]=>
+        array(1) {
+          [0]=>
+          string(8) "20190607"
+        }
+        ["PT"]=>
+        array(1) {
+          [0]=>
+          string(8) "20190607"
+        }
+        ["EN"]=>
+        array(1) {
+          [0]=>
+          string(8) "20190607"
+        }
+        ["IT"]=>
+        array(1) {
+          [0]=>
+          string(8) "20190607"
+        }
+        ["FR"]=>
+        array(1) {
+          [0]=>
+          string(8) "20190607"
+        }
+        ["ES"]=>
+        array(1) {
+          [0]=>
+          string(8) "20190607"
+        }
+      }
+      ["featureList"]=>
+      array(6) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(11) "Ropa ligera"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(15) "Calzado cómodo"
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(11) "Crema solar"
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(23) "Alguna prenda de abrigo"
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(33) "No olvide su cámara fotográfica"
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(10) "Medio día"
+        }
+      }
+      ["imageList"]=>
+      array(3) {
+        [0]=>
+        string(53) "/co2content/co2image/1418244907293/TFR_TFI_1TEI_2.PNG"
+        [1]=>
+        string(68) "/co2content/co2image/1418244907321/ca-adas-teide-llano-de-ucanca.jpg"
+        [2]=>
+        string(53) "/co2content/co2image/1418244907349/ca-adas-roques.jpg"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [5]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263564332457"
+      ["code"]=>
+      string(8) "1TWINTKT"
+      ["title"]=>
+      string(31) "Twin Ticket (Loro y Siam) Norte"
+      ["url"]=>
+      string(52) "/es/excursion/tenerife/twin-ticket-loro-y-siam-norte"
+      ["description"]=>
+      string(3863) "<p style="text-align: justify;">	El &ldquo;must de Tenerife situado en el Puerto de la Cruz. Podr&aacute;n visitar este excepcional parque para&iacute;so<br />	de excepcionales jardines tropicales y sus muchas atracciones como:</p><p style="text-align: justify;">	show de orcas, katandra, treetops, nutrias, show de delfines, leones marinos, loro show, aquarium,<br />	gorilas, la isla del tigre y para los mas peque&ntilde;os &ldquo;kinderlandia&rdquo;. En 1972 el parque abri&oacute; oficialmente sus puertas al publico tiene una extensi&oacute;n de 135.000m2 y ha recibido desde su inauguraci&oacute;n 40 millones de turistas. Por todo el recinto hay dispersas numerosas especies de plantas tropicales y subtropicales. Posee una colecci&oacute;n de mas de 200 palmeras procedentes de todo el mundo. Orquidadearium con una numerosa representaci&oacute;n de orqu&iacute;deas. Jard&iacute;n de cactus. Jard&iacute;n de dragos, arboles end&eacute;micos de Macaronesia y costa atl&aacute;ntica del Norte de &Aacute;frica. La jungla, parte mas antigua del parque. Cuenta con la mayor colecci&oacute;n de papagayos de todo el planeta. En sus instalaciones tambi&eacute;n hay tigres, panteras aligatores, iguanas, tortugas, chimpaces, gorilas y nutrias entre otras especies. Orcas y lobos marinos. Pinguinario con diferentes especies y acuario</p><p style="text-align: justify;">	El parque tiene el primer espect&aacute;culo de papagayos en vuelo libre de Europa. Exhibici&oacute;n de delfines, orcas y leones marinos. Tiene una fundaci&oacute;n que promueve la conservaci&oacute;n, protecci&oacute;n y recuperaci&oacute;n de especies en peligro de extinci&oacute;n.</p><p style="text-align: justify;">	El parque acu&aacute;tico mas espectacular de Europa se encuentra en Tenerife, Siam Park donde se combina el ex&oacute;tico misterio del antiguo reino de Siam con las atracciones mas avanzadas e impactantes para toda la familia y para todos los gustos.</p><p style="text-align: justify;">	Siam Park se ha convertido en el nuevo reino del agua en Tenerife consolidandose como uno de los<br />	mejores parques acuaticos del mundo, se inauguro en 2008<br />	Al Siam Park se puede llegar de la siguiente forma.-<br />	Guagua Siam Park bus que realiza recogidas en Los Cristianos,Americas y Costa Adeje<br />	En el bus Titsa quedandose en estacion de Las Americas se puede llegar caminando aprox 5 minutos.<br />	En coche por la autopista del sur desde Santa Cruz coger la salida 28,29<br />	Desde autopista Sur coger salida 28<br />	Atracciones mas importantes.-<br />	El Dragon.-Tome asiento en un flotador junto a sus amigos y pronto se encontrara cogiendo velocidad<br />	hasta verse propulsado frente de las fauces del dragon, basta informar que en ese momento se ira de&nbsp;arriba a abajo experimentando el efecto gravedad cero.<br />	Tower of Power.-La atraccion mas representativa del Siam Park, le dejara boquiabierto. Se asciende a&nbsp;lo alto de la torre, coge aire y agarrate fuerte mientras bajas por una pendiente casi vertical de 25 mtrs&nbsp;en caida libre hasta emerger a traves de un misterioso acuario.<br />	Mahia Tahia River.-Relax mientras se flota por un rio serpeante a traves de un mundo de peces<br />	tropicales,paisajes de frondosa vegetaci&ograve;n y cascadas.<br />	Siam Beach.-Tome el sol y relajese mientras disfrutas de bellas vistas o tomas un sabroso aperitivo en&nbsp;nuestra playa de arena blanca donde su aguas de color turquesa, palmeras y arquitectura thai te<br />	transportan al paraiso directamente agua a 24&ordm; c<br />	The Giant.-Nuestro Gigante te transporta a un mundo de aventura y misterio mientras te vas<br />	deslizasdando das vueltas en su embudo gigante.<br />	The Volcano.-La luz desaparece y la velocidad aumenta mientras entramos en el volcan. Dentro de su crater la emocion aumenta con la oscuridad rota.</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(true)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(7) "TWINTKT"
+        ["title"]=>
+        string(23) "Loro Parque y Siam Park"
+        ["description"]=>
+        string(255) "<p>	Visite Loro Parque de Tenerife, excepcional para&iacute;so de jardines tropicales y disfrute de sus atracciones y shows. Divi&eacute;rtase tambi&eacute;n con toda la familia de Siam Park el parque acu&aacute;tico m&aacute;s espectacular de Europa.</p>"
+        ["themesList"]=>
+        array(5) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(4) "AGUA"
+            ["name"]=>
+            string(22) "BAÑO, SNORKEL O BUCEO"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ESPEC"
+            ["name"]=>
+            string(13) "ESPECTÁCULOS"
+          }
+          [4]=>
+          array(2) {
+            ["code"]=>
+            string(5) "PARQT"
+            ["name"]=>
+            string(18) "PARQUES TEMÁTICOS"
+          }
+        }
+        ["featureList"]=>
+        array(5) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(11) "Ropa ligera"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(15) "Calzado cómodo"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(21) "Bañador en Siam Park"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(11) "Crema solar"
+          }
+          [4]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(44) "HORA INICIO: 10:00 amHORA FIN:       17:00pm"
+          }
+        }
+        ["imageList"]=>
+        array(2) {
+          [0]=>
+          string(56) "/co2content/co2image/1418244908133/TFR_TFI_1TWINTK_1.png"
+          [1]=>
+          string(57) "/co2content/co2image/1418244908161/TFR_TFI_1TWINTKT_2.png"
+        }
+        ["url"]=>
+        string(46) "/es/excursion/tenerife/loro-parque-y-siam-park"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(169.983)
+        ["commission"]=>
+        float(29.997)
+        ["adultsPrice"]=>
+        float(71.9)
+        ["kidsPrice"]=>
+        float(28.09)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(199.98)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(169.983)
+        ["commission"]=>
+        float(29.997)
+        ["adultsPrice"]=>
+        float(71.9)
+        ["kidsPrice"]=>
+        float(28.09)
+        ["babiesPrice"]=>
+        float(0)
+        ["price"]=>
+        float(199.98)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(7) {
+        ["DE"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["RU"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["PT"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["EN"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["IT"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["FR"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["ES"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+      }
+      ["featureList"]=>
+      array(7) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(27) "Calzado cómodo (Loro Park)"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(43) "Ropa cómoda y Algo de abrigo (Loro Parque)"
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(35) "calzado y ropa de baño (Siam Park)"
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(15) "Protector solar"
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(16) "Cámara de fotos"
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(12) "Gafas de sol"
+        }
+        [6]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(14) "Día Completo."
+        }
+      }
+      ["imageList"]=>
+      array(4) {
+        [0]=>
+        string(56) "/co2content/co2image/1418244908133/TFR_TFI_1TWINTK_1.png"
+        [1]=>
+        string(57) "/co2content/co2image/1418244908161/TFR_TFI_1TWINTKT_2.png"
+        [2]=>
+        string(57) "/co2content/co2image/1418254379623/TFR_TFI_1TWINTKT_3.png"
+        [3]=>
+        string(57) "/co2content/co2image/1418254379664/TFR_TFI_1TWINTKT_4.png"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [6]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263565353386"
+      ["code"]=>
+      string(4) "1VUE"
+      ["title"]=>
+      string(31) "Vuelta a la Isla desde el Norte"
+      ["url"]=>
+      string(54) "/es/excursion/tenerife/vuelta-a-la-isla-desde-el-norte"
+      ["description"]=>
+      string(729) "<p style="text-align: justify;">	Preciosa excursi&oacute;n que le dar&aacute; a conocer la Isla.</p><p style="text-align: justify;">	Visitar&aacute; el municipio de Mariano de Candelaria, pasar&aacute; por la Playa de las Am&eacute;ricas hasta llegar al acantilado de los Gigantes. En el municipio de El Tanque disfrutar&aacute; de tiempo libre para almorzar y montar el camello, si as&iacute; lo desea (opcional). Nuestro trayecto le llevar&aacute; despu&eacute;s a Icod de Los Vinos para contemplar la majestuosidad del Drago Milenario, un &aacute;rbol con 3.000 a&ntilde;os de vida declarado monumento Nacional en 1917. Disfrute de este tour y conozca los sitios m&aacute;s emblem&aacute;ticos y m&aacute;gicos de la isla.</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(true)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(8) "VISLANOR"
+        ["title"]=>
+        string(16) "Vuelta a la Isla"
+        ["description"]=>
+        string(265) "<p style="text-align: justify;">	Complet&iacute;sima excursi&oacute;n para conocer la Isla. Visite el municipio Mariano de Candelaria, la Playa de las Am&eacute;ricas y el Acantilado Los Gigantes. En el Tanque, tendremos tiempo para almorzar y montar a camello.</p>"
+        ["themesList"]=>
+        array(3) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "AVENT"
+            ["name"]=>
+            string(18) "DEPORTE Y AVENTURA"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+        }
+        ["featureList"]=>
+        array(8) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(12) "Ropa Ligera."
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(16) "Calzado cómodo."
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(17) "Prenda de abrigo."
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(17) "Cámara de fotos."
+          }
+          [4]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(12) "Gafas de sol"
+          }
+          [5]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(15) "Protector solar"
+          }
+          [6]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(13) "Día Completo"
+          }
+          [7]=>
+          array(2) {
+            ["code"]=>
+            string(23) "OBSERVACIONESRELEVANTES"
+            ["name"]=>
+            string(18) "Comida no incluida"
+          }
+        }
+        ["imageList"]=>
+        array(6) {
+          [0]=>
+          string(53) "/co2content/co2image/1418244908385/TFR_TFI_1VUE_4.PNG"
+          [1]=>
+          string(53) "/co2content/co2image/1418244908413/TFR_TFI_1VUE_2.png"
+          [2]=>
+          string(53) "/co2content/co2image/1418244908441/TFR_TFI_1VUE_3.png"
+          [3]=>
+          string(53) "/co2content/co2image/1418244908469/TFR_TFI_1VUE_4.png"
+          [4]=>
+          string(48) "/co2content/co2image/1418244908497/garachico.jpg"
+          [5]=>
+          string(49) "/co2content/co2image/1418244908525/drago-icod.jpg"
+        }
+        ["url"]=>
+        string(39) "/es/excursion/tenerife/vuelta-a-la-isla"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(88.992)
+        ["commission"]=>
+        float(22.248)
+        ["adultsPrice"]=>
+        float(37.08)
+        ["kidsPrice"]=>
+        float(18.54)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(111.24)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(88.992)
+        ["commission"]=>
+        float(22.248)
+        ["adultsPrice"]=>
+        float(37.08)
+        ["kidsPrice"]=>
+        float(18.54)
+        ["babiesPrice"]=>
+        float(0)
+        ["price"]=>
+        float(111.24)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(3) {
+        ["PT"]=>
+        array(1) {
+          [0]=>
+          string(8) "20190607"
+        }
+        ["EN"]=>
+        array(1) {
+          [0]=>
+          string(8) "20190607"
+        }
+        ["ES"]=>
+        array(1) {
+          [0]=>
+          string(8) "20190607"
+        }
+      }
+      ["featureList"]=>
+      array(8) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Calzado cómodo"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(12) "Ropa cómoda"
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Algo de abrigo."
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(16) "Cámara de fotos"
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(12) "Gafas de sol"
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(15) "Protector solar"
+        }
+        [6]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(13) "Día Completo"
+        }
+        [7]=>
+        array(2) {
+          ["code"]=>
+          string(23) "OBSERVACIONESRELEVANTES"
+          ["name"]=>
+          string(18) "Comida no incluida"
+        }
+      }
+      ["imageList"]=>
+      array(6) {
+        [0]=>
+        string(53) "/co2content/co2image/1418244908385/TFR_TFI_1VUE_4.PNG"
+        [1]=>
+        string(53) "/co2content/co2image/1418244908413/TFR_TFI_1VUE_2.png"
+        [2]=>
+        string(53) "/co2content/co2image/1418244908441/TFR_TFI_1VUE_3.png"
+        [3]=>
+        string(53) "/co2content/co2image/1418244908469/TFR_TFI_1VUE_4.png"
+        [4]=>
+        string(48) "/co2content/co2image/1418244908497/garachico.jpg"
+        [5]=>
+        string(49) "/co2content/co2image/1418244908525/drago-icod.jpg"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [7]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263567120312"
+      ["code"]=>
+      string(6) "2GOB-S"
+      ["title"]=>
+      string(40) "La Gomera con Naviera Armas desde el Sur"
+      ["url"]=>
+      string(63) "/es/excursion/tenerife/la-gomera-con-naviera-armas-desde-el-sur"
+      ["description"]=>
+      string(866) "<p style="text-align: justify;">	Traslado hasta el muelle de Los Cristianos para salir en Ferry de la Naviera Armas, llegamos a San Sebasti&aacute;n de la Gomera ,capital de la isla, desde donde empezaremos a ascender hacia el Parque Nacional de Garajonay (bosque de Laurisilva), pasando por el mirador de La Degollada de Peraza (vista panor&aacute;mica). Luego seguiremos por la Palmita, atravesando el Parque Nacional para llegar a los pueblos de Las Rosas y Agulo . Despu&eacute;s almuerzo en restaurante de la zona con demostraci&oacute;n del silbo t&iacute;pico gomero. Si se dispone de tiempo se visita el centro de visitantes &ldquo;Juego de Bolas&rdquo; (Lunes cerrado).</p><p>	Regreso por el Valle de Hermigua hacia San Sebasti&aacute;n, donde tendremos tiempo libre para ver los exteriores de la Torre del Conde y la fachada de la Casa de Col&oacute;n.</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(true)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(8) "LAGOMERA"
+        ["title"]=>
+        string(17) "Isla de la Gomera"
+        ["description"]=>
+        string(231) "<p>	Desde el muelle de los Cristianos tomaremos el ferry que nos llevar&aacute; a San Sebasti&aacute;n de la Gomera. Descubriremos el Parque Nacional de Garajonay y disfrutaremos de los pintorescos pueblos de la isla colombina.</p>"
+        ["themesList"]=>
+        array(3) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "AVENT"
+            ["name"]=>
+            string(18) "DEPORTE Y AVENTURA"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+        }
+        ["featureList"]=>
+        array(4) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(46) "Ropa cómoda, calzado cómodo y algo de abrigo"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(34) "Cámara de fotos y protector solar"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(13) "Día Completo"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(7) "INCLUYE"
+            ["name"]=>
+            string(8) "Almuerzo"
+          }
+        }
+        ["imageList"]=>
+        array(7) {
+          [0]=>
+          string(53) "/co2content/co2image/1418244901329/TFR_TFI_1GOF_5.PNG"
+          [1]=>
+          string(53) "/co2content/co2image/1418244901357/TFR_TFI_1GOB_2.png"
+          [2]=>
+          string(53) "/co2content/co2image/1418244901385/TFR_TFI_1GOB_3.png"
+          [3]=>
+          string(53) "/co2content/co2image/1418244901413/TFR_TFI_1GOB_4.png"
+          [4]=>
+          string(53) "/co2content/co2image/1418244901441/TFR_TFI_1GOB_5.png"
+          [5]=>
+          string(53) "/co2content/co2image/1418244901469/TFR_TFI_1GOB_6.png"
+          [6]=>
+          string(53) "/co2content/co2image/1418244901497/gomera-capital.jpg"
+        }
+        ["url"]=>
+        string(40) "/es/excursion/tenerife/isla-de-la-gomera"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(194.82)
+        ["commission"]=>
+        float(34.38)
+        ["adultsPrice"]=>
+        float(76.4)
+        ["kidsPrice"]=>
+        float(38.2)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(229.2)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(194.82)
+        ["commission"]=>
+        float(34.38)
+        ["adultsPrice"]=>
+        float(76.4)
+        ["kidsPrice"]=>
+        float(38.2)
+        ["babiesPrice"]=>
+        float(3.93)
+        ["price"]=>
+        float(229.2)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(2) {
+        ["PT"]=>
+        array(2) {
+          [0]=>
+          string(8) "20190605"
+          [1]=>
+          string(8) "20190607"
+        }
+        ["ES"]=>
+        array(2) {
+          [0]=>
+          string(8) "20190605"
+          [1]=>
+          string(8) "20190607"
+        }
+      }
+      ["featureList"]=>
+      array(8) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Calzado Cómodo"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(12) "Ropa Cómoda"
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(13) "Ropa Abrigada"
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(20) "Cámara Fotográfica"
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(12) "Gafas de Sol"
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(15) "Protector Solar"
+        }
+        [6]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(13) "Día Completo"
+        }
+        [7]=>
+        array(2) {
+          ["code"]=>
+          string(7) "INCLUYE"
+          ["name"]=>
+          string(8) "Almuerzo"
+        }
+      }
+      ["imageList"]=>
+      array(6) {
+        [0]=>
+        string(55) "/co2content/co2image/1418254381967/TFR_TFI_2GOB-S_1.png"
+        [1]=>
+        string(55) "/co2content/co2image/1418254382008/TFR_TFI_2GOB-S_2.png"
+        [2]=>
+        string(55) "/co2content/co2image/1418254382038/TFR_TFI_2GOB-S_3.png"
+        [3]=>
+        string(55) "/co2content/co2image/1418254382068/TFR_TFI_2GOB-S_4.png"
+        [4]=>
+        string(55) "/co2content/co2image/1418254382098/TFR_TFI_2GOB-S_5.png"
+        [5]=>
+        string(55) "/co2content/co2image/1418254382128/TFR_TFI_2GOB-S_6.png"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [8]=>
+    array(16) {
+      ["availableToken"]=>
+      string(21) "EXC016841263569214715"
+      ["code"]=>
+      string(6) "2GOF-S"
+      ["title"]=>
+      string(37) "La Gomera con Fred Olsen desde el Sur"
+      ["url"]=>
+      string(60) "/es/excursion/tenerife/la-gomera-con-fred-olsen-desde-el-sur"
+      ["description"]=>
+      string(868) "<p style="text-align: justify;">	Traslado hasta el muelle de Los Cristianos para salir en Ferry de la Naviera Fred Olsen, llegamos a San Sebasti&aacute;n de la Gomera (capital de la isla), desde donde empezaremos a ascender hacia el Parque Nacional de Garajonay (bosque de Laurisilva), pasando por el mirador de La Degollada de Peraza (vista panor&aacute;mica). Luego seguiremos por la Palmita, atravesando el Parque Nacional para llegar a los pueblos de Las Rosas y Agulo (almuerzo en restaurante de la zona con demostraci&oacute;n del silbo t&iacute;pico gomero). Si se dispone de tiempo se visita el centro de visitantes &ldquo;Juego de Bolas&rdquo; (Lunes cerrado).</p><p>	Regresaremos&nbsp; por el Valle de Hermigua hacia San Sebasti&aacute;n, donde tendremos tiempo libre para ver los exteriores de la Torre del Conde y la fachada de la Casa de Col&oacute;n.</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(true)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(8) "LAGOMERA"
+        ["title"]=>
+        string(17) "Isla de la Gomera"
+        ["description"]=>
+        string(231) "<p>	Desde el muelle de los Cristianos tomaremos el ferry que nos llevar&aacute; a San Sebasti&aacute;n de la Gomera. Descubriremos el Parque Nacional de Garajonay y disfrutaremos de los pintorescos pueblos de la isla colombina.</p>"
+        ["themesList"]=>
+        array(3) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "AVENT"
+            ["name"]=>
+            string(18) "DEPORTE Y AVENTURA"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+        }
+        ["featureList"]=>
+        array(4) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(46) "Ropa cómoda, calzado cómodo y algo de abrigo"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(34) "Cámara de fotos y protector solar"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(13) "Día Completo"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(7) "INCLUYE"
+            ["name"]=>
+            string(8) "Almuerzo"
+          }
+        }
+        ["imageList"]=>
+        array(7) {
+          [0]=>
+          string(53) "/co2content/co2image/1418244901329/TFR_TFI_1GOF_5.PNG"
+          [1]=>
+          string(53) "/co2content/co2image/1418244901357/TFR_TFI_1GOB_2.png"
+          [2]=>
+          string(53) "/co2content/co2image/1418244901385/TFR_TFI_1GOB_3.png"
+          [3]=>
+          string(53) "/co2content/co2image/1418244901413/TFR_TFI_1GOB_4.png"
+          [4]=>
+          string(53) "/co2content/co2image/1418244901441/TFR_TFI_1GOB_5.png"
+          [5]=>
+          string(53) "/co2content/co2image/1418244901469/TFR_TFI_1GOB_6.png"
+          [6]=>
+          string(53) "/co2content/co2image/1418244901497/gomera-capital.jpg"
+        }
+        ["url"]=>
+        string(40) "/es/excursion/tenerife/isla-de-la-gomera"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(201.501)
+        ["commission"]=>
+        float(35.559)
+        ["adultsPrice"]=>
+        float(76.4)
+        ["kidsPrice"]=>
+        float(42.13)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(237.06)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(201.501)
+        ["commission"]=>
+        float(35.559)
+        ["adultsPrice"]=>
+        float(76.4)
+        ["kidsPrice"]=>
+        float(42.13)
+        ["babiesPrice"]=>
+        float(3.93)
+        ["price"]=>
+        float(237.06)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(4) {
+        ["DE"]=>
+        array(4) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190604"
+          [2]=>
+          string(8) "20190606"
+          [3]=>
+          string(8) "20190608"
+        }
+        ["PT"]=>
+        array(4) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190604"
+          [2]=>
+          string(8) "20190606"
+          [3]=>
+          string(8) "20190608"
+        }
+        ["EN"]=>
+        array(4) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190604"
+          [2]=>
+          string(8) "20190606"
+          [3]=>
+          string(8) "20190608"
+        }
+        ["ES"]=>
+        array(4) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190604"
+          [2]=>
+          string(8) "20190606"
+          [3]=>
+          string(8) "20190608"
+        }
+      }
+      ["featureList"]=>
+      array(9) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(16) "Calzado cómodo."
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(13) "Ropa cómoda."
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(25) "Alguna prenda  de abrigo."
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(17) "Cámara de fotos."
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(13) "Gafas de sol."
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(16) "Protector solar."
+        }
+        [6]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(13) "Día Completo"
+        }
+        [7]=>
+        array(2) {
+          ["code"]=>
+          string(7) "INCLUYE"
+          ["name"]=>
+          string(8) "Almuerzo"
+        }
+        [8]=>
+        array(2) {
+          ["code"]=>
+          string(23) "OBSERVACIONESRELEVANTES"
+          ["name"]=>
+          string(58) "Centro de Visitantes " Juego de Bolas " ( Lunes Cerrado )."
+        }
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [9]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263571202293"
+      ["code"]=>
+      string(5) "2LORO"
+      ["title"]=>
+      string(32) "Loro Parque - Solo Entrada - Sur"
+      ["url"]=>
+      string(51) "/es/excursion/tenerife/loro-parque-solo-entrada-sur"
+      ["description"]=>
+      string(1615) "<p>	El &ldquo;must de Tenerife situado en el Puerto de la Cruz. Podr&aacute;n visitar este excepcional parque para&iacute;so<br />	de excepcionales jardines tropicales y sus muchas atracciones como:</p><p style="text-align: justify;">	show de orcas, katandra, treetops, nutrias, show de delfines, leones marinos, loro show, aquarium,<br />	gorilas, la isla del tigre y para los mas peque&ntilde;os &ldquo;kinderlandia&rdquo;.&nbsp; En 1972 el parque abri&oacute; oficialmente sus puertas al publico tiene una extensi&oacute;n de 135.000m2 y ha recibido desde su inauguraci&oacute;n 40 millones de turistas. Por todo el recinto hay dispersas numerosas especies de plantas tropicales y subtropicales. Posee una colecci&oacute;n de mas de 200 palmeras procedentes de todo el mundo. Orquidadearium con una numerosa representaci&oacute;n de orqu&iacute;deas. Jard&iacute;n de cactus. Jard&iacute;n de dragos, arboles end&eacute;micos de Macaronesia y costa atl&aacute;ntica del Norte de &Aacute;frica. La jungla, parte mas antigua del parque. Cuenta con la mayor colecci&oacute;n de papagayos de todo el planeta. En sus instalaciones tambi&eacute;n hay tigres, panteras aligatores, iguanas, tortugas, chimpaces, gorilas y nutrias entre otras especies. Orcas y lobos marinos. Pinguinario con diferentes especies y acuario El parque tiene el primer espect&aacute;culo de papagayos en vuelo libre de Europa. Exhibici&oacute;n de delfines,&nbsp;orcas y leones marinos.Tiene una fundaci&oacute;n que promueve la conservaci&oacute;n, protecci&oacute;n y recuperaci&oacute;n de especies en peligro de&nbsp;extinci&oacute;n.</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(true)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(8) "LOROPARK"
+        ["title"]=>
+        string(26) "Loro Parque - Solo Entrada"
+        ["description"]=>
+        string(263) "<p style="text-align: justify;">	Visite este excepcional parque de jardines tropicales situado en el Puerto de la Cruz. Disfrute de sus atracciones y shows, su orquidarium , los papagayos, y Kinderlandia, un para&iacute;so para los m&aacute;s peque&ntilde;os.</p>"
+        ["themesList"]=>
+        array(5) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ESPEC"
+            ["name"]=>
+            string(13) "ESPECTÁCULOS"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(4) "NATU"
+            ["name"]=>
+            string(10) "NATURALEZA"
+          }
+          [4]=>
+          array(2) {
+            ["code"]=>
+            string(5) "PARQT"
+            ["name"]=>
+            string(18) "PARQUES TEMÁTICOS"
+          }
+        }
+        ["featureList"]=>
+        array(2) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(25) "Desde 09:30 am a 17:30 pm"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(23) "OBSERVACIONESRELEVANTES"
+            ["name"]=>
+            string(130) "<p>Niños de 1 a 5 años son gratuito<br />El parque ofrece transporte gratuito desde el Puerto de la Cruz (consultar paradas)</p>"
+          }
+        }
+        ["imageList"]=>
+        array(1) {
+          [0]=>
+          string(59) "/co2content/co2image/1418244902225/delfines-saltando-1-.jpg"
+        }
+        ["url"]=>
+        string(47) "/es/excursion/tenerife/loro-parque-solo-entrada"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(70.669)
+        ["commission"]=>
+        float(12.471)
+        ["adultsPrice"]=>
+        float(41.57)
+        ["kidsPrice"]=>
+        float(0)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(83.14)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(70.669)
+        ["commission"]=>
+        float(12.471)
+        ["adultsPrice"]=>
+        float(41.57)
+        ["kidsPrice"]=>
+        float(0)
+        ["babiesPrice"]=>
+        float(0)
+        ["price"]=>
+        float(83.14)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(6) {
+        ["DE"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["PT"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["EN"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["IT"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["FR"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["ES"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+      }
+      ["featureList"]=>
+      array(8) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(12) "Ropa cómoda"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Calzado cómodo"
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Algo de abrigo."
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(16) "Cámara de fotos"
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(12) "Gafas de sol"
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(15) "Protector solar"
+        }
+        [6]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(25) "Desde 09:30 am a 17:30 pm"
+        }
+        [7]=>
+        array(2) {
+          ["code"]=>
+          string(23) "OBSERVACIONESRELEVANTES"
+          ["name"]=>
+          string(35) "Niños de 1 a 5 años son gratuito."
+        }
+      }
+      ["imageList"]=>
+      array(6) {
+        [0]=>
+        string(54) "/co2content/co2image/1418254384047/TFR_TFI_2LORO_1.png"
+        [1]=>
+        string(54) "/co2content/co2image/1418254384077/TFR_TFI_2LORO_2.png"
+        [2]=>
+        string(54) "/co2content/co2image/1418254384107/TFR_TFI_2LORO_3.png"
+        [3]=>
+        string(54) "/co2content/co2image/1418254384137/TFR_TFI_2LORO_4.png"
+        [4]=>
+        string(54) "/co2content/co2image/1418254384167/TFR_TFI_2LORO_5.png"
+        [5]=>
+        string(54) "/co2content/co2image/1418254384197/TFR_TFI_2LORO_6.png"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [10]=>
+    array(18) {
+      ["availableToken"]=>
+      string(21) "EXC016841263572083103"
+      ["code"]=>
+      string(5) "2SIAM"
+      ["title"]=>
+      string(34) "Siam Park desde Sur - Solo Entrada"
+      ["url"]=>
+      string(55) "/es/excursion/tenerife/siam-park-desde-sur-solo-entrada"
+      ["subtitle"]=>
+      string(12) "Desde el Sur"
+      ["description"]=>
+      string(2282) "<p style="text-align: justify;">	El parque acu&aacute;tico mas espectacular de Europa se encuentra en Tenerife, Siam Park donde&nbsp;se combina el ex&oacute;tico misterio del antiguo reino de Siam con las atracciones mas avanzadas e&nbsp;impactantes para toda la familia y para todos los gustos.<br />	Siam Park se ha convertido en el nuevo reino del agua en Tenerife consolidandose como uno de los<br />	mejores parques acuaticos del mundo, se inauguro en 2008.&nbsp;</p><p style="text-align: justify;">	Al Siam Park se puede llegar de la siguiente forma:&nbsp;</p><p style="text-align: justify;">	Guagua Siam Park bus que realiza recogidas en Los Cristianos,Americas y Costa Adeje<br />	En el bus Titsa quedandose en estacion de Las Americas se puede llegar caminando aprox 5 minutos.<br />	En coche por la autopista del sur desde Santa Cruz coger la salida 28,29<br />	Desde autopista Sur coger salida 28</p><p style="text-align: justify;">	Atracciones mas importantes.-<br />	El Dragon.-Tome asiento en un flotador junto a sus amigos y pronto se encontrara cogiendo velocidad&nbsp;hasta verse propulsado frente de las fauces del dragon, basta informar que en ese momento se ira de&nbsp;arriba a abajo experimentando el efecto gravedad cero.<br />	Tower of Power.-La atraccion mas representativa del Siam Park, le dejara boquiabierto. Se asciende a&nbsp;lo alto de la torre, coge aire y agarrate fuerte mientras bajas por una pendiente casi vertical de 25 mtrs&nbsp;en caida libre hasta emerger a traves de un misterioso acuario.<br />	Mahia Tahia River.-Relax mientras se flota por un rio serpeante a traves de un mundo de peces<br />	tropicales,paisajes de frondosa vegetaci&ograve;n y cascadas.<br />	Siam Beach.-Tome el sol y relajese mientras disfrutas de bellas vistas o tomas un sabroso aperitivo en&nbsp;nuestra playa de arena blanca donde su aguas de color turquesa, palmeras y arquitectura thai te<br />	transportan al paraiso directamente agua a 24&ordm; c&nbsp;The Giant.-Nuestro Gigante te transporta a un mundo de aventura y misterio mientras te vas&nbsp;deslizasdando das vueltas en su embudo gigante.<br />	The Volcano.-La luz desaparece y la velocidad aumenta mientras entramos en el volcan. Dentro de su&nbsp;crater la emocion aumenta con la oscuridad rota.</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(true)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(8) "SIAMPARK"
+        ["title"]=>
+        string(9) "Siam Park"
+        ["description"]=>
+        string(266) "<p style="text-align: justify;">	El parque acu&aacute;tico mas espectacular de Europa se encuentra en Tenerife, Siam Park: donde se combina el ex&oacute;tico misterio del antiguo reino de Siam con las atracciones mas avanzadas e impactantes para toda la familia.</p>"
+        ["themesList"]=>
+        array(4) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(4) "AGUA"
+            ["name"]=>
+            string(22) "BAÑO, SNORKEL O BUCEO"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(5) "PARQT"
+            ["name"]=>
+            string(18) "PARQUES TEMÁTICOS"
+          }
+        }
+        ["featureList"]=>
+        array(4) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(8) "Bañador"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(11) "Crema solar"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(53) "No esta permitida la entrada de alimentos ni bebidas."
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(39) "HORA INICIO: 10h00HORA FIN:       17h30"
+          }
+        }
+        ["imageList"]=>
+        array(1) {
+          [0]=>
+          string(54) "/co2content/co2image/1418244905417/TFR_TFI_2SIAM_6.PNG"
+        }
+        ["url"]=>
+        string(32) "/es/excursion/tenerife/siam-park"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(118.422)
+        ["commission"]=>
+        float(20.898)
+        ["adultsPrice"]=>
+        float(41.57)
+        ["kidsPrice"]=>
+        float(28.09)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(139.32)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(118.422)
+        ["commission"]=>
+        float(20.898)
+        ["adultsPrice"]=>
+        float(41.57)
+        ["kidsPrice"]=>
+        float(28.09)
+        ["babiesPrice"]=>
+        float(0)
+        ["price"]=>
+        float(139.32)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(7) {
+        ["DE"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["RU"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["PT"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["EN"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["IT"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["FR"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["ES"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+      }
+      ["featureList"]=>
+      array(6) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(24) "Ropa y Calzado de Playa."
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(16) "Bañador, toalla"
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(11) "Crema solar"
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(53) "No esta permitida la entrada de alimentos ni bebidas."
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(43) "HORA INICIO: 10.00 Horas - FIN: 17.00 horas"
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(23) "OBSERVACIONESRELEVANTES"
+          ["name"]=>
+          string(53) "No esta permitida la entrada de alimentos ni bebidas."
+        }
+      }
+      ["imageList"]=>
+      array(6) {
+        [0]=>
+        string(54) "/co2content/co2image/1418254384999/TFR_TFI_2SIAM_5.PNG"
+        [1]=>
+        string(54) "/co2content/co2image/1418254385211/TFR_TFI_2SIAM_2.png"
+        [2]=>
+        string(54) "/co2content/co2image/1418254385255/TFR_TFI_2SIAM_3.png"
+        [3]=>
+        string(54) "/co2content/co2image/1418254385285/TFR_TFI_2SIAM_4.png"
+        [4]=>
+        string(54) "/co2content/co2image/1418254385315/TFR_TFI_2SIAM_5.png"
+        [5]=>
+        string(54) "/co2content/co2image/1418254385389/TFR_TFI_2SIAM_6.png"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [11]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263572989430"
+      ["code"]=>
+      string(4) "2TEA"
+      ["title"]=>
+      string(39) "Teide Icod Garachico Masca desde el Sur"
+      ["url"]=>
+      string(62) "/es/excursion/tenerife/teide-icod-garachico-masca-desde-el-sur"
+      ["description"]=>
+      string(939) "<p style="text-align: justify;">	Finalizada la recogida desde el sur de la Isla, ascendemos al Parque Nacional del Teide por el municipio de Vilaflor.<br />	Una vez en el Parque, visita a Monta&ntilde;a Blanca (situada a 2.373 metros de altura), Piedra&nbsp;P&oacute;mez, La Ruleta, Los Roques de Garc&iacute;a (Mirador Llano de Ucanca). Seguidamente, por el&nbsp;Portillo de la Villa, descenso por las laderas del Valle de La Orotava en direcci&oacute;n hacia Icod&nbsp;de los Vinos para visitar el Drago Milenario y la Iglesia de San Marcos (no incluido en el&nbsp;precio). A continuaci&oacute;n, visita a la Villa y Puerto de Garachico con tiempo libre para comida (no incluida). Salida hacia Masca por el barrio de El Palmar en el municipio de Buenavista, con tiempo libre para visitar el caser&iacute;o de Masca. Subida hacia Santiago del Teide, para regresar por Tamaimo con breve parada para fotos en el Mirador de Los Gigantes.</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(true)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(5) "TEIDE"
+        ["title"]=>
+        string(30) "Teide, Masca, Icod y Garachico"
+        ["description"]=>
+        string(246) "<p style="text-align: justify;">	Tour en el que se visitaremos el Parque Nacional del Teide y los Pueblos del noroeste de la isla: Masca, Icod, famoso por su Drago Milenario, y Villa y Puerto de Garachico, donde disfrutaremos de tiempo libre.</p>"
+        ["themesList"]=>
+        array(3) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "AVENT"
+            ["name"]=>
+            string(18) "DEPORTE Y AVENTURA"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+        }
+        ["featureList"]=>
+        array(8) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(13) "Ropa Cómoda."
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(16) "Calzado cómodo."
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(24) "Alguna prenda de abrigo."
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(17) "Cámara de fotos."
+          }
+          [4]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(13) "Gafas de sol."
+          }
+          [5]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(16) "Protector Solar."
+          }
+          [6]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(14) "Día Completo."
+          }
+          [7]=>
+          array(2) {
+            ["code"]=>
+            string(23) "OBSERVACIONESRELEVANTES"
+            ["name"]=>
+            string(19) "Comida no incluida."
+          }
+        }
+        ["imageList"]=>
+        array(17) {
+          [0]=>
+          string(53) "/co2content/co2image/1418244907517/TFR_TFI_1TEA_1.PNG"
+          [1]=>
+          string(53) "/co2content/co2image/1418244907769/TFR_TFI_1TEA_2.png"
+          [2]=>
+          string(53) "/co2content/co2image/1418244907797/TFR_TFI_1TEA_3.png"
+          [3]=>
+          string(53) "/co2content/co2image/1418244907825/TFR_TFI_1TEA_4.png"
+          [4]=>
+          string(47) "/co2content/co2image/1418244907853/vilaflor.jpg"
+          [5]=>
+          string(53) "/co2content/co2image/1418244907881/vista-vilaflor.jpg"
+          [6]=>
+          string(54) "/co2content/co2image/1418244907909/teide-tajinaste.jpg"
+          [7]=>
+          string(50) "/co2content/co2image/1418244907937/teideroques.jpg"
+          [8]=>
+          string(54) "/co2content/co2image/1418244907965/orotava2alta-1-.jpg"
+          [9]=>
+          string(51) "/co2content/co2image/1418244907545/valle-ucanca.jpg"
+          [10]=>
+          string(47) "/co2content/co2image/1418244907573/la-tarta.jpg"
+          [11]=>
+          string(58) "/co2content/co2image/1418244907601/valle-de-la-orotava.jpg"
+          [12]=>
+          string(46) "/co2content/co2image/1418244907629/teide-6.jpg"
+          [13]=>
+          string(52) "/co2content/co2image/1418244907657/casa-balcones.jpg"
+          [14]=>
+          string(54) "/co2content/co2image/1418244907685/casa-balcones-1.jpg"
+          [15]=>
+          string(58) "/co2content/co2image/1418244907713/villa-de-la-orotava.jpg"
+          [16]=>
+          string(51) "/co2content/co2image/1418244907741/teide-retama.jpg"
+        }
+        ["url"]=>
+        string(51) "/es/excursion/tenerife/teide-masca-icod-y-garachico"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(102.464)
+        ["commission"]=>
+        float(25.616)
+        ["adultsPrice"]=>
+        float(42.69)
+        ["kidsPrice"]=>
+        float(21.35)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(128.08)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(102.464)
+        ["commission"]=>
+        float(25.616)
+        ["adultsPrice"]=>
+        float(42.69)
+        ["kidsPrice"]=>
+        float(21.35)
+        ["babiesPrice"]=>
+        float(0)
+        ["price"]=>
+        float(128.08)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(3) {
+        ["PT"]=>
+        array(4) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190603"
+          [2]=>
+          string(8) "20190605"
+          [3]=>
+          string(8) "20190608"
+        }
+        ["EN"]=>
+        array(4) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190603"
+          [2]=>
+          string(8) "20190605"
+          [3]=>
+          string(8) "20190608"
+        }
+        ["ES"]=>
+        array(4) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190603"
+          [2]=>
+          string(8) "20190605"
+          [3]=>
+          string(8) "20190608"
+        }
+      }
+      ["featureList"]=>
+      array(7) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Calzado cómodo"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(12) "Ropa cómoda"
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Algo de abrigo."
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(16) "Cámara de fotos"
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(12) "Gafas de sol"
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(15) "Protector solar"
+        }
+        [6]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(13) "Día Completo"
+        }
+      }
+      ["imageList"]=>
+      array(17) {
+        [0]=>
+        string(53) "/co2content/co2image/1418244907517/TFR_TFI_1TEA_1.PNG"
+        [1]=>
+        string(53) "/co2content/co2image/1418244907769/TFR_TFI_1TEA_2.png"
+        [2]=>
+        string(53) "/co2content/co2image/1418244907797/TFR_TFI_1TEA_3.png"
+        [3]=>
+        string(53) "/co2content/co2image/1418244907825/TFR_TFI_1TEA_4.png"
+        [4]=>
+        string(47) "/co2content/co2image/1418244907853/vilaflor.jpg"
+        [5]=>
+        string(53) "/co2content/co2image/1418244907881/vista-vilaflor.jpg"
+        [6]=>
+        string(54) "/co2content/co2image/1418244907909/teide-tajinaste.jpg"
+        [7]=>
+        string(50) "/co2content/co2image/1418244907937/teideroques.jpg"
+        [8]=>
+        string(54) "/co2content/co2image/1418244907965/orotava2alta-1-.jpg"
+        [9]=>
+        string(51) "/co2content/co2image/1418244907545/valle-ucanca.jpg"
+        [10]=>
+        string(47) "/co2content/co2image/1418244907573/la-tarta.jpg"
+        [11]=>
+        string(58) "/co2content/co2image/1418244907601/valle-de-la-orotava.jpg"
+        [12]=>
+        string(46) "/co2content/co2image/1418244907629/teide-6.jpg"
+        [13]=>
+        string(52) "/co2content/co2image/1418244907657/casa-balcones.jpg"
+        [14]=>
+        string(54) "/co2content/co2image/1418244907685/casa-balcones-1.jpg"
+        [15]=>
+        string(58) "/co2content/co2image/1418244907713/villa-de-la-orotava.jpg"
+        [16]=>
+        string(51) "/co2content/co2image/1418244907741/teide-retama.jpg"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [12]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263574974291"
+      ["code"]=>
+      string(7) "2TEI-MS"
+      ["title"]=>
+      string(29) "Teide Medio día desde el Sur"
+      ["url"]=>
+      string(51) "/es/excursion/tenerife/teide-medio-dia-desde-el-sur"
+      ["description"]=>
+      string(1180) "<p>	(Telef&eacute;rico Opcional) Ascendemos por Vilaflor al Parque Nacional del Teide, visitando el<br />	Llano de Ucanca, Los Roques de Garc&iacute;a. Con los clientes de Teide (1/2 D&iacute;a), se visitar&aacute;<br />	Monta&ntilde;a Blanca, La Piedra P&oacute;mez y resto de las maravillas del paisaje de Las Ca&ntilde;adas.<br />	Al regreso del recorrido pasaremos por la base del telef&eacute;rico para recoger a los clientes<br />	que hayan tomado la opci&oacute;n del Teide Telef&eacute;rico. Descenso para terminar la excursi&oacute;n<br />	sobre las 14.00 hrs.</p><p>	Nota importante para las excursiones a las Ca&ntilde;adas del Teide con<br />	opci&oacute;n a telef&eacute;rico: No incluido en el precio de la excursi&oacute;n. La opci&oacute;n de subir en<br />	telef&eacute;rico ir&aacute; siempre condicionada a que las inclemencias del tiempo o problemas<br />	t&eacute;cnicos lo permitan. En caso de que por cualquier motivo el telef&eacute;rico no funcione, esta<br />	agencia no se responsabiliza de ello, por lo que, el cliente solo tendr&aacute; derecho a la<br />	devoluci&oacute;n del importe pagado por dicho servicio. Se aconseja llevar ropa de abrigo.</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(true)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(8) "TEIDEMDS"
+        ["title"]=>
+        string(29) "Teide Medio día desde el sur"
+        ["description"]=>
+        string(195) "<p>	Ascendemos&nbsp; al Parque Nacional del Teide, visitamos el Llano de Ucanca y Los Roques de Garc&iacute;a. Desde la base del Teide, podremos vislumbrar todo el esplendor del Parque.&nbsp;</p>"
+        ["themesList"]=>
+        array(3) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "AVENT"
+            ["name"]=>
+            string(18) "DEPORTE Y AVENTURA"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+        }
+        ["featureList"]=>
+        array(6) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(12) "*Ropa ligera"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(16) "*Calzado cómodo"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(24) "*Alguna prenda de abrigo"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(12) "*Crema solar"
+          }
+          [4]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(34) "*No olvide su cámara fotográfica"
+          }
+          [5]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(70) "INICIO (aprox.) 08:30am (Pendiente de reconfirmar)FIN (aprox.) 13:30pm"
+          }
+        }
+        ["imageList"]=>
+        array(5) {
+          [0]=>
+          string(53) "/co2content/co2image/1418244907377/TFR_TFI_1TEI_2.PNG"
+          [1]=>
+          string(56) "/co2content/co2image/1418244907405/TFR_TFI_2TEI-MS_2.png"
+          [2]=>
+          string(56) "/co2content/co2image/1418244907433/TFR_TFI_2TEI-MS_4.png"
+          [3]=>
+          string(56) "/co2content/co2image/1418244907461/TFR_TFI_2TEI-MS_4.png"
+          [4]=>
+          string(68) "/co2content/co2image/1418244907489/ca-adas-teide-llano-de-ucanca.jpg"
+        }
+        ["url"]=>
+        string(51) "/es/excursion/tenerife/teide-medio-dia-desde-el-sur"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(70.112)
+        ["commission"]=>
+        float(17.528)
+        ["adultsPrice"]=>
+        float(29.21)
+        ["kidsPrice"]=>
+        float(14.61)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(87.64)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(70.112)
+        ["commission"]=>
+        float(17.528)
+        ["adultsPrice"]=>
+        float(29.21)
+        ["kidsPrice"]=>
+        float(14.61)
+        ["babiesPrice"]=>
+        float(0)
+        ["price"]=>
+        float(87.64)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(3) {
+        ["PT"]=>
+        array(3) {
+          [0]=>
+          string(8) "20190602"
+          [1]=>
+          string(8) "20190604"
+          [2]=>
+          string(8) "20190606"
+        }
+        ["EN"]=>
+        array(3) {
+          [0]=>
+          string(8) "20190602"
+          [1]=>
+          string(8) "20190604"
+          [2]=>
+          string(8) "20190606"
+        }
+        ["ES"]=>
+        array(3) {
+          [0]=>
+          string(8) "20190602"
+          [1]=>
+          string(8) "20190604"
+          [2]=>
+          string(8) "20190606"
+        }
+      }
+      ["featureList"]=>
+      array(6) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Calzado cómodo"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(12) "Ropa cómoda"
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Algo de abrigo."
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(15) "Protector solar"
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(20) "Cámara fotográfica"
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(10) "Medio Día"
+        }
+      }
+      ["imageList"]=>
+      array(5) {
+        [0]=>
+        string(53) "/co2content/co2image/1418244907377/TFR_TFI_1TEI_2.PNG"
+        [1]=>
+        string(56) "/co2content/co2image/1418244907405/TFR_TFI_2TEI-MS_2.png"
+        [2]=>
+        string(56) "/co2content/co2image/1418244907433/TFR_TFI_2TEI-MS_4.png"
+        [3]=>
+        string(56) "/co2content/co2image/1418244907461/TFR_TFI_2TEI-MS_4.png"
+        [4]=>
+        string(68) "/co2content/co2image/1418244907489/ca-adas-teide-llano-de-ucanca.jpg"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [13]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263577053907"
+      ["code"]=>
+      string(9) "2TRASLORO"
+      ["title"]=>
+      string(28) "Traslado a Loro Parque - Sur"
+      ["url"]=>
+      string(49) "/es/excursion/tenerife/traslado-a-loro-parque-sur"
+      ["description"]=>
+      string(329) "<p style="text-align: justify;">	Saliendo de la zona sur de la Isla, nos trasladaremos a Puerto de la Cruz, donde se encuentra Loro Parque. Este traslado &quot; No incluye la entrada al parque&quot; s&oacute;lo transporte de Ida y Vuelta.&nbsp; Dispondr&aacute;n de 5 horas para una maravillosa visita al mismo.</p><p>	&nbsp;</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(true)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(7) "PTOCRUZ"
+        ["title"]=>
+        string(35) "Traslado a Loro Parque desde el Sur"
+        ["description"]=>
+        string(219) "<p style="text-align: justify;">	Saliendo de la Zona sur de la Isla, nos trasladamos al Puerto de la Cruz, para visitar&nbsp; Loro Parque donde dispondremos de unas 5 horas, para disfrutar de una maravillosa visita.</p>"
+        ["themesList"]=>
+        array(6) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(4) "AGUA"
+            ["name"]=>
+            string(22) "BAÑO, SNORKEL O BUCEO"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "AVENT"
+            ["name"]=>
+            string(18) "DEPORTE Y AVENTURA"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(4) "NATU"
+            ["name"]=>
+            string(10) "NATURALEZA"
+          }
+          [4]=>
+          array(2) {
+            ["code"]=>
+            string(5) "PARQT"
+            ["name"]=>
+            string(18) "PARQUES TEMÁTICOS"
+          }
+          [5]=>
+          array(2) {
+            ["code"]=>
+            string(4) "SHOP"
+            ["name"]=>
+            string(8) "SHOPPING"
+          }
+        }
+        ["featureList"]=>
+        array(2) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(47) "HORA INICIO: aprox. 08h30HORA FIN: aprox. 17h30"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(23) "OBSERVACIONESRELEVANTES"
+            ["name"]=>
+            string(18) "No incluye entrada"
+          }
+        }
+        ["imageList"]=>
+        array(6) {
+          [0]=>
+          string(58) "/co2content/co2image/1418244904241/TFR_TFI_2TRASLORO_1.png"
+          [1]=>
+          string(54) "/co2content/co2image/1418244904269/jardin-botanico.jpg"
+          [2]=>
+          string(50) "/co2content/co2image/1418244904297/san-telmo-1.jpg"
+          [3]=>
+          string(65) "/co2content/co2image/1418244904325/panoramica-pto.-de-la-cruz.jpg"
+          [4]=>
+          string(57) "/co2content/co2image/1418244904353/iglesia-de-la-pe-a.jpg"
+          [5]=>
+          string(53) "/co2content/co2image/1418244904381/calle-quintana.jpg"
+        }
+        ["url"]=>
+        string(58) "/es/excursion/tenerife/traslado-a-loro-parque-desde-el-sur"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(59.328)
+        ["commission"]=>
+        float(14.832)
+        ["adultsPrice"]=>
+        float(18.54)
+        ["kidsPrice"]=>
+        float(18.54)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(74.16)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(59.328)
+        ["commission"]=>
+        float(14.832)
+        ["adultsPrice"]=>
+        float(18.54)
+        ["kidsPrice"]=>
+        float(18.54)
+        ["babiesPrice"]=>
+        float(0)
+        ["price"]=>
+        float(74.16)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(2) {
+        ["EN"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["ES"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+      }
+      ["featureList"]=>
+      array(2) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(47) "HORA INICIO: aprox. 08h30HORA FIN: aprox. 17h30"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(23) "OBSERVACIONESRELEVANTES"
+          ["name"]=>
+          string(74) "En esta excursión el guía sólo realiza la recogida y no incluye entrada"
+        }
+      }
+      ["imageList"]=>
+      array(1) {
+        [0]=>
+        string(58) "/co2content/co2image/1418244904241/TFR_TFI_2TRASLORO_1.png"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [14]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263578980303"
+      ["code"]=>
+      string(8) "2TWINTKT"
+      ["title"]=>
+      string(29) "Twin Ticket (Loro y Siam) Sur"
+      ["url"]=>
+      string(50) "/es/excursion/tenerife/twin-ticket-loro-y-siam-sur"
+      ["description"]=>
+      string(3871) "<p style="text-align: justify;">	Loro Parque: El &ldquo;must de Tenerife situado en el Puerto de la Cruz. Podr&aacute;n visitar este excepcional parque para&iacute;so&nbsp;de excepcionales jardines tropicales y sus muchas atracciones como:<br />	show de orcas, katandra, treetops, nutrias, show de delfines, leones marinos, loro show, aquarium,<br />	gorilas, la isla del tigre y para los mas peque&ntilde;os &ldquo;kinderlandia&rdquo;.<br />	En 1972 el parque abri&oacute; oficialmente sus puertas al publico tiene una extensi&oacute;n de 135.000m2 y ha<br />	recibido desde su inauguraci&oacute;n 40 millones de turistas.<br />	Por todo el recinto hay dispersas numerosas especies de plantas tropicales y subtropicales.&nbsp;Posee una colecci&oacute;n de mas de 200 palmeras procedentes de todo el mundo.<br />	Orquidadearium con una numerosa representaci&oacute;n de orqu&iacute;deas.<br />	Jard&iacute;n de cactus. Jard&iacute;n de dragos, arboles end&eacute;micos de Macaronesia y costa atl&aacute;ntica del Norte de &Aacute;frica. La jungla, parte mas antigua del parque, cuenta con la mayor colecci&oacute;n de papagayos de todo el planeta. En sus instalaciones tambi&eacute;n hay tigres, panteras aligatores, iguanas, tortugas, chimpaces, gorilas y nutrias entre otras especies. Orcas y lobos marinos.&nbsp; Cuentan tambi&eacute;n con un Pinguinario y un acuario.&nbsp;El parque tiene el primer espect&aacute;culo de papagayos en vuelo libre de Europa. Exhibici&oacute;n de delfines,orcas y leones marinos.&nbsp;Tiene una fundaci&oacute;n que promueve la conservaci&oacute;n, protecci&oacute;n y recuperaci&oacute;n de especies en peligro de extinci&oacute;n.</p><p style="text-align: justify;">	Siam Park: El parque acu&aacute;tico mas espectacular de Europa se encuentra en Tenerife, Siam Park donde se combina el ex&oacute;tico misterio del antiguo reino de Siam con las atracciones mas avanzadas e impactantes para toda la familia y para todos los gustos.&nbsp;Siam Park se ha convertido en el nuevo reino del agua en Tenerife consolidandose como uno de los&nbsp;mejores parques acuaticos del mundo, se inauguro en 2008.<br />	A Siam Park se puede llegar de la siguiente manera:<br />	Guagua Siam Park: bus que realiza recogidas en Los Cristianos,Americas y Costa Adeje<br />	En el bus Titsa quedandose en estacion de Las Americas se puede llegar caminando aprox 5 minutos.<br />	En coche por la autopista del sur desde Santa Cruz coger la salida 28,29<br />	Desde autopista Sur coger salida 28<br />	Atracciones mas importantes:<br />	El Dragon.-Tome asiento en un flotador junto a sus amigos y pronto se encontrara cogiendo velocidad hasta verse propulsado frente de las fauces del dragon, basta informar que en ese momento se ira de arriba a abajo experimentando el efecto gravedad cero.<br />	Tower of Power.-La atraccion mas representativa del Siam Park, le dejara boquiabierto. Se asciende a lo alto de la torre, coge aire y agarrate fuerte mientras bajas por una pendiente casi vertical de 25 mtrs en caida libre hasta emerger a traves de un misterioso acuario.<br />	Mahia Tahia River.-Relax mientras se flota por un rio serpeante a traves de un mundo de peces<br />	tropicales,paisajes de frondosa vegetaci&ograve;n y cascadas.<br />	Siam Beach.-Tome el sol y relajese mientras disfrutas de bellas vistas o tomas un sabroso aperitivo en&nbsp;nuestra playa de arena blanca donde su aguas de color turquesa, palmeras y arquitectura thai te<br />	transportan al paraiso directamente agua a 24&ordm; c.<br />	The Giant.-Nuestro Gigante te transporta a un mundo de aventura y misterio mientras te vas<br />	deslizasdando das vueltas en su embudo gigante.<br />	The Volcano.-La luz desaparece y la velocidad aumenta mientras entramos en el volcan. Dentro de su crater la emocion aumenta con la oscuridad rota.</p><p style="text-align: justify;">	&nbsp;</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(true)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(7) "TWINTKT"
+        ["title"]=>
+        string(23) "Loro Parque y Siam Park"
+        ["description"]=>
+        string(255) "<p>	Visite Loro Parque de Tenerife, excepcional para&iacute;so de jardines tropicales y disfrute de sus atracciones y shows. Divi&eacute;rtase tambi&eacute;n con toda la familia de Siam Park el parque acu&aacute;tico m&aacute;s espectacular de Europa.</p>"
+        ["themesList"]=>
+        array(5) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(4) "AGUA"
+            ["name"]=>
+            string(22) "BAÑO, SNORKEL O BUCEO"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ESPEC"
+            ["name"]=>
+            string(13) "ESPECTÁCULOS"
+          }
+          [4]=>
+          array(2) {
+            ["code"]=>
+            string(5) "PARQT"
+            ["name"]=>
+            string(18) "PARQUES TEMÁTICOS"
+          }
+        }
+        ["featureList"]=>
+        array(5) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(11) "Ropa ligera"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(15) "Calzado cómodo"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(21) "Bañador en Siam Park"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(11) "Crema solar"
+          }
+          [4]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(44) "HORA INICIO: 10:00 amHORA FIN:       17:00pm"
+          }
+        }
+        ["imageList"]=>
+        array(2) {
+          [0]=>
+          string(56) "/co2content/co2image/1418244908133/TFR_TFI_1TWINTK_1.png"
+          [1]=>
+          string(57) "/co2content/co2image/1418244908161/TFR_TFI_1TWINTKT_2.png"
+        }
+        ["url"]=>
+        string(46) "/es/excursion/tenerife/loro-parque-y-siam-park"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(169.983)
+        ["commission"]=>
+        float(29.997)
+        ["adultsPrice"]=>
+        float(71.9)
+        ["kidsPrice"]=>
+        float(28.09)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(199.98)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(169.983)
+        ["commission"]=>
+        float(29.997)
+        ["adultsPrice"]=>
+        float(71.9)
+        ["kidsPrice"]=>
+        float(28.09)
+        ["babiesPrice"]=>
+        float(0)
+        ["price"]=>
+        float(199.98)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(7) {
+        ["DE"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["RU"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["PT"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["EN"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["IT"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["FR"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["ES"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+      }
+      ["featureList"]=>
+      array(5) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(37) "Calzado y Ropa cómoda ( Loro Parque)"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(37) "Calzado y Ropa de baño ( Siam Park )"
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(43) "Bañador, toalla, crema solar ( Siam Park )"
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(64) "Cámara de fotos, gafas de sol y protector solar ( Loro Parque )"
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(44) "HORA INICIO: 10:00 amHORA FIN:       17:00pm"
+        }
+      }
+      ["imageList"]=>
+      array(4) {
+        [0]=>
+        string(56) "/co2content/co2image/1418254737469/TFR_TFI_2TWINTK_1.png"
+        [1]=>
+        string(57) "/co2content/co2image/1418254737499/TFR_TFI_2TWINTKT_2.png"
+        [2]=>
+        string(57) "/co2content/co2image/1418254737529/TFR_TFI_2TWINTKT_3.png"
+        [3]=>
+        string(57) "/co2content/co2image/1418254737559/TFR_TFI_2TWINTKT_4.png"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [15]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263580185185"
+      ["code"]=>
+      string(6) "2VUE-S"
+      ["title"]=>
+      string(29) "Vuelta a la Isla desde el Sur"
+      ["url"]=>
+      string(52) "/es/excursion/tenerife/vuelta-a-la-isla-desde-el-sur"
+      ["description"]=>
+      string(800) "<p style="text-align: justify;">	Este Tour le llevar&aacute; a conocer los lugares m&aacute;s emblem&aacute;ticos de la isla de Tenerife.</p><p style="text-align: justify;">	Direcci&oacute;n Los Gigantes, podr&aacute; admirar el mirador del Archipenque. Por Santiago del Teide, llegar&aacute; a El Tanque, donde si lo desea podr&aacute; disfrutar de un paseo en camello (con cargo adicional).</p><p style="text-align: justify;">	Disfrute del mirador de Garachico, conozca el Drago Milenario, la Casa de los Balcones. Le encantar&aacute;.</p><p style="text-align: justify;">	Un descanso donde dispondr&aacute; de tiempo para almorzar ( cargo cliente), le permitir&aacute; reponer fuerzas para la visita a la Villa Mariana de Candelaria,</p><p style="text-align: justify;">	&iexcl;No se lo pierda!.</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(true)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(8) "VISLASUR"
+        ["title"]=>
+        string(16) "Vuelta a la Isla"
+        ["description"]=>
+        string(240) "<p>	Este Tour le llevar&aacute; a conocer los lugares m&aacute;s emblem&aacute;ticos de Tenerife. Podr&aacute; admirar el mirador del Archipenque, el de Garachico, conocer el Drago Milenario, la casa de los balcones; entre otros muchos.</p>"
+        ["themesList"]=>
+        array(3) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "AVENT"
+            ["name"]=>
+            string(18) "DEPORTE Y AVENTURA"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+        }
+        ["featureList"]=>
+        array(3) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(15) "Calzado cómodo"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(33) "No olvide su cámara fotográfica"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(13) "Día Completo"
+          }
+        }
+        ["imageList"]=>
+        array(6) {
+          [0]=>
+          string(55) "/co2content/co2image/1418244908553/TFR_TFI_2VUE-S_1.png"
+          [1]=>
+          string(50) "/co2content/co2image/1418244908581/puerto-cruz.jpg"
+          [2]=>
+          string(49) "/co2content/co2image/1418244908609/drago-icod.jpg"
+          [3]=>
+          string(48) "/co2content/co2image/1418244908637/garachico.jpg"
+          [4]=>
+          string(52) "/co2content/co2image/1418244908665/ruta-camello3.jpg"
+          [5]=>
+          string(54) "/co2content/co2image/1418244908693/gigantesalta-1-.jpg"
+        }
+        ["url"]=>
+        string(39) "/es/excursion/tenerife/vuelta-a-la-isla"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(88.992)
+        ["commission"]=>
+        float(22.248)
+        ["adultsPrice"]=>
+        float(37.08)
+        ["kidsPrice"]=>
+        float(18.54)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(111.24)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(88.992)
+        ["commission"]=>
+        float(22.248)
+        ["adultsPrice"]=>
+        float(37.08)
+        ["kidsPrice"]=>
+        float(18.54)
+        ["babiesPrice"]=>
+        float(0)
+        ["price"]=>
+        float(111.24)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(3) {
+        ["PT"]=>
+        array(2) {
+          [0]=>
+          string(8) "20190603"
+          [1]=>
+          string(8) "20190607"
+        }
+        ["EN"]=>
+        array(2) {
+          [0]=>
+          string(8) "20190603"
+          [1]=>
+          string(8) "20190607"
+        }
+        ["ES"]=>
+        array(2) {
+          [0]=>
+          string(8) "20190603"
+          [1]=>
+          string(8) "20190607"
+        }
+      }
+      ["featureList"]=>
+      array(3) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(15) "Calzado cómodo"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(33) "No olvide su cámara fotográfica"
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(13) "Día Completo"
+        }
+      }
+      ["imageList"]=>
+      array(6) {
+        [0]=>
+        string(55) "/co2content/co2image/1418244908553/TFR_TFI_2VUE-S_1.png"
+        [1]=>
+        string(50) "/co2content/co2image/1418244908581/puerto-cruz.jpg"
+        [2]=>
+        string(49) "/co2content/co2image/1418244908609/drago-icod.jpg"
+        [3]=>
+        string(48) "/co2content/co2image/1418244908637/garachico.jpg"
+        [4]=>
+        string(52) "/co2content/co2image/1418244908665/ruta-camello3.jpg"
+        [5]=>
+        string(54) "/co2content/co2image/1418244908693/gigantesalta-1-.jpg"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [16]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263588214685"
+      ["code"]=>
+      string(4) "1GOB"
+      ["title"]=>
+      string(42) "La Gomera con Naviera Armas desde el Norte"
+      ["url"]=>
+      string(65) "/es/excursion/tenerife/la-gomera-con-naviera-armas-desde-el-norte"
+      ["description"]=>
+      string(904) "<p style="text-align: justify;">	Desde Puerto de la Cruz, nos trasladamos hasta el muelle de Los Cristianos para salir en el Ferry de la naviera Armas. Partimos hacia San Sebasti&aacute;n de la Gomera (capital de la isla), desde donde empezaremos a ascender hacia el Parque Nacional de Garajonay (bosque de Laurisilva), pasando por el mirador de La Degollada de Peraza (vista panor&aacute;mica).&nbsp; Continuaremos por la Palmita, atravesando el Parque Nacional para llegar a los pueblos de Las Rosas y Agulo (almuerzo en restaurante de la zona con demostraci&oacute;n del silbo t&iacute;pico gomero). Si disponemos de tiempo se visitara el centro de visitantes&nbsp; Juego de Bolas ( cerrado los lunes).&nbsp;</p><p>	Regresaremos por el Valle de Hermigua hacia San Sebasti&aacute;n, donde tendremos tiempo libre para ver los exteriores de la Torre del Conde y la fachada de la Casa de Col&oacute;n.</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(false)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(8) "LAGOMERA"
+        ["title"]=>
+        string(17) "Isla de la Gomera"
+        ["description"]=>
+        string(231) "<p>	Desde el muelle de los Cristianos tomaremos el ferry que nos llevar&aacute; a San Sebasti&aacute;n de la Gomera. Descubriremos el Parque Nacional de Garajonay y disfrutaremos de los pintorescos pueblos de la isla colombina.</p>"
+        ["themesList"]=>
+        array(3) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "AVENT"
+            ["name"]=>
+            string(18) "DEPORTE Y AVENTURA"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+        }
+        ["featureList"]=>
+        array(4) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(46) "Ropa cómoda, calzado cómodo y algo de abrigo"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(34) "Cámara de fotos y protector solar"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(13) "Día Completo"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(7) "INCLUYE"
+            ["name"]=>
+            string(8) "Almuerzo"
+          }
+        }
+        ["imageList"]=>
+        array(7) {
+          [0]=>
+          string(53) "/co2content/co2image/1418244901329/TFR_TFI_1GOF_5.PNG"
+          [1]=>
+          string(53) "/co2content/co2image/1418244901357/TFR_TFI_1GOB_2.png"
+          [2]=>
+          string(53) "/co2content/co2image/1418244901385/TFR_TFI_1GOB_3.png"
+          [3]=>
+          string(53) "/co2content/co2image/1418244901413/TFR_TFI_1GOB_4.png"
+          [4]=>
+          string(53) "/co2content/co2image/1418244901441/TFR_TFI_1GOB_5.png"
+          [5]=>
+          string(53) "/co2content/co2image/1418244901469/TFR_TFI_1GOB_6.png"
+          [6]=>
+          string(53) "/co2content/co2image/1418244901497/gomera-capital.jpg"
+        }
+        ["url"]=>
+        string(40) "/es/excursion/tenerife/isla-de-la-gomera"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(197.676)
+        ["commission"]=>
+        float(34.884)
+        ["adultsPrice"]=>
+        float(77.52)
+        ["kidsPrice"]=>
+        float(38.76)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(232.56)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(197.676)
+        ["commission"]=>
+        float(34.884)
+        ["adultsPrice"]=>
+        float(77.52)
+        ["kidsPrice"]=>
+        float(38.76)
+        ["babiesPrice"]=>
+        float(3.93)
+        ["price"]=>
+        float(232.56)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(3) {
+        ["PT"]=>
+        array(2) {
+          [0]=>
+          string(8) "20190605"
+          [1]=>
+          string(8) "20190607"
+        }
+        ["EN"]=>
+        array(2) {
+          [0]=>
+          string(8) "20190605"
+          [1]=>
+          string(8) "20190607"
+        }
+        ["ES"]=>
+        array(2) {
+          [0]=>
+          string(8) "20190605"
+          [1]=>
+          string(8) "20190607"
+        }
+      }
+      ["featureList"]=>
+      array(9) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Calzado cómodo"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(12) "Ropa cómoda"
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(24) "Alguna prenda de abrigo."
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(16) "Cámara de Fotos"
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(12) "Gafas de Sol"
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(15) "Protector Solar"
+        }
+        [6]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(13) "Día Completo"
+        }
+        [7]=>
+        array(2) {
+          ["code"]=>
+          string(7) "INCLUYE"
+          ["name"]=>
+          string(8) "Almuerzo"
+        }
+        [8]=>
+        array(2) {
+          ["code"]=>
+          string(23) "OBSERVACIONESRELEVANTES"
+          ["name"]=>
+          string(37) "“Juego de Bolas” (Lunes cerrado)."
+        }
+      }
+      ["imageList"]=>
+      array(7) {
+        [0]=>
+        string(53) "/co2content/co2image/1418244901329/TFR_TFI_1GOF_5.PNG"
+        [1]=>
+        string(53) "/co2content/co2image/1418244901357/TFR_TFI_1GOB_2.png"
+        [2]=>
+        string(53) "/co2content/co2image/1418244901385/TFR_TFI_1GOB_3.png"
+        [3]=>
+        string(53) "/co2content/co2image/1418244901413/TFR_TFI_1GOB_4.png"
+        [4]=>
+        string(53) "/co2content/co2image/1418244901441/TFR_TFI_1GOB_5.png"
+        [5]=>
+        string(53) "/co2content/co2image/1418244901469/TFR_TFI_1GOB_6.png"
+        [6]=>
+        string(53) "/co2content/co2image/1418244901497/gomera-capital.jpg"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [17]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263590133596"
+      ["code"]=>
+      string(4) "1GOF"
+      ["title"]=>
+      string(39) "La Gomera con Fred Olsen desde el Norte"
+      ["url"]=>
+      string(62) "/es/excursion/tenerife/la-gomera-con-fred-olsen-desde-el-norte"
+      ["description"]=>
+      string(895) "<p style="text-align: justify;">	Desde Puerto de la Cruz, nos trasladamos hasta el muelle de Los Cristianos para salir en el Ferry Fred Olsen. Partimos hacia San Sebasti&aacute;n de la Gomera (capital de la isla), desde donde empezaremos a ascender hacia el Parque Nacional de Garajonay (bosque de Laurisilva), pasando por el mirador de La Degollada de Peraza (vista panor&aacute;mica).&nbsp; Continuaremos por la Palmita, atravesando el Parque Nacional para llegar a los pueblos de Las Rosas y Agulo (almuerzo en restaurante de la zona con demostraci&oacute;n del silbo t&iacute;pico gomero). Si disponemos de tiempo se visitara el centro de visitantes&nbsp; Juego de Bolas ( cerrado los lunes).&nbsp;</p><p>	Regresaremos por el Valle de Hermigua hacia San Sebasti&aacute;n, donde tendremos tiempo libre para ver los exteriores de la Torre del Conde y la fachada de la Casa de Col&oacute;n.</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(false)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(8) "LAGOMERA"
+        ["title"]=>
+        string(17) "Isla de la Gomera"
+        ["description"]=>
+        string(231) "<p>	Desde el muelle de los Cristianos tomaremos el ferry que nos llevar&aacute; a San Sebasti&aacute;n de la Gomera. Descubriremos el Parque Nacional de Garajonay y disfrutaremos de los pintorescos pueblos de la isla colombina.</p>"
+        ["themesList"]=>
+        array(3) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "AVENT"
+            ["name"]=>
+            string(18) "DEPORTE Y AVENTURA"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+        }
+        ["featureList"]=>
+        array(4) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(46) "Ropa cómoda, calzado cómodo y algo de abrigo"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(34) "Cámara de fotos y protector solar"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(13) "Día Completo"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(7) "INCLUYE"
+            ["name"]=>
+            string(8) "Almuerzo"
+          }
+        }
+        ["imageList"]=>
+        array(7) {
+          [0]=>
+          string(53) "/co2content/co2image/1418244901329/TFR_TFI_1GOF_5.PNG"
+          [1]=>
+          string(53) "/co2content/co2image/1418244901357/TFR_TFI_1GOB_2.png"
+          [2]=>
+          string(53) "/co2content/co2image/1418244901385/TFR_TFI_1GOB_3.png"
+          [3]=>
+          string(53) "/co2content/co2image/1418244901413/TFR_TFI_1GOB_4.png"
+          [4]=>
+          string(53) "/co2content/co2image/1418244901441/TFR_TFI_1GOB_5.png"
+          [5]=>
+          string(53) "/co2content/co2image/1418244901469/TFR_TFI_1GOB_6.png"
+          [6]=>
+          string(53) "/co2content/co2image/1418244901497/gomera-capital.jpg"
+        }
+        ["url"]=>
+        string(40) "/es/excursion/tenerife/isla-de-la-gomera"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(204.357)
+        ["commission"]=>
+        float(36.063)
+        ["adultsPrice"]=>
+        float(77.52)
+        ["kidsPrice"]=>
+        float(42.69)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(240.42)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(204.357)
+        ["commission"]=>
+        float(36.063)
+        ["adultsPrice"]=>
+        float(77.52)
+        ["kidsPrice"]=>
+        float(42.69)
+        ["babiesPrice"]=>
+        float(3.93)
+        ["price"]=>
+        float(240.42)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(3) {
+        ["PT"]=>
+        array(4) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190604"
+          [2]=>
+          string(8) "20190606"
+          [3]=>
+          string(8) "20190608"
+        }
+        ["EN"]=>
+        array(4) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190604"
+          [2]=>
+          string(8) "20190606"
+          [3]=>
+          string(8) "20190608"
+        }
+        ["ES"]=>
+        array(4) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190604"
+          [2]=>
+          string(8) "20190606"
+          [3]=>
+          string(8) "20190608"
+        }
+      }
+      ["featureList"]=>
+      array(9) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Calzado cómodo"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(12) "Ropa cómoda"
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(24) "Alguna prenda de abrigo."
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(16) "Cámara de Fotos"
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(12) "Gafas de Sol"
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(15) "Protector Solar"
+        }
+        [6]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(13) "Día Completo"
+        }
+        [7]=>
+        array(2) {
+          ["code"]=>
+          string(7) "INCLUYE"
+          ["name"]=>
+          string(8) "Almuerzo"
+        }
+        [8]=>
+        array(2) {
+          ["code"]=>
+          string(23) "OBSERVACIONESRELEVANTES"
+          ["name"]=>
+          string(37) "“Juego de Bolas” (Lunes cerrado)."
+        }
+      }
+      ["imageList"]=>
+      array(6) {
+        [0]=>
+        string(53) "/co2content/co2image/1418244901329/TFR_TFI_1GOF_5.PNG"
+        [1]=>
+        string(53) "/co2content/co2image/1418244901357/TFR_TFI_1GOB_2.png"
+        [2]=>
+        string(53) "/co2content/co2image/1418244901413/TFR_TFI_1GOB_4.png"
+        [3]=>
+        string(53) "/co2content/co2image/1418244901441/TFR_TFI_1GOB_5.png"
+        [4]=>
+        string(53) "/co2content/co2image/1418244901469/TFR_TFI_1GOB_6.png"
+        [5]=>
+        string(53) "/co2content/co2image/1418244901497/gomera-capital.jpg"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [18]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263591959918"
+      ["code"]=>
+      string(6) "1MASCA"
+      ["title"]=>
+      string(38) "Icod, Garachico y Masca desde el Norte"
+      ["url"]=>
+      string(60) "/es/excursion/tenerife/icod-garachico-y-masca-desde-el-norte"
+      ["description"]=>
+      string(1329) "<p style="text-align: justify;">	Salida desde el Puerto de la Cruz, hacia la Villa y Puerto de Garachico, all&iacute; gozamos de tiempo libre para visita al Castillo San Miguel, la Iglesia de Santa Ana y el Convento de San Francisco (no incluido en el precio). Visitamos el municipio de Los Silos y Buenavista del Norte. Realizamos la subida por la carretera de El Palmar hasta el caser&iacute;o de Masca, en el Parque Rural de Teno, donde tendremos tiempo libre para visita. Continuaremos la ruta hacia el municipio de Santiago del Teide, haremos parada en el mirador de Cherfe, desde el que se divisa todo el Valle. Posteriormente continuaremos con la subida a la Cumbre de Erjos a unos 1.117 metros de altura. Llegamos al municipio de El Tanque, en la vertiente norte de la isla. Realizaremos una parada para la comida (no incluida). Iniciamos la bajada al Mirador de Garachico, situado a unos 400 metros de altura, desde donde podremos deleitarnos con la vista panor&aacute;mica de la Villa y Puerto de Garachico. Continuamos hacia Icod de Los Vinos, donde gozaremos de tiempo libre para visitar del Drago Milenario y la Iglesia de San Marcos (no incluido en el precio).<br />	Regresamos al Puerto de la Cruz, atravesando los municipios de San Juan de la Rambla y Los Realejos, bordeando todo el litoral Norte de la isla.</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(false)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(5) "MASCA"
+        ["title"]=>
+        string(23) "Masca, Icod y Garachico"
+        ["description"]=>
+        string(258) "<p style="text-align: justify;">	Tour en que visitamos: Los Silos, Buenavista, el Caser&iacute;o de Masca, El Tanque, Garachico, d&oacute;nde gozamos de tiempo para visitar las piscinas naturales y almorzar, Icod y su famoso Drago milenario, entre otros.</p>"
+        ["themesList"]=>
+        array(3) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "AVENT"
+            ["name"]=>
+            string(18) "DEPORTE Y AVENTURA"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+        }
+        ["featureList"]=>
+        array(8) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(16) "Calzado cómodo."
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(12) "Ropa ligera."
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(24) "Alguna prenda de abrigo."
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(17) "Cámara de fotos."
+          }
+          [4]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(13) "Gafas de sol."
+          }
+          [5]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(16) "Protector solar."
+          }
+          [6]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(13) "día completo"
+          }
+          [7]=>
+          array(2) {
+            ["code"]=>
+            string(23) "OBSERVACIONESRELEVANTES"
+            ["name"]=>
+            string(21) "Almuerzo no Incluido."
+          }
+        }
+        ["imageList"]=>
+        array(1) {
+          [0]=>
+          string(55) "/co2content/co2image/1418244903429/TFR_TFI_1MASCA_3.png"
+        }
+        ["url"]=>
+        string(45) "/es/excursion/tenerife/masca-icod-y-garachico"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(99.76)
+        ["commission"]=>
+        float(24.94)
+        ["adultsPrice"]=>
+        float(41.57)
+        ["kidsPrice"]=>
+        float(20.78)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(124.7)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(99.76)
+        ["commission"]=>
+        float(24.94)
+        ["adultsPrice"]=>
+        float(41.57)
+        ["kidsPrice"]=>
+        float(20.78)
+        ["babiesPrice"]=>
+        float(0)
+        ["price"]=>
+        float(124.7)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(1) {
+        ["ES"]=>
+        array(2) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190608"
+        }
+      }
+      ["featureList"]=>
+      array(8) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Calzado cómodo"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(12) "Ropa cómoda"
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(24) "Alguna prenda de abrigo."
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(16) "Cámara de fotos"
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(12) "Gafas de sol"
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(15) "Protector solar"
+        }
+        [6]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(13) "Día Completo"
+        }
+        [7]=>
+        array(2) {
+          ["code"]=>
+          string(23) "OBSERVACIONESRELEVANTES"
+          ["name"]=>
+          string(21) "Almuerzo no includio."
+        }
+      }
+      ["imageList"]=>
+      array(4) {
+        [0]=>
+        string(55) "/co2content/co2image/1418244903373/TFR_TFI_1MASCA_1.png"
+        [1]=>
+        string(55) "/co2content/co2image/1418244903401/TFR_TFI_1MASCA_2.png"
+        [2]=>
+        string(55) "/co2content/co2image/1418244903429/TFR_TFI_1MASCA_3.png"
+        [3]=>
+        string(49) "/co2content/co2image/1418244903457/drago-icod.jpg"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [19]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263593542073"
+      ["code"]=>
+      string(4) "1TAG"
+      ["title"]=>
+      string(44) "Laguna, Taganana y Santa Cruz desde el Norte"
+      ["url"]=>
+      string(66) "/es/excursion/tenerife/laguna-taganana-y-santa-cruz-desde-el-norte"
+      ["description"]=>
+      string(1602) "<p style="text-align: justify;">	Saliendo de Puerto de la cruz, atravesaremos&nbsp; los municipios de la comarca de: Acentejo, Santa &Uacute;rsula, La Victoria, La Matanza, El Sauzal y Tacoronte en direcci&oacute;n a la ciudad episcopal y universitaria de La Laguna , declarada Patrimonio de la Humanidad. All&iacute; visitaremos los lugares m&aacute;s importantes y pintorescos de la ciudad: la Plaza del Adelantado, Iglesia del Sant&iacute;simo Cristo de La Laguna, el Mercado, el casco antiguo de la ciudad, Obispado, etc. A continuaci&oacute;n, saldremos hacia el Monte de las Mercedes, para luego descender por la carretera del Bailadero, atravesando los montes de laurisilva que desembocan en el caser&iacute;o de Taganana. A continuaci&oacute;n, llegada a la playa de Alm&aacute;ciga con breve parada para hacer fotos de Los R&oacute;ques y salida en direcci&oacute;n al restaurante en el que tendr&aacute; lugar la comida (no incluida). Finalizada la comida, partiremos en direcci&oacute;n al barrio pesquero de San Andr&eacute;s, en el que se encuentra la playa de Las Teresitas, donde haremos una breve parada para tomar fotos, luego, atravesando su autov&iacute;a, llegaremos al centro de Santa Cruz de Tenerife. Alli disfrutaremos de un breve recorrido y la vista panor&aacute;mica de los puntos m&aacute;s emblem&aacute;ticos de la ciudad, como la Plaza de Espa&ntilde;a, Calle del Castillo, Iglesia de La Concepci&oacute;n, Auditorio, etc. Concluida esta visita, volveremos por la autopista del norte en direcci&oacute;n al Puerto de la Cruz, dando por finalizada la excursi&oacute;n.</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(false)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(8) "TAGANANA"
+        ["title"]=>
+        string(33) "La Laguna - Taganana - Santa Cruz"
+        ["description"]=>
+        string(269) "<p style="text-align: justify;">	Visite La Laguna, patrimonio de la Humanidad. Las Monta&ntilde;as de Anaga y Taganana. Disfrute de la panor&aacute;mica de la Playa de las Teresitas y Capital. Un Tour en el que apreciar la impresionante orograf&iacute;a de la isla.</p>"
+        ["themesList"]=>
+        array(4) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(5) "AVENT"
+            ["name"]=>
+            string(18) "DEPORTE Y AVENTURA"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(4) "SHOP"
+            ["name"]=>
+            string(8) "SHOPPING"
+          }
+        }
+        ["featureList"]=>
+        array(7) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(23) "Ropa y Calzado cómodo."
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(23) "Alguna Prenda de abrigo"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(16) "Cámara de fotos"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(12) "Gafas de sol"
+          }
+          [4]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(15) "Protector solar"
+          }
+          [5]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(13) "Día Completo"
+          }
+          [6]=>
+          array(2) {
+            ["code"]=>
+            string(23) "OBSERVACIONESRELEVANTES"
+            ["name"]=>
+            string(18) "Almuerzo Opcional."
+          }
+        }
+        ["imageList"]=>
+        array(1) {
+          [0]=>
+          string(53) "/co2content/co2image/1418244906705/TFR_TFI_1TAG_3.PNG"
+        }
+        ["url"]=>
+        string(52) "/es/excursion/tenerife/la-laguna-taganana-santa-cruz"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(83.584)
+        ["commission"]=>
+        float(20.896)
+        ["adultsPrice"]=>
+        float(34.83)
+        ["kidsPrice"]=>
+        float(17.41)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(104.48)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(83.584)
+        ["commission"]=>
+        float(20.896)
+        ["adultsPrice"]=>
+        float(34.83)
+        ["kidsPrice"]=>
+        float(17.41)
+        ["babiesPrice"]=>
+        float(0)
+        ["price"]=>
+        float(104.48)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(6) {
+        ["DE"]=>
+        array(1) {
+          [0]=>
+          string(8) "20190605"
+        }
+        ["PT"]=>
+        array(1) {
+          [0]=>
+          string(8) "20190605"
+        }
+        ["EN"]=>
+        array(1) {
+          [0]=>
+          string(8) "20190605"
+        }
+        ["IT"]=>
+        array(1) {
+          [0]=>
+          string(8) "20190605"
+        }
+        ["FR"]=>
+        array(1) {
+          [0]=>
+          string(8) "20190605"
+        }
+        ["ES"]=>
+        array(1) {
+          [0]=>
+          string(8) "20190605"
+        }
+      }
+      ["featureList"]=>
+      array(8) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Calzado cómodo"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(12) "Ropa cómoda"
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(15) "Algo de abrigo."
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(16) "Cámara de fotos"
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(12) "Gafas de sol"
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(15) "Protector solar"
+        }
+        [6]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(13) "Día Completo"
+        }
+        [7]=>
+        array(2) {
+          ["code"]=>
+          string(23) "OBSERVACIONESRELEVANTES"
+          ["name"]=>
+          string(18) "Almuerzo opcional."
+        }
+      }
+      ["imageList"]=>
+      array(5) {
+        [0]=>
+        string(53) "/co2content/co2image/1418244906621/TFR_TFI_1TAG_1.png"
+        [1]=>
+        string(53) "/co2content/co2image/1418244906649/TFR_TFI_1TAG_2.png"
+        [2]=>
+        string(53) "/co2content/co2image/1418244906677/TFR_TFI_1TAG_3.png"
+        [3]=>
+        string(53) "/co2content/co2image/1418244906705/TFR_TFI_1TAG_3.PNG"
+        [4]=>
+        string(53) "/co2content/co2image/1418254364935/TFR_TFI_1TAG_5.png"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+    [20]=>
+    array(17) {
+      ["availableToken"]=>
+      string(21) "EXC016841263595276958"
+      ["code"]=>
+      string(7) "2AGUA-S"
+      ["title"]=>
+      string(25) "Aqualand Parque Acuático"
+      ["url"]=>
+      string(47) "/es/excursion/tenerife/aqualand-parque-acuatico"
+      ["description"]=>
+      string(494) "<p style="text-align: justify;">	Disfruta de los toboganes de agua en todas las formas y tama&ntilde;os, donde puedes experimentar la emoci&oacute;n, disfruta de momentos de relax y mira c&oacute;mo se divierte tu peque&ntilde;o en el Para&iacute;so Infantil, el parque acu&aacute;tico para ni&ntilde;os.</p><p>	Tambi&eacute;n hay un espect&aacute;culo de delfines que IMATA considera el mejor del mundo.</p><p style="text-align: justify;">	&nbsp;</p><p style="text-align: justify;">	&nbsp;</p>"
+      ["destination"]=>
+      array(1) {
+        ["code"]=>
+        string(3) "TCI"
+      }
+      ["delegation"]=>
+      string(3) "TFR"
+      ["recomended"]=>
+      bool(false)
+      ["groupInfo"]=>
+      array(7) {
+        ["code"]=>
+        string(8) "AQUALAND"
+        ["title"]=>
+        string(25) "Parque Acuático Aqualand"
+        ["description"]=>
+        string(226) "<p>	Disfrute de sensaciones fuertes, y de momentos de relax en el universo de toboganes acu&aacute;ticos de Aqualand. Adem&aacute;s, cuentan con un show de delfines que est&aacute; galardonado como el mejor show del mundo.</p>"
+        ["themesList"]=>
+        array(4) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(5) "ACNIN"
+            ["name"]=>
+            string(22) "ACTIVIDADES CON NIÑOS"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(4) "AGUA"
+            ["name"]=>
+            string(22) "BAÑO, SNORKEL O BUCEO"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(5) "CULCI"
+            ["name"]=>
+            string(7) "CULTURA"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(5) "PARQT"
+            ["name"]=>
+            string(18) "PARQUES TEMÁTICOS"
+          }
+        }
+        ["featureList"]=>
+        array(7) {
+          [0]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(8) "Bañador"
+          }
+          [1]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(11) "Ropa ligera"
+          }
+          [2]=>
+          array(2) {
+            ["code"]=>
+            string(3) "PON"
+            ["name"]=>
+            string(11) "Crema solar"
+          }
+          [3]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(11) "Crema solar"
+          }
+          [4]=>
+          array(2) {
+            ["code"]=>
+            string(5) "LLEVA"
+            ["name"]=>
+            string(20) "Cámara fotográfica"
+          }
+          [5]=>
+          array(2) {
+            ["code"]=>
+            string(8) "DURACION"
+            ["name"]=>
+            string(100) "Hora Apertura: 10.00 hrs.Hora Cierre:17.00 hrs.*El horario puede sufrir variaciones sin previo aviso"
+          }
+          [6]=>
+          array(2) {
+            ["code"]=>
+            string(23) "OBSERVACIONESRELEVANTES"
+            ["name"]=>
+            string(237) "<p>Cómo reservar<br />Existen dos tipos de precios para niños dependiendo de la estatura:<br />Entre 1,10 m y 1,40 m deberá reservar precio niño<br />Entre 90cm y 1,10 m deberá reservar precio bebe<br />Menores de 90 cm no pagan</p>"
+          }
+        }
+        ["imageList"]=>
+        array(4) {
+          [0]=>
+          string(57) "/co2content/co2image/1418244897717/acualand-activitis.jpg"
+          [1]=>
+          string(53) "/co2content/co2image/1418244897745/aqualand-ni-os.jpg"
+          [2]=>
+          string(49) "/co2content/co2image/1418244897773/aqualand-1.jpg"
+          [3]=>
+          string(56) "/co2content/co2image/1418244897801/delfines-aguapark.jpg"
+        }
+        ["url"]=>
+        string(47) "/es/excursion/tenerife/parque-acuatico-aqualand"
+      }
+      ["paxDistribution"]=>
+      array(3) {
+        ["adults"]=>
+        int(2)
+        ["kids"]=>
+        int(2)
+        ["babies"]=>
+        int(0)
+      }
+      ["price"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(84.031)
+        ["commission"]=>
+        float(14.829)
+        ["adultsPrice"]=>
+        float(29.21)
+        ["kidsPrice"]=>
+        float(20.22)
+        ["babiesPrice"]=>
+        int(0)
+        ["price"]=>
+        float(98.86)
+      }
+      ["promoPrice"]=>
+      array(7) {
+        ["currency"]=>
+        array(1) {
+          ["code"]=>
+          string(3) "USD"
+        }
+        ["netPrice"]=>
+        float(84.031)
+        ["commission"]=>
+        float(14.829)
+        ["adultsPrice"]=>
+        float(29.21)
+        ["kidsPrice"]=>
+        float(20.22)
+        ["babiesPrice"]=>
+        float(10.67)
+        ["price"]=>
+        float(98.86)
+      }
+      ["promoCode"]=>
+      array(1) {
+        ["code"]=>
+        NULL
+      }
+      ["datesByMarket"]=>
+      array(7) {
+        ["DE"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["RU"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["PT"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["EN"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["IT"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["FR"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+        ["ES"]=>
+        array(8) {
+          [0]=>
+          string(8) "20190601"
+          [1]=>
+          string(8) "20190602"
+          [2]=>
+          string(8) "20190603"
+          [3]=>
+          string(8) "20190604"
+          [4]=>
+          string(8) "20190605"
+          [5]=>
+          string(8) "20190606"
+          [6]=>
+          string(8) "20190607"
+          [7]=>
+          string(8) "20190608"
+        }
+      }
+      ["featureList"]=>
+      array(9) {
+        [0]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(12) "Ropa cómoda"
+        }
+        [1]=>
+        array(2) {
+          ["code"]=>
+          string(3) "PON"
+          ["name"]=>
+          string(16) "Zapatos cómodos"
+        }
+        [2]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(17) "Protección solar"
+        }
+        [3]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(8) "Bañador"
+        }
+        [4]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(6) "Camera"
+        }
+        [5]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(6) "Toalla"
+        }
+        [6]=>
+        array(2) {
+          ["code"]=>
+          string(5) "LLEVA"
+          ["name"]=>
+          string(19) "Zapatillas de playa"
+        }
+        [7]=>
+        array(2) {
+          ["code"]=>
+          string(8) "DURACION"
+          ["name"]=>
+          string(87) "Apertura: 10.00 am. Cierre: 05.00 pm. Horas de apertura pueden cambiar sin previo aviso"
+        }
+        [8]=>
+        array(2) {
+          ["code"]=>
+          string(23) "OBSERVACIONESRELEVANTES"
+          ["name"]=>
+          string(216) "Hay 2 tipos de precios para niños dependiendo de su altura: Entre 1,10 my 1,40 m debe reservar el precio para niños. Entre 90 cm y 1,10 m debe reservar el precio para bebés. Los niños menores de 90 cm no pagan "."
+        }
+      }
+      ["imageList"]=>
+      array(4) {
+        [0]=>
+        string(57) "/co2content/co2image/1418244897717/acualand-activitis.jpg"
+        [1]=>
+        string(53) "/co2content/co2image/1418244897745/aqualand-ni-os.jpg"
+        [2]=>
+        string(49) "/co2content/co2image/1418244897773/aqualand-1.jpg"
+        [3]=>
+        string(56) "/co2content/co2image/1418244897801/delfines-aguapark.jpg"
+      }
+      ["orderNumber"]=>
+      int(99)
+    }
+  }
+}
+</xmp><br/>Done

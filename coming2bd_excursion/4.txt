@@ -1,0 +1,273 @@
+COMECOU BOOK
+500 - Internal Server Error
+object(Zend\Http\Response)#41 (7) {
+  ["recommendedReasonPhrases":protected]=>
+  array(64) {
+    [100]=>
+    string(8) "Continue"
+    [101]=>
+    string(19) "Switching Protocols"
+    [102]=>
+    string(10) "Processing"
+    [200]=>
+    string(2) "OK"
+    [201]=>
+    string(7) "Created"
+    [202]=>
+    string(8) "Accepted"
+    [203]=>
+    string(29) "Non-Authoritative Information"
+    [204]=>
+    string(10) "No Content"
+    [205]=>
+    string(13) "Reset Content"
+    [206]=>
+    string(15) "Partial Content"
+    [207]=>
+    string(12) "Multi-status"
+    [208]=>
+    string(16) "Already Reported"
+    [226]=>
+    string(7) "IM Used"
+    [300]=>
+    string(16) "Multiple Choices"
+    [301]=>
+    string(17) "Moved Permanently"
+    [302]=>
+    string(5) "Found"
+    [303]=>
+    string(9) "See Other"
+    [304]=>
+    string(12) "Not Modified"
+    [305]=>
+    string(9) "Use Proxy"
+    [306]=>
+    string(12) "Switch Proxy"
+    [307]=>
+    string(18) "Temporary Redirect"
+    [308]=>
+    string(18) "Permanent Redirect"
+    [400]=>
+    string(11) "Bad Request"
+    [401]=>
+    string(12) "Unauthorized"
+    [402]=>
+    string(16) "Payment Required"
+    [403]=>
+    string(9) "Forbidden"
+    [404]=>
+    string(9) "Not Found"
+    [405]=>
+    string(18) "Method Not Allowed"
+    [406]=>
+    string(14) "Not Acceptable"
+    [407]=>
+    string(29) "Proxy Authentication Required"
+    [408]=>
+    string(16) "Request Time-out"
+    [409]=>
+    string(8) "Conflict"
+    [410]=>
+    string(4) "Gone"
+    [411]=>
+    string(15) "Length Required"
+    [412]=>
+    string(19) "Precondition Failed"
+    [413]=>
+    string(24) "Request Entity Too Large"
+    [414]=>
+    string(20) "Request-URI Too Long"
+    [415]=>
+    string(22) "Unsupported Media Type"
+    [416]=>
+    string(31) "Requested range not satisfiable"
+    [417]=>
+    string(18) "Expectation Failed"
+    [418]=>
+    string(12) "I'm a teapot"
+    [422]=>
+    string(20) "Unprocessable Entity"
+    [423]=>
+    string(6) "Locked"
+    [424]=>
+    string(17) "Failed Dependency"
+    [425]=>
+    string(9) "Too Early"
+    [426]=>
+    string(16) "Upgrade Required"
+    [428]=>
+    string(21) "Precondition Required"
+    [429]=>
+    string(17) "Too Many Requests"
+    [431]=>
+    string(31) "Request Header Fields Too Large"
+    [444]=>
+    string(34) "Connection Closed Without Response"
+    [451]=>
+    string(29) "Unavailable For Legal Reasons"
+    [499]=>
+    string(21) "Client Closed Request"
+    [500]=>
+    string(21) "Internal Server Error"
+    [501]=>
+    string(15) "Not Implemented"
+    [502]=>
+    string(11) "Bad Gateway"
+    [503]=>
+    string(19) "Service Unavailable"
+    [504]=>
+    string(16) "Gateway Time-out"
+    [505]=>
+    string(26) "HTTP Version not supported"
+    [506]=>
+    string(23) "Variant Also Negotiates"
+    [507]=>
+    string(20) "Insufficient Storage"
+    [508]=>
+    string(13) "Loop Detected"
+    [510]=>
+    string(12) "Not Extended"
+    [511]=>
+    string(31) "Network Authentication Required"
+    [599]=>
+    string(29) "Network Connect Timeout Error"
+  }
+  ["statusCode":protected]=>
+  int(500)
+  ["reasonPhrase":protected]=>
+  string(21) "Internal Server Error"
+  ["version":protected]=>
+  string(3) "1.1"
+  ["headers":protected]=>
+  object(Zend\Http\Headers)#44 (3) {
+    ["pluginClassLoader":protected]=>
+    NULL
+    ["headersKeys":protected]=>
+    array(10) {
+      [0]=>
+      string(4) "date"
+      [1]=>
+      string(6) "server"
+      [2]=>
+      string(27) "access-control-allow-origin"
+      [3]=>
+      string(28) "access-control-allow-methods"
+      [4]=>
+      string(22) "access-control-max-age"
+      [5]=>
+      string(28) "access-control-allow-headers"
+      [6]=>
+      string(12) "content-type"
+      [7]=>
+      string(16) "content-language"
+      [8]=>
+      string(14) "content-length"
+      [9]=>
+      string(10) "connection"
+    }
+    ["headers":protected]=>
+    array(10) {
+      [0]=>
+      array(2) {
+        ["name"]=>
+        string(4) "Date"
+        ["line"]=>
+        string(35) "Date: Mon, 01 Apr 2019 18:06:13 GMT"
+      }
+      [1]=>
+      array(2) {
+        ["name"]=>
+        string(6) "Server"
+        ["line"]=>
+        string(25) "Server: Apache-Coyote/1.1"
+      }
+      [2]=>
+      array(2) {
+        ["name"]=>
+        string(27) "Access-Control-Allow-Origin"
+        ["line"]=>
+        string(30) "Access-Control-Allow-Origin: *"
+      }
+      [3]=>
+      array(2) {
+        ["name"]=>
+        string(28) "Access-Control-Allow-Methods"
+        ["line"]=>
+        string(61) "Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT"
+      }
+      [4]=>
+      array(2) {
+        ["name"]=>
+        string(22) "Access-Control-Max-Age"
+        ["line"]=>
+        string(28) "Access-Control-Max-Age: 1000"
+      }
+      [5]=>
+      array(2) {
+        ["name"]=>
+        string(28) "Access-Control-Allow-Headers"
+        ["line"]=>
+        string(114) "Access-Control-Allow-Headers: x-requested-with, Content-Type, origin, authorization, accept, client-security-token"
+      }
+      [6]=>
+      array(2) {
+        ["name"]=>
+        string(12) "Content-Type"
+        ["line"]=>
+        string(37) "Content-Type: text/html;charset=utf-8"
+      }
+      [7]=>
+      array(2) {
+        ["name"]=>
+        string(16) "Content-Language"
+        ["line"]=>
+        string(20) "Content-Language: en"
+      }
+      [8]=>
+      array(2) {
+        ["name"]=>
+        string(14) "Content-Length"
+        ["line"]=>
+        string(20) "Content-Length: 3706"
+      }
+      [9]=>
+      array(2) {
+        ["name"]=>
+        string(10) "Connection"
+        ["line"]=>
+        string(17) "Connection: close"
+      }
+    }
+  }
+  ["metadata":protected]=>
+  array(0) {
+  }
+  ["content":protected]=>
+  string(3706) "<!DOCTYPE html><html><head><title>Apache Tomcat/8.0.33 - Error report</title><style type="text/css">H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}.line {height: 1px; background-color: #525D76; border: none;}</style> </head><body><h1>HTTP Status 500 - Request processing failed; nested exception is java.lang.NullPointerException</h1><div class="line"></div><p><b>type</b> Exception report</p><p><b>message</b> <u>Request processing failed; nested exception is java.lang.NullPointerException</u></p><p><b>description</b> <u>The server encountered an internal error that prevented it from fulfilling this request.</u></p><p><b>exception</b></p><pre>org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.NullPointerException
+	org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:982)
+	org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+	org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+</pre><p><b>root cause</b></p><pre>java.lang.NullPointerException
+	com.grupopinero.pandora.controller.impl.ExcursionBookingController.getBooking(ExcursionBookingController.java:113)
+	sun.reflect.GeneratedMethodAccessor273.invoke(Unknown Source)
+	sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	java.lang.reflect.Method.invoke(Method.java:498)
+	org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221)
+	org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137)
+	org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:111)
+	org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:806)
+	org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:729)
+	org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959)
+	org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893)
+	org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+	org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+</pre><p><b>note</b> <u>The full stack trace of the root cause is available in the Apache Tomcat/8.0.33 logs.</u></p><hr class="line"><h3>Apache Tomcat/8.0.33</h3></body></html>"
+}
