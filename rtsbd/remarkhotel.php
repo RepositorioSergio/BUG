@@ -181,11 +181,11 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             <!--Optional:-->
             <rts:TravelerNationality>AR</rts:TravelerNationality>
             <!--Optional:-->
-            <rts:CityCode>ROM</rts:CityCode>
+            <rts:CityCode>MIA</rts:CityCode>
             <!--Optional:-->
-            <rts:CheckInDate>2019-06-20</rts:CheckInDate>
+            <rts:CheckInDate>2019-09-17</rts:CheckInDate>
             <!--Optional:-->
-            <rts:CheckOutDate>2019-06-27</rts:CheckOutDate>
+            <rts:CheckOutDate>2019-09-24</rts:CheckOutDate>
             <!--Optional:-->
             <rts:StarRating>0</rts:StarRating>
             <!--Optional:-->
@@ -208,8 +208,8 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                <!--Zero or more repetitions:-->
                <rts:ItemCodeInfo>
                   <!--Optional:-->
-                  <rts:ItemCode>ROM0001</rts:ItemCode>
-                  <rts:ItemNo>0</rts:ItemNo>
+                  <rts:ItemCode>MIA0406</rts:ItemCode>
+                  <rts:ItemNo>8</rts:ItemNo>
                </rts:ItemCodeInfo>
             </rts:ItemCodeList>
             <!--Optional:-->
@@ -225,7 +225,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             </rts:GuestList>
          </rts:HotelSearchListNetGuestCount>
          <!--Optional:-->
-         <rts:RoomTypeCode>1pTmqwj4asVAZQsgwOyTvgiC|CG-FIT|207^NOR|ROE|BB|DX|1*1*XHahl1mtoRi4mFKBnFFqSw==*BB*DUS|DOUBLE SINGLE USE DELUXE|CACC.GBQ|MDPGRKHBFZHGGZD|~BREAKFAST</rts:RoomTypeCode>
+         <rts:RoomTypeCode>20190917|20190924|W|235|128528|DBL.GR|ID_B2B_26|BB|DRBL|1~1~0||N@02~null~1A112AD092274DE155499749478802PAAR0000139011300100823d9b9:CEIJ.GB:double guest room:|ZMMJRBBZG|~BED AND BREAKFAST</rts:RoomTypeCode>
       </rts:GetRemarkHotelInformationForCustomerCount>
    </soapenv:Body>
 </soapenv:Envelope>';

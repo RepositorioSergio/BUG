@@ -141,11 +141,10 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $response = curl_exec($ch);
 curl_close($ch);
 
-/*
- * echo $return;
- * echo $response;
- * echo $return;
- */
+echo $return;
+echo $response;
+echo $return;
+
 $response = str_replace('&lt;', '<', $response);
 $response = str_replace('&gt;', '>', $response);
 

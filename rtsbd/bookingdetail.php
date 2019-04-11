@@ -113,7 +113,7 @@ xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.
     <GetBookingDetail xmlns='http://www.rts.co.kr/'>
         <BookingDetail>
             <LanguageCode>AR</LanguageCode>
-            <BookingCode>BUEF212724</BookingCode>
+            <BookingCode>BUEF27261</BookingCode>
         </BookingDetail>
     </GetBookingDetail>
 </soap:Body>
@@ -141,11 +141,10 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $response = curl_exec($ch);
 curl_close($ch);
 
-/*
- * echo $return;
- * echo $response;
- * echo $return;
- */
+echo $return;
+echo $response;
+echo $return;
+
 $response = str_replace('&lt;', '<', $response);
 $response = str_replace('&gt;', '>', $response);
 

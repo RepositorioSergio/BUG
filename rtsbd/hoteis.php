@@ -113,9 +113,9 @@ $raw = "<?xml version='1.0' encoding='utf-8'?>
     <HotelSearchListNetGuestCount>
         <LanguageCode>AR</LanguageCode>
         <TravelerNationality>AR</TravelerNationality>
-        <CityCode>ROM</CityCode>
-        <CheckInDate>2019-06-20</CheckInDate>
-        <CheckOutDate>2019-06-27</CheckOutDate>
+        <CityCode>MIA</CityCode>
+        <CheckInDate>2019-09-17</CheckInDate>
+        <CheckOutDate>2019-09-24</CheckOutDate>
         <StarRating>0</StarRating>
         <LocationCode></LocationCode>
         <SupplierCompCode></SupplierCompCode>
@@ -164,16 +164,16 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $response = curl_exec($ch);
 curl_close($ch);
 
-/*
- * echo $return;
- * echo $response;
- * echo $return;
- */
+
+echo $return;
+echo $response;
+echo $return;
+
 $response = str_replace('&lt;', '<', $response);
 $response = str_replace('&gt;', '>', $response);
 
-echo $response;
-die();
+//echo $response;
+
 $config = new \Zend\Config\Config(include '../config/autoload/global.rts.php');
 $config = [
     'driver' => $config->db->driver,

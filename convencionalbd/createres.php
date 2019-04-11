@@ -49,7 +49,7 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 <soap:Header/>
 <soap:Body>
    <xnet:createRes>
-      <xnet:aRequest EchoToken="123" TimeStamp="2019-02-28T17:43:25.315" Version="1.0">
+      <xnet:aRequest EchoToken="123" TimeStamp="2019-04-09T22:03:25.315" Version="1.0">
          <xnet:POS>
             <xnet:Source>
                <xnet:RequestorID ID="a6dge3!tnsf2or" PartnerID="TEST" Username="xnet" Password="pctnx!!!"/>

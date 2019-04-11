@@ -50,9 +50,6 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $rtsID = $row_settings['value'];
 }
-echo $return;
-echo $rtsID;
-echo $return;
 $sql = "select value from settings where name='rtsPassword' and affiliate_id=$affiliate_id_rts";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -80,9 +77,6 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $rtsRequestType = $row_settings['value'];
 }
-echo $return;
-echo $rtsRequestType;
-echo $return;
 $sql = "select value from settings where name='rtsServiceURL' and affiliate_id=$affiliate_id_rts";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -178,11 +172,11 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             <rts:CustomerInfo>
                <rts:No>1</rts:No>
                <!--Optional:-->
-               <rts:Name>testa test</rts:Name>
+               <rts:Name>Daniel Vinagre</rts:Name>
                <!--Optional:-->
-               <rts:LastName>test</rts:LastName>
+               <rts:LastName>Vinagre</rts:LastName>
                <!--Optional:-->
-               <rts:FirstName>testa</rts:FirstName>
+               <rts:FirstName>Daniel</rts:FirstName>
                <!--Optional:-->
                <rts:Gender>M</rts:Gender>
                <!--Optional:-->
@@ -205,8 +199,8 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             <!--Zero or more repetitions:-->
             <rts:BookingHotelInfo>
                <!--Optional:-->
-               <rts:ItemCode>ROM0029</rts:ItemCode>
-               <rts:ItemNo>0</rts:ItemNo>
+               <rts:ItemCode>MIA0406</rts:ItemCode>
+               <rts:ItemNo>8</rts:ItemNo>
                <!--Optional:-->
                <rts:AgentBookingReference></rts:AgentBookingReference>
                <!--Optional:-->
@@ -214,13 +208,13 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                <!--Optional:-->
                <rts:BookingPathCode>PATH01</rts:BookingPathCode>
                <!--Optional:-->
-               <rts:AppliedFromDate>2019-06-20</rts:AppliedFromDate>
+               <rts:AppliedFromDate>2019-09-17</rts:AppliedFromDate>
                <!--Optional:-->
-               <rts:AppliedToDate>2019-06-27</rts:AppliedToDate>
+               <rts:AppliedToDate>2019-09-24</rts:AppliedToDate>
                <!--Optional:-->
-               <rts:RoomTypeCode>10b724_60699520326194_1_51_2_2_0_1_2172055041_3_0-0-0_0_9.20190620_7_1_1_9_zen62aa085b57804c20a3055d1404dfac8a__155388526510|GDD.DE|Room for 1 adult|10b724|None|RO|E|PJBRHMFHKFKJPD|~None</rts:RoomTypeCode>
+               <rts:RoomTypeCode>20190917|20190924|W|235|128528|DBL.GR|ID_B2B_26|BB|DRBL|1~1~0||N@02~null~1A112AD092274DE155499749478802PAAR0000139011300100823d9b9:CEIJ.GB:double guest room:|ZMMJRBBZG|~BED AND BREAKFAST</rts:RoomTypeCode>
                <!--Optional:-->
-               <rts:FreeBreakfastTypeName>None</rts:FreeBreakfastTypeName>
+               <rts:FreeBreakfastTypeName>BED AND BREAKFAST</rts:FreeBreakfastTypeName>
                <!--Optional:-->
                <rts:AddBreakfastTypeName></rts:AddBreakfastTypeName>
                <rts:VatSheetYn>false</rts:VatSheetYn>
@@ -253,7 +247,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
 </soapenv:Body>
 </soapenv:Envelope>';
 
-$soapUrl = 'http://devwsar.rts.net/WsBookings.asmx';
+$soapUrl = 'http://devwsar.rts.net/WebServiceProjects/NetWebService/WsBookings.asmx';
 
 $headers = array(
     "Content-type: text/xml;charset=\"utf-8\"",
@@ -292,7 +286,7 @@ $response = str_replace('&gt;', '>', $response);
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
-die();
+
 $config = new \Zend\Config\Config(include '../config/autoload/global.rts.php');
 $config = [
     'driver' => $config->db->driver,
@@ -312,7 +306,7 @@ $CreateSystemBookingForGuestCountResponse = $Body->item(0)->getElementsByTagName
 $CreateSystemBookingForGuestCountResult = $CreateSystemBookingForGuestCountResponse->item(0)->getElementsByTagName("CreateSystemBookingForGuestCountResult");
 
 // GetBookingDetailResponse
-$GetBookingDetailResponse = $GetCancelDeadlineForCustomerCountResult->item(0)->getElementsByTagName("GetBookingDetailResponse");
+$GetBookingDetailResponse = $CreateSystemBookingForGuestCountResult->item(0)->getElementsByTagName("GetBookingDetailResponse");
 $BookingResult = $GetBookingDetailResponse->item(0)->getElementsByTagName("BookingResult");
 if ($BookingResult->length > 0) {
     $BookingCode = $BookingResult->item(0)->getElementsByTagName("BookingCode");
@@ -328,20 +322,26 @@ if ($BookingResult->length > 0) {
         $NormalReceivedYn = "";
     }
 
-    $sql = new Sql($db);
-    $insert = $sql->insert();
-    $insert->into('booking');
-    $insert->values(array(
-        'datetime_created' => time(),
-        'datetime_updated' => 0,
-        'BookingCode' => $BookingCode,
-        'NormalReceivedYn' => $NormalReceivedYn
-    ), $insert::VALUES_MERGE);
-    $statement = $sql->prepareStatementForSqlObject($insert);
-    $results = $statement->execute();
-    $db->getDriver()
-        ->getConnection()
-        ->disconnect();
+    try {
+        $sql = new Sql($db);
+        $insert = $sql->insert();
+        $insert->into('booking');
+        $insert->values(array(
+            'datetime_created' => time(),
+            'datetime_updated' => 0,
+            'BookingCode' => $BookingCode,
+            'NormalReceivedYn' => $NormalReceivedYn
+        ), $insert::VALUES_MERGE);
+        $statement = $sql->prepareStatementForSqlObject($insert);
+        $results = $statement->execute();
+        $db->getDriver()
+            ->getConnection()
+            ->disconnect();
+    } catch (\Exception $e) {
+        echo $return;
+        echo "ERRO BOOK: " . $e;
+        echo $return;
+    }
 }
 
 $GetBookingDetailResult = $GetBookingDetailResponse->item(0)->getElementsByTagName("GetBookingDetailResult");
@@ -359,21 +359,27 @@ if ($GetBookingDetailResult->length > 0) {
         $LanguageName = "";
     }
 
-    $sql = new Sql($db);
-    $insert = $sql->insert();
-    $insert->into('bookingdetail');
-    $insert->values(array(
-        'datetime_created' => time(),
-        'datetime_updated' => 0,
-        'LanguageCode' => $LanguageCode,
-        'LanguageName' => $LanguageName,
-        'BookingCode' => $BookingCode
-    ), $insert::VALUES_MERGE);
-    $statement = $sql->prepareStatementForSqlObject($insert);
-    $results = $statement->execute();
-    $db->getDriver()
-        ->getConnection()
-        ->disconnect();
+    try {
+        $sql = new Sql($db);
+        $insert = $sql->insert();
+        $insert->into('bookingdetail');
+        $insert->values(array(
+            'datetime_created' => time(),
+            'datetime_updated' => 0,
+            'LanguageCode' => $LanguageCode,
+            'LanguageName' => $LanguageName,
+            'BookingCode' => $BookingCode
+        ), $insert::VALUES_MERGE);
+        $statement = $sql->prepareStatementForSqlObject($insert);
+        $results = $statement->execute();
+        $db->getDriver()
+            ->getConnection()
+            ->disconnect();
+    } catch (\Exception $e) {
+        echo $return;
+        echo "ERRO BOOKdetail: " . $e;
+        echo $return;
+    }
 
     //BookingMaster
     $BookingMaster = $GetBookingDetailResult->item(0)->getElementsByTagName("BookingMaster");
@@ -384,6 +390,7 @@ if ($GetBookingDetailResult->length > 0) {
         } else {
             $BookingCode = "";
         }
+        echo "PASSOU 1<br/>";
         $ProductTypeCode = $BookingMaster->item(0)->getElementsByTagName("ProductTypeCode");
         if ($ProductTypeCode->length > 0) {
             $ProductTypeCode = $ProductTypeCode->item(0)->nodeValue;
@@ -414,6 +421,7 @@ if ($GetBookingDetailResult->length > 0) {
         } else {
             $NationalityName = "";
         }
+        echo "PASSOU 2<br/>";
         $BookingName = $BookingMaster->item(0)->getElementsByTagName("BookingName");
         if ($BookingName->length > 0) {
             $BookingName = $BookingName->item(0)->nodeValue;
@@ -426,6 +434,7 @@ if ($GetBookingDetailResult->length > 0) {
         } else {
             $SalesCompCode = "";
         }
+        echo "PASSOU 3<br/>";
         $SalesCompName = $BookingMaster->item(0)->getElementsByTagName("SalesCompName");
         if ($SalesCompName->length > 0) {
             $SalesCompName = $SalesCompName->item(0)->nodeValue;
@@ -450,6 +459,7 @@ if ($GetBookingDetailResult->length > 0) {
         } else {
             $SalesUserNo = "";
         }
+        echo "PASSOU 4<br/>";
         $SalesUserId = $BookingMaster->item(0)->getElementsByTagName("SalesUserId");
         if ($SalesUserId->length > 0) {
             $SalesUserId = $SalesUserId->item(0)->nodeValue;
@@ -480,6 +490,7 @@ if ($GetBookingDetailResult->length > 0) {
         } else {
             $SalesUserBirthday = "";
         }
+        echo "PASSOU 5<br/>";
         $SalesUserLastName = $BookingMaster->item(0)->getElementsByTagName("SalesUserLastName");
         if ($SalesUserLastName->length > 0) {
             $SalesUserLastName = $SalesUserLastName->item(0)->nodeValue;
@@ -522,6 +533,7 @@ if ($GetBookingDetailResult->length > 0) {
         } else {
             $SalesEmpUno = "";
         }
+        echo "PASSOU 6<br/>";
         $SalesEmpId = $BookingMaster->item(0)->getElementsByTagName("SalesEmpId");
         if ($SalesEmpId->length > 0) {
             $SalesEmpId = $SalesEmpId->item(0)->nodeValue;
@@ -588,6 +600,7 @@ if ($GetBookingDetailResult->length > 0) {
         } else {
             $SalesmanPosition = "";
         }
+        echo "PASSOU 7<br/>";
         $SalesmanHandPhone = $BookingMaster->item(0)->getElementsByTagName("SalesmanHandPhone");
         if ($SalesmanHandPhone->length > 0) {
             $SalesmanHandPhone = $SalesmanHandPhone->item(0)->nodeValue;
@@ -630,6 +643,7 @@ if ($GetBookingDetailResult->length > 0) {
         } else {
             $OperatorPosition = "";
         }
+        echo "PASSOU 8<br/>";
         $OperatorCompPhone = $BookingMaster->item(0)->getElementsByTagName("OperatorCompPhone");
         if ($OperatorCompPhone->length > 0) {
             $OperatorCompPhone = $OperatorCompPhone->item(0)->nodeValue;
@@ -666,6 +680,7 @@ if ($GetBookingDetailResult->length > 0) {
         } else {
             $TicketStatusName = "";
         }
+        echo "PASSOU 9<br/>";
         $SalesPayStatusCode = $BookingMaster->item(0)->getElementsByTagName("SalesPayStatusCode");
         if ($SalesPayStatusCode->length > 0) {
             $SalesPayStatusCode = $SalesPayStatusCode->item(0)->nodeValue;
@@ -714,6 +729,7 @@ if ($GetBookingDetailResult->length > 0) {
         } else {
             $AccountCloseTime = "";
         }
+        echo "PASSOU 10<br/>";
         $NormalRemarks = $BookingMaster->item(0)->getElementsByTagName("NormalRemarks");
         if ($NormalRemarks->length > 0) {
             $NormalRemarks = $NormalRemarks->item(0)->nodeValue;
@@ -750,6 +766,7 @@ if ($GetBookingDetailResult->length > 0) {
         } else {
             $DepartureLeftDays = "";
         }
+        echo "PASSOU 11<br/>";
         $CancelDeadLine = $BookingMaster->item(0)->getElementsByTagName("CancelDeadLine");
         if ($CancelDeadLine->length > 0) {
             $CancelDeadLine = $CancelDeadLine->item(0)->nodeValue;
@@ -774,94 +791,100 @@ if ($GetBookingDetailResult->length > 0) {
         } else {
             $LastWriteTime = "";
         }
-
-        $sql = new Sql($db);
-        $insert = $sql->insert();
-        $insert->into('bookingmaster');
-        $insert->values(array(
-            'datetime_created' => time(),
-            'datetime_updated' => 0,
-            'BookingCode' => $BookingCode,
-            'ProductTypeCode' => $ProductTypeCode,
-            'ProductTypeName' => $ProductTypeName,
-            'GroupOrFit' => $GroupOrFit,
-            'NationalityCode' => $NationalityCode,
-            'NationalityName' => $NationalityName,
-            'BookingName' => $BookingName,
-            'SalesCompCode' => $SalesCompCode,
-            'SalesCompName' => $SalesCompName,
-            'SalesSiteCode' => $SalesSiteCode,
-            'SalesSiteDomain' => $SalesSiteDomain,
-            'SalesUserNo' => $SalesUserNo,
-            'SalesUserId' => $SalesUserId,
-            'SalesUserName' => $SalesUserName,
-            'SalesUserGender' => $SalesUserGender,
-            'SalesUserJuminNo' => $SalesUserJuminNo,
-            'SalesUserBirthday' => $SalesUserBirthday,
-            'SalesUserLastName' => $SalesUserLastName,
-            'SalesUserFirstName' => $SalesUserFirstName,
-            'SalesUserHandPhone' => $SalesUserHandPhone,
-            'SalesUserCompPhone' => $SalesUserCompPhone,
-            'SalesUserHomePhone' => $SalesUserHomePhone,
-            'SalesUserEmail' => $SalesUserEmail,
-            'SalesEmpUno' => $SalesEmpUno,
-            'SalesEmpId' => $SalesEmpId,
-            'SalesEmpName' => $SalesEmpName,
-            'SalesEmpPosition' => $SalesEmpPosition,
-            'SalesEmpCompPhone' => $SalesEmpCompPhone,
-            'SalesEmpEmail' => $SalesEmpEmail,
-            'SalesmanUno' => $SalesmanUno,
-            'SalesmanId' => $SalesmanId,
-            'SalesmanName' => $SalesmanName,
-            'SalesmanPosition' => $SalesmanPosition,
-            'SalesmanHandPhone' => $SalesmanHandPhone,
-            'SalesmanCompPhone' => $SalesmanCompPhone,
-            'SalesmanEmail' => $SalesmanEmail,
-            'OperatorUno' => $OperatorUno,
-            'OperatorId' => $OperatorId,
-            'OperatorName' => $OperatorName,
-            'OperatorPosition' => $OperatorPosition,
-            'OperatorCompPhone' => $OperatorCompPhone,
-            'OperatorEmail' => $OperatorEmail,
-            'BookingStatusCode' => $BookingStatusCode,
-            'BookingStatusName' => $BookingStatusName,
-            'TicketStatusCode' => $TicketStatusCode,
-            'TicketStatusName' => $TicketStatusName,
-            'SalesPayStatusCode' => $SalesPayStatusCode,
-            'SalesPayStatusName' => $SalesPayStatusName,
-            'InsidePayStatusCode' => $InsidePayStatusCode,
-            'InsidePayStatusName' => $InsidePayStatusName,
-            'FullCancelReasonCode' => $FullCancelReasonCode,
-            'FullCancelReasonName' => $FullCancelReasonName,
-            'AccountCloseYn' => $AccountCloseYn,
-            'AccountCloseTime' => $AccountCloseTime,
-            'NormalRemarks' => $NormalRemarks,
-            'SalesRemarks' => $SalesRemarks,
-            'BookingTime' => $BookingTime,
-            'DepartureDate' => $DepartureDate,
-            'DepartureWeekday' => $DepartureWeekday,
-            'DepartureLeftDays' => $DepartureLeftDays,
-            'CancelDeadLine' => $CancelDeadLine,
-            'DeadLineWeekday' => $DeadLineWeekday,
-            'DeadLineLeftDays' => $DeadLineLeftDays,
-            'LastWriteTime' => $LastWriteTime,
-            'No' => $No,
-            'Name' => $Name,
-            'LastName' => $LastName,
-            'FirstName' => $FirstName,
-            'Gender' => $Gender,
-            'Age' => $Age,
-            'Birthday' => $Birthday,
-            'JuminNo' => $JuminNo,
-            'PassportNo' => $PassportNo,
-            'PassportExpiryDate' => $PassportExpiryDate
-        ), $insert::VALUES_MERGE);
-        $statement = $sql->prepareStatementForSqlObject($insert);
-        $results = $statement->execute();
-        $db->getDriver()
-            ->getConnection()
-            ->disconnect();
-
+        echo "PASSOU 12<br/>";
+        try {
+            $sql = new Sql($db);
+            $insert = $sql->insert();
+            $insert->into('bookingmaster');
+            $insert->values(array(
+                'datetime_created' => time(),
+                'datetime_updated' => 0,
+                'BookingCode' => $BookingCode,
+                'ProductTypeCode' => $ProductTypeCode,
+                'ProductTypeName' => $ProductTypeName,
+                'GroupOrFit' => $GroupOrFit,
+                'NationalityCode' => $NationalityCode,
+                'NationalityName' => $NationalityName,
+                'BookingName' => $BookingName,
+                'SalesCompCode' => $SalesCompCode,
+                'SalesCompName' => $SalesCompName,
+                'SalesSiteCode' => $SalesSiteCode,
+                'SalesSiteDomain' => $SalesSiteDomain,
+                'SalesUserNo' => $SalesUserNo,
+                'SalesUserId' => $SalesUserId,
+                'SalesUserName' => $SalesUserName,
+                'SalesUserGender' => $SalesUserGender,
+                'SalesUserJuminNo' => $SalesUserJuminNo,
+                'SalesUserBirthday' => $SalesUserBirthday,
+                'SalesUserLastName' => $SalesUserLastName,
+                'SalesUserFirstName' => $SalesUserFirstName,
+                'SalesUserHandPhone' => $SalesUserHandPhone,
+                'SalesUserCompPhone' => $SalesUserCompPhone,
+                'SalesUserHomePhone' => $SalesUserHomePhone,
+                'SalesUserEmail' => $SalesUserEmail,
+                'SalesEmpUno' => $SalesEmpUno,
+                'SalesEmpId' => $SalesEmpId,
+                'SalesEmpName' => $SalesEmpName,
+                'SalesEmpPosition' => $SalesEmpPosition,
+                'SalesEmpCompPhone' => $SalesEmpCompPhone,
+                'SalesEmpEmail' => $SalesEmpEmail,
+                'SalesmanUno' => $SalesmanUno,
+                'SalesmanId' => $SalesmanId,
+                'SalesmanName' => $SalesmanName,
+                'SalesmanPosition' => $SalesmanPosition,
+                'SalesmanHandPhone' => $SalesmanHandPhone,
+                'SalesmanCompPhone' => $SalesmanCompPhone,
+                'SalesmanEmail' => $SalesmanEmail,
+                'OperatorUno' => $OperatorUno,
+                'OperatorId' => $OperatorId,
+                'OperatorName' => $OperatorName,
+                'OperatorPosition' => $OperatorPosition,
+                'OperatorCompPhone' => $OperatorCompPhone,
+                'OperatorEmail' => $OperatorEmail,
+                'BookingStatusCode' => $BookingStatusCode,
+                'BookingStatusName' => $BookingStatusName,
+                'TicketStatusCode' => $TicketStatusCode,
+                'TicketStatusName' => $TicketStatusName,
+                'SalesPayStatusCode' => $SalesPayStatusCode,
+                'SalesPayStatusName' => $SalesPayStatusName,
+                'InsidePayStatusCode' => $InsidePayStatusCode,
+                'InsidePayStatusName' => $InsidePayStatusName,
+                'FullCancelReasonCode' => $FullCancelReasonCode,
+                'FullCancelReasonName' => $FullCancelReasonName,
+                'AccountCloseYn' => $AccountCloseYn,
+                'AccountCloseTime' => $AccountCloseTime,
+                'NormalRemarks' => $NormalRemarks,
+                'SalesRemarks' => $SalesRemarks,
+                'BookingTime' => $BookingTime,
+                'DepartureDate' => $DepartureDate,
+                'DepartureWeekday' => $DepartureWeekday,
+                'DepartureLeftDays' => $DepartureLeftDays,
+                'CancelDeadLine' => $CancelDeadLine,
+                'DeadLineWeekday' => $DeadLineWeekday,
+                'DeadLineLeftDays' => $DeadLineLeftDays,
+                'LastWriteTime' => $LastWriteTime,
+                'No' => $No,
+                'Name' => $Name,
+                'LastName' => $LastName,
+                'FirstName' => $FirstName,
+                'Gender' => $Gender,
+                'Age' => $Age,
+                'Birthday' => $Birthday,
+                'JuminNo' => $JuminNo,
+                'PassportNo' => $PassportNo,
+                'PassportExpiryDate' => $PassportExpiryDate
+            ), $insert::VALUES_MERGE);
+            $statement = $sql->prepareStatementForSqlObject($insert);
+            $results = $statement->execute();
+            $db->getDriver()
+                ->getConnection()
+                ->disconnect();
+        } catch (\Exception $e) {
+            echo $return;
+            echo "ERRO CC: " . $e;
+            echo $return;
+        }
+            echo "PASSOU 13<br/>";
         //CustomerList
         $CustomerList = $BookingMaster->item(0)->getElementsByTagName("CustomerList");
         if ($CustomerList->length > 0) {
@@ -929,35 +952,41 @@ if ($GetBookingDetailResult->length > 0) {
                         $PassportExpiryDate = "";
                     }
 
-                    $sql = new Sql($db);
-                    $insert = $sql->insert();
-                    $insert->into('bookingmaster_CustomerInfo');
-                    $insert->values(array(
-                        'datetime_created' => time(),
-                        'datetime_updated' => 0,
-                        'BookingCode' => $BookingCode,
-                        'No' => $No,
-                        'Name' => $Name,
-                        'LastName' => $LastName,
-                        'FirstName' => $FirstName,
-                        'Gender' => $Gender,
-                        'Age' => $Age,
-                        'Birthday' => $Birthday,
-                        'JuminNo' => $JuminNo,
-                        'PassportNo' => $PassportNo,
-                        'PassportExpiryDate' => $PassportExpiryDate
-                    ), $insert::VALUES_MERGE);
-                    $statement = $sql->prepareStatementForSqlObject($insert);
-                    $results = $statement->execute();
-                    $db->getDriver()
-                        ->getConnection()
-                        ->disconnect();
+                    try {
+                        $sql = new Sql($db);
+                        $insert = $sql->insert();
+                        $insert->into('bookingmaster_CustomerInfo');
+                        $insert->values(array(
+                            'datetime_created' => time(),
+                            'datetime_updated' => 0,
+                            'BookingCode' => $BookingCode,
+                            'No' => $No,
+                            'Name' => $Name,
+                            'LastName' => $LastName,
+                            'FirstName' => $FirstName,
+                            'Gender' => $Gender,
+                            'Age' => $Age,
+                            'Birthday' => $Birthday,
+                            'JuminNo' => $JuminNo,
+                            'PassportNo' => $PassportNo,
+                            'PassportExpiryDate' => $PassportExpiryDate
+                        ), $insert::VALUES_MERGE);
+                        $statement = $sql->prepareStatementForSqlObject($insert);
+                        $results = $statement->execute();
+                        $db->getDriver()
+                            ->getConnection()
+                            ->disconnect();
+                    } catch (\Exception $e) {
+                        echo $return;
+                        echo "ERRO CUST: " . $e;
+                        echo $return;
+                    }
 
                 }        
             }
         }
     }
-
+    echo "PASSOU 14<br/>";
     //BookingItemList
     $BookingItemList = $GetBookingDetailResult->item(0)->getElementsByTagName("BookingItemList");
     if ($BookingItemList->length > 0) {
@@ -969,6 +998,7 @@ if ($GetBookingDetailResult->length > 0) {
             } else {
                 $ItemNo = "";
             }
+            echo "PASSOU 15<br/>";
             $ItemTypeCode = $BookingItemInfo->item(0)->getElementsByTagName("ItemTypeCode");
             if ($ItemTypeCode->length > 0) {
                 $ItemTypeCode = $ItemTypeCode->item(0)->nodeValue;
@@ -1131,6 +1161,7 @@ if ($GetBookingDetailResult->length > 0) {
             } else {
                 $FreeBreakfastName = "";
             }
+            echo "PASSOU 16<br/>";
             $AddBreakfastCode = $BookingItemInfo->item(0)->getElementsByTagName("AddBreakfastCode");
             if ($AddBreakfastCode->length > 0) {
                 $AddBreakfastCode = $AddBreakfastCode->item(0)->nodeValue;
@@ -1161,6 +1192,7 @@ if ($GetBookingDetailResult->length > 0) {
             } else {
                 $SellingCurrencyCode = "";
             }
+            echo "PASSOU 17<br/>";
             $SellingConvertRate = $BookingItemInfo->item(0)->getElementsByTagName("SellingConvertRate");
             if ($SellingConvertRate->length > 0) {
                 $SellingConvertRate = $SellingConvertRate->item(0)->nodeValue;
@@ -1227,6 +1259,7 @@ if ($GetBookingDetailResult->length > 0) {
             } else {
                 $ClientCommAmount = "";
             }
+            echo "PASSOU 18<br/>";
             $ClientCancelCharge = $BookingItemInfo->item(0)->getElementsByTagName("ClientCancelCharge");
             if ($ClientCancelCharge->length > 0) {
                 $ClientCancelCharge = $ClientCancelCharge->item(0)->nodeValue;
@@ -1295,7 +1328,7 @@ if ($GetBookingDetailResult->length > 0) {
             }
             $VoucherReferenceName = $BookingItemInfo->item(0)->getElementsByTagName("VoucherReferenceName");
             if ($VoucherReferenceName->length > 0) {
-                $VoucherReferenceName = $ItemConfrimedTime->item(0)->nodeValue;
+                $VoucherReferenceName = $VoucherReferenceName->item(0)->nodeValue;
             } else {
                 $VoucherReferenceName = "";
             }
@@ -1347,6 +1380,7 @@ if ($GetBookingDetailResult->length > 0) {
             } else {
                 $BookingDate = "";
             }
+            echo "PASSOU 19<br/>";
             $BookingWeek = $BookingItemInfo->item(0)->getElementsByTagName("BookingWeek");
             if ($BookingWeek->length > 0) {
                 $BookingWeek = $BookingWeek->item(0)->nodeValue;
@@ -1431,6 +1465,7 @@ if ($GetBookingDetailResult->length > 0) {
             } else {
                 $VoucherRemarks = "";
             }
+            echo "PASSOU 20<br/>";
             $TravelerNationality = $BookingItemInfo->item(0)->getElementsByTagName("TravelerNationality");
             if ($TravelerNationality->length > 0) {
                 $TravelerNationality = $TravelerNationality->item(0)->nodeValue;
@@ -1449,109 +1484,115 @@ if ($GetBookingDetailResult->length > 0) {
             } else {
                 $CancelNotice = "";
             }
-
-            $sql = new Sql($db);
-            $insert = $sql->insert();
-            $insert->into('bookingItem');
-            $insert->values(array(
-                'datetime_created' => time(),
-                'datetime_updated' => 0,
-                'ItemNo' => $ItemNo,
-                'ItemTypeCode' => $ItemTypeCode,
-                'NormalReceiveYn' => $NormalReceiveYn,
-                'BookingReference' => $BookingReference,
-                'ItemReference' => $ItemReference,
-                'CountryCode' => $CountryCode,
-                'CountryEname' => $CountryEname,
-                'CountryName' => $CountryName,
-                'CityCode' => $CityCode,
-                'CityEname' => $CityEname,
-                'CtiyName' => $CtiyName,
-                'ItemCode' => $ItemCode,
-                'ItemName' => $ItemName,
-                'BookerTypeCode' => $BookerTypeCode,
-                'BookerTypeName' => $BookerTypeName,
-                'BookingPathCode' => $BookingPathCode,
-                'BookingPathName' => $BookingPathName,
-                'CheckInDate' => $CheckInDate,
-                'CheckInWeekday' => $CheckInWeekday,
-                'CheckOutDate' => $CheckOutDate,
-                'CheckOutWeekday' => $CheckOutWeekday,
-                'Duration' => $Duration,
-                'CheckInLeftDays' => $CheckInLeftDays,
-                'CancelDeadLine' => $CancelDeadLine,
-                'DeadLineWeekday' => $DeadLineWeekday,
-                'DeadLineLeftDays' => $DeadLineLeftDays,
-                'FreeBreakfastCode' => $FreeBreakfastCode,
-                'FreeBreakfastName' => $FreeBreakfastName,
-                'AddBreakfastCode' => $AddBreakfastCode,
-                'AddBreakfastName' => $AddBreakfastName,
-                'ExchangeConvertDate' => $ExchangeConvertDate,
-                'ExchangeConvertWeekday' => $ExchangeConvertWeekday,
-                'SellingCurrencyCode' => $SellingCurrencyCode,
-                'SellingConvertRate' => $SellingConvertRate,
-                'ClientCurrencyCode' => $ClientCurrencyCode,
-                'LocalProductAmount' => $LocalProductAmount,
-                'LocalCommAmount' => $LocalCommAmount,
-                'LocalTaxAmount' => $LocalTaxAmount,
-                'LocalChangedAmount' => $LocalChangedAmount,
-                'LocalCancelCharge' => $LocalCancelCharge,
-                'LocalSellingAmount' => $LocalSellingAmount,
-                'LocalPartnerAmount' => $LocalPartnerAmount,
-                'ClientProductAmount' => $ClientProductAmount,
-                'ClientCommAmount' => $ClientCommAmount,
-                'ClientCancelCharge' => $ClientCancelCharge,
-                'ClientPartnerAmount' => $ClientPartnerAmount,
-                'ClientSellingAmount' => $ClientSellingAmount,
-                'ItemStatusCode' => $ItemStatusCode,
-                'ItemStatusName' => $ItemStatusName,
-                'ItemConfirmationNo' => $ItemConfirmationNo,
-                'ItemConfrimedTime' => $ItemConfrimedTime,
-                'TaxSheetStatusCode' => $TaxSheetStatusCode,
-                'TaxSheetStatusName' => $TaxSheetStatusName,
-                'ItemCancelReasonCode' => $ItemCancelReasonCode,
-                'ItemCancelReasonName' => $ItemCancelReasonName,
-                'VoucherReferenceName' => $VoucherReferenceName,
-                'PorcessingComment' => $PorcessingComment,
-                'RoomTypeCode' => $RoomTypeCode,
-                'RoomTypeName' => $RoomTypeName,
-                'ModifyAble' => $ModifyAble,
-                'DeleteAble' => $DeleteAble,
-                'LastWriteTime' => $LastWriteTime,
-                'VatSheetYn' => $VatSheetYn,
-                'BookingDate' => $BookingDate,
-                'BookingWeek' => $BookingWeek,
-                'UserKey' => $UserKey,
-                'AgentBookingReference' => $AgentBookingReference,
-                'OPStatusCode' => $OPStatusCode,
-                'OPStatusName' => $OPStatusName,
-                'PromotionCode' => $PromotionCode,
-                'AdminRemarks' => $AdminRemarks,
-                'NavisionUploadYn' => $NavisionUploadYn,
-                'NavisionPostingYn' => $NavisionPostingYn,
-                'BookMailCount' => $BookMailCount,
-                'CancelMailCount' => $CancelMailCount,
-                'ModifyMailCount' => $ModifyMailCount,
-                'VoucherMailCount' => $VoucherMailCount,
-                'VoucherRemarks' => $VoucherRemarks,
-                'TravelerNationality' => $TravelerNationality,
-                'SpecialRemarks' => $SpecialRemarks,
-                'CancelNotice' => $CancelNotice,
-                'RoomNo' => $RoomNo,
-                'BedTypeCode' => $BedTypeCode,
-                'BedTypeName' => $BedTypeName,
-                'LocalAddedAmount' => $LocalAddedAmount,
-                'VouchereComment' => $VouchereComment,
-                'GuestNo' => $GuestNo,
-                'GuestName' => $GuestName,
-                'BookingCode' => $BookingCode
-            ), $insert::VALUES_MERGE);
-            $statement = $sql->prepareStatementForSqlObject($insert);
-            $results = $statement->execute();
-            $db->getDriver()
-                ->getConnection()
-                ->disconnect();
-
+            echo "PASSOU 21<br/>";
+            try {
+                $sql = new Sql($db);
+                $insert = $sql->insert();
+                $insert->into('bookingItem');
+                $insert->values(array(
+                    'datetime_created' => time(),
+                    'datetime_updated' => 0,
+                    'ItemNo' => $ItemNo,
+                    'ItemTypeCode' => $ItemTypeCode,
+                    'NormalReceiveYn' => $NormalReceiveYn,
+                    'BookingReference' => $BookingReference,
+                    'ItemReference' => $ItemReference,
+                    'CountryCode' => $CountryCode,
+                    'CountryEname' => $CountryEname,
+                    'CountryName' => $CountryName,
+                    'CityCode' => $CityCode,
+                    'CityEname' => $CityEname,
+                    'CtiyName' => $CtiyName,
+                    'ItemCode' => $ItemCode,
+                    'ItemName' => $ItemName,
+                    'BookerTypeCode' => $BookerTypeCode,
+                    'BookerTypeName' => $BookerTypeName,
+                    'BookingPathCode' => $BookingPathCode,
+                    'BookingPathName' => $BookingPathName,
+                    'CheckInDate' => $CheckInDate,
+                    'CheckInWeekday' => $CheckInWeekday,
+                    'CheckOutDate' => $CheckOutDate,
+                    'CheckOutWeekday' => $CheckOutWeekday,
+                    'Duration' => $Duration,
+                    'CheckInLeftDays' => $CheckInLeftDays,
+                    'CancelDeadLine' => $CancelDeadLine,
+                    'DeadLineWeekday' => $DeadLineWeekday,
+                    'DeadLineLeftDays' => $DeadLineLeftDays,
+                    'FreeBreakfastCode' => $FreeBreakfastCode,
+                    'FreeBreakfastName' => $FreeBreakfastName,
+                    'AddBreakfastCode' => $AddBreakfastCode,
+                    'AddBreakfastName' => $AddBreakfastName,
+                    'ExchangeConvertDate' => $ExchangeConvertDate,
+                    'ExchangeConvertWeekday' => $ExchangeConvertWeekday,
+                    'SellingCurrencyCode' => $SellingCurrencyCode,
+                    'SellingConvertRate' => $SellingConvertRate,
+                    'ClientCurrencyCode' => $ClientCurrencyCode,
+                    'LocalProductAmount' => $LocalProductAmount,
+                    'LocalCommAmount' => $LocalCommAmount,
+                    'LocalTaxAmount' => $LocalTaxAmount,
+                    'LocalChangedAmount' => $LocalChangedAmount,
+                    'LocalCancelCharge' => $LocalCancelCharge,
+                    'LocalSellingAmount' => $LocalSellingAmount,
+                    'LocalPartnerAmount' => $LocalPartnerAmount,
+                    'ClientProductAmount' => $ClientProductAmount,
+                    'ClientCommAmount' => $ClientCommAmount,
+                    'ClientCancelCharge' => $ClientCancelCharge,
+                    'ClientPartnerAmount' => $ClientPartnerAmount,
+                    'ClientSellingAmount' => $ClientSellingAmount,
+                    'ItemStatusCode' => $ItemStatusCode,
+                    'ItemStatusName' => $ItemStatusName,
+                    'ItemConfirmationNo' => $ItemConfirmationNo,
+                    'ItemConfrimedTime' => $ItemConfrimedTime,
+                    'TaxSheetStatusCode' => $TaxSheetStatusCode,
+                    'TaxSheetStatusName' => $TaxSheetStatusName,
+                    'ItemCancelReasonCode' => $ItemCancelReasonCode,
+                    'ItemCancelReasonName' => $ItemCancelReasonName,
+                    'VoucherReferenceName' => $VoucherReferenceName,
+                    'PorcessingComment' => $PorcessingComment,
+                    'RoomTypeCode' => $RoomTypeCode,
+                    'RoomTypeName' => $RoomTypeName,
+                    'ModifyAble' => $ModifyAble,
+                    'DeleteAble' => $DeleteAble,
+                    'LastWriteTime' => $LastWriteTime,
+                    'VatSheetYn' => $VatSheetYn,
+                    'BookingDate' => $BookingDate,
+                    'BookingWeek' => $BookingWeek,
+                    'UserKey' => $UserKey,
+                    'AgentBookingReference' => $AgentBookingReference,
+                    'OPStatusCode' => $OPStatusCode,
+                    'OPStatusName' => $OPStatusName,
+                    'PromotionCode' => $PromotionCode,
+                    'AdminRemarks' => $AdminRemarks,
+                    'NavisionUploadYn' => $NavisionUploadYn,
+                    'NavisionPostingYn' => $NavisionPostingYn,
+                    'BookMailCount' => $BookMailCount,
+                    'CancelMailCount' => $CancelMailCount,
+                    'ModifyMailCount' => $ModifyMailCount,
+                    'VoucherMailCount' => $VoucherMailCount,
+                    'VoucherRemarks' => $VoucherRemarks,
+                    'TravelerNationality' => $TravelerNationality,
+                    'SpecialRemarks' => $SpecialRemarks,
+                    'CancelNotice' => $CancelNotice,
+                    'RoomNo' => $RoomNo,
+                    'BedTypeCode' => $BedTypeCode,
+                    'BedTypeName' => $BedTypeName,
+                    'LocalAddedAmount' => $LocalAddedAmount,
+                    'VouchereComment' => $VouchereComment,
+                    'GuestNo' => $GuestNo,
+                    'GuestName' => $GuestName,
+                    'BookingCode' => $BookingCode
+                ), $insert::VALUES_MERGE);
+                $statement = $sql->prepareStatementForSqlObject($insert);
+                $results = $statement->execute();
+                $db->getDriver()
+                    ->getConnection()
+                    ->disconnect();
+            } catch (\Exception $e) {
+                echo $return;
+                echo "ERRO ITEM: " . $e;
+                echo $return;
+            }
+            echo "PASSOU 22<br/>";
             //RoomsAndGuestList
             $RoomsAndGuestList = $BookingItemInfo->item(0)->getElementsByTagName("RoomsAndGuestList");
             if ($RoomsAndGuestList->length > 0) {
@@ -1588,27 +1629,32 @@ if ($GetBookingDetailResult->length > 0) {
                         } else {
                             $VouchereComment = "";
                         }
-
-
-                        $sql = new Sql($db);
-                        $insert = $sql->insert();
-                        $insert->into('booking_roomsInfo');
-                        $insert->values(array(
-                            'datetime_created' => time(),
-                            'datetime_updated' => 0,
-                            'RoomNo' => $RoomNo,
-                            'BedTypeCode' => $BedTypeCode,
-                            'BedTypeName' => $BedTypeName,
-                            'LocalAddedAmount' => $LocalAddedAmount,
-                            'VouchereComment' => $VouchereComment,
-                            'ItemNo' => $ItemNo,
-                            'BookingCode' => $BookingCode
-                        ), $insert::VALUES_MERGE);
-                        $statement = $sql->prepareStatementForSqlObject($insert);
-                        $results = $statement->execute();
-                        $db->getDriver()
-                            ->getConnection()
-                            ->disconnect();
+                        echo "PASSOU 23<br/>";
+                        try {
+                            $sql = new Sql($db);
+                            $insert = $sql->insert();
+                            $insert->into('booking_roomsInfo');
+                            $insert->values(array(
+                                'datetime_created' => time(),
+                                'datetime_updated' => 0,
+                                'RoomNo' => $RoomNo,
+                                'BedTypeCode' => $BedTypeCode,
+                                'BedTypeName' => $BedTypeName,
+                                'LocalAddedAmount' => $LocalAddedAmount,
+                                'VouchereComment' => $VouchereComment,
+                                'ItemNo' => $ItemNo,
+                                'BookingCode' => $BookingCode
+                            ), $insert::VALUES_MERGE);
+                            $statement = $sql->prepareStatementForSqlObject($insert);
+                            $results = $statement->execute();
+                            $db->getDriver()
+                                ->getConnection()
+                                ->disconnect();
+                        } catch (\Exception $e) {
+                            echo $return;
+                            echo "ERRO ROOM: " . $e;
+                            echo $return;
+                        }
 
                         //GuestList
                         $GuestList = $RoomsAndGuestInfo->item($x)->getElementsByTagName("GuestList");
@@ -1627,24 +1673,30 @@ if ($GetBookingDetailResult->length > 0) {
                                         $GuestName = $GuestName->item(0)->nodeValue;
                                     } else {
                                         $GuestName = "";
-                                    }
+                                    }echo "PASSOU 24<br/>";
 
-                                    $sql = new Sql($db);
-                                    $insert = $sql->insert();
-                                    $insert->into('booking_GuestInfo');
-                                    $insert->values(array(
-                                        'datetime_created' => time(),
-                                        'datetime_updated' => 0,
-                                        'GuestNo' => $GuestNo,
-                                        'GuestName' => $GuestName,
-                                        'RoomNo' => $RoomNo,
-                                        'BookingCode' => $BookingCode
-                                    ), $insert::VALUES_MERGE);
-                                    $statement = $sql->prepareStatementForSqlObject($insert);
-                                    $results = $statement->execute();
-                                    $db->getDriver()
-                                        ->getConnection()
-                                        ->disconnect();
+                                    try {
+                                        $sql = new Sql($db);
+                                        $insert = $sql->insert();
+                                        $insert->into('booking_GuestInfo');
+                                        $insert->values(array(
+                                            'datetime_created' => time(),
+                                            'datetime_updated' => 0,
+                                            'GuestNo' => $GuestNo,
+                                            'GuestName' => $GuestName,
+                                            'RoomNo' => $RoomNo,
+                                            'BookingCode' => $BookingCode
+                                        ), $insert::VALUES_MERGE);
+                                        $statement = $sql->prepareStatementForSqlObject($insert);
+                                        $results = $statement->execute();
+                                        $db->getDriver()
+                                            ->getConnection()
+                                            ->disconnect();
+                                    } catch (\Exception $e) {
+                                        echo $return;
+                                        echo "ERRO GUEST: " . $e;
+                                        echo $return;
+                                    }
                                 }
                             }
                         }

@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU CANCEL ITEM RESERVA SIATAR<br/>";
+echo "COMECOU SERVICE SIATAR<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -45,23 +45,22 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $date = new DateTime("NOW");
 $timestamp = $date->format( "Y-m-d\TH:i:s.v" );
 
-$raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xnet="http://xnetinfo.org/">
-<soap:Header/>
-<soap:Body>
-   <xnet:cancelRes>
-      <xnet:aRequest EchoToken="123" TimeStamp="2019-04-09T22:03:25.315" Version="1.0">
-         <xnet:POS>
-            <xnet:Source>
-               <xnet:RequestorID ID="a6dge3!tnsf2or" PartnerID="TEST" Username="xnet" Password="pctnx!!!"/>
-            </xnet:Source>
-         </xnet:POS>
-         <xnet:Reservation ID="533" UserPartnerID="JOTA2X"/>
-         <xnet:Titular>teste</xnet:Titular>
-    </xnet:aRequest>
-    </xnet:cancelRes>
-</soap:Body>
+$raw = '<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <addServiceRes xmlns="http://xnetinfo.org/">
+      <aRequest>
+      	<POS>
+        <Source>
+            <RequestorID PartnerID="TEST" ID="a6dge3!tnsf2or" Username="xnet" Password="pctnx!!!"/>
+        </Source>
+    	</POS>
+        <ServiceReservation ID="533" UserPartnerID="JOTA2X" ServiceRateID="000000000000000013811" />
+      </aRequest>
+    </addServiceRes>
+  </soap:Body>
 </soap:Envelope>';
-echo "<br/> RAW:" . $raw;
+
 $client = new Client();
 $client->setOptions(array(
     'timeout' => 100,
@@ -76,7 +75,7 @@ $client->setHeaders(array(
     "Content-length: ".strlen($raw)
 ));
 $url = "http://xnetinfo.redirectme.net:8080/homologacao_webservice/Integration/ServerIntegration.asmx";
-echo "<br/> PASSOU URL";
+
 $client->setUri($url);
 $client->setMethod('POST');
 $client->setRawBody($raw);
@@ -114,47 +113,39 @@ $inputDoc = new DOMDocument();
 $inputDoc->loadXML($response);
 $Envelope = $inputDoc->getElementsByTagName("Envelope");
 $Body = $Envelope->item(0)->getElementsByTagName("Body");
-$cancelResResponse = $Body->item(0)->getElementsByTagName("cancelResResponse");
-$cancelResResult = $cancelResResponse->item(0)->getElementsByTagName("cancelResResult");
-$node = $cancelResResult->item(0)->getElementsByTagName("Reservation");
-$ID = $node->item(0)->getAttribute("ID");
-$UserPartnerID = $node->item(0)->getAttribute("UserPartnerID");
-$CancelCost = $node->item(0)->getAttribute("CancelCost");
+$addServiceResResponse = $Body->item(0)->getElementsByTagName("addServiceResResponse");
+$addServiceResResult = $addServiceResResponse->item(0)->getElementsByTagName("addServiceResResult");
 
-$CancelCostCurrency = $node->item(0)->getElementsByTagName("CancelCostCurrency");
-if ($CancelCostCurrency->length > 0) {
-    $Code = $CancelCostCurrency->item(0)->getAttribute("Code");
-    $Name = $CancelCostCurrency->item(0)->getAttribute("Name");
-} else {
-    $Code = "";
-    $Name = "";
+$ServiceReservation = $addServiceResResult->item(0)->getElementsByTagName("ServiceReservation");
+if ($ServiceReservation->length > 0) {
+    $ID = $ServiceReservation->item(0)->getAttribute("ID");
+    $ServiceRateID = $ServiceReservation->item(0)->getAttribute("ServiceRateID");
+    $ItemID = $ServiceReservation->item(0)->getAttribute("ItemID");
+    $UserPartnerID = $ServiceReservation->item(0)->getAttribute("UserPartnerID");
+
+    try {
+        $sql = new Sql($db);
+        $insert = $sql->insert();
+        $insert->into('addServices');
+        $insert->values(array(
+            'ID' => $ID,
+            'datetime_created' => time(),
+            'datetime_updated' => 0,
+            'ServiceRateID' => $ServiceRateID,
+            'ItemID' => $ItemID,
+            'UserPartnerID' => $UserPartnerID
+        ), $insert::VALUES_MERGE);
+        $statement = $sql->prepareStatementForSqlObject($insert);
+        $results = $statement->execute();
+        $db->getDriver()
+            ->getConnection()
+            ->disconnect();
+    } catch (\Exception $e) {
+        echo $return;
+        echo "ERRO: " . $e;
+        echo $return;
+    }
 }
-
-
-try {
-    $sql = new Sql($db);
-    $insert = $sql->insert();
-    $insert->into('cancelar_reserva');
-    $insert->values(array(
-        'ID' => $ID,
-        'datetime_created' => time(),
-        'datetime_updated' => 0,
-        'UserPartnerID' => $UserPartnerID,
-        'CancelCost' => $CancelCost,
-        'Code' => $Code,
-        'Name' => $Name
-    ), $insert::VALUES_MERGE);
-    $statement = $sql->prepareStatementForSqlObject($insert);
-    $results = $statement->execute();
-    $db->getDriver()
-        ->getConnection()
-        ->disconnect();
-} catch (\Exception $e) {
-    echo $return;
-    echo "ERRO: " . $e;
-    echo $return;
-}
-
 
 // EOF
 $db->getDriver()
