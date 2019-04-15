@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU COUNTRIES<br/>";
+echo "COMECOU INSERIR TOUR<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -49,7 +49,7 @@ $client->setOptions(array(
     'sslverifyhost' => false
 ));
 
-$url = "http://demo.gl-tours.com/packages_to_xml.php?Action=getCountries&User=TEST&Pass=1234";
+$url = "http://demo.gl-tours.com/web_service_InsertTourInCart.php?qtyA=2&qtyC=0&qtyI=0&id=6108&CRO=960128979&operationDays=2019-08-01&User=TEST&Pass=1234";
 
 $client->setUri($url);
 $client->setMethod('POST');
@@ -86,27 +86,45 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $inputDoc = new DOMDocument();
 $inputDoc->loadXML($response);
 $response2 = $inputDoc->getElementsByTagName("response");
-$countries = $response2->item(0)->getElementsByTagName("countries");
-$country = "";
-$node = $countries->item(0)->getElementsByTagName("country");
-for ($i=0; $i < $node->length; $i++) { 
-    $id = $node->item($i)->getAttribute("id");
-    $country = $node->item($i)->nodeValue;
+$process = $response2->item(0)->getElementsByTagName("process");
+if ($process->length > 0) {
+    $process = $process->item(0)->nodeValue;
+} else {
+    $process = "";
+}
+$cartid = $response2->item(0)->getElementsByTagName("cartid");
+if ($cartid->length > 0) {
+    $cartid = $cartid->item(0)->nodeValue;
+} else {
+    $cartid = "";
+}
+$user = $response2->item(0)->getElementsByTagName("user");
+if ($user->length > 0) {
+    $user = $user->item(0)->nodeValue;
+} else {
+    $user = "";
+}
 
+try {
     $sql = new Sql($db);
     $insert = $sql->insert();
-    $insert->into('countries');
+    $insert->into('insertTourInCart');
     $insert->values(array(
-        'id' => $id,
+        'cartid' => $cartid,
         'datetime_created' => time(),
         'datetime_updated' => 0,
-        'country' => $country
+        'process' => $process,
+        'user' => $user,
     ), $insert::VALUES_MERGE);
     $statement = $sql->prepareStatementForSqlObject($insert);
     $results = $statement->execute();
     $db->getDriver()
         ->getConnection()
         ->disconnect();
+} catch (\Exception $e) {
+    echo $return;
+    echo "ERRO: " . $e;
+    echo $return;
 }
 
 // EOF

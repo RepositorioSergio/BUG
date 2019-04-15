@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU COUNTRIES<br/>";
+echo "COMECOU DEST CODE<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -49,7 +49,7 @@ $client->setOptions(array(
     'sslverifyhost' => false
 ));
 
-$url = "http://demo.gl-tours.com/packages_to_xml.php?Action=getCountries&User=TEST&Pass=1234";
+$url = "http://demo.gl-tours.com/packages_to_xml.php?Action=getTypeByDestinationCode&AeroCode=BUE&User=TEST&Pass=1234";
 
 $client->setUri($url);
 $client->setMethod('POST');
@@ -86,27 +86,33 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $inputDoc = new DOMDocument();
 $inputDoc->loadXML($response);
 $response2 = $inputDoc->getElementsByTagName("response");
-$countries = $response2->item(0)->getElementsByTagName("countries");
-$country = "";
-$node = $countries->item(0)->getElementsByTagName("country");
+$Types = $response2->item(0)->getElementsByTagName("Types");
+$Type = "";
+$node = $Types->item(0)->getElementsByTagName("Type");
 for ($i=0; $i < $node->length; $i++) { 
     $id = $node->item($i)->getAttribute("id");
-    $country = $node->item($i)->nodeValue;
+    $Type = $node->item($i)->nodeValue;
 
-    $sql = new Sql($db);
-    $insert = $sql->insert();
-    $insert->into('countries');
-    $insert->values(array(
-        'id' => $id,
-        'datetime_created' => time(),
-        'datetime_updated' => 0,
-        'country' => $country
-    ), $insert::VALUES_MERGE);
-    $statement = $sql->prepareStatementForSqlObject($insert);
-    $results = $statement->execute();
-    $db->getDriver()
-        ->getConnection()
-        ->disconnect();
+    try {
+        $sql = new Sql($db);
+        $insert = $sql->insert();
+        $insert->into('typedestinationCode');
+        $insert->values(array(
+            'id' => $id,
+            'datetime_created' => time(),
+            'datetime_updated' => 0,
+            'Type' => $Type
+        ), $insert::VALUES_MERGE);
+        $statement = $sql->prepareStatementForSqlObject($insert);
+        $results = $statement->execute();
+        $db->getDriver()
+            ->getConnection()
+            ->disconnect();
+    } catch (\Exception $e) {
+        echo $return;
+        echo "ERRO: " . $e;
+        echo $return;
+    }
 }
 
 // EOF

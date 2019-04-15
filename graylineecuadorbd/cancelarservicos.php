@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU COUNTRIES<br/>";
+echo "COMECOU CANCELAR<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -49,9 +49,9 @@ $client->setOptions(array(
     'sslverifyhost' => false
 ));
 
-$url = "http://demo.gl-tours.com/packages_to_xml.php?Action=getCountries&User=TEST&Pass=1234";
+$url = "http://demo.gl-tours.com/web_service_cancel.php?User=TEST&Pass=1234&TOUR_DATE=2019-08-01&CRO=151985";
 
-$client->setUri($url);
+/* $client->setUri($url);
 $client->setMethod('POST');
 $response = $client->send();
 if ($response->isSuccess()) {
@@ -66,7 +66,30 @@ echo $return;
 echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
 echo $return;
 die();
+} */
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_HEADER, false);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_VERBOSE, 1);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+$error = curl_error($ch);
+$headers = curl_getinfo($ch);
+if ($response === false) {
+    echo $return;
+    echo "ERRO: " . $error;
+    echo $return;
+} else {
+    echo $return;
+    echo "Operation completed without any errors ";
+    echo $return;
 }
+
+curl_close($ch);
 echo "<br/>RESPONSE";
 echo '<xmp>';
 var_dump($response);
@@ -86,27 +109,45 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $inputDoc = new DOMDocument();
 $inputDoc->loadXML($response);
 $response2 = $inputDoc->getElementsByTagName("response");
-$countries = $response2->item(0)->getElementsByTagName("countries");
-$country = "";
-$node = $countries->item(0)->getElementsByTagName("country");
-for ($i=0; $i < $node->length; $i++) { 
-    $id = $node->item($i)->getAttribute("id");
-    $country = $node->item($i)->nodeValue;
+$process = $response2->item(0)->getElementsByTagName("process");
+if ($process->length > 0) {
+    $process = $process->item(0)->nodeValue;
+} else {
+    $process = "";
+}
+$status = $response2->item(0)->getElementsByTagName("status");
+if ($status->length > 0) {
+    $status = $status->item(0)->nodeValue;
+} else {
+    $status = "";
+}
+$TransactionDate = $response2->item(0)->getElementsByTagName("TransactionDate");
+if ($TransactionDate->length > 0) {
+    $TransactionDate = $TransactionDate->item(0)->nodeValue;
+} else {
+    $TransactionDate = "";
+}
 
+try {
     $sql = new Sql($db);
     $insert = $sql->insert();
-    $insert->into('countries');
+    $insert->into('cancelarservicos');
     $insert->values(array(
-        'id' => $id,
         'datetime_created' => time(),
         'datetime_updated' => 0,
-        'country' => $country
+        'process' => $process,
+        'status' => $status,
+        'TransactionDate' => $TransactionDate
     ), $insert::VALUES_MERGE);
     $statement = $sql->prepareStatementForSqlObject($insert);
     $results = $statement->execute();
     $db->getDriver()
         ->getConnection()
         ->disconnect();
+} catch (\Exception $e) {
+    echo $return;
+    echo "ERRO: " . $e;
+    echo $return;
 }
 
 // EOF

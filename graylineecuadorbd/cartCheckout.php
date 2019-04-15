@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU COUNTRIES<br/>";
+echo "COMECOU CART CHECK<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -49,7 +49,7 @@ $client->setOptions(array(
     'sslverifyhost' => false
 ));
 
-$url = "http://demo.gl-tours.com/packages_to_xml.php?Action=getCountries&User=TEST&Pass=1234";
+$url = "http://demo.gl-tours.com/web_service_cart_check_out.php?UserRand=user189142933&fName=David&lName=Sal&MrA=Mr&email=davidsal@gmail.com&mNumber=986520188&hName=Reconquista Garden&hAddress=Esmeralda 675, Centro&Country=BR&Pax=2&adultName1=Gloria Sal&MrA1=Mrs&PassporA1=BR21d4587&NacionalityA1=Brasil&BirthDateA1=1981-05-17&User=TEST&Pass=1234";
 
 $client->setUri($url);
 $client->setMethod('POST');
@@ -86,28 +86,40 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $inputDoc = new DOMDocument();
 $inputDoc->loadXML($response);
 $response2 = $inputDoc->getElementsByTagName("response");
-$countries = $response2->item(0)->getElementsByTagName("countries");
-$country = "";
-$node = $countries->item(0)->getElementsByTagName("country");
-for ($i=0; $i < $node->length; $i++) { 
-    $id = $node->item($i)->getAttribute("id");
-    $country = $node->item($i)->nodeValue;
+$process = $response2->item(0)->getElementsByTagName("process");
+if ($process->length > 0) {
+    $process = $process->item(0)->nodeValue;
+} else {
+    $process = "";
+}
+$cartNumber = $response2->item(0)->getElementsByTagName("cartNumber");
+if ($cartNumber->length > 0) {
+    $cartNumber = $cartNumber->item(0)->nodeValue;
+} else {
+    $cartNumber = "";
+}
 
+try {
     $sql = new Sql($db);
     $insert = $sql->insert();
-    $insert->into('countries');
+    $insert->into('cartCheckout');
     $insert->values(array(
-        'id' => $id,
         'datetime_created' => time(),
         'datetime_updated' => 0,
-        'country' => $country
+        'cartNumber' => $cartNumber,
+        'process' => $process
     ), $insert::VALUES_MERGE);
     $statement = $sql->prepareStatementForSqlObject($insert);
     $results = $statement->execute();
     $db->getDriver()
         ->getConnection()
         ->disconnect();
+} catch (\Exception $e) {
+    echo $return;
+    echo "ERRO: " . $e;
+    echo $return;
 }
+
 
 // EOF
 $db->getDriver()
