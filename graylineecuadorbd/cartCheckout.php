@@ -49,7 +49,7 @@ $client->setOptions(array(
     'sslverifyhost' => false
 ));
 
-$url = "http://demo.gl-tours.com/web_service_cart_check_out.php?UserRand=user189142933&fName=David&lName=Sal&MrA=Mr&email=davidsal@gmail.com&mNumber=986520188&hName=Reconquista Garden&hAddress=Esmeralda 675, Centro&Country=BR&Pax=2&adultName1=Gloria Sal&MrA1=Mrs&PassporA1=BR21d4587&NacionalityA1=Brasil&BirthDateA1=1981-05-17&User=TEST&Pass=1234";
+$url = "http://demo.gl-tours.com/web_service_cart_check_out.php?UserRand=user1780375154&fName=David&lName=Neves&MrA=Mr&email=davidneves@gmail.com&mNumber=986520178&hName=Reconquista Garden&hAddress=Esmeralda 675, Centro&Country=BR&Pax=2&adultName1=Gloria Neves&MrA1=Mrs&PassporA1=BR21d4100&NacionalityA1=Brasil&BirthDateA1=1981-05-21&User=TEST&Pass=1234";
 
 $client->setUri($url);
 $client->setMethod('POST');

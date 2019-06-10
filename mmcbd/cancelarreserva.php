@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU PRE CANCEL";
+echo "COMECOU CANCELAR RESERVA<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -32,8 +32,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $affiliate_id = 0;
 $branch_filter = "";
 
-
-$config = new \Zend\Config\Config(include '../config/autoload/global.comming2.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.mmc.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -43,53 +42,12 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$raw2 = '{
-    "user": "CTM",
-    "password": "CTM9632"
-    }';
-
-
-$client2 = new Client();
-$client2->setOptions(array(
-    'timeout' => 100,
-    'sslverifypeer' => false,
-    'sslverifyhost' => false
-));
-$client2->setHeaders(array(
-    "Content-Type: application/json",
-    "Accept: application/json",
-    "Content-length: " . strlen($raw2)
-));
-
-$url = 'https://svcext.grupo-pinero.com/co2/pandora-v1';
-
-$client2->setUri($url . '/login');
-$client2->setMethod('POST');
-$client2->setRawBody($raw2);
-$response2 = $client2->send();
-if ($response2->isSuccess()) {
-$response2 = $response2->getBody();
-} else {
-$logger = new Logger();
-$writer = new Writer\Stream('/srv/www/htdocs/error_log');
-$logger->addWriter($writer);
-$logger->info($client2->getUri());
-$logger->info($response2->getStatusCode() . " - " . $response2->getReasonPhrase());
-echo $return;
-echo $response2->getStatusCode() . " - " . $response2->getReasonPhrase();
-echo $return;
-die();
+$raw = '{	
+    "tokenBooking":"bHdBQUFCK0xDQUFBQUFBQUJBQmRqTHNLQWpFUVJmOWw2a1JtOG5hNjdiYlhUaXlDbXlJUURDUWJHOWwvTjRVZzJCeTRCKzU1UTk1YTZxbTlJckJHWjEwUXNNVjlMbEJJWjRsR0tuTWxaUEtzN2NrR0g4Z0VpWm9SUWN6MzZDTzJYSUZKT1RRQ3ZyVysxajBWNE9jbzVTZVgxRkw5bDVmSi9LZ2QrRWJXZUUvMzR3T25UeWlsbHdBQUFBPT0"
 }
+';
 
-$token = $response2;
-
-$raw = '{
-    "token": "' . $token . '",
-    "language": "ES",
-    "preCancel" : "true",
-    "file" : "SDS161359618"
-    }';
-
+$token = 'e_-3xLPVRsteK2CjsNhGtzPy26RYqDle1QUIFYG1HJM8oGNTbYGwXywWU_8KANfVlbNqLdB8d6lpCsjSBSDhaEnVqai-Gt-7my7y7ON6taCHuwASiADLhLmoUi4V17DuU6chNGG5WDXvmOf-YmL_RjRL-j87v6LwwdjKFCN6uP5TRygD1_6MxGbxN2H-NvuThQOvAl6M9ELpdUethw5YPzEjPmi_jcaDjB_tJIfv8kQ-qy6I81xagf8VnI-7KsqYbhJkiEdgOsfLalfQidId46_nRKF3tNtV1HXAB4yi2uTTxFtj-YaENdXh4P4sPM3g-krF2rLdxeLGqaYB7F_YIisZXem1nSS1J5QHGFVFUsGHdPfy0DyP9oC27kbzzYirfgILRKFcKJC9aOEzpDlbpt7Z8iZ24rYkbP3UBtkBfr1fPNDV4Uy7FodLAYLaTHiVuKlOp1QJh_e_ouwsaHwKWYi9DictdaW5_xjNMxwrELkhEGpxxnHWMkKO-dSXfhP1rt3KbkXY7LxaBQxwgLxCYjtQeqeG9SL-JkcBQzgKOkg';
 
 $client = new Client();
 $client->setOptions(array(
@@ -99,13 +57,12 @@ $client->setOptions(array(
 ));
 $client->setHeaders(array(
     "Content-Type: application/json",
-    "Accept: application/json",
+    "Authorization: Bearer " . $token,
     "Content-length: " . strlen($raw)
 ));
+$url = "http://www.mmcturismo.com/webapi/api/servico/servicocancelareserva";
 
-$url = 'https://svcext.grupo-pinero.com/co2/pandora-v1';
-
-$client->setUri($url . '/excursion/cancellation');
+/* $client->setUri($url);
 $client->setMethod('POST');
 $client->setRawBody($raw);
 $response = $client->send();
@@ -121,15 +78,46 @@ echo $return;
 echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
 echo $return;
 die();
+} */ 
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url );
+curl_setopt($ch, CURLOPT_HEADER, false);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+curl_setopt($ch, CURLOPT_VERBOSE, 0);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    "Content-Type: application/json",
+    "Authorization: Bearer " . $token,
+    "Content-length: " . strlen($raw)
+));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+$error = curl_error($ch);
+if ($response === false) {
+    echo $return;
+    echo "ERRO: " . $error;
+    echo $return;
+} else {
+    echo $return;
+    echo "NAO TEM ERRO";
+    echo $return;
 }
 
+$headers = curl_getinfo($ch);
+curl_close($ch);
+
+
 $response = json_decode($response, true);
-
-echo "<xmp>";
+echo "<br/>RESPONSE";
+echo '<xmp>';
 var_dump($response);
-echo "</xmp>";
+echo '</xmp>'; 
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.comming2.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.mmc.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -139,21 +127,22 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$cancelFeeList = $response['cancelFeeList'];
-for ($i=0; $i < count($cancelFeeList); $i++) { 
-    $currency = $cancelFeeList[$i]['currency'];
-    $currencyCode = $currency['code'];
-    $price = $cancelFeeList[$i]['price'];
+$sucesso = $response['sucesso'];
+
+$mensagem = '';
+$mensagens = $response['mensagens'];
+for ($i=0; $i < count($mensagens); $i++) { 
+    $mensagem = $mensagens[$i];
 
     try {
         $sql = new Sql($db);
         $insert = $sql->insert();
-        $insert->into('precancellation');
+        $insert->into('cancelareserva');
         $insert->values(array(
             'datetime_created' => time(),
             'datetime_updated' => 0,
-            'currencyCode' => $currencyCode,
-            'price' => $price
+            'mensagem' => $mensagem,
+            'sucesso' => $sucesso
         ), $insert::VALUES_MERGE);
         $statement = $sql->prepareStatementForSqlObject($insert);
         $results = $statement->execute();
@@ -167,9 +156,10 @@ for ($i=0; $i < count($cancelFeeList); $i++) {
     }
 }
 
+
 // EOF
 $db->getDriver()
     ->getConnection()
     ->disconnect();
-echo 'Done';
+echo '<br/>Done';
 ?>

@@ -97,7 +97,7 @@ echo "RAW: " . $raw;
 echo $return;
 
 
-/* $client = new Client();
+$client = new Client();
 $client->setOptions(array(
     'timeout' => 100,
     'sslverifypeer' => false,
@@ -127,39 +127,14 @@ echo $return;
 echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
 echo $return;
 die();
-} */
-
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "https://svcext.grupo-pinero.com/co2/pandora-v1/excursion/booking");
-curl_setopt($ch, CURLOPT_HEADER, false);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
-curl_setopt($ch, CURLOPT_VERBOSE, 0);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    "Content-Type: application/json",
-    "Accept: application/json",
-    "Content-length: " . strlen($raw)
-));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$response = curl_exec($ch);
-$error = curl_error($ch);
-if ($response === false) {
-    echo $return;
-    echo "ERRO: " . $error;
-    echo $return;
 }
-$headers = curl_getinfo($ch);
-curl_close($ch);
 
 $response = json_decode($response, true);
 
 echo "<xmp>";
 var_dump($response);
 echo "</xmp>";
-die();
+
 $config = new \Zend\Config\Config(include '../config/autoload/global.coming2.php');
 $config = [
     'driver' => $config->db->driver,
@@ -228,10 +203,11 @@ for ($i=0; $i < count($bookLineList); $i++) {
     $price2 = $price['price'];
 
     $bookingDate = $bookLineList[$i]['bookingDate'];
-    $bookingDate = $bookLineList[$i]['bookingDate'];
     $serviceDate = $bookLineList[$i]['serviceDate'];
+    $productType = $bookLineList[$i]['productType'];
     $status = $bookLineList[$i]['status'];
     $destination = $bookLineList[$i]['destination'];
+    $destinationcode = $destination['code'];
     $destinationName = $destination['name'];
 
     $meetPoint = $bookLineList[$i]['meetPoint'];
@@ -240,6 +216,8 @@ for ($i=0; $i < count($bookLineList); $i++) {
     $lobbyCode = $meetPoint['lobbyCode'];
     $lobbyName = $meetPoint['lobbyName'];
     $time = $meetPoint['time'];
+
+    $tourDescription = $bookLineList[$i]['tourDescription'];
 
     try {
         $sql = new Sql($db);
@@ -266,11 +244,14 @@ for ($i=0; $i < count($bookLineList); $i++) {
             'serviceDate' => $serviceDate,
             'productType' => $productType,
             'status' => $status,
+            'destinationcode' => $destinationcode,
+            'destinationName' => $destinationName,
             'hotelCode' => $hotelCode,
             'hotelName' => $hotelName,
             'lobbyCode' => $lobbyCode,
             'lobbyName' => $lobbyName,
-            'time' => $time
+            'time' => $time,
+            'tourDescription' => $tourDescription
         ), $insert::VALUES_MERGE);
         $statement = $sql->prepareStatementForSqlObject($insert);
         $results = $statement->execute();

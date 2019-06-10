@@ -130,16 +130,14 @@ try {
     die();
 }
 
-/* $url = 'https://supply.integration2.testaroom.com/';
+$url = 'https://supply.integration2.testaroom.com/';
 $result = $statement->execute();
 $result->buffer();
 if ($result instanceof ResultInterface && $result->isQueryResult()) {
     $resultSet = new ResultSet();
     $resultSet->initialize($result);
     foreach ($resultSet as $row) {
-        $codetocruiseid = $row->id; */
-        $codetocruiseid = 130;
-        echo $codetocruiseid . "<br/>";
+        $codetocruiseid = $row->id; 
 
         $raw = 'xml=<?xml version="1.0"?>
         <request>
@@ -168,6 +166,8 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
         $headers = curl_getinfo($ch);
         curl_close($ch);
 
+        //$response = iconv('UTF-8', 'ASCII//TRANSLIT', $response);
+
         echo "<xmp>";
         echo $response;
         echo "</xmp>";
@@ -184,201 +184,247 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
 
         $inputDoc = new DOMDocument();
         $inputDoc->loadXML($response);
-        if ($inputDoc != null) {
-            echo "NAO NULO ";
-        }
-        $results = $inputDoc->getElementsByTagName("results");
-        $errors = $results->item(0)->getElementsByTagName("errors");
-        if ($errors->length == 0) {
+        $response2 = $inputDoc->getElementsByTagName("response");
+        $errors = $response2->item(0)->getElementsByTagName("errors");
+        $results = $response2->item(0)->getElementsByTagName("results");
+        if ($results->length > 0) {
             $cruise = $results->item(0)->getElementsByTagName("cruise");
-            $description = $cruise->item(0)->getAttribute("description");
-            $codetocruiseid = $cruise->item(0)->getAttribute("codetocruiseid");
-            $voyagecode = $cruise->item(0)->getAttribute("voyagecode");
-            $ukdeparture = $cruise->item(0)->getAttribute("ukdeparture");
-            $stoplive = $cruise->item(0)->getAttribute("stoplive");
-            $startdate = $cruise->item(0)->getAttribute("startdate");
-            $starrating = $cruise->item(0)->getAttribute("starrating");
-            $shipname = $cruise->item(0)->getAttribute("shipname");
-            $shipid = $cruise->item(0)->getAttribute("shipid");
-            $sailnights = $cruise->item(0)->getAttribute("sailnights");
-            $saildate = $cruise->item(0)->getAttribute("saildate");
-            $returndate = $cruise->item(0)->getAttribute("returndate");
-            $nofly = $cruise->item(0)->getAttribute("nofly");
-            $nights = $cruise->item(0)->getAttribute("nights");
-            $name = $cruise->item(0)->getAttribute("name");
-            $linelogo = $cruise->item(0)->getAttribute("linelogo");
-            $lineid = $cruise->item(0)->getAttribute("lineid");
-            $enddate = $cruise->item(0)->getAttribute("enddate");
-            $departuk = $cruise->item(0)->getAttribute("departuk");
-            $cruiseline = $cruise->item(0)->getAttribute("cruiseline");
-            $cruiseid = $cruise->item(0)->getAttribute("cruiseid");
+            if ($cruise->length > 0) {
+                $description = $cruise->item(0)->getAttribute("description");
+                $codetocruiseid = $cruise->item(0)->getAttribute("codetocruiseid");
+                $voyagecode = $cruise->item(0)->getAttribute("voyagecode");
+                $ukdeparture = $cruise->item(0)->getAttribute("ukdeparture");
+                $stoplive = $cruise->item(0)->getAttribute("stoplive");
+                $startdate = $cruise->item(0)->getAttribute("startdate");
+                $starrating = $cruise->item(0)->getAttribute("starrating");
+                $shipname = $cruise->item(0)->getAttribute("shipname");
+                $shipid = $cruise->item(0)->getAttribute("shipid");
+                $sailnights = $cruise->item(0)->getAttribute("sailnights");
+                $saildate = $cruise->item(0)->getAttribute("saildate");
+                $returndate = $cruise->item(0)->getAttribute("returndate");
+                $nofly = $cruise->item(0)->getAttribute("nofly");
+                $nights = $cruise->item(0)->getAttribute("nights");
+                $name = $cruise->item(0)->getAttribute("name");
+                $linelogo = $cruise->item(0)->getAttribute("linelogo");
+                $lineid = $cruise->item(0)->getAttribute("lineid");
+                $enddate = $cruise->item(0)->getAttribute("enddate");
+                $departuk = $cruise->item(0)->getAttribute("departuk");
+                $cruiseline = $cruise->item(0)->getAttribute("cruiseline");
+                $cruiseid = $cruise->item(0)->getAttribute("cruiseid");
 
-            $sql = new Sql($db);
-            $insert = $sql->insert();
-            $insert->into('content');
-            $insert->values(array(
-                'datetime_created' => time(),
-                'datetime_updated' => 0,
-                'description' => $description,
-                'codetocruiseid' => $codetocruiseid,
-                'voyagecode' => $voyagecode,
-                'ukdeparture' => $ukdeparture,
-                'stoplive' => $stoplive,
-                'startdate' => $startdate,
-                'starrating' => $starrating,
-                'shipname' => $shipname,
-                'shipid' => $shipid,
-                'sailnights' => $sailnights,
-                'saildate' => $saildate,
-                'returndate' => $returndate,
-                'nofly' => $nofly,
-                'nights' => $nights,
-                'name' => $name,
-                'linelogo' => $linelogo,
-                'lineid' => $lineid,
-                'enddate' => $enddate,
-                'departuk' => $departuk,
-                'cruiseline' => $cruiseline,
-                'cruiseid' => $cruiseid,
-                'codetocruiseid' => $codetocruiseid
-            ), $insert::VALUES_MERGE);
-            $statement = $sql->prepareStatementForSqlObject($insert);
-            $results = $statement->execute();
-            $db->getDriver()
-            ->getConnection()
-            ->disconnect();
-
-
-            $flights = $cruise->item(0)->getElementsByTagName("flights");
-            $flight = $flights->item(0)->getElementsByTagName("flight");
-            for ($i=0; $i < $flight->length; $i++) { 
-                $name = $flight->item($i)->getAttribute("name");
-                $iata = $flight->item($i)->getAttribute("iata");
-
-                $sql = new Sql($db);
-                $insert = $sql->insert();
-                $insert->into('content_flights');
-                $insert->values(array(
-                    'datetime_created' => time(),
-                    'datetime_updated' => 1,
-                    'name' => $name,
-                    'iata' => $iata
-                ), $insert::VALUES_MERGE);
-                $statement = $sql->prepareStatementForSqlObject($insert);
-                $results = $statement->execute();
-                $db->getDriver()
-                ->getConnection()
-                ->disconnect();
-
-            }
-
-            $itinerary = $cruise->item(0)->getElementsByTagName("itinerary");
-            $item = $itinerary->item(0)->getElementsByTagName("item");
-            for ($j=0; $j < $item->length; $j++) { 
-                $description = $item->item($j)->getAttribute("description");
-                $type = $item->item($j)->getAttribute("type");
-                $name = $item->item($j)->getAttribute("name");
-                $portid = $item->item($j)->getAttribute("portid");
-                $ownerid = $item->item($j)->getAttribute("ownerid");
-                $orderid = $item->item($j)->getAttribute("orderid");
-                $longitude = $item->item($j)->getAttribute("longitude");
-                $latitude = $item->item($j)->getAttribute("latitude");
-                $departtime = $item->item($j)->getAttribute("departtime");
-                $departdate = $item->item($j)->getAttribute("departdate");
-                $day = $item->item($j)->getAttribute("day");
-                $arrivetime = $item->item($j)->getAttribute("arrivetime");
-                $arrivedate = $item->item($j)->getAttribute("arrivedate");
-
-                $sql = new Sql($db);
-                $insert = $sql->insert();
-                $insert->into('content_flights');
-                $insert->values(array(
-                    'datetime_created' => time(),
-                    'datetime_updated' => 0,
-                    'description' => $description,
-                    'type' => $type,
-                    'name' => $name,
-                    'portid' => $portid,
-                    'ownerid' => $ownerid,
-                    'orderid' => $orderid,
-                    'longitude' => $longitude,
-                    'latitude' => $latitude,
-                    'departtime' => $departtime,
-                    'departdate' => $departdate,
-                    'day' => $day,
-                    'arrivetime' => $arrivetime,
-                    'arrivedate' => $arrivedate
-                ), $insert::VALUES_MERGE);
-                $statement = $sql->prepareStatementForSqlObject($insert);
-                $results = $statement->execute();
-                $db->getDriver()
-                ->getConnection()
-                ->disconnect();
-
-            }
+                try {
+                    $sql = new Sql($db);
+                    $insert = $sql->insert();
+                    $insert->into('content');
+                    $insert->values(array(
+                        'datetime_created' => time(),
+                        'datetime_updated' => 0,
+                        'description' => $description,
+                        'codetocruiseid' => $codetocruiseid,
+                        'voyagecode' => $voyagecode,
+                        'ukdeparture' => $ukdeparture,
+                        'stoplive' => $stoplive,
+                        'startdate' => $startdate,
+                        'starrating' => $starrating,
+                        'shipname' => $shipname,
+                        'shipid' => $shipid,
+                        'sailnights' => $sailnights,
+                        'saildate' => $saildate,
+                        'returndate' => $returndate,
+                        'nofly' => $nofly,
+                        'nights' => $nights,
+                        'name' => $name,
+                        'linelogo' => $linelogo,
+                        'lineid' => $lineid,
+                        'enddate' => $enddate,
+                        'departuk' => $departuk,
+                        'cruiseline' => $cruiseline,
+                        'cruiseid' => $cruiseid,
+                        'codetocruiseid' => $codetocruiseid
+                    ), $insert::VALUES_MERGE);
+                    $statement = $sql->prepareStatementForSqlObject($insert);
+                    $results = $statement->execute();
+                    $db->getDriver()
+                    ->getConnection()
+                    ->disconnect();
+                } catch (\Exception $e) {
+                    echo $return;
+                    echo "Error: " . $e;
+                    echo $return;
+                }
 
 
-            $regions = $cruise->item(0)->getElementsByTagName("regions");
-            $region = $regions->item(0)->getElementsByTagName("region");
-            for ($l=0; $l < $region->length; $l++) { 
-                $name = $sailing->item($l)->getAttribute("name");
-                $regionid = $sailing->item($l)->getAttribute("regionid");
+                $flights = $cruise->item(0)->getElementsByTagName("flights");
+                if ($flights->length > 0) {
+                    $flight = $flights->item(0)->getElementsByTagName("flight");
+                    for ($i=0; $i < $flight->length; $i++) { 
+                        $name = $flight->item($i)->getAttribute("name");
+                        $iata = $flight->item($i)->getAttribute("iata");
 
-                $sql = new Sql($db);
-                $insert = $sql->insert();
-                $insert->into('content_regions');
-                $insert->values(array(
-                    'regionid' => $regionid,
-                    'datetime_created' => time(),
-                    'datetime_updated' => 1,
-                    'name' => $name
-                ), $insert::VALUES_MERGE);
-                $statement = $sql->prepareStatementForSqlObject($insert);
-                $results = $statement->execute();
-                $db->getDriver()
-                ->getConnection()
-                ->disconnect();
+                        try {
+                            $sql = new Sql($db);
+                            $insert = $sql->insert();
+                            $insert->into('content_flights');
+                            $insert->values(array(
+                                'datetime_created' => time(),
+                                'datetime_updated' => 1,
+                                'name' => $name,
+                                'iata' => $iata
+                            ), $insert::VALUES_MERGE);
+                            $statement = $sql->prepareStatementForSqlObject($insert);
+                            $results = $statement->execute();
+                            $db->getDriver()
+                            ->getConnection()
+                            ->disconnect();
+                        } catch (\Exception $e) {
+                            echo $return;
+                            echo "Error2: " . $e;
+                            echo $return;
+                        }
 
-            }
+                    }
+                }
+
+                $itinerary = $cruise->item(0)->getElementsByTagName("itinerary");
+                if ($itinerary->length > 0) {
+                    $item = $itinerary->item(0)->getElementsByTagName("item");
+                    for ($j=0; $j < $item->length; $j++) { 
+                        $description = $item->item($j)->getAttribute("description");
+                        $type = $item->item($j)->getAttribute("type");
+                        $name = $item->item($j)->getAttribute("name");
+                        $supered_id = $item->item($j)->getAttribute("supered_id");
+                        $shortdescription = $item->item($j)->getAttribute("shortdescription");
+                        $portid = $item->item($j)->getAttribute("portid");
+                        $ownerid = $item->item($j)->getAttribute("ownerid");
+                        $originalitineraryname = $item->item($j)->getAttribute("originalitineraryname");
+                        $orderid = $item->item($j)->getAttribute("orderid");
+                        $idlcrossed = $item->item($j)->getAttribute("idlcrossed");
+                        $departtime = $item->item($j)->getAttribute("departtime");
+                        $departdate = $item->item($j)->getAttribute("departdate");
+                        $day = $item->item($j)->getAttribute("day");
+                        $arrivetime = $item->item($j)->getAttribute("arrivetime");
+                        $arrivedate = $item->item($j)->getAttribute("arrivedate");
+                        $longitude = $item->item($j)->getAttribute("longitude");
+                        $latitude = $item->item($j)->getAttribute("latitude");
+
+
+                        try {
+                            $sql = new Sql($db);
+                            $insert = $sql->insert();
+                            $insert->into('content_itinerary');
+                            $insert->values(array(
+                                'datetime_created' => time(),
+                                'datetime_updated' => 0,
+                                'description' => $description,
+                                'type' => $type,
+                                'name' => $name,
+                                'supered_id' => $supered_id,
+                                'shortdescription' => $shortdescription,
+                                'portid' => $portid,
+                                'ownerid' => $ownerid,
+                                'originalitineraryname' => $originalitineraryname,
+                                'orderid' => $orderid,
+                                'idlcrossed' => $idlcrossed,
+                                'longitude' => $longitude,
+                                'latitude' => $latitude,
+                                'departtime' => $departtime,
+                                'departdate' => $departdate,
+                                'day' => $day,
+                                'arrivetime' => $arrivetime,
+                                'arrivedate' => $arrivedate
+                            ), $insert::VALUES_MERGE);
+                            $statement = $sql->prepareStatementForSqlObject($insert);
+                            $results = $statement->execute();
+                            $db->getDriver()
+                            ->getConnection()
+                            ->disconnect();
+                        } catch (\Exception $e) {
+                            echo $return;
+                            echo "Error3: " . $e;
+                            echo $return;
+                        }
+
+                    }
+                }
+
+
+                $regions = $cruise->item(0)->getElementsByTagName("regions");
+                if ($regions->length > 0) {
+                    $region = $regions->item(0)->getElementsByTagName("region");
+                    for ($l=0; $l < $region->length; $l++) { 
+                        $name = $region->item($l)->getAttribute("name");
+                        $regionid = $region->item($l)->getAttribute("regionid");
+
+                        try {
+                            $sql = new Sql($db);
+                            $insert = $sql->insert();
+                            $insert->into('content_regions');
+                            $insert->values(array(
+                                'regionid' => $regionid,
+                                'datetime_created' => time(),
+                                'datetime_updated' => 1,
+                                'name' => $name
+                            ), $insert::VALUES_MERGE);
+                            $statement = $sql->prepareStatementForSqlObject($insert);
+                            $results = $statement->execute();
+                            $db->getDriver()
+                            ->getConnection()
+                            ->disconnect();
+                        } catch (\Exception $e) {
+                            echo $return;
+                            echo "Error4: " . $e;
+                            echo $return;
+                        }
+
+                    }
+                }
 
 
 
-            $sailings = $cruise->item(0)->getElementsByTagName("sailings");
-            $sailing = $sailings->item(0)->getElementsByTagName("sailing");
-            for ($k=0; $k < $sailing->length; $k++) { 
-                $name = $sailing->item($k)->getAttribute("name");
-                $startdate = $sailing->item($k)->getAttribute("startdate");
-                $shipname = $sailing->item($k)->getAttribute("shipname");
-                $shipid = $sailing->item($k)->getAttribute("shipid");
-                $saildate = $sailing->item($k)->getAttribute("saildate");
-                $ownerid = $sailing->item($k)->getAttribute("ownerid");
-                $code = $sailing->item($k)->getAttribute("code");
+                $sailings = $cruise->item(0)->getElementsByTagName("sailings");
+                if ($sailings->length > 0) {
+                    $sailing = $sailings->item(0)->getElementsByTagName("sailing");
+                    for ($k=0; $k < $sailing->length; $k++) { 
+                        $name = $sailing->item($k)->getAttribute("name");
+                        $startdate = $sailing->item($k)->getAttribute("startdate");
+                        $shipname = $sailing->item($k)->getAttribute("shipname");
+                        $shipid = $sailing->item($k)->getAttribute("shipid");
+                        $saildate = $sailing->item($k)->getAttribute("saildate");
+                        $ownerid = $sailing->item($k)->getAttribute("ownerid");
+                        $code = $sailing->item($k)->getAttribute("code");
 
-                $sql = new Sql($db);
-                $insert = $sql->insert();
-                $insert->into('content_sailings');
-                $insert->values(array(
-                    'datetime_created' => time(),
-                    'datetime_updated' => 0,
-                    'name' => $name,
-                    'startdate' => $startdate,
-                    'shipname' => $shipname,
-                    'shipid' => $shipid,
-                    'saildate' => $saildate,
-                    'ownerid' => $ownerid,
-                    'code' => $code
-                ), $insert::VALUES_MERGE);
-                $statement = $sql->prepareStatementForSqlObject($insert);
-                $results = $statement->execute();
-                $db->getDriver()
-                ->getConnection()
-                ->disconnect();
+                        try {
+                            $sql = new Sql($db);
+                            $insert = $sql->insert();
+                            $insert->into('content_sailings');
+                            $insert->values(array(
+                                'datetime_created' => time(),
+                                'datetime_updated' => 0,
+                                'name' => $name,
+                                'startdate' => $startdate,
+                                'shipname' => $shipname,
+                                'shipid' => $shipid,
+                                'saildate' => $saildate,
+                                'ownerid' => $ownerid,
+                                'code' => $code
+                            ), $insert::VALUES_MERGE);
+                            $statement = $sql->prepareStatementForSqlObject($insert);
+                            $results = $statement->execute();
+                            $db->getDriver()
+                            ->getConnection()
+                            ->disconnect();
+                        } catch (\Exception $e) {
+                            echo $return;
+                            echo "Error5: " . $e;
+                            echo $return;
+                        }
 
+                    }
+                } 
             }
         }
-
-    //}
-//}
+    }
+}
 
 
 // EOF

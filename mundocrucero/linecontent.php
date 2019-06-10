@@ -161,14 +161,13 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
         ));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
+        /* echo "<xmp>";
+        var_dump($response);
+        echo "</xmp>"; */
         $error = curl_error($ch);
         $headers = curl_getinfo($ch);
         curl_close($ch);
 
-echo $return;
-echo $raw;
-echo $return;
-echo $response;
 
 
         $config = new \Zend\Config\Config(include '../config/autoload/global.mundocruceros.php');
@@ -190,9 +189,14 @@ echo $response;
         $line = $results->item(0)->getElementsByTagName("line");
         $id = $line->item(0)->getAttribute("id");
         $smalllogourl = $line->item(0)->getAttribute("smalllogourl");
+        $niceurl = $line->item(0)->getAttribute("niceurl");
         $name = $line->item(0)->getAttribute("name");
         $logourl = $line->item(0)->getAttribute("logourl");
+        $lineimage = $line->item(0)->getAttribute("lineimage");
+        $linedescription = $line->item(0)->getAttribute("linedescription");
         $code = $line->item(0)->getAttribute("code");
+        $atolnumber = $line->item(0)->getAttribute("atolnumber");
+        $atolname = $line->item(0)->getAttribute("atolname");
 
         try {
             $sql = new Sql($db);
@@ -215,9 +219,14 @@ echo $response;
                         'datetime_created' => time(),
                         'datetime_updated' => 1,
                         'smalllogourl' => $smalllogourl,
+                        'niceurl' => $niceurl,
                         'name' => $name,
                         'logourl' => $logourl,
+                        'lineimage' => $lineimage,
+                        'linedescription' => $linedescription,
                         'code' => $code,
+                        'atolnumber' => $atolnumber,
+                        'atolname' => $atolname,
                         'lineid' => $lineid
                     );
                     $where['id = ?'] = $id;
@@ -234,9 +243,14 @@ echo $response;
                         'datetime_created' => time(),
                         'datetime_updated' => 0,
                         'smalllogourl' => $smalllogourl,
+                        'niceurl' => $niceurl,
                         'name' => $name,
                         'logourl' => $logourl,
+                        'lineimage' => $lineimage,
+                        'linedescription' => $linedescription,
                         'code' => $code,
+                        'atolnumber' => $atolnumber,
+                        'atolname' => $atolname,
                         'lineid' => $lineid
                     ), $insert::VALUES_MERGE);
                     $statement = $sql->prepareStatementForSqlObject($insert);
@@ -254,9 +268,14 @@ echo $response;
                     'datetime_created' => time(),
                     'datetime_updated' => 0,
                     'smalllogourl' => $smalllogourl,
+                    'niceurl' => $niceurl,
                     'name' => $name,
                     'logourl' => $logourl,
+                    'lineimage' => $lineimage,
+                    'linedescription' => $linedescription,
                     'code' => $code,
+                    'atolnumber' => $atolnumber,
+                    'atolname' => $atolname,
                     'lineid' => $lineid
                 ), $insert::VALUES_MERGE);
                 $statement = $sql->prepareStatementForSqlObject($insert);
@@ -277,6 +296,9 @@ echo $response;
         for ($i=0; $i < $item->length; $i++) { 
             $iditem = $item->item($i)->getAttribute("id");
             $description = $item->item($i)->getAttribute("description");
+            $hidden = $item->item($i)->getAttribute("hidden");
+            $supercedes = $item->item($i)->getAttribute("supercedes");
+            $ownerid = $item->item($i)->getAttribute("ownerid");
             $name = $item->item($i)->getAttribute("name");
 
             try {
@@ -329,10 +351,12 @@ echo $response;
                     $insert = $sql->insert();
                     $insert->into('description_linecontent');
                     $insert->values(array(
-                        'id' => $iditem,
                         'datetime_created' => time(),
                         'datetime_updated' => 0,
                         'description' => $description,
+                        'hidden' => $hidden,
+                        'supercedes' => $supercedes,
+                        'ownerid' => $ownerid,
                         'name' => $name,
                         'idlinecontent' => $id
                     ), $insert::VALUES_MERGE);
@@ -354,9 +378,9 @@ echo $response;
         for ($k=0; $k < $ship->length; $k++) { 
             $idship = $ship->item($k)->getAttribute("id");
             $description = $ship->item($k)->getAttribute("description");
-            $hidden = $ship->item($k)->getAttribute("hidden");
+            $ownerid = $ship->item($k)->getAttribute("ownerid");
+            $niceurl = $ship->item($k)->getAttribute("niceurl");
             $name = $ship->item($k)->getAttribute("name");
-            $code = $ship->item($k)->getAttribute("code");
             $totalcrew = $ship->item($k)->getAttribute("totalcrew");
             $tonnage = $ship->item($k)->getAttribute("tonnage");
             $starrating = $ship->item($k)->getAttribute("starrating");
@@ -388,9 +412,9 @@ echo $response;
                             'datetime_created' => time(),
                             'datetime_updated' => 1,
                             'description' => $description,
-                            'hidden' => $hidden,
+                            'ownerid' => $ownerid,
+                            'niceurl' => $niceurl,
                             'name' => $name,
-                            'code' => $code,
                             'totalcrew' => $totalcrew,
                             'tonnage' => $tonnage,
                             'starrating' => $starrating,
@@ -415,9 +439,9 @@ echo $response;
                             'datetime_created' => time(),
                             'datetime_updated' => 1,
                             'description' => $description,
-                            'hidden' => $hidden,
+                            'ownerid' => $ownerid,
+                            'niceurl' => $niceurl,
                             'name' => $name,
-                            'code' => $code,
                             'totalcrew' => $totalcrew,
                             'tonnage' => $tonnage,
                             'starrating' => $starrating,
@@ -443,9 +467,9 @@ echo $response;
                         'datetime_created' => time(),
                         'datetime_updated' => 1,
                         'description' => $description,
-                        'hidden' => $hidden,
+                        'ownerid' => $ownerid,
+                        'niceurl' => $niceurl,
                         'name' => $name,
-                        'code' => $code,
                         'totalcrew' => $totalcrew,
                         'tonnage' => $tonnage,
                         'starrating' => $starrating,

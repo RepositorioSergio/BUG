@@ -49,7 +49,7 @@ $client->setOptions(array(
     'sslverifyhost' => false
 ));
 
-$url = "http://demo.gl-tours.com/web_service_cart.php?userCart=user189142933&Lang=eng&User=TEST&Pass=1234";
+$url = "http://demo.gl-tours.com/web_service_Cart.php?userCart=user189142933&Lang=eng&User=TEST&Pass=1234";
 
 $client->setUri($url);
 $client->setMethod('POST');

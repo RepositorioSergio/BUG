@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU PRE CANCEL";
+echo "COMECOU DESTINATION<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -32,8 +32,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $affiliate_id = 0;
 $branch_filter = "";
 
-
-$config = new \Zend\Config\Config(include '../config/autoload/global.comming2.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.tbo.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -43,53 +42,20 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$raw2 = '{
-    "user": "CTM",
-    "password": "CTM9632"
-    }';
+$user = 'wingstest';
+$pass = 'Win@59491374';
 
-
-$client2 = new Client();
-$client2->setOptions(array(
-    'timeout' => 100,
-    'sslverifypeer' => false,
-    'sslverifyhost' => false
-));
-$client2->setHeaders(array(
-    "Content-Type: application/json",
-    "Accept: application/json",
-    "Content-length: " . strlen($raw2)
-));
-
-$url = 'https://svcext.grupo-pinero.com/co2/pandora-v1';
-
-$client2->setUri($url . '/login');
-$client2->setMethod('POST');
-$client2->setRawBody($raw2);
-$response2 = $client2->send();
-if ($response2->isSuccess()) {
-$response2 = $response2->getBody();
-} else {
-$logger = new Logger();
-$writer = new Writer\Stream('/srv/www/htdocs/error_log');
-$logger->addWriter($writer);
-$logger->info($client2->getUri());
-$logger->info($response2->getStatusCode() . " - " . $response2->getReasonPhrase());
-echo $return;
-echo $response2->getStatusCode() . " - " . $response2->getReasonPhrase();
-echo $return;
-die();
-}
-
-$token = $response2;
-
-$raw = '{
-    "token": "' . $token . '",
-    "language": "ES",
-    "preCancel" : "true",
-    "file" : "SDS161359618"
-    }';
-
+$raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
+<soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing" >
+<hot:Credentials UserName="wingstest" Password="Win@59491374">
+</hot:Credentials>
+<wsa:Action>http://TekTravel/HotelBookingApi/TopDestinations</wsa:Action>
+<wsa:To>https://api.tbotechnology.in/hotelapi_v7/hotelservice.svc</wsa:To>
+</soap:Header>
+<soap:Body>
+<hot:TopDestinationsRequest/>
+</soap:Body>
+</soap:Envelope>';
 
 $client = new Client();
 $client->setOptions(array(
@@ -98,14 +64,12 @@ $client->setOptions(array(
     'sslverifyhost' => false
 ));
 $client->setHeaders(array(
-    "Content-Type: application/json",
-    "Accept: application/json",
-    "Content-length: " . strlen($raw)
+    "Content-type: application/soap+xml; charset=utf-8",
+    "Content-length: ".strlen($raw)
 ));
+$url =  "https://api.tbotechnology.in/HotelAPI_V7/HotelService.svc";
 
-$url = 'https://svcext.grupo-pinero.com/co2/pandora-v1';
-
-$client->setUri($url . '/excursion/cancellation');
+$client->setUri($url);
 $client->setMethod('POST');
 $client->setRawBody($raw);
 $response = $client->send();
@@ -122,14 +86,12 @@ echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
 echo $return;
 die();
 }
-
-$response = json_decode($response, true);
-
-echo "<xmp>";
+echo "<br/>RESPONSE";
+echo '<xmp>';
 var_dump($response);
-echo "</xmp>";
+echo '</xmp>';
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.comming2.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.tbo.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -139,30 +101,44 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$cancelFeeList = $response['cancelFeeList'];
-for ($i=0; $i < count($cancelFeeList); $i++) { 
-    $currency = $cancelFeeList[$i]['currency'];
-    $currencyCode = $currency['code'];
-    $price = $cancelFeeList[$i]['price'];
+
+$inputDoc = new DOMDocument();
+$inputDoc->loadXML($response);
+$Envelope = $inputDoc->getElementsByTagName("Envelope");
+$Body = $Envelope->item(0)->getElementsByTagName("Body");
+$TopDestinationsResponse = $Body->item(0)->getElementsByTagName("TopDestinationsResponse");
+$CityList = $TopDestinationsResponse->item(0)->getElementsByTagName("CityList");
+$node = $CityList->item(0)->getElementsByTagName("City");
+for ($i=0; $i < $node->length; $i++) { 
+    $CityCode = $node->item($i)->getAttribute("CityCode");
+    $CityName = $node->item($i)->getAttribute("CityName");
+    $CountryCode = $node->item($i)->getAttribute("CountryCode");
+    $CountryName = $node->item($i)->getAttribute("CountryName");
+
+    echo $return;
+    echo "CountryCode: " . $CountryCode;
+    echo $return;
 
     try {
         $sql = new Sql($db);
         $insert = $sql->insert();
-        $insert->into('precancellation');
+        $insert->into('topdestinations');
         $insert->values(array(
             'datetime_created' => time(),
             'datetime_updated' => 0,
-            'currencyCode' => $currencyCode,
-            'price' => $price
+            'CityCode' => $CityCode,
+            'CityName' => $CityName,
+            'CountryCode' => $CountryCode,
+            'CountryName' => $CountryName
         ), $insert::VALUES_MERGE);
         $statement = $sql->prepareStatementForSqlObject($insert);
         $results = $statement->execute();
         $db->getDriver()
-        ->getConnection()
-        ->disconnect();
+            ->getConnection()
+            ->disconnect();
     } catch (\Exception $e) {
         echo $return;
-        echo "Error: " . $e;
+        echo "ERRO: " . $e;
         echo $return;
     }
 }
@@ -171,5 +147,5 @@ for ($i=0; $i < count($cancelFeeList); $i++) {
 $db->getDriver()
     ->getConnection()
     ->disconnect();
-echo 'Done';
+echo '<br/>Done';
 ?>

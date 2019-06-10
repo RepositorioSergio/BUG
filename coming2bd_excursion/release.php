@@ -128,7 +128,7 @@ $response = json_decode($response, true);
 echo "<xmp>";
 var_dump($response);
 echo "</xmp>";
-die();
+
 $config = new \Zend\Config\Config(include '../config/autoload/global.coming2.php');
 $config = [
     'driver' => $config->db->driver,
