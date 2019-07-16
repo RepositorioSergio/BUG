@@ -47,42 +47,42 @@ $pass = 'Win@59491374';
 
 $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
 <soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing" >
-<hot:Credentials UserName="' . $user . '" Password="' . $pass . '">
-</hot:Credentials>
-<wsa:Action>http://TekTravel/HotelBookingApi/HotelSearch</wsa:Action>
-<wsa:To>https://api.tbotechnology.in/hotelapi_v7/hotelservice.svc</wsa:To>
+    <hot:Credentials UserName="' . $user . '" Password="' . $pass . '">
+    </hot:Credentials>
+    <wsa:Action>http://TekTravel/HotelBookingApi/HotelSearch</wsa:Action>
+    <wsa:To>https://api.tbotechnology.in/hotelapi_v7/hotelservice.svc</wsa:To>
 </soap:Header>
 <soap:Body>
-<hot:HotelSearchRequest>
-<hot:CheckInDate>2018-08-27</hot:CheckInDate>
-<hot:CheckOutDate>2018-08-29</hot:CheckOutDate>
-<hot:CountryName>United Arab Emirates</hot:CountryName>
-<hot:CityName>Dubai</hot:CityName>
-<hot:CityId>115936</hot:CityId>
-<hot:IsNearBySearchAllowed>false</hot:IsNearBySearchAllowed>
-<hot:NoOfRooms>2</hot:NoOfRooms>
-<hot:GuestNationality>AE</hot:GuestNationality>
-<hot:RoomGuests>
-<hot:RoomGuest AdultCount="1" ChildCount="1">
-<hot:ChildAge>
-<hot:int>5</hot:int>
-</hot:ChildAge>
-</hot:RoomGuest>
-<hot:RoomGuest AdultCount="1" ChildCount="0"/>
-</hot:RoomGuests>
-<hot:ResultCount>0</hot:ResultCount>
-<hot:Filters>
-<hot:StarRating>All</hot:StarRating>
-<hot:OrderBy>PriceAsc</hot:OrderBy>
-</hot:Filters>
-<hot:GeoCodes>
-<hot:Latitude>25.26899</hot:Latitude>
-<hot:Longitude>55.37896</hot:Longitude>
-<hot:SearchRadius>10</hot:SearchRadius>
-<hot:CountryCode>AE</hot:CountryCode>
-</hot:GeoCodes>
-<hot:ResponseTime>10</hot:ResponseTime>
-</hot:HotelSearchRequest>
+    <hot:HotelSearchRequest>
+        <hot:CheckInDate>2018-08-27</hot:CheckInDate>
+        <hot:CheckOutDate>2018-08-29</hot:CheckOutDate>
+        <hot:CountryName>United Arab Emirates</hot:CountryName>
+        <hot:CityName>Dubai</hot:CityName>
+        <hot:CityId>115936</hot:CityId>
+        <hot:IsNearBySearchAllowed>false</hot:IsNearBySearchAllowed>
+        <hot:NoOfRooms>2</hot:NoOfRooms>
+        <hot:GuestNationality>AE</hot:GuestNationality>
+        <hot:RoomGuests>
+        <hot:RoomGuest AdultCount="1" ChildCount="1">
+            <hot:ChildAge>
+                <hot:int>5</hot:int>
+            </hot:ChildAge>
+        </hot:RoomGuest>
+        <hot:RoomGuest AdultCount="1" ChildCount="0"/>
+        </hot:RoomGuests>
+        <hot:ResultCount>0</hot:ResultCount>
+        <hot:Filters>
+        <hot:StarRating>All</hot:StarRating>
+        <hot:OrderBy>PriceAsc</hot:OrderBy>
+        </hot:Filters>
+        <hot:GeoCodes>
+            <hot:Latitude>25.26899</hot:Latitude>
+            <hot:Longitude>55.37896</hot:Longitude>
+            <hot:SearchRadius>10</hot:SearchRadius>
+            <hot:CountryCode>AE</hot:CountryCode>
+        </hot:GeoCodes>
+        <hot:ResponseTime>10</hot:ResponseTime>
+    </hot:HotelSearchRequest>
 </soap:Body>
 </soap:Envelope>';
 
@@ -119,6 +119,7 @@ echo "<br/>RESPONSE";
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
+die();
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.tbo.php');
 $config = [
@@ -251,6 +252,46 @@ if ($HotelResultList->length > 0) {
     }
 }
 
+try {
+    $sql = new Sql($db);
+    $insert = $sql->insert();
+    $insert->into('hotelsearch');
+    $insert->values(array(
+        'HotelCode' => $HotelCode,
+        'datetime_created' => time(),
+        'datetime_updated' => 0,
+        'HotelName' => $HotelName,
+        'HotelPicture' => $HotelPicture,
+        'HotelDescription' => $HotelDescription,
+        'Latitude' => $Latitude,
+        'Longitude' => $Longitude,
+        'HotelAddress' => $HotelAddress,
+        'Rating' => $Rating,
+        'HotelPromotion' => $HotelPromotion,
+        'TripAdvisorRating' => $TripAdvisorRating,
+        'TripAdvisorReviewURL' => $TripAdvisorReviewURL,
+        'OriginalPrice' => $OriginalPrice,
+        'B2CRa' => $B2CRa,
+        'Currency' => $TripAdvisCurrencyorRating,
+        'TotalPrice' => $TotalPrice,
+        'PrefCurrency' => $PrefCurrency,
+        'PrefPrice' => $PrefPrice,
+        'SessionId' => $SessionId,
+        'CityId' => $CityId,
+        'CheckInDate' => $CheckInDate,
+        'CheckOutDate' => $CheckOutDate
+    ), $insert::VALUES_MERGE);
+    $statement = $sql->prepareStatementForSqlObject($insert);
+    $results = $statement->execute();
+    $db->getDriver()
+        ->getConnection()
+        ->disconnect();
+} catch (\Exception $e) {
+    echo $return;
+    echo "ERRO 1: " . $e;
+    echo $return;
+}
+
 //RoomGuests
 $RoomGuests = $HotelSearchResponse->item(0)->getElementsByTagName("RoomGuests");
 if ($RoomGuests->length > 0) {
@@ -277,7 +318,8 @@ if ($RoomGuests->length > 0) {
                 'datetime_updated' => 0,
                 'ChildCount' => $ChildCount,
                 'AdultCount' => $AdultCount,
-                'ChildAge' => $int
+                'ChildAge' => $int,
+                'HotelCode' => $HotelCode
             ), $insert::VALUES_MERGE);
             $statement = $sql->prepareStatementForSqlObject($insert);
             $results = $statement->execute();
@@ -286,7 +328,7 @@ if ($RoomGuests->length > 0) {
                 ->disconnect();
         } catch (\Exception $e) {
             echo $return;
-            echo "ERRO: " . $e;
+            echo "ERRO 2: " . $e;
             echo $return;
         }
     }
