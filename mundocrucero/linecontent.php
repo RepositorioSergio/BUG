@@ -161,14 +161,14 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
         ));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
-        /* echo "<xmp>";
+        echo "<xmp>";
         var_dump($response);
-        echo "</xmp>"; */
+        echo "</xmp>";
         $error = curl_error($ch);
         $headers = curl_getinfo($ch);
         curl_close($ch);
 
-
+die();
 
         $config = new \Zend\Config\Config(include '../config/autoload/global.mundocruceros.php');
         $config = [

@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU CRUZEIROS<br/>";
+echo "COMECOU BOOK<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -80,6 +80,18 @@ if ($result->valid()) {
 echo $return;
 echo $mundocrucerosServiceURL;
 echo $return;
+$sql = "select value from settings where name='mundocrucerosServiceURLBook' and affiliate_id=$affiliate_id_mundocruceros";
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$result = $statement->execute();
+$result->buffer();
+if ($result->valid()) {
+    $row = $result->current();
+    $mundocrucerosServiceURLBook = $row['value'];
+}
+echo $return;
+echo $mundocrucerosServiceURLBook;
+echo $return;
 $sql = "select value from settings where name='mundocrucerosSID' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -143,12 +155,26 @@ $sessionkey = $node->item(0)->getAttribute("sessionkey");
 
 $raw = 'xml=<?xml version="1.0"?>
 <request>
-  <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-  <method action="getresults" sessionkey="B1E454D7_00D0s42AB-BD06-B1605B99A442" resultkey="default" type="cruise" />
+    <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
+    <method action="book" sessionkey="' . $sessionkey . '">
+    <contact address1="37 Hawbank Road" address2="College Milton" city="East Kilbride" country="GB" county="Glasgow" email="richard@traveltek.net" firstname="TESTX" lastname="TRAVELTEK" postcode="G74 5EG" telephone="01355 246111" title="MISS" />
+    <passengers>
+        <passenger dob="1973-07-24" title="MISS" firstname="TESTX" lastname="TRAVELTEK" paxno="1" paxtype="adult" travelling="" />
+        <passenger dob="1973-07-24" title="MR" firstname="TEST" lastname="TRAVELTEKX" paxno="2" paxtype="adult" travelling="">
+            <rewards>
+                <reward basketcode="28456692" value="222222222" airlinecode="QF" />
+            </rewards>
+        </passenger>            
+    </passengers>
+    <allocation>
+        <requests basketcode="28456692" request="TEST BOOKING ONLY" />
+    </allocation>
+    <deposits paydepositonly="Y" />
+</method>
 </request>';
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $mundocrucerosServiceURL );
+curl_setopt($ch, CURLOPT_URL, $mundocrucerosServiceURLBook );
 curl_setopt($ch, CURLOPT_HEADER, false);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);

@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU CRUZEIROS<br/>";
+echo "COMECOU BOOKINGS<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -107,44 +107,10 @@ echo $return;
 $db->getDriver()
     ->getConnection()
     ->disconnect();
-
-
-$raw2 = 'xml=<?xml version="1.0"?>
-<request>
-    <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-    <method action="createsession" sitename="' . $mundocrucerosWebsite . '" currency="GBP" status="Test" />
-</request>';
-
-$ch2 = curl_init();
-curl_setopt($ch2, CURLOPT_URL, $mundocrucerosServiceURL );
-curl_setopt($ch2, CURLOPT_HEADER, false);
-curl_setopt($ch2, CURLOPT_POST, true);
-curl_setopt($ch2, CURLOPT_POSTFIELDS, $raw2);
-curl_setopt($ch2, CURLOPT_VERBOSE, 0);
-curl_setopt($ch2, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch2, CURLOPT_CONNECTTIMEOUT, 65000);
-curl_setopt($ch2, CURLOPT_HTTPHEADER, array(
-    "Content-type: application/x-www-form-urlencoded",
-    "Accept-Encoding: gzip, deflate",
-    "Content-length: " . strlen($raw2)
-));
-curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
-$response2 = curl_exec($ch2);
-$error2 = curl_error($ch2);
-$headers2 = curl_getinfo($ch2);
-curl_close($ch2);
-
-$inputDoc2 = new DOMDocument();
-$inputDoc2->loadXML($response2);
-$node = $inputDoc2->getElementsByTagName("response");
-$sessionkey = $node->item(0)->getAttribute("sessionkey");
-
-
 $raw = 'xml=<?xml version="1.0"?>
 <request>
-  <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-  <method action="getresults" sessionkey="B1E454D7_00D0s42AB-BD06-B1605B99A442" resultkey="default" type="cruise" />
+    <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
+    <method action="getbookings" sitename="training.traveltek.net" startdate="2019-09-20" />
 </request>';
 
 $ch = curl_init();
@@ -171,7 +137,7 @@ curl_close($ch);
 echo "<xmp>";
 echo $response;
 echo "</xmp>";
-
+die();
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.mundocruceros.php');
 $config = [
@@ -187,7 +153,7 @@ $inputDoc = new DOMDocument();
 $inputDoc->loadXML($response);
 $results = $inputDoc->getElementsByTagName("results");
 $node = $results->item(0)->getElementsByTagName("region");
-/* for ($i=0; $i < $node->length; $i++) { 
+for ($i=0; $i < $node->length; $i++) { 
     $id = $node->item($i)->getAttribute("id");
     $name = $node->item($i)->getAttribute("name");
     echo $name;
@@ -256,7 +222,7 @@ $node = $results->item(0)->getElementsByTagName("region");
         echo $return;
     }
 
-} */
+}
 
 // EOF
 $db->getDriver()

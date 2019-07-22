@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU CRUZEIROS<br/>";
+echo "COMECOU CREATE SEARCH<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -143,8 +143,12 @@ $sessionkey = $node->item(0)->getAttribute("sessionkey");
 
 $raw = 'xml=<?xml version="1.0"?>
 <request>
-  <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-  <method action="getresults" sessionkey="B1E454D7_00D0s42AB-BD06-B1605B99A442" resultkey="default" type="cruise" />
+    <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
+    <method action="createsearch" sessionkey="' . $sessionkey . '" >
+        <searchdetail type="cruise" startdate="2019-09-01" enddate="2019-09-30" lineid="5" adults="2" children="1" sid="57" resultkey="default">
+            <child age="11" />
+        </searchdetail>
+    </method>
 </request>';
 
 $ch = curl_init();

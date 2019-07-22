@@ -54,8 +54,8 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 </soap:Header>
 <soap:Body>
     <hot:HotelSearchRequest>
-        <hot:CheckInDate>2018-08-27</hot:CheckInDate>
-        <hot:CheckOutDate>2018-08-29</hot:CheckOutDate>
+        <hot:CheckInDate>2019-08-27</hot:CheckInDate>
+        <hot:CheckOutDate>2019-08-29</hot:CheckOutDate>
         <hot:CountryName>United Arab Emirates</hot:CountryName>
         <hot:CityName>Dubai</hot:CityName>
         <hot:CityId>115936</hot:CityId>

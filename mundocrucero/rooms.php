@@ -143,8 +143,8 @@ $sessionkey = $node->item(0)->getAttribute("sessionkey");
 
 $raw = 'xml=<?xml version="1.0"?>
 <request>
-  <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-  <method action="getresults" sessionkey="B1E454D7_00D0s42AB-BD06-B1605B99A442" resultkey="default" type="cruise" />
+    <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
+    <method action="getrooms" sessionkey="' . $sessionkey . '" resultkey="packages" type="package" resultno="202_21.1" groupno="202:21" />
 </request>';
 
 $ch = curl_init();
