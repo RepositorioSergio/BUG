@@ -56,7 +56,7 @@ $client->setHeaders(array(
     "Accept-Encoding: gzip"
 ));
 
-$client->setUri('https://api.test.hotelbeds.com/transfer-api/1.0/availability/en/from/ATLAS/1523/to/IATA/PMI/2019-10-25T10:15:30/2/1/0');
+$client->setUri('https://api.test.hotelbeds.com/transfer-api/1.0/availability/en/from/ATLAS/4704/to/IATA/PMI/2019-10-25T10:15:30/2/1/0');
 $client->setMethod('GET');
 //$client->setRawBody($raw);
 $response = $client->send();

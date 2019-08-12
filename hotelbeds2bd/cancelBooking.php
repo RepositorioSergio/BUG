@@ -59,7 +59,7 @@ $client->setHeaders(array(
     "User-Agent: curl/7.37.0"
 ));
 
-$client->setUri('https://api.test.hotelbeds.com/transfer-api/1.0/booking/en/reference/1.4258698');
+$client->setUri('https://api.test.hotelbeds.com/transfer-api/1.0/booking/en/reference/102-10234479');
 $client->setMethod('DELETE');
 //$client->setRawBody($raw);
 $response = $client->send();
@@ -155,7 +155,7 @@ if (json_last_error() == 0) {
 echo "<xmp>";
 var_dump($response);
 echo "</xmp>";
-
+die();
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.hotelbeds.php');
 $config = [

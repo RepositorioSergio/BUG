@@ -1,0 +1,1310 @@
+CODE 4704
+
+REQUEST AVAILIBILITY 
+
+URL : https://api.test.hotelbeds.com/transfer-api/1.0/availability/en/from/STATION/ATCH/to/ATLAS/4704/2019-11-28T12:15:11/2019-11-30T08:30:52/2/1/0
+
+HEADER : $client->setHeaders(array(
+    "Api-key: qz8j9xgymx97tmd5srx94mru",
+    "X-Signature: fc4f0c9a05bbeec19b4fb6001d2eae8919cc66d60be97bdf95d2f376bac02254",
+    "Content-Type: application/json",
+    "Accept: application/json",
+    "Accept-Encoding: gzip"
+));
+
+RESPONSE AVAILIBILITY 
+
+{
+  "search": {
+    "language": "en",
+    "departure": {
+      "date": "2019-11-28",
+      "time": "12:15:11"
+    },
+    "comeBack": {
+      "date": "2019-11-30",
+      "time": "08:30:52"
+    },
+    "occupancy": {
+      "adults": 2,
+      "children": 1,
+      "infants": 0
+    },
+    "from": {
+      "code": "ATCH",
+      "description": "Madrid, Atocha Train Station",
+      "type": "STATION"
+    },
+    "to": {
+      "code": "4704",
+      "description": "NH Madrid Nacional",
+      "type": "ATLAS"
+    }
+  },
+  "services": [
+    {
+      "id": 0,
+      "direction": "DEPARTURE",
+      "transferType": "PRIVATE",
+      "vehicle": {
+        "code": "DSBLD",
+        "name": "Disabled"
+      },
+      "category": {
+        "code": "SPCL",
+        "name": "Special product type"
+      },
+      "pickupInformation": {
+        "from": {
+          "code": "ATCH",
+          "description": "Madrid, Atocha Train Station",
+          "type": "STATION"
+        },
+        "to": {
+          "code": "4704",
+          "description": "NH Madrid Nacional",
+          "type": "ATLAS"
+        },
+        "date": "2019-11-28",
+        "time": "12:15:00",
+        "pickup": {
+          "address": null,
+          "number": null,
+          "town": null,
+          "zip": null,
+          "description": "Once you have got off the train, a staff member will be waiting for you in front of the EUROPCAR (Rent-a-Car) office with a sign with your name on it. If you are unable to locate the driver/agent, please call VIAJES ALSA SAU on +34639667111/ +34647920238/ +34647360600. Languages spoken at the call centre: English, Spanish. Please do not leave the pick-up area without having contacted the agent/driver first.",
+          "altitude": null,
+          "latitude": 40.406397,
+          "longitude": -3.690387,
+          "checkPickup": {
+            "mustCheckPickupTime": false,
+            "url": null,
+            "hoursBeforeConsulting": null
+          },
+          "pickupId": 16414,
+          "stopName": "Europcar",
+          "image": "http://media.activitiesbank.com/pickup/maps/madrid-station.jpg"
+        }
+      },
+      "minPaxCapacity": 1,
+      "maxPaxCapacity": 19,
+      "content": {
+        "vehicle": {
+          "code": "DSBLD",
+          "name": "Disabled"
+        },
+        "category": {
+          "code": "SPCL",
+          "name": "Special"
+        },
+        "images": [
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/small/prvt-spcl-dsbld.png",
+            "type": "SMALL"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/medium/prvt-spcl-dsbld.png",
+            "type": "MEDIUM"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/large/prvt-spcl-dsbld.png",
+            "type": "LARGE"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/extralarge/prvt-spcl-dsbld.png",
+            "type": "EXTRALARGE"
+          }
+        ],
+        "transferDetailInfo": [
+          {
+            "id": "ER",
+            "name": "Exclusive ride for you",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "DTDS",
+            "name": "Door to door service",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "AV247",
+            "name": "Available 24/7",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "BAHB",
+            "name": "1 item of hand baggage allowed per person",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "BA",
+            "name": "1 piece of baggage allowed per person ( max.dimensions 158cm) length+width+height=158cm",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "VOUC",
+            "name": "VOUCHER ",
+            "description": "Remember to bring a printed copy of this voucher and a valid photo ID with you.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "DRVR",
+            "name": "CAN'T FIND DRIVER",
+            "description": "In the event of being unable to locate the driver, please call the emergency number indicated in this voucher.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "TDWTI90",
+            "name": "International: Total Driver Waiting Time 90 min.",
+            "description": "International Arrivals: For this service, the driver will wait a total of 90 min. (instead of the standard driver waiting time mentioned)",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "CBBS",
+            "name": "CHILDBOOSTER / BABY SEAT",
+            "description": "Child car seats and boosters are not included unless specified in your booking and can carry an extra cost. Should you need to book them, please contact your point of sale prior to travelling.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "PLEGACHAIR",
+            "name": "Foldable wheelchairs",
+            "description": "Adapted vehicles are suitable for foldable wheelchairs. If the wheelchair cannot be folded, an extra cost may be applicable for customers",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "DOMEST",
+            "name": "Domestic arrivals",
+            "description": "Domestic arrivals: Journeys made within the borders of the same country or European airspace (Schengen) or from Schengen space to any of these countries: Bulgaria, Cyprus, Croatia, Ireland, United Kingdom and Romania. Passengers do not have to go through customs controll",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "INTERNAT",
+            "name": "International arrivals",
+            "description": "International arrivals: Journeys made with the origin outside of European airspace (Schengen) and arrival into it. Passengers must pass through customs control.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "RESTACCESS",
+            "name": "restricted access",
+            "description": "Please note that due to traffic restrictions within the city centre there are some hotels in which you will be dropped as close as possible with the chance of a short walk, instead of directly outside.",
+            "type": "GENERIC_GUIDELINES"
+          }
+        ],
+        "customerTransferTimeInfo": [
+          {
+            "value": 0,
+            "type": "CUSTOMER_MAX_WAITING_TIME",
+            "metric": "minutes"
+          }
+        ],
+        "supplierTransferTimeInfo": [
+          {
+            "value": 60,
+            "type": "SUPPLIER_MAX_WAITING_TIME_DOMESTIC",
+            "metric": "minutes"
+          },
+          {
+            "value": 90,
+            "type": "SUPPLIER_MAX_WAITING_TIME_INTERNATIONAL",
+            "metric": "minutes"
+          }
+        ],
+        "transferRemarks": [
+          {
+            "type": "CONTRACT",
+            "description": "Pick-up point\nOnce you have got off the train, a staff member will be waiting for you in front of the EUROPCAR (Rent-a-Car) office with a sign with your name on it. If you are unable to locate the driver/agent, please call VIAJES ALSA SAU on +34639667111/ +34647920238/ +34647360600. Languages spoken at the call centre: English, Spanish. Please do not leave the pick-up area without having contacted the agent/driver first.\n\nTransfer information:\n\n* Maximum client waiting time 0 minutes\n* Maximum waiting time for drivers in domestic arrivals 60 minutes\n* Maximum waiting time for drivers in international arrivals 90 minutes\n\n\n* Remember to bring a printed copy of this voucher and a valid photo ID with you.* In the event of being unable to locate the driver, please call the emergency number indicated in this voucher.* International Arrivals: For this service, the driver will wait a total of 90 min. (instead of the standard driver waiting time mentioned)* Child car seats and boosters are not included unless specified in your booking and can carry an extra cost. Should you need to book them, please contact your point of sale prior to travelling.* Adapted vehicles are suitable for foldable wheelchairs. If the wheelchair cannot be folded, an extra cost may be applicable for customers* Domestic arrivals: Journeys made within the borders of the same country or European airspace (Schengen) or from Schengen space to any of these countries: Bulgaria, Cyprus, Croatia, Ireland, United Kingdom and Romania. Passengers do not have to go through customs controll* International arrivals: Journeys made with the origin outside of European airspace (Schengen) and arrival into it. Passengers must pass through customs control.* Please note that due to traffic restrictions within the city centre there are some hotels in which you will be dropped as close as possible with the chance of a short walk, instead of directly outside.\n\n* Exclusive ride for you* Door to door service* Available 24/7* 1 item of hand baggage allowed per person* 1 piece of baggage allowed per person ( max.dimensions 158cm) length+width+height=158cm\n\n",
+            "mandatory": true
+          }
+        ]
+      },
+      "price": {
+        "totalAmount": 218.13,
+        "netAmount": 189.34,
+        "currencyId": "EUR"
+      },
+      "rateKey": "ARRIVAL|STATION|ATCH|ATLAS|4704|2019-11-28|12:15|2019-11-28|12:15:11|2~1~0|19|215161|EB MAD IBL SPC|215161|EB MAD IBL SPC|102|PRVT|H|DSBLD|SPCL|218.13|ATOCHA|MAD-PRIO|16414|447|MAD",
+      "cancellationPolicies": [
+        {
+          "amount": 218.13,
+          "from": "2019-11-26T23:59:00",
+          "currencyId": "EUR"
+        }
+      ],
+      "links": [
+        {
+          "rel": "self",
+          "href": "/availability",
+          "method": "GET"
+        },
+        {
+          "rel": "confirm",
+          "href": "/booking",
+          "method": "POST"
+        }
+      ],
+      "factsheetId": 447
+    },
+    {
+      "id": 1,
+      "direction": "DEPARTURE",
+      "transferType": "PRIVATE",
+      "vehicle": {
+        "code": "CR",
+        "name": "Car"
+      },
+      "category": {
+        "code": "STND",
+        "name": "Standard product type"
+      },
+      "pickupInformation": {
+        "from": {
+          "code": "ATCH",
+          "description": "Madrid, Atocha Train Station",
+          "type": "STATION"
+        },
+        "to": {
+          "code": "4704",
+          "description": "NH Madrid Nacional",
+          "type": "ATLAS"
+        },
+        "date": "2019-11-28",
+        "time": "12:15:00",
+        "pickup": {
+          "address": null,
+          "number": null,
+          "town": null,
+          "zip": null,
+          "description": "Once you have got off the train, a staff member will be waiting for you in front of the EUROPCAR (Rent-a-Car) office with a sign with your name on it. If you are unable to locate the driver/agent, please call VIAJES ALSA SAU on +34639667111/ +34647920238/ +34647360600. Languages spoken at the call centre: English, Spanish. Please do not leave the pick-up area without having contacted the agent/driver first.",
+          "altitude": null,
+          "latitude": 40.406397,
+          "longitude": -3.690387,
+          "checkPickup": {
+            "mustCheckPickupTime": false,
+            "url": null,
+            "hoursBeforeConsulting": null
+          },
+          "pickupId": 16414,
+          "stopName": "Europcar",
+          "image": "http://media.activitiesbank.com/pickup/maps/madrid-station.jpg"
+        }
+      },
+      "minPaxCapacity": 1,
+      "maxPaxCapacity": 3,
+      "content": {
+        "vehicle": {
+          "code": "CR",
+          "name": "Car"
+        },
+        "category": {
+          "code": "STND",
+          "name": "Standard"
+        },
+        "images": [
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/small/prvt-stnd-cr.png",
+            "type": "SMALL"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/medium/prvt-stnd-cr.png",
+            "type": "MEDIUM"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/large/prvt-stnd-cr.png",
+            "type": "LARGE"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/extralarge/prvt-stnd-cr.png",
+            "type": "EXTRALARGE"
+          }
+        ],
+        "transferDetailInfo": [
+          {
+            "id": "ER",
+            "name": "Exclusive ride for you",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "DTDS",
+            "name": "Door to door service",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "AV247",
+            "name": "Available 24/7",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "BA",
+            "name": "1 piece of baggage allowed per person ( max.dimensions 158cm) length+width+height=158cm",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "VOUC",
+            "name": "VOUCHER ",
+            "description": "Remember to bring a printed copy of this voucher and a valid photo ID with you.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "DRVR",
+            "name": "CAN'T FIND DRIVER",
+            "description": "In the event of being unable to locate the driver, please call the emergency number indicated in this voucher.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "CBBS",
+            "name": "CHILDBOOSTER / BABY SEAT",
+            "description": "Child car seats and boosters are not included unless specified in your booking and can carry an extra cost. Should you need to book them, please contact your point of sale prior to travelling.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "PLEGACHAIR",
+            "name": "Foldable wheelchairs",
+            "description": "Adapted vehicles are suitable for foldable wheelchairs. If the wheelchair cannot be folded, an extra cost may be applicable for customers",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "DOMEST",
+            "name": "Domestic arrivals",
+            "description": "Domestic arrivals: Journeys made within the borders of the same country or European airspace (Schengen) or from Schengen space to any of these countries: Bulgaria, Cyprus, Croatia, Ireland, United Kingdom and Romania. Passengers do not have to go through customs controll",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "INTERNAT",
+            "name": "International arrivals",
+            "description": "International arrivals: Journeys made with the origin outside of European airspace (Schengen) and arrival into it. Passengers must pass through customs control.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "TDWTI90",
+            "name": "International: Total Driver Waiting Time 90 min.",
+            "description": "International Arrivals: For this service, the driver will wait a total of 90 min. (instead of the standard driver waiting time mentioned)",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "RESTACCESS",
+            "name": "restricted access",
+            "description": "Please note that due to traffic restrictions within the city centre there are some hotels in which you will be dropped as close as possible with the chance of a short walk, instead of directly outside.",
+            "type": "GENERIC_GUIDELINES"
+          }
+        ],
+        "customerTransferTimeInfo": [
+          {
+            "value": 0,
+            "type": "CUSTOMER_MAX_WAITING_TIME",
+            "metric": "minutes"
+          }
+        ],
+        "supplierTransferTimeInfo": [
+          {
+            "value": 60,
+            "type": "SUPPLIER_MAX_WAITING_TIME_DOMESTIC",
+            "metric": "minutes"
+          },
+          {
+            "value": 90,
+            "type": "SUPPLIER_MAX_WAITING_TIME_INTERNATIONAL",
+            "metric": "minutes"
+          }
+        ],
+        "transferRemarks": [
+          {
+            "type": "CONTRACT",
+            "description": "Pick-up point\nOnce you have got off the train, a staff member will be waiting for you in front of the EUROPCAR (Rent-a-Car) office with a sign with your name on it. If you are unable to locate the driver/agent, please call VIAJES ALSA SAU on +34639667111/ +34647920238/ +34647360600. Languages spoken at the call centre: English, Spanish. Please do not leave the pick-up area without having contacted the agent/driver first.\n\nTransfer information:\n\n* Maximum client waiting time 0 minutes\n* Maximum waiting time for drivers in domestic arrivals 60 minutes\n* Maximum waiting time for drivers in international arrivals 90 minutes\n\n\n* Remember to bring a printed copy of this voucher and a valid photo ID with you.* In the event of being unable to locate the driver, please call the emergency number indicated in this voucher.* Child car seats and boosters are not included unless specified in your booking and can carry an extra cost. Should you need to book them, please contact your point of sale prior to travelling.* Adapted vehicles are suitable for foldable wheelchairs. If the wheelchair cannot be folded, an extra cost may be applicable for customers* Domestic arrivals: Journeys made within the borders of the same country or European airspace (Schengen) or from Schengen space to any of these countries: Bulgaria, Cyprus, Croatia, Ireland, United Kingdom and Romania. Passengers do not have to go through customs controll* International arrivals: Journeys made with the origin outside of European airspace (Schengen) and arrival into it. Passengers must pass through customs control.* International Arrivals: For this service, the driver will wait a total of 90 min. (instead of the standard driver waiting time mentioned)* Please note that due to traffic restrictions within the city centre there are some hotels in which you will be dropped as close as possible with the chance of a short walk, instead of directly outside.\n\n* Exclusive ride for you* Door to door service* Available 24/7* 1 piece of baggage allowed per person ( max.dimensions 158cm) length+width+height=158cm\n\n",
+            "mandatory": true
+          }
+        ]
+      },
+      "price": {
+        "totalAmount": 41.18,
+        "netAmount": 35.74,
+        "currencyId": "EUR"
+      },
+      "rateKey": "ARRIVAL|STATION|ATCH|ATLAS|4704|2019-11-28|12:15|2019-11-28|12:15:11|2~1~0|3|215153|EBATOC PRIO STD|215153|EBATOC PRIO STD|102|PRVT|C|CR|STND|41.18|ATOCHA|MAD-PRIO|16414|448|MAD",
+      "cancellationPolicies": [
+        {
+          "amount": 41.18,
+          "from": "2019-11-26T23:59:00",
+          "currencyId": "EUR"
+        }
+      ],
+      "links": [
+        {
+          "rel": "self",
+          "href": "/availability",
+          "method": "GET"
+        },
+        {
+          "rel": "confirm",
+          "href": "/booking",
+          "method": "POST"
+        }
+      ],
+      "factsheetId": 448
+    },
+    {
+      "id": 2,
+      "direction": "DEPARTURE",
+      "transferType": "PRIVATE",
+      "vehicle": {
+        "code": "CR",
+        "name": "Car"
+      },
+      "category": {
+        "code": "PRM",
+        "name": "Premium product type"
+      },
+      "pickupInformation": {
+        "from": {
+          "code": "ATCH",
+          "description": "Madrid, Atocha Train Station",
+          "type": "STATION"
+        },
+        "to": {
+          "code": "4704",
+          "description": "NH Madrid Nacional",
+          "type": "ATLAS"
+        },
+        "date": "2019-11-28",
+        "time": "12:15:00",
+        "pickup": {
+          "address": null,
+          "number": null,
+          "town": null,
+          "zip": null,
+          "description": "Once you have got off the train, a staff member will be waiting for you in front of the EUROPCAR (Rent-a-Car) office with a sign with your name on it. If you are unable to locate the driver/agent, please call VIAJES ALSA SAU on +34639667111/ +34647920238/ +34647360600. Languages spoken at the call centre: English, Spanish. Please do not leave the pick-up area without having contacted the agent/driver first.",
+          "altitude": null,
+          "latitude": 40.406397,
+          "longitude": -3.690387,
+          "checkPickup": {
+            "mustCheckPickupTime": false,
+            "url": null,
+            "hoursBeforeConsulting": null
+          },
+          "pickupId": 16414,
+          "stopName": "Europcar",
+          "image": "http://media.activitiesbank.com/pickup/maps/madrid-station.jpg"
+        }
+      },
+      "minPaxCapacity": 1,
+      "maxPaxCapacity": 3,
+      "content": {
+        "vehicle": {
+          "code": "CR",
+          "name": "Car"
+        },
+        "category": {
+          "code": "PRM",
+          "name": "Premium"
+        },
+        "images": [
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/small/prvt-prm-cr.png",
+            "type": "SMALL"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/medium/prvt-prm-cr.png",
+            "type": "MEDIUM"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/large/prvt-prm-cr.png",
+            "type": "LARGE"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/extralarge/prvt-prm-cr.png",
+            "type": "EXTRALARGE"
+          }
+        ],
+        "transferDetailInfo": [
+          {
+            "id": "ER",
+            "name": "Exclusive ride for you",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "DTDS",
+            "name": "Door to door service",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "AV247",
+            "name": "Available 24/7",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "M&GS",
+            "name": "Meet & Greet service",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "BAHB",
+            "name": "1 item of hand baggage allowed per person",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "BA",
+            "name": "1 piece of baggage allowed per person ( max.dimensions 158cm) length+width+height=158cm",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "DRVR",
+            "name": "CAN'T FIND DRIVER",
+            "description": "In the event of being unable to locate the driver, please call the emergency number indicated in this voucher.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "VOUC",
+            "name": "VOUCHER ",
+            "description": "Remember to bring a printed copy of this voucher and a valid photo ID with you.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "CBBS",
+            "name": "CHILDBOOSTER / BABY SEAT",
+            "description": "Child car seats and boosters are not included unless specified in your booking and can carry an extra cost. Should you need to book them, please contact your point of sale prior to travelling.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "RESTACCESS",
+            "name": "restricted access",
+            "description": "Please note that due to traffic restrictions within the city centre there are some hotels in which you will be dropped as close as possible with the chance of a short walk, instead of directly outside.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "PLEGACHAIR",
+            "name": "Foldable wheelchairs",
+            "description": "Adapted vehicles are suitable for foldable wheelchairs. If the wheelchair cannot be folded, an extra cost may be applicable for customers",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "DOMEST",
+            "name": "Domestic arrivals",
+            "description": "Domestic arrivals: Journeys made within the borders of the same country or European airspace (Schengen) or from Schengen space to any of these countries: Bulgaria, Cyprus, Croatia, Ireland, United Kingdom and Romania. Passengers do not have to go through customs controll",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "INTERNAT",
+            "name": "International arrivals",
+            "description": "International arrivals: Journeys made with the origin outside of European airspace (Schengen) and arrival into it. Passengers must pass through customs control.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "TDWTI90",
+            "name": "International: Total Driver Waiting Time 90 min.",
+            "description": "International Arrivals: For this service, the driver will wait a total of 90 min. (instead of the standard driver waiting time mentioned)",
+            "type": "GENERIC_GUIDELINES"
+          }
+        ],
+        "customerTransferTimeInfo": [
+          {
+            "value": 0,
+            "type": "CUSTOMER_MAX_WAITING_TIME",
+            "metric": "minutes"
+          }
+        ],
+        "supplierTransferTimeInfo": [
+          {
+            "value": 60,
+            "type": "SUPPLIER_MAX_WAITING_TIME_DOMESTIC",
+            "metric": "minutes"
+          },
+          {
+            "value": 90,
+            "type": "SUPPLIER_MAX_WAITING_TIME_INTERNATIONAL",
+            "metric": "minutes"
+          }
+        ],
+        "transferRemarks": [
+          {
+            "type": "CONTRACT",
+            "description": "Pick-up point\nOnce you have got off the train, a staff member will be waiting for you in front of the EUROPCAR (Rent-a-Car) office with a sign with your name on it. If you are unable to locate the driver/agent, please call VIAJES ALSA SAU on +34639667111/ +34647920238/ +34647360600. Languages spoken at the call centre: English, Spanish. Please do not leave the pick-up area without having contacted the agent/driver first.\n\nTransfer information:\n\n* Maximum client waiting time 0 minutes\n* Maximum waiting time for drivers in domestic arrivals 60 minutes\n* Maximum waiting time for drivers in international arrivals 90 minutes\n\n\n* In the event of being unable to locate the driver, please call the emergency number indicated in this voucher.* Remember to bring a printed copy of this voucher and a valid photo ID with you.* Child car seats and boosters are not included unless specified in your booking and can carry an extra cost. Should you need to book them, please contact your point of sale prior to travelling.* Please note that due to traffic restrictions within the city centre there are some hotels in which you will be dropped as close as possible with the chance of a short walk, instead of directly outside.* Adapted vehicles are suitable for foldable wheelchairs. If the wheelchair cannot be folded, an extra cost may be applicable for customers* Domestic arrivals: Journeys made within the borders of the same country or European airspace (Schengen) or from Schengen space to any of these countries: Bulgaria, Cyprus, Croatia, Ireland, United Kingdom and Romania. Passengers do not have to go through customs controll* International arrivals: Journeys made with the origin outside of European airspace (Schengen) and arrival into it. Passengers must pass through customs control.* International Arrivals: For this service, the driver will wait a total of 90 min. (instead of the standard driver waiting time mentioned)\n\n* Exclusive ride for you* Door to door service* Available 24/7* Meet & Greet service* 1 item of hand baggage allowed per person* 1 piece of baggage allowed per person ( max.dimensions 158cm) length+width+height=158cm\n\n",
+            "mandatory": true
+          }
+        ]
+      },
+      "price": {
+        "totalAmount": 42.37,
+        "netAmount": 36.78,
+        "currencyId": "EUR"
+      },
+      "rateKey": "ARRIVAL|STATION|ATCH|ATLAS|4704|2019-11-28|12:15|2019-11-28|12:15:11|2~1~0|3|215152|EBATOC PRIO PRM|215152|EBATOC PRIO PRM|102|PRVT|7|CR|PRM|42.37|ATOCHA|MAD-PRIO|16414|440|MAD",
+      "cancellationPolicies": [
+        {
+          "amount": 42.37,
+          "from": "2019-11-26T23:59:00",
+          "currencyId": "EUR"
+        }
+      ],
+      "links": [
+        {
+          "rel": "self",
+          "href": "/availability",
+          "method": "GET"
+        },
+        {
+          "rel": "confirm",
+          "href": "/booking",
+          "method": "POST"
+        }
+      ],
+      "factsheetId": 440
+    },
+    {
+      "id": 3,
+      "direction": "RETURN",
+      "transferType": "PRIVATE",
+      "vehicle": {
+        "code": "DSBLD",
+        "name": "Disabled"
+      },
+      "category": {
+        "code": "SPCL",
+        "name": "Special product type"
+      },
+      "pickupInformation": {
+        "from": {
+          "code": "4704",
+          "description": "NH Madrid Nacional",
+          "type": "ATLAS"
+        },
+        "to": {
+          "code": "ATCH",
+          "description": "Madrid, Atocha Train Station",
+          "type": "STATION"
+        },
+        "date": "2019-11-30",
+        "time": "06:45:00",
+        "pickup": {
+          "address": "Paseo del Prado,48  ",
+          "number": null,
+          "town": "MADRID",
+          "zip": "28014",
+          "description": "You will be picked up at the hotel reception. If you are unable to locate the driver/agent, please call Alsa on +34 639 667 111 / +34 647 360 600. Languages spoken at the call centre: English, Spanish. Please do not leave the pick-up area without having contacted the agent/driver first.",
+          "altitude": null,
+          "latitude": 40.4099,
+          "longitude": -3.69266,
+          "checkPickup": {
+            "mustCheckPickupTime": false,
+            "url": null,
+            "hoursBeforeConsulting": null
+          },
+          "pickupId": 16043,
+          "stopName": "RECEPTION",
+          "image": null
+        }
+      },
+      "minPaxCapacity": 1,
+      "maxPaxCapacity": 19,
+      "content": {
+        "vehicle": {
+          "code": "DSBLD",
+          "name": "Disabled"
+        },
+        "category": {
+          "code": "SPCL",
+          "name": "Special"
+        },
+        "images": [
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/small/prvt-spcl-dsbld.png",
+            "type": "SMALL"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/medium/prvt-spcl-dsbld.png",
+            "type": "MEDIUM"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/large/prvt-spcl-dsbld.png",
+            "type": "LARGE"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/extralarge/prvt-spcl-dsbld.png",
+            "type": "EXTRALARGE"
+          }
+        ],
+        "transferDetailInfo": [
+          {
+            "id": "ER",
+            "name": "Exclusive ride for you",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "DTDS",
+            "name": "Door to door service",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "AV247",
+            "name": "Available 24/7",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "BAHB",
+            "name": "1 item of hand baggage allowed per person",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "BA",
+            "name": "1 piece of baggage allowed per person ( max.dimensions 158cm) length+width+height=158cm",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "VOUC",
+            "name": "VOUCHER ",
+            "description": "Remember to bring a printed copy of this voucher and a valid photo ID with you.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "DRVR",
+            "name": "CAN'T FIND DRIVER",
+            "description": "In the event of being unable to locate the driver, please call the emergency number indicated in this voucher.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "CBBS",
+            "name": "CHILDBOOSTER / BABY SEAT",
+            "description": "Child car seats and boosters are not included unless specified in your booking and can carry an extra cost. Should you need to book them, please contact your point of sale prior to travelling.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "RESTACCESS",
+            "name": "restricted access",
+            "description": "Please note that due to traffic restrictions within the city centre there are some hotels in which you will be dropped as close as possible with the chance of a short walk, instead of directly outside.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "PLEGACHAIR",
+            "name": "Foldable wheelchairs",
+            "description": "Adapted vehicles are suitable for foldable wheelchairs. If the wheelchair cannot be folded, an extra cost may be applicable for customers",
+            "type": "GENERIC_GUIDELINES"
+          }
+        ],
+        "customerTransferTimeInfo": [
+          {
+            "value": 20,
+            "type": "CUSTOMER_MAX_WAITING_TIME",
+            "metric": "minutes"
+          }
+        ],
+        "supplierTransferTimeInfo": [
+          {
+            "value": 15,
+            "type": "SUPPLIER_MAX_WAITING_TIME_DOMESTIC",
+            "metric": "minutes"
+          }
+        ],
+        "transferRemarks": [
+          {
+            "type": "CONTRACT",
+            "description": "Pick-up point\nYou will be picked up at the hotel reception. If you are unable to locate the driver/agent, please call Alsa on +34 639 667 111 / +34 647 360 600. Languages spoken at the call centre: English, Spanish. Please do not leave the pick-up area without having contacted the agent/driver first.\n\nTransfer information:\n\n* Maximum client waiting time 20 minutes\n* Maximum waiting time for drivers in domestic arrivals 15 minutes\n\n\n* Remember to bring a printed copy of this voucher and a valid photo ID with you.* In the event of being unable to locate the driver, please call the emergency number indicated in this voucher.* Child car seats and boosters are not included unless specified in your booking and can carry an extra cost. Should you need to book them, please contact your point of sale prior to travelling.* Please note that due to traffic restrictions within the city centre there are some hotels in which you will be dropped as close as possible with the chance of a short walk, instead of directly outside.* Adapted vehicles are suitable for foldable wheelchairs. If the wheelchair cannot be folded, an extra cost may be applicable for customers\n\n* Exclusive ride for you* Door to door service* Available 24/7* 1 item of hand baggage allowed per person* 1 piece of baggage allowed per person ( max.dimensions 158cm) length+width+height=158cm\n\n",
+            "mandatory": true
+          }
+        ]
+      },
+      "price": {
+        "totalAmount": 218.13,
+        "netAmount": 189.34,
+        "currencyId": "EUR"
+      },
+      "rateKey": "DEPARTURE|ATLAS|4704|STATION|ATCH|2019-11-30|06:45|2019-11-30|08:30:52|2~1~0|19|215161|EB MAD IBL SPC|215161|EB MAD IBL SPC|102|PRVT|H|DSBLD|SPCL|218.13|MAD-PRIO|ATOCHA|16043|447|MAD",
+      "cancellationPolicies": [
+        {
+          "amount": 218.13,
+          "from": "2019-11-28T23:59:00",
+          "currencyId": "EUR"
+        }
+      ],
+      "links": [
+        {
+          "rel": "self",
+          "href": "/availability",
+          "method": "GET"
+        },
+        {
+          "rel": "confirm",
+          "href": "/booking",
+          "method": "POST"
+        }
+      ],
+      "factsheetId": 447
+    },
+    {
+      "id": 4,
+      "direction": "RETURN",
+      "transferType": "PRIVATE",
+      "vehicle": {
+        "code": "CR",
+        "name": "Car"
+      },
+      "category": {
+        "code": "STND",
+        "name": "Standard product type"
+      },
+      "pickupInformation": {
+        "from": {
+          "code": "4704",
+          "description": "NH Madrid Nacional",
+          "type": "ATLAS"
+        },
+        "to": {
+          "code": "ATCH",
+          "description": "Madrid, Atocha Train Station",
+          "type": "STATION"
+        },
+        "date": "2019-11-30",
+        "time": "06:45:00",
+        "pickup": {
+          "address": "Paseo del Prado,48  ",
+          "number": null,
+          "town": "MADRID",
+          "zip": "28014",
+          "description": "You will be picked up at the hotel reception. If you are unable to locate the driver/agent, please call Alsa on +34 639 667 111 / +34 647 360 600. Languages spoken at the call centre: English, Spanish. Please do not leave the pick-up area without having contacted the agent/driver first.",
+          "altitude": null,
+          "latitude": 40.4099,
+          "longitude": -3.69266,
+          "checkPickup": {
+            "mustCheckPickupTime": false,
+            "url": null,
+            "hoursBeforeConsulting": null
+          },
+          "pickupId": 16043,
+          "stopName": "RECEPTION",
+          "image": null
+        }
+      },
+      "minPaxCapacity": 1,
+      "maxPaxCapacity": 3,
+      "content": {
+        "vehicle": {
+          "code": "CR",
+          "name": "Car"
+        },
+        "category": {
+          "code": "STND",
+          "name": "Standard"
+        },
+        "images": [
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/small/prvt-stnd-cr.png",
+            "type": "SMALL"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/medium/prvt-stnd-cr.png",
+            "type": "MEDIUM"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/large/prvt-stnd-cr.png",
+            "type": "LARGE"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/extralarge/prvt-stnd-cr.png",
+            "type": "EXTRALARGE"
+          }
+        ],
+        "transferDetailInfo": [
+          {
+            "id": "ER",
+            "name": "Exclusive ride for you",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "DTDS",
+            "name": "Door to door service",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "AV247",
+            "name": "Available 24/7",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "BA",
+            "name": "1 piece of baggage allowed per person ( max.dimensions 158cm) length+width+height=158cm",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "VOUC",
+            "name": "VOUCHER ",
+            "description": "Remember to bring a printed copy of this voucher and a valid photo ID with you.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "DRVR",
+            "name": "CAN'T FIND DRIVER",
+            "description": "In the event of being unable to locate the driver, please call the emergency number indicated in this voucher.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "CBBS",
+            "name": "CHILDBOOSTER / BABY SEAT",
+            "description": "Child car seats and boosters are not included unless specified in your booking and can carry an extra cost. Should you need to book them, please contact your point of sale prior to travelling.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "RESTACCESS",
+            "name": "restricted access",
+            "description": "Please note that due to traffic restrictions within the city centre there are some hotels in which you will be dropped as close as possible with the chance of a short walk, instead of directly outside.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "PLEGACHAIR",
+            "name": "Foldable wheelchairs",
+            "description": "Adapted vehicles are suitable for foldable wheelchairs. If the wheelchair cannot be folded, an extra cost may be applicable for customers",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "TDWTI90",
+            "name": "International: Total Driver Waiting Time 90 min.",
+            "description": "International Arrivals: For this service, the driver will wait a total of 90 min. (instead of the standard driver waiting time mentioned)",
+            "type": "GENERIC_GUIDELINES"
+          }
+        ],
+        "customerTransferTimeInfo": [
+          {
+            "value": 30,
+            "type": "CUSTOMER_MAX_WAITING_TIME",
+            "metric": "minutes"
+          }
+        ],
+        "supplierTransferTimeInfo": [
+          {
+            "value": 15,
+            "type": "SUPPLIER_MAX_WAITING_TIME_DOMESTIC",
+            "metric": "minutes"
+          }
+        ],
+        "transferRemarks": [
+          {
+            "type": "CONTRACT",
+            "description": "Pick-up point\nYou will be picked up at the hotel reception. If you are unable to locate the driver/agent, please call Alsa on +34 639 667 111 / +34 647 360 600. Languages spoken at the call centre: English, Spanish. Please do not leave the pick-up area without having contacted the agent/driver first.\n\nTransfer information:\n\n* Maximum client waiting time 30 minutes\n* Maximum waiting time for drivers in domestic arrivals 15 minutes\n\n\n* Remember to bring a printed copy of this voucher and a valid photo ID with you.* In the event of being unable to locate the driver, please call the emergency number indicated in this voucher.* Child car seats and boosters are not included unless specified in your booking and can carry an extra cost. Should you need to book them, please contact your point of sale prior to travelling.* Please note that due to traffic restrictions within the city centre there are some hotels in which you will be dropped as close as possible with the chance of a short walk, instead of directly outside.* Adapted vehicles are suitable for foldable wheelchairs. If the wheelchair cannot be folded, an extra cost may be applicable for customers* International Arrivals: For this service, the driver will wait a total of 90 min. (instead of the standard driver waiting time mentioned)\n\n* Exclusive ride for you* Door to door service* Available 24/7* 1 piece of baggage allowed per person ( max.dimensions 158cm) length+width+height=158cm\n\n",
+            "mandatory": true
+          }
+        ]
+      },
+      "price": {
+        "totalAmount": 41.18,
+        "netAmount": 35.74,
+        "currencyId": "EUR"
+      },
+      "rateKey": "DEPARTURE|ATLAS|4704|STATION|ATCH|2019-11-30|06:45|2019-11-30|08:30:52|2~1~0|3|215153|EBATOC PRIO STD|215153|EBATOC PRIO STD|102|PRVT|C|CR|STND|41.18|MAD-PRIO|ATOCHA|16043|448|MAD",
+      "cancellationPolicies": [
+        {
+          "amount": 41.18,
+          "from": "2019-11-28T23:59:00",
+          "currencyId": "EUR"
+        }
+      ],
+      "links": [
+        {
+          "rel": "self",
+          "href": "/availability",
+          "method": "GET"
+        },
+        {
+          "rel": "confirm",
+          "href": "/booking",
+          "method": "POST"
+        }
+      ],
+      "factsheetId": 448
+    },
+    {
+      "id": 5,
+      "direction": "RETURN",
+      "transferType": "PRIVATE",
+      "vehicle": {
+        "code": "CR",
+        "name": "Car"
+      },
+      "category": {
+        "code": "PRM",
+        "name": "Premium product type"
+      },
+      "pickupInformation": {
+        "from": {
+          "code": "4704",
+          "description": "NH Madrid Nacional",
+          "type": "ATLAS"
+        },
+        "to": {
+          "code": "ATCH",
+          "description": "Madrid, Atocha Train Station",
+          "type": "STATION"
+        },
+        "date": "2019-11-30",
+        "time": "06:45:00",
+        "pickup": {
+          "address": "Paseo del Prado,48  ",
+          "number": null,
+          "town": "MADRID",
+          "zip": "28014",
+          "description": "You will be picked up at the hotel reception. If you are unable to locate the driver/agent, please call Alsa on +34 639 667 111 / +34 647 360 600. Languages spoken at the call centre: English, Spanish. Please do not leave the pick-up area without having contacted the agent/driver first.",
+          "altitude": null,
+          "latitude": 40.4099,
+          "longitude": -3.69266,
+          "checkPickup": {
+            "mustCheckPickupTime": false,
+            "url": null,
+            "hoursBeforeConsulting": null
+          },
+          "pickupId": 16043,
+          "stopName": "RECEPTION",
+          "image": null
+        }
+      },
+      "minPaxCapacity": 1,
+      "maxPaxCapacity": 3,
+      "content": {
+        "vehicle": {
+          "code": "CR",
+          "name": "Car"
+        },
+        "category": {
+          "code": "PRM",
+          "name": "Premium"
+        },
+        "images": [
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/small/prvt-prm-cr.png",
+            "type": "SMALL"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/medium/prvt-prm-cr.png",
+            "type": "MEDIUM"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/large/prvt-prm-cr.png",
+            "type": "LARGE"
+          },
+          {
+            "url": "http://media.stage.activitiesbank.com/giata/transfers/TRD/extralarge/prvt-prm-cr.png",
+            "type": "EXTRALARGE"
+          }
+        ],
+        "transferDetailInfo": [
+          {
+            "id": "ER",
+            "name": "Exclusive ride for you",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "DTDS",
+            "name": "Door to door service",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "AV247",
+            "name": "Available 24/7",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "M&GS",
+            "name": "Meet & Greet service",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "BAHB",
+            "name": "1 item of hand baggage allowed per person",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "BA",
+            "name": "1 piece of baggage allowed per person ( max.dimensions 158cm) length+width+height=158cm",
+            "description": null,
+            "type": "GENERAL_INFO"
+          },
+          {
+            "id": "DRVR",
+            "name": "CAN'T FIND DRIVER",
+            "description": "In the event of being unable to locate the driver, please call the emergency number indicated in this voucher.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "VOUC",
+            "name": "VOUCHER ",
+            "description": "Remember to bring a printed copy of this voucher and a valid photo ID with you.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "CBBS",
+            "name": "CHILDBOOSTER / BABY SEAT",
+            "description": "Child car seats and boosters are not included unless specified in your booking and can carry an extra cost. Should you need to book them, please contact your point of sale prior to travelling.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "RESTACCESS",
+            "name": "restricted access",
+            "description": "Please note that due to traffic restrictions within the city centre there are some hotels in which you will be dropped as close as possible with the chance of a short walk, instead of directly outside.",
+            "type": "GENERIC_GUIDELINES"
+          },
+          {
+            "id": "PLEGACHAIR",
+            "name": "Foldable wheelchairs",
+            "description": "Adapted vehicles are suitable for foldable wheelchairs. If the wheelchair cannot be folded, an extra cost may be applicable for customers",
+            "type": "GENERIC_GUIDELINES"
+          }
+        ],
+        "customerTransferTimeInfo": [
+          {
+            "value": 30,
+            "type": "CUSTOMER_MAX_WAITING_TIME",
+            "metric": "minutes"
+          }
+        ],
+        "supplierTransferTimeInfo": [
+          {
+            "value": 15,
+            "type": "SUPPLIER_MAX_WAITING_TIME_DOMESTIC",
+            "metric": "minutes"
+          }
+        ],
+        "transferRemarks": [
+          {
+            "type": "CONTRACT",
+            "description": "Pick-up point\nYou will be picked up at the hotel reception. If you are unable to locate the driver/agent, please call Alsa on +34 639 667 111 / +34 647 360 600. Languages spoken at the call centre: English, Spanish. Please do not leave the pick-up area without having contacted the agent/driver first.\n\nTransfer information:\n\n* Maximum client waiting time 30 minutes\n* Maximum waiting time for drivers in domestic arrivals 15 minutes\n\n\n* In the event of being unable to locate the driver, please call the emergency number indicated in this voucher.* Remember to bring a printed copy of this voucher and a valid photo ID with you.* Child car seats and boosters are not included unless specified in your booking and can carry an extra cost. Should you need to book them, please contact your point of sale prior to travelling.* Please note that due to traffic restrictions within the city centre there are some hotels in which you will be dropped as close as possible with the chance of a short walk, instead of directly outside.* Adapted vehicles are suitable for foldable wheelchairs. If the wheelchair cannot be folded, an extra cost may be applicable for customers\n\n* Exclusive ride for you* Door to door service* Available 24/7* Meet & Greet service* 1 item of hand baggage allowed per person* 1 piece of baggage allowed per person ( max.dimensions 158cm) length+width+height=158cm\n\n",
+            "mandatory": true
+          }
+        ]
+      },
+      "price": {
+        "totalAmount": 42.37,
+        "netAmount": 36.78,
+        "currencyId": "EUR"
+      },
+      "rateKey": "DEPARTURE|ATLAS|4704|STATION|ATCH|2019-11-30|06:45|2019-11-30|08:30:52|2~1~0|3|215152|EBATOC PRIO PRM|215152|EBATOC PRIO PRM|102|PRVT|7|CR|PRM|42.37|MAD-PRIO|ATOCHA|16043|440|MAD",
+      "cancellationPolicies": [
+        {
+          "amount": 42.37,
+          "from": "2019-11-28T23:59:00",
+          "currencyId": "EUR"
+        }
+      ],
+      "links": [
+        {
+          "rel": "self",
+          "href": "/availability",
+          "method": "GET"
+        },
+        {
+          "rel": "confirm",
+          "href": "/booking",
+          "method": "POST"
+        }
+      ],
+      "factsheetId": 440
+    }
+  ]
+}
+
+REQUEST BOOKING 
+
+$raw = '{
+  "clientReference": "string",
+  "holder": {
+    "email": "pedro@gmail.com",
+    "name": "Pedro",
+    "phone": "3057484914",
+    "surname": "Alves",
+    "title": "MR",
+    "type": "ADULT"
+  },
+  "language": "en",
+  "remark": "some remark",
+  "transfers": [
+    {
+      "detail": {
+        "arrivalFlightNumber": "XR1234",
+        "arrivalShipName": "TAP",
+        "arrivalTrainInfo": {
+          "trainCompanyName": "TAP",
+          "trainNumber": "XR1234"
+        },
+        "departureFlightNumber": "XR1235",
+        "departureShipName": "TAP",
+        "departureTrainInfo": {
+          "trainCompanyName": "TAP",
+          "trainNumber": "XR12345"
+        }
+      },
+      "rateKey": "ARRIVAL|STATION|ATCH|ATLAS|4704|2019-11-28|12:15|2019-11-28|12:15:11|2~1~0|19|215161|EB MAD IBL SPC|215161|EB MAD IBL SPC|102|PRVT|H|DSBLD|SPCL|218.13|ATOCHA|MAD-PRIO|16414|447|MAD",
+      "transferDetails": [
+        {
+          "code": "XR1234",
+          "companyName": "TAP",
+          "direction": "ARRIVAL",
+          "type": "FLIGHT"
+        }
+      ]
+    }
+  ],
+  "welcomeMessage": "string"
+}';
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://api.test.hotelbeds.com/transfer-api/1.0/booking');
+curl_setopt($ch, CURLOPT_HEADER, false);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+curl_setopt($ch, CURLOPT_VERBOSE, 0);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    "Api-key: qz8j9xgymx97tmd5srx94mru",
+    "X-Signature: " . hash("sha256", "qz8j9xgymx97tmd5srx94mru" . time()),
+    "Content-Type: application/json",
+    "Accept: application/json",
+    "Accept-Encoding: gzip",
+    "Content-length: " . strlen($raw)
+));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+
+RESPONSE BOOKING 
+
+{ "bookings" : [ { "reference" : "102-10234479", "bookingFileId" : null, "creationDate" : "2019-08-05T13:19:59", "status" : "CONFIRMED", "modificationsPolicies" : { "cancellation" : true, "modification" : true }, "holder" : { "title" : "MR", "name" : "Pedro", "surname" : "Alves", "email" : "pedro@gmail.com", "phone" : "3057484914" }, "transfers" : [ { "id" : 1, "rateKey" : "ARRIVAL|STATION|ATCH|ATLAS|4704|2019-11-28|12:15|2019-11-28|12:15:11|2~1~0|19|215161|EB MAD IBL SPC|215161|EB MAD IBL SPC|102|PRVT|H|DSBLD|SPCL|218.13|ATOCHA|MAD-PRIO|16414|447|MAD", "status" : "CONFIRMED", "direction" : "DEPARTURE", "transferType" : "PRIVATE", "vehicle" : { "code" : "DSBLD", "name" : "Disabled" }, "category" : { "code" : "SPCL", "name" : "Special" }, "pickupInformation" : { "from" : { "code" : "ATCH", "description" : "Madrid, Atocha Train Station", "type" : "STATION" }, "to" : { "code" : "4704", "description" : "NH Madrid Nacional", "type" : "ATLAS" }, "date" : "2019-11-28", "time" : "12:15:00", "pickup" : { "address" : "-", "number" : "-", "town" : "-", "zip" : "-", "description" : "Once you have got off the train, a staff member will be waiting for you in front of the EUROPCAR (Rent-a-Car) office with a sign with your name on it. If you are unable to locate the driver/agent, please call VIAJES ALSA SAU on +34639667111/ +34647920238/ +34647360600. Languages spoken at the call centre: English, Spanish. Please do not leave the pick-up area without having contacted the agent/driver first.", "altitude" : null, "latitude" : 40.406397, "longitude" : -3.690387, "checkPickup" : { "mustCheckPickupTime" : false, "url" : null, "hoursBeforeConsulting" : null }, "pickupId" : 16414, "stopName" : "Europcar", "image" : "http://media.activitiesbank.com/pickup/maps/madrid-station.jpg" } }, "paxes" : [ { "type" : "ADULT" }, { "type" : "ADULT" }, { "type" : "CHILD" } ], "content" : { "vehicle" : { "code" : "DSBLD", "name" : "Disabled" }, "category" : { "code" : "SPCL", "name" : "Special" }, "images" : [ { "url" : "http://media.stage.activitiesbank.com/giata/transfers/TRD/small/prvt-spcl-dsbld.png", "type" : "SMALL" }, { "url" : "http://media.stage.activitiesbank.com/giata/transfers/TRD/medium/prvt-spcl-dsbld.png", "type" : "MEDIUM" }, { "url" : "http://media.stage.activitiesbank.com/giata/transfers/TRD/large/prvt-spcl-dsbld.png", "type" : "LARGE" }, { "url" : "http://media.stage.activitiesbank.com/giata/transfers/TRD/extralarge/prvt-spcl-dsbld.png", "type" : "EXTRALARGE" } ], "transferDetailInfo" : [ { "id" : "ER", "name" : "Exclusive ride for you", "description" : null, "type" : "GENERAL_INFO" }, { "id" : "DTDS", "name" : "Door to door service", "description" : null, "type" : "GENERAL_INFO" }, { "id" : "AV247", "name" : "Available 24/7", "description" : null, "type" : "GENERAL_INFO" }, { "id" : "BAHB", "name" : "1 item of hand baggage allowed per person", "description" : null, "type" : "GENERAL_INFO" }, { "id" : "BA", "name" : "1 piece of baggage allowed per person ( max.dimensions 158cm) length+width+height=158cm", "description" : null, "type" : "GENERAL_INFO" }, { "id" : "VOUC", "name" : "VOUCHER ", "description" : "Remember to bring a printed copy of this voucher and a valid photo ID with you.", "type" : "GENERIC_GUIDELINES" }, { "id" : "DRVR", "name" : "CAN'T FIND DRIVER", "description" : "In the event of being unable to locate the driver, please call the emergency number indicated in this voucher.", "type" : "GENERIC_GUIDELINES" }, { "id" : "TDWTI90", "name" : "International: Total Driver Waiting Time 90 min.", "description" : "International Arrivals: For this service, the driver will wait a total of 90 min. (instead of the standard driver waiting time mentioned)", "type" : "GENERIC_GUIDELINES" }, { "id" : "PLEGACHAIR", "name" : "Foldable wheelchairs", "description" : "Adapted vehicles are suitable for foldable wheelchairs. If the wheelchair cannot be folded, an extra cost may be applicable for customers", "type" : "GENERIC_GUIDELINES" }, { "id" : "DOMEST", "name" : "Domestic arrivals", "description" : "Domestic arrivals: Journeys made within the borders of the same country or European airspace (Schengen) or from Schengen space to any of these countries: Bulgaria, Cyprus, Croatia, Ireland, United Kingdom and Romania. Passengers do not have to go through customs controll", "type" : "GENERIC_GUIDELINES" }, { "id" : "INTERNAT", "name" : "International arrivals", "description" : "International arrivals: Journeys made with the origin outside of European airspace (Schengen) and arrival into it. Passengers must pass through customs control.", "type" : "GENERIC_GUIDELINES" }, { "id" : "RESTACCESS", "name" : "restricted access", "description" : "Please note that due to traffic restrictions within the city centre there are some hotels in which you will be dropped as close as possible with the chance of a short walk, instead of directly outside.", "type" : "GENERIC_GUIDELINES" }, { "id" : "CBBS", "name" : "CHILDBOOSTER / BABY SEAT", "description" : "Child car seats and boosters are not included unless specified in your booking and can carry an extra cost. Should you need to book them, please contact your point of sale prior to travelling.", "type" : "GENERIC_GUIDELINES" } ], "customerTransferTimeInfo" : [ { "value" : 0, "type" : "CUSTOMER_MAX_WAITING_TIME", "metric" : "minutes" } ], "supplierTransferTimeInfo" : [ { "value" : 60, "type" : "SUPPLIER_MAX_WAITING_TIME_DOMESTIC", "metric" : "minutes" }, { "value" : 90, "type" : "SUPPLIER_MAX_WAITING_TIME_INTERNATIONAL", "metric" : "minutes" } ], "transferRemarks" : [ { "type" : "CONTRACT", "description" : "Pick-up point:\nOnce you have got off the train, a staff member will be waiting for you in front of the EUROPCAR (Rent-a-Car) office with a sign with your name on it. If you are unable to locate the driver/agent, please call VIAJES ALSA SAU on +34639667111/ +34647920238/ +34647360600. Languages spoken at the call centre: English, Spanish. Please do not leave the pick-up area without having contacted the agent/driver first.\n\nTransfer information:\n\n* Maximum client waiting time 0 minutes\n* Maximum waiting time for drivers in domestic arrivals 60 minutes\n* Maximum waiting time for drivers in international arrivals 90 minutes\n\n* Remember to bring a printed copy of this voucher and a valid photo ID with you.\n* In the event of being unable to locate the driver, please call the emergency number indicated in this voucher.\n* International Arrivals: For this service, the driver will wait a total of 90 min. (instead of the standard driver waiting time mentioned)\n* Adapted vehicles are suitable for foldable wheelchairs. If the wheelchair cannot be folded, an extra cost may be applicable for customers\n* Domestic arrivals: Journeys made within the borders of the same country or European airspace (Schengen) or from Schengen space to any of these countries: Bulgaria, Cyprus, Croatia, Ireland, United Kingdom and Romania. Passengers do not have to go through customs controll\n* International arrivals: Journeys made with the origin outside of European airspace (Schengen) and arrival into it. Passengers must pass through customs control.\n* Please note that due to traffic restrictions within the city centre there are some hotels in which you will be dropped as close as possible with the chance of a short walk, instead of directly outside.\n* Child car seats and boosters are not included unless specified in your booking and can carry an extra cost. Should you need to book them, please contact your point of sale prior to travelling.\n\n", "mandatory" : true } ] }, "price" : { "totalAmount" : 218.13, "netAmount" : 189.34, "currencyId" : "EUR" }, "cancellationPolicies" : [ { "amount" : 218.13, "from" : "2019-11-27T00:00:00", "currencyId" : "EUR" } ], "factsheetId" : 447, "arrivalFlightNumber" : null, "departureFlightNumber" : null, "arrivalShipName" : null, "departureShipName" : null, "arrivalTrainInfo" : { "trainNumber" : "XR1234", "trainCompanyName" : null }, "departureTrainInfo" : null, "transferDetails" : [ { "type" : "TRAIN", "direction" : "ARRIVAL", "code" : "XR1234", "companyName" : null } ], "sourceMarketEmergencyNumber" : "+34971211630", "links" : [ { "rel" : "transferCancel", "href" : "/booking/en/reference/102-10234479", "method" : "DELETE" } ] } ], "clientReference" : "STRING", "remark" : "", "invoiceCompany" : { "code" : "HBD" }, "supplier" : { "name" : "HOTELBEDS SPAIN, S.L.U", "vatNumber" : "ESB28916765" }, "totalAmount" : 218.13, "totalNetAmount" : 189.34, "pendingAmount" : 189.34, "currency" : "EUR", "links" : [ { "rel" : "self", "href" : "/booking/en/reference/102-10234479", "method" : "GET" }, { "rel" : "bookingDetail", "href" : "/booking/en/reference/102-10234479", "method" : "GET" }, { "rel" : "bookingCancel", "href" : "/booking/en/reference/102-10234479", "method" : "DELETE" } ] } ] }
+
+REQUEST CANCEL BOOKING 
+
+URL : https://api.test.hotelbeds.com/transfer-api/1.0/booking/en/reference/102-10234479
+
+HEADER : $client->setHeaders(array(
+    "Api-key: qz8j9xgymx97tmd5srx94mru",
+    "X-Signature: " . $signature,
+    "Content-Type: application/json",
+    "Accept: application/json",
+    "Accept-Encoding: gzip, deflate",
+    "User-Agent: curl/7.37.0"
+));
+
+RESPONSE CANCEL BOOKING 
+
+{ "bookings" : [ { "reference" : "102-10234479", "bookingFileId" : null, "creationDate" : "2019-08-05T13:19:59", "status" : "CANCELLED", "modificationsPolicies" : { "cancellation" : false, "modification" : false }, "holder" : { "title" : "MR", "name" : "Pedro", "surname" : "Alves", "email" : "pedro@gmail.com", "phone" : "3057484914" }, "transfers" : [ { "id" : 1, "status" : "CANCELLED", "direction" : "DEPARTURE", "transferType" : "PRIVATE", "vehicle" : { "code" : "DSBLD", "name" : "Disabled" }, "category" : { "code" : "SPCL", "name" : "Special" }, "pickupInformation" : { "from" : { "code" : "ATCH", "description" : "Madrid, Atocha Train Station", "type" : "STATION" }, "to" : { "code" : "4704", "description" : "NH Madrid Nacional", "type" : "ATLAS" }, "date" : "2019-11-28" }, "paxes" : [ { "type" : "ADULT" }, { "type" : "ADULT" }, { "type" : "CHILD" } ], "price" : { "totalAmount" : 0, "netAmount" : 0.00, "currencyId" : "EUR" }, "factsheetId" : 447 } ], "clientReference" : "STRING", "remark" : "", "invoiceCompany" : { "code" : "HBD" }, "supplier" : { "name" : "HOTELBEDS SPAIN, S.L.U", "vatNumber" : "ESB28916765" }, "totalAmount" : 0.00, "totalNetAmount" : 0.00, "pendingAmount" : 0.00, "currency" : "EUR", "links" : [ { "rel" : "self", "href" : "/booking/en/reference/102-10234479", "method" : "GET" }, { "rel" : "bookingDetail", "href" : "/booking/en/reference/102-10234479", "method" : "GET" } ] } ] }

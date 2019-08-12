@@ -56,7 +56,7 @@ $client->setHeaders(array(
     "Accept-Encoding: gzip"
 ));
 
-$client->setUri('https://api.test.hotelbeds.com/transfer-api/1.0/availability/en/from/ATLAS/1523/to/IATA/PMI/2019-10-28T12:15:11/2019-10-30T08:30:52/2/1/0');
+$client->setUri('https://api.test.hotelbeds.com/transfer-api/1.0/availability/en/from/STATION/ATCH/to/ATLAS/4704/2019-11-28T12:15:11/2019-11-30T08:30:52/2/1/0');
 $client->setMethod('GET');
 //$client->setRawBody($raw);
 $response = $client->send();
@@ -114,7 +114,7 @@ if (json_last_error() == 0) {
 echo "<xmp>";
 var_dump($response);
 echo "</xmp>";
-
+die();
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.hotelbeds.php');
 $config = [

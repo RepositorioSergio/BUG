@@ -44,10 +44,10 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $raw = '{
   "clientReference": "string",
   "holder": {
-    "email": "paulo@corp.bug-software.com",
-    "name": "Paulo",
+    "email": "pedro@gmail.com",
+    "name": "Pedro",
     "phone": "3057484914",
-    "surname": "Andrade",
+    "surname": "Alves",
     "title": "MR",
     "type": "ADULT"
   },
@@ -69,7 +69,7 @@ $raw = '{
           "trainNumber": "XR12345"
         }
       },
-      "rateKey": "DEPARTURE|ATLAS|1523|IATA|PMI|2019-10-28T09:55|2~1~0|3|108473|TAB-PVT-PRM-X|108473|TAB-PVT-PRM-X|1|PRVT|X|CR|PRM|53.25|CPASTILLA|AEROPUERTO|13171|2246|PMI",
+      "rateKey": "ARRIVAL|STATION|ATCH|ATLAS|4704|2019-11-28|12:15|2019-11-28|12:15:11|2~1~0|19|215161|EB MAD IBL SPC|215161|EB MAD IBL SPC|102|PRVT|H|DSBLD|SPCL|218.13|ATOCHA|MAD-PRIO|16414|447|MAD",
       "transferDetails": [
         {
           "code": "XR1234",
@@ -161,7 +161,7 @@ if (json_last_error() == 0) {
 echo "<xmp>";
 var_dump($response);
 echo "</xmp>";
-
+die();
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.hotelbeds.php');
 $config = [
