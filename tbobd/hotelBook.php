@@ -47,50 +47,67 @@ $pass = 'Win@59491374';
 
 $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
 <soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
-    <hot:Credentials UserName="' . $user . '" Password="' . $pass . '">
-    </hot:Credentials>
-    <wsa:Action>http://TekTravel/HotelBookingApi/HotelBook</wsa:Action>
-    <wsa:To>https://api.tbotechnology.in/hotelapi_v7/hotelservice.svc</wsa:To>
+<hot:Credentials UserName="' . $user . '" Password="' . $pass . '">
+</hot:Credentials>
+<wsa:Action>http://TekTravel/HotelBookingApi/HotelBook</wsa:Action>
+<wsa:To>https://api.tbotechnology.in/hotelapi_v7/hotelservice.svc</wsa:To>
 </soap:Header>
 <soap:Body>
     <hot:HotelBookRequest>
-        <hot:ClientReferenceNumber>070817125855789#kuld</hot:ClientReferenceNumber>
+        <hot:ClientReferenceNumber>210314135855789#kuld</hot:ClientReferenceNumber>
         <hot:GuestNationality>IN</hot:GuestNationality>
         <hot:Guests>
-        <hot:Guest LeadGuest="true" GuestType="Adult" GuestInRoom="1">
-        <hot:Title>Mr</hot:Title>
-        <hot:FirstName>Shivam</hot:FirstName>
-        <hot:LastName>testgea</hot:LastName>
-        <hot:Age>25</hot:Age>
-        </hot:Guest>
+            <hot:Guest LeadGuest="true" GuestType="Adult" GuestInRoom="1">
+                <hot:Title>Mr</hot:Title>
+                <hot:FirstName>Ajay</hot:FirstName>
+                <hot:LastName>testgea</hot:LastName>
+                <hot:Age>20</hot:Age>
+            </hot:Guest>
+            <hot:Guest LeadGuest="false" GuestType="Child" GuestInRoom="1">
+                <hot:Title>Mr</hot:Title>
+                <hot:FirstName>Mahi</hot:FirstName>
+                <hot:LastName>test</hot:LastName>
+                <hot:Age>5</hot:Age>
+            </hot:Guest>
+            <hot:Guest LeadGuest="false" GuestType="Adult" GuestInRoom="2">
+                <hot:Title>Mr</hot:Title>
+                <hot:FirstName>Kuld</hot:FirstName>
+                <hot:LastName>adulttwo</hot:LastName>
+                <hot:Age>30</hot:Age>
+            </hot:Guest>
         </hot:Guests>
         <hot:AddressInfo>
-        <hot:AddressLine1>testadd1</hot:AddressLine1>
-        <hot:AddressLine2>testadd2</hot:AddressLine2>
-        <hot:CountryCode>91</hot:CountryCode>
-        <hot:AreaCode>11</hot:AreaCode>
-        <hot:PhoneNo>25869696</hot:PhoneNo>
-        <hot:Email>abc@gurgaon.in</hot:Email>
-        <hot:City>Delhi</hot:City>
-        <hot:State>Delhi</hot:State>
-        <hot:Country>India</hot:Country>
-        <hot:ZipCode>256525</hot:ZipCode>
+            <hot:AddressLine1>testadd1</hot:AddressLine1>
+            <hot:AddressLine2>testadd2</hot:AddressLine2>
+            <hot:CountryCode>91</hot:CountryCode>
+            <hot:AreaCode>11</hot:AreaCode>
+            <hot:PhoneNo>25869696</hot:PhoneNo>
+            <hot:Email>abc@gurgaon.in</hot:Email>
+            <hot:City>Delhi</hot:City>
+            <hot:State>Delhi</hot:State>
+            <hot:Country>India</hot:Country>
+            <hot:ZipCode>256525</hot:ZipCode>
         </hot:AddressInfo>
-        <!-- VoucherBooking- via credit card -->
-        <hot:PaymentInfo VoucherBooking="true" PaymentModeType="CreditCard" CvvNumber="123">
+        <!-- VoucherBooking-true Booking will be Vouchered -->
+        <hot:PaymentInfo VoucherBooking="true" PaymentModeType="Limit">
         </hot:PaymentInfo>
-        <hot:SessionId>f5513c90-f9dd-4cb0-9e92-bdeca8a9f5d3</hot:SessionId>
-        <hot:NoOfRooms>1</hot:NoOfRooms>
-        <hot:ResultIndex>2</hot:ResultIndex>
-        <hot:HotelCode>1136544</hot:HotelCode>
-        <hot:HotelName>Dubai Palm</hot:HotelName>
+        <hot:SessionId>0d1d5959-eb82-4364-a4db-7735c2b84981</hot:SessionId>
+        <hot:NoOfRooms>2</hot:NoOfRooms>
+        <hot:ResultIndex>9</hot:ResultIndex>
+        <hot:HotelCode>1082959</hot:HotelCode>
+        <hot:HotelName>Imperial Suites Hotel</hot:HotelName>
         <hot:HotelRooms>
             <hot:HotelRoom>
+                <hot:RoomIndex>1</hot:RoomIndex>
+                <hot:RoomTypeName>Luxury Suite</hot:RoomTypeName>
+                <hot:RoomTypeCode></hot:RoomTypeCode>
+                <hot:RatePlanCode>558651|</hot:RatePlanCode>
+            </hot:HotelRoom>
+            <hot:HotelRoom>
                 <hot:RoomIndex>2</hot:RoomIndex>
-                <hot:RoomTypeName>Single Standard</hot:RoomTypeName>
-                <hot:RoomTypeCode>8i64/bMpJtPeAuN8BgNcyA==|ST|BAR-RO|148###|1|1^^RO-E10</hot:RoomTypeCode>
-                <hot:RatePlanCode>RO-E10</hot:RatePlanCode>
-                <hot:RoomRate RoomFare="64.90" Currency="USD" AgentMarkUp="0.00" RoomTax="0" TotalFare="64.90"/>
+                <hot:RoomTypeName>Luxury Suite</hot:RoomTypeName>
+                <hot:RoomTypeCode></hot:RoomTypeCode>
+                <hot:RatePlanCode>558651|</hot:RatePlanCode>
             </hot:HotelRoom>
         </hot:HotelRooms>
     </hot:HotelBookRequest>
@@ -126,6 +143,7 @@ echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
 echo $return;
 die();
 }
+
 echo "<br/>RESPONSE";
 echo '<xmp>';
 var_dump($response);

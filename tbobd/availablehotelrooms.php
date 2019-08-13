@@ -54,9 +54,9 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 </soap:Header>
 <soap:Body>
     <hot:HotelRoomAvailabilityRequest>
-        <hot:SessionId>5047908b-147c-46c8-868c-484b7c2bd0aa</hot:SessionId>
-        <hot:ResultIndex>2</hot:ResultIndex>
-        <hot:HotelCode>1374963</hot:HotelCode>
+        <hot:SessionId>053f4524-2118-496a-802c-5027972549b7</hot:SessionId>
+        <hot:ResultIndex>1</hot:ResultIndex>
+        <hot:HotelCode>1198032</hot:HotelCode>
         <hot:ResponseTime>5</hot:ResponseTime>
         <hot:IsCancellationPolicyRequired>false</hot:IsCancellationPolicyRequired>
     </hot:HotelRoomAvailabilityRequest>

@@ -54,7 +54,7 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 </soap:Header>
 <soap:Body>
     <hot:HotelCancelRequest>
-        <hot:ConfirmationNo>F15XU8</hot:ConfirmationNo>
+        <hot:ConfirmationNo>24HM6B</hot:ConfirmationNo>
         <hot:RequestType>HotelCancel</hot:RequestType>
         <hot:Remarks>test cancel</hot:Remarks>
     </hot:HotelCancelRequest>
@@ -94,6 +94,7 @@ echo "<br/>RESPONSE";
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
+die();
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.tbo.php');
 $config = [

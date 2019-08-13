@@ -42,6 +42,9 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
+$nrooms = 2;
+$n = 6;
+
 $user = 'wingstest';
 $pass = 'Win@59491374';
 
@@ -60,16 +63,66 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
         <hot:CityName>Dubai</hot:CityName>
         <hot:CityId>115936</hot:CityId>
         <hot:IsNearBySearchAllowed>false</hot:IsNearBySearchAllowed>
-        <hot:NoOfRooms>2</hot:NoOfRooms>
+        <hot:NoOfRooms>' . $nrooms . '</hot:NoOfRooms>
         <hot:GuestNationality>AE</hot:GuestNationality>
-        <hot:RoomGuests>
-        <hot:RoomGuest AdultCount="1" ChildCount="1">
-            <hot:ChildAge>
-                <hot:int>5</hot:int>
-            </hot:ChildAge>
-        </hot:RoomGuest>
-        <hot:RoomGuest AdultCount="1" ChildCount="0"/>
-        </hot:RoomGuests>
+        <hot:IsRoomInfoRequired>true</hot:IsRoomInfoRequired>
+        <hot:RoomGuests>';
+
+        switch ($n) {
+            case 1:
+                $raw = $raw . '<hot:RoomGuest AdultCount="1" ChildCount="0"/>';
+                break;
+            case 2:
+                $raw = $raw . '<hot:RoomGuest AdultCount="1" ChildCount="1">
+                    <hot:ChildAge>
+                        <hot:int>5</hot:int>
+                    </hot:ChildAge>
+                </hot:RoomGuest>';
+                break;
+            case 3:
+                $raw = $raw . '<hot:RoomGuest AdultCount="2" ChildCount="2">
+                    <hot:ChildAge>
+                        <hot:int>3</hot:int>
+                        <hot:int>5</hot:int>
+                    </hot:ChildAge>
+                </hot:RoomGuest>';
+                break;
+            case 4:
+                $raw = $raw . '<hot:RoomGuest AdultCount="1" ChildCount="0"/>
+                <hot:RoomGuest AdultCount="1" ChildCount="0"/>';
+                break;
+            case 5:
+                $raw = $raw . '<hot:RoomGuest AdultCount="1" ChildCount="1">
+                    <hot:ChildAge>
+                        <hot:int>5</hot:int>
+                    </hot:ChildAge>
+                </hot:RoomGuest>
+                <hot:RoomGuest AdultCount="1" ChildCount="0"/>';
+                break;
+            case 6:
+                $raw = $raw . '<hot:RoomGuest AdultCount="1" ChildCount="2">
+                    <hot:ChildAge>
+                        <hot:int>3</hot:int>
+                        <hot:int>5</hot:int>
+                    </hot:ChildAge>
+                </hot:RoomGuest>
+                <hot:RoomGuest AdultCount="2" ChildCount="0"/>';
+                break;
+            case 7:
+                $raw = $raw . '<hot:RoomGuest AdultCount="1" ChildCount="1">
+                    <hot:ChildAge>
+                        <hot:int>5</hot:int>
+                    </hot:ChildAge>
+                </hot:RoomGuest>
+                <hot:RoomGuest AdultCount="1" ChildCount="0"/>';
+                break;
+            
+            default:
+                echo "<br/>ERRO.";
+                break;
+        }
+
+    $raw = $raw . '</hot:RoomGuests>
         <hot:ResultCount>0</hot:ResultCount>
         <hot:Filters>
         <hot:StarRating>All</hot:StarRating>

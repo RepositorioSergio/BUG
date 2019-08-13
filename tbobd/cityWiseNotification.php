@@ -47,7 +47,7 @@ $pass = 'Win@59491374';
 
 $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
 <soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
-    <hot:Credentials UserName="testuser" Password="testpwd">
+    <hot:Credentials UserName="' . $user . '" Password="' . $pass . '">
     </hot:Credentials>
     <wsa:Action>http://TekTravel/HotelBookingApi/GiataHotelCodes</wsa:Action>
     <wsa:To>https://api.tbotechnology.in/hotelapi_v7/hotelservice.svc</wsa:To>
