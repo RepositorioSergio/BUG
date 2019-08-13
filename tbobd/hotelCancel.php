@@ -54,7 +54,7 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 </soap:Header>
 <soap:Body>
     <hot:HotelCancelRequest>
-        <hot:ConfirmationNo>24HM6B</hot:ConfirmationNo>
+        <hot:ConfirmationNo>Z7Y1MW</hot:ConfirmationNo>
         <hot:RequestType>HotelCancel</hot:RequestType>
         <hot:Remarks>test cancel</hot:Remarks>
     </hot:HotelCancelRequest>

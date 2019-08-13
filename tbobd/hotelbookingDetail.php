@@ -56,11 +56,11 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 <soap:Body>
     <hot:HotelBookingDetailRequest>';
     if ($option = "BookingId") {
-        $raw = $raw . '<hot:BookingId>1728</hot:BookingId>';
+        $raw = $raw . '<hot:BookingId>103039</hot:BookingId>';
     } elseif($option = "ConfirmationNo") {
-        $raw = $raw . '<hot:ConfirmationNo>LL8F233737</hot:ConfirmationNo>';
+        $raw = $raw . '<hot:ConfirmationNo>Z7Y1MW</hot:ConfirmationNo>';
     } elseif($option = "ClientReferenceNumber") {
-        $raw = $raw . '<hot:ClientReferenceNumber>070817125855789#kuld</hot:ClientReferenceNumber>';
+        $raw = $raw . '<hot:ClientReferenceNumber>210314135855789#gale</hot:ClientReferenceNumber>';
     }
     
  $raw = $raw . '</hot:HotelBookingDetailRequest>

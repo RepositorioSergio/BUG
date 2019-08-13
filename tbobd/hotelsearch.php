@@ -42,8 +42,8 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$nrooms = 2;
-$n = 6;
+$nrooms = 1;
+$n = 1;
 
 $user = 'wingstest';
 $pass = 'Win@59491374';
@@ -109,12 +109,13 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
                 <hot:RoomGuest AdultCount="2" ChildCount="0"/>';
                 break;
             case 7:
-                $raw = $raw . '<hot:RoomGuest AdultCount="1" ChildCount="1">
+                $raw = $raw . '<hot:RoomGuest AdultCount="1" ChildCount="2">
                     <hot:ChildAge>
+                        <hot:int>3</hot:int>
                         <hot:int>5</hot:int>
                     </hot:ChildAge>
                 </hot:RoomGuest>
-                <hot:RoomGuest AdultCount="1" ChildCount="0"/>';
+                <hot:RoomGuest AdultCount="2" ChildCount="0"/>';
                 break;
             
             default:

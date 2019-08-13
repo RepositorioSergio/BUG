@@ -49,15 +49,15 @@ $user = 'wingstest';
 $pass = 'Win@59491374';
 $url = "https://api.tbotechnology.in/HotelAPI_V7/HotelService.svc";
 
-$SessionId = '053f4524-2118-496a-802c-5027972549b7';
+$SessionId = '51baf5e1-d0d5-470b-b732-307665a82826';
 $ResultIndex = 1;
-$hotelCode = 1198032;
-$hotelName = 'Versailles';
-$RoomTypeName = 'Standard';
-$RatePlanCode = '2595124||35397c70-9f63-5cad-6054-d16f4bcaa2c9';
-$RoomTypeCode = '3039749|35397c70-9f63-5cad-6054-d16f4bcaa2c9|1^^1^^2595124||35397c70-9f63-5cad-6054-d16f4bcaa2c9';
-$RatePlanCode2 = '2595124||35397c70-9f63-5cad-6054-d16f4bcaa2c9';
-$RoomTypeCode2 = '3039749|35397c70-9f63-5cad-6054-d16f4bcaa2c9|2^^2^^2595124||35397c70-9f63-5cad-6054-d16f4bcaa2c9';
+$hotelCode = 1078234;
+$hotelName = 'Signature Inn Deira';
+$RoomTypeName = 'Deluxe Room';
+$RatePlanCode = '1190067|164992844|7296b11e-0042-6db9-6ba8-de2882457403';
+$RoomTypeCode = '3049868|7296b11e-0042-6db9-6ba8-de2882457403|1^^1^^1190067|164992844|7296b11e-0042-6db9-6ba8-de2882457403';
+$RatePlanCode2 = '2416173||c28538bd-fe3d-9869-0f8d-91cbefbbbe8a';
+$RoomTypeCode2 = '3043752|c28538bd-fe3d-9869-0f8d-91cbefbbbe8a|2^^2^^2416173||c28538bd-fe3d-9869-0f8d-91cbefbbbe8a';
 
 // CANCELLATION POLICIES
 
@@ -76,7 +76,6 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
             <hot:FixedFormat>false</hot:FixedFormat>
             <hot:RoomCombination>
                 <hot:RoomIndex>1</hot:RoomIndex>
-                <hot:RoomIndex>2</hot:RoomIndex>
             </hot:RoomCombination>
         </hot:OptionsForBooking>
     </hot:HotelCancellationPolicyRequest>
@@ -126,7 +125,6 @@ $raw3 = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xml
         <hot:FixedFormat>false</hot:FixedFormat>
         <hot:RoomCombination>
             <hot:RoomIndex>1</hot:RoomIndex>
-            <hot:RoomIndex>2</hot:RoomIndex>
         </hot:RoomCombination>
     </hot:OptionsForBooking>
 </hot:AvailabilityAndPricingRequest>
@@ -165,38 +163,14 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 </soap:Header>
 <soap:Body>
     <hot:HotelBookRequest>
-        <hot:ClientReferenceNumber>210314135855789#gapa</hot:ClientReferenceNumber>
+        <hot:ClientReferenceNumber>210314135855789#gepl</hot:ClientReferenceNumber>
         <hot:GuestNationality>AE</hot:GuestNationality>
         <hot:Guests>
             <hot:Guest LeadGuest="true" GuestType="Adult" GuestInRoom="1">
                 <hot:Title>Mr</hot:Title>
-                <hot:FirstName>Ajay</hot:FirstName>
-                <hot:LastName>testgea</hot:LastName>
-                <hot:Age>20</hot:Age>
-            </hot:Guest>
-            <hot:Guest LeadGuest="false" GuestType="Child" GuestInRoom="1">
-                <hot:Title>Mr</hot:Title>
-                <hot:FirstName>Mahi</hot:FirstName>
-                <hot:LastName>test</hot:LastName>
-                <hot:Age>3</hot:Age>
-            </hot:Guest>
-            <hot:Guest LeadGuest="false" GuestType="Child" GuestInRoom="1">
-                <hot:Title>Mr</hot:Title>
-                <hot:FirstName>Mary</hot:FirstName>
-                <hot:LastName>test</hot:LastName>
-                <hot:Age>5</hot:Age>
-            </hot:Guest>
-            <hot:Guest LeadGuest="false" GuestType="Adult" GuestInRoom="2">
-                <hot:Title>Mr</hot:Title>
-                <hot:FirstName>Maya</hot:FirstName>
-                <hot:LastName>testgea</hot:LastName>
-                <hot:Age>22</hot:Age>
-            </hot:Guest>
-            <hot:Guest LeadGuest="false" GuestType="Adult" GuestInRoom="2">
-                <hot:Title>Mr</hot:Title>
                 <hot:FirstName>Andreas</hot:FirstName>
                 <hot:LastName>testgea</hot:LastName>
-                <hot:Age>32</hot:Age>
+                <hot:Age>28</hot:Age>
             </hot:Guest>
         </hot:Guests>
         <hot:AddressInfo>
@@ -215,7 +189,7 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
         <hot:PaymentInfo VoucherBooking="true" PaymentModeType="Limit">
         </hot:PaymentInfo>
         <hot:SessionId>' . $SessionId . '</hot:SessionId>
-        <hot:NoOfRooms>2</hot:NoOfRooms>
+        <hot:NoOfRooms>1</hot:NoOfRooms>
         <hot:ResultIndex>' . $ResultIndex . '</hot:ResultIndex>
         <hot:HotelCode>' . $hotelCode . '</hot:HotelCode>
         <hot:HotelName>' . $hotelName . '</hot:HotelName>
@@ -225,19 +199,9 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
                 <hot:RoomTypeName>' . $RoomTypeName . '</hot:RoomTypeName>
                 <hot:RoomTypeCode>' . $RoomTypeCode . '</hot:RoomTypeCode>
                 <hot:RatePlanCode>' . $RatePlanCode . '</hot:RatePlanCode>
-                <hot:RoomRate RoomFare="48.88" Currency="USD" AgentMarkUp="0.00" RoomTax="11.00" TotalFare="59.88"/>
+                <hot:RoomRate RoomFare="33.46" Currency="USD" AgentMarkUp="0.00" RoomTax="7.55" TotalFare="41.01"/>
                 <hot:Supplements>
-                    <hot:SuppInfo SuppID="1" SuppChargeType="AtProperty" Price="16.32" SuppIsSelected="false"/>
-                </hot:Supplements>
-            </hot:HotelRoom>
-            <hot:HotelRoom>
-                <hot:RoomIndex>2</hot:RoomIndex>
-                <hot:RoomTypeName>' . $RoomTypeName . '</hot:RoomTypeName>
-                <hot:RoomTypeCode>' . $RoomTypeCode2 . '</hot:RoomTypeCode>
-                <hot:RatePlanCode>' . $RatePlanCode2 . '</hot:RatePlanCode>
-                <hot:RoomRate RoomFare="48.88" Currency="USD" AgentMarkUp="0.00" RoomTax="11.00" TotalFare="59.88"/>
-                <hot:Supplements>
-                    <hot:SuppInfo SuppID="1" SuppChargeType="AtProperty" Price="16.32" SuppIsSelected="false"/>
+                    <hot:SuppInfo SuppID="1" SuppChargeType="AtProperty" Price="5.44" SuppIsSelected="false"/>
                 </hot:Supplements>
             </hot:HotelRoom>
         </hot:HotelRooms>
