@@ -57,12 +57,13 @@ $client->setHeaders(array(
     "Content-length: ".strlen($raw)
 ));
 
-$url = "https://stage.services.rccl.com/";
+$url = "https://stage.services.rccl.com/Reservation_FITWeb/sca/GuestServiceList";
 
-$raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+$raw ='<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:m="http://services.rccl.com/Interfaces/GuestServiceList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha">
+<soapenv:Header/>
 <soap:Body>
-<m:getGuestServiceList xmlns:m="http://services.rccl.com/Interfaces/GuestServiceList">
-    <OTA_CruiseSpecialServiceAvailRQ RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-12-10T08:41:06.699-05:00" TransactionIdentifier="106597" Version="1.0" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+<m:getGuestServiceList>
+    <OTA_CruiseSpecialServiceAvailRQ Target="Production" MaxResponses="50" MoreIndicator="true" Version="2.0" SequenceNmbr="1" TimeStamp="2008-11-05T19:15:56.692+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
     <POS>
         <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
             <RequestorID ID="u73ecKBu73ecKB!" ID_Context="CONCTMM" Type="5"/>
@@ -87,7 +88,7 @@ $raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
         <GuestCount Age="0" Quantity="1"/>
     </GuestCounts>
     <SailingInfo>
-        <SelectedSailing Start="2019-08-02">
+        <SelectedSailing Start="2019-10-02">
         <CruiseLine ShipCode="FR"/>
         </SelectedSailing>
     </SailingInfo>

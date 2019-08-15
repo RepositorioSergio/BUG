@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU OPTION DETAIL<br/>";
+echo "COMECOU CATEGORY LIST<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -57,42 +57,49 @@ $client->setHeaders(array(
     "Content-length: ".strlen($raw)
 ));
 
-$url = "https://stage.services.rccl.com/";
+$url = "https://stage.services.rccl.com/Reservation_FITWeb/sca/CategoryList";
 
-$raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-<soap:Body>
-<m:getOptionDetail xmlns:m="http://services.rccl.com/Interfaces/OptionDetail">
-    <OTA_CruiseSpecialServiceAvailRQ MaxResponses="30" MoreDataEchoToken="1" RetransmissionIndicator="false" SequenceNmbr="1" Target="Test" TimeStamp="2008-05-21T13:26:38" Version="2.0">
-    <POS>
-        <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
-            <RequestorID ID="u73ecKBu73ecKB!" ID_Context="CONCTMM" Type="5"/>
-            <BookingChannel Type="7">
-                <CompanyName CompanyShortName="IST"/>
-            </BookingChannel>
-        </Source>
-        <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
-            <RequestorID ID="u73ecKBu73ecKB!" ID_Context="CONCTMM" Type="5"/>
-            <BookingChannel Type="7">
-                <CompanyName CompanyShortName="IST"/>
-            </BookingChannel>
-        </Source>
-        <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
-            <RequestorID ID="u73ecKBu73ecKB!" ID_Context="CONCTMM" Type="5"/>
-            <BookingChannel Type="7">
-                <CompanyName CompanyShortName="IST"/>
-            </BookingChannel>
-        </Source>
-    </POS>
-    <SailingInfo>
-        <SelectedSailing Start="2019-10-02">
-        <CruiseLine ShipCode="FR"/>
-        </SelectedSailing>
-    </SailingInfo>
-    <SpecialService Code="PPGR"/>
-    </OTA_CruiseSpecialServiceAvailRQ>
-</m:getOptionDetail>
-</soap:Body>
-</soap:Envelope>';
+$raw ='<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://services.rccl.com/Interfaces/CategoryList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha">
+<soapenv:Header/>
+<soapenv:Body>
+   <cat:getCategoryList>
+      <OTA_CruiseCategoryAvailRQ Target="Production" MaxResponses="50" MoreIndicator="true" Version="2.0" SequenceNmbr="1" TimeStamp="2008-11-05T19:15:56.692+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+         <POS>
+            <Source ISOCurrency="USD" TerminalID="12502LDJW6">
+               <RequestorID ID="313917" Type="5" ID_Context="AGENCY1"/>
+               <BookingChannel Type="7">
+                  <CompanyName CompanyShortName="PULLMANTUR"/>
+               </BookingChannel>
+            </Source>
+            <Source ISOCurrency="USD" TerminalID="12502LDJW6">
+               <RequestorID ID="313917" Type="5" ID_Context="AGENCY2"/>
+               <BookingChannel Type="7">
+                  <CompanyName CompanyShortName="PULLMANTUR"/>
+               </BookingChannel>
+            </Source>
+            <Source ISOCurrency="USD" TerminalID="12502LDJW6">
+            <RequestorID ID="313917" Type="5" ID_Context="AGENT1"/>
+                  <BookingChannel Type="7">
+                     <CompanyName CompanyShortName="PULLMANTUR"/>
+                  </BookingChannel>
+               </Source>
+            </POS>
+             <Guest >
+               <GuestTransportation Mode="29" Status="36"/>
+            </Guest>
+            <GuestCounts>
+               <GuestCount Age="20" Quantity="1"/>        
+            </GuestCounts>
+            <SailingInfo>
+               <SelectedSailing Start="2019-10-20">
+                  <CruiseLine ShipCode="HR"/>
+               </SelectedSailing>
+            </SailingInfo>
+            <SelectedFare FareCode="BESTRATE"/>
+         </OTA_CruiseCategoryAvailRQ>
+      </cat:getCategoryList>
+   </soapenv:Body>
+</soapenv:Envelope>';
 
 /* $client->setUri($url);
 $client->setMethod('POST');
@@ -111,6 +118,7 @@ echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
 echo $return;
 die();
 } */
+
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_HEADER, false);
@@ -151,28 +159,36 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$detail = "";
-
 $inputDoc = new DOMDocument();
 $inputDoc->loadXML($response);
 $Envelope = $inputDoc->getElementsByTagName("Envelope");
 $Body = $Envelope->item(0)->getElementsByTagName("Body");
-$getOptionDetailResponse = $Body->item(0)->getElementsByTagName("getOptionDetailResponse");
-$OTA_ScreenTextRS = $getOptionDetailResponse->item(0)->getElementsByTagName("OTA_ScreenTextRS");
-$TextScreens = $OTA_ScreenTextRS->item(0)->getElementsByTagName("TextScreens");
-$TextScreen = $TextScreens->item(0)->getElementsByTagName("TextScreen");
-$node = $TextScreen->item(0)->getElementsByTagName("TextData");
+$getGuestServiceListResponse = $Body->item(0)->getElementsByTagName("getGuestServiceListResponse");
+$OTA_CruiseSpecialServiceAvailRS = $getGuestServiceListResponse->item(0)->getElementsByTagName("OTA_CruiseSpecialServiceAvailRS");
+$SpecialServices = $OTA_CruiseSpecialServiceAvailRS->item(0)->getElementsByTagName("SpecialServices");
+$node = $SpecialServices->item(0)->getElementsByTagName("SpecialService");
 for ($i=0; $i < $node->length; $i++) { 
-    $detail = $node->item($i)->nodeValue;
+    $Code = $node->item($i)->getAttribute("Code");
+    $Description = $node->item($i)->getAttribute("Description");
+    $MinGuestsRequired = $node->item($i)->getAttribute("MinGuestsRequired");
+    $NbrOfYearsRequiredInd = $node->item($i)->getAttribute("NbrOfYearsRequiredInd");
+    $ServiceDateRequiredInd = $node->item($i)->getAttribute("ServiceDateRequiredInd");
+    $UserRemarkRequiredInd = $node->item($i)->getAttribute("UserRemarkRequiredInd");
+
 
     try {
         $sql = new Sql($db);
         $insert = $sql->insert();
-        $insert->into('optionDetail');
+        $insert->into('serviceList');
         $insert->values(array(
             'datetime_created' => time(),
             'datetime_updated' => 0,
-            'detail' => $detail
+            'Code' => $Code,
+            'Description' => $Description,
+            'MinGuestsRequired' => $MinGuestsRequired,
+            'NbrOfYearsRequiredInd' => $NbrOfYearsRequiredInd,
+            'ServiceDateRequiredInd' => $ServiceDateRequiredInd,
+            'UserRemarkRequiredInd' => $UserRemarkRequiredInd
         ), $insert::VALUES_MERGE);
         $statement = $sql->prepareStatementForSqlObject($insert);
         $results = $statement->execute();

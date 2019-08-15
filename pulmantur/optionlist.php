@@ -57,59 +57,41 @@ $client->setHeaders(array(
     "Content-length: ".strlen($raw)
 ));
 
-$url = "https://stage.services.rccl.com/";
+$url = "https://stage.services.rccl.com/Reservation_FITWeb/sca/OptionList";
 
-$raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+$raw ='<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ol="http://services.rccl.com/Interfaces/OptionList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha">
+<soapenv:Header/>
 <soap:Body>
-<ns14:getOptionList xmlns="http://www.opentravel.org/OTA/2003/05/alpha" xmlns:ns2="http://services.rccl.com/Interfaces/PackageList"
-xmlns:ns3="http://services.rccl.com/Interfaces/CabinDetail" xmlns:ns4="http://services.rccl.com/Interfaces/FastSell"
-xmlns:ns5="http://services.rccl.com/Interfaces/GuestServiceList" xmlns:ns6="http://services.rccl.com/Interfaces/BookingHistory"
-xmlns:ns7="http://services.rccl.com/Interfaces/ReleaseCabin" xmlns:ns8="http://services.rccl.com/Interfaces/TourList"
-xmlns:ns9="http://services.rccl.com/Interfaces/LookupAgency" xmlns:ns10="http://services.rccl.com/Interfaces/ReleaseBooking"
-xmlns:ns11="http://services.rccl.com/Interfaces/PromotionList" xmlns:ns12="http://services.rccl.com/Interfaces/TourDetail"
-xmlns:ns13="http://services.rccl.com/Interfaces/AirAvail" xmlns:ns14="http://services.rccl.com/Interfaces/OptionList"
-xmlns:ns15="http://services.rccl.com/Interfaces/BookingList" xmlns:ns16="http://services.rccl.com/Interfaces/FareDetail"
-xmlns:ns17="http://services.rccl.com/Interfaces/PaymentExtension" xmlns:ns18="http://services.rccl.com/Interfaces/Payment"
-xmlns:ns19="http://services.rccl.com/Interfaces/TransferDetail" xmlns:ns20="http://services.rccl.com/Interfaces/DiningList"
-xmlns:ns21="http://services.rccl.com/Interfaces/TransferList" xmlns:ns22="http://services.rccl.com/Interfaces/ConfirmAir"
-xmlns:ns23="http://services.rccl.com/Interfaces/BookingDocument" xmlns:ns24="http://services.rccl.com/Interfaces/BusDetail"
-xmlns:ns25="http://services.rccl.com/Interfaces/CabinList" xmlns:ns26="http://services.rccl.com/Interfaces/Login"
-xmlns:ns27="http://services.rccl.com/Interfaces/OptionDetail" xmlns:ns28="http://services.rccl.com/Interfaces/ItineraryDetail"
-xmlns:ns29="http://services.rccl.com/Interfaces/SailingList" xmlns:ns30="http://services.rccl.com/Interfaces/ConfirmBooking"
-xmlns:ns31="http://services.rccl.com/Interfaces/LinkedBooking" xmlns:ns32="http://services.rccl.com/Interfaces/RetrieveBooking"
-xmlns:ns33="http://services.rccl.com/Interfaces/CategoryList" xmlns:ns34="http://services.rccl.com/Interfaces/FareList"
-xmlns:ns35="http://services.rccl.com/Interfaces/PackageDetail" xmlns:ns36="http://services.rccl.com/Interfaces/AutoAddChargeDetail"
-xmlns:ns37="http://services.rccl.com/Interfaces/Memo" xmlns:ns38="http://services.rccl.com/Interfaces/BookingPrice"
-xmlns:ns39="http://services.rccl.com/Interfaces/HoldCabin" xmlns:ns40="http://services.rccl.com/Interfaces/BusList">
-<OTA_CruiseSpecialServiceAvailRQ SequenceNmbr="1" Version="1">
+<ol:getOptionList>
+<OTA_CruiseSpecialServiceAvailRQ Target="Production" MaxResponses="50" MoreIndicator="true" Version="2.0" SequenceNmbr="1" TimeStamp="2008-11-05T19:15:56.692+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
 <POS>
-    <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
-        <RequestorID ID="u73ecKBu73ecKB!" ID_Context="CONCTMM" Type="5"/>
+    <Source ISOCurrency="USD" TerminalID="12502LDJW6">
+        <RequestorID ID="313917" Type="5" ID_Context="AGENCY1"/>
         <BookingChannel Type="7">
-            <CompanyName CompanyShortName="IST"/>
+            <CompanyName CompanyShortName="PULLMANTUR"/>
         </BookingChannel>
     </Source>
-    <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
-        <RequestorID ID="u73ecKBu73ecKB!" ID_Context="CONCTMM" Type="5"/>
+    <Source ISOCurrency="USD" TerminalID="12502LDJW6">
+        <RequestorID ID="313917" Type="5" ID_Context="AGENCY2"/>
         <BookingChannel Type="7">
-            <CompanyName CompanyShortName="IST"/>
+            <CompanyName CompanyShortName="PULLMANTUR"/>
         </BookingChannel>
     </Source>
-    <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
-        <RequestorID ID="u73ecKBu73ecKB!" ID_Context="CONCTMM" Type="5"/>
+    <Source ISOCurrency="USD" TerminalID="12502LDJW6">
+        <RequestorID ID="313917" Type="5" ID_Context="AGENT1"/>
         <BookingChannel Type="7">
-            <CompanyName CompanyShortName="IST"/>
+            <CompanyName CompanyShortName="PULLMANTUR"/>
         </BookingChannel>
     </Source>
 </POS>
 <SailingInfo>
-    <SelectedSailing Start="2019-08-02">
+    <SelectedSailing Start="2019-10-02">
         <CruiseLine ShipCode="MO"/>
     </SelectedSailing>
     <SelectedCategory BerthedCategoryCode="JT"/>
 </SailingInfo>
 </OTA_CruiseSpecialServiceAvailRQ>
-</ns14:getOptionList>
+</ol:getOptionList>
 </soap:Body>
 </soap:Envelope>';
 

@@ -61,41 +61,39 @@ $url = "https://stage.services.rccl.com/";
 
 $raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
 <soap:Body>
-<m:getFareList xmlns:m="http://services.rccl.com/Interfaces/FareList">
-<OTA_CruiseFareAvailRQ MaxResponses="150" RetransmissionIndicator="false" SequenceNmbr="1"
-TimeStamp="2008-12-18T12:46:25.861-05:00" TransactionIdentifier="106597" Version="1.0"
-xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
-<Guest Age="55">
-<GuestTransportation Mode="29" Status="36">
-<GatewayCity LocationCode="C/O”/>
-</GuestTransportation>
-<Address>
-<StateProv StateCode="FL"/>
-</Address>
-</Guest>
-<Guest Age="35">
-<GuestTransportation Mode="29" Status="36">
-<GatewayCity LocationCode="C/O”/>
-</GuestTransportation>
-</Guest>
-<GuestCounts>
-<GuestCount Quantity="1"/>
-<GuestCount Quantity="1"/>
-</GuestCounts>
-<SailingInfo>
-<SelectedSailing Start="2014-01-05">
-<CruiseLine ShipCode="AL"/>
-</SelectedSailing>
-<InclusivePackageOption CruisePackageCode=" AL07E088"/>
-</SailingInfo>
-<SearchQualifiers BerthedCategoryCode="D1"/>
-<TPA_Extensions>
-<TPA_FareQualifiers>
-<TPA_FareType TPA_FareCode="A0004352"/>
-</TPA_FareQualifiers>
-</TPA_Extensions>
-</OTA_CruiseFareAvailRQ>
-</m:getFareList>
+    <m:getFareList xmlns:m="http://services.rccl.com/Interfaces/FareList">
+        <OTA_CruiseFareAvailRQ MaxResponses="150" RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-12-18T12:46:25.861-05:00" TransactionIdentifier="106597" Version="1.0" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+            <Guest Age="55">
+                <GuestTransportation Mode="29" Status="36">
+                <GatewayCity LocationCode="C/O”/>
+                </GuestTransportation>
+                <Address>
+                <StateProv StateCode="FL"/>
+                </Address>
+            </Guest>
+            <Guest Age="35">
+                <GuestTransportation Mode="29" Status="36">
+                <GatewayCity LocationCode="C/O”/>
+                </GuestTransportation>
+            </Guest>
+            <GuestCounts>
+                <GuestCount Quantity="1"/>
+                <GuestCount Quantity="1"/>
+            </GuestCounts>
+            <SailingInfo>
+                <SelectedSailing Start="2014-01-05">
+                    <CruiseLine ShipCode="AL"/>
+                </SelectedSailing>
+                <InclusivePackageOption CruisePackageCode=" AL07E088"/>
+            </SailingInfo>
+            <SearchQualifiers BerthedCategoryCode="D1"/>
+            <TPA_Extensions>
+                <TPA_FareQualifiers>
+                    <TPA_FareType TPA_FareCode="A0004352"/>
+                </TPA_FareQualifiers>
+            </TPA_Extensions>
+        </OTA_CruiseFareAvailRQ>
+    </m:getFareList>
 </soap:Body>
 </soap:Envelope>';
 
