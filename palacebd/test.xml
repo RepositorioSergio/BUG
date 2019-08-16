@@ -1,0 +1,128 @@
+AVAILABILITY
+
+REQUEST
+
+URL : https://api.palaceresorts.com/EnterpriseServiceInterface/ServiceInterface.asmx
+
+HEADER : $client->setHeaders(array(
+    "Content-type: text/xml",
+    "Cache-Control: no-cache",
+    "Pragma: no-cache",
+    "Host: api.palaceresorts.com",
+    "Content-length: " . strlen($raw)
+));
+
+DATA : <?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://localhost/pr_xmlschemas/hotel/01-03-2006/availability.xsd" xmlns:ns2="http://localhost/pr_xmlschemas/hotel/01-03-2006/availabilityRequest.xsd" xmlns:ns3="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd" xmlns:ns4="http://localhost/xmlschemas/enterpriseservice/16-07-2009/">
+  <SOAP-ENV:Body>
+    <ns4:GetAvailability>
+      <ns2:availabilityRequest>
+        <ns2:data>
+          <ns1:hotel>MPG</ns1:hotel>
+          <ns1:room_type>RV</ns1:room_type>
+          <ns1:bed_type></ns1:bed_type>
+          <ns1:arrival_date>2019-09-23</ns1:arrival_date>
+          <ns1:departure_date>2019-09-28</ns1:departure_date>
+          <ns1:adultos>2</ns1:adultos>
+          <ns1:menores>0</ns1:menores>
+          <ns1:baby>0</ns1:baby>
+          <ns1:child>0</ns1:child>
+          <ns1:kid>0</ns1:kid>
+          <ns1:rate_plan></ns1:rate_plan>
+          <ns1:group_code></ns1:group_code>
+          <ns1:promotion_code></ns1:promotion_code>
+          <ns1:idioma></ns1:idioma>
+          <ns1:agency_cd>CTM-PERU</ns1:agency_cd>
+        </ns2:data>
+        <ns2:Tag></ns2:Tag>
+        <ns2:AuthInfo>
+          <ns3:Recnum>0</ns3:Recnum>
+          <ns3:Ent_User>CTM-PERU</ns3:Ent_User>
+          <ns3:Ent_Pass>x4Mg82k9WS</ns3:Ent_Pass>
+          <ns3:Ent_Term>CTM-PERU</ns3:Ent_Term>
+        </ns2:AuthInfo>
+  </ns2:availabilityRequest>
+</ns4:GetAvailability>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+RESPONSE
+
+<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><GetAvailabilityResponse xmlns="http://localhost/xmlschemas/enterpriseservice/16-07-2009/"><roomAvailabilityResponse xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/roomAvailabilityResponse.xsd"><Hotel>MPG</Hotel><Data><Availability xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/roomAvailability.xsd"><dayAvailable><Day>2019-09-23T00:00:00</Day><Available>true</Available><Rate>289</Rate><RateCode>TLAV15I</RateCode><RateCodeDescription>YMBSVIII</RateCodeDescription><Currency>USD</Currency></dayAvailable><dayAvailable><Day>2019-09-24T00:00:00</Day><Available>true</Available><Rate>289</Rate><RateCode>TLAV15I</RateCode><RateCodeDescription>YMBSVIII</RateCodeDescription><Currency>USD</Currency></dayAvailable><dayAvailable><Day>2019-09-25T00:00:00</Day><Available>true</Available><Rate>289</Rate><RateCode>TLAV15I</RateCode><RateCodeDescription>YMBSVIII</RateCodeDescription><Currency>USD</Currency></dayAvailable><dayAvailable><Day>2019-09-26T00:00:00</Day><Available>true</Available><Rate>289</Rate><RateCode>TLAV15I</RateCode><RateCodeDescription>YMBSVIII</RateCodeDescription><Currency>USD</Currency></dayAvailable><dayAvailable><Day>2019-09-27T00:00:00</Day><Available>true</Available><Rate>289</Rate><RateCode>TLAV15I</RateCode><RateCodeDescription>YMBSVIII</RateCodeDescription><Currency>USD</Currency></dayAvailable></Availability><Availability_Exists xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/roomAvailability.xsd">true</Availability_Exists><Closed_Dates xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/roomAvailability.xsd" /></Data><TotalAmount>1445</TotalAmount><Moneda>USD</Moneda><TipoCambio>1</TipoCambio><Tarifa1raNoche>289</Tarifa1raNoche><RateCode>TLAV15I</RateCode><DescripcionTarifa>YMBSVIII</DescripcionTarifa><HasErrors>false</HasErrors><Tag>[MPG_CTM-PERU_RV_23092019_2] - Tiempo de respuesta:0.172 seg</Tag></roomAvailabilityResponse></GetAvailabilityResponse></soap:Body></soap:Envelope>
+
+RESERVATION
+
+REQUEST
+
+URL : https://api.palaceresorts.com/EnterpriseServiceInterface/ServiceInterface.asmx
+
+HEADER : $client->setHeaders(array(
+    "Content-type: text/xml",
+    "Cache-Control: no-cache",
+    "Pragma: no-cache",
+    "Host: api.palaceresorts.com",
+    "Content-length: " . strlen($raw)
+));
+
+DATA : <?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <soap:Body>
+    <GetReservation xmlns="http://localhost/xmlschemas/enterpriseservice/16-07-2009/">
+      <reservationRequest xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/reservationRequest.xsd">
+        <data>
+          <referred xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/reservation.xsd">false</referred>
+          <Hotel xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/reservation.xsd">MPG</Hotel>
+          <Room_Type xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/reservation.xsd">RV</Room_Type>
+          <Bed_Type xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/reservation.xsd">D</Bed_Type>
+          <Arv_Date xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/reservation.xsd">2019-09-23T00:00:00</Arv_Date>
+          <Nights xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/reservation.xsd">5</Nights>
+          <Pax xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/reservation.xsd">
+            <Adult>2</Adult>
+            <Child>0</Child>
+            <Baby>0</Baby>
+          </Pax>
+          <Name xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/reservation.xsd">
+            <First_Name>TEST</First_Name>
+            <Last_Name>TEST</Last_Name>
+            <Email>sistemas@ciccolombia.travel</Email>
+          </Name>
+          <Ent_User xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/reservation.xsd">CTM-PERU</Ent_User>
+          <Ent_Term xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/reservation.xsd">CTM-PERU</Ent_Term>
+        </data>
+        <AgencyCode>CTM-PERU</AgencyCode>
+        <PrivateReference>110552_1</PrivateReference>
+        <GuestNote>test</GuestNote>
+        <AgencyCreditCardExpirationMonth>0</AgencyCreditCardExpirationMonth>
+        <AgencyCreditCardExpirationYear>0</AgencyCreditCardExpirationYear>
+        <GuestNote />
+        <AuthInfo>
+          <Recnum xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd">0</Recnum>
+          <Ent_User xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd">CTM-PERU</Ent_User>
+          <Ent_Pass xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd">x4Mg82k9WS</Ent_Pass>
+          <Ent_Term xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd">CTM-PERU</Ent_Term>
+        </AuthInfo>
+      </reservationRequest>
+    </GetReservation>
+  </soap:Body>
+</soap:Envelope>
+
+RESPONSE
+
+<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><GetReservationResponse xmlns="http://localhost/xmlschemas/enterpriseservice/16-07-2009/"><folioResponse xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/folioResponse.xsd"><Hotel>MPG</Hotel><Folio>12279717</Folio><Amount>1445</Amount><RateCode>TLAV15I</RateCode><DescripcionTarifa>YMBSVIII</DescripcionTarifa><Moneda>USD</Moneda><HasErrors>false</HasErrors></folioResponse></GetReservationResponse></soap:Body></soap:Envelope>
+
+
+CANCELLING RESERVATION
+
+REQUEST
+
+URL : https://api.palaceresorts.com/EnterpriseServiceInterface/ServiceInterface.asmx
+
+HEADER : $client->setHeaders(array(
+    "Content-type: text/xml",
+    "Cache-Control: no-cache",
+    "Pragma: no-cache",
+    "Host: api.palaceresorts.com",
+    "Content-length: " . strlen($raw)
+));
+
+DATA :

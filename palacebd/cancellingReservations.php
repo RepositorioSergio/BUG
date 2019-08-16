@@ -61,16 +61,15 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
         <Data>
           <cancellationList>
             <Hotel xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">MPG</Hotel>
-            <Folio xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">12277633</Folio>
-            <Code xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd"></Code>
-            <Reason xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">travail</Reason>
+            <Folio xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">12279717</Folio>
+            <Code xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">TLAV15I</Code>
+            <Reason xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">job</Reason>
             <Ent_User xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">CTM-PERU</Ent_User>
             <Ent_Term xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">CTM-PERU</Ent_Term>
             <Cancelled xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">false</Cancelled>
-            <ErrDescription xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">none</ErrDescription>
+            <ErrDescription xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd"></ErrDescription>
           </cancellationList>
         </Data>
-        <Tag>string</Tag>
         <AuthInfo>
           <Recnum xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd">0</Recnum>
           <Ent_User xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd">CTM-PERU</Ent_User>
