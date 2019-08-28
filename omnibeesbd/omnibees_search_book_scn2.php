@@ -21,8 +21,8 @@ try {
 } catch (Exception $e) {
     echo $e->getMessage();
 }
-$from = "2019-07-15T00:00:00";
-$to = "2019-07-17T00:00:00";
+$from = "2020-07-09T00:00:00";
+$to = "2020-07-11T00:00:00";
 $rooms = 2;
 $params = array();
 $params['login']['UserName'] = "BugSoftware";
@@ -69,12 +69,19 @@ $xmlrequest = $client->__getLastRequest();
 echo $return;
 echo $return;
 $xmlresult = $client->__getLastResponse();
-echo $xmlrequest;
+/*echo $xmlrequest;
 echo $return;
 echo $return;
 echo $xmlresult;
 echo $return;
-echo $return;
+echo $return; */
+echo "<xmp>";
+echo $xmlrequest;
+echo "</xmp>";
+echo "<xmp>";
+echo $xmlresult;
+echo "</xmp>";
+
 $inputDoc = new DOMDocument();
 $inputDoc->loadXML($xmlresult);
 $node = $inputDoc->getElementsByTagName("Service");
@@ -2013,13 +2020,19 @@ $xmlrequest = $client->__getLastRequest();
 echo $return;
 echo $return;
 $xmlresult = $client->__getLastResponse();
-echo $xmlrequest;
+/* echo $xmlrequest;
 echo $return;
 echo $return;
 echo $xmlresult;
 echo $return;
 echo $return;
-echo $return;
+echo $return; */
+echo "<xmp>";
+echo $xmlrequest;
+echo "</xmp>";
+echo "<xmp>";
+echo $xmlresult;
+echo "</xmp>";
 echo $return;
 echo "End";
 echo $return;

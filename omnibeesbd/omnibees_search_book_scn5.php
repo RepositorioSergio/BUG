@@ -24,8 +24,8 @@ try {
 //
 // var_dump($client->__getFunctions());
 //
-$from = "2019-07-06T00:00:00";
-$to = "2019-07-13T00:00:00";
+$from = "2020-07-06T00:00:00";
+$to = "2020-07-13T00:00:00";
 $rooms = 1;
 
 $params = array();
@@ -58,12 +58,21 @@ $xmlresult = $client->__getLastResponse();
 // } else {
 // include "omnibees_search_debug_book.php";
 // }
-echo $xmlrequest;
+/* echo $xmlrequest;
 echo $return;
 echo $return;
 echo $xmlresult;
 echo $return;
-echo $return;
+echo $return; */
+
+echo "<xmp>";
+echo $xmlrequest;
+echo "</xmp>";
+
+echo "<xmp>";
+echo $xmlresult;
+echo "</xmp>";
+
 $inputDoc = new DOMDocument();
 $inputDoc->loadXML($xmlresult);
 $node = $inputDoc->getElementsByTagName("Service");
@@ -1951,13 +1960,20 @@ $xmlrequest = $client->__getLastRequest();
 echo $return;
 echo $return;
 $xmlresult = $client->__getLastResponse();
-echo $xmlrequest;
+/* echo $xmlrequest;
 echo $return;
 echo $return;
 echo $xmlresult;
 echo $return;
 echo $return;
-echo $return;
+echo $return; */
+echo "<xmp>";
+echo $xmlrequest;
+echo "</xmp>";
+
+echo "<xmp>";
+echo $xmlresult;
+echo "</xmp>";
 echo $return;
 echo "End";
 echo $return;

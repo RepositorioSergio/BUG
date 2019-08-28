@@ -24,8 +24,8 @@ try {
 //
 // var_dump($client->__getFunctions());
 //
-$from = "2019-08-05T00:00:00";
-$to = "2019-08-09T00:00:00";
+$from = "2020-08-05T00:00:00";
+$to = "2020-08-09T00:00:00";
 $rooms = 1;
 
 $params = array();
@@ -59,12 +59,20 @@ $xmlresult = $client->__getLastResponse();
 // } else {
 // include "omnibees_search_debug_book.php";
 // }
-echo $xmlrequest;
+/* echo $xmlrequest;
 echo $return;
 echo $return;
 echo $xmlresult;
 echo $return;
-echo $return;
+echo $return; */
+echo "<xmp>";
+echo $xmlrequest;
+echo "</xmp>";
+
+echo "<xmp>";
+echo $xmlresult;
+echo "</xmp>";
+
 $inputDoc = new DOMDocument();
 $inputDoc->loadXML($xmlresult);
 $node = $inputDoc->getElementsByTagName("Service");
@@ -1274,7 +1282,7 @@ $HotelCode[0] = "1053";
 $ChainCode[0] = "986";
 $RoomID = array();
 $RatePlanID = array();
-$RoomID[0] = "2982";
+$RoomID[0] = "4270";
 $RatePlanID[0] = "23554";
 //
 // $RoomID[1] = "5713";
@@ -1953,13 +1961,20 @@ $xmlrequest = $client->__getLastRequest();
 echo $return;
 echo $return;
 $xmlresult = $client->__getLastResponse();
-echo $xmlrequest;
+/* echo $xmlrequest;
 echo $return;
 echo $return;
 echo $xmlresult;
 echo $return;
 echo $return;
-echo $return;
+echo $return; */
+echo "<xmp>";
+echo $xmlrequest;
+echo "</xmp>";
+
+echo "<xmp>";
+echo $xmlresult;
+echo "</xmp>";
 echo $return;
 echo "End";
 echo $return;
