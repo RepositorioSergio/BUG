@@ -1,0 +1,23 @@
+REQUEST
+
+URL : https://beta.triseptapi.com/11.0/vax.asmx/ReservationNameSearchRequest
+
+HEADER : $headers = array(
+    "Accept: application/xml",
+    "Content-type: application/x-www-form-urlencoded",
+    "Content-Encoding: UTF-8",
+    "Accept-Encoding: gzip,deflate",
+    "Content-length: " . strlen($raw)
+);
+
+DATA : requestXml=<VAXXML xmlns="http://www.triseptsolutions.com/Reservation/NameSearch/Request/11.0"> 
+<Header AgencyNumber="T140" Contact="Paulo Andrade" Login="Bug Software" Password="St89vxBs" Vendor="MIT" Site="VAXXML" />
+<Request>
+    <NameSearch Status="All" First="Robert" Last="Doe" />
+  </Request>
+</VAXXML>
+
+RESPONSE
+
+<?xml version="1.0" encoding="utf-8"?>
+<string xmlns="http://www.triseptsolutions.com/VAXXMLPortal110/VAX"><VAXXML xmlns="http://www.triseptsolutions.com/Reservation/NameSearch/Response/11.0"><Reservation ReservationNumber="GP041889" BookingDate="2019-08-17" DepartureDate="2019-11-10" ReturnDate="2019-11-17" Destination="MIA" Status="Cancelled" /><Reservation ReservationNumber="GP041889" BookingDate="2019-08-17" DepartureDate="2019-11-10" ReturnDate="2019-11-17" Destination="MIA" Status="Cancelled" /></VAXXML></string>
