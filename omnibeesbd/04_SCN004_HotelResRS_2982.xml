@@ -1,0 +1,534 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+	<s:Body>
+		<SendHotelResResponse xmlns="http://tempuri.org/">
+			<SendHotelResResult xmlns:a="http://schemas.datacontract.org/2004/07/Pull.BLL.Models.OTA" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+				<a:EchoToken>1154782d-ea51-478e-a2c2-02b66b5339c2</a:EchoToken>
+				<a:ErrorsType i:nil="true"/>
+				<a:HotelReservationsType>
+					<a:HotelReservations>
+						<a:HotelReservation>
+							<a:CreateDateTime>2019-09-04T13:59:53.8247847Z</a:CreateDateTime>
+							<a:LastModifyDateTime>2019-09-04T13:59:53.8247847Z</a:LastModifyDateTime>
+							<a:POS i:nil="true"/>
+							<a:ResGlobalInfo>
+								<a:CommentsType>
+									<a:Comments>
+										<a:Comment>
+											<a:Description>This is the reservations comments</a:Description>
+											<a:Language i:nil="true"/>
+											<a:Name i:nil="true"/>
+										</a:Comment>
+									</a:Comments>
+								</a:CommentsType>
+								<a:Guarantee>
+									<a:AmountPercent i:nil="true"/>
+									<a:DeadLine i:nil="true"/>
+									<a:Duration i:nil="true"/>
+									<a:End i:nil="true"/>
+									<a:GuaranteeCode i:nil="true"/>
+									<a:GuaranteeDescription i:nil="true"/>
+									<a:GuaranteesAcceptedType>
+										<a:GuaranteesAccepted>
+											<a:GuaranteeAccepted>
+												<a:GuaranteeID i:nil="true"/>
+												<a:GuaranteeTypeCode>Voucher</a:GuaranteeTypeCode>
+												<a:PaymentCard i:nil="true"/>
+												<a:RPH>0</a:RPH>
+											</a:GuaranteeAccepted>
+										</a:GuaranteesAccepted>
+									</a:GuaranteesAcceptedType>
+									<a:Start i:nil="true"/>
+								</a:Guarantee>
+								<a:HotelReservationsIDsType i:nil="true"/>
+								<a:TimeSpan i:nil="true"/>
+								<a:Total>
+									<a:AmountAfterTax>509.9</a:AmountAfterTax>
+									<a:AmountBeforeTax>473.48</a:AmountBeforeTax>
+									<a:AmountIncludingMarkup>false</a:AmountIncludingMarkup>
+									<a:AmountIsPackage>false</a:AmountIsPackage>
+									<a:ChargeType>PerStay</a:ChargeType>
+									<a:CurrencyCode>BRL</a:CurrencyCode>
+									<a:TPA_Extensions i:nil="true"/>
+								</a:Total>
+							</a:ResGlobalInfo>
+							<a:ResGuestsType>
+								<a:ResGuests>
+									<a:ResGuest>
+										<a:Age>0</a:Age>
+										<a:AgeQualifyingCode>Adult</a:AgeQualifyingCode>
+										<a:PrimaryIndicator>true</a:PrimaryIndicator>
+										<a:Profiles>
+											<a:ProfileInfos>
+												<a:ProfileInfo>
+													<a:Profile>
+														<a:Customer>
+															<a:Address>
+																<a:AddressLine>Rua 25</a:AddressLine>
+																<a:CityCode i:nil="true"/>
+																<a:CityName i:nil="true"/>
+																<a:CountryCode>0</a:CountryCode>
+																<a:CountryName i:nil="true"/>
+																<a:PostalCode>8000 Faro</a:PostalCode>
+																<a:StateProv i:nil="true"/>
+																<a:StateProvCode>0</a:StateProvCode>
+																<a:ZoneCode i:nil="true"/>
+																<a:ZoneName i:nil="true"/>
+															</a:Address>
+															<a:BirthDate>1980-05-01T00:00:00</a:BirthDate>
+															<a:Document i:nil="true"/>
+															<a:Email>paulo@corp.bug-software.com</a:Email>
+															<a:Gender>Male</a:Gender>
+															<a:PersonName>
+																<a:GivenName>Ob Adult 1</a:GivenName>
+																<a:MiddleName i:nil="true"/>
+																<a:NamePrefix>None</a:NamePrefix>
+																<a:Surname>Smoth</a:Surname>
+															</a:PersonName>
+															<a:Telephones i:nil="true"/>
+														</a:Customer>
+													</a:Profile>
+													<a:UniqueID i:nil="true"/>
+												</a:ProfileInfo>
+											</a:ProfileInfos>
+										</a:Profiles>
+										<a:ResGuestRPH>1</a:ResGuestRPH>
+										<a:SpecialRequests i:nil="true"/>
+									</a:ResGuest>
+									<a:ResGuest>
+										<a:Age>0</a:Age>
+										<a:AgeQualifyingCode>Adult</a:AgeQualifyingCode>
+										<a:PrimaryIndicator>false</a:PrimaryIndicator>
+										<a:Profiles>
+											<a:ProfileInfos>
+												<a:ProfileInfo>
+													<a:Profile>
+														<a:Customer>
+															<a:Address>
+																<a:AddressLine>Rua 25</a:AddressLine>
+																<a:CityCode i:nil="true"/>
+																<a:CityName i:nil="true"/>
+																<a:CountryCode>0</a:CountryCode>
+																<a:CountryName i:nil="true"/>
+																<a:PostalCode>8000 Faro</a:PostalCode>
+																<a:StateProv i:nil="true"/>
+																<a:StateProvCode>0</a:StateProvCode>
+																<a:ZoneCode i:nil="true"/>
+																<a:ZoneName i:nil="true"/>
+															</a:Address>
+															<a:BirthDate>1980-05-01T00:00:00</a:BirthDate>
+															<a:Document i:nil="true"/>
+															<a:Email>paulo@corp.bug-software.com</a:Email>
+															<a:Gender>Male</a:Gender>
+															<a:PersonName>
+																<a:GivenName>Ob Adult 2</a:GivenName>
+																<a:MiddleName i:nil="true"/>
+																<a:NamePrefix>None</a:NamePrefix>
+																<a:Surname>Smoth</a:Surname>
+															</a:PersonName>
+															<a:Telephones i:nil="true"/>
+														</a:Customer>
+													</a:Profile>
+													<a:UniqueID i:nil="true"/>
+												</a:ProfileInfo>
+											</a:ProfileInfos>
+										</a:Profiles>
+										<a:ResGuestRPH>2</a:ResGuestRPH>
+										<a:SpecialRequests i:nil="true"/>
+									</a:ResGuest>
+								</a:ResGuests>
+							</a:ResGuestsType>
+							<a:ResStatus>
+								<a:PMS_ResStatusType>Reserved</a:PMS_ResStatusType>
+								<a:TransactionActionType>Book</a:TransactionActionType>
+							</a:ResStatus>
+							<a:RoomStaysType>
+								<a:MoreIndicator>false</a:MoreIndicator>
+								<a:RoomStays>
+									<a:RoomStay>
+										<a:RoomStayLanguage>en</a:RoomStayLanguage>
+										<a:WarningRPH i:nil="true"/>
+										<a:AvailabilityStatus i:nil="true"/>
+										<a:BasicPropertyInfo>
+											<a:Address i:nil="true"/>
+											<a:Award i:nil="true"/>
+											<a:ContactNumbersType i:nil="true"/>
+											<a:CurrencyCode i:nil="true"/>
+											<a:HotelAmenities i:nil="true"/>
+											<a:HotelRef>
+												<a:BrandName i:nil="true"/>
+												<a:ChainCode>986</a:ChainCode>
+												<a:ChainName i:nil="true"/>
+												<a:HotelCode>1053</a:HotelCode>
+												<a:HotelName i:nil="true"/>
+											</a:HotelRef>
+											<a:ImageURL i:nil="true"/>
+											<a:Policy i:nil="true"/>
+											<a:Position i:nil="true"/>
+											<a:VendorMessagesType i:nil="true"/>
+										</a:BasicPropertyInfo>
+										<a:CommentsType>
+											<a:Comments>
+												<a:Comment>
+													<a:Description>This is my room comment</a:Description>
+													<a:Language i:nil="true"/>
+													<a:Name i:nil="true"/>
+												</a:Comment>
+											</a:Comments>
+										</a:CommentsType>
+										<a:Guarantees i:nil="true"/>
+										<a:GuestCountsType>
+											<a:GuestCounts>
+												<a:GuestCount>
+													<a:Age i:nil="true"/>
+													<a:AgeQualifyCode>Adult</a:AgeQualifyCode>
+													<a:Count>2</a:Count>
+													<a:ResGuestRPH xmlns:b="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+														<b:int>1</b:int>
+														<b:int>2</b:int>
+													</a:ResGuestRPH>
+												</a:GuestCount>
+											</a:GuestCounts>
+										</a:GuestCountsType>
+										<a:IndexNumber>RES036746-1053/1</a:IndexNumber>
+										<a:RPH>0</a:RPH>
+										<a:RatePlans>
+											<a:RatePlanType>
+												<a:AdditionalDetailsType>
+													<a:AdditionalDetails>
+														<a:AdditionalDetail>
+															<a:DetailDescription>
+																<a:Description>-Check-in: 2:00 pm&#xD;-Check-out Time:12:00 (noon)&#xD;-The credit card used at the time of booking, serves only as a guarantee. Subsequently the reserve officer will contact you to send the necessary documentation for debt.</a:Description>
+																<a:Language>en</a:Language>
+																<a:Name>General Conditions</a:Name>
+															</a:DetailDescription>
+														</a:AdditionalDetail>
+													</a:AdditionalDetails>
+												</a:AdditionalDetailsType>
+												<a:CancelPenalties>
+													<a:CancelPenalty>
+														<a:AmountPercent>
+															<a:Amount>0</a:Amount>
+															<a:CurrencyCode>BRL</a:CurrencyCode>
+															<a:NmbrOfNights>0</a:NmbrOfNights>
+															<a:Percent>20.00</a:Percent>
+														</a:AmountPercent>
+														<a:DeadLine>
+															<a:AbsoluteDeadline i:nil="true"/>
+															<a:OffsetDropTime>BeforeArrival</a:OffsetDropTime>
+															<a:OffsetUnitMultiplier>1</a:OffsetUnitMultiplier>
+															<a:TimeUnitType>Day</a:TimeUnitType>
+														</a:DeadLine>
+														<a:Duration i:nil="true"/>
+														<a:End i:nil="true"/>
+														<a:NonRefundable>false</a:NonRefundable>
+														<a:PenaltyDescription>
+															<a:Description>Cancellation allowed until 24 hours before arrival date.&#xD;This cancellation has an associated cost.</a:Description>
+															<a:Language>en</a:Language>
+															<a:Name>Cancellation 24</a:Name>
+														</a:PenaltyDescription>
+														<a:Start i:nil="true"/>
+													</a:CancelPenalty>
+												</a:CancelPenalties>
+												<a:Commission>
+													<a:Percent i:nil="true"/>
+												</a:Commission>
+												<a:CurrencyCode>BRL</a:CurrencyCode>
+												<a:EffectiveDate i:nil="true"/>
+												<a:ExpireDate i:nil="true"/>
+												<a:Guarantees>
+													<a:Guarantee>
+														<a:AmountPercent i:nil="true"/>
+														<a:DeadLine i:nil="true"/>
+														<a:Duration i:nil="true"/>
+														<a:End i:nil="true"/>
+														<a:GuaranteeCode>946</a:GuaranteeCode>
+														<a:GuaranteeDescription>
+															<a:Description>Billed, payment for the operators of the hotels pool net, by means of credit analysis. &#xD;&#xD;Otherwise the hotel will contact the carrier to request prepayment. &#xD;&#xD; Reservations are confirmed until 12 am of the day after, being charged a daily in case of non-attendance.</a:Description>
+															<a:Language>en</a:Language>
+															<a:Name>Payment net Hotels</a:Name>
+														</a:GuaranteeDescription>
+														<a:GuaranteesAcceptedType i:nil="true"/>
+														<a:Start i:nil="true"/>
+													</a:Guarantee>
+												</a:Guarantees>
+												<a:MealsIncluded>
+													<a:Breakfast>true</a:Breakfast>
+													<a:Description>Breakfast</a:Description>
+													<a:Dinner>false</a:Dinner>
+													<a:ID>3068</a:ID>
+													<a:Lunch>false</a:Lunch>
+													<a:MealPlanCode>BedBreakfast</a:MealPlanCode>
+													<a:MealPlanIndicator>true</a:MealPlanIndicator>
+													<a:Name>Breakfast</a:Name>
+												</a:MealsIncluded>
+												<a:Offers i:nil="true"/>
+												<a:PaymentPolicies>
+													<a:AcceptedPayments>
+														<a:AcceptedPayment>
+															<a:GuaranteeID i:nil="true"/>
+															<a:GuaranteeTypeCode>Voucher</a:GuaranteeTypeCode>
+															<a:PaymentCard i:nil="true"/>
+															<a:RPH>0</a:RPH>
+														</a:AcceptedPayment>
+														<a:AcceptedPayment>
+															<a:GuaranteeID i:nil="true"/>
+															<a:GuaranteeTypeCode>PrePay</a:GuaranteeTypeCode>
+															<a:PaymentCard i:nil="true"/>
+															<a:RPH>0</a:RPH>
+														</a:AcceptedPayment>
+														<a:AcceptedPayment>
+															<a:GuaranteeID i:nil="true"/>
+															<a:GuaranteeTypeCode>CreditCard</a:GuaranteeTypeCode>
+															<a:PaymentCard i:nil="true"/>
+															<a:RPH>0</a:RPH>
+														</a:AcceptedPayment>
+														<a:AcceptedPayment>
+															<a:GuaranteeID i:nil="true"/>
+															<a:GuaranteeTypeCode>DirectBill</a:GuaranteeTypeCode>
+															<a:PaymentCard i:nil="true"/>
+															<a:RPH>0</a:RPH>
+														</a:AcceptedPayment>
+													</a:AcceptedPayments>
+												</a:PaymentPolicies>
+												<a:RatePlanDescription>
+													<a:Description>Breakfast included</a:Description>
+													<a:Language>en</a:Language>
+												</a:RatePlanDescription>
+												<a:RatePlanID>23554</a:RatePlanID>
+												<a:RatePlanInclusions i:nil="true"/>
+												<a:RatePlanName>BAR</a:RatePlanName>
+												<a:RatePlanTypeCode>13</a:RatePlanTypeCode>
+												<a:SortOrder>1</a:SortOrder>
+												<a:TaxPolicies>
+													<a:TaxPolicy>
+														<a:CurrencyCode>BRL</a:CurrencyCode>
+														<a:Description>Of 5%</a:Description>
+														<a:ID>82</a:ID>
+														<a:IsPerNight>false</a:IsPerNight>
+														<a:IsPerPerson>false</a:IsPerPerson>
+														<a:IsPerRoom>true</a:IsPerRoom>
+														<a:IsPerStay>true</a:IsPerStay>
+														<a:IsValuePercentage>true</a:IsValuePercentage>
+														<a:Name>ISS rate</a:Name>
+														<a:Value>5.00</a:Value>
+													</a:TaxPolicy>
+													<a:TaxPolicy>
+														<a:CurrencyCode>BRL</a:CurrencyCode>
+														<a:Description>In the amount of R$ 3.20</a:Description>
+														<a:ID>478</a:ID>
+														<a:IsPerNight>true</a:IsPerNight>
+														<a:IsPerPerson>false</a:IsPerPerson>
+														<a:IsPerRoom>true</a:IsPerRoom>
+														<a:IsPerStay>false</a:IsPerStay>
+														<a:IsValuePercentage>false</a:IsValuePercentage>
+														<a:Name>Tourism tax</a:Name>
+														<a:Value>3.20</a:Value>
+													</a:TaxPolicy>
+												</a:TaxPolicies>
+											</a:RatePlanType>
+										</a:RatePlans>
+										<a:Reference i:nil="true"/>
+										<a:RoomRates>
+											<a:RoomRate>
+												<a:AdvanceBookingRestriction i:nil="true"/>
+												<a:Availability i:nil="true"/>
+												<a:Discount i:nil="true"/>
+												<a:EffectiveDate>2020-08-05T00:00:00</a:EffectiveDate>
+												<a:ExpireDate>2020-08-09T00:00:00</a:ExpireDate>
+												<a:GroupCode i:nil="true"/>
+												<a:PromotionCode i:nil="true"/>
+												<a:RatePlanID>23554</a:RatePlanID>
+												<a:RatesType>
+													<a:Rates>
+														<a:Rate>
+															<a:AgeQualifyingCode i:nil="true"/>
+															<a:Duration i:nil="true"/>
+															<a:EffectiveDate>2020-08-05T00:00:00</a:EffectiveDate>
+															<a:MaxAge i:nil="true"/>
+															<a:MaxGuestApplicable i:nil="true"/>
+															<a:MaxLOS i:nil="true"/>
+															<a:MinAdvancedBookingOffset i:nil="true"/>
+															<a:MinAge i:nil="true"/>
+															<a:MinGuestApplicable i:nil="true"/>
+															<a:MinLOS i:nil="true"/>
+															<a:NumberOfUnits i:nil="true"/>
+															<a:Status i:nil="true"/>
+															<a:StayThrough i:nil="true"/>
+															<a:Total>
+																<a:AmountAfterTax>0</a:AmountAfterTax>
+																<a:AmountBeforeTax>118.12</a:AmountBeforeTax>
+																<a:AmountIncludingMarkup>false</a:AmountIncludingMarkup>
+																<a:AmountIsPackage>false</a:AmountIsPackage>
+																<a:ChargeType>PerRoomPerNight</a:ChargeType>
+																<a:CurrencyCode>BRL</a:CurrencyCode>
+																<a:TPA_Extensions i:nil="true"/>
+															</a:Total>
+														</a:Rate>
+														<a:Rate>
+															<a:AgeQualifyingCode i:nil="true"/>
+															<a:Duration i:nil="true"/>
+															<a:EffectiveDate>2020-08-06T00:00:00</a:EffectiveDate>
+															<a:MaxAge i:nil="true"/>
+															<a:MaxGuestApplicable i:nil="true"/>
+															<a:MaxLOS i:nil="true"/>
+															<a:MinAdvancedBookingOffset i:nil="true"/>
+															<a:MinAge i:nil="true"/>
+															<a:MinGuestApplicable i:nil="true"/>
+															<a:MinLOS i:nil="true"/>
+															<a:NumberOfUnits i:nil="true"/>
+															<a:Status i:nil="true"/>
+															<a:StayThrough i:nil="true"/>
+															<a:Total>
+																<a:AmountAfterTax>0</a:AmountAfterTax>
+																<a:AmountBeforeTax>118.12</a:AmountBeforeTax>
+																<a:AmountIncludingMarkup>false</a:AmountIncludingMarkup>
+																<a:AmountIsPackage>false</a:AmountIsPackage>
+																<a:ChargeType>PerRoomPerNight</a:ChargeType>
+																<a:CurrencyCode>BRL</a:CurrencyCode>
+																<a:TPA_Extensions i:nil="true"/>
+															</a:Total>
+														</a:Rate>
+														<a:Rate>
+															<a:AgeQualifyingCode i:nil="true"/>
+															<a:Duration i:nil="true"/>
+															<a:EffectiveDate>2020-08-07T00:00:00</a:EffectiveDate>
+															<a:MaxAge i:nil="true"/>
+															<a:MaxGuestApplicable i:nil="true"/>
+															<a:MaxLOS i:nil="true"/>
+															<a:MinAdvancedBookingOffset i:nil="true"/>
+															<a:MinAge i:nil="true"/>
+															<a:MinGuestApplicable i:nil="true"/>
+															<a:MinLOS i:nil="true"/>
+															<a:NumberOfUnits i:nil="true"/>
+															<a:Status i:nil="true"/>
+															<a:StayThrough i:nil="true"/>
+															<a:Total>
+																<a:AmountAfterTax>0</a:AmountAfterTax>
+																<a:AmountBeforeTax>118.12</a:AmountBeforeTax>
+																<a:AmountIncludingMarkup>false</a:AmountIncludingMarkup>
+																<a:AmountIsPackage>false</a:AmountIsPackage>
+																<a:ChargeType>PerRoomPerNight</a:ChargeType>
+																<a:CurrencyCode>BRL</a:CurrencyCode>
+																<a:TPA_Extensions i:nil="true"/>
+															</a:Total>
+														</a:Rate>
+														<a:Rate>
+															<a:AgeQualifyingCode i:nil="true"/>
+															<a:Duration i:nil="true"/>
+															<a:EffectiveDate>2020-08-08T00:00:00</a:EffectiveDate>
+															<a:MaxAge i:nil="true"/>
+															<a:MaxGuestApplicable i:nil="true"/>
+															<a:MaxLOS i:nil="true"/>
+															<a:MinAdvancedBookingOffset i:nil="true"/>
+															<a:MinAge i:nil="true"/>
+															<a:MinGuestApplicable i:nil="true"/>
+															<a:MinLOS i:nil="true"/>
+															<a:NumberOfUnits i:nil="true"/>
+															<a:Status i:nil="true"/>
+															<a:StayThrough i:nil="true"/>
+															<a:Total>
+																<a:AmountAfterTax>0</a:AmountAfterTax>
+																<a:AmountBeforeTax>118.12</a:AmountBeforeTax>
+																<a:AmountIncludingMarkup>false</a:AmountIncludingMarkup>
+																<a:AmountIsPackage>false</a:AmountIsPackage>
+																<a:ChargeType>PerRoomPerNight</a:ChargeType>
+																<a:CurrencyCode>BRL</a:CurrencyCode>
+																<a:TPA_Extensions i:nil="true"/>
+															</a:Total>
+														</a:Rate>
+													</a:Rates>
+												</a:RatesType>
+												<a:RoomID>2982</a:RoomID>
+												<a:RoomStayCandidateRPH>0</a:RoomStayCandidateRPH>
+												<a:ServiceRPHs i:nil="true"/>
+												<a:TPA_Extensions i:nil="true"/>
+												<a:Total>
+													<a:AmountAfterTax>508.90</a:AmountAfterTax>
+													<a:AmountBeforeTax>472.48</a:AmountBeforeTax>
+													<a:AmountIncludingMarkup>false</a:AmountIncludingMarkup>
+													<a:AmountIsPackage>false</a:AmountIsPackage>
+													<a:ChargeType>PerRoomPerStay</a:ChargeType>
+													<a:CurrencyCode>BRL</a:CurrencyCode>
+													<a:TPA_Extensions i:nil="true"/>
+												</a:Total>
+											</a:RoomRate>
+										</a:RoomRates>
+										<a:RoomStayCandidateRPH i:nil="true"/>
+										<a:RoomStayStatus>
+											<a:PMS_ResStatusType>Reserved</a:PMS_ResStatusType>
+											<a:TransactionActionType i:nil="true"/>
+										</a:RoomStayStatus>
+										<a:RoomTypes>
+											<a:RoomType>
+												<a:AmenitiesType i:nil="true"/>
+												<a:MaxOccupancy i:nil="true"/>
+												<a:NumberOfUnits>18</a:NumberOfUnits>
+												<a:Occupancies>
+													<a:Occupancy>
+														<a:AgeQualifyingCode>Adult</a:AgeQualifyingCode>
+														<a:MaxAge i:nil="true"/>
+														<a:MaxOccupancy>2</a:MaxOccupancy>
+														<a:MinAge i:nil="true"/>
+														<a:MinOccupancy>1</a:MinOccupancy>
+													</a:Occupancy>
+													<a:Occupancy>
+														<a:AgeQualifyingCode>Child</a:AgeQualifyingCode>
+														<a:MaxAge i:nil="true"/>
+														<a:MaxOccupancy>1</a:MaxOccupancy>
+														<a:MinAge i:nil="true"/>
+														<a:MinOccupancy>1</a:MinOccupancy>
+													</a:Occupancy>
+												</a:Occupancies>
+												<a:RoomDescription>
+													<a:Description i:nil="true"/>
+													<a:Language i:nil="true"/>
+												</a:RoomDescription>
+												<a:RoomID>2982</a:RoomID>
+												<a:RoomName>Superior Room</a:RoomName>
+											</a:RoomType>
+										</a:RoomTypes>
+										<a:SpecialRequestsType>
+											<a:SpecialRequests>
+												<a:SpecialRequest>
+													<a:Description>This is my room special request</a:Description>
+													<a:Language i:nil="true"/>
+													<a:Name i:nil="true"/>
+												</a:SpecialRequest>
+											</a:SpecialRequests>
+										</a:SpecialRequestsType>
+										<a:TPA_Extensions i:nil="true"/>
+										<a:Total>
+											<a:AmountAfterTax>508.90</a:AmountAfterTax>
+											<a:AmountBeforeTax>472.48</a:AmountBeforeTax>
+											<a:AmountIncludingMarkup>false</a:AmountIncludingMarkup>
+											<a:AmountIsPackage>false</a:AmountIsPackage>
+											<a:ChargeType>PerStay</a:ChargeType>
+											<a:CurrencyCode>BRL</a:CurrencyCode>
+											<a:TPA_Extensions i:nil="true"/>
+										</a:Total>
+									</a:RoomStay>
+								</a:RoomStays>
+							</a:RoomStaysType>
+							<a:Services i:nil="true"/>
+							<a:UniqueID>
+								<a:ID>RES036746-1053</a:ID>
+								<a:Reason i:nil="true"/>
+								<a:Type>Reservation</a:Type>
+							</a:UniqueID>
+						</a:HotelReservation>
+					</a:HotelReservations>
+				</a:HotelReservationsType>
+				<a:POS i:nil="true"/>
+				<a:PrimaryLangID>en</a:PrimaryLangID>
+				<a:ResResponseType i:nil="true"/>
+				<a:RetransmissionIndicator i:nil="true"/>
+				<a:Success/>
+				<a:Target>Test</a:Target>
+				<a:TimeStamp>2019-09-04T13:59:53.1077315Z</a:TimeStamp>
+				<a:TransactionIdentifier i:nil="true"/>
+				<a:Version>2.6</a:Version>
+				<a:WarningsType i:nil="true"/>
+			</SendHotelResResult>
+		</SendHotelResResponse>
+	</s:Body>
+</s:Envelope>

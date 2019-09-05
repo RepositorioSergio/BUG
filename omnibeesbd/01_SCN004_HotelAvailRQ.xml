@@ -1,2 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://schemas.datacontract.org/2004/07/Pull.BLL.Models" xmlns:ns2="http://tempuri.org/" xmlns:ns3="http://schemas.datacontract.org/2004/07/Pull.BLL.Models.OTA"><SOAP-ENV:Body><ns2:GetHotelAvail><ns2:login><ns1:Password>WO5bYE2A</ns1:Password><ns1:UserName>BugSoftware</ns1:UserName></ns2:login><ns2:ota_HotelAvailRQ><ns3:BestOnly>false</ns3:BestOnly><ns3:EchoToken>1154782d-ea51-478e-a2c2-02b66b5339c2</ns3:EchoToken><ns3:HotelSearchCriteria><ns3:Criterion><ns3:HotelRefs><ns3:HotelRef><ns3:HotelCode>1053</ns3:HotelCode></ns3:HotelRef></ns3:HotelRefs><ns3:RoomStayCandidatesType><ns3:RoomStayCandidates><ns3:RoomStayCandidate><ns3:GuestCountsType><ns3:GuestCounts><ns3:GuestCount><ns3:AgeQualifyCode>Adult</ns3:AgeQualifyCode><ns3:Count>2</ns3:Count></ns3:GuestCount></ns3:GuestCounts></ns3:GuestCountsType></ns3:RoomStayCandidate></ns3:RoomStayCandidates></ns3:RoomStayCandidatesType><ns3:StayDateRange><ns3:End>2020-08-09T00:00:00</ns3:End><ns3:Start>2020-08-05T00:00:00</ns3:Start></ns3:StayDateRange></ns3:Criterion></ns3:HotelSearchCriteria><ns3:IsModify>false</ns3:IsModify><ns3:PrimaryLangID>en</ns3:PrimaryLangID><ns3:Target>Test</ns3:Target><ns3:TimeStamp>2019-08-28T12:08:55</ns3:TimeStamp><ns3:Version>2.6</ns3:Version></ns2:ota_HotelAvailRQ></ns2:GetHotelAvail></SOAP-ENV:Body></SOAP-ENV:Envelope>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://schemas.datacontract.org/2004/07/Pull.BLL.Models" xmlns:ns2="http://tempuri.org/" xmlns:ns3="http://schemas.datacontract.org/2004/07/Pull.BLL.Models.OTA">
+	<SOAP-ENV:Body>
+		<ns2:GetHotelAvail>
+			<ns2:login>
+				<ns1:Password>WO5bYE2A</ns1:Password>
+				<ns1:UserName>BugSoftware</ns1:UserName>
+			</ns2:login>
+			<ns2:ota_HotelAvailRQ>
+				<ns3:BestOnly>false</ns3:BestOnly>
+				<ns3:EchoToken>1154782d-ea51-478e-a2c2-02b66b5339c2</ns3:EchoToken>
+				<ns3:HotelSearchCriteria>
+					<ns3:Criterion>
+						<ns3:HotelRefs>
+							<ns3:HotelRef>
+								<ns3:HotelCode>1053</ns3:HotelCode>
+							</ns3:HotelRef>
+						</ns3:HotelRefs>
+						<ns3:RoomStayCandidatesType>
+							<ns3:RoomStayCandidates>
+								<ns3:RoomStayCandidate>
+									<ns3:GuestCountsType>
+										<ns3:GuestCounts>
+											<ns3:GuestCount>
+												<ns3:AgeQualifyCode>Adult</ns3:AgeQualifyCode>
+												<ns3:Count>2</ns3:Count>
+											</ns3:GuestCount>
+										</ns3:GuestCounts>
+									</ns3:GuestCountsType>
+								</ns3:RoomStayCandidate>
+							</ns3:RoomStayCandidates>
+						</ns3:RoomStayCandidatesType>
+						<ns3:StayDateRange>
+							<ns3:End>2020-08-09T00:00:00</ns3:End>
+							<ns3:Start>2020-08-05T00:00:00</ns3:Start>
+						</ns3:StayDateRange>
+					</ns3:Criterion>
+				</ns3:HotelSearchCriteria>
+				<ns3:IsModify>false</ns3:IsModify>
+				<ns3:PrimaryLangID>en</ns3:PrimaryLangID>
+				<ns3:Target>Test</ns3:Target>
+				<ns3:TimeStamp>2019-09-04T09:09:10</ns3:TimeStamp>
+				<ns3:Version>2.6</ns3:Version>
+			</ns2:ota_HotelAvailRQ>
+		</ns2:GetHotelAvail>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

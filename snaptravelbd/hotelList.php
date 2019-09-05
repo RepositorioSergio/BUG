@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU CANCEL<br/>";
+echo "COMECOU HOTEL LIST<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -29,9 +29,8 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 // Start
-$affiliate_id_palace = 0;
+$affiliate_id = 0;
 $branch_filter = "";
-
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.mmc.php');
 $config = [
@@ -43,35 +42,7 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$url = "https://api.palaceresorts.com/EnterpriseServiceInterface/ServiceInterface.asmx";
-
-$raw = '<?xml version="1.0" encoding="UTF-8"?>
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <soap:Body>
-  <CancellingReservationsArg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <cancellationRequest>
-    <Data xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationRequest.xsd">
-      <cancellationList>
-        <Hotel xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">MPG</Hotel>
-        <Folio xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">12279717</Folio>
-        <Code xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">TLAV15I</Code>
-        <Reason xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">TEST_CANCEL</Reason>
-        <Ent_User xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">CTM-PERU</Ent_User>
-        <Ent_Term xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">CTM-PERU</Ent_Term>
-        <Cancelled xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">false</Cancelled>
-        <ErrDescription xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">TEST</ErrDescription>
-      </cancellationList>
-    </Data>
-    <AuthInfo xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationRequest.xsd">
-      <Recnum xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd">0</Recnum>
-      <Ent_User xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd">CTM-PERU</Ent_User>
-      <Ent_Pass xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd">x4Mg82k9WS</Ent_Pass>
-      <Ent_Term xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd">CTM-PERU</Ent_Term>
-    </AuthInfo>
-  </cancellationRequest>
-</CancellingReservationsArg>
-  </soap:Body>
-</soap:Envelope>';
+$url = 'https://snaptravelb2bapi.docs.apiary.io/b2b?apiKey=1Yr3v5xEXGqwB8MD2g1n3oma0r3blov3Exgo0r86&arrivalDate=10/10/2019&departureDate=10/14/2019&hotelIdList=[4110]&room1=2';
 
 /* $client = new Client();
 $client->setOptions(array(
@@ -81,54 +52,49 @@ $client->setOptions(array(
 ));
 $client->setHeaders(array(
     "Content-type: text/xml",
-    "Cache-Control: no-cache",
-    "Pragma: no-cache",
-    "Host: api.palaceresorts.com",
-    "Content-length: " . strlen($raw)
+    "x-api-key: 1Yr3v5xEXGqwB8MD2g1n3oma0r3blov3Exgo0r86",
+    "locale: en_US",
+    "currencyCode: USD",
+    'Content-Length: 0'
 ));
 
 $client->setUri($url);
-$client->setMethod('POST');
-$client->setRawBody($raw);
+$client->setMethod('GET');
+//$client->setRawBody($raw);
 $response = $client->send();
 if ($response->isSuccess()) {
-$response = $response->getBody();
+    $response = $response->getBody();
 } else {
-$logger = new Logger();
-$writer = new Writer\Stream('/srv/www/htdocs/error_log');
-$logger->addWriter($writer);
-$logger->info($client->getUri());
-$logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
-echo $return;
-echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
-echo $return;
-die();
-}  */
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($client->getUri());
+    $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
+    echo $return;
+    echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
+    echo $return;
+    die();
+}   */
+
 $headers = array(
-    "Content-type: text/xml",
-    "Cache-Control: no-cache",
-    "Pragma: no-cache",
-    "Host: api.palaceresorts.com",
-    "SOAPAction: http://localhost/xmlschemas/enterpriseservice/16-07-2009/CancellingReservations",
-    "Content-length: " . strlen($raw)
-); // SOAPAction: your op URL
+    "x-api-key: 1Yr3v5xEXGqwB8MD2g1n3oma0r3blov3Exgo0r86",
+    "locale: en_US",
+    "currencyCode: USD",
+    "version: 3",
+    "Content-Length: 0"
+);
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
 curl_setopt($ch, CURLOPT_VERBOSE, true);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $response = curl_exec($ch);
-
-echo $response;
-
 $error = curl_error($ch);
 $headers = curl_getinfo($ch);
-curl_close($ch);
+curl_close($ch); 
 
 echo "<br/>RESPONSE";
 echo '<xmp>';

@@ -24,8 +24,8 @@ try {
 //
 // var_dump($client->__getFunctions());
 //
-$from = "2020-07-06T00:00:00";
-$to = "2020-07-13T00:00:00";
+$from = "2020-07-09T00:00:00";
+$to = "2020-07-11T00:00:00";
 $rooms = 1;
 
 $params = array();
@@ -36,7 +36,7 @@ $params['ota_CancelRQ']['EchoToken'] = "1154782d-ea51-478e-a2c2-02b66b5339c2";
 $params['ota_CancelRQ']['TimeStamp'] = strftime("%Y-%m-%dT%H:%m:%S", time());
 $params['ota_CancelRQ']['Target'] = "Test";
 $params['ota_CancelRQ']['Version'] = "2.6";
-$params['ota_CancelRQ']['UniqueID']['UniqueID'][0]["ID"] = "RES036473-1053";
+$params['ota_CancelRQ']['UniqueID']['UniqueID'][0]["ID"] = "RES036759-1053";
 $params['ota_CancelRQ']['UniqueID']['UniqueID'][0]["Reason"] = "Cancelation reason";
 $params['ota_CancelRQ']['UniqueID']['UniqueID'][0]["Type"] = "Reservation";
 $params['ota_CancelRQ']['Verification']['email'] = "paulo@corp.bug-software.com";

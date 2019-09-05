@@ -945,6 +945,23 @@ for ($x = 0; $x < $node->length; $x ++) {
             $RatePlans[$RatePlanID]['CancelPenalties'] = $Cancel;
             $RatePlans[$RatePlanID]['Guarantees'] = $Guarantees;
             echo ".";
+
+            $Comm = array();
+            $Commission = $aRatePlans->item($z)->getElementsByTagName("Commission");
+            if ($Commission->length > 0){
+                for ($c = 0; $c < $Commission->length; $c++) {
+                    $Percent = $Commission->item($c)->getElementsByTagName("Percent");
+                    if ($Percent->length > 0){
+                        $Percent = $Percent->item(0)->nodeValue;
+                    } else {
+                        $Percent = "";
+                    }
+                    $Commiss = array();
+                    $Commiss['Percent'] = $Percent;
+                    array_push($Comm, $Commiss);
+                }
+            }
+            $RatePlans[$RatePlanID]['Commission'] = $Comm;
         }
     }
     $aRoomTypes = $node->item($x)->getElementsByTagName("RoomTypes");
@@ -1387,14 +1404,14 @@ $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelRe
 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['LastModifyDateTime'] = "0001-01-01T00:00:00";
 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGlobalInfo']['CommentsType']['Comments']['Comment']['Description'] = "This is the reservations comments";
 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGlobalInfo']['Guarantee']['GuaranteesAcceptedType']['GuaranteesAccepted']['GuaranteeAccepted']['GuaranteeID'] = null;
-$params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGlobalInfo']['Guarantee']['GuaranteesAcceptedType']['GuaranteesAccepted']['GuaranteeAccepted']['GuaranteeTypeCode'] = "DirectBill";
-$params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGlobalInfo']['Guarantee']['GuaranteesAcceptedType']['GuaranteesAccepted']['GuaranteeAccepted']['PaymentCard']['CardCode'] = "Visa";
+$params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGlobalInfo']['Guarantee']['GuaranteesAcceptedType']['GuaranteesAccepted']['GuaranteeAccepted']['GuaranteeTypeCode'] = "Voucher";
+/* $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGlobalInfo']['Guarantee']['GuaranteesAcceptedType']['GuaranteesAccepted']['GuaranteeAccepted']['PaymentCard']['CardCode'] = "Visa";
 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGlobalInfo']['Guarantee']['GuaranteesAcceptedType']['GuaranteesAccepted']['GuaranteeAccepted']['PaymentCard']['CardHolderName'] = "Consumer";
 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGlobalInfo']['Guarantee']['GuaranteesAcceptedType']['GuaranteesAccepted']['GuaranteeAccepted']['PaymentCard']['CardNumber'] = "4111111111111111";
 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGlobalInfo']['Guarantee']['GuaranteesAcceptedType']['GuaranteesAccepted']['GuaranteeAccepted']['PaymentCard']['EffectiveDate'] = strftime("%Y-%m-%dT%H:%m:%S", time());
 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGlobalInfo']['Guarantee']['GuaranteesAcceptedType']['GuaranteesAccepted']['GuaranteeAccepted']['PaymentCard']['ExpireDate'] = "2021-01-01T00:00:00";
-$params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGlobalInfo']['Guarantee']['GuaranteesAcceptedType']['GuaranteesAccepted']['GuaranteeAccepted']['PaymentCard']['SeriesCode'] = "737";
-$params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGlobalInfo']['Guarantee']['GuaranteesAcceptedType']['GuaranteesAccepted']['GuaranteeAccepted']['PaymentCard']['RPH'] = 0;
+$params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGlobalInfo']['Guarantee']['GuaranteesAcceptedType']['GuaranteesAccepted']['GuaranteeAccepted']['PaymentCard']['SeriesCode'] = "737";*/
+//$params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGlobalInfo']['Guarantee']['GuaranteesAcceptedType']['GuaranteesAccepted']['GuaranteeAccepted']['PaymentCard']['RPH'] = 0;
 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGlobalInfo']['Total']['AmountAfterTax'] = $AmountAfterTax;
 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGlobalInfo']['Total']['AmountBeforeTax'] = $AmountBeforeTax;
 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGlobalInfo']['Total']['AmountIncludingMarkup'] = $AmountIncludingMarkup;
@@ -1435,11 +1452,11 @@ for ($r = 0; $r < $rooms; $r ++) {
         $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGuestsType']['ResGuests']['ResGuest'][$rS]['Profiles']['ProfileInfos']['ProfileInfo']['Profile']['Customer']['PersonName']['MiddleName'] = null;
         $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGuestsType']['ResGuests']['ResGuest'][$rS]['Profiles']['ProfileInfos']['ProfileInfo']['Profile']['Customer']['PersonName']['NamePrefix'] = "None";
         $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGuestsType']['ResGuests']['ResGuest'][$rS]['Profiles']['ProfileInfos']['ProfileInfo']['Profile']['Customer']['PersonName']['Surname'] = "Smoth";
-        // $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGuestsType']['ResGuests']['ResGuest'][$rS]['Profiles']['ProfileInfos']['ProfileInfo']['Profile']['Customer']['Telephones'][0]['TelephoneInfo']['PhoneLocationType'] = "Home";
-        // $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGuestsType']['ResGuests']['ResGuest'][$rS]['Profiles']['ProfileInfos']['ProfileInfo']['Profile']['Customer']['Telephones'][0]['TelephoneInfo']['PhoneNumber'] = "215 252 252";
-        // $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGuestsType']['ResGuests']['ResGuest'][$rS]['Profiles']['ProfileInfos']['ProfileInfo']['Profile']['Customer']['Telephones'][0]['TelephoneInfo']['PhoneTechType'] = "Voice";
-        // $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGuestsType']['ResGuests']['ResGuest'][$rS]['Profiles']['ProfileInfos']['ProfileInfo']['Profile']['Customer']['Telephones'][0]['TelephoneInfo']['ShareMarketInd'] = "Yes";
-        // $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGuestsType']['ResGuests']['ResGuest'][$rS]['Profiles']['ProfileInfos']['ProfileInfo']['Profile']['Customer']['Telephones'][0]['TelephoneInfo']['ShareSyncInd'] = "Yes";
+        $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGuestsType']['ResGuests']['ResGuest'][$rS]['Profiles']['ProfileInfos']['ProfileInfo']['Profile']['Customer']['Telephones']['TelephoneInfo']['PhoneLocationType'] = "Home";
+        $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGuestsType']['ResGuests']['ResGuest'][$rS]['Profiles']['ProfileInfos']['ProfileInfo']['Profile']['Customer']['Telephones']['TelephoneInfo']['PhoneNumber'] = "215 252 252";
+        $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGuestsType']['ResGuests']['ResGuest'][$rS]['Profiles']['ProfileInfos']['ProfileInfo']['Profile']['Customer']['Telephones']['TelephoneInfo']['PhoneTechType'] = "Voice";
+        $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGuestsType']['ResGuests']['ResGuest'][$rS]['Profiles']['ProfileInfos']['ProfileInfo']['Profile']['Customer']['Telephones']['TelephoneInfo']['ShareMarketInd'] = "Yes";
+        $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGuestsType']['ResGuests']['ResGuest'][$rS]['Profiles']['ProfileInfos']['ProfileInfo']['Profile']['Customer']['Telephones']['TelephoneInfo']['ShareSyncInd'] = "Yes";
         $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['ResGuestsType']['ResGuests']['ResGuest'][$rS]['ResGuestRPH'] = $ResGuestRPH;
         $ResGuestRPH ++;
         $rS ++;
@@ -1530,7 +1547,7 @@ for ($xRooms = 0; $xRooms < $rooms; $xRooms ++) {
                     $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['RatePlanDescription']['ExtensionData'] = null;
                     $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['RatePlanDescription']['Description'] = $ratePlans["RatePlanDescriptionDescription"];
                     $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['RatePlanDescription']['Language'] = $ratePlans["RatePlanDescriptionLanguage"];
-                    $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['RatePlanID'] = $RatePlanID;
+                    $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['RatePlanID'] = $RatePlanID[$xRooms];
                     if ($ratePlans["RatePlanInclusions"] != "") {
                         $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['RatePlanInclusions'] = $ratePlans["RatePlanInclusions"];
                     }
@@ -1836,13 +1853,14 @@ for ($xRooms = 0; $xRooms < $rooms; $xRooms ++) {
                 // var_dump($Rooms[$RoomID[$xRooms]]);
                 // echo $return;
                 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RoomTypes']['RoomType'][0]['ExtensionData'] = null;
-                $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RoomTypes']['RoomType'][0]['NumberOfUnits'] = "18";
+                $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RoomTypes']['RoomType'][0]['MaxOccupancy'] = $Rooms[$RoomID[$xRooms]]["MaxOccupancy"];
+                $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RoomTypes']['RoomType'][0]['NumberOfUnits'] = $Rooms[$RoomID[$xRooms]]["NumberOfUnits"];
                 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RoomTypes']['RoomType'][0]['RoomDescription']['ExtensionData'] = null;
-                $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RoomTypes']['RoomType'][0]['RoomDescription']['Description'] = $Rooms[$RoomID][$xRooms]["RoomDescription"];
-                $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RoomTypes']['RoomType'][0]['RoomDescription']['Language'] = $Rooms[$RoomID][$xRooms]["RoomLanguage"];
-                $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RoomTypes']['RoomType'][0]['RoomID'] = $RoomID;
-                $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RoomTypes']['RoomType'][0]['RoomName'] = $Rooms[$RoomID][$xRooms]["RoomName"];
-                $policies = $RatePlans[$RatePlanID]['PaymentPolicies'];
+                $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RoomTypes']['RoomType'][0]['RoomDescription']['Description'] = $Rooms[$RoomID[$xRooms]]["RoomDescription"];
+                $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RoomTypes']['RoomType'][0]['RoomDescription']['Language'] = $Rooms[$RoomID[$xRooms]]["RoomLanguage"];
+                $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RoomTypes']['RoomType'][0]['RoomID'] = $RoomID[$xRooms];
+                $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RoomTypes']['RoomType'][0]['RoomName'] = $Rooms[$RoomID[$xRooms]]["RoomName"];
+                $policies = $RatePlans[$RatePlanID[$xRooms]]['PaymentPolicies'];
                 // var_dump($policies);
                 for ($z = 0; $z < count($policies); $z ++) {
                     $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['PaymentPolicies']['AcceptedPayments']['AcceptedPayment'][$z]['GuaranteeTypeCode'] = $policies[$z]['GuaranteeTypeCode'];
@@ -1859,7 +1877,7 @@ for ($xRooms = 0; $xRooms < $rooms; $xRooms ++) {
                     }
                 }
                 // Guarantees
-                $guarantees = $RatePlans[$RatePlanID]['Guarantees2'];
+                $guarantees = $RatePlans[$RatePlanID[$xRooms]]['Guarantees2'];
                 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['Guarantees']['Guarantee']['ExtensionData'] = null;
                 if (is_array($guarantees)) {
                     if (isset($guarantees[0])) {
@@ -1903,12 +1921,15 @@ for ($xRooms = 0; $xRooms < $rooms; $xRooms ++) {
                         }
                     }
                 }
+                echo $return;
+                echo "GUARANTEE CODE: " . $guarantees[0]["GuaranteeCode"];
+                echo $return;
                 //
                 // echo $return;
                 // var_dump($RatePlans[$RatePlanID]);
                 // echo $return;
                 //
-                $additionaldetails = $RatePlans[$RatePlanID]["AdditionalDetails"];
+                $additionaldetails = $RatePlans[$RatePlanID[$xRooms]]["AdditionalDetails"];
                 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['AdditionalDetailsType']['ExtensionData'] = null;
                 for ($z = 0; $z < count($additionaldetails); $z ++) {
                     $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['AdditionalDetailsType']['AdditionalDetails']['AdditionalDetail'][$z]['ExtensionData'] = null;
@@ -1917,12 +1938,15 @@ for ($xRooms = 0; $xRooms < $rooms; $xRooms ++) {
                     $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['AdditionalDetailsType']['AdditionalDetails']['AdditionalDetail'][$z]['DetailDescription']['Language'] = $additionaldetails[$z]["Language"];
                     $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['AdditionalDetailsType']['AdditionalDetails']['AdditionalDetail'][$z]['DetailDescription']['Name'] = $additionaldetails[$z]["Name"];
                 }
-                if ($RatePlans[$RatePlanID]["CurrencyCode"] != "") {
-                    $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['CurrencyCode'] = $RatePlans[$RatePlanID]["CurrencyCode"];
+                if ($RatePlans[$RatePlanID[$xRooms]]["CurrencyCode"] != "") {
+                    $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['CurrencyCode'] = $RatePlans[$RatePlanID[$xRooms]]["CurrencyCode"];
                 } else {
                     $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['CurrencyCode'] = null;
                 }
-                $cancelpenalties = $RatePlans[$RatePlanID]["CancelPenalties"];
+                $cancelpenalties = $RatePlans[$RatePlanID[$xRooms]]["CancelPenalties"];
+                echo $return;
+                echo "CURRENCY: " . $cancelpenalties[0]["CurrencyCode"];
+                echo $return;
                 // for ($z = 0; $z < count($cancelpenalties); $z ++) {
                 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['CancelPenalties']['CancelPenalty']['ExtensionData'] = null;
                 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['CancelPenalties']['CancelPenalty']['AmountPercent']['ExtensionData'] = null;
@@ -1975,6 +1999,24 @@ for ($xRooms = 0; $xRooms < $rooms; $xRooms ++) {
                 } else {
                     $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['CancelPenalties']['CancelPenalty']['End'] = null;
                 }
+
+                //COMMISSION
+                $commission = $RatePlans[$RatePlanID[$xRooms]]['Commission'];
+                if (is_array($commission)) {
+                    if (isset($commission[0])) {
+                        if (is_array($commission[0])) {
+                            
+                            if ($commission[0]['Percent'] != ""){
+                                $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['Commission']['Percent'] = $commission[0]['Percent'] ;
+                            } else {
+                                $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RatePlans'][0]['Commission']['Percent']  = null;
+                            }
+                        }
+                    }
+                }
+                echo $return;
+                echo "PERCENT:" . $commission[0]['Percent'];
+                echo $return;
                 // }
                 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RoomTypes']['RoomType'][0]['Occupancies']['Occupancy'][0]['AgeQualifyingCode'] = "Adult";
                 $params['ota_HotelResRQ']['HotelReservationsType']['HotelReservations']['HotelReservation']['RoomStaysType']['RoomStays']['RoomStay'][$xRooms]['RoomTypes']['RoomType'][0]['Occupancies']['Occupancy'][0]['MaxAge'] = null;
