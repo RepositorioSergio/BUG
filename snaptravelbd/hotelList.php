@@ -42,7 +42,17 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$url = 'https://snaptravelb2bapi.docs.apiary.io/b2b?apiKey=1Yr3v5xEXGqwB8MD2g1n3oma0r3blov3Exgo0r86&arrivalDate=10/10/2019&departureDate=10/14/2019&hotelIdList=[4110]&room1=2';
+$url = 'https://b2b-api.snaptravel.com/avail';
+echo "<br/>URL: " . $url;
+
+$raw = '{
+    "arrivalDate": "10-18-2019",
+    "departureDate": "10-20-2019",
+    "room1": "2",
+    "hotelIdList": [4110],
+    "locale": "en_US",
+    "currencyCode": "USD"
+  }';
 
 /* $client = new Client();
 $client->setOptions(array(
@@ -77,24 +87,29 @@ if ($response->isSuccess()) {
 }   */
 
 $headers = array(
-    "x-api-key: 1Yr3v5xEXGqwB8MD2g1n3oma0r3blov3Exgo0r86",
-    "locale: en_US",
-    "currencyCode: USD",
+    "x-api-key: lAtmTV39KD79xzJHKSX9B6DMbICLoico2TC6TSrz",
+    "Content-Type: application/json",
     "version: 3",
-    "Content-Length: 0"
+    "Content-Length: " . strlen($raw)
 );
 
 $ch = curl_init();
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
 curl_setopt($ch, CURLOPT_VERBOSE, true);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $raw); 
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $response = curl_exec($ch);
 $error = curl_error($ch);
 $headers = curl_getinfo($ch);
-curl_close($ch); 
+curl_close($ch);
+
+echo $response;
+
+$response = json_decode($response, true);
 
 echo "<br/>RESPONSE";
 echo '<xmp>';

@@ -73,6 +73,35 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
   </soap:Body>
 </soap:Envelope>';
 
+
+$raw2 = '<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd" xmlns:ns2="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationRequest.xsd" xmlns:ns3="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd" xmlns:ns4="http://localhost/xmlschemas/enterpriseservice/16-07-2009/">
+  <SOAP-ENV:Body>
+  <ns4:CancellingReservationsArg>
+  <ns2:cancellationRequest>
+    <ns2:Data>
+      <ns2:cancellationList>
+        <ns1:Hotel>MPG</ns1:Hotel>
+        <ns1:Folio>12279717</ns1:Folio>
+        <ns1:Code>TLAV15I</ns1:Code>
+        <ns1:Reason>TEST_CANCEL</ns1:Reason>
+        <ns1:Ent_User>CTM-PERU</ns1:Ent_User>
+        <ns1:Ent_Term>CTM-PERU</ns1:Ent_Term>
+        <ns1:Cancelled>false</ns1:Cancelled>
+        <ns1:ErrDescription>TEST</ns1:ErrDescription>
+      </ns2:cancellationList>
+    </ns2:Data>
+    <ns2:AuthInfo>
+        <ns3:Recnum>0</ns3:Recnum>
+        <ns3:Ent_User>CTM-PERU</ns3:Ent_User>
+        <ns3:Ent_Pass>x4Mg82k9WS</ns3:Ent_Pass>
+        <ns3:Ent_Term>CTM-PERU</ns3:Ent_Term>
+    </ns2:AuthInfo>
+  </ns2:cancellationRequest>
+</ns4:CancellingReservationsArg>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>';
+
 /* $client = new Client();
 $client->setOptions(array(
     'timeout' => 100,
@@ -110,7 +139,7 @@ $headers = array(
     "Pragma: no-cache",
     "Host: api.palaceresorts.com",
     "SOAPAction: http://localhost/xmlschemas/enterpriseservice/16-07-2009/CancellingReservations",
-    "Content-length: " . strlen($raw)
+    "Content-length: " . strlen($raw2)
 ); // SOAPAction: your op URL
 
 $ch = curl_init();
@@ -120,7 +149,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
 curl_setopt($ch, CURLOPT_VERBOSE, true);
 curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $raw2);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $response = curl_exec($ch);
 
