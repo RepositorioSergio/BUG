@@ -62,6 +62,7 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
         <ErrDescription xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">TEST</ErrDescription>
       </cancellationList>
     </Data>
+    <Tag></Tag>
     <AuthInfo xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationRequest.xsd">
       <Recnum xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd">0</Recnum>
       <Ent_User xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd">CTM-PERU</Ent_User>
@@ -102,6 +103,53 @@ $raw2 = '<?xml version="1.0" encoding="UTF-8"?>
 </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>';
 
+$raw3 = '<?xml version="1.0" encoding="utf-8"?>
+<soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+  <soap12:Header>
+    <RequestHeader xmlns="http://localhost/xmlschemas/enterpriseservice/16-07-2009/">
+      <Headers>
+        <anyType />
+        <anyType />
+      </Headers>
+    </RequestHeader>
+  </soap12:Header>
+  <soap12:Body>
+    <CancellingReservationsArg xmlns="http://localhost/xmlschemas/enterpriseservice/16-07-2009/">
+      <cancellationRequest xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationRequest.xsd">
+        <Data>
+          <cancellationList>
+            <Hotel xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">MPG</Hotel>
+            <Folio xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">12279717</Folio>
+            <Code xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">TLAV15I</Code>
+            <Reason xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">TEST_CANCEL</Reason>
+            <Ent_User xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">CTM-PERU</Ent_User>
+            <Ent_Term xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">CTM-PERU</Ent_Term>
+            <Cancelled xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">false</Cancelled>
+            <ErrDescription xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">TEST</ErrDescription>
+          </cancellationList>
+          <cancellationList>
+            <Hotel xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">MPG</Hotel>
+            <Folio xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">12279717</Folio>
+            <Code xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">TLAV15I</Code>
+            <Reason xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">TEST_CANCEL</Reason>
+            <Ent_User xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">CTM-PERU</Ent_User>
+            <Ent_Term xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">CTM-PERU</Ent_Term>
+            <Cancelled xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">false</Cancelled>
+            <ErrDescription xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/cancellationList.xsd">TEST</ErrDescription>
+          </cancellationList>
+        </Data>
+        <Tag></Tag>
+        <AuthInfo>
+          <Recnum xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd">0</Recnum>
+          <Ent_User xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd">CTM-PERU</Ent_User>
+          <Ent_Pass xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd">x4Mg82k9WS</Ent_Pass>
+          <Ent_Term xmlns="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd">CTM-PERU</Ent_Term>
+        </AuthInfo>
+      </cancellationRequest>
+    </CancellingReservationsArg>
+  </soap12:Body>
+</soap12:Envelope>';
+
 /* $client = new Client();
 $client->setOptions(array(
     'timeout' => 100,
@@ -141,6 +189,15 @@ $headers = array(
     "SOAPAction: http://localhost/xmlschemas/enterpriseservice/16-07-2009/CancellingReservations",
     "Content-length: " . strlen($raw2)
 ); // SOAPAction: your op URL
+
+$headers2 = array(
+    "Content-type: application/soap+xml; charset=utf-8",
+    "Cache-Control: no-cache",
+    "Pragma: no-cache",
+    "Host: api.palaceresorts.com",
+    "SOAPAction: http://localhost/xmlschemas/enterpriseservice/16-07-2009/CancellingReservationsArg",
+    "Content-length: " . strlen($raw3)
+);
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
