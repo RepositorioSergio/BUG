@@ -144,8 +144,8 @@ $raw = '<Request Type="Reservation" Version="1.0">
                     <status>AV</status>
                     <ratekey>STDNRZZ</ratekey>
                     <adults>1</adults>
-                    <kids>1</kids>
-                    <k1a>5</k1a>
+                    <kids>0</kids>
+                    <k1a>0</k1a>
                 </room>
             </rooms>
         </hotel>
