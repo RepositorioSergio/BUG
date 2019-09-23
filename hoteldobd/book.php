@@ -108,7 +108,7 @@ $raw = '<Request Type="Reservation" Version="1.0">
     <city>cancun</city>
     <state>QROO</state>
     <zip>77500</zip>
-    <total>3118.32177734375</total>
+    <total>2975.028076171875</total>
     <naturalperson>
         <gender/>
         <nationality/>
@@ -129,7 +129,7 @@ $raw = '<Request Type="Reservation" Version="1.0">
     <hotels>
         <hotel>
             <hotelid>450</hotelid>
-            <roomtype>STD1NR</roomtype>
+            <roomtype>STDNR</roomtype>
             <mealplan>ZZ</mealplan>
             <datearrival>20200108</datearrival>
             <datedeparture>20200111</datedeparture>
@@ -140,10 +140,10 @@ $raw = '<Request Type="Reservation" Version="1.0">
                 <room>
                     <name>Juan</name>
                     <lastname>Perez</lastname >
-                    <amount>3118.32177734375</amount>
+                    <amount>2975.028076171875</amount>
                     <status>AV</status>
-                    <ratekey>STDNRZZ</ratekey>
-                    <adults>1</adults>
+                    <ratekey>U1RETlItWlpNQVlPUklTVDJaWkF1dG9tYXRpY01haWw=</ratekey>
+                    <adults>2</adults>
                     <kids>0</kids>
                     <k1a>0</k1a>
                 </room>
