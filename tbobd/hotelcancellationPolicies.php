@@ -54,17 +54,22 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 </soap:Header>
 <soap:Body>
     <hot:HotelCancellationPolicyRequest>
-        <hot:ResultIndex>2</hot:ResultIndex>
-        <hot:SessionId>f5513c90-f9dd-4cb0-9e92-bdeca8a9f5d3</hot:SessionId>
+        <hot:ResultIndex>4</hot:ResultIndex>
+        <hot:SessionId>9616db93-3fdf-40e4-9118-63441e133ccd</hot:SessionId>
         <hot:OptionsForBooking>
-            <hot:FixedFormat>false</hot:FixedFormat>
+            <hot:FixedFormat>true</hot:FixedFormat>
             <hot:RoomCombination>
-            <hot:RoomIndex>1</hot:RoomIndex>
+                <hot:RoomIndex>1</hot:RoomIndex>
+                <hot:RoomIndex>2</hot:RoomIndex>
             </hot:RoomCombination>
         </hot:OptionsForBooking>
     </hot:HotelCancellationPolicyRequest>
 </soap:Body>
 </soap:Envelope>';
+
+echo '<xmp>';
+var_dump($raw);
+echo '</xmp>';
 
 $client = new Client();
 $client->setOptions(array(

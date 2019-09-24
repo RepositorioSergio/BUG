@@ -67,6 +67,10 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 </soap:Body>
 </soap:Envelope>';
 
+echo '<xmp>';
+var_dump($raw);
+echo '</xmp>';
+
 $client = new Client();
 $client->setOptions(array(
     'timeout' => 100,

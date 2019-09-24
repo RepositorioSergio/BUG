@@ -42,8 +42,8 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$nrooms = 1;
-$n = 1;
+$nrooms = 2;
+$n = 4;
 
 $user = 'wingstest';
 $pass = 'Win@59491374';
@@ -57,8 +57,8 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 </soap:Header>
 <soap:Body>
     <hot:HotelSearchRequest>
-        <hot:CheckInDate>2019-08-27</hot:CheckInDate>
-        <hot:CheckOutDate>2019-08-29</hot:CheckOutDate>
+        <hot:CheckInDate>2019-10-27</hot:CheckInDate>
+        <hot:CheckOutDate>2019-10-29</hot:CheckOutDate>
         <hot:CountryName>United Arab Emirates</hot:CountryName>
         <hot:CityName>Dubai</hot:CityName>
         <hot:CityId>115936</hot:CityId>
@@ -135,10 +135,14 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
             <hot:SearchRadius>10</hot:SearchRadius>
             <hot:CountryCode>AE</hot:CountryCode>
         </hot:GeoCodes>
-        <hot:ResponseTime>10</hot:ResponseTime>
+        <hot:ResponseTime>23</hot:ResponseTime>
     </hot:HotelSearchRequest>
 </soap:Body>
 </soap:Envelope>';
+
+echo '<xmp>';
+var_dump($raw);
+echo '</xmp>';
 
 $client = new Client();
 $client->setOptions(array(
@@ -173,6 +177,7 @@ echo "<br/>RESPONSE";
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
+echo "<br/>END";
 die();
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.tbo.php');

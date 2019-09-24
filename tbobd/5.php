@@ -1,5 +1,5 @@
 <?php
-require '../vendor/autoload.php';
+require '../../vendor/autoload.php';
 use Zend\Db\Sql\Sql;
 use Zend\Db\Adapter\Adapter;
 use Zend\Db\Adapter\Driver\ResultInterface;
@@ -19,40 +19,9 @@ if (! $_SERVER['DOCUMENT_ROOT']) {
     // HTTP Browser
     $return = "<br>";
 }
-$config = new \Zend\Config\Config(include '../config/autoload/global.php');
-$config = [
-    'driver' => $config->db->driver,
-    'database' => $config->db->database,
-    'username' => $config->db->username,
-    'password' => $config->db->password,
-    'hostname' => $config->db->hostname
-];
-$db = new \Zend\Db\Adapter\Adapter($config);
-// Start
-$affiliate_id = 0;
-$branch_filter = "";
-
-$config = new \Zend\Config\Config(include '../config/autoload/global.tbo.php');
-$config = [
-    'driver' => $config->db->driver,
-    'database' => $config->db->database,
-    'username' => $config->db->username,
-    'password' => $config->db->password,
-    'hostname' => $config->db->hostname
-];
-$db = new \Zend\Db\Adapter\Adapter($config);
 
 $user = 'wingstest';
 $pass = 'Win@59491374';
-$SessionId = "9616db93-3fdf-40e4-9118-63441e133ccd";
-$ResultIndex = 4;
-$hotelCode = 1108025;
-$hotelName = "Royal Falcon Hotel";
-$RoomTypeName = "Deluxe King Bed";
-$RoomTypeCode = "3039718|0ecc6efb-6281-c6ea-a680-86ce32a9cb5b|1^^1^^1029643||0ecc6efb-6281-c6ea-a680-86ce32a9cb5b";
-$RatePlanCode = "1029643||0ecc6efb-6281-c6ea-a680-86ce32a9cb5b";
-$RoomTypeCode2 = "3039718|0ecc6efb-6281-c6ea-a680-86ce32a9cb5b|2^^2^^1029643||0ecc6efb-6281-c6ea-a680-86ce32a9cb5b";
-$RatePlanCode2 = "1029643||0ecc6efb-6281-c6ea-a680-86ce32a9cb5b";
 
 $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
 <soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
@@ -63,20 +32,14 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 </soap:Header>
 <soap:Body>
     <hot:HotelBookRequest>
-        <hot:ClientReferenceNumber>210314135855789#rana</hot:ClientReferenceNumber>
-        <hot:GuestNationality>AE</hot:GuestNationality>
+        <hot:ClientReferenceNumber>1</hot:ClientReferenceNumber>
+        <hot:GuestNationality>IN</hot:GuestNationality>
         <hot:Guests>
             <hot:Guest LeadGuest="true" GuestType="Adult" GuestInRoom="1">
                 <hot:Title>Mr</hot:Title>
-                <hot:FirstName>Ajaygety</hot:FirstName>
+                <hot:FirstName>Ajay</hot:FirstName>
                 <hot:LastName>testgea</hot:LastName>
                 <hot:Age>20</hot:Age>
-            </hot:Guest>
-            <hot:Guest LeadGuest="false" GuestType="Adult" GuestInRoom="2">
-                <hot:Title>Mr</hot:Title>
-                <hot:FirstName>Lionte</hot:FirstName>
-                <hot:LastName>testgea</hot:LastName>
-                <hot:Age>27</hot:Age>
             </hot:Guest>
         </hot:Guests>
         <hot:AddressInfo>
@@ -85,38 +48,26 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
             <hot:CountryCode>91</hot:CountryCode>
             <hot:AreaCode>11</hot:AreaCode>
             <hot:PhoneNo>25869696</hot:PhoneNo>
-            <hot:Email>abc@gmail.com</hot:Email>
+            <hot:Email>paulo@corp.bug-software.com</hot:Email>
             <hot:City>Delhi</hot:City>
             <hot:State>Delhi</hot:State>
             <hot:Country>India</hot:Country>
             <hot:ZipCode>256525</hot:ZipCode>
         </hot:AddressInfo>
-        <!-- VoucherBooking-true Booking will be Vouchered -->
-        <hot:PaymentInfo VoucherBooking="true" PaymentModeType="Limit">
-        </hot:PaymentInfo>
-        <hot:SessionId>' . $SessionId . '</hot:SessionId>
-        <hot:NoOfRooms>2</hot:NoOfRooms>
-        <hot:ResultIndex>' . $ResultIndex . '</hot:ResultIndex>
-        <hot:HotelCode>' . $hotelCode . '</hot:HotelCode>
-        <hot:HotelName>' . $hotelName . '</hot:HotelName>
+        <hot:PaymentInfo VoucherBooking="true" PaymentModeType="Limit"></hot:PaymentInfo>
+        <hot:SessionId>29ec2b1f-adf7-4064-9324-54b3277f5e95</hot:SessionId>
+        <hot:NoOfRooms>1</hot:NoOfRooms>
+        <hot:ResultIndex>1</hot:ResultIndex>
+        <hot:HotelCode>1136544</hot:HotelCode>
+        <hot:HotelName>Dubai Palm Hotel</hot:HotelName>
         <hot:HotelRooms>
             <hot:HotelRoom>
                 <hot:RoomIndex>1</hot:RoomIndex>
-                <hot:RoomTypeName>' . $RoomTypeName . '</hot:RoomTypeName>
-                <hot:RoomTypeCode>' . $RoomTypeCode . '</hot:RoomTypeCode>
-                <hot:RatePlanCode>' . $RatePlanCode . '</hot:RatePlanCode>
-                <hot:RoomRate RoomFare="57.09" Currency="USD" AgentMarkUp="0.00" RoomTax="12.83" TotalFare="69.92"/>
-                <hot:Supplements>
-                    <hot:SuppInfo Type="PerStaySupplement" SuppID="1" SuppName="Tourism Dirham Fee" SuppIsMandatory="true" SuppChargeType="AtProperty" Price="5.44" CurrencyCode="USD" />
-                </hot:Supplements>
-            </hot:HotelRoom>
-            <hot:HotelRoom>
-                <hot:RoomIndex>2</hot:RoomIndex>
-                <hot:RoomTypeName>' . $RoomTypeName . '</hot:RoomTypeName>
-                <hot:RoomTypeCode>' . $RoomTypeCode2 . '</hot:RoomTypeCode>
-                <hot:RatePlanCode>' . $RatePlanCode2 . '</hot:RatePlanCode>
-                <hot:RoomRate RoomFare="57.09" Currency="USD" AgentMarkUp="0.00" RoomTax="12.83" TotalFare="69.92"/>
-                <hot:Supplements>
+                <hot:RoomTypeName>Standard</hot:RoomTypeName>
+                <hot:RoomTypeCode>3037769|5c6dffd4-9a00-43c9-d598-63b8615246fb|1^^1^^612771||5c6dffd4-9a00-43c9-d598-63b8615246fb</hot:RoomTypeCode>
+                <hot:RatePlanCode>612771||5c6dffd4-9a00-43c9-d598-63b8615246fb</hot:RatePlanCode>
+				  <hot:RoomRate RoomFare="50.80" RoomTax="11.44" TotalFare="62.24" Currency="USD" AgentMarkUp="0.00" />
+				  <hot:Supplements>
                     <hot:SuppInfo Type="PerStaySupplement" SuppID="1" SuppName="Tourism Dirham Fee" SuppIsMandatory="true" SuppChargeType="AtProperty" Price="5.44" CurrencyCode="USD" />
                 </hot:Supplements>
             </hot:HotelRoom>
@@ -124,10 +75,6 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
     </hot:HotelBookRequest>
 </soap:Body>
 </soap:Envelope>';
-
-echo '<xmp>';
-var_dump($raw);
-echo '</xmp>';
 
 $client = new Client();
 $client->setOptions(array(
@@ -146,23 +93,23 @@ $client->setMethod('POST');
 $client->setRawBody($raw);
 $response = $client->send();
 if ($response->isSuccess()) {
-    $response = $response->getBody();
+$response = $response->getBody();
 } else {
-    $logger = new Logger();
-    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
-    $logger->addWriter($writer);
-    $logger->info($client->getUri());
-    $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
-    echo $return;
-    echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
-    echo $return;
-    die();
+$logger = new Logger();
+$writer = new Writer\Stream('/srv/www/htdocs/error_log');
+$logger->addWriter($writer);
+$logger->info($client->getUri());
+$logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
+echo $return;
+echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
+echo $return;
+die();
 }
-
-echo "<br/>RESPONSE";
-echo '<xmp>';
-var_dump($response);
-echo '</xmp>';
+echo $return;
+echo $raw;
+echo $return;
+echo $response;
+echo $return;
 die();
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.tbo.php');
