@@ -54,37 +54,6 @@ $raw = '{
     "currencyCode": "USD"
   }';
 
-/* $client = new Client();
-$client->setOptions(array(
-    'timeout' => 100,
-    'sslverifypeer' => false,
-    'sslverifyhost' => false
-));
-$client->setHeaders(array(
-    "Content-type: text/xml",
-    "x-api-key: 1Yr3v5xEXGqwB8MD2g1n3oma0r3blov3Exgo0r86",
-    "locale: en_US",
-    "currencyCode: USD",
-    'Content-Length: 0'
-));
-
-$client->setUri($url);
-$client->setMethod('GET');
-//$client->setRawBody($raw);
-$response = $client->send();
-if ($response->isSuccess()) {
-    $response = $response->getBody();
-} else {
-    $logger = new Logger();
-    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
-    $logger->addWriter($writer);
-    $logger->info($client->getUri());
-    $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
-    echo $return;
-    echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
-    echo $return;
-    die();
-}   */
 
 $headers = array(
     "x-api-key: lAtmTV39KD79xzJHKSX9B6DMbICLoico2TC6TSrz",

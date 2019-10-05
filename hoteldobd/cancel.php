@@ -74,7 +74,8 @@ $config = [
 ];
 
 
-$raw = '/CancelItineraryHotel?a=' . $HotelDouser . '&&ip=142.44.216.144&l=ESP&c=MX&ch=230000033&rc=job&cu=PE';
+$raw = '/CancelItineraryServices?a=' . $HotelDouser . '&&ip=142.44.216.144&l=ESP&c=MX&bn=230001418&bc=1&ch=&hash=jumper:true';
+echo $HotelDoserviceURL . $raw ."<br/>";
 //230000032
 
 $ch = curl_init();
@@ -90,6 +91,59 @@ curl_close($ch);
 echo "<xmp>";
 var_dump($response);
 echo "</xmp>";
+
+$config = new \Zend\Config\Config(include '../config/autoload/global.roomer.php');
+$config = [
+    'driver' => $config->db->driver,
+    'database' => $config->db->database,
+    'username' => $config->db->username,
+    'password' => $config->db->password,
+    'hostname' => $config->db->hostname
+];
+$db = new \Zend\Db\Adapter\Adapter($config);
+
+
+$inputDoc = new DOMDocument();
+$inputDoc->loadXML($response);
+$Book = $inputDoc->getElementsByTagName("Book");
+if ($Book->length > 0) {
+    $affiliate = $Book->item(0)->getElementsByTagName('affiliate');
+    if ($affiliate->length > 0) {
+        $affiliate = $affiliate->item(0)->nodeValue;
+    } else {
+        $affiliate = "";
+    }
+    $number = $Book->item(0)->getElementsByTagName('number');
+    if ($number->length > 0) {
+        $number = $number->item(0)->nodeValue;
+    } else {
+        $number = "";
+    }
+    $consecutive = $Book->item(0)->getElementsByTagName('consecutive');
+    if ($consecutive->length > 0) {
+        $consecutive = $consecutive->item(0)->nodeValue;
+    } else {
+        $consecutive = "";
+    }
+    $status = $Book->item(0)->getElementsByTagName('status');
+    if ($status->length > 0) {
+        $status = $status->item(0)->nodeValue;
+    } else {
+        $status = "";
+    }
+    $amount = $Book->item(0)->getElementsByTagName('amount');
+    if ($amount->length > 0) {
+        $amount = $amount->item(0)->nodeValue;
+    } else {
+        $amount = "";
+    }
+    $currency = $Book->item(0)->getElementsByTagName('currency');
+    if ($currency->length > 0) {
+        $currency = $currency->item(0)->nodeValue;
+    } else {
+        $currency = "";
+    }
+}
 
 // EOF
 $db->getDriver()

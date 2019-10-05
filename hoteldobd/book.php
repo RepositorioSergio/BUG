@@ -100,15 +100,16 @@ $raw = '<Request Type="Reservation" Version="1.0">
     <currency>PE</currency>
     <ip>' . $ipaddress . '</ip>
     <uid>m2r32b14es10socxtxs4y4ht</uid>
-    <firstname>prueba</firstname>
+    <firstname>Alvaro</firstname>
     <lastname>prueba</lastname>
-    <emailaddress>prueba@bestday.com</emailaddress>
+    <emailaddress>alvaro.prueba@bestday.com</emailaddress>
+    <clientcountry>MX</clientcountry>
     <country>MX</country>
     <address>bonampak 4</address>
     <city>cancun</city>
     <state>QROO</state>
     <zip>77500</zip>
-    <total>2975.028076171875</total>
+    <total>6118.8876953125</total>
     <naturalperson>
         <gender/>
         <nationality/>
@@ -128,22 +129,22 @@ $raw = '<Request Type="Reservation" Version="1.0">
     </phones>
     <hotels>
         <hotel>
-            <hotelid>450</hotelid>
-            <roomtype>STDNR</roomtype>
+            <hotelid>5622</hotelid>
+            <roomtype>APTOSUP2</roomtype>
             <mealplan>ZZ</mealplan>
             <datearrival>20200108</datearrival>
             <datedeparture>20200111</datedeparture>
-            <marketid>MAYORIST</marketid>
-            <contractid>2</contractid>
+            <marketid>MOBILE</marketid>
+            <contractid>20000</contractid>
             <dutypercent>0</dutypercent>
             <rooms>
                 <room>
-                    <name>Juan</name>
-                    <lastname>Perez</lastname >
-                    <amount>2975.028076171875</amount>
+                    <name>Alvaro</name>
+                    <lastname>prueba</lastname>
+                    <amount>6118.8876953125</amount>
                     <status>AV</status>
-                    <ratekey>U1RETlItWlpNQVlPUklTVDJaWkF1dG9tYXRpY01haWw=</ratekey>
-                    <adults>2</adults>
+                    <ratekey>APTOSUP2ZZ</ratekey>
+                    <adults>4</adults>
                     <kids>0</kids>
                     <k1a>0</k1a>
                 </room>
@@ -152,12 +153,16 @@ $raw = '<Request Type="Reservation" Version="1.0">
     </hotels>
 <payments>
 <agencycreditpayment>
-<type></type>
-<currency></currency>
-<amount></amount>
+    <type></type>
+    <currency>PE</currency>
+    <amount>6118.8876953125</amount>
 </agencycreditpayment>
 </payments>
 </Request>';
+
+echo "<xmp>";
+var_dump($raw);
+echo "</xmp>";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $HotelDoserviceURL . '/Book');
@@ -182,6 +187,175 @@ curl_close($ch);
 echo "<xmp>";
 var_dump($response);
 echo "</xmp>";
+
+$config = new \Zend\Config\Config(include '../config/autoload/global.roomer.php');
+$config = [
+    'driver' => $config->db->driver,
+    'database' => $config->db->database,
+    'username' => $config->db->username,
+    'password' => $config->db->password,
+    'hostname' => $config->db->hostname
+];
+$db = new \Zend\Db\Adapter\Adapter($config);
+
+
+$inputDoc = new DOMDocument();
+$inputDoc->loadXML($response);
+$BookingResponse = $inputDoc->getElementsByTagName("BookingResponse");
+if ($BookingResponse->length > 0) {
+    $confirmationid = $BookingResponse->item(0)->getElementsByTagName('confirmationid');
+    if ($confirmationid->length > 0) {
+        $confirmationid = $confirmationid->item(0)->nodeValue;
+    } else {
+        $confirmationid = "";
+    }
+    $airlinepnr = $BookingResponse->item(0)->getElementsByTagName('airlinepnr');
+    if ($airlinepnr->length > 0) {
+        $airlinepnr = $airlinepnr->item(0)->nodeValue;
+    } else {
+        $airlinepnr = "";
+    }
+    $currency = $BookingResponse->item(0)->getElementsByTagName('currency');
+    if ($currency->length > 0) {
+        $currency = $currency->item(0)->nodeValue;
+    } else {
+        $currency = "";
+    }
+    $total = $BookingResponse->item(0)->getElementsByTagName('total');
+    if ($total->length > 0) {
+        $total = $total->item(0)->nodeValue;
+    } else {
+        $total = "";
+    }
+    $statusinternet = $BookingResponse->item(0)->getElementsByTagName('statusinternet');
+    if ($statusinternet->length > 0) {
+        $statusinternet = $statusinternet->item(0)->nodeValue;
+    } else {
+        $statusinternet = "";
+    }
+    $statusbooking = $BookingResponse->item(0)->getElementsByTagName('statusbooking');
+    if ($statusbooking->length > 0) {
+        $statusbooking = $statusbooking->item(0)->nodeValue;
+    } else {
+        $statusbooking = "";
+    }
+    $statuspayment = $BookingResponse->item(0)->getElementsByTagName('statuspayment');
+    if ($statuspayment->length > 0) {
+        $statuspayment = $statuspayment->item(0)->nodeValue;
+    } else {
+        $statuspayment = "";
+    }
+    $effective = $BookingResponse->item(0)->getElementsByTagName('effective');
+    if ($effective->length > 0) {
+        $effective = $effective->item(0)->nodeValue;
+    } else {
+        $effective = "";
+    }
+    $operatorname = $BookingResponse->item(0)->getElementsByTagName('operatorname');
+    if ($operatorname->length > 0) {
+        $operatorname = $operatorname->item(0)->nodeValue;
+    } else {
+        $operatorname = "";
+    }
+    $operatoremail = $BookingResponse->item(0)->getElementsByTagName('operatoremail');
+    if ($operatoremail->length > 0) {
+        $operatoremail = $operatoremail->item(0)->nodeValue;
+    } else {
+        $operatoremail = "";
+    }
+    //Rooms
+    $Rooms = $BookingResponse->item(0)->getElementsByTagName('Rooms');
+    if ($Rooms->length > 0) {
+        $Room = $Rooms->item(0)->getElementsByTagName('Room');
+        if ($Room->length > 0) {
+            $Id = $Room->item(0)->getElementsByTagName('Id');
+            if ($Id->length > 0) {
+                $Id = $Id->item(0)->nodeValue;
+            } else {
+                $Id = "";
+            }
+            $MealPlanId = $Room->item(0)->getElementsByTagName('MealPlanId');
+            if ($MealPlanId->length > 0) {
+                $MealPlanId = $MealPlanId->item(0)->nodeValue;
+            } else {
+                $MealPlanId = "";
+            }
+            $PaxId = $Room->item(0)->getElementsByTagName('PaxId');
+            if ($PaxId->length > 0) {
+                $PaxId = $PaxId->item(0)->nodeValue;
+            } else {
+                $PaxId = "";
+            }
+            //CancellationPolicy
+            $CancellationPolicy = $Room->item(0)->getElementsByTagName('CancellationPolicy');
+            if ($CancellationPolicy->length > 0) {
+                $CPId = $CancellationPolicy->item(0)->getElementsByTagName('Id');
+                if ($CPId->length > 0) {
+                    $CPId = $CPId->item(0)->nodeValue;
+                } else {
+                    $CPId = "";
+                }
+                $CPDescription = $CancellationPolicy->item(0)->getElementsByTagName('Description');
+                if ($CPDescription->length > 0) {
+                    $CPDescription = $CPDescription->item(0)->nodeValue;
+                } else {
+                    $CPDescription = "";
+                }
+                $CPAmount = $CancellationPolicy->item(0)->getElementsByTagName('Amount');
+                if ($CPAmount->length > 0) {
+                    $CPAmount = $CPAmount->item(0)->nodeValue;
+                } else {
+                    $CPAmount = "";
+                }
+                $DaysToApplyCancellation = $CancellationPolicy->item(0)->getElementsByTagName('DaysToApplyCancellation');
+                if ($DaysToApplyCancellation->length > 0) {
+                    $DaysToApplyCancellation = $DaysToApplyCancellation->item(0)->nodeValue;
+                } else {
+                    $DaysToApplyCancellation = "";
+                }
+                $PaymentLimitDay = $CancellationPolicy->item(0)->getElementsByTagName('PaymentLimitDay');
+                if ($PaymentLimitDay->length > 0) {
+                    $PaymentLimitDay = $PaymentLimitDay->item(0)->nodeValue;
+                } else {
+                    $PaymentLimitDay = "";
+                }
+                $NightsPenalty = $CancellationPolicy->item(0)->getElementsByTagName('NightsPenalty');
+                if ($NightsPenalty->length > 0) {
+                    $NightsPenalty = $NightsPenalty->item(0)->nodeValue;
+                } else {
+                    $NightsPenalty = "";
+                }
+                $IsNonRefundable = $CancellationPolicy->item(0)->getElementsByTagName('IsNonRefundable');
+                if ($CPDescription->length > 0) {
+                    $IsNonRefundable = $IsNonRefundable->item(0)->nodeValue;
+                } else {
+                    $IsNonRefundable = "";
+                }
+                $IdPolicyInterface = $CancellationPolicy->item(0)->getElementsByTagName('IdPolicyInterface');
+                if ($IdPolicyInterface->length > 0) {
+                    $IdPolicyInterface = $IdPolicyInterface->item(0)->nodeValue;
+                } else {
+                    $IdPolicyInterface = "";
+                }
+                $NoShow = $CancellationPolicy->item(0)->getElementsByTagName('NoShow');
+                if ($NoShow->length > 0) {
+                    $DateFrom = $NoShow->item(0)->getElementsByTagName('DateFrom');
+                    if ($DateFrom->length > 0) {
+                        $DateFrom = $DateFrom->item(0)->nodeValue;
+                    } else {
+                        $DateFrom = "";
+                    }
+                    $Amount = $NoShow->item(0)->getElementsByTagName('Amount');
+                    if ($Amount->length > 0) {
+                        $Amount = $Amount->item(0)->nodeValue;
+                    } else {
+                        $Amount = "";
+                    }
+                }
+            }
+        }
+    }
+}
 
 // EOF
 $db->getDriver()
