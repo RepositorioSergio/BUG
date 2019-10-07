@@ -13,6 +13,7 @@ $valid = 0;
 $hid = 0;
 $shid = 0;
 $total = 0;
+error_log("\r\n COMECA POLICIES \r\n", 3, "/srv/www/htdocs/error_log");
 try {
     $db = new \Zend\Db\Adapter\Adapter($config);
     $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_abreu where session_id='$session_id'";
@@ -49,7 +50,6 @@ if ($row_settings->valid()) {
     $response['error'] = "Unable to handle request #2";
     return false;
 }
-error_log("\r\n COMECA ENABLE \r\n", 3, "/srv/www/htdocs/error_log");
 $affiliate_id = 0;
 $sql = "select value from settings where name='enableabreu' and affiliate_id=$affiliate_id" . $branch_filter;
 $statement = $db->createStatement($sql);
@@ -62,7 +62,6 @@ if ($row_settings->valid()) {
     $affiliate_id_abreu = 0;
 }
 
-error_log("\r\n PASSOU ENABLE \r\n", 3, "/srv/www/htdocs/error_log");
 $sql = "select value from settings where name='AbreuUsername' and affiliate_id=$affiliate_id_abreu" . $branch_filter;
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -72,7 +71,6 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $AbreuUsername = $row_settings['value'];
 }
-error_log("\r\n AbreuUsername  $AbreuUsername  \r\n", 3, "/srv/www/htdocs/error_log");
 $sql = "select value from settings where name='Abreupassword' and affiliate_id=$affiliate_id_abreu" . $branch_filter;
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -80,7 +78,7 @@ $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $Abreupassword = $row_settings['value'];
+    $Abreupassword = base64_decode($row_settings['value']);
 }
 $sql = "select value from settings where name='AbreuMarkup' and affiliate_id=$affiliate_id_abreu" . $branch_filter;
 $statement = $db->createStatement($sql);
@@ -102,6 +100,15 @@ $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $AbreuHOTELAVAILABILITY = $row_settings['value'];
+}
+$sql = "select value from settings where name='AbreuContext' and affiliate_id=$affiliate_id_abreu";
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $AbreuContext = $row_settings['value'];
 }
 $sql = "select value from settings where name='AbreuCustomerID' and affiliate_id=$affiliate_id_abreu" . $branch_filter;
 $statement = $db->createStatement($sql);
@@ -154,25 +161,18 @@ for ($w = 0; $w < count($quoteid); $w ++) {
         array_push($breakdown, $outputArray);
     }
 }
-error_log("\r\n PASSOU BREAK \r\n", 3, "/srv/www/htdocs/error_log");
-/*
- * $fromHotelsPRO = DateTime::createFromFormat("d-m-Y", $from);
- * $toHotelsPro = DateTime::createFromFormat("d-m-Y", $to);
- * $nights = $fromHotelsPRO->diff($toHotelsPro);
- * $nights = $nights->format('%a');
- */
 
 $c = 0;
 $response = array();
 $roombreakdown = array();
 foreach ($breakdown as $k => $v) {
     foreach ($v as $key => $value) {
-        error_log("\r\n ENTROU FOREACH \r\n", 3, "/srv/www/htdocs/error_log");
         if ($shid == 0) {
             $shid = $value['shid'];
             $code = $value['HotelId'];
             $scode = $value['shid'];
             $hotel_code = $value['shid'];
+            $hotelName = $value['name'];
             // error_log("\r\n" . print_r($value, true) . "\r\n", 3, "/srv/www/htdocs/error_log");
         } else {
             if ($shid != $value['shid']) {
@@ -181,11 +181,177 @@ foreach ($breakdown as $k => $v) {
                 return false;
             }
         }
+
+        $roomid = $value['roomid'];
+        $meal = $value['MealPlan'];
+
         $item = array();
         $cancelation_deadline = 0;
         $cancelation_details = "";
-        error_log("\r\n ANTES CURL \r\n", 3, "/srv/www/htdocs/error_log");
-        
+        error_log("\r\n ANTES CURL $meal \r\n", 3, "/srv/www/htdocs/error_log");
+        $from = date("Y-m-d", strtotime($from));
+        $to = date("Y-m-d", strtotime($to));
+
+        $raw2 = '<?xml version="1.0" encoding="utf-8"?><soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsse:Username>' . $AbreuUsername . '</wsse:Username><wsse:Password>' . $Abreupassword . '</wsse:Password><Context>' . $AbreuContext . '</Context></wsse:Security></soap-env:Header><soap-env:Body><OTA_HotelAvailRQ xmlns=" http://parsec.es/hotelapi/OTA2014Compact" ><HotelSearch><Currency Code="USD" /><DateRange Start="' . $from . '" End="' . $to . '" /><GuestCountry Code="ES"/><RoomCandidates><RoomCandidate RPH="1" RoomTypeCode="' . $roomid . '"><Guests><Guest AgeCode="A" Count="2" /></Guests></RoomCandidate></RoomCandidates></HotelSearch></OTA_HotelAvailRQ></soap-env:Body></soap-env:Envelope>';
+
+        error_log("\r\n Request: $raw2 \r\n", 3, "/srv/www/htdocs/error_log");
+
+        $startTime = microtime();
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $AbreuHOTELAVAILABILITY);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $raw2);
+        curl_setopt($ch, CURLOPT_VERBOSE, 1);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            "Accept: application/xml",
+            "Content-type: text/xml",
+            "Content-length: " . strlen($raw2)
+        ));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response2 = curl_exec($ch);
+        $error = curl_error($ch);
+        $headers = curl_getinfo($ch);
+        // if ($response === false) {
+        // error_log("\r\nCurl error: " . curl_error($ch) . "\r\n", 3, "/srv/www/htdocs/error_log");
+        // } else {
+        // error_log("\r\n Operation completed without any errors \r\n", 3, "/srv/www/htdocs/error_log");
+        // }
+        error_log("\r\n RESPONSE ABREU: $response2 \r\n", 3, "/srv/www/htdocs/error_log");
+        curl_close($ch);
+
+        try {
+            $sql = new Sql($db);
+            $insert = $sql->insert();
+            $insert->into('log_abreu');
+            $insert->values(array(
+                'datetime_created' => time(),
+                'filename' => 'Policies.php',
+                'errorline' => "",
+                'errormessage' => $$AbreuHOTELAVAILABILITY . $raw2,
+                'sqlcontext' => $response2,
+                'errcontext' => ''
+            ), $insert::VALUES_MERGE);
+            $statement = $sql->prepareStatementForSqlObject($insert);
+            $results = $statement->execute();
+        } catch (\Exception $e) {
+            $logger = new Logger();
+            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+            $logger->addWriter($writer);
+            $logger->info($e->getMessage());
+        }
+
+        $cancel = array();
+        $count = 0;
+
+        $inputDoc = new DOMDocument();
+        $inputDoc->loadXML($response2);
+        $OTA_HotelAvailRS = $inputDoc->getElementsByTagName('OTA_HotelAvailRS');
+
+        $Hotels = $OTA_HotelAvailRS->item(0)->getElementsByTagName('Hotels');
+        if ($Hotels->length > 0) {
+            $Hotel = $Hotels->item(0)->getElementsByTagName('Hotel');
+            if ($Hotel->length > 0) {
+                for ($i=0; $i < $Hotel->length; $i++) { 
+                    $Info = $Hotel->item($i)->getElementsByTagName('Info');
+                    if ($Info->length > 0) {
+                        $Recommended = $Info->item(0)->getAttribute('Recommended');
+                        $MasterCode = $Info->item(0)->getAttribute('MasterCode');
+                        $Rating = $Info->item(0)->getAttribute('Rating');
+                        $HotelCityCode = $Info->item(0)->getAttribute('HotelCityCode');
+                        $HotelName = $Info->item(0)->getAttribute('HotelName');
+                        $HotelCode = $Info->item(0)->getAttribute('HotelCode');
+                    }
+
+                    $BestPrice = $Hotel->item($i)->getElementsByTagName('BestPrice');
+                    if ($BestPrice->length > 0) {
+                        $Currency = $BestPrice->item(0)->getAttribute('Currency');
+                        $Amount = $BestPrice->item(0)->getAttribute('Amount');
+                    }
+
+                    $Rooms = $Hotel->item($i)->getElementsByTagName('Rooms');
+                    if ($Rooms->length > 0) {
+                        $Room = $Rooms->item(0)->getElementsByTagName('Room');
+                        if ($Room->length > 0) {
+                            for ($j=0; $j < $Room->length; $j++) { 
+                                $RPH = $Room->item($j)->getAttribute('RPH');
+                                $Status = $Room->item($j)->getAttribute('Status');
+                                $Best = $Room->item($j)->getAttribute('Best');
+
+                                $RoomType = $Room->item($j)->getElementsByTagName('RoomType');
+                                if ($RoomType->length > 0) {
+                                    $Code = $RoomType->item(0)->getAttribute('Code');
+                                    $Name = $RoomType->item(0)->getAttribute('Name');
+                                    $Special = $RoomType->item(0)->getElementsByTagName('Special');
+                                    if ($Special->length > 0) {
+                                        $Special = $Special->item(0)->nodeValue;
+                                    } else {
+                                        $Special = "";
+                                    }
+                                }
+                                
+                                $RoomRates = $Room->item($j)->getElementsByTagName('RoomRates');
+                                if ($RoomRates->length > 0) {
+                                    $RoomRate = $RoomRates->item(0)->getElementsByTagName('RoomRate');
+                                    if ($RoomRate->length > 0) {
+                                        $MealPlan = $RoomRate->item(0)->getAttribute('MealPlan');
+                                        $BookingCode = $RoomRate->item(0)->getAttribute('BookingCode');
+                                        if ($Code == $roomid and $meal == $MealPlan) {
+                                            $Total = $RoomRate->item(0)->getElementsByTagName('Total');
+                                            if ($Total->length > 0) {
+                                                $Currency = $Total->item(0)->getAttribute('Currency');
+                                                $Amount = $Total->item(0)->getAttribute('Amount');
+                                                $MinPrice = $Total->item(0)->getAttribute('MinPrice');
+                                                $Commission = $Total->item(0)->getAttribute('Commission');
+                                            } else {
+                                                $Currency = "";
+                                                $Amount = 0;
+                                                $MinPrice = 0;
+                                                $Commission = 0;
+                                            }
+                                            $CancelPenalties = $RoomRate->item(0)->getElementsByTagName('CancelPenalties');
+                                            if ($CancelPenalties->length > 0) {
+                                                $CancelPenalty = $CancelPenalties->item(0)->getElementsByTagName('CancelPenalty');
+                                                if ($CancelPenalty->length > 0) {
+                                                    for ($x=0; $x < $CancelPenalty->length; $x++) { 
+                                                        $Deadline = $CancelPenalty->item($x)->getElementsByTagName('Deadline');
+                                                        if ($Deadline->length > 0) {
+                                                            $Units = $Deadline->item(0)->getAttribute('Units');
+                                                            $cancel[$count]['Units'] = $Units;
+                                                            $TimeUnit = $Deadline->item(0)->getAttribute('TimeUnit');
+                                                            $cancel[$count]['TimeUnit'] = $TimeUnit;
+                                                        } else {
+                                                            $Units = "";
+                                                            $TimeUnit = "";
+                                                        }
+                                                        $Charge = $CancelPenalty->item($x)->getElementsByTagName('Charge');
+                                                        if ($Charge->length > 0) {
+                                                            $ChargeCurrency = $Charge->item(0)->getAttribute('Currency');
+                                                            $cancel[$count]['Currency'] = $ChargeCurrency;
+                                                            $ChargeAmount = $Charge->item(0)->getAttribute('Amount');
+                                                            $cancel[$count]['Amount'] = $ChargeAmount;
+                                                        } else {
+                                                            $ChargeCurrency = "";
+                                                            $ChargeAmount = "";
+                                                        }
+                                                        $count++;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         //
         // Policies
@@ -213,10 +379,15 @@ foreach ($breakdown as $k => $v) {
         $item['adults'] = $selectedAdults[$c];
         $item['children'] = $selectedChildren[$c];
         $item['children_ages'] = json_decode(json_encode($selectedChildrenAges[$c]), false);
-        $item['cancelpolicy'] = str_replace("<p><br /></p>", "", $value['cancelpolicy']);
-        
-         /* $item['cancelpolicy_deadline'] = strftime("%d-%m-%Y", $cancelation_deadline);
-         * $item['cancelpolicy_deadlinetimestamp'] = $cancelation_deadline;
+
+        $cancelation_details = "The Cancellation in " . $cancel[0]['Units'] . " " . $cancel[0]['TimeUnit'] . "s cost " . $cancel[0]['Amount'] . " " . $cancel[0]['Currency'];
+        if ($count > 1) {
+            $cancelation_details = $cancelation_details . "<br/> If you Cancel in " . $cancel[0]['Units'] . " " . $cancel[0]['TimeUnit'] . "s cost " . $cancel[0]['Amount'] . " " . $cancel[0]['Currency'];
+        }
+        error_log("\r\n cancelation_details: $cancelation_details \r\n", 3, "/srv/www/htdocs/error_log");
+        $item['cancelpolicy'] = $cancelation_details;  
+        $item['cancelpolicy_deadline'] = $cancel[0]['Units'] . " " . $cancel[0]['TimeUnit'];
+         /* $item['cancelpolicy_deadlinetimestamp'] = $cancelation_deadline;
          * $item['cancelpolicy_details'] = $cancelation_details;
          */
         array_push($roombreakdown, $item);

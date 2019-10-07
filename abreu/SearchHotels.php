@@ -225,7 +225,7 @@ if ($city_xml41 != "") {
     }
     $raw .= '</RoomStayCandidates><TPA_Extensions><UniqueId URL="" Type="Reservation" Id=""/><OnRequest Id="' . $AbreuOnRequest . '"/></TPA_Extensions></BookingSegment></BookingSegments></OTA_HotelAvailRQ>';
     
-    $raw2 = '<?xml version="1.0" encoding="utf-8"?><soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsse:Username>' . $AbreuUsername . '</wsse:Username><wsse:Password>' . $Abreupassword . '</wsse:Password><Context>' . $AbreuContext . '</Context></wsse:Security></soap-env:Header><soap-env:Body><OTA_HotelAvailRQ xmlns=" http://parsec.es/hotelapi/OTA2014Compact" ><HotelSearch><Currency Code="USD" /><HotelLocation CityCode="' . $city_xml41 . '" /><DateRange Start="' . date("Y-m-d", $from) . '" End="' . date("Y-m-d", $to) . '" /><GuestCountry Code="ES"/><RoomCandidates><RoomCandidate RPH="1"><Guests><Guest AgeCode="A" Count="2" /></Guests></RoomCandidate><RoomCandidate RPH="2"><Guests><Guest AgeCode="A" Count="2" /></Guests></RoomCandidate></RoomCandidates></HotelSearch></OTA_HotelAvailRQ></soap-env:Body></soap-env:Envelope>';
+    $raw2 = '<?xml version="1.0" encoding="utf-8"?><soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsse:Username>' . $AbreuUsername . '</wsse:Username><wsse:Password>' . $Abreupassword . '</wsse:Password><Context>' . $AbreuContext . '</Context></wsse:Security></soap-env:Header><soap-env:Body><OTA_HotelAvailRQ xmlns=" http://parsec.es/hotelapi/OTA2014Compact" ><HotelSearch><Currency Code="USD" /><HotelLocation CityCode="' . $city_xml41 . '" /><DateRange Start="' . date("Y-m-d", $from) . '" End="' . date("Y-m-d", $to) . '" /><GuestCountry Code="ES"/><RoomCandidates><RoomCandidate RPH="1"><Guests><Guest AgeCode="A" Count="2" /></Guests></RoomCandidate></RoomCandidates></HotelSearch></OTA_HotelAvailRQ></soap-env:Body></soap-env:Envelope>';
 
     error_log("\r\n Request: $raw2 \r\n", 3, "/srv/www/htdocs/error_log");
     if ($AbreuHOTELAVAILABILITY != "" and $AbreuUsername != "" and $Abreupassword != "") {
@@ -255,7 +255,7 @@ if ($city_xml41 != "") {
         // }
         // error_log("\r\n $PalladiumHotelGroupserviceurl \r\n", 3, "/srv/www/htdocs/error_log");
         // error_log("\r\n $raw \r\n", 3, "/srv/www/htdocs/error_log");
-        error_log("\r\n RESPONSE ABREU: $response \r\n", 3, "/srv/www/htdocs/error_log");
+        //error_log("\r\n RESPONSE ABREU: $response \r\n", 3, "/srv/www/htdocs/error_log");
         curl_close($ch);
         // Descomentar para ver o resultado do provider
         // Nao esquecer de alterar o session id para testar por causa de cache
@@ -377,6 +377,7 @@ if ($city_xml41 != "") {
                                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['children'] = $selectedChildren[$zRooms];
                                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['total'] = (double) $Amount;
                                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nett'] = $Amount;
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['MealPlan'] = $MealPlan;
                                     //$tmp[$shid]['details'][$zRooms][$baseCounterDetails]['NonRefundable'] = $NonRefundable;
                                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['Recommended'] = $Recommended;
                                    // $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['boardtype'] = $MealPlanDescription;
@@ -439,13 +440,13 @@ if ($city_xml41 != "") {
     }
 }
 // error_log("\r\n palladium: $palladium \r\n", 3, "/srv/www/htdocs/error_log");
-error_log("\r\n TMP:" . print_r($tmp, true) . " \r\n", 3, "/srv/www/htdocs/error_log");
+//error_log("\r\n TMP:" . print_r($tmp, true) . " \r\n", 3, "/srv/www/htdocs/error_log");
 
 if ($abreu == true) {
     $sfilter = implode(' or ', $sfilter);
     try {
         $sql = "select hid, sid from xmlhotels_mabreu where " . $sfilter;
-        error_log("\r\n SQL $sql \r\n", 3, "/srv/www/htdocs/error_log");
+        //error_log("\r\n SQL $sql \r\n", 3, "/srv/www/htdocs/error_log");
         $statement2 = $db->createStatement($sql);
         $statement2->prepare();
         $result2 = $statement2->execute();
@@ -483,7 +484,7 @@ if ($abreu == true) {
         $sidfilter = implode(',', $sidfilter);
         $query = 'call xmlhotels("' . $sidfilter . '")';
         $supplier = 41;
-        error_log("\r\n QUERY $query \r\n", 3, "/srv/www/htdocs/error_log");
+        //error_log("\r\n QUERY $query \r\n", 3, "/srv/www/htdocs/error_log");
         try {
             $sql = new Sql($db);
             $delete = $sql->delete();
