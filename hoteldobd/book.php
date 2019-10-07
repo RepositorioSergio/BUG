@@ -91,7 +91,6 @@ if ($_SERVER['HTTP_CLIENT_IP']) {
     $ipaddress = "142.44.216.144";
 }
 
-$ipaddress = "142.44.216.144";
 
 
 $raw = '<Request Type="Reservation" Version="1.0">
@@ -100,16 +99,16 @@ $raw = '<Request Type="Reservation" Version="1.0">
     <currency>PE</currency>
     <ip>' . $ipaddress . '</ip>
     <uid>m2r32b14es10socxtxs4y4ht</uid>
-    <firstname>Alvaro</firstname>
+    <firstname>Julio</firstname>
     <lastname>prueba</lastname>
-    <emailaddress>alvaro.prueba@bestday.com</emailaddress>
+    <emailaddress>julio.prueba@bestday.com</emailaddress>
     <clientcountry>MX</clientcountry>
     <country>MX</country>
     <address>bonampak 4</address>
     <city>cancun</city>
     <state>QROO</state>
     <zip>77500</zip>
-    <total>6118.8876953125</total>
+    <total>5796.83984375</total>
     <naturalperson>
         <gender/>
         <nationality/>
@@ -130,7 +129,7 @@ $raw = '<Request Type="Reservation" Version="1.0">
     <hotels>
         <hotel>
             <hotelid>5622</hotelid>
-            <roomtype>APTOSUP2</roomtype>
+            <roomtype>APTODLXA</roomtype>
             <mealplan>ZZ</mealplan>
             <datearrival>20200108</datearrival>
             <datedeparture>20200111</datedeparture>
@@ -139,11 +138,11 @@ $raw = '<Request Type="Reservation" Version="1.0">
             <dutypercent>0</dutypercent>
             <rooms>
                 <room>
-                    <name>Alvaro</name>
+                    <name>Julio</name>
                     <lastname>prueba</lastname>
-                    <amount>6118.8876953125</amount>
+                    <amount>5796.83984375</amount>
                     <status>AV</status>
-                    <ratekey>APTOSUP2ZZ</ratekey>
+                    <ratekey>APTODLXAZZ</ratekey>
                     <adults>4</adults>
                     <kids>0</kids>
                     <k1a>0</k1a>
@@ -155,7 +154,7 @@ $raw = '<Request Type="Reservation" Version="1.0">
 <agencycreditpayment>
     <type></type>
     <currency>PE</currency>
-    <amount>6118.8876953125</amount>
+    <amount>5796.83984375</amount>
 </agencycreditpayment>
 </payments>
 </Request>';
@@ -187,7 +186,7 @@ curl_close($ch);
 echo "<xmp>";
 var_dump($response);
 echo "</xmp>";
-
+die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.roomer.php');
 $config = [
     'driver' => $config->db->driver,

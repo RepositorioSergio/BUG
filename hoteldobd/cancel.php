@@ -73,8 +73,26 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 
+$ipaddress = '';
+if ($_SERVER['HTTP_CLIENT_IP']) {
+    $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+} else if ($_SERVER['HTTP_X_FORWARDED_FOR']) {
+    $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else if ($_SERVER['HTTP_X_FORWARDED']) {
+    $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+} else if ($_SERVER['HTTP_FORWARDED_FOR']) {
+    $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+} else if ($_SERVER['HTTP_FORWARDED']) {
+    $ipaddress = $_SERVER['HTTP_FORWARDED'];
+} else if ($_SERVER['REMOTE_ADDR']) {
+    $ipaddress = $_SERVER['REMOTE_ADDR'];
+} else {
+    $ipaddress = 'UNKNOWN';
+    $ipaddress = "142.44.216.144";
+}
 
-$raw = '/CancelItineraryServices?a=' . $HotelDouser . '&&ip=142.44.216.144&l=ESP&c=MX&bn=230001418&bc=1&ch=&hash=jumper:true';
+
+$raw = '/CancelItineraryServices?a=' . $HotelDouser . '&&ip=' . $ipaddress . '&l=ESP&c=MX&bn=230002267&bc=1&ch=&hash=jumper:true';
 echo $HotelDoserviceURL . $raw ."<br/>";
 //230000032
 

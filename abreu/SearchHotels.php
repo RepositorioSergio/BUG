@@ -13,6 +13,7 @@ use Zend\Filter\AbstractFilter;
 use Zend\I18n\Translator\Translator;
 $translator = new Translator();
 $filter = new \Zend\I18n\Filter\NumberFormat($NumberFormat, 2);
+error_log("\r\n COMECOU ABREU \r\n", 3, "/srv/www/htdocs/error_log");
 unset($tmp);
 $sfilter = array();
 $abreu = false;
@@ -95,6 +96,16 @@ $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $AbreuHOTELAVAILABILITY = $row_settings['value'];
+}
+
+$sql = "select value from settings where name='AbreuContext' and affiliate_id=$affiliate_id_abreu";
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $AbreuContext = $row_settings['value'];
 }
 
 $sql = "select value from settings where name='AbreuCustomerID' and affiliate_id=$affiliate_id_abreu";
@@ -213,14 +224,17 @@ if ($city_xml41 != "") {
         $raw .= '</RoomStayCandidate>';
     }
     $raw .= '</RoomStayCandidates><TPA_Extensions><UniqueId URL="" Type="Reservation" Id=""/><OnRequest Id="' . $AbreuOnRequest . '"/></TPA_Extensions></BookingSegment></BookingSegments></OTA_HotelAvailRQ>';
-    // error_log("\r\n Request: $raw \r\n", 3, "/srv/www/htdocs/error_log");
+    
+    $raw2 = '<?xml version="1.0" encoding="utf-8"?><soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsse:Username>' . $AbreuUsername . '</wsse:Username><wsse:Password>' . $Abreupassword . '</wsse:Password><Context>' . $AbreuContext . '</Context></wsse:Security></soap-env:Header><soap-env:Body><OTA_HotelAvailRQ xmlns=" http://parsec.es/hotelapi/OTA2014Compact" ><HotelSearch><Currency Code="USD" /><HotelLocation CityCode="' . $city_xml41 . '" /><DateRange Start="' . date("Y-m-d", $from) . '" End="' . date("Y-m-d", $to) . '" /><GuestCountry Code="ES"/><RoomCandidates><RoomCandidate RPH="1"><Guests><Guest AgeCode="A" Count="2" /></Guests></RoomCandidate><RoomCandidate RPH="2"><Guests><Guest AgeCode="A" Count="2" /></Guests></RoomCandidate></RoomCandidates></HotelSearch></OTA_HotelAvailRQ></soap-env:Body></soap-env:Envelope>';
+
+    error_log("\r\n Request: $raw2 \r\n", 3, "/srv/www/htdocs/error_log");
     if ($AbreuHOTELAVAILABILITY != "" and $AbreuUsername != "" and $Abreupassword != "") {
         $startTime = microtime();
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $AbreuHOTELAVAILABILITY);
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $raw2);
         curl_setopt($ch, CURLOPT_VERBOSE, 1);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -228,7 +242,7 @@ if ($city_xml41 != "") {
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             "Accept: application/xml",
             "Content-type: text/xml",
-            "Content-length: " . strlen($raw)
+            "Content-length: " . strlen($raw2)
         ));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
@@ -241,7 +255,7 @@ if ($city_xml41 != "") {
         // }
         // error_log("\r\n $PalladiumHotelGroupserviceurl \r\n", 3, "/srv/www/htdocs/error_log");
         // error_log("\r\n $raw \r\n", 3, "/srv/www/htdocs/error_log");
-        // error_log("\r\n RESPONSE ABREU: $response \r\n", 3, "/srv/www/htdocs/error_log");
+        error_log("\r\n RESPONSE ABREU: $response \r\n", 3, "/srv/www/htdocs/error_log");
         curl_close($ch);
         // Descomentar para ver o resultado do provider
         // Nao esquecer de alterar o session id para testar por causa de cache
@@ -271,287 +285,167 @@ if ($city_xml41 != "") {
         
         $inputDoc = new DOMDocument();
         $inputDoc->loadXML($response);
-        $node = $inputDoc->getElementsByTagName('SummaryResponse');
-        for ($rAUX = 0; $rAUX < $node->length; $rAUX ++) {
-            $CurrencyCode = $node->item($rAUX)->getAttribute("CurrencyCode");
-            error_log("\r\n CurrencyCode ABREU: $CurrencyCode \r\n", 3, "/srv/www/htdocs/error_log");
-            $CurrencyCode_Base = $CurrencyCode;
-            $HotelAddress = $node->item($rAUX)->getAttribute("HotelAddress");
-            $HotelBabyAge = $node->item($rAUX)->getAttribute("HotelBabyAge");
-            $HotelCat = $node->item($rAUX)->getAttribute("HotelCat");
-            $HotelChildrenAge = $node->item($rAUX)->getAttribute("HotelChildrenAge");
-            $HotelCity = $node->item($rAUX)->getAttribute("HotelCity");
-            $HotelCountry = $node->item($rAUX)->getAttribute("HotelCountry");
-            $HotelLink = $node->item($rAUX)->getAttribute("HotelLink");
-            $HotelLocation = $node->item($rAUX)->getAttribute("HotelLocation");
-            $HotelName = $node->item($rAUX)->getAttribute("HotelName");
-            error_log("\r\n HotelName ABREU: $HotelName \r\n", 3, "/srv/www/htdocs/error_log");
-            $HotelPhone = $node->item($rAUX)->getAttribute("HotelPhone");
-            $IsModifiable = $node->item($rAUX)->getAttribute("IsModifiable");
-            $InvBlockCode = $node->item($rAUX)->getAttribute("InvBlockCode");
-            $IsAlternate = $node->item($rAUX)->getAttribute("IsAlternate");
-            $IsRoom = $node->item($rAUX)->getAttribute("IsRoom");
-            $MultipleRoom = $node->item($rAUX)->getAttribute("MultipleRoom");
-            $HotelLatitude = $node->item($rAUX)->getAttribute("HotelLatitude");
-            $HotelLongitude = $node->item($rAUX)->getAttribute("HotelLongitude");
-            $Accuracy = $node->item($rAUX)->getAttribute("Accuracy");
-            $ParsysRoomTypeDescription = $node->item($rAUX)->getAttribute("ParsysRoomTypeDescription");
-            $ParsysRoomTypeName = $node->item($rAUX)->getAttribute("ParsysRoomTypeName");
-            $ParsysRoomTypeUse = $node->item($rAUX)->getAttribute("ParsysRoomTypeUse");
-            $ParsysRoomTypeUseName = $node->item($rAUX)->getAttribute("ParsysRoomTypeUseName");
-            $RoomTypeCode = $node->item($rAUX)->getAttribute("RoomTypeCode");
-            $Preference = $node->item($rAUX)->getAttribute("Preference");
-            $Recommended = $node->item($rAUX)->getAttribute("Recommended");
-            $Mark = $node->item($rAUX)->getAttribute("Mark");
-            $CommissionType = $node->item($rAUX)->getAttribute("CommissionType");
-            $ParsysRoomTypeUseAdults = $node->item($rAUX)->getAttribute("ParsysRoomTypeUseAdults");
-            $ParsysRoomTypeUseChildren = $node->item($rAUX)->getAttribute("ParsysRoomTypeUseChildren");
-            $MealPlan = $node->item($rAUX)->getAttribute("MealPlan");
-            $MealPlanDescription = $node->item($rAUX)->getAttribute("MealPlanDescription");
-            $MealPlanCode = $node->item($rAUX)->getAttribute("MealPlanCode");
-            $AssignedRoomUseCode = $node->item($rAUX)->getAttribute("AssignedRoomUseCode");
-            $RequestIDs = $node->item($rAUX)->getAttribute("RequestIDs");
-            $HotelIdent = $node->item($rAUX)->getAttribute("HotelIdent");
-            $NonRefundable = $node->item($rAUX)->getAttribute("NonRefundable");
-            $HasCanPenaltyNow = $node->item($rAUX)->getAttribute("HasCanPenaltyNow");
-            error_log("\r\n HasCanPenaltyNow ABREU: $HasCanPenaltyNow \r\n", 3, "/srv/www/htdocs/error_log");
-            // Hotel Reference
-            $HotelReference = $node->item($rAUX)->getElementsByTagName("HotelReference");
-            if ($HotelReference->length > 0) {
-                $HotelCode = $HotelReference->item(0)->getAttribute("HotelCode");
-                $shid = $HotelCode;
-                $sfilter[] = " sid='$HotelCode' ";
-                $MasterCode = $HotelReference->item(0)->getAttribute("MasterCode");
-                error_log("\r\n MasterCode ABREU: $MasterCode \r\n", 3, "/srv/www/htdocs/error_log");
-            } else {
-                $HotelCode = "";
-                $MasterCode = "";
-            }
-            // RATEQUOTE
-            $RateQuote = $node->item($rAUX)->getElementsByTagName("RateQuote");
-            if ($RateQuote->length > 0) {
-                $MaxOccupancy = $RateQuote->item(0)->getElementsByTagName("MaxOccupancy");
-                if ($MaxOccupancy->length > 0) {
-                    $Count = $MaxOccupancy->item(0)->getAttribute("Count");
-                } else {
-                    $Count = 0;
-                }
-                $DateRange = $RateQuote->item(0)->getElementsByTagName("DateRange");
-                if ($DateRange->length > 0) {
-                    $EndDate = $DateRange->item(0)->getAttribute("EndDate");
-                    $StartDate = $DateRange->item(0)->getAttribute("StartDate");
-                } else {
-                    $EndDate = "";
-                    $StartDate = "";
-                }
-                $QuotedRate = $RateQuote->item(0)->getElementsByTagName("QuotedRate");
-                if ($QuotedRate->length > 0) {
-                    $CurrencyCode = $QuotedRate->item(0)->getAttribute("CurrencyCode");
-                    error_log("\r\n CurrencyCode ABREU: $CurrencyCode \r\n", 3, "/srv/www/htdocs/error_log");
-                    $Commission = $QuotedRate->item(0)->getAttribute("Commission");
-                    $StartDate = $QuotedRate->item(0)->getAttribute("StartDate");
-                    $DecPart = $QuotedRate->item(0)->getAttribute("DecPart");
-                    $IntPart = $QuotedRate->item(0)->getAttribute("IntPart");
-                    $RateAmount = $QuotedRate->item(0)->getAttribute("RateAmount");
-                    $RateBasisUnitsQty = $QuotedRate->item(0)->getAttribute("RateBasisUnitsQty");
-                } else {
-                    $EndDate = "";
-                    $StartDate = "";
-                    $CurrencyCode = "";
-                    $Commission = 0;
-                    $IntPart = 0;
-                    $DecPart = 0;
-                    $RateAmount = "";
-                    $RateBasisUnitsQty = 0;
-                }
-            } else {
-                $Count = 0;
-                $EndDate = "";
-                $StartDate = "";
-                $CurrencyCode = "";
-                $Commission = 0;
-                $IntPart = 0;
-                $DecPart = 0;
-                $RateAmount = "";
-                $RateBasisUnitsQty = 0;
-            }
+        $OTA_HotelAvailRS = $inputDoc->getElementsByTagName('OTA_HotelAvailRS');
+
+        $Hotels = $OTA_HotelAvailRS->item(0)->getElementsByTagName('Hotels');
+        if ($Hotels->length > 0) {
+            $Hotel = $Hotels->item(0)->getElementsByTagName('Hotel');
+            if ($Hotel->length > 0) {
+                for ($i=0; $i < $Hotel->length; $i++) { 
+                    $Info = $Hotel->item($i)->getElementsByTagName('Info');
+                    if ($Info->length > 0) {
+                        $Recommended = $Info->item(0)->getAttribute('Recommended');
+                        $MasterCode = $Info->item(0)->getAttribute('MasterCode');
+                        $Rating = $Info->item(0)->getAttribute('Rating');
+                        $HotelCityCode = $Info->item(0)->getAttribute('HotelCityCode');
+                        $HotelName = $Info->item(0)->getAttribute('HotelName');
+                        $HotelCode = $Info->item(0)->getAttribute('HotelCode');
+                        $shid = $HotelCode;
+                        $sfilter[] = " sid='$HotelCode' ";
+                    }
+
+                    $BestPrice = $Hotel->item($i)->getElementsByTagName('BestPrice');
+                    if ($BestPrice->length > 0) {
+                        $Currency = $BestPrice->item(0)->getAttribute('Currency');
+                        $Amount = $BestPrice->item(0)->getAttribute('Amount');
+                    }
+
+                    $Rooms = $Hotel->item($i)->getElementsByTagName('Rooms');
+                    if ($Rooms->length > 0) {
+                        $Room = $Rooms->item(0)->getElementsByTagName('Room');
+                        if ($Room->length > 0) {
+                            for ($j=0; $j < $Room->length; $j++) { 
+                                $RPH = $Room->item($j)->getAttribute('RPH');
+                                $Status = $Room->item($j)->getAttribute('Status');
+                                $Best = $Room->item($j)->getAttribute('Best');
+
+                                $RoomType = $Room->item($j)->getElementsByTagName('RoomType');
+                                if ($RoomType->length > 0) {
+                                    $Code = $RoomType->item(0)->getAttribute('Code');
+                                    $Name = $RoomType->item(0)->getAttribute('Name');
+                                    $Special = $RoomType->item(0)->getElementsByTagName('Special');
+                                    if ($Special->length > 0) {
+                                        $Special = $Special->item(0)->nodeValue;
+                                    } else {
+                                        $Special = "";
+                                    }
+                                }
+
+                                $RoomRates = $Room->item($j)->getElementsByTagName('RoomRates');
+                                if ($RoomRates->length > 0) {
+                                    $RoomRate = $RoomRates->item(0)->getElementsByTagName('RoomRate');
+                                    if ($RoomRate->length > 0) {
+                                        $MealPlan = $RoomRate->item(0)->getAttribute('MealPlan');
+                                        $BookingCode = $RoomRate->item(0)->getAttribute('BookingCode');
+                                        $Total = $RoomRate->item(0)->getElementsByTagName('Total');
+                                        if ($Total->length > 0) {
+                                            $Currency = $Total->item(0)->getAttribute('Currency');
+                                            $Amount = $Total->item(0)->getAttribute('Amount');
+                                            $MinPrice = $Total->item(0)->getAttribute('MinPrice');
+                                            $Commission = $Total->item(0)->getAttribute('Commission');
+                                        } else {
+                                            $Currency = "";
+                                            $Amount = 0;
+                                            $MinPrice = 0;
+                                            $Commission = 0;
+                                        }
+                                        
+                                    }
+                                }
+
+        
             
-            $total = $IntPart . "." . $DecPart;
-            
-            // ADITIONALDETAILS
-            $AdditionalDetails = $node->item($rAUX)->getElementsByTagName("AdditionalDetails");
-            if ($AdditionalDetails->length > 0) {
-                $AdditionalDetail = $AdditionalDetails->item(0)->getElementsByTagName("AdditionalDetail");
-                $AdditionalDetails = array();
-                for ($xAdditionalDetail = 0; $xAdditionalDetail < $AdditionalDetail->length; $xAdditionalDetail ++) {
-                    $AdditionalDetails[$xAdditionalDetail]['Amount'] = $AdditionalDetail->item($xAdditionalDetail)->getAttribute("Amount");
-                    $AdditionalDetails[$xAdditionalDetail]['Code'] = $AdditionalDetail->item($xAdditionalDetail)->getAttribute("Code");
-                    $AdditionalDetails[$xAdditionalDetail]['CurrencyCode'] = $AdditionalDetail->item($xAdditionalDetail)->getAttribute("CurrencyCode");
-                    $AdditionalDetails[$xAdditionalDetail]['DecPart'] = $AdditionalDetail->item($xAdditionalDetail)->getAttribute("DecPart");
-                    $AdditionalDetails[$xAdditionalDetail]['IntPart'] = $AdditionalDetail->item($xAdditionalDetail)->getAttribute("IntPart");
-                    $AdditionalDetails[$xAdditionalDetail]['Type'] = $AdditionalDetail->item($xAdditionalDetail)->getAttribute("Type");
-                    $xAdditionalDetail = $xAdditionalDetail + 1;
-                }
-            } else {
-                $AdditionalDetails = "";
-            }
-            // ADITIONALDETAILSBYDAYS
-            $auxAdditionalDetailDate = array();
-            $auxDetailSuppl = array();
-            $auxCount = 0;
-            $auxCount2 = 0;
-            $AdditionalDetailsByDay = $node->item($rAUX)->getElementsByTagName("AdditionalDetailsByDay");
-            if ($AdditionalDetailsByDay->length > 0) {
-                $AdditionalDetailDate = $AdditionalDetailsByDay->item(0)->getElementsByTagName("AdditionalDetailDate");
-                for ($i = 0; $i < $AdditionalDetailDate->length; $i ++) {
-                    $Breakdown[$auxCount]['Date'] = $AdditionalDetailDate->item($i)->getAttribute("Date");
-                    $Breakdown[$auxCount]['Amount'] = $AdditionalDetailDate->item($i)->getAttribute("Amount");
-                    $Breakdown[$auxCount]['CurrencyCode'] = $AdditionalDetailDate->item($i)->getAttribute("CurrencyCode");
-                    $Breakdown[$auxCount]['DecPart'] = $AdditionalDetailDate->item($i)->getAttribute("DecPart");
-                    $Breakdown[$auxCount]['IntPart'] = $AdditionalDetailDate->item($i)->getAttribute("IntPart");
-                    $Breakdown[$auxCount]['Rate'] = $AdditionalDetailDate->item($i)->getAttribute("Rate");
-                    $Breakdown[$auxCount]['RateParsys'] = $AdditionalDetailDate->item($i)->getAttribute("RateParsys");
-                    $Breakdown[$auxCount]['RateName'] = $AdditionalDetailDate->item($i)->getAttribute("RateName");
-                    $Breakdown[$auxCount]['MealPlan'] = $AdditionalDetailDate->item($i)->getAttribute("MealPlan");
-                    $Breakdown[$auxCount]['MealPlanDescription'] = $AdditionalDetailDate->item($i)->getAttribute("MealPlanDescription");
-                    $auxCount = $auxCount + 1;
-                    $AdditionalDetailSuppl = $AdditionalDetailDate->item($i)->getElementsByTagName("AdditionalDetailSuppl");
-                    if ($AdditionalDetailSuppl->length > 0) {
-                        $AdditionalDetailSupplMeal = $AdditionalDetailSuppl->item(0)->getElementsByTagName("AdditionalDetailSupplMeal");
-                        for ($auxMeal = 0; $auxMeal < $AdditionalDetailSupplMeal->length; $auxMeal ++) {
-                            $auxDetailSuppl[$auxCount2]['MealPlanDescription'] = $AdditionalDetailSupplMeal->item($auxMeal)->getAttribute("MealPlanDescription");
-                            $auxDetailSuppl[$auxCount2]['IntPart'] = $AdditionalDetailSupplMeal->item($auxMeal)->getAttribute("IntPart");
-                            $auxDetailSuppl[$auxCount2]['DecPart'] = $AdditionalDetailSupplMeal->item($auxMeal)->getAttribute("DecPart");
-                            $auxDetailSuppl[$auxCount2]['Code'] = $AdditionalDetailSupplMeal->item($auxMeal)->getAttribute("Code");
-                            $auxDetailSuppl[$auxCount2]['Amount'] = $AdditionalDetailSupplMeal->item($auxMeal)->getAttribute("Amount");
-                            $auxCount2 = $auxCount2 + 1;
+                                for ($zRooms = 0; $zRooms < count($selectedAdults); $zRooms ++) {
+                                    if (is_array($tmp[$shid])) {
+                                        $baseCounterDetails = count($tmp[$shid]['details'][$zRooms]);
+                                    } else {
+                                        $baseCounterDetails = 0;
+                                    }
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['name'] = $HotelName;
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['shid'] = $shid;
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['HotelId'] = $HotelCode;
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['status'] = 1;
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['quoteid'] = md5(uniqid($session_id, true)) . "-" . $index . "-41";
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['BookingCode'] = $BookingCode;
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room'] = $Name;
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['roomid'] = $Code;
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['RoomTypeCode'] = $Name;
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['RoomType'] = $Name;
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['RatePlanCode'] = $RateParsys;
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['RoomDescription'] = $Special;
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['adults'] = $selectedAdults[$zRooms];
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['children'] = $selectedChildren[$zRooms];
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['total'] = (double) $Amount;
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nett'] = $Amount;
+                                    //$tmp[$shid]['details'][$zRooms][$baseCounterDetails]['NonRefundable'] = $NonRefundable;
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['Recommended'] = $Recommended;
+                                   // $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['boardtype'] = $MealPlanDescription;
+                                    
+                                    /*
+                                    * if ($PromotionCode != "") {
+                                    * $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['special'] = true;
+                                    * $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = $PromotionCode;
+                                    * } else {
+                                    */
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['special'] = false;
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = "";
+                                    // }
+                                    
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['meal'] = $translator->translate($MealPlan);
+                                    $pricebreakdown = array();
+                                    $pricebreakdownCount = 0;
+                                    for ($rZZ = 0; $rZZ < $noOfNights; $rZZ ++) {
+                                        $pricebreakdown[$pricebreakdownCount]['date'] = strftime("%d %b %Y", mktime(0, 0, 0, date("m", $from), date("d", $from) + $rZZ, date("y", $from)));
+                                        $amount = $Amount / $noOfNights;
+                                        if ($AbreuMarkup != 0) {
+                                            $amount = $amount + (($amount * $AbreuMarkup) / 100);
+                                        }
+                                        // Geo target markup
+                                        if ($internalmarkup != 0) {
+                                            $amount = $amount + (($amount * $internalmarkup) / 100);
+                                        }
+                                        // Agent markup
+                                        if ($agent_markup != 0) {
+                                            $amount = $amount + (($amount * $agent_markup) / 100);
+                                        }
+                                        // Fallback Markup
+                                        if ($AbreuMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
+                                            $amount = $amount + (($amount * $HotelsMarkupFallback) / 100);
+                                        }
+                                        // Agent discount
+                                        if ($agent_discount != 0) {
+                                            $amount = $amount - (($amount * $agent_discount) / 100);
+                                        }
+                                        if ($scurrency != "" and $currency != $scurrency) {
+                                            $amount = $CurrencyConverter->convert($amount, $currency, $scurrency);
+                                        }
+                                        $pricebreakdown[$pricebreakdownCount]['price'] = $filter->filter($amount);
+                                        $pricebreakdown[$pricebreakdownCount]['priceplain'] = $amount;
+                                        $pricebreakdownCount = $pricebreakdownCount + 1;
+                                    }
+                                    
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['pricebreakdown'] = $pricebreakdown;
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['scurrency'] = $CurrencyCode;
+                                    $tmp[$code]['details'][$zRooms][$baseCounterDetails]['cancelpolicy'] = $Description;
+                                    $tmp[$code]['details'][$zRooms][$baseCounterDetails]['cancelpolicies'] = $Description;
+                                }
+                            }
                         }
                     }
                 }
-            }
-            
-            // TPAEXTENSIONS
-            $auxWarn = array();
-            $auxW = 0;
-            $TPA_Extensions = $node->item($rAUX)->getElementsByTagName("TPA_Extensions");
-            $UniqueId = $TPA_Extensions->item(0)->getElementsByTagName("UniqueId");
-            $Type = $UniqueId->item(0)->getAttribute("Type");
-            $URL = $UniqueId->item(0)->getAttribute("URL");
-            $Id = $UniqueId->item(0)->getAttribute("Id");
-            $ConfirmationStatus = $TPA_Extensions->item(0)->getElementsByTagName("ConfirmationStatus");
-            $CodeC = $ConfirmationStatus->item(0)->getAttribute("Code");
-            $Reason = $ConfirmationStatus->item(0)->getAttribute("Reason");
-            error_log("\r\n Reason ABREU: $Reason \r\n", 3, "/srv/www/htdocs/error_log");
-            $Warnings = $TPA_Extensions->item(0)->getElementsByTagName("Warnings");
-            if ($Warnings->length > 0) {
-                for ($auxWarn = 0; $auxWarn < $Warnings->length; $auxWarn ++) {
-                    $auxWarn[$auxW]['Text'] = $Warnings->item($auxWarn)->getAttribute("Text");
-                    $auxW = $auxW + 1;
-                }
-            }
-            $CancelPenaltyFromDate = "";
-            $CancelPenaltyToDate = "";
-            $CancelPenaltyPenalty = "";
-            $CancelPolicyInformation = $TPA_Extensions->item(0)->getElementsByTagName("CancelPolicyInformation");
-            if ($CancelPolicyInformation->length > 0) {
-                $Description = $CancelPolicyInformation->item(0)->getElementsByTagName("Description");
-                $IsPerRoom = $CancelPolicyInformation->item(0)->getAttribute("IsPerRoom");
-                $HasCancelPolicy = $CancelPolicyInformation->item(0)->getAttribute("HasCancelPolicy");
-                error_log("\r\n HasCancelPolicy ABREU: $HasCancelPolicy \r\n", 3, "/srv/www/htdocs/error_log");
-                $CancelPenalties = $CancelPolicyInformation->item(0)->getElementsByTagName("CancelPenalties");
-                $CancelPenalty = $CancelPenalties->item(0)->getElementsByTagName("CancelPenalty");
-                if ($CancelPenalty->length > 0) {
-                    for ($p = 0; $p < $CancelPenalty->length; $p ++) {
-                        $CancelPenaltyFromDate = $CancelPenalties->item($yCancelPenalties)->getAttribute("FromDate");
-                        $CancelPenaltyToDate = $CancelPenalties->item($yCancelPenalties)->getAttribute("ToDate");
-                        $CancelPenaltyPenalty = $CancelPenalties->item($yCancelPenalties)->getAttribute("Penalty");
-                    }
-                }
-            }
-            
-            for ($zRooms = 0; $zRooms < count($selectedAdults); $zRooms ++) {
-                if (is_array($tmp[$shid])) {
-                    $baseCounterDetails = count($tmp[$shid]['details'][$zRooms]);
-                } else {
-                    $baseCounterDetails = 0;
-                }
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['name'] = $HotelName;
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['shid'] = $shid;
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['HotelId'] = $HotelCode;
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['status'] = 1;
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['quoteid'] = md5(uniqid($session_id, true)) . "-" . $index . "-41";
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room'] = $ParsysRoomTypeName;
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['RoomTypeCode'] = $ParsysRoomTypeName;
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['RoomType'] = $ParsysRoomTypeName;
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['RatePlanCode'] = $RateParsys;
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['RoomDescription'] = $ParsysRoomTypeDescription;
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['adults'] = $selectedAdults[$zRooms];
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['children'] = $selectedChildren[$zRooms];
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['total'] = (double) $total;
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nett'] = $total;
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['NonRefundable'] = $NonRefundable;
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['Recommended'] = $Recommended;
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['boardtype'] = $MealPlanDescription;
-                
-                /*
-                 * if ($PromotionCode != "") {
-                 * $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['special'] = true;
-                 * $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = $PromotionCode;
-                 * } else {
-                 */
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['special'] = false;
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = "";
-                // }
-                
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['meal'] = $translator->translate($MealPlan);
-                $pricebreakdown = array();
-                $pricebreakdownCount = 0;
-                for ($rZZ = 0; $rZZ < $noOfNights; $rZZ ++) {
-                    $pricebreakdown[$pricebreakdownCount]['date'] = strftime("%d %b %Y", mktime(0, 0, 0, date("m", $from), date("d", $from) + $rZZ, date("y", $from)));
-                    $amount = $noOfNights * $total;
-                    if ($AbreuMarkup != 0) {
-                        $amount = $amount + (($amount * $AbreuMarkup) / 100);
-                    }
-                    // Geo target markup
-                    if ($internalmarkup != 0) {
-                        $amount = $amount + (($amount * $internalmarkup) / 100);
-                    }
-                    // Agent markup
-                    if ($agent_markup != 0) {
-                        $amount = $amount + (($amount * $agent_markup) / 100);
-                    }
-                    // Fallback Markup
-                    if ($AbreuMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
-                        $amount = $amount + (($amount * $HotelsMarkupFallback) / 100);
-                    }
-                    // Agent discount
-                    if ($agent_discount != 0) {
-                        $amount = $amount - (($amount * $agent_discount) / 100);
-                    }
-                    if ($scurrency != "" and $currency != $scurrency) {
-                        $amount = $CurrencyConverter->convert($amount, $currency, $scurrency);
-                    }
-                    $pricebreakdown[$pricebreakdownCount]['price'] = $filter->filter($amount);
-                    $pricebreakdown[$pricebreakdownCount]['priceplain'] = $amount;
-                    $pricebreakdownCount = $pricebreakdownCount + 1;
-                }
-                
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['pricebreakdown'] = $pricebreakdown;
-                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['scurrency'] = $CurrencyCode;
-                $tmp[$code]['details'][$zRooms][$baseCounterDetails]['cancelpolicy'] = $Description;
-                $tmp[$code]['details'][$zRooms][$baseCounterDetails]['cancelpolicies'] = $Description;
             }
         }
         $abreu = true;
     }
 }
 // error_log("\r\n palladium: $palladium \r\n", 3, "/srv/www/htdocs/error_log");
-// error_log("\r\n TMP:" . print_r($tmp, true) . " \r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\n TMP:" . print_r($tmp, true) . " \r\n", 3, "/srv/www/htdocs/error_log");
 
 if ($abreu == true) {
     $sfilter = implode(' or ', $sfilter);
     try {
         $sql = "select hid, sid from xmlhotels_mabreu where " . $sfilter;
+        error_log("\r\n SQL $sql \r\n", 3, "/srv/www/htdocs/error_log");
         $statement2 = $db->createStatement($sql);
         $statement2->prepare();
         $result2 = $statement2->execute();

@@ -143,4 +143,131 @@ echo "<xmp>";
 var_dump($response);
 echo "</xmp>";
 
+$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = [
+    'driver' => $config->db->driver,
+    'database' => $config->db->database,
+    'username' => $config->db->username,
+    'password' => $config->db->password,
+    'hostname' => $config->db->hostname
+];
+$db = new \Zend\Db\Adapter\Adapter($config);
+
+$inputDoc = new DOMDocument();
+$inputDoc->loadXML($response);
+$OTA_BookingInfoRS = $inputDoc->getElementsByTagName('OTA_BookingInfoRS');
+
+$HotelResList = $OTA_BookingInfoRS->item(0)->getElementsByTagName('HotelResList');
+if ($HotelResList->length > 0) {
+    $HotelRes = $HotelResList->item(0)->getElementsByTagName('HotelRes');
+    if ($HotelRes->length > 0) {
+        $NewItem = $HotelRes->item(0)->getAttribute('NewItem');
+        $LastModifyDateTime = $HotelRes->item(0)->getAttribute('LastModifyDateTime');
+        $CreateDateTime = $HotelRes->item(0)->getAttribute('CreateDateTime');
+        $ResStatus = $HotelRes->item(0)->getAttribute('ResStatus');
+        //Rooms
+        $Rooms = $HotelRes->item(0)->getElementsByTagName('Rooms');
+        if ($Rooms->length > 0) {
+            $Room = $Rooms->item(0)->getElementsByTagName('Room');
+            if ($Room->length > 0) {
+                for ($i=0; $i < $Room->length; $i++) { 
+                    $RoomType = $Room->item($i)->getElementsByTagName('RoomType');
+                    if ($RoomType->length > 0) {
+                        $Code = $RoomType->item(0)->getAttribute('Code');
+                        $Name = $RoomType->item(0)->getAttribute('Name');
+                    }
+                    //RoomRate
+                    $RoomRate = $Room->item($i)->getElementsByTagName('RoomRate');
+                    if ($RoomRate->length > 0) {
+                        $End = $RoomRate->item(0)->getAttribute('End');
+                        $Start = $RoomRate->item(0)->getAttribute('Start');
+                        $MealPlan = $RoomRate->item(0)->getAttribute('MealPlan');
+
+                        $Total = $RoomRate->item(0)->getElementsByTagName('Total');
+                        if ($Total->length > 0) {
+                            $Currency = $Total->item(0)->getAttribute('Currency');
+                            $Commission = $Total->item(0)->getAttribute('Commission');
+                            $Amount = $Total->item(0)->getAttribute('Amount');
+                        }
+                        $CancelPenalties = $RoomRate->item(0)->getElementsByTagName('CancelPenalties');
+                        if ($CancelPenalties->length > 0) {
+                            $NonRefundable = $CancelPenalties->item(0)->getAttribute('NonRefundable');
+                            $CancellationCostsToday = $CancelPenalties->item(0)->getAttribute('CancellationCostsToday');
+
+                            $CancelPenalty = $CancelPenalties->item(0)->getElementsByTagName('CancelPenalty');
+                            if ($CancelPenalty->length > 0) {
+                                for ($j=0; $j < $CancelPenalty->length; $j++) { 
+                                    $Deadline = $CancelPenalty->item($j)->getElementsByTagName('Deadline');
+                                    if ($Deadline->length > 0) {
+                                        $Units = $Deadline->item(0)->getAttribute('Units');
+                                        $TimeUnit = $Deadline->item(0)->getAttribute('TimeUnit');
+                                    } else {
+                                        $Units = "";
+                                        $TimeUnit = "";
+                                    }
+                                    $Charge = $CancelPenalty->item($j)->getElementsByTagName('Charge');
+                                    if ($Charge->length > 0) {
+                                        $Currency = $Charge->item(0)->getAttribute('Currency');
+                                        $Amount = $Charge->item(0)->getAttribute('Amount');
+                                    } else {
+                                        $Currency = "";
+                                        $Amount = "";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    //Guests
+                    $Guests = $Room->item($i)->getElementsByTagName('Guests');
+                    if ($Guests->length > 0) {
+                        $Guest = $Guests->item(0)->getElementsByTagName('Guest');
+                        if ($Guest->length > 0) {
+                            for ($iAux=0; $iAux < $Guest->length; $iAux++) { 
+                                $LeadGuest = $Guest->item($iAux)->getAttribute('LeadGuest');
+                                $AgeCode = $Guest->item($iAux)->getAttribute('AgeCode');
+                                $PersonName = $Guest->item($iAux)->getElementsByTagName('PersonName');
+                                if ($PersonName->length > 0) {
+                                    $NamePrefix = $PersonName->item(0)->getElementsByTagName('NamePrefix');
+                                    if ($NamePrefix->length > 0) {
+                                        $NamePrefix = $NamePrefix->item(0)->nodeValue;
+                                    } else {
+                                        $NamePrefix = "";
+                                    }
+                                    $GivenName = $PersonName->item(0)->getElementsByTagName('GivenName');
+                                    if ($GivenName->length > 0) {
+                                        $GivenName = $GivenName->item(0)->nodeValue;
+                                    } else {
+                                        $GivenName = "";
+                                    }
+                                    $Surname = $PersonName->item(0)->getElementsByTagName('Surname');
+                                    if ($Surname->length > 0) {
+                                        $Surname = $Surname->item(0)->nodeValue;
+                                    } else {
+                                        $Surname = "";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //Info
+        $Info = $HotelRes->item(0)->getElementsByTagName('Info');
+        if ($Info->length > 0) {
+            # code...
+        }
+        //HotelResInfo
+        $HotelResInfo = $HotelRes->item(0)->getElementsByTagName('HotelResInfo');
+        if ($HotelResInfo->length > 0) {
+            # code...
+        }
+    }
+}
+
+$ResGlobalInfo = $OTA_BookingInfoRS->item(0)->getElementsByTagName('ResGlobalInfo');
+if ($ResGlobalInfo->length > 0) {
+    # code...
+}
+
 ?>

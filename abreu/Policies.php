@@ -162,14 +162,6 @@ error_log("\r\n PASSOU BREAK \r\n", 3, "/srv/www/htdocs/error_log");
  * $nights = $nights->format('%a');
  */
 
-error_log("\r\n PASSOU NIGHTS \r\n", 3, "/srv/www/htdocs/error_log");
-
-error_log("\r\n PASSOU XML \r\n", 3, "/srv/www/htdocs/error_log");
-
-/*
- * $fromHotelsPRO = $fromHotelsPRO->getTimestamp();
- * $toHotelsPro = $toHotelsPro->getTimestamp();
- */
 $c = 0;
 $response = array();
 $roombreakdown = array();
@@ -194,28 +186,7 @@ foreach ($breakdown as $k => $v) {
         $cancelation_details = "";
         error_log("\r\n ANTES CURL \r\n", 3, "/srv/www/htdocs/error_log");
         
-        /*
-         * $ch = curl_init();
-         * curl_setopt($ch, CURLOPT_URL, $PalladiumHotelGroupserviceurl);
-         * curl_setopt($ch, CURLOPT_HEADER, false);
-         * curl_setopt($ch, CURLOPT_POST, true);
-         * curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
-         * curl_setopt($ch, CURLOPT_VERBOSE, 1);
-         * curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-         * curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-         * curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
-         * curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-         * "Accept: application/xml",
-         * "Content-type: text/xml",
-         * "Content-length: " . strlen($xml)
-         * ));
-         * curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-         * $response = curl_exec($ch);
-         * $error = curl_error($ch);
-         * $headers = curl_getinfo($ch);
-         * curl_close($ch);
-         * error_log("\r\n RESPONSE PAL6: $response \r\n", 3, "/srv/www/htdocs/error_log");
-         */
+
         //
         // Policies
         //
