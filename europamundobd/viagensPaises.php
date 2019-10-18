@@ -190,7 +190,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                             $CIUDAD_RUSO = "";
                         }
 
-                        try {
+                        /* try {
                             $sql = new Sql($db);
                             $insert = $sql->insert();
                             $insert->into('cidadesCod');
@@ -215,7 +215,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                             echo $return;
                             echo "Error: " . $e;
                             echo $return;
-                        }
+                        } */
                     }
                 }
             }

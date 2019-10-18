@@ -143,7 +143,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                             $CIUDAD = "";
                         }
 
-                        try {
+                        /* try {
                             $sql = new Sql($db);
                             $insert = $sql->insert();
                             $insert->into('cidadesViagens');
@@ -162,7 +162,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                             echo $return;
                             echo "Error: " . $e;
                             echo $return;
-                        }
+                        } */
                     }
                 }
             }

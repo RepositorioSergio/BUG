@@ -108,7 +108,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
         echo "<xmp>";
         var_dump($response);
         echo "</xmp>";
-        die();
+
         $config = new \Zend\Config\Config(include '../config/autoload/global.europamundo.php');
         $config = [
             'driver' => $config->db->driver,

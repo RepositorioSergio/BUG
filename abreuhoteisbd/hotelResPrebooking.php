@@ -110,7 +110,7 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
-$raw = '<?xml version="1.0" encoding="utf-8"?> <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsse:Username>' . $AbreuUsername . '</wsse:Username><wsse:Password>' . $Abreupassword . '</wsse:Password><Context>' . $AbreuContext . '</Context></wsse:Security> </soap-env:Header><soap-env:Body><OTA_HotelResRQ xmlns="http://parsec.es/hotelapi/OTA2014Compact" Transaction="PreBooking"><UniqueID Type="ClientReference" ID="aaaffgg"/><HotelRes><Rooms><Room><RoomRate BookingCode=""/></Room><Room><RoomRate BookingCode=""/></Room> </Rooms></HotelRes></OTA_HotelResRQ></soap-env:Body> </soap-env:Envelope> ';
+$raw = '<?xml version="1.0" encoding="utf-8"?> <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsse:Username>' . $AbreuUsername . '</wsse:Username><wsse:Password>' . $Abreupassword . '</wsse:Password><Context>' . $AbreuContext . '</Context></wsse:Security> </soap-env:Header><soap-env:Body><OTA_HotelResRQ xmlns="http://parsec.es/hotelapi/OTA2014Compact" Transaction="PreBooking"><UniqueID Type="ClientReference" ID="aaaffgg"/><HotelRes><Rooms><Room><RoomRate BookingCode=""/></Room></Rooms></HotelRes></OTA_HotelResRQ></soap-env:Body> </soap-env:Envelope> ';
 
 echo "<xmp>";
 var_dump($raw);

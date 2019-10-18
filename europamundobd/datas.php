@@ -175,7 +175,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                                 $SALIDA_PORTUGUES = "";
                             }
 
-                            try {
+                            /* try {
                                 $sql = new Sql($db);
                                 $insert = $sql->insert();
                                 $insert->into('datas');
@@ -198,7 +198,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                                 echo $return;
                                 echo "Error: " . $e;
                                 echo $return;
-                            }
+                            } */
                         }
                     }
                 }

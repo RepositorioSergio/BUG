@@ -51,7 +51,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
 <soapenv:Body>
   <tem:setPreReserva>
     <tem:Localizador>XXXVV41</tem:Localizador>
-    <tem:Fecha>20190630</tem:Fecha>
+    <tem:Fecha>20191030</tem:Fecha>
     <tem:ID_Viaje>17480</tem:ID_Viaje>
     <tem:Rotativo>N</tem:Rotativo>
     <tem:Sector>N</tem:Sector>
@@ -65,8 +65,8 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
     <tem:PlazasNinio>1</tem:PlazasNinio>
     <tem:Pasajeros>
       <tem:ArrayOfString>
-        <tem:string>Appellido apellido</tem:string>
-        <tem:string>Nombre adulto</tem:string>
+        <tem:string>Juarez</tem:string>
+        <tem:string>Albino Jose</tem:string>
         <tem:string>30</tem:string>
         <tem:string>adulto</tem:string>
         <tem:string>H</tem:string>
@@ -80,8 +80,8 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
         <tem:string>italiana</tem:string>
       </tem:ArrayOfString>
       <tem:ArrayOfString>
-        <tem:string>Appellido apellido</tem:string>
-        <tem:string>Nombre ninio</tem:string>
+        <tem:string>Juarez</tem:string>
+        <tem:string>Alvaro Jose</tem:string>
         <tem:string>5</tem:string>
         <tem:string>nino</tem:string>
         <tem:string>M</tem:string>
@@ -103,7 +103,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
       <tem:CO_RESERVA></tem:CO_RESERVA>
       <tem:TIPO_TRASLADO>L</tem:TIPO_TRASLADO>
       <tem:MODIFICACION>0</tem:MODIFICACION>
-      <tem:FECHA>20190630</tem:FECHA>
+      <tem:FECHA>20191030</tem:FECHA>
       <tem:CIUDAD>Roma</tem:CIUDAD>
       <tem:OPCION_ELEGIDA>FD</tem:OPCION_ELEGIDA>
       <tem:NUM_VUELO></tem:NUM_VUELO>
@@ -190,7 +190,7 @@ die();
 echo "<xmp>";
 var_dump($response);
 echo "</xmp>";
-
+die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.europamundo.php');
 $config = [
     'driver' => $config->db->driver,

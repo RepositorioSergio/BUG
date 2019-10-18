@@ -111,7 +111,7 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$raw = '<?xml version="1.0" encoding="utf-8"?> <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsse:Username>' . $AbreuUsername . '</wsse:Username><wsse:Password>' . $Abreupassword . '</wsse:Password><Context>' . $AbreuContext . '</Context></wsse:Security></soap-env:Header><soap-env:Body><OTA_CancelRQ xmlns="http://parsec.es/hotelapi/OTA2014Compact" Transaction="Cancel"><UniqueID Type="Reservation" ID="5054873"/></OTA_CancelRQ></soap-env:Body></soap-env:Envelope>';
+$raw = '<?xml version="1.0" encoding="utf-8"?> <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsse:Username>' . $AbreuUsername . '</wsse:Username><wsse:Password>' . $Abreupassword . '</wsse:Password><Context>' . $AbreuContext . '</Context></wsse:Security></soap-env:Header><soap-env:Body><OTA_CancelRQ xmlns="http://parsec.es/hotelapi/OTA2014Compact" Transaction="Cancel"><UniqueID Type="Reservation" ID="5054967"/></OTA_CancelRQ></soap-env:Body></soap-env:Envelope>';
 
 echo "<xmp>";
 var_dump($raw);

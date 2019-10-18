@@ -459,7 +459,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                             $PdfRuso = "";
                         }
 
-                        try {
+                        /* try {
                             $sql = new Sql($db);
                             $insert = $sql->insert();
                             $insert->into('viagemFulldetail');
@@ -530,7 +530,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                             echo $return;
                             echo "Error: " . $e;
                             echo $return;
-                        }
+                        } */
                     }
                 }
             }
