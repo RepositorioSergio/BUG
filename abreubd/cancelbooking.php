@@ -86,7 +86,7 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$sql = "SELECT bookingReferenceNumber FROM booking";
+/* $sql = "SELECT bookingReferenceNumber FROM booking";
 $statement = $db->createStatement($sql);
 try {
     $statement->prepare();
@@ -106,7 +106,9 @@ if ($result->valid()) {
 }
 echo $return;
 echo $bookingReferenceNumber;
-echo $return;
+echo $return; */
+
+$bookingReferenceNumber = "TOAL238876";
 
 $raw = '{   "username": "' . $abreupackagesuser . '",   "password": "' . $abreupackagespassword . '",   "language": "ES",   "bookingReferenceNumber": "' . $bookingReferenceNumber . '" }';
 
@@ -127,17 +129,17 @@ $client->setMethod('POST');
 $client->setRawBody($raw);
 $response = $client->send();
 if ($response->isSuccess()) {
-$response = $response->getBody();
+    $response = $response->getBody();
 } else {
-$logger = new Logger();
-$writer = new Writer\Stream('/srv/www/htdocs/error_log');
-$logger->addWriter($writer);
-$logger->info($client->getUri());
-$logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
-echo $return;
-echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
-echo $return;
-//die();
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($client->getUri());
+    $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
+    echo $return;
+    echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
+    echo $return;
+    die();
 }
 $response = iconv('UTF-8', 'ASCII//TRANSLIT', $response);
 echo $return;
@@ -149,7 +151,7 @@ if ($response === false || $response === null) {
     echo "NOT DECODE";
     echo $return;
 }
-
+die();
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
 $config = [

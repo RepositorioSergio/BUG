@@ -86,6 +86,9 @@ $config = [
 ];
 
 $raw = '{      "username":"' . $abreupackagesuser . '",   "password": "' . $abreupackagespassword . '",        "language": "PT" }';
+echo $return;
+echo $raw;
+echo $return;
 
 $client = new Client();
 $client->setOptions(array(
@@ -128,7 +131,7 @@ if ($response === false || $response === null) {
     echo "NOT DECODE";
     echo $return;
 }
-
+die();
 if (json_last_error() == 0) {
     echo '- Nao houve erro! O parsing foi perfeito';
 } else {

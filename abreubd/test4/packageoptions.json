@@ -1,0 +1,43 @@
+{ "username": "uga", "password": "1234", "language": "ES", "circuitCode": "AL2021PNME", "fromDate": "2020-04-11", "toDate": "2020-04-27", "passengers": [ { "nAdults": 2, "nChildren": 1, "Ages": [ 5 ] }]}
+
+{
+    "packageName": "Maravillas de España 11 Apr 2020",
+    "circuitType": "Europa de Primera",
+    "packageId": 31734,
+    "packageDepartureId": 762309,
+    "startDate": "2020-04-11",
+    "endDate": "2020-04-26",
+    "currencyCode": "USD",
+    "mainElements": [
+      {
+        "bookingCode": "T6qxEc3C5XPvvEDu8BBsY1M/jYvIVLkOJk9wv4+RuXw56vLHCwNg2Sw/qhHDpJZKmcXJccXkfB6K+0cl20xLW7A2trXRDpV5o/4Clt8JeZpsYwVF/WRtWEsTinrIitWiiDCWrHqFsl4WDaa98I038trxjxLBWdswdgeKr0vgv9KNjCbzNSGrG0Z4v+b+ZNhtE2dXZhtXS7qSCHh/Rj6egCaAGBzjSvvXxov+LEGgMyml4DQA8vW7cd01wS9uZ2RL5kjVgYHVROxsWPFckJBt9+eSh4SOGOtqNUbM7u0G+Ey5m1mEvX/JfL5pnby0ASw=",
+        "elementName": "Doble con cama extra - niño",
+        "elementOccupancy": "Family Room 1",
+        "elementOccupancyAdultCapacity": 2,
+        "elementOccupancyChildCapacity": 1,
+        "elementPricePerAdult": 2375.00,
+        "elementPricePerChildren": [
+          {
+            "childrenAge": 5,
+            "pricePerChildren": 1188.00
+          }
+        ],
+        "elementCurrency": "USD",
+        "elementAvailability": "Yes",
+        "elementId": 278010,
+        "mandatoryServices": [
+          {
+            "mandatoryServiceName": "Maravilhas de Espanha",
+            "mandatoryServiceAvailability": "Yes",
+            "mandatoryOptions": [
+              {
+                "mandatoryOptionName": "Doble con cama extra - niño",
+                "mandatoryOptionType": "Accomodation"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "optionalElements": []
+  }

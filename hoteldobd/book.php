@@ -91,7 +91,7 @@ if ($_SERVER['HTTP_CLIENT_IP']) {
     $ipaddress = "142.44.216.144";
 }
 
-
+$rooms = 2;
 
 $raw = '<Request Type="Reservation" Version="1.0">
     <affiliateid>DIVISAXML</affiliateid>
@@ -99,16 +99,16 @@ $raw = '<Request Type="Reservation" Version="1.0">
     <currency>PE</currency>
     <ip>' . $ipaddress . '</ip>
     <uid>m2r32b14es10socxtxs4y4ht</uid>
-    <firstname>Julio</firstname>
+    <firstname>Quim</firstname>
     <lastname>prueba</lastname>
-    <emailaddress>julio.prueba@bestday.com</emailaddress>
+    <emailaddress>quim.prueba@bestday.com</emailaddress>
     <clientcountry>MX</clientcountry>
     <country>MX</country>
     <address>bonampak 4</address>
     <city>cancun</city>
     <state>QROO</state>
     <zip>77500</zip>
-    <total>5796.83984375</total>
+    <total>3301.6298828125</total>
     <naturalperson>
         <gender/>
         <nationality/>
@@ -128,33 +128,59 @@ $raw = '<Request Type="Reservation" Version="1.0">
     </phones>
     <hotels>
         <hotel>
-            <hotelid>5622</hotelid>
-            <roomtype>APTODLXA</roomtype>
+            <hotelid>509</hotelid>
+            <roomtype>STD</roomtype>
             <mealplan>ZZ</mealplan>
-            <datearrival>20200108</datearrival>
-            <datedeparture>20200111</datedeparture>
-            <marketid>MOBILE</marketid>
-            <contractid>20000</contractid>
+            <datearrival>20200208</datearrival>
+            <datedeparture>20200211</datedeparture>
+            <marketid>MAYORIST</marketid>
+            <contractid>1</contractid>
             <dutypercent>0</dutypercent>
-            <rooms>
-                <room>
-                    <name>Julio</name>
+            <rooms>';
+                if ($rooms == 1) {
+                    $raw = $raw . '<room>
+                    <name>Quim</name>
                     <lastname>prueba</lastname>
-                    <amount>5796.83984375</amount>
+                    <amount>1650.81494140625</amount>
                     <status>AV</status>
-                    <ratekey>APTODLXAZZ</ratekey>
-                    <adults>4</adults>
+                    <ratekey>STDZZ</ratekey>
+                    <adults>1</adults>
+                    <kids>0</kids>
+                    <k1a>0</k1a>
+                </room>';
+                } else if ($rooms == 2) {
+                    $raw = $raw . '<room>
+                    <name>Quim</name>
+                    <lastname>prueba</lastname>
+                    <amount>1650.81494140625</amount>
+                    <status>AV</status>
+                    <ratekey>STDZZ</ratekey>
+                    <adults>1</adults>
                     <kids>0</kids>
                     <k1a>0</k1a>
                 </room>
-            </rooms>
+                <room>
+                    <name>Antonio</name>
+                    <lastname>prueba</lastname>
+                    <amount>1650.81494140625</amount>
+                    <status>AV</status>
+                    <ratekey>STDZZ</ratekey>
+                    <adults>1</adults>
+                    <kids>2</kids>
+                    <k1a>1</k1a>
+                    <k2a>2</k2a>
+                </room>';
+                }
+                
+                
+            $raw = $raw . '</rooms>
         </hotel>
     </hotels>
 <payments>
 <agencycreditpayment>
     <type></type>
     <currency>PE</currency>
-    <amount>5796.83984375</amount>
+    <amount>3301.6298828125</amount>
 </agencycreditpayment>
 </payments>
 </Request>';

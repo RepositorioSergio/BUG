@@ -135,16 +135,17 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                 echo $return;
                 echo $elementId;
                 echo $return; */
-                $elementId = 263405;
-$packageId = 30375;
+                $elementId = 281644;
+                $elementId2 = 252507;
+$packageId = 28891;
 $currencyCode = "USD";
-$startDate = "2019-09-15";
-$packageDepartureId = 713959;
-$bookingCode = "jJ4+jPG/SP0+gpb9hLyLHfvw6JMkOpoA+UXQG5cLWfaNtRCkSc2iq6+xFsPTlN1N3e/UuCXYFt4O4Mk/KnGbNjsBXRJkxBRWym83SI3Pz1DBnbIHD9AIGw/0SGy0Dc63xF8fLvW1+nv/WSITNYjPPsxHYOyBq7hVFngkpcn5e3f6M3NBlficxa5KMO1YTv6PcH+nSL9TuCjV+El1SZ8g9GtD1aUIy5Q74i1/J2g/bAh1yMH8qut8d0rGrDam84hVIqGd/+uliLS7u5qkSODqdZgNfv9i4TWqSXHwd8/qJYRZTPecSIqwoJy/8gExHZah7flb4n5PsJKu+LD7iK9B";
+$startDate = "2019-11-08";
+$packageDepartureId = 661692;
+$bookingCode = "UNKZ0SSaPGjyfPwQnwudwqaYGkS4vZb0GR3Gv1FnNPKh0OlKdaBrFqWuYmtr8Q9OCLbzLPrC3icJ3ixdb1XZSh7T4lRl3WhLwT6r+4fC5Io6PJyhg1myI5iBpZbIu8YAV9C0kOrvATKWsDq4dfrKcehLOnhBZ66k6ZmMHDDLxNf3sVFJ13yIbYDUmAVuSswU4RTGqLuSe77CGe/grmTCm91tv07tHNyKTRrTRimdNCF6PuxN7b5G5u8RkveSKXZE9zBDbyub0Cj/y88K9vH71ZKR856uBFt0IP+H94m7YlAYBd0BstrYQRkxbInTFiM=";
+$bookingCode2 = "phfa6ij1I1TWgKTqP9IEgw+VTSQkA1bRtBWZ9kVM8gTkOdlaaFbn0QCeyoI3/WoIQoznmj8drAlOGvFoT37g6YxYssDtmlfectSkUe3LrpO+l9tAxiiZJgc3mOsuHi1krlNOi6vazkftxj9MQJB9AfFFOnEEmLNWsnXQcOhaiHkssXn1KvSThhfL97Dl7ja1d0kwU4sZvEvFa/q6+bpNyq2IQuGeFM/wN8NT8tbuAFa6EtAUEQyRL136jznqmUYVzgB+uPy4mg0nm7g5FDepcwBB5osE8/D0FlEfMT8O/7SrVpp7XetcJlKJ5/8avh8vVJu8OoWkLlQoUF74NVsg";
 
-
-                $raw = '{   "username": "' . $abreupackagesuser . '",   "password": "' . $abreupackagespassword . '",   "language": "ES",   "passengers": [     {       "nAdults": 2,       "nChildren": 1,       "ages": [ 5 ],       "elementId": ' . $elementId . '     }  
-            ],   "packageId": ' . $packageId . ',   "departureId": ' . $packageDepartureId . ',   "departureDate": "' . $startDate . '",   "currencyCode": "' . $currencyCode . '",   "elements": [     {       "bookingCode": "' . $bookingCode . '",       "elementId": ' . $elementId . ',       "elementQuantity": 1,       "elementNAdults": 2,       "elementNChildren": 1     }  
+                $raw = '{   "username": "' . $abreupackagesuser . '",   "password": "' . $abreupackagespassword . '",   "language": "ES",   "passengers": [ {       "nAdults": 3, "nChildren": 0,    "elementId": ' . $elementId2 . '     }  
+            ],   "packageId": ' . $packageId . ',   "departureId": ' . $packageDepartureId . ',   "departureDate": "' . $startDate . '",   "currencyCode": "' . $currencyCode . '",   "elements": [  {       "bookingCode": "' . $bookingCode2 . '",       "elementId": ' . $elementId2 . ',       "elementQuantity": 1,       "elementNAdults": 3,       "elementNChildren": 0     }  
             ] }';
             echo $return;
                 echo $raw;
@@ -177,9 +178,12 @@ $bookingCode = "jJ4+jPG/SP0+gpb9hLyLHfvw6JMkOpoA+UXQG5cLWfaNtRCkSc2iq6+xFsPTlN1N
                     echo $return;
                     echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
                     echo $return;
-                    //die();
+                    die();
                 }
                 $response = iconv('UTF-8', 'ASCII//TRANSLIT', $response);
+                echo $return;
+                echo $response;
+                echo $return; 
 
                 $response = json_decode($response, true);
                 if ($response === false || $response === null) {
@@ -187,7 +191,7 @@ $bookingCode = "jJ4+jPG/SP0+gpb9hLyLHfvw6JMkOpoA+UXQG5cLWfaNtRCkSc2iq6+xFsPTlN1N
                     echo "NOT DECODE";
                     echo $return;
                 }
-
+die();
                 $config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
                 $config = [
                     'driver' => $config->db->driver,

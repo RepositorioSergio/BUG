@@ -1,0 +1,77 @@
+<Request Type="Reservation" Version="1.0">
+    <affiliateid>DIVISAXML</affiliateid>
+    <language>esp</language>
+    <currency>PE</currency>
+    <ip>2.82.231.57</ip>
+    <uid>m2r32b14es10socxtxs4y4ht</uid>
+    <firstname>Quim</firstname>
+    <lastname>prueba</lastname>
+    <emailaddress>quim.prueba@bestday.com</emailaddress>
+    <clientcountry>MX</clientcountry>
+    <country>MX</country>
+    <address>bonampak 4</address>
+    <city>cancun</city>
+    <state>QROO</state>
+    <zip>77500</zip>
+    <total>3301.6298828125</total>
+    <naturalperson>
+        <gender/>
+        <nationality/>
+        <number/>
+        <type/>
+    </naturalperson>
+    <legalperson>
+        <businessname/>
+        <number/>
+        <type/>
+    </legalperson>
+    <phones>
+        <phone>
+            <type>2</type>
+            <number>9981454221</number>
+        </phone>
+    </phones>
+    <hotels>
+        <hotel>
+            <hotelid>509</hotelid>
+            <roomtype>STD</roomtype>
+            <mealplan>ZZ</mealplan>
+            <datearrival>20200208</datearrival>
+            <datedeparture>20200211</datedeparture>
+            <marketid>MAYORIST</marketid>
+            <contractid>1</contractid>
+            <dutypercent>0</dutypercent>
+            <rooms><room>
+                    <name>Quim</name>
+                    <lastname>prueba</lastname>
+                    <amount>1650.81494140625</amount>
+                    <status>AV</status>
+                    <ratekey>STDZZ</ratekey>
+                    <adults>1</adults>
+                    <kids>0</kids>
+                    <k1a>0</k1a>
+                </room>
+                <room>
+                    <name>Antonio</name>
+                    <lastname>prueba</lastname>
+                    <amount>1650.81494140625</amount>
+                    <status>AV</status>
+                    <ratekey>STDZZ</ratekey>
+                    <adults>1</adults>
+                    <kids>2</kids>
+                    <k1a>1</k1a>
+                    <k2a>2</k2a>
+                </room></rooms>
+        </hotel>
+    </hotels>
+<payments>
+<agencycreditpayment>
+    <type></type>
+    <currency>PE</currency>
+    <amount>3301.6298828125</amount>
+</agencycreditpayment>
+</payments>
+</Request>
+
+
+<?xml version="1.0" encoding="utf-8"?><BookingResponse xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><confirmationid>230003899</confirmationid><airlinepnr/><currency>PE</currency><total>3301.64</total><statusinternet>CO</statusinternet><statusbooking>CO</statusbooking><statuspayment>PA</statuspayment><effective>N</effective><operatorname>Mayorista LATAM (Méx)</operatorname><operatoremail>suppliers@hoteldo.com</operatoremail><Rooms><Room><Id>STD</Id><MealPlanId>ZZ</MealPlanId><PaxId>A1C0-</PaxId><CancellationPolicy><Id>13</Id><Description>Permite cancelar sin cargo hasta 4 días antes de la fecha de llegada, de 3 dias a 24 horas antes de su llegada, aplica 1 noche de estancia. En caso de No Show o salida anticipada queda sujeto al cobro por el total reservado.</Description><Amount>550.27166748046875</Amount><DaysToApplyCancellation>3</DaysToApplyCancellation><PaymentLimitDay>2020-02-03</PaymentLimitDay><NightsPenalty>1</NightsPenalty><NoShow><DateFrom>2020-02-08</DateFrom><Amount>1650.81494140625</Amount></NoShow><IsNonRefundable>false</IsNonRefundable><IdPolicyInterface>0</IdPolicyInterface></CancellationPolicy></Room><Room><Id>STD</Id><MealPlanId>ZZ</MealPlanId><PaxId>A1C2-1,2</PaxId><CancellationPolicy><Id>13</Id><Description>Permite cancelar sin cargo hasta 4 días antes de la fecha de llegada, de 3 dias a 24 horas antes de su llegada, aplica 1 noche de estancia. En caso de No Show o salida anticipada queda sujeto al cobro por el total reservado.</Description><Amount>550.27166748046875</Amount><DaysToApplyCancellation>3</DaysToApplyCancellation><PaymentLimitDay>2020-02-03</PaymentLimitDay><NightsPenalty>1</NightsPenalty><NoShow><DateFrom>2020-02-08</DateFrom><Amount>1650.81494140625</Amount></NoShow><IsNonRefundable>false</IsNonRefundable><IdPolicyInterface>0</IdPolicyInterface></CancellationPolicy></Room></Rooms></BookingResponse>

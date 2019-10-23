@@ -1,0 +1,82 @@
+{ "username": "uga", "password": "1234", "language": "ES", "passengers": [ { "nAdults": 2, "elementId": 278041 } , { "nAdults": 2, "nChildren": 1, "ages": [ 3 ], "elementId": 278042 } ], "packageId": 31739, "departureId": 762326, "departureDate": "2020-07-04", "currencyCode": "USD", "elements": [ { "bookingCode": "iEYHaEaFT36mLVP7Qydu3RH0knG6u46sLs3PaSz3k1iAG/MhwWOXJsUOMCByHjABE1A6nuUdP5wJP+kcVCBYky7iJQ1w5IMmHZFNLQo2mF9YHEfiVFHzXj/yTy4tsCxVLZo2mQMED6EF4S/IO84Q9Kgm+pUlf2dsURkiS2F+NuSW8bpUgpZEjcd/MljBrI3MhqVx5fJGoko6bih/VBMG4U6Qx7+fwWkMVYf+TDp/Yt1+0wkoFYEI4X/qNMY1sleNbdD9FBiEAQGraoI4RtQVWsjZhVHdJH9qJ8LWUBtgQGSoX+NT98XMFteCq5r3MQk=", "elementId": 278041, "elementQuantity": 1, "elementNAdults": 2, "elementNChildren": 0 } , { "bookingCode": "zxIGNQ9nWMY0qbfuCu7zzRMRI0uwiOfccdB41JLeIvk4bdQLW9F7LZ9mUR5C11sYxEgavsEHlIQSyeMOvUTggIEaZ2TaRyUtXOyD6G4v0gQ4NfuXM6NsPrZA8BJTXPYUJk5XOWU75npRGBX4RRtDOZIYrHDBAhHTBUeZifPZhppWtMfqgJcj6xS0ABNxH4e9+GEb86Y60mQR9NDnqUmnLr8SIiaQf0BP1aWW9FNfNiL80KmYUUfdSFDTqSXqbQEUbKi4Emijlbvow2YL1f6RbeWDT0amzEA9BRzXSXMfj1njvetnqBPmPzMelu+2d2rgNeV/bgiONcUGPVHDBwhf", "elementId": 278042, "elementQuantity": 1, "elementNAdults": 2, "elementNChildren": 1 } ] }
+
+{
+    "amount": 6368.00,
+    "packageName": "Madrid, Andalucía y Cataluña",
+    "bookingStartDate": "2020-07-04",
+    "bookedElements": [
+      {
+        "elementId": 278041,
+        "elementAmountPerAdult": 1415.00
+      },
+      {
+        "elementId": 278042,
+        "elementAmountPerAdult": 1415.00,
+        "elementAmountPerChildren": [
+          {
+            "childrenAge": 3,
+            "amountPerChildren": 708.00
+          }
+        ]
+      }
+    ],
+    "bookedServices": [
+      {
+        "serviceName": "Madrid, Andaluzia e Catalunha",
+        "bookedOptions": [
+          {
+            "quantity": 1,
+            "nAdults": 2,
+            "nChildren": 0,
+            "fromDate": "2020-07-04",
+            "toDate": "2020-07-12",
+            "amount": 0.00,
+            "currencyCode": "USD",
+            "status": "Available",
+            "optionName": "Doble"
+          },
+          {
+            "quantity": 1,
+            "nAdults": 2,
+            "nChildren": 1,
+            "fromDate": "2020-07-04",
+            "toDate": "2020-07-12",
+            "amount": 0.00,
+            "currencyCode": "USD",
+            "status": "Available",
+            "optionName": "Doble con cama extra - niño"
+          }
+        ]
+      }
+    ],
+    "cancellationCharges": [
+      {
+        "cancellationCharges": 20.00,
+        "chargeType": "PERCENT",
+        "days": 30,
+        "cancellationPolicyCalculateUsing": "Booking Start Date",
+        "cancellationPolicyApplication": "Per Booking"
+      },
+      {
+        "cancellationCharges": 40.00,
+        "chargeType": "PERCENT",
+        "days": 20,
+        "cancellationPolicyCalculateUsing": "Booking Start Date",
+        "cancellationPolicyApplication": "Per Booking"
+      },
+      {
+        "cancellationCharges": 50.00,
+        "chargeType": "PERCENT",
+        "days": 13,
+        "cancellationPolicyCalculateUsing": "Booking Start Date",
+        "cancellationPolicyApplication": "Per Booking"
+      },
+      {
+        "cancellationCharges": 100.00,
+        "chargeType": "PERCENT",
+        "days": 5,
+        "cancellationPolicyCalculateUsing": "Booking Start Date",
+        "cancellationPolicyApplication": "Per Booking"
+      }
+    ]
+  }

@@ -1,0 +1,61 @@
+{ "username": "uga", "password": "1234", "language": "ES", "passengers": [ { "nAdults": 2, "elementId": 278041 } ], "packageId": 31739, "departureId": 762323, "departureDate": "2020-05-09", "currencyCode": "USD", "elements": [ { "bookingCode": "T/JZfrk7LeLImwor9/1GuzPWM23nYkw1nXprvO4FkojoD/AromYXB1yN5w9Y5bk9URBZitkvoxQocUH2LZOCByduBgzIUBR9H75IftT27DnMtMmxqVzw0xZ1VvS59mIySWVQlOL3vlmpA8cPq36A/Pb33V8KX7n84BYZlUsI8gTe4nv6cSVXnOMQZ1DH1yAhllUQgHKCHLCTJeNZYbXXZXJq08dpgJJS7ZZJVrwfk+O+DXhAcrgFl2OpLtZvo48jK9kQka4G5RufxWxJuDkV0BsBlSVa3FVXXw3LP7IyLbfzhXEJlbeyl4Ngw2A26+Y=", "elementId": 278041, "elementQuantity": 1, "elementNAdults": 2, "elementNChildren": 0 } ] }
+
+{
+    "amount": 2950.00,
+    "packageName": "Madrid, Andalucía y Cataluña",
+    "bookingStartDate": "2020-05-09",
+    "bookedElements": [
+      {
+        "elementId": 278041,
+        "elementAmountPerAdult": 1475.00
+      }
+    ],
+    "bookedServices": [
+      {
+        "serviceName": "Madrid, Andaluzia e Catalunha",
+        "bookedOptions": [
+          {
+            "quantity": 1,
+            "nAdults": 2,
+            "nChildren": 0,
+            "fromDate": "2020-05-09",
+            "toDate": "2020-05-17",
+            "amount": 0.00,
+            "currencyCode": "USD",
+            "status": "Available",
+            "optionName": "Doble"
+          }
+        ]
+      }
+    ],
+    "cancellationCharges": [
+      {
+        "cancellationCharges": 20.00,
+        "chargeType": "PERCENT",
+        "days": 30,
+        "cancellationPolicyCalculateUsing": "Booking Start Date",
+        "cancellationPolicyApplication": "Per Booking"
+      },
+      {
+        "cancellationCharges": 40.00,
+        "chargeType": "PERCENT",
+        "days": 20,
+        "cancellationPolicyCalculateUsing": "Booking Start Date",
+        "cancellationPolicyApplication": "Per Booking"
+      },
+      {
+        "cancellationCharges": 50.00,
+        "chargeType": "PERCENT",
+        "days": 13,
+        "cancellationPolicyCalculateUsing": "Booking Start Date",
+        "cancellationPolicyApplication": "Per Booking"
+      },
+      {
+        "cancellationCharges": 100.00,
+        "chargeType": "PERCENT",
+        "days": 5,
+        "cancellationPolicyCalculateUsing": "Booking Start Date",
+        "cancellationPolicyApplication": "Per Booking"
+      }
+    ]
+  }

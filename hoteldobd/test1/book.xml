@@ -1,0 +1,68 @@
+<Request Type="Reservation" Version="1.0">
+    <affiliateid>DIVISAXML</affiliateid>
+    <language>esp</language>
+    <currency>PE</currency>
+    <ip>2.82.231.57</ip>
+    <uid>m2r32b14es10socxtxs4y4ht</uid>
+    <firstname>Julio</firstname>
+    <lastname>prueba</lastname>
+    <emailaddress>julio.prueba@bestday.com</emailaddress>
+    <clientcountry>MX</clientcountry>
+    <country>MX</country>
+    <address>bonampak 4</address>
+    <city>cancun</city>
+    <state>QROO</state>
+    <zip>77500</zip>
+    <total>7686.19482421875</total>
+    <naturalperson>
+        <gender/>
+        <nationality/>
+        <number/>
+        <type/>
+    </naturalperson>
+    <legalperson>
+        <businessname/>
+        <number/>
+        <type/>
+    </legalperson>
+    <phones>
+        <phone>
+            <type>2</type>
+            <number>9981454221</number>
+        </phone>
+    </phones>
+    <hotels>
+        <hotel>
+            <hotelid>5641</hotelid>
+            <roomtype>STD</roomtype>
+            <mealplan>ZZ</mealplan>
+            <datearrival>20200108</datearrival>
+            <datedeparture>20200111</datedeparture>
+            <marketid>MAYORIST</marketid>
+            <contractid>1</contractid>
+            <dutypercent>0</dutypercent>
+            <rooms>
+                <room>
+                    <name>Julio</name>
+                    <lastname>prueba</lastname>
+                    <amount>7686.19482421875</amount>
+                    <status>AV</status>
+                    <ratekey>STDZZ</ratekey>
+                    <adults>1</adults>
+                    <kids>0</kids>
+                    <k1a>0</k1a>
+                </room>
+            </rooms>
+        </hotel>
+    </hotels>
+<payments>
+<agencycreditpayment>
+    <type></type>
+    <currency>PE</currency>
+    <amount>7686.19482421875</amount>
+</agencycreditpayment>
+</payments>
+</Request>
+
+<?xml version="1.0" encoding="utf-8"?><BookingResponse xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><confirmationid>230003364</confirmationid><airlinepnr/><currency>PE</currency><total>7686.2</total><statusinternet>CO</statusinternet><statusbooking>CO</statusbooking><statuspayment>PA</statuspayment><effective>N</effective><operatorname>Mayorista LATAM (Méx)</operatorname><operatoremail>suppliers@hoteldo.com</operatoremail><Rooms><Room><Id>STD</Id><MealPlanId>ZZ</MealPlanId><PaxId>A1C0-</PaxId><CancellationPolicy><Id>13</Id><Description>Permite cancelar sin cargo hasta 4 días antes de la fecha de llegada, de 3 dias a 24 horas antes de su llegada, aplica 1 noche de estancia. En caso de No Show o salida anticipada queda sujeto al cobro por el total reservado.</Description><Amount>2562.06494140625</Amount><DaysToApplyCancellation>3</DaysToApplyCancellation><PaymentLimitDay>2020-01-03</PaymentLimitDay><NightsPenalty>1</NightsPenalty><NoShow><DateFrom>2020-01-08</DateFrom><Amount>7686.19482421875</Amount></NoShow><IsNonRefundable>false</IsNonRefundable><DesciptionPolicy>Una vez confirmada esta reserva no permitirá modificaciones.&#xD;
+En caso de requerir alguna modificación (agregar o disminuir personas, cambiar nombres, cambiar tipo de habitación o cambiar plan de alimentos), deberá realizar otra reserva  aceptando las tarifas y condiciones vigentes y cancelar esta reserva aceptando las políticas y costos de cancelación. Estos cambios están sujetos a cambios de precio y disponibilidad de último momento.</DesciptionPolicy><IdPolicyInterface>269</IdPolicyInterface></CancellationPolicy></Room></Rooms></BookingResponse>

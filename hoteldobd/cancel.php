@@ -92,7 +92,7 @@ if ($_SERVER['HTTP_CLIENT_IP']) {
 }
 
 
-$raw = '/CancelItineraryServices?a=' . $HotelDouser . '&&ip=' . $ipaddress . '&l=ESP&c=MX&bn=230002267&bc=1&ch=&hash=jumper:true';
+$raw = '/CancelItineraryServices?a=' . $HotelDouser . '&&ip=' . $ipaddress . '&l=ESP&c=MX&bn=230003899&bc=2&ch=&hash=jumper:true';
 echo $HotelDoserviceURL . $raw ."<br/>";
 //230000032
 
@@ -109,7 +109,7 @@ curl_close($ch);
 echo "<xmp>";
 var_dump($response);
 echo "</xmp>";
-
+die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.roomer.php');
 $config = [
     'driver' => $config->db->driver,

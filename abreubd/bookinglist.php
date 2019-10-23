@@ -85,7 +85,7 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 
-$raw = '{   "username": "' . $abreupackagesuser . '",   "password": "' . $abreupackagespassword . '",   "language": "ES",   "bookingDateFrom": "2019-05-01",   "bookingDateTo": "2019-05-30" }';
+$raw = '{   "username": "' . $abreupackagesuser . '",   "password": "' . $abreupackagespassword . '",   "language": "ES",   "bookingDateFrom": "2019-10-01",   "bookingDateTo": "2019-10-30" }';
 echo $return;
 echo $raw;
 echo $return;
