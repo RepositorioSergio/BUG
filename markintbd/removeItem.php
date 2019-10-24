@@ -45,15 +45,16 @@ $config = [
 $db = new \Zend\Db\Adapter\Adapter($config);
 
 $raw = 'requestXml=<VAXXML xmlns="http://www.triseptsolutions.com/Cart/RemoveItem/Request/11.0">
-<Header AgencyNumber="T140" Contact="Paulo Andrade" Login="Bug Software" Password="St89vxBs" Vendor="MIT" DynamicPackageId="H11" Culture="en-us"  SessionId="4554690900469631841" />
+<Header AgencyNumber="T140" Contact="Paulo Andrade" Login="Bug Software" Password="St89vxBs" Vendor="MIT" DynamicPackageId="H11" Culture="en-us"  SessionId="7437220074756655969" ShowRequest="N" />
 <Request>
   <Cart>
-    <Feature ItemId="289578582__NzUwNDV8fEhCU0hvdGVsfHxNSUE=" Seq="1" />
+    <Hotel ItemId="1824447944__UVEtTUlBR1N8fERlcmJ5c29mdEhvdGVsfHxNSUE=" Seq="2" />
   </Cart>
 </Request>
 </VAXXML>';
 
 $url = $url . "/CartRemoveItemRequest";
+echo $url . '<br/>';
 
 $headers = array(
     "Accept: application/xml",

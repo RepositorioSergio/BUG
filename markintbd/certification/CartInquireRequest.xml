@@ -1,0 +1,5 @@
+https://beta.triseptapi.com/11.0/vax.asmx/CartInquireRequest
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<string xmlns="http://www.triseptsolutions.com/VAXXMLPortal110/VAX"><VAXXML xmlns="http://www.triseptsolutions.com/Cart/Inquire/Response/11.0"><Header AgencyNumber="T140" Contact="Paulo Andrade" Login="Bug Software" Password="St89vxBs" Vendor="MIT" DynamicPackageId="H11" SessionId="6098585180703837028" /><Response><Cart xmlns="http://www.triseptsolutions.com/Cart/Response/11.0"><TravelerAvail><PassengerTypeQuantity Seq="1" Type="ADT" Age="40" /><PassengerTypeQuantity Seq="2" Type="ADT" Age="40" /></TravelerAvail><TravelerAvailSets><TravelerAvailSet Seq="2"><PassengerTypeQuantityRef Seq="1" Lead="Y" /><PassengerTypeQuantityRef Seq="2" Lead="N" /></TravelerAvailSet><TravelerAvailSet Seq="1"><PassengerTypeQuantityRef Seq="1" Lead="Y" /><PassengerTypeQuantityRef Seq="2" Lead="N" /></TravelerAvailSet></TravelerAvailSets><Descriptions /><MediaLinks /><Comments /></Cart></Response><Errors /></VAXXML></string>

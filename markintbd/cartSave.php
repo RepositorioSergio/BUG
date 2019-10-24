@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU CART INQUIRE<br/>";
+echo "COMECOU CART SAVE<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -44,11 +44,11 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$raw = 'requestXml=<VAXXML xmlns="http://www.triseptsolutions.com/Cart/Inquire/Request/11.0">
+$raw = 'requestXml=<VAXXML xmlns="http://www.triseptsolutions.com/Cart/Save/Request/11.0"> 
 <Header AgencyNumber="T140" Contact="Paulo Andrade" Login="Bug Software" Password="St89vxBs" Vendor="MIT" DynamicPackageId="H11" Culture="en-us"  SessionId="9096290594591558497" />
-</VAXXML>';
+    </VAXXML>';
 
-$url = $url . "/CartInquireRequest";
+$url = $url . "/CartSaveRequest";
 echo $url . '<br/>';
 
 $headers = array(
@@ -88,7 +88,7 @@ echo "<br/>RESPONSE";
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
-
+die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.mmc.php');
 $config = [
     'driver' => $config->db->driver,
@@ -98,6 +98,15 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
+
+$inputDoc = new DOMDocument();
+$inputDoc->loadXML($response);
+$string = $inputDoc->getElementsByTagName("string");
+
+$VAXXML = $string->item(0)->getElementsByTagName("VAXXML");
+if ($VAXXML->length > 0) {
+    
+}
 
 // EOF
 $db->getDriver()

@@ -45,18 +45,19 @@ $config = [
 $db = new \Zend\Db\Adapter\Adapter($config);
 
 $raw = 'requestXml=<VAXXML xmlns="http://www.triseptsolutions.com/Reservation/Create/Request/11.0">
-<Header AgencyNumber="T140" Contact="Paulo Andrade" Login="Bug Software" Password="St89vxBs" Vendor="MIT" DynamicPackageId="H11" Culture="en-us"  SessionId="4554690900469631841" ShowCart="Y" ShowRequest="N" />
+<Header AgencyNumber="T140" Contact="Paulo Andrade" Login="Bug Software" Password="St89vxBs" Vendor="MIT" DynamicPackageId="H11" Culture="en-us"  SessionId="6098585180703837028" ShowCart="Y" ShowRequest="N" />
 <Request>
-    <CustomerInfo PayeePassengerCode="PA" GivenName="Robert" Surname="Doe" Age="40" Seq="1">
-      <TSAInfo DateOfBirth="1974-07-17T00:00:00" Gender="M" />
+    <CustomerInfo PayeePassengerCode="PA" GivenName="Robert" Surname="Doe" Age="49" Seq="1">
+      <TSAInfo DateOfBirth="1980-07-17T00:00:00" Gender="M" />
     </CustomerInfo>
-    <CustomerInfo PayeePassengerCode="PA" GivenName="Roberta" Surname="Doe" Age="41" Seq="2">
-      <TSAInfo DateOfBirth="1973-06-17T00:00:00" Gender="F" />
+    <CustomerInfo PayeePassengerCode="PA" GivenName="Roberta" Surname="Doe" Age="50" Seq="2">
+      <TSAInfo DateOfBirth="1979-06-17T00:00:00" Gender="F" />
     </CustomerInfo>
   </Request>
 </VAXXML>';
 
 $url = $url . "/ReservationCreateRequest";
+echo $url . '<br/>';
 
 $headers = array(
     "Accept: application/xml",

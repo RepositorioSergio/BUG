@@ -52,6 +52,7 @@ $raw = 'requestXml=<VAXXML xmlns="http://www.triseptsolutions.com/Reservation/Na
 </VAXXML>';
 
 $url = $url . "/ReservationNameSearchRequest";
+echo $url . '<br/>';
 
 $headers = array(
     "Accept: application/xml",

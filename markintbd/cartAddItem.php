@@ -47,11 +47,11 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 //SESSIONID VEM DO AVAIL
 
 $raw = 'requestXml=<VAXXML xmlns="http://www.triseptsolutions.com/Cart/AddItem/Request/11.0">
-<Header AgencyNumber="T140" Contact="Paulo Andrade" Login="Bug Software" Password="St89vxBs" Vendor="MIT" DynamicPackageId="H11" Culture="en-us"  SessionId="4554690900469631841"  ShowRequest="N"/>
+<Header AgencyNumber="T140" Contact="Paulo Andrade" Login="Bug Software" Password="St89vxBs" Vendor="MIT" DynamicPackageId="H11" Culture="en-us"  SessionId="7437220074756655969"  ShowRequest="N"/>
 <Request>
   <Cart>
-    <Hotel ItemId="289578582__NzUwNDV8fEhCU0hvdGVsfHxNSUE=">
-      <RatePlan RatePlanId="289578582|H|1|0|0_1"/>
+    <Hotel ItemId="1824447944__UVEtTUlBR1N8fERlcmJ5c29mdEhvdGVsfHxNSUE=">
+      <RatePlan RatePlanId="1824447944|H|1|0|0_1"/>
     </Hotel>
   </Cart>
 </Request>
@@ -59,6 +59,7 @@ $raw = 'requestXml=<VAXXML xmlns="http://www.triseptsolutions.com/Cart/AddItem/R
 
 
 $url = $url . "/CartAddItemRequest";
+echo $url . '<br/>';
 
 $headers = array(
     "Accept: application/xml",

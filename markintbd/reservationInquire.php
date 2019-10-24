@@ -47,11 +47,12 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $raw = 'requestXml=<VAXXML xmlns="http://www.triseptsolutions.com/Reservation/Inquire/Request/11.0"> 
 <Header AgencyNumber="T140" Contact="Paulo Andrade" Login="Bug Software" Password="St89vxBs" Vendor="MIT" Culture="en-us" Site="VAXXML" ShowRequest="N" />
 <Request>
-    <Reservation UniqueID="GP041889" IncludeVouchers="false" />
+    <Reservation UniqueID="J0N3B889" IncludeVouchers="false" />
   </Request>
 </VAXXML>';
 
 $url = $url . "/ReservationInquireRequest";
+echo $url . '<br/>';
 
 $headers = array(
     "Accept: application/xml",

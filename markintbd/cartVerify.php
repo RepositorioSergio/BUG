@@ -45,10 +45,11 @@ $config = [
 $db = new \Zend\Db\Adapter\Adapter($config);
 
 $raw = 'requestXml=<VAXXML xmlns="http://www.triseptsolutions.com/Cart/Verify/Request/11.0"> 
-<Header AgencyNumber="T140" Contact="Paulo Andrade" Login="Bug Software" Password="St89vxBs" Vendor="MIT" DynamicPackageId="H11" Culture="en-us"  SessionId="4554690900469631841" />
+<Header AgencyNumber="T140" Contact="Paulo Andrade" Login="Bug Software" Password="St89vxBs" Vendor="MIT" DynamicPackageId="H11" Culture="en-us"  SessionId="6098585180703837028" />
     </VAXXML>';
 
 $url = $url . "/CartVerifyRequest";
+echo $url . '<br/>';
 
 $headers = array(
     "Accept: application/xml",

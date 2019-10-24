@@ -1,0 +1,23 @@
+REQUEST
+
+URL : https://beta.triseptapi.com/11.0/vax.asmx/CartRemoveItemRequest
+
+HEADER : $headers = array(
+    "Accept: application/xml",
+    "Content-type: application/x-www-form-urlencoded",
+    "Content-Encoding: UTF-8",
+    "Accept-Encoding: gzip,deflate",
+    "Content-length: " . strlen($raw)
+);
+
+DATA : requestXml=<VAXXML xmlns="http://www.triseptsolutions.com/Cart/RemoveItem/Request/11.0">
+<Header AgencyNumber="T140" Contact="Paulo Andrade" Login="Bug Software" Password="St89vxBs" Vendor="MIT" DynamicPackageId="H11" Culture="en-us"  SessionId="4554690900469631841" />
+<Request>
+  <Cart>
+    <Feature ItemId="289578582__NzUwNDV8fEhCU0hvdGVsfHxNSUE=" Seq="1" />
+  </Cart>
+</Request>
+</VAXXML>
+
+RESPONSE
+

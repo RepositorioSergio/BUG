@@ -48,6 +48,7 @@ $raw = 'requestXml=<VAXXML xmlns="http://www.triseptsolutions.com/Availability/R
 
 
 $url = $url . "/AvailabilityRequest";
+echo $url . '<br/>';
 
 $headers = array(
     "Accept: application/xml",
