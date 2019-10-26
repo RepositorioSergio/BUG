@@ -108,7 +108,7 @@ $raw = '<Request Type="Reservation" Version="1.0">
     <city>cancun</city>
     <state>QROO</state>
     <zip>77500</zip>
-    <total>3301.6298828125</total>
+    <total>26784</total>
     <naturalperson>
         <gender/>
         <nationality/>
@@ -128,12 +128,12 @@ $raw = '<Request Type="Reservation" Version="1.0">
     </phones>
     <hotels>
         <hotel>
-            <hotelid>509</hotelid>
-            <roomtype>STD</roomtype>
-            <mealplan>ZZ</mealplan>
+            <hotelid>2549</hotelid>
+            <roomtype>DLX</roomtype>
+            <mealplan>AI</mealplan>
             <datearrival>20200208</datearrival>
             <datedeparture>20200211</datedeparture>
-            <marketid>MAYORIST</marketid>
+            <marketid>INTER2</marketid>
             <contractid>1</contractid>
             <dutypercent>0</dutypercent>
             <rooms>';
@@ -152,23 +152,22 @@ $raw = '<Request Type="Reservation" Version="1.0">
                     $raw = $raw . '<room>
                     <name>Quim</name>
                     <lastname>prueba</lastname>
-                    <amount>1650.81494140625</amount>
+                    <amount>13392</amount>
                     <status>AV</status>
-                    <ratekey>STDZZ</ratekey>
-                    <adults>1</adults>
+                    <ratekey>DLXAI</ratekey>
+                    <adults>2</adults>
                     <kids>0</kids>
                     <k1a>0</k1a>
                 </room>
                 <room>
                     <name>Antonio</name>
                     <lastname>prueba</lastname>
-                    <amount>1650.81494140625</amount>
+                    <amount>13392</amount>
                     <status>AV</status>
-                    <ratekey>STDZZ</ratekey>
-                    <adults>1</adults>
-                    <kids>2</kids>
-                    <k1a>1</k1a>
-                    <k2a>2</k2a>
+                    <ratekey>DLXAI</ratekey>
+                    <adults>2</adults>
+                    <kids>0</kids>
+                    <k1a>0</k1a>
                 </room>';
                 }
                 
@@ -180,7 +179,7 @@ $raw = '<Request Type="Reservation" Version="1.0">
 <agencycreditpayment>
     <type></type>
     <currency>PE</currency>
-    <amount>3301.6298828125</amount>
+    <amount>26784</amount>
 </agencycreditpayment>
 </payments>
 </Request>';

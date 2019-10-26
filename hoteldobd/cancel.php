@@ -92,7 +92,7 @@ if ($_SERVER['HTTP_CLIENT_IP']) {
 }
 
 
-$raw = '/CancelItineraryServices?a=' . $HotelDouser . '&&ip=' . $ipaddress . '&l=ESP&c=MX&bn=230003899&bc=2&ch=&hash=jumper:true';
+$raw = '/CancelItineraryServices?a=' . $HotelDouser . '&&ip=' . $ipaddress . '&l=ESP&c=MX&bn=230004016&bc=2&ch=&hash=jumper:true';
 echo $HotelDoserviceURL . $raw ."<br/>";
 //230000032
 

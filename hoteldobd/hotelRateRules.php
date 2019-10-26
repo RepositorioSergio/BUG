@@ -91,7 +91,7 @@ if ($_SERVER['HTTP_CLIENT_IP']) {
     $ipaddress = "142.44.216.144";
 }
 
-$raw = '/GetHotelRateRules?a=' . $HotelDouser . '&ip=' . $ipaddress . '&co=MX&c=pe&d=2&l=esp&rk=U1RELVpaTUFZT1JJU1QxWlpBdXRvbWF0aWNNYWls&sd=20200208&ed=20200211&h=509&ci=1&mi=MAYORIST&it=BESTDAY&ri=STD&mp=ZZ&r1a=2&r1k=1&r1k1a=1&r2k2a=2';
+$raw = '/GetHotelRateRules?a=' . $HotelDouser . '&ip=' . $ipaddress . '&co=MX&c=pe&d=2&l=esp&rk=RExYLUFJSU5URVIyMUFJUml1&sd=20200208&ed=20200211&h=2549&ci=1&mi=INTER2&it=BESTDAY&ri=DLX&mp=AI&r1a=2&r1k=0&r1k1a=0&r1k2a=0';
 echo $HotelDoserviceURL . $raw ."<br/>";
 
 $ch = curl_init();

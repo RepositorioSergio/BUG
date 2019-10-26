@@ -74,7 +74,7 @@ $config = [
 ];
 
 
-$raw = '/GetQuoteHotels?a=' . $HotelDouser . '&co=MX&c=pe&sd=20200108&ed=20200111&h=&rt=&mp=&r=2&r1a=1&r2a=1&r2k=2&r2k1a=1&r2k2a=2&d=2&l=esp&hash=hs:true;hp:true';
+$raw = '/GetQuoteHotels?a=' . $HotelDouser . '&co=MX&c=pe&sd=20200108&ed=20200111&h=&rt=&mp=&r=2&r1a=2&r2a=2&r2k=0&r2k1a=0&r2k2a=0&d=2&l=esp&hash=hs:true;hp:true';
 echo $HotelDoserviceURL . $raw ."<br/>";
 
 $ch = curl_init();

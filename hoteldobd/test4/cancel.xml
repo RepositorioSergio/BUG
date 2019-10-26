@@ -1,7 +1,7 @@
-http://testxml.e-tsw.com/AffiliateService/AffiliateService.svc/restful/CancelItineraryServices?a=DIVISAXML&&ip=2.82.231.57&l=ESP&c=MX&bn=230003899&bc=1&ch=&hash=jumper:true
+http://testxml.e-tsw.com/AffiliateService/AffiliateService.svc/restful/CancelItineraryServices?a=DIVISAXML&&ip=2.82.231.57&l=ESP&c=MX&bn=230004004&bc=1&ch=&hash=jumper:true
 
-<?xml version="1.0" encoding="utf-8"?><Book><affiliate>DIVISAXML</affiliate><number>230003899</number><consecutive>1</consecutive><status>CA</status><amount>0</amount><currency>PE</currency></Book>
+<?xml version="1.0" encoding="utf-8"?><Book><affiliate>DIVISAXML</affiliate><number>230004004</number><consecutive>1</consecutive><status>CA</status><amount>0</amount><currency>PE</currency></Book>
 
-http://testxml.e-tsw.com/AffiliateService/AffiliateService.svc/restful/CancelItineraryServices?a=DIVISAXML&&ip=2.82.231.57&l=ESP&c=MX&bn=230003899&bc=2&ch=&hash=jumper:true
+http://testxml.e-tsw.com/AffiliateService/AffiliateService.svc/restful/CancelItineraryServices?a=DIVISAXML&&ip=2.82.231.57&l=ESP&c=MX&bn=230004004&bc=2&ch=&hash=jumper:true
 
-<?xml version="1.0" encoding="utf-8"?><Book><affiliate>DIVISAXML</affiliate><number>230003899</number><consecutive>2</consecutive><status>CA</status><amount>0</amount><currency>PE</currency></Book>
+<?xml version="1.0" encoding="utf-8"?><Book><affiliate>DIVISAXML</affiliate><number>230004004</number><consecutive>2</consecutive><status>CA</status><amount>0</amount><currency>PE</currency></Book>
