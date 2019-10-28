@@ -183,7 +183,151 @@ if ($VAXXML->length > 0) {
                                 $LargeDescription = "";
                             }
 
-                            //FALTA COMPLETAR
+                            //POIProximity
+                            $POIProximity = $Hotel->item($k)->getElementsByTagName("POIProximity");
+                            if ($POIProximity->length > 0) {
+                                $PointOfInterest = $POIProximity->item(0)->getAttribute("PointOfInterest");
+                                $POICode = $POIProximity->item(0)->getAttribute("POICode");
+                                $Units = $POIProximity->item(0)->getAttribute("Units");
+                                $Direction = $POIProximity->item(0)->getAttribute("Direction");
+                                $Distance = $POIProximity->item(0)->getAttribute("Distance");
+                            }
+                            //Rating
+                            $Rating = $Hotel->item($k)->getElementsByTagName("Rating");
+                            if ($Rating->length > 0) {
+                                $Preferred = $Rating->item(0)->getAttribute("Preferred");
+                                $Value = $Rating->item(0)->getAttribute("Value");
+                            }
+                            //Address
+                            $Address = $Hotel->item($k)->getElementsByTagName("Address");
+                            if ($Address->length > 0) {
+                                $Description = $Address->item(0)->getAttribute("Description");
+                                $CountryCode = $Address->item(0)->getAttribute("CountryCode");
+                                $PostalCode = $Address->item(0)->getAttribute("PostalCode");
+                                $State = $Address->item(0)->getAttribute("State");
+                                $City = $Address->item(0)->getAttribute("City");
+                                $AddressLine2 = $Address->item(0)->getAttribute("AddressLine2");
+                                $AddressLine1 = $Address->item(0)->getAttribute("AddressLine1");
+                            }
+                            //Telephone
+                            $tel = "";
+                            $Telephone = $Hotel->item($k)->getElementsByTagName("Telephone");
+                            if ($Telephone->length > 0) {
+                                $Type = $Telephone->item(0)->getAttribute("Type");
+                                $tel = $Telephone->item(0)->nodeValue;
+                            }
+                            //HotelRatePlan
+                            $HotelRatePlan = $Hotel->item($k)->getElementsByTagName("HotelRatePlan");
+                            if ($HotelRatePlan->length > 0) {
+                                $RoomDescription = $HotelRatePlan->item(0)->getAttribute("RoomDescription");
+                                $PlanDescription = $HotelRatePlan->item(0)->getAttribute("PlanDescription");
+                                $PlanCode = $HotelRatePlan->item(0)->getAttribute("PlanCode");
+                                $RoomCode = $HotelRatePlan->item(0)->getAttribute("RoomCode");
+                                $RatePlanId = $HotelRatePlan->item(0)->getAttribute("RatePlanId");
+                                $TravelerAvailSet = $HotelRatePlan->item(0)->getAttribute("TravelerAvailSet");
+
+                                //IncludedItemIds
+                                $IncludedItemIds = $HotelRatePlan->item(0)->getElementsByTagName("IncludedItemIds");
+                                if ($IncludedItemIds->length > 0) {
+                                    $IncludedItemIds = $IncludedItemIds->item(0)->nodeValue;
+                                } else {
+                                    $IncludedItemIds = "";
+                                }
+                                //ModifiableItemIds
+                                $ModifiableItemIds = $HotelRatePlan->item(0)->getElementsByTagName("ModifiableItemIds");
+                                if ($ModifiableItemIds->length > 0) {
+                                    $ModifiableItemIds = $ModifiableItemIds->item(0)->nodeValue;
+                                } else {
+                                    $ModifiableItemIds = "";
+                                }
+                                //OptionalItemIds
+                                $OptionalItemIds = $HotelRatePlan->item(0)->getElementsByTagName("OptionalItemIds");
+                                if ($OptionalItemIds->length > 0) {
+                                    $OptionalItemIds = $OptionalItemIds->item(0)->nodeValue;
+                                } else {
+                                    $OptionalItemIds = "";
+                                }
+
+                                //PricingInfo
+                                $PricingInfo = $HotelRatePlan->item(0)->getElementsByTagName("PricingInfo");
+                                if ($PricingInfo->length > 0) {
+                                    $Currency = $PricingInfo->item(0)->getAttribute("Currency");
+                                    $Total = $PricingInfo->item(0)->getAttribute("Total");
+                                    $Markups = $PricingInfo->item(0)->getAttribute("Markups");
+                                    $Fees = $PricingInfo->item(0)->getAttribute("Fees");
+                                    $Taxes = $PricingInfo->item(0)->getAttribute("Taxes");
+                                    $Base = $PricingInfo->item(0)->getAttribute("Base");
+
+                                    $Price = $PricingInfo->item(0)->getElementsByTagName("Price");
+                                    if ($Price->length > 0) {
+                                        $PriceType = $Price->item(0)->getAttribute("Type");
+                                        $PriceTotal = $Price->item(0)->getAttribute("Total");
+                                        $PriceMarkups = $Price->item(0)->getAttribute("Markups");
+                                        $PriceFees = $Price->item(0)->getAttribute("Fees");
+                                        $PriceTaxes = $Price->item(0)->getAttribute("Taxes");
+                                        $PriceBase = $Price->item(0)->getAttribute("Base");
+                                        $PriceQuantity = $Price->item(0)->getAttribute("Quantity");
+                                        $PriceQuantityMaximum = $Price->item(0)->getAttribute("QuantityMaximum");
+                                        $PriceQuantityMinimum = $Price->item(0)->getAttribute("QuantityMinimum");
+                                        $PriceHighAge = $Price->item(0)->getAttribute("HighAge");
+                                        $PriceLowAge = $Price->item(0)->getAttribute("LowAge");
+
+                                        $Fee = $Price->item(0)->getElementsByTagName("Fee");
+                                        if ($Fee->length > 0) {
+                                            $FeeType = $Fee->item(0)->getAttribute("Type");
+                                            $FeeTotal = $Fee->item(0)->getAttribute("Total");
+                                            $FeeDescription = $Fee->item(0)->getAttribute("Description");
+                                            $FeeRate = $Fee->item(0)->getAttribute("Rate");
+                                            $FeeCode = $Fee->item(0)->getAttribute("FeeCode");
+                                        }
+                                    }
+                                }
+                                
+                            }
+                            //MediaKey
+                            $media = "";
+                            $MediaKey = $Hotel->item($k)->getElementsByTagName("MediaKey");
+                            if ($MediaKey->length > 0) {
+                                for ($y=0; $y < $MediaKey->length; $y++) { 
+                                    $media = $MediaKey->item($y)->nodeValue;
+                                }
+                            }
+                            //OriginDestinationInformation
+                            $OriginDestinationInformation = $Hotel->item($k)->getElementsByTagName("OriginDestinationInformation");
+                            if ($OriginDestinationInformation->length > 0) {
+                                for ($z=0; $z < $OriginDestinationInformation->length; $z++) { 
+                                    $Type = $OriginDestinationInformation->item($z)->getAttribute("Type");
+                                    $DateTime = $OriginDestinationInformation->item($z)->getAttribute("DateTime");
+                                    $LocationCode = $OriginDestinationInformation->item($z)->getAttribute("LocationCode");
+                                    $Position = $OriginDestinationInformation->item($z)->getElementsByTagName("Position");
+                                    if ($Position->length > 0) {
+                                        $LocationCode2 = $Position->item(0)->getAttribute("LocationCode");
+                                        $Longitude = $Position->item(0)->getAttribute("Longitude");
+                                        $Latitude = $Position->item(0)->getAttribute("Latitude");
+                                    }
+                                }
+                            }
+                            //SalesAdvisory
+                            $sales = "";
+                            $SalesAdvisory = $Hotel->item($k)->getElementsByTagName("SalesAdvisory");
+                            if ($SalesAdvisory->length > 0) {
+                                $EndDate = $SalesAdvisory->item(0)->getAttribute("EndDate");
+                                $BeginDate = $SalesAdvisory->item(0)->getAttribute("BeginDate");
+                                $sales = $SalesAdvisory->item(0)->nodeValue;
+                            } else {
+                                $EndDate = "";
+                                $BeginDate = "";
+                                $sales = "";
+                            }
+                            //AddedValue
+                            $AddedValue = $Hotel->item($k)->getElementsByTagName("AddedValue");
+                            if ($AddedValue->length > 0) {
+                                $Desc = $AddedValue->item(0)->getAttribute("Desc");
+                                $ShortDesc = $AddedValue->item(0)->getAttribute("ShortDesc");
+                                $Rank = $AddedValue->item(0)->getAttribute("Rank");
+                                $Code = $AddedValue->item(0)->getAttribute("Code");
+                            }
+                            
                         }
                     }
                 }

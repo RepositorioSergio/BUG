@@ -99,6 +99,86 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
+$inputDoc = new DOMDocument();
+$inputDoc->loadXML($response);
+$string = $inputDoc->getElementsByTagName("string");
+
+$VAXXML = $string->item(0)->getElementsByTagName("VAXXML");
+if ($VAXXML->length > 0) {
+    $Header = $VAXXML->item(0)->getElementsByTagName("Header");
+    if ($Header->length > 0) {
+        $SessionId = $Header->item(0)->getAttribute("SessionId");
+        $Site = $Header->item(0)->getAttribute("Site");
+        $DynamicPackageId = $Header->item(0)->getAttribute("DynamicPackageId");
+        $Vendor = $Header->item(0)->getAttribute("Vendor");
+        $Password = $Header->item(0)->getAttribute("Password");
+        $Login = $Header->item(0)->getAttribute("Login");
+        $Contact = $Header->item(0)->getAttribute("Contact");
+        $AgencyNumber = $Header->item(0)->getAttribute("AgencyNumber");
+    }
+
+    $Response = $VAXXML->item(0)->getElementsByTagName("Response");
+    if ($Response->length > 0) {
+        $Cart = $Response->item(0)->getElementsByTagName("Cart");
+        if ($Cart->length > 0) {
+            //TravelerAvail
+            $TravelerAvail = $Cart->item(0)->getElementsByTagName("TravelerAvail");
+            if ($TravelerAvail->length > 0) {
+                $PassengerTypeQuantity = $TravelerAvail->item(0)->getElementsByTagName("PassengerTypeQuantity");
+                if ($PassengerTypeQuantity->length > 0) {
+                    for ($i=0; $i < $PassengerTypeQuantity->length; $i++) { 
+                        $PassengerTypeQuantityAge = $PassengerTypeQuantity->item($i)->getAttribute("Age");
+                        $PassengerTypeQuantityType = $PassengerTypeQuantity->item($i)->getAttribute("Type");
+                        $PassengerTypeQuantitySeq = $PassengerTypeQuantity->item($i)->getAttribute("Seq");
+                    }
+                }
+            }
+            //TravelerAvailSets
+            $TravelerAvailSets = $Cart->item(0)->getElementsByTagName("TravelerAvailSets");
+            if ($TravelerAvailSets->length > 0) {
+                $TravelerAvailSet = $TravelerAvailSets->item(0)->getElementsByTagName("TravelerAvailSet");
+                if ($TravelerAvailSet->length > 0) {
+                    for ($j=0; $j < $TravelerAvailSet->length; $j++) { 
+                        $Seq = $TravelerAvailSet->item($j)->getAttribute("Seq");
+
+                        $PassengerTypeQuantityRef = $TravelerAvailSet->item($j)->getElementsByTagName("PassengerTypeQuantityRef");
+                        if ($PassengerTypeQuantityRef->length > 0) {
+                            $PassengerTypeQuantityRefSeq = $PassengerTypeQuantityRef->item(0)->getAttribute("Seq");
+                            $PassengerTypeQuantityRefLead = $PassengerTypeQuantityRef->item(0)->getAttribute("Lead");
+                        }
+                    }
+                }
+            }
+            //Descriptions
+            $Descriptions = $Cart->item(0)->getElementsByTagName("Descriptions");
+            if ($Descriptions->length > 0) {
+                $Description = $Descriptions->item(0)->getElementsByTagName("Description");
+                if ($Description->length > 0) {
+                    for ($k=0; $k < $Description->length; $k++) { 
+                        $Key = $Description->item($k)->getAttribute("Key");
+                    }
+                }
+            }
+            //MediaLinks
+            $mediaLinks = "";
+            $MediaLinks = $Cart->item(0)->getElementsByTagName("MediaLinks");
+            if ($MediaLinks->length > 0) {
+                $Media = $MediaLinks->item(0)->getElementsByTagName("Media");
+                if ($Media->length > 0) {
+                    for ($x=0; $x < $Media->length; $x++) { 
+                        $Description = $Media->item($x)->getAttribute("Description");
+                        $RefId = $Media->item($x)->getAttribute("RefId");
+                        $MediaKey = $Media->item($x)->getAttribute("MediaKey");
+
+                        $mediaLinks = $Media->item($x)->nodeValue;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 // EOF
 $db->getDriver()
     ->getConnection()

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<string xmlns="http://www.triseptsolutions.com/VAXXMLPortal110/VAX"><VAXXML xmlns="http://www.triseptsolutions.com/CancelPoliciesByDate/Response/11.0"><Hotels><Hotel Code="75447"><RollingCancelPolicy LowDate="2019-10-01" HighDate="2020-05-31" DaysOfWeek="SMTWTFS" DescriptionKey="371857150" CancellationDeadline="2019-11-07T10:40:48" CutOff="3" CutOffUnit="Days"><NumberOfNightsPenalty NumberOfNights="1" /></RollingCancelPolicy></Hotel></Hotels><Descriptions><Description Key="371857150"></Description></Descriptions></VAXXML></string>
