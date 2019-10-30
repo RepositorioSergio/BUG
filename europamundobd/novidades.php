@@ -93,17 +93,17 @@ $client->setMethod('POST');
 $client->setRawBody($raw);
 $response = $client->send();
 if ($response->isSuccess()) {
-$response = $response->getBody();
+    $response = $response->getBody();
 } else {
-$logger = new Logger();
-$writer = new Writer\Stream('/srv/www/htdocs/error_log');
-$logger->addWriter($writer);
-$logger->info($client->getUri());
-$logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
-echo $return;
-echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
-echo $return;
-die();
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($client->getUri());
+    $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
+    echo $return;
+    echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
+    echo $return;
+    die();
 }
 
 echo "<xmp>";

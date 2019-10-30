@@ -44,17 +44,22 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $user = 'CTMWS';
 $pass = 'Ctmws123';
+$coreserva = "EM015428";
 
 $raw = '<?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <soap:Body>
     <cancelarPreReserva xmlns="http://tempuri.org/">
-      <coreserva>RM000173</coreserva>
+      <coreserva>' . $coreserva .  '</coreserva>
       <userName>' . $user . '</userName>
       <userPassword>' . $pass . '</userPassword>
     </cancelarPreReserva>
   </soap:Body>
 </soap:Envelope>';
+
+echo "<xmp>";
+var_dump($raw);
+echo "</xmp>";
 
 $client = new Client();
 $client->setOptions(array(
@@ -73,23 +78,23 @@ $client->setMethod('POST');
 $client->setRawBody($raw);
 $response = $client->send();
 if ($response->isSuccess()) {
-$response = $response->getBody();
+    $response = $response->getBody();
 } else {
-$logger = new Logger();
-$writer = new Writer\Stream('/srv/www/htdocs/error_log');
-$logger->addWriter($writer);
-$logger->info($client->getUri());
-$logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
-echo $return;
-echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
-echo $return;
-die();
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($client->getUri());
+    $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
+    echo $return;
+    echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
+    echo $return;
+    die();
 }
 
 echo "<xmp>";
 var_dump($response);
 echo "</xmp>";
-die();
+
 $config = new \Zend\Config\Config(include '../config/autoload/global.europamundo.php');
 $config = [
     'driver' => $config->db->driver,

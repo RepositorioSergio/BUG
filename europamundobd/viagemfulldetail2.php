@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU ETAPAS";
+echo "COMECOU FULL DETAIL<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -42,19 +42,21 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
+
+$ID_Viaje = 16821;
+
 $user = 'CTMWS';
 $pass = 'Ctmws123';
 
 $raw = '<?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <getEtapas xmlns="http://tempuri.org/">
-      <userName>' . $user . '</userName>
-      <userPassword>' . $pass . '</userPassword>
-      <IdEtapa>int</IdEtapa>
-      <Temporada>Alta</Temporada>
-    </getEtapas>
-  </soap:Body>
+<soap:Body>
+    <getViajeFullDetail xmlns="http://tempuri.org/">
+        <ID_Viaje>' . $ID_Viaje . '</ID_Viaje>
+        <userName>' . $user . '</userName>
+        <userPassword>' . $pass . '</userPassword>
+    </getViajeFullDetail>
+</soap:Body>
 </soap:Envelope>';
 
 $client = new Client();
@@ -90,56 +92,3 @@ if ($response->isSuccess()) {
 echo "<xmp>";
 var_dump($response);
 echo "</xmp>";
-
-$config = new \Zend\Config\Config(include '../config/autoload/global.europamundo.php');
-$config = [
-    'driver' => $config->db->driver,
-    'database' => $config->db->database,
-    'username' => $config->db->username,
-    'password' => $config->db->password,
-    'hostname' => $config->db->hostname
-];
-$db = new \Zend\Db\Adapter\Adapter($config);
-
-/* $inputDoc = new DOMDocument();
-$inputDoc->loadXML($response);
-$Envelope = $inputDoc->getElementsByTagName("Envelope");
-$Body = $Envelope->item(0)->getElementsByTagName("Body");
-$getTemporadaResponse = $Body->item(0)->getElementsByTagName("getTemporadaResponse");
-$getTemporadaResult = $getTemporadaResponse->item(0)->getElementsByTagName("getTemporadaResult");
-
-//string
-$temporada = "";
-$string = $getTemporadaResult->item(0)->getElementsByTagName("string");
-if ($string->length > 0) {
-    for ($i=0; $i < $string->length; $i++) {  
-        $temporada = $string->item($i)->nodeValue;
-
-        try {
-            $sql = new Sql($db);
-            $insert = $sql->insert();
-            $insert->into('temporadas');
-            $insert->values(array(
-                'datetime_created' => time(),
-                'datetime_updated' => 0,
-                'temporada' => $temporada
-            ), $insert::VALUES_MERGE);
-            $statement = $sql->prepareStatementForSqlObject($insert);
-            $results = $statement->execute();
-            $db->getDriver()
-            ->getConnection()
-            ->disconnect();
-        } catch (\Exception $e) {
-            echo $return;
-            echo "Error: " . $e;
-            echo $return;
-        }
-    }
-} */
-
-// EOF
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
-echo 'Done';
-?>

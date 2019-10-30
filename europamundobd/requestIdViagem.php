@@ -64,6 +64,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
 
         $user = 'CTMWS';
         $pass = 'Ctmws123';
+        $ID_Viaje = 16539;
 
         $raw = '<?xml version="1.0" encoding="utf-8"?>
         <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -71,7 +72,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
             <getOnRequestByIdViaje xmlns="http://tempuri.org/">
               <userName>' . $user . '</userName>
               <userPassword>' . $pass . '</userPassword>
-              <idViaje>17480</idViaje>
+              <idViaje>' . $ID_Viaje . '</idViaje>
             </getOnRequestByIdViaje>
           </soap:Body>
         </soap:Envelope>';
@@ -93,17 +94,17 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
         $client->setRawBody($raw);
         $response = $client->send();
         if ($response->isSuccess()) {
-        $response = $response->getBody();
+            $response = $response->getBody();
         } else {
-        $logger = new Logger();
-        $writer = new Writer\Stream('/srv/www/htdocs/error_log');
-        $logger->addWriter($writer);
-        $logger->info($client->getUri());
-        $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
-        echo $return;
-        echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
-        echo $return;
-        die();
+            $logger = new Logger();
+            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+            $logger->addWriter($writer);
+            $logger->info($client->getUri());
+            $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
+            echo $return;
+            echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
+            echo $return;
+            die();
         }
 
         echo "<xmp>";

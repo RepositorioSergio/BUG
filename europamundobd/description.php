@@ -44,12 +44,13 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $user = 'CTMWS';
 $pass = 'Ctmws123';
+$ID_Viaje = 16539;
 
 $raw = '<?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <soap:Body>
     <getDescripcion xmlns="http://tempuri.org/">
-      <Id_Viaje>int</Id_Viaje>
+      <Id_Viaje>' . $ID_Viaje . '</Id_Viaje>
       <userName>' . $user . '</userName>
       <userPassword>' . $pass . '</userPassword>
     </getDescripcion>
@@ -73,17 +74,17 @@ $client->setMethod('POST');
 $client->setRawBody($raw);
 $response = $client->send();
 if ($response->isSuccess()) {
-$response = $response->getBody();
+    $response = $response->getBody();
 } else {
-$logger = new Logger();
-$writer = new Writer\Stream('/srv/www/htdocs/error_log');
-$logger->addWriter($writer);
-$logger->info($client->getUri());
-$logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
-echo $return;
-echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
-echo $return;
-die();
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($client->getUri());
+    $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
+    echo $return;
+    echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
+    echo $return;
+    die();
 }
 
 echo "<xmp>";

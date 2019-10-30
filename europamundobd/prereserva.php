@@ -44,6 +44,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $user = 'CTMWS';
 $pass = 'Ctmws123';
+$ID_Viaje = 16539;
 
 
 $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
@@ -51,22 +52,22 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
 <soapenv:Body>
   <tem:setPreReserva>
     <tem:Localizador>XXXVV41</tem:Localizador>
-    <tem:Fecha>20191030</tem:Fecha>
-    <tem:ID_Viaje>17480</tem:ID_Viaje>
+    <tem:Fecha>20200106</tem:Fecha>
+    <tem:ID_Viaje>' . $ID_Viaje . '</tem:ID_Viaje>
     <tem:Rotativo>N</tem:Rotativo>
     <tem:Sector>N</tem:Sector>
     <tem:Paradas>S</tem:Paradas>
     <tem:Ciudad_Incorporacion>0</tem:Ciudad_Incorporacion>
     <tem:Ciudad_Finalizacion>0</tem:Ciudad_Finalizacion>
-    <tem:Ciudad_Parada>5</tem:Ciudad_Parada>
-    <tem:Tiempo_Parada>14</tem:Tiempo_Parada>
+    <tem:Ciudad_Parada>12</tem:Ciudad_Parada>
+    <tem:Tiempo_Parada>28</tem:Tiempo_Parada>
     <tem:Plazas>2</tem:Plazas>
-    <tem:PlazasAdulto>1</tem:PlazasAdulto>
-    <tem:PlazasNinio>1</tem:PlazasNinio>
+    <tem:PlazasAdulto>2</tem:PlazasAdulto>
+    <tem:PlazasNinio>0</tem:PlazasNinio>
     <tem:Pasajeros>
       <tem:ArrayOfString>
         <tem:string>Juarez</tem:string>
-        <tem:string>Albino Jose</tem:string>
+        <tem:string>Xavier Jose</tem:string>
         <tem:string>30</tem:string>
         <tem:string>adulto</tem:string>
         <tem:string>H</tem:string>
@@ -81,9 +82,9 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
       </tem:ArrayOfString>
       <tem:ArrayOfString>
         <tem:string>Juarez</tem:string>
-        <tem:string>Alvaro Jose</tem:string>
-        <tem:string>5</tem:string>
-        <tem:string>nino</tem:string>
+        <tem:string>Maria Jose</tem:string>
+        <tem:string>25</tem:string>
+        <tem:string>adulto</tem:string>
         <tem:string>M</tem:string>
         <tem:string>S</tem:string>
         <tem:string>N</tem:string>
@@ -103,8 +104,8 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
       <tem:CO_RESERVA></tem:CO_RESERVA>
       <tem:TIPO_TRASLADO>L</tem:TIPO_TRASLADO>
       <tem:MODIFICACION>0</tem:MODIFICACION>
-      <tem:FECHA>20191030</tem:FECHA>
-      <tem:CIUDAD>Roma</tem:CIUDAD>
+      <tem:FECHA>20200106</tem:FECHA>
+      <tem:CIUDAD>Praga</tem:CIUDAD>
       <tem:OPCION_ELEGIDA>FD</tem:OPCION_ELEGIDA>
       <tem:NUM_VUELO></tem:NUM_VUELO>
       <tem:COMPANYA_AEREA></tem:COMPANYA_AEREA>
@@ -124,10 +125,10 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
     </tem:TrasladoLlegada>
     <tem:TrasladoSalida>
       <tem:CO_RESERVA></tem:CO_RESERVA>
-      <tem:TIPO_TRASLADO>S</tem:TIPO_TRASLADO>
+      <tem:TIPO_TRASLADO>N</tem:TIPO_TRASLADO>
       <tem:MODIFICACION>0</tem:MODIFICACION>
-      <tem:FECHA>20190729</tem:FECHA>
-      <tem:CIUDAD>Praga</tem:CIUDAD>
+      <tem:FECHA>20200209</tem:FECHA>
+      <tem:CIUDAD>VENECIA</tem:CIUDAD>
       <tem:OPCION_ELEGIDA>FD</tem:OPCION_ELEGIDA>
       <tem:NUM_VUELO></tem:NUM_VUELO>
       <tem:COMPANYA_AEREA></tem:COMPANYA_AEREA>
@@ -151,9 +152,10 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
 </soapenv:Body>
 </soapenv:Envelope>';
 
-echo $return;
-echo $raw;
-echo $return;
+echo "<xmp>";
+var_dump($raw);
+echo "</xmp>";
+
 $client = new Client();
 $client->setOptions(array(
     'timeout' => 100,
@@ -171,26 +173,26 @@ $client->setMethod('POST');
 $client->setRawBody($raw);
 $response = $client->send();
 if ($response->isSuccess()) {
-$response = $response->getBody();
+    $response = $response->getBody();
 } else {
-$logger = new Logger();
-$writer = new Writer\Stream('/srv/www/htdocs/error_log');
-$logger->addWriter($writer);
-$logger->info($client->getUri());
-$logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
-echo $return;
-echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
-echo $return;
-echo "<xmp>";
-var_dump($response);
-echo "</xmp>";
-die();
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($client->getUri());
+    $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
+    echo $return;
+    echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
+    echo $return;
+    echo "<xmp>";
+    var_dump($response);
+    echo "</xmp>";
+    die();
 }
 
 echo "<xmp>";
 var_dump($response);
 echo "</xmp>";
-die();
+
 $config = new \Zend\Config\Config(include '../config/autoload/global.europamundo.php');
 $config = [
     'driver' => $config->db->driver,

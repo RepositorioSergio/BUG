@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+<soapenv:Header/>
+<soapenv:Body>
+  <tem:setPreReserva>
+    <tem:Localizador>XXXVV52</tem:Localizador>
+    <tem:Fecha>20200106</tem:Fecha>
+    <tem:ID_Viaje>16000</tem:ID_Viaje>
+    <tem:Rotativo>N</tem:Rotativo>
+    <tem:Sector>N</tem:Sector>
+    <tem:Paradas>N</tem:Paradas>
+    <tem:Ciudad_Incorporacion>0</tem:Ciudad_Incorporacion>
+    <tem:Ciudad_Finalizacion>0</tem:Ciudad_Finalizacion>
+    <tem:Ciudad_Parada>8</tem:Ciudad_Parada>
+    <tem:Tiempo_Parada>21</tem:Tiempo_Parada>
+    <tem:Plazas>4</tem:Plazas>
+    <tem:PlazasAdulto>3</tem:PlazasAdulto>
+    <tem:PlazasNinio>1</tem:PlazasNinio>
+    <tem:Pasajeros>
+      <tem:ArrayOfString>
+        <tem:string>Juarez</tem:string>
+        <tem:string>Xavier Jose</tem:string>
+        <tem:string>30</tem:string>
+        <tem:string>adulto</tem:string>
+        <tem:string>H</tem:string>
+        <tem:string>S</tem:string>
+        <tem:string>N</tem:string>
+        <tem:string></tem:string>
+        <tem:string>N</tem:string>
+        <tem:string>1122331d</tem:string>
+        <tem:string>1122331p</tem:string>
+        <tem:string>19800312</tem:string>
+        <tem:string>italiana</tem:string>
+      </tem:ArrayOfString>
+      <tem:ArrayOfString>
+        <tem:string>Juarez</tem:string>
+        <tem:string>Quim Jose</tem:string>
+        <tem:string>30</tem:string>
+        <tem:string>adulto</tem:string>
+        <tem:string>H</tem:string>
+        <tem:string>S</tem:string>
+        <tem:string>N</tem:string>
+        <tem:string></tem:string>
+        <tem:string>N</tem:string>
+        <tem:string>1122332d</tem:string>
+        <tem:string>1122332p</tem:string>
+        <tem:string>19800322</tem:string>
+        <tem:string>italiana</tem:string>
+      </tem:ArrayOfString>
+      <tem:ArrayOfString>
+        <tem:string>Juarez</tem:string>
+        <tem:string>Helena Jose</tem:string>
+        <tem:string>37</tem:string>
+        <tem:string>adulto</tem:string>
+        <tem:string>M</tem:string>
+        <tem:string>S</tem:string>
+        <tem:string>N</tem:string>
+        <tem:string></tem:string>
+        <tem:string>N</tem:string>
+        <tem:string>1122333d</tem:string>
+        <tem:string>1122333p</tem:string>
+        <tem:string>19800332</tem:string>
+        <tem:string>italiana</tem:string>
+      </tem:ArrayOfString>
+      <tem:ArrayOfString>
+        <tem:string>Juarez</tem:string>
+        <tem:string>Madalena Jose</tem:string>
+        <tem:string>7</tem:string>
+        <tem:string>nino</tem:string>
+        <tem:string>M</tem:string>
+        <tem:string>S</tem:string>
+        <tem:string>N</tem:string>
+        <tem:string></tem:string>
+        <tem:string>N</tem:string>
+        <tem:string>1122334d</tem:string>
+        <tem:string>1122334p</tem:string>
+        <tem:string>19800342</tem:string>
+        <tem:string>italiana</tem:string>
+      </tem:ArrayOfString>
+    </tem:Pasajeros>
+    <tem:Observaciones>texto obsv</tem:Observaciones>
+    <tem:NOCHES_ADICIONALES_INICIO>0</tem:NOCHES_ADICIONALES_INICIO>
+    <tem:NOCHES_ADICIONALES_FINAL>1</tem:NOCHES_ADICIONALES_FINAL>
+    <tem:Observaciones_Bono>lo que me da la gana</tem:Observaciones_Bono>
+    <tem:TrasladoLlegada>
+      <tem:CO_RESERVA></tem:CO_RESERVA>
+      <tem:TIPO_TRASLADO>L</tem:TIPO_TRASLADO>
+      <tem:MODIFICACION>0</tem:MODIFICACION>
+      <tem:FECHA>20200106</tem:FECHA>
+      <tem:CIUDAD>Madrid</tem:CIUDAD>
+      <tem:OPCION_ELEGIDA>FD</tem:OPCION_ELEGIDA>
+      <tem:NUM_VUELO></tem:NUM_VUELO>
+      <tem:COMPANYA_AEREA></tem:COMPANYA_AEREA>
+      <tem:AEROPUERTO></tem:AEROPUERTO>
+      <tem:CIUDAD_PROC_DEST></tem:CIUDAD_PROC_DEST>
+      <tem:NOMBRE_HOTEL></tem:NOMBRE_HOTEL>
+      <tem:DIRECCION_HOTEL></tem:DIRECCION_HOTEL>
+      <tem:HORA_RECOGIDA></tem:HORA_RECOGIDA>
+      <tem:HOTEL_RECOGIDA></tem:HOTEL_RECOGIDA>
+      <tem:ID_HOTEL>5296</tem:ID_HOTEL>
+      <tem:DIRECCION_LLEGADA></tem:DIRECCION_LLEGADA>
+      <tem:DIRECCION_DESTINO></tem:DIRECCION_DESTINO>
+      <tem:OPC_FALTAN_DAT>PD</tem:OPC_FALTAN_DAT>
+      <tem:MODIFICADO_MENOS_48H></tem:MODIFICADO_MENOS_48H>
+      <tem:IDAGENTE_MODIFICACION>0</tem:IDAGENTE_MODIFICACION>
+      <tem:FECHA_MODIFICACION></tem:FECHA_MODIFICACION>
+    </tem:TrasladoLlegada>
+    <tem:TrasladoSalida>
+      <tem:CO_RESERVA></tem:CO_RESERVA>
+      <tem:TIPO_TRASLADO>N</tem:TIPO_TRASLADO>
+      <tem:MODIFICACION>0</tem:MODIFICACION>
+      <tem:FECHA>20200131</tem:FECHA>
+      <tem:CIUDAD>Madrid</tem:CIUDAD>
+      <tem:OPCION_ELEGIDA>FD</tem:OPCION_ELEGIDA>
+      <tem:NUM_VUELO></tem:NUM_VUELO>
+      <tem:COMPANYA_AEREA></tem:COMPANYA_AEREA>
+      <tem:AEROPUERTO></tem:AEROPUERTO>
+      <tem:CIUDAD_PROC_DEST></tem:CIUDAD_PROC_DEST>
+      <tem:NOMBRE_HOTEL></tem:NOMBRE_HOTEL>
+      <tem:DIRECCION_HOTEL></tem:DIRECCION_HOTEL>
+      <tem:HORA_RECOGIDA></tem:HORA_RECOGIDA>
+      <tem:HOTEL_RECOGIDA></tem:HOTEL_RECOGIDA>
+      <tem:ID_HOTEL></tem:ID_HOTEL>
+      <tem:DIRECCION_LLEGADA></tem:DIRECCION_LLEGADA>
+      <tem:DIRECCION_DESTINO></tem:DIRECCION_DESTINO>
+      <tem:OPC_FALTAN_DAT>PD</tem:OPC_FALTAN_DAT>
+      <tem:MODIFICADO_MENOS_48H></tem:MODIFICADO_MENOS_48H>
+      <tem:IDAGENTE_MODIFICACION>0</tem:IDAGENTE_MODIFICACION>
+      <tem:FECHA_MODIFICACION></tem:FECHA_MODIFICACION>
+    </tem:TrasladoSalida>
+    <tem:userName>CTMWS</tem:userName>
+    <tem:userPassword>Ctmws123</tem:userPassword>
+  </tem:setPreReserva>
+</soapenv:Body>
+</soapenv:Envelope>
