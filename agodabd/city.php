@@ -64,8 +64,8 @@ $raw = '{
         },
         "sortBy": "PriceAsc"
         },
-        "checkInDate": "2019-09-02",
-        "checkOutDate": "2019-09-03",
+        "checkInDate": "2019-11-02",
+        "checkOutDate": "2019-11-03",
         "cityId": 9395
         }
     }';
@@ -81,7 +81,7 @@ $client->setHeaders(array(
     'Content-Length' => strlen($raw),
     'Content-Type' => 'application/json;charset=utf-8'
 ));
-$client->setUri($abreupackagesserviceURL . 'Booking/Book');
+$client->setUri($url);
 $client->setMethod('POST');
 $client->setRawBody($raw);
 $response = $client->send();
