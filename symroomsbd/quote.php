@@ -33,7 +33,7 @@ $affiliate_id_palace = 0;
 $branch_filter = "";
 
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.mmc.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.symrooms.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -45,7 +45,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $url = "https://api.travelgatex.com/";
 
-$raw = '{"query":"{\n hotelX {\n quote(criteria: {\n  optionRefId: \"71@01[191223[191224[1[1[1[EN[GB[en[EUR[0[1[1023[1[1[0[0[50#0#false#EUR##0#[1|30#30|1|2019-12-23|1|5456|5454|1|1|0[16[30#30[[mercado@EN@ExpireDate@24/12/2019\"},\n  settings: {\n  client: \"Demo_Client\",\n  testMode: true,\n  context: \"HOTELTEST\"}) {\n  optionQuote {\n  optionRefId\n  status\n  price {\n  currency\n  binding\n  net\n gross\n  exchange {\n  currency\n  rate\n  }\n  }\n  }\n  errors {\n  code\n  description\n  }\n  warnings {\n  code\n  description\n  }\n  }\n  }\n  }"}';
+$raw = '{"query":"{\n hotelX {\n quote(criteria: {\n  optionRefId: \"81@01[191223[191224[1[14[1[EN[GB[en[EUR[300[0[422[1[14[1[0[18111026[DPR#DPR[50#0#false#EUR##0#[1|30#30|1|2019-12-23|1|143250|143278|14|0|0[1@1[30#30[[mercado@EN@ExpireDate@24/12/2019\"},\n  settings: {\n  client: \"Demo_Client\",\n  testMode: true,\n  context: \"HOTELTEST\"}) {\n  optionQuote {\n  optionRefId\n  status\n  price {\n  currency\n  binding\n  net\n gross\n  exchange {\n  currency\n  rate\n  }\n  }\n  }\n  errors {\n  code\n  description\n  }\n  warnings {\n  code\n  description\n  }\n  }\n  }\n  }"}';
 
  $headers = array(
     'Authorization: Apikey 64780338-49c8-4439-7c7d-d03c2033b145',
@@ -76,12 +76,12 @@ $headers = curl_getinfo($ch);
 curl_close($ch);
 
 $response = json_decode($response, true);
-echo "<br/>RESPONSE";
+/* echo "<br/>RESPONSE";
 echo '<xmp>';
 var_dump($response);
-echo '</xmp>'; 
+echo '</xmp>';  */
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.mmc.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.symrooms.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -106,10 +106,35 @@ $net = $price['net'];
 $gross = $price['gross'];
 //exchange
 $exchange = $price['exchange'];
-$currency = $exchange['currency'];
-$rate = $exchange['rate'];
+$excurrency = $exchange['currency'];
+$exrate = $exchange['rate'];
 
-
+try {
+    $sql = new Sql($db);
+    $insert = $sql->insert();
+    $insert->into('quote');
+    $insert->values(array(
+        'datetime_created' => time(),
+        'datetime_updated' => 0,
+        'optionRefId' => $optionRefId,
+        'status' => $status,
+        'currency' => $currency,
+        'binding' => $binding,
+        'net' => $net,
+        'gross' => $status,
+        'excurrency' => $excurrency,
+        'exrate' => $exrate
+    ), $insert::VALUES_MERGE);
+    $statement = $sql->prepareStatementForSqlObject($insert);
+    $results = $statement->execute();
+    $db->getDriver()
+        ->getConnection()
+        ->disconnect();
+} catch (Exception $ex) {
+    echo $return;
+    echo "ERRO1: " . $ex;
+    echo $return;
+}
 
 // EOF
 $db->getDriver()

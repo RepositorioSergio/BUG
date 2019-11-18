@@ -33,7 +33,7 @@ $affiliate_id_palace = 0;
 $branch_filter = "";
 
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.mmc.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.symrooms.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -78,11 +78,11 @@ curl_close($ch);
 
 $response = json_decode($response, true);
 echo "<br/>RESPONSE";
-echo '<xmp>';
+/* echo '<xmp>';
 var_dump($response);
-echo '</xmp>'; 
+echo '</xmp>';  */
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.mmc.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.symrooms.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -95,6 +95,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $data = $response['data'];
 $hotelX = $data['hotelX'];
 $booking = $hotelX['booking'];
+
 $bookings = $booking['bookings'];
 for ($i=0; $i < count($bookings); $i++) { 
     $reference = $bookings[$i]['reference'];
@@ -102,25 +103,74 @@ for ($i=0; $i < count($bookings); $i++) {
     $supplier = $reference['supplier'];
 
     $hotel = $bookings[$i]['hotel'];
+    $hotelCode = $hotel['hotelCode'];
+    $hotelName = $hotel['hotelName'];
     $bookingDate = $hotel['bookingDate'];
     $start = $hotel['start'];
     $end = $hotel['end'];
-    $hotelCode = $hotel['hotelCode'];
-    $hotelName = $hotel['hotelName'];
     $boardCode = $hotel['boardCode'];
     $occupancies = $hotel['occupancies'];
 
-    $rooms = $hotel['rooms'];
-    for ($j=0; $j < count($rooms); $j++) { 
-        $occupancyRefId = $rooms[$j]['occupancyRefId'];
-        $code = $rooms[$j]['code'];
-        $description = $rooms[$j]['description'];
-        $price = $rooms[$j]['price'];
+    try {
+        $sql = new Sql($db);
+        $insert = $sql->insert();
+        $insert->into('booking');
+        $insert->values(array(
+            'datetime_created' => time(),
+            'datetime_updated' => 0,
+            'client' => $client,
+            'supplier' => $supplier,
+            'hotelcode' => $hotelCode,
+            'hotelname' => $hotelName,
+            'bookingdate' => $bookingDate,
+            'start' => $start,
+            'end' => $end,
+            'boardCode' => $boardCode,
+            'occupancies' => $occupancies
+        ), $insert::VALUES_MERGE);
+        $statement = $sql->prepareStatementForSqlObject($insert);
+        $results = $statement->execute();
+        $db->getDriver()
+            ->getConnection()
+            ->disconnect();
+    } catch (Exception $ex) {
+        echo $return;
+        echo "ERRO1: " . $ex;
+        echo $return;
     }
 
+    $rooms = $hotel['rooms'];
+    for ($j=0; $j < count($rooms); $j++) { 
+        $code = $rooms[$j]['code'];
+        $description = $rooms[$j]['description'];
+        $occupancyRefId = $rooms[$j]['occupancyRefId'];
+        $price = $rooms[$j]['price'];
+
+        try {
+            $sql = new Sql($db);
+            $insert = $sql->insert();
+            $insert->into('rooms_booking');
+            $insert->values(array(
+                'datetime_created' => time(),
+                'datetime_updated' => 0,
+                'code' => $code,
+                'description' => $description,
+                'occupancyrefid' => $occupancyRefId,
+                'price' => $price,
+                'client' => $client
+            ), $insert::VALUES_MERGE);
+            $statement = $sql->prepareStatementForSqlObject($insert);
+            $results = $statement->execute();
+            $db->getDriver()
+                ->getConnection()
+                ->disconnect();
+        } catch (Exception $ex) {
+            echo $return;
+            echo "ERRO2: " . $ex;
+            echo $return;
+        }
+    }
 }
-
-
 
 // EOF
 $db->getDriver()

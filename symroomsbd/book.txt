@@ -1,0 +1,165 @@
+mutation {
+  hotelX {
+    book(input: {
+            optionRefId: "81@11[191223[191224[1[14[1[EN[GB[en[EUR[300[0[0[1[14[1[0[14111727[DPR@DPR[50#0#false#EUR##0#[1|30#30|1|2019-12-23|1|143250|143278|14|0|0[1@1[30#30[[After@50@Before@50@ExpireDate@24/12/2019@mercado@EN@tgx_sess@d7c32784-fc93-4b5b-888b-ad6c97d9f59c",
+            clientReference: "BookTest1100",
+            deltaPrice: { amount: 50, percent: 0, applyBoth: true },
+            paymentCard: {cardType: "VI", holder: { name: "Test", surname: "Test" }, number: "0123456789101112", CVC: "123", expire: { month: 8, year: 22 } },
+            holder: { name: "Test", surname: "Test" },
+            rooms: [  { occupancyRefId: 1, paxes: [{name: "Test1", surname: "Test1", age: 26}, {name: "Test2", surname: "Test2", age: 30}]}]
+                },
+          settings: {
+              client: "Demo_Client",
+              testMode: true}) {
+      booking {
+        hotel {
+          hotelCode
+          hotelName
+        }
+        price {
+          currency
+          binding
+          net
+          gross
+          exchange {
+            currency
+            rate
+          }
+        }
+      }
+      errors {
+        code
+        type
+        description
+      }
+      warnings {
+        code
+        description
+      }
+    }
+  }
+}
+
+
+//segunda funciona
+
+mutation {
+  hotelX {
+    book (
+			input: {
+				# You have to take this value from field 'id' on valuation step
+				optionRefId: "81@11[191210[191217[1610[14[0[ES[ES[es[EUR[300[0[0[1610[14[1[1[14111822[FITRO@FITRO[1212.96#0#false#USD##0#[1|30#30|1610|2019-12-10|7|1198376|1198377|14|0|0[1@1[30#30[24#2#USD#173.28[After@1212.96@Before@1083@ExpireDate@17/12/2019@mercado@ES@tgx_sess@c851d443-2207-4348-80a2-46d3afa04257",
+				clientReference: "BookTest001",
+				deltaPrice: {
+					amount: 1212.96,
+					percent: 0,
+					applyBoth: true
+				},
+				holder: {
+					name: "Test",
+					surname: "surnameTest"
+				},
+				rooms: { 
+					occupancyRefId: 1,
+					paxes: [{
+						name: "Pax1 name",
+						surname: "Pax1 surname",
+						age: 30
+						},
+						{
+						name: "Pax2 name",
+						surname: "Pax2 surname",
+						age: 30
+					}]
+				}
+			},
+			settings: {
+				client: "Demo_Client",
+				testMode: true
+			}) {
+      booking {
+        price {
+          currency
+          binding
+          net
+          gross
+          exchange {
+            currency
+            rate
+          }
+          markups {
+            channel
+            currency
+            binding
+            net
+            gross
+            exchange {
+              currency
+              rate
+            }
+          }
+        }
+        status
+        remarks
+        reference {
+          client
+          supplier
+        }
+        holder {
+          name
+          surname
+        }
+        hotel {
+          creationDate
+          checkIn
+          checkOut
+          hotelCode
+          hotelName
+          boardCode
+          occupancies {
+            id
+            paxes {
+              age
+            }
+          }
+          rooms {
+            code
+            description
+            occupancyRefId
+            price {
+              currency
+              binding
+              net
+              gross
+              exchange {
+                currency
+                rate
+              }
+              markups {
+                channel
+                currency
+                binding
+                net
+                gross
+                exchange {
+                  currency
+                  rate
+                }
+              }
+            }
+          }
+        }
+      }
+      errors {
+        code
+        type
+        description
+      }
+      warnings {
+        code
+        type
+        description
+      }
+    }
+  }
+}

@@ -33,7 +33,7 @@ $affiliate_id_palace = 0;
 $branch_filter = "";
 
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.mmc.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.symrooms.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -76,12 +76,12 @@ $headers = curl_getinfo($ch);
 curl_close($ch);
 
 $response = json_decode($response, true);
-echo "<br/>RESPONSE";
+/* echo "<br/>RESPONSE";
 echo '<xmp>';
 var_dump($response);
-echo '</xmp>'; 
+echo '</xmp>'; */ 
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.mmc.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.symrooms.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -125,8 +125,8 @@ for ($i=0; $i < count($edges); $i++) {
     $web = $contact['web'];
 
     $property = $hotelData['property'];
-    $name = $property['name'];
-    $code = $property['code'];
+    $propertyname = $property['name'];
+    $propertycode = $property['code'];
 
     $location = $hotelData['location'];
     $address = $location['address'];
@@ -144,10 +144,81 @@ for ($i=0; $i < count($edges); $i++) {
     $destinationLeaf = $closestDestination['destinationLeaf'];
     $parent = $closestDestination['parent'];
     $type = $closestDestination['type'];
+
+    try {
+        $sql = new Sql($db);
+        $insert = $sql->insert();
+        $insert->into('hotelavail');
+        $insert->values(array(
+            'datetime_created' => time(),
+            'datetime_updated' => 0,
+            'code' => $code,
+            'createdat' => $createdAt,
+            'updatedat' => $updatedAt,
+            'hoteldatacode' => $hotelDatacode,
+            'hotelcode' => $hotelCode,
+            'hotelcodesupplier' => $hotelCodeSupplier,
+            'hotelname' => $hotelName,
+            'categorycode' => $categoryCode,
+            'chaincode' => $chainCode,
+            'exclusivedeal' => $exclusiveDeal,
+            'amenities' => $amenities,
+            'rank' => $rank,
+            'email' => $email,
+            'telephone' => $telephone,
+            'fax' => $fax,
+            'web' => $web,
+            'propertyname' => $propertyname,
+            'propertycode' => $propertycode,
+            'address' => $address,
+            'city' => $city,
+            'zipcode' => $zipCode,
+            'country' => $country,
+            'latitude' => $latitude,
+            'longitude' => $longitude,
+            'closestdestinationcode' => $closestDestinationcode,
+            'available' => $available,
+            'destinationLeaf' => $destinationLeaf,
+            'parent' => $parent,
+            'type' => $type
+        ), $insert::VALUES_MERGE);
+        $statement = $sql->prepareStatementForSqlObject($insert);
+        $results = $statement->execute();
+        $db->getDriver()
+            ->getConnection()
+            ->disconnect();
+    } catch (Exception $ex) {
+        echo $return;
+        echo "ERRO1: " . $ex;
+        echo $return;
+    }
+
+
     $texts = $closestDestination['texts'];
     for ($j=0; $j < count($texts); $j++) { 
         $text = $texts[$j]['text'];
         $language = $texts[$j]['language'];
+
+        try {
+            $sql = new Sql($db);
+            $insert = $sql->insert();
+            $insert->into('closestDestination_hotelavail');
+            $insert->values(array(
+                'datetime_created' => time(),
+                'datetime_updated' => 0,
+                'text' => $text,
+                'language' => $language
+            ), $insert::VALUES_MERGE);
+            $statement = $sql->prepareStatementForSqlObject($insert);
+            $results = $statement->execute();
+            $db->getDriver()
+                ->getConnection()
+                ->disconnect();
+        } catch (Exception $ex) {
+            echo $return;
+            echo "ERRO2: " . $ex;
+            echo $return;
+        }
     }
 
     $medias = $hotelData['medias'];
@@ -158,10 +229,55 @@ for ($i=0; $i < count($edges); $i++) {
         $updatedAt = $medias[$k]['updatedAt'];
         $url = $medias[$k]['url'];
 
+        try {
+            $sql = new Sql($db);
+            $insert = $sql->insert();
+            $insert->into('medias_hotelavail');
+            $insert->values(array(
+                'datetime_created' => time(),
+                'datetime_updated' => 0,
+                'code' => $code,
+                'order' => $order,
+                'type' => $type,
+                'updatedat' => $updatedAt,
+                'url' => $url
+            ), $insert::VALUES_MERGE);
+            $statement = $sql->prepareStatementForSqlObject($insert);
+            $results = $statement->execute();
+            $db->getDriver()
+                ->getConnection()
+                ->disconnect();
+        } catch (Exception $ex) {
+            echo $return;
+            echo "ERRO3: " . $ex;
+            echo $return;
+        }
+
         $texts = $medias[$k]['texts'];
         for ($kAux=0; $kAux < count($texts); $kAux++) { 
             $text = $texts[$kAux]['text'];
             $language = $texts[$kAux]['language'];
+
+            try {
+                $sql = new Sql($db);
+                $insert = $sql->insert();
+                $insert->into('textmedias_hotelavail');
+                $insert->values(array(
+                    'datetime_created' => time(),
+                    'datetime_updated' => 0,
+                    'text' => $text,
+                    'language' => $language
+                ), $insert::VALUES_MERGE);
+                $statement = $sql->prepareStatementForSqlObject($insert);
+                $results = $statement->execute();
+                $db->getDriver()
+                    ->getConnection()
+                    ->disconnect();
+            } catch (Exception $ex) {
+                echo $return;
+                echo "ERRO4: " . $ex;
+                echo $return;
+            }
         }
     }
 
@@ -169,16 +285,77 @@ for ($i=0; $i < count($edges); $i++) {
     for ($x=0; $x < count($descriptions); $x++) { 
         $type = $descriptions[$x]['type'];
 
+        try {
+            $sql = new Sql($db);
+            $insert = $sql->insert();
+            $insert->into('descriptions_hotelavail');
+            $insert->values(array(
+                'datetime_created' => time(),
+                'datetime_updated' => 0,
+                'type' => $type
+            ), $insert::VALUES_MERGE);
+            $statement = $sql->prepareStatementForSqlObject($insert);
+            $results = $statement->execute();
+            $db->getDriver()
+                ->getConnection()
+                ->disconnect();
+        } catch (Exception $ex) {
+            echo $return;
+            echo "ERRO5: " . $ex;
+            echo $return;
+        }
+
         $texts = $descriptions[$k]['texts'];
         for ($kAux2=0; $kAux2 < count($texts); $kAux2++) { 
             $text = $texts[$kAux2]['text'];
             $language = $texts[$kAux2]['language'];
+
+            try {
+                $sql = new Sql($db);
+                $insert = $sql->insert();
+                $insert->into('textdescriptions_hotelavail');
+                $insert->values(array(
+                    'datetime_created' => time(),
+                    'datetime_updated' => 0,
+                    'text' => $text,
+                    'language' => $language
+                ), $insert::VALUES_MERGE);
+                $statement = $sql->prepareStatementForSqlObject($insert);
+                $results = $statement->execute();
+                $db->getDriver()
+                    ->getConnection()
+                    ->disconnect();
+            } catch (Exception $ex) {
+                echo $return;
+                echo "ERRO6: " . $ex;
+                echo $return;
+            }
         }
     }
 
     $cardTypes = $hotelData['cardTypes'];
     for ($z=0; $z < count($cardTypes); $z++) { 
         $cardType = $cardTypes[$z];
+
+        try {
+            $sql = new Sql($db);
+            $insert = $sql->insert();
+            $insert->into('cardtype_hotelavail');
+            $insert->values(array(
+                'datetime_created' => time(),
+                'datetime_updated' => 0,
+                'cardtype' => $cardType
+            ), $insert::VALUES_MERGE);
+            $statement = $sql->prepareStatementForSqlObject($insert);
+            $results = $statement->execute();
+            $db->getDriver()
+                ->getConnection()
+                ->disconnect();
+        } catch (Exception $ex) {
+            echo $return;
+            echo "ERRO7: " . $ex;
+            echo $return;
+        }
     }
 
 }

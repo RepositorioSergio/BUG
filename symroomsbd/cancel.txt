@@ -1,0 +1,133 @@
+mutation {
+  hotelX {
+    cancel (
+			input: {
+				accessCode: "422", 
+				language: "es",
+				hotelCode: "1610", #Place the hotel booked
+				reference: {
+				#You can use just one of the fields below
+					client: "BookTest001", #Place XTG reference
+					supplier: "852720" #Place Supplier reference
+				}
+			},
+			settings:{
+				client: "Demo_Client",
+        testMode: true
+			}			
+		) {
+      cancellation {
+        reference {
+          client
+          supplier
+        }
+        cancelReference
+        status
+        price {
+          currency
+          binding
+          net
+          gross
+          exchange {
+            currency
+            rate
+          }
+          markups {
+            channel
+            currency
+            binding
+            net
+            gross
+            exchange {
+              currency
+              rate
+            }
+          }
+        }
+        booking {
+          reference {
+            client
+            supplier
+          }
+          holder {
+            name
+            surname
+          }
+          hotel {
+            creationDate
+            checkIn
+            checkOut
+            hotelCode
+            hotelName
+            boardCode
+            occupancies {
+              id
+              paxes {
+                age
+              }
+            }
+            rooms {
+              occupancyRefId
+              code
+              description
+              price {
+                currency
+                binding
+                net
+                gross
+                exchange {
+                  currency
+                  rate
+                }
+                markups {
+                  channel
+                  currency
+                  binding
+                  net
+                  gross
+                  exchange {
+                    currency
+                    rate
+                  }
+                }
+              }
+            }
+          }
+          price {
+            currency
+            binding
+            net
+            gross
+            exchange {
+              currency
+              rate
+            }
+            markups {
+              channel
+              currency
+              binding
+              net
+              gross
+              exchange {
+                currency
+                rate
+              }
+            }
+          }
+          cancelPolicy {
+            refundable
+            cancelPenalties {
+              hoursBefore
+              penaltyType
+              currency
+              value
+            }
+          }
+          remarks
+          status
+          payable
+        }
+      }
+    }
+  }
+}
