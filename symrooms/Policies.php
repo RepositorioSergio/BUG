@@ -1,4 +1,4 @@
-<?php
+jjjhm<?php
 use Zend\Db\Adapter\Adapter;
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\ResultSet\ResultSet;
@@ -13,11 +13,11 @@ $valid = 0;
 $hid = 0;
 $shid = 0;
 $total = 0;
-error_log("\r\n COMECOU POLICIES \r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\nSymRooms - Policies\r\n", 3, "/srv/www/htdocs/error_log");
+$dbSymrooms = new \Zend\Db\Adapter\Adapter($config);
 try {
-    $db = new \Zend\Db\Adapter\Adapter($config);
     $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_symrooms where session_id='$session_id'";
-    $statement = $db->createStatement($sql);
+    $statement = $dbSymrooms->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
 } catch (Exception $e) {
@@ -26,6 +26,7 @@ try {
     $logger->addWriter($writer);
     $logger->info($e->getMessage());
 }
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $data = unserialize(base64_decode($row_settings["data"]));
@@ -40,7 +41,6 @@ if ($row_settings->valid()) {
     $index = $searchsettings['index'];
     $ipaddress = $searchsettings['ipaddress'];
     $nationality = $searchsettings['nationality'];
-    error_log("\r\n nationality  $nationality \r\n", 3, "/srv/www/htdocs/error_log");
     $residency = $searchsettings['residency'];
     $room_type = $searchsettings['room'];
     $adt = $searchsettings['adults'];
@@ -50,10 +50,8 @@ if ($row_settings->valid()) {
     $response['error'] = "Unable to handle request #2";
     return false;
 }
-error_log("\r\n COMECA ENABLE \r\n", 3, "/srv/www/htdocs/error_log");
-$affiliate_id = 0;
-$sql = "select value from settings where name='enableroomer' and affiliate_id=$affiliate_id" . $branch_filter;
-$statement = $db->createStatement($sql);
+$sql = "select value from settings where name='enableSymrooms' and affiliate_id=$affiliate_id" . $branch_filter;
+$statement = $dbSymrooms->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
@@ -62,53 +60,6 @@ if ($row_settings->valid()) {
 } else {
     $affiliate_id_roomer = 0;
 }
-/* $sql = "select value from settings where name='rtsID' and affiliate_id=$affiliate_id_rts" . $branch_filter;;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $rtsID = $row_settings['value'];
-}
-$sql = "select value from settings where name='rtsPassword' and affiliate_id=$affiliate_id_rts" . $branch_filter;;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $rtsPassword = base64_decode($row_settings['value']);
-}
-$sql = "select value from settings where name='rtsSiteCode' and affiliate_id=$affiliate_id_rts" . $branch_filter;;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $rtsSiteCode = $row_settings['value'];
-}
-$sql = "select value from settings where name='rtsRequestType' and affiliate_id=$affiliate_id_rts" . $branch_filter;;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $rtsRequestType = $row_settings['value'];
-}
-$sql = "select value from settings where name='rtsServiceURL' and affiliate_id=$affiliate_id_rts" . $branch_filter;;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$result = $statement->execute();
-$result->buffer();
-if ($result->valid()) {
-    $row = $result->current();
-    $rtsServiceURL = $row['value'];
-}
-error_log("\r\n rtsServiceURL  $rtsServiceURL  \r\n", 3, "/srv/www/htdocs/error_log"); */
-
 $breakdown = array();
 for ($w = 0; $w < count($quoteid); $w ++) {
     $outputArray = array();
@@ -133,12 +84,10 @@ for ($w = 0; $w < count($quoteid); $w ++) {
     }
 }
 
-
 $fromHotelsPRO = DateTime::createFromFormat("d-m-Y", $from);
 $toHotelsPro = DateTime::createFromFormat("d-m-Y", $to);
 $nights = $fromHotelsPRO->diff($toHotelsPro);
 $nights = $nights->format('%a');
-
 
 /*
  * $fromHotelsPRO = $fromHotelsPRO->getTimestamp();
@@ -167,12 +116,9 @@ foreach ($breakdown as $k => $v) {
         $item = array();
         $cancelation_deadline = 0;
         $cancelation_details = "";
-        error_log("\r\n ANTES CURL \r\n", 3, "/srv/www/htdocs/error_log");
-        
+        error_log("\r\nSymRooms Curl\r\n", 3, "/srv/www/htdocs/error_log");
         $url = "https://api.travelgatex.com/";
-
         $raw = '{"query":"{\n  hotelX {\n    search( criteria: {\n                checkIn: \"2019-12-23\",\n                checkOut: \"2019-12-24\",\n                hotels: [\"1\"],\n                occupancies: [ {paxes: [{age: 30}, {age: 30}]}]},\n                settings: {\n                      client: \"Demo_Client\",\n                      testMode: true,\n                      context: \"HOTELTEST\"}) {\n      options {\n        id\n        supplierCode\n        hotelCode\n        hotelName\n        boardCode\n    paymentType\n    status\n    rooms {\n    occupancyRefId\n     code\n   description\n    refundable\n    units\n    roomPrice {\n    price {\n    currency\n    binding\n    net\n    gross\n    exchange {\n    currency\n    rate\n    }\n    }\n    }\n  beds {\n    type\n    description\n    count\n    shared\n    }\n    ratePlans {\n    code\n    name\n    effectiveDate\n  expireDate\n   }\n    promotions {\n    code\n    name\n    effectiveDate\n    expireDate\n  }\n  }\n  supplements {\n   code\n    name\n    description\n    supplementType\n    chargeType\n    mandatory\n    durationType\n    quantity\n    unit\n    effectiveDate\n    expireDate\n    resort {\n    code\n    name\n    description\n    }\n    price {\n    currency\n    binding\n    net\n    gross\n    exchange {\n    currency\n    rate\n  }\n  }\n  }\n   surcharges {\n    chargeType\n    description\n    price {\n    currency\n    binding\n    net\n    gross\n    exchange {\n    currency\n    rate\n  }\n  }\n  }\n    rateRules \n    cancelPolicy {\n    refundable\n    cancelPenalties {\n    hoursBefore\n    penaltyType\n    currency\n   value\n  }\n  }\n      price {\n          net\n          currency\n        }\n      }\n      errors {\n        code\n        type\n        description\n      }\n      warnings {\n        code\n        type\n        description\n      }\n    }\n  }\n}"}';
-
         $headers = array(
             'Authorization: Apikey 64780338-49c8-4439-7c7d-d03c2033b145',
             'Accept-Encoding: gzip, deflate, br',
@@ -181,8 +127,7 @@ foreach ($breakdown as $k => $v) {
             'Connection: keep-alive',
             'DNT: 1',
             'Origin: https://api.travelgatex.com'
-        ); 
-
+        );
         $startTime = microtime();
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
@@ -191,7 +136,7 @@ foreach ($breakdown as $k => $v) {
         curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
         curl_setopt($ch, CURLOPT_VERBOSE, true);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_ENCODING , "gzip");
+        curl_setopt($ch, CURLOPT_ENCODING, "gzip");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $response2 = curl_exec($ch);
@@ -199,21 +144,21 @@ foreach ($breakdown as $k => $v) {
         $headers = curl_getinfo($ch);
         curl_close($ch);
         $endTime = microtime();
-
+        error_log("\r\nResponse: $response2\r\n", 3, "/srv/www/htdocs/error_log");
         $response2 = json_decode($response2, true);
-
+        
         $raterule = "";
         $cancel = array();
         $count = 0;
         $count2 = 0;
-
+        
         $data = $response2['data'];
         $hotelX = $data['hotelX'];
         $search = $hotelX['search'];
-
-        //options
+        
+        // options
         $options = $search['options'];
-        for ($i=0; $i < count($options); $i++) { 
+        for ($i = 0; $i < count($options); $i ++) {
             $id = $options[$i]['id'];
             $supplierCode = $options[$i]['supplierCode'];
             $hotelCode = $options[$i]['hotelCode'];
@@ -223,13 +168,13 @@ foreach ($breakdown as $k => $v) {
                 $paymentType = $options[$i]['paymentType'];
                 $status = $options[$i]['status'];
                 $token = $options[$i]['token'];
-
-                //supplements
+                
+                // supplements
                 $supplements = $options[$i]['supplements'];
-                //surcharges
+                // surcharges
                 $surcharges = $options[$i]['surcharges'];
                 if (count($surcharges) > 0) {
-                    for ($j=0; $j < count($surcharges); $j++) { 
+                    for ($j = 0; $j < count($surcharges); $j ++) {
                         $chargeType = $surcharges[$j]['chargeType'];
                         $scdescription = $surcharges[$j]['description'];
                         $price = $roomPrice['price'];
@@ -242,26 +187,26 @@ foreach ($breakdown as $k => $v) {
                         $scrate = $exchange['rate'];
                     }
                 }
-                //rateRules
+                // rateRules
                 $rateRules = $options[$i]['rateRules'];
                 if (count($rateRules) > 0) {
-                    for ($j=0; $j < count($rateRules); $j++) { 
+                    for ($j = 0; $j < count($rateRules); $j ++) {
                         $raterule = $rateRules[$j];
                     }
                 }
-
+                
                 $price = $options[$i]['price'];
                 $net = $price['net'];
                 $currency = $price['currency'];
-
-                //cancelPolicy
+                
+                // cancelPolicy
                 $cancelPolicy = $options[$i]['cancelPolicy'];
                 $CPrefundable = $cancelPolicy['refundable'];
-                //cancelPenalties
+                // cancelPenalties
                 $cancelPenalties = $cancelPolicy['cancelPenalties'];
                 $count2 = count($cancelPenalties);
                 if (count($cancelPenalties) > 0) {
-                    for ($c=0; $c < count($cancelPenalties); $c++) { 
+                    for ($c = 0; $c < count($cancelPenalties); $c ++) {
                         $cancel[$count]['hoursBefore'] = $cancelPenalties[$c]['hoursBefore'];
                         $cancel[$count]['penaltyType'] = $cancelPenalties[$c]['penaltyType'];
                         $cancel[$count]['currency'] = $cancelPenalties[$c]['currency'];
@@ -269,27 +214,27 @@ foreach ($breakdown as $k => $v) {
                         $count = $count + 1;
                     }
                 }
-
-                //rooms
+                
+                // rooms
                 $rooms = $options[$i]['rooms'];
-                for ($r=0; $r < count($rooms); $r++) { 
+                for ($r = 0; $r < count($rooms); $r ++) {
                     $occupancyRefId = $rooms[$r]['occupancyRefId'];
                     $room_code = $rooms[$r]['code'];
                     $description = $rooms[$r]['description'];
                     $refundable = $rooms[$r]['refundable'];
                     $units = $rooms[$r]['units'];
-
+                    
                     $promotions = $rooms[$r]['promotions'];
                     if (count($promotions) > 0) {
-                        for ($l=0; $l < count($promotions); $l++) { 
+                        for ($l = 0; $l < count($promotions); $l ++) {
                             $promotionscode = $promotions[$l]['code'];
                             $promotionsname = $promotions[$l]['name'];
                             $promotionseffectiveDate = $promotions[$l]['effectiveDate'];
                             $promotionscodeexpireDate = $promotions[$l]['expireDate'];
                         }
                     }
-
-                    //roomPrice
+                    
+                    // roomPrice
                     $roomPrice = $rooms[$r]['roomPrice'];
                     $price = $roomPrice['price'];
                     $currency = $price['currency'];
@@ -299,18 +244,18 @@ foreach ($breakdown as $k => $v) {
                     $exchange = $price['exchange'];
                     $currency = $exchange['currency'];
                     $rate = $exchange['rate'];
-
-                    //beds
+                    
+                    // beds
                     $beds = $rooms[$r]['beds'];
-                    for ($k=0; $k < count($beds); $k++) { 
+                    for ($k = 0; $k < count($beds); $k ++) {
                         $type = $beds[$k]['type'];
                         $descriptionbeds = $beds[$k]['description'];
                         $count = $beds[$k]['count'];
                         $shared = $beds[$k]['shared'];
                     }
-
+                    
                     $ratePlans = $rooms[$r]['ratePlans'];
-                    for ($y=0; $y < count($ratePlans); $y++) { 
+                    for ($y = 0; $y < count($ratePlans); $y ++) {
                         $ratePlanscode = $ratePlans[$y]['code'];
                         $name = $ratePlans[$y]['name'];
                         $effectiveDate = $ratePlans[$y]['effectiveDate'];
@@ -319,7 +264,7 @@ foreach ($breakdown as $k => $v) {
                 }
             }
         }
-
+        
         //
         // Policies
         //
@@ -329,7 +274,7 @@ foreach ($breakdown as $k => $v) {
         $item['nett'] = $net;
         $total = $total + $gross;
         $tot = $gross;
-        error_log("\r\n TOTAL $tot \r\n", 3, "/srv/www/htdocs/error_log");
+        error_log("\r\nTotal: $tot \r\n", 3, "/srv/www/htdocs/error_log");
         $item['room'] = $description;
         $item['RoomTypeCode'] = $room_code;
         $item['RoomType'] = $type;
@@ -338,15 +283,15 @@ foreach ($breakdown as $k => $v) {
         $item['total'] = $gross;
         $item['totalplain'] = number_format($tot, 2, '.', '');
         $avg = $tot / $nights;
-        error_log("\r\n AVG  $avg \r\n", 3, "/srv/www/htdocs/error_log");
+        error_log("\r\nAvg: $avg \r\n", 3, "/srv/www/htdocs/error_log");
         $item['avgnight'] = $filter->filter($avg);
         $item['avgplain'] = number_format($avg, 2, '.', '');
         $item['adults'] = $selectedAdults[$c];
         $item['children'] = $selectedChildren[$c];
         $item['children_ages'] = json_decode(json_encode($selectedChildrenAges[$c]), false);
-        
-
-        //$newDate = date("d-m-Y", strtotime($upto_date));
+        //
+        // $newDate = date("d-m-Y", strtotime($upto_date));
+        //
         if ($count2 > 0) {
             $cancelation_details = "The Cancellation " . $cancel[0]['penaltyType'] . " cost " . $cancel[0]['value'] . " " . $cancel[0]['currency'] . ".<br/>If Cancel " . $cancel[1]['hoursBefore'] . " hours before, The Cancellation " . $cancel[1]['penaltyType'] . " cost " . $cancel[1]['value'] . " " . $cancel[1]['currency'] . ".";
             $cancelation_deadline = $cancel[0]['hoursBefore'] . " hours before";
@@ -361,17 +306,18 @@ foreach ($breakdown as $k => $v) {
             $item['cancelpolicy_deadline'] = $cancelation_deadline;
         }
         
-        /* $item['cancelpolicy_deadlinetimestamp'] = $cancelation_deadline;
-        $item['cancelpolicy_details'] = $cancelation_details; */
-         
+        /*
+         * $item['cancelpolicy_deadlinetimestamp'] = $cancelation_deadline;
+         * $item['cancelpolicy_details'] = $cancelation_details;
+         */
+        
         array_push($roombreakdown, $item);
     }
     $c ++;
 }
-$db = new \Zend\Db\Adapter\Adapter($config);
 $hotel = array();
 $sql = "select sid from xmlhotels_msymrooms where sid='" . $shid . "' and hid=" . $hid;
-$statement = $db->createStatement($sql);
+$statement = $dbSymrooms->createStatement($sql);
 try {
     $statement->prepare();
 } catch (Exception $e) {
@@ -381,16 +327,13 @@ try {
     $logger->info($e->getMessage());
 }
 $row_hotel = $statement->execute();
+$row_hotel->buffer();
 if (! $row_hotel->valid()) {
     $response['error'] = "Unable to handle request #5";
     return false;
 }
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
-$db = new \Zend\Db\Adapter\Adapter($config);
 $sql = "select description as name, stars, hotel_info, address_1, address_2, address_3, address_4, latitude, longitude, city, city_name, seo, zipcode, country from xmlhotels where id=" . $hid;
-$statement = $db->createStatement($sql);
+$statement = $dbSymrooms->createStatement($sql);
 $statement->prepare();
 try {
     $row_hotel = $statement->execute();
@@ -400,6 +343,7 @@ try {
     $logger->addWriter($writer);
     $logger->info($e->getMessage());
 }
+$row_hotel->buffer();
 if ($row_hotel->valid()) {
     $row_hotel = $row_hotel->current();
     if ($starsArray[$row_hotel['stars']]['stars']) {
@@ -407,9 +351,8 @@ if ($row_hotel->valid()) {
     } else {
         $row_hotel['stars'] = 0;
     }
-    $db2 = new \Zend\Db\Adapter\Adapter($config);
     $sql = "select name from countries where id=" . (int) $row_hotel['country'];
-    $statement2 = $db2->createStatement($sql);
+    $statement2 = $dbSymrooms->createStatement($sql);
     $statement2->prepare();
     try {
         $row_country = $statement2->execute();
@@ -419,30 +362,25 @@ if ($row_hotel->valid()) {
         $logger->addWriter($writer);
         $logger->info($e->getMessage());
     }
+    $row_country->buffer();
     if ($row_country->valid()) {
         $row_country = $row_country->current();
         $row_hotel['country_name'] = $row_country['name'];
     } else {
         $row_hotel['country_name'] = "";
     }
-    $db2->getDriver()
-        ->getConnection()
-        ->disconnect();
     $hotel = $row_hotel;
 } else {
     $response['error'] = "Unable to handle request #6";
     return false;
 }
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
 $images = array();
 try {
-    $db = new \Zend\Db\Adapter\Adapter($config);
     $sql = "select url, description from xmlhotels_images where hotel_id=" . $hid . " order by sortorder";
-    $statement = $db->createStatement($sql);
+    $statement = $dbSymrooms->createStatement($sql);
     $statement->prepare();
     $result = $statement->execute();
+    $result->buffer();
     if ($result instanceof ResultInterface && $result->isQueryResult()) {
         $resultSet = new ResultSet();
         $resultSet->initialize($result);
@@ -453,9 +391,6 @@ try {
             array_push($images, $item);
         }
     }
-    $db->getDriver()
-        ->getConnection()
-        ->disconnect();
 } catch (Exception $e) {
     $logger = new Logger();
     $writer = new Writer\Stream('/srv/www/htdocs/error_log');
@@ -468,5 +403,8 @@ $response['breakdown'] = $roombreakdown;
 $response['total'] = $filter->filter($total);
 $response['totalplain'] = number_format($total, 2, '.', '');
 $response['searchsettings'] = $searchsettings;
-$response['code'] = $vector['code'];
+$dbSymrooms->getDriver()
+    ->getConnection()
+    ->disconnect();
+error_log("\r\nEOF Policies SymRooms\r\n", 3, "/srv/www/htdocs/error_log");
 ?>

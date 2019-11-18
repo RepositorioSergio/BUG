@@ -21,7 +21,7 @@ $query = "";
 $auxArray = array();
 $reviewsFilter = "";
 $cAuxCounter = 0;
-error_log("\r\n COMECOU SYMROOMS \r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\nSearch Hotels Symrooms\r\n", 3, "/srv/www/htdocs/error_log");
 $sql = "select name, country_id, zone_id,city_xml19, latitude, longitude from cities where id=" . $destination;
 $statement2 = $db->createStatement($sql);
 $statement2->prepare();
@@ -131,16 +131,17 @@ if ($row_settings->valid()) {
     $rtsMarkup = 0;
 }
 
-$dateStart = new DateTime(strftime("%d-%m-%Y", $from));
-$dateEnd = new DateTime(strftime("%d-%m-%Y", $to));
-$noOfNights = $dateStart->diff($dateEnd)->format('%d');
+$pesquisa = "hotel_id";
 
 $url = "https://api.travelgatex.com/";
-
-// error_log("\r\n Request: $raw \r\n", 3, "/srv/www/htdocs/error_log");
 if ($url != "") {
-    $raw = '{"query":"{\n  hotelX {\n    search( criteria: {\n                checkIn: \"2019-12-23\",\n                checkOut: \"2019-12-24\",\n                hotels: [\"1\"],\n                occupancies: [ {paxes: [{age: 30}, {age: 30}]}]},\n                settings: {\n                      client: \"Demo_Client\",\n                      testMode: true,\n                      context: \"HOTELTEST\"}) {\n      options {\n        id\n        supplierCode\n        hotelCode\n        hotelName\n        boardCode\n    paymentType\n    status\n    rooms {\n    occupancyRefId\n     code\n   description\n    refundable\n    units\n    roomPrice {\n    price {\n    currency\n    binding\n    net\n    gross\n    exchange {\n    currency\n    rate\n    }\n    }\n    }\n  beds {\n    type\n    description\n    count\n    shared\n    }\n    ratePlans {\n    code\n    name\n    effectiveDate\n  expireDate\n   }\n    promotions {\n    code\n    name\n    effectiveDate\n    expireDate\n  }\n  }\n  supplements {\n   code\n    name\n    description\n    supplementType\n    chargeType\n    mandatory\n    durationType\n    quantity\n    unit\n    effectiveDate\n    expireDate\n    resort {\n    code\n    name\n    description\n    }\n    price {\n    currency\n    binding\n    net\n    gross\n    exchange {\n    currency\n    rate\n  }\n  }\n  }\n   surcharges {\n    chargeType\n    description\n    price {\n    currency\n    binding\n    net\n    gross\n    exchange {\n    currency\n    rate\n  }\n  }\n  }\n    rateRules \n    cancelPolicy {\n    refundable\n    cancelPenalties {\n    hoursBefore\n    penaltyType\n    currency\n   value\n  }\n  }\n      price {\n          net\n          currency\n        }\n    remarks\n    token\n    id\n      }\n      errors {\n        code\n        type\n        description\n      }\n      warnings {\n        code\n        type\n        description\n      }\n    }\n  }\n}"}';
-
+    if ($pesquisa == "hotel_id") {
+        $raw = '{"query":"{\n  hotelX {\n    search( criteria: {\n                checkIn: \"2019-12-23\",\n                checkOut: \"2019-12-24\",\n                hotels: [\"1\"],\n                occupancies: [ {paxes: [{age: 30}, {age: 30}]}]},\n                settings: {\n                      client: \"Demo_Client\",\n                      testMode: true,\n                      context: \"HOTELTEST\"}) {\n      options {\n        id\n        supplierCode\n        hotelCode\n        hotelName\n        boardCode\n    paymentType\n    status\n    rooms {\n    occupancyRefId\n     code\n   description\n    refundable\n    units\n    roomPrice {\n    price {\n    currency\n    binding\n    net\n    gross\n    exchange {\n    currency\n    rate\n    }\n    }\n    }\n  beds {\n    type\n    description\n    count\n    shared\n    }\n    ratePlans {\n    code\n    name\n    effectiveDate\n  expireDate\n   }\n    promotions {\n    code\n    name\n    effectiveDate\n    expireDate\n  }\n  }\n  supplements {\n   code\n    name\n    description\n    supplementType\n    chargeType\n    mandatory\n    durationType\n    quantity\n    unit\n    effectiveDate\n    expireDate\n    resort {\n    code\n    name\n    description\n    }\n    price {\n    currency\n    binding\n    net\n    gross\n    exchange {\n    currency\n    rate\n  }\n  }\n  }\n   surcharges {\n    chargeType\n    description\n    price {\n    currency\n    binding\n    net\n    gross\n    exchange {\n    currency\n    rate\n  }\n  }\n  }\n    rateRules \n    cancelPolicy {\n    refundable\n    cancelPenalties {\n    hoursBefore\n    penaltyType\n    currency\n   value\n  }\n  }\n      price {\n          net\n          currency\n        }\n    remarks\n    token\n    id\n      }\n      errors {\n        code\n        type\n        description\n      }\n      warnings {\n        code\n        type\n        description\n      }\n    }\n  }\n}"}';
+    } else {
+        $raw = '{"query":"{\n  hotelX {\n  search(\n  criteria: {\n  checkIn: \"2019-12-23\",\n  checkOut: \"2019-12-24\",\n  occupancies: [{\n paxes: [\n  {age: 30}, {age: 30}]}],\n  language: \"es\",\n  nationality: \"ES\",\n  currency: \"EUR\",\n  market: \"ES\",\n  destinations: [\"1149\", \"AD\", \"31256\"]\n  },\n  settings: {\n  suppliers: {\n code: \"HOTELTEST\"},\n  plugins: {\n  step: REQUEST,\n  pluginsType: [{\n  type: POST_STEP,\n  name: \"search_by_destination\",\n  parameters: [{\n  key: \"accessID\",\n  value: \"422\"}]\n }]\n  },\n  businessRules: null,\n  timeout: 24700,\n  context: \"HOTELTEST\",\n  client: \"Demo_Client\",\n  testMode: true},\n  filter: {\n  access: {\n  includes: []\n  }\n  }) {\n  options {\n  surcharges {\n  chargeType\n  mandatory\n  description\n  price {\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  markups {\n  channel\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  }\n  }\n  }\n  accessCode\n  supplierCode\n  market\n  hotelCode\n  hotelName\n  boardCode\n  paymentType\n  status\n  occupancies {\n  id\n  paxes {\n  age\n  }\n  }\n  rooms {\n occupancyRefId\n  code\n  description\n  refundable\n  units\n  roomPrice {\n  price {\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  markups {\n  channel\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  }\n  }\n  breakdown {\n  effectiveDate\n  expireDate\n  price {\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  }\n  }\n  }\n  beds {\n  type\n  description\n  count\n  shared\n  }\n  ratePlans {\n  code\n  name\n  effectiveDate\n  expireDate\n  }\n  promotions {\n  code\n  name\n  effectiveDate\n  expireDate\n  }\n  }\n  price {\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  markups {\n  channel\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  }\n  }\n  addOns {\n  distribute\n  }\n  supplements {\n  code\n  name\n  description\n  supplementType\n  chargeType\n  mandatory\n  durationType\n  quantity\n  unit\n  effectiveDate\n  expireDate\n  resort {\n  code\n  name\n  description\n  }\n  price {\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n markups {\n  channel\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  }\n  }\n  }\n  surcharges {\n  chargeType\n  description\n  price {\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  markups {\n  channel\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  }\n  }\n  }\n  rateRules\n cancelPolicy {\n  refundable\n  cancelPenalties {\n  hoursBefore\n  penaltyType\n  currency\n  value\n  }\n  }\n  remarks\n  token\n  id\n  }\n  }\n  }\n  }"}';
+    }
+    
+    error_log("\r\nSymRooms Request: $raw\r\n", 3, "/srv/www/htdocs/error_log");
     $headers = array(
         'Authorization: Apikey 64780338-49c8-4439-7c7d-d03c2033b145',
         'Accept-Encoding: gzip, deflate, br',
@@ -149,8 +150,8 @@ if ($url != "") {
         'Connection: keep-alive',
         'DNT: 1',
         'Origin: https://api.travelgatex.com'
-    ); 
-
+    );
+    
     $startTime = microtime();
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
@@ -159,7 +160,7 @@ if ($url != "") {
     curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
     curl_setopt($ch, CURLOPT_VERBOSE, true);
     curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_ENCODING , "gzip");
+    curl_setopt($ch, CURLOPT_ENCODING, "gzip");
     curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     $response = curl_exec($ch);
@@ -167,8 +168,7 @@ if ($url != "") {
     $headers = curl_getinfo($ch);
     curl_close($ch);
     $endTime = microtime();
-    error_log("\r\n Response SYM: $response \r\n", 3, "/srv/www/htdocs/error_log");
-
+    error_log("\r\nResponse SYM: $response \r\n", 3, "/srv/www/htdocs/error_log");
     try {
         $sql = new Sql($db);
         $insert = $sql->insert();
@@ -189,18 +189,18 @@ if ($url != "") {
         $logger->addWriter($writer);
         $logger->info($e->getMessage());
     }
-
+    
     $response = json_decode($response, true);
-
+    
     $raterule = "";
-
+    
     $data = $response['data'];
     $hotelX = $data['hotelX'];
     $search = $hotelX['search'];
-
-    //options
+    
+    // options
     $options = $search['options'];
-    for ($i=0; $i < count($options); $i++) { 
+    for ($i = 0; $i < count($options); $i ++) {
         $id = $options[$i]['id'];
         $supplierCode = $options[$i]['supplierCode'];
         $hotelCode = $options[$i]['hotelCode'];
@@ -211,13 +211,13 @@ if ($url != "") {
         $paymentType = $options[$i]['paymentType'];
         $status = $options[$i]['status'];
         $token = $options[$i]['token'];
-
-        //supplements
+        
+        // supplements
         $supplements = $options[$i]['supplements'];
-        //surcharges
+        // surcharges
         $surcharges = $options[$i]['surcharges'];
         if (count($surcharges) > 0) {
-            for ($j=0; $j < count($surcharges); $j++) { 
+            for ($j = 0; $j < count($surcharges); $j ++) {
                 $chargeType = $surcharges[$j]['chargeType'];
                 $scdescription = $surcharges[$j]['description'];
                 $price = $roomPrice['price'];
@@ -230,50 +230,50 @@ if ($url != "") {
                 $scrate = $exchange['rate'];
             }
         }
-        //rateRules
+        // rateRules
         $rateRules = $options[$i]['rateRules'];
         if (count($rateRules) > 0) {
-            for ($j=0; $j < count($rateRules); $j++) { 
+            for ($j = 0; $j < count($rateRules); $j ++) {
                 $raterule = $rateRules[$j];
             }
         }
-
+        
         $price = $options[$i]['price'];
         $net = $price['net'];
         $currency = $price['currency'];
-
-        //cancelPolicy
+        
+        // cancelPolicy
         $cancelPolicy = $options[$i]['cancelPolicy'];
         $CPrefundable = $cancelPolicy['refundable'];
-        //cancelPenalties
+        // cancelPenalties
         $cancelPenalties = $cancelPolicy['cancelPenalties'];
-        for ($c=0; $c < count($cancelPenalties); $c++) { 
+        for ($c = 0; $c < count($cancelPenalties); $c ++) {
             $hoursBefore = $cancelPenalties[$c]['hoursBefore'];
             $penaltyType = $cancelPenalties[$c]['penaltyType'];
             $currency = $cancelPenalties[$c]['currency'];
             $value = $cancelPenalties[$c]['value'];
         }
-
-        //rooms
+        
+        // rooms
         $rooms = $options[$i]['rooms'];
-        for ($r=0; $r < count($rooms); $r++) { 
+        for ($r = 0; $r < count($rooms); $r ++) {
             $occupancyRefId = $rooms[$r]['occupancyRefId'];
             $room_code = $rooms[$r]['code'];
             $description = $rooms[$r]['description'];
             $refundable = $rooms[$r]['refundable'];
             $units = $rooms[$r]['units'];
-
+            
             $promotions = $rooms[$r]['promotions'];
             if (count($promotions) > 0) {
-                for ($l=0; $l < count($promotions); $l++) { 
+                for ($l = 0; $l < count($promotions); $l ++) {
                     $promotionscode = $promotions[$l]['code'];
                     $promotionsname = $promotions[$l]['name'];
                     $promotionseffectiveDate = $promotions[$l]['effectiveDate'];
                     $promotionscodeexpireDate = $promotions[$l]['expireDate'];
                 }
             }
-
-            //roomPrice
+            
+            // roomPrice
             $roomPrice = $rooms[$r]['roomPrice'];
             $price = $roomPrice['price'];
             $currency = $price['currency'];
@@ -283,25 +283,24 @@ if ($url != "") {
             $exchange = $price['exchange'];
             $currency = $exchange['currency'];
             $rate = $exchange['rate'];
-
-            //beds
+            
+            // beds
             $beds = $rooms[$r]['beds'];
-            for ($k=0; $k < count($beds); $k++) { 
+            for ($k = 0; $k < count($beds); $k ++) {
                 $type = $beds[$k]['type'];
                 $descriptionbeds = $beds[$k]['description'];
                 $count = $beds[$k]['count'];
                 $shared = $beds[$k]['shared'];
             }
-
+            
             $ratePlans = $rooms[$r]['ratePlans'];
-            for ($y=0; $y < count($ratePlans); $y++) { 
+            for ($y = 0; $y < count($ratePlans); $y ++) {
                 $ratePlanscode = $ratePlans[$y]['code'];
                 $name = $ratePlans[$y]['name'];
                 $effectiveDate = $ratePlans[$y]['effectiveDate'];
                 $expireDate = $ratePlans[$y]['expireDate'];
             }
-
-
+            
             for ($zRooms = 0; $zRooms < count($selectedAdults); $zRooms ++) {
                 if (is_array($tmp[$shid])) {
                     $baseCounterDetails = count($tmp[$shid]['details'][$zRooms]);
@@ -365,23 +364,23 @@ if ($url != "") {
                 $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['scurrency'] = $currency;
                 $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['special'] = false;
                 $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = "";
-
+                
                 /*
-                    * $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy'] = $CancelCost;
-                    * $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy_deadline'] = $DeadLineCancel;
-                    */
+                 * $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy'] = $CancelCost;
+                 * $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy_deadline'] = $DeadLineCancel;
+                 */
                 $count = $count + 1;
             }
         }
         $symrooms = true;
     }
 }
-//error_log("\r\n TMP:" . print_r($tmp, true) . " \r\n", 3, "/srv/www/htdocs/error_log");
+// error_log("\r\n TMP:" . print_r($tmp, true) . " \r\n", 3, "/srv/www/htdocs/error_log");
 if ($symrooms == true) {
     $sfilter = implode(' or ', $sfilter);
     try {
         $sql = "select hid, sid from xmlhotels_msymrooms where " . $sfilter;
-        //error_log("\r\n SYM SQL: $sql \r\n", 3, "/srv/www/htdocs/error_log");
+        // error_log("\r\n SYM SQL: $sql \r\n", 3, "/srv/www/htdocs/error_log");
         $statement2 = $db->createStatement($sql);
         $statement2->prepare();
         $result2 = $statement2->execute();
@@ -415,12 +414,12 @@ if ($symrooms == true) {
         $logger->addWriter($writer);
         $logger->info($e->getMessage());
     }
-
+    
     if (is_array($sidfilter)) {
         $sidfilter = implode(',', $sidfilter);
         $query = 'call xmlhotels("' . $sidfilter . '")';
         $supplier = 65;
-        //error_log("\r\SYM QUERY $query \r\n", 3, "/srv/www/htdocs/error_log");
+        // error_log("\r\SYM QUERY $query \r\n", 3, "/srv/www/htdocs/error_log");
         try {
             $sql = new Sql($db);
             $delete = $sql->delete();
@@ -450,4 +449,5 @@ if ($symrooms == true) {
         }
     }
 }
+error_log("\r\nEOF Hotels Symrooms\r\n", 3, "/srv/www/htdocs/error_log");
 ?>
