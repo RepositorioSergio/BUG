@@ -51,11 +51,7 @@ $apikey = "b57a754c-5e06-4cdd-ac0d-2ea58c48ef74";
 
 $raw = '<?xml version="1.0" encoding="utf-8"?>
 <BookingDetailsRequestV2 siteid="' . $siteid . '" apikey="' . $apikey . '" xmlns="http://xml.agoda.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<BookingID>3000961</BookingID>
-	<BookingID>3000962</BookingID>
-	<BookingID>3000963</BookingID>
-	<BookingID>3000964</BookingID>
-	<BookingID>3000965</BookingID>
+	<BookingID>8283511</BookingID>
 </BookingDetailsRequestV2>';
 
 echo '<xmp>';
@@ -96,8 +92,6 @@ echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
 
-die();
-
 $config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
 $config = [
     'driver' => $config->db->driver,
@@ -110,210 +104,170 @@ $db = new \Zend\Db\Adapter\Adapter($config);
     
 $inputDoc = new DOMDocument();
 $inputDoc->loadXML($response);
-$AvailabilityLongResponseV2 = $inputDoc->getElementsByTagName("AvailabilityLongResponseV2");
+$BookingDetailsResponseV2 = $inputDoc->getElementsByTagName("BookingDetailsResponseV2");
+$status = $BookingDetailsResponseV2->item(0)->getAttribute('status');
 
-$Hotels = $AvailabilityLongResponseV2->item(0)->getElementsByTagName('Hotels');
-if ($Hotels->length > 0) {
-    $Hotel = $Hotels->item(0)->getElementsByTagName('Hotel');
-    if ($Hotel->length > 0) {
-        for ($i=0; $i < $Hotel->length; $i++) { 
-            $Id = $Hotel->item($i)->getElementsByTagName('Id');
-            if ($Id->length > 0) {
-                $Id = $Id->item(0)->nodeValue;
+$Bookings = $BookingDetailsResponseV2->item(0)->getElementsByTagName('Bookings');
+if ($Bookings->length > 0) {
+    $Booking = $Bookings->item(0)->getElementsByTagName('Booking');
+    if ($Booking->length > 0) {
+        for ($j=0; $j < $Booking->length; $j++) { 
+            $BookingID = $Booking->item($j)->getElementsByTagName('BookingID');
+            if ($BookingID->length > 0) {
+                $BookingID = $BookingID->item(0)->nodeValue;
             } else {
-                $Id = "";
+                $BookingID = "";
             }
-            $CheapestRoom = $Hotel->item($i)->getElementsByTagName('CheapestRoom');
-            if ($CheapestRoom->length > 0) {
-                $inclusive = $CheapestRoom->item(0)->getAttribute('inclusive');
-                $fees = $CheapestRoom->item(0)->getAttribute('fees');
-                $tax = $CheapestRoom->item(0)->getAttribute('tax');
-                $exclusive = $CheapestRoom->item(0)->getAttribute('exclusive');
+            $Tag = $Booking->item($j)->getElementsByTagName('Tag');
+            if ($Tag->length > 0) {
+                $Tag = $Tag->item(0)->nodeValue;
+            } else {
+                $Tag = "";
+            }
+            $Status = $Booking->item($j)->getElementsByTagName('Status');
+            if ($Status->length > 0) {
+                $Status = $Status->item(0)->nodeValue;
+            } else {
+                $Status = "";
+            }
+            $Country = $Booking->item($j)->getElementsByTagName('Country');
+            if ($Country->length > 0) {
+                $Country = $Country->item(0)->nodeValue;
+            } else {
+                $Country = "";
+            }
+            $City = $Booking->item($j)->getElementsByTagName('City');
+            if ($City->length > 0) {
+                $City = $City->item(0)->nodeValue;
+            } else {
+                $City = "";
+            }
+            $Hotel = $Booking->item($j)->getElementsByTagName('Hotel');
+            if ($Hotel->length > 0) {
+                $Hotel = $Hotel->item(0)->nodeValue;
+            } else {
+                $Hotel = "";
+            }
+            $CheckInDate = $Booking->item($j)->getElementsByTagName('CheckInDate');
+            if ($CheckInDate->length > 0) {
+                $CheckInDate = $CheckInDate->item(0)->nodeValue;
+            } else {
+                $CheckInDate = "";
+            }
+            $CheckOutDate = $Booking->item($j)->getElementsByTagName('CheckOutDate');
+            if ($CheckOutDate->length > 0) {
+                $CheckOutDate = $CheckOutDate->item(0)->nodeValue;
+            } else {
+                $CheckOutDate = "";
+            }
+            $SelfServiceURL = $Booking->item($j)->getElementsByTagName('SelfServiceURL');
+            if ($SelfServiceURL->length > 0) {
+                $SelfServiceURL = $SelfServiceURL->item(0)->nodeValue;
+            } else {
+                $SelfServiceURL = "";
+            }
+            $Source = $Booking->item($j)->getElementsByTagName('Source');
+            if ($Source->length > 0) {
+                $Source = $Source->item(0)->nodeValue;
+            } else {
+                $Source = "";
+            }
+            $SupplierName = $Booking->item($j)->getElementsByTagName('SupplierName');
+            if ($SupplierName->length > 0) {
+                $SupplierName = $SupplierName->item(0)->nodeValue;
+            } else {
+                $SupplierName = "";
+            }
+            $SupplierReference = $Booking->item($j)->getElementsByTagName('SupplierReference');
+            if ($SupplierReference->length > 0) {
+                $SupplierReference = $SupplierReference->item(0)->nodeValue;
+            } else {
+                $SupplierReference = "";
+            }
+
+            //Room
+            $Room = $Booking->item($j)->getElementsByTagName('Room');
+            if ($Room->length > 0) {
+                $RoomType = $Room->item(0)->getElementsByTagName('RoomType');
+                if ($RoomType->length > 0) {
+                    $RoomType = $RoomType->item(0)->nodeValue;
+                } else {
+                    $RoomType = "";
+                }
+                $RoomsBooked = $Room->item(0)->getElementsByTagName('RoomsBooked');
+                if ($RoomsBooked->length > 0) {
+                    $RoomsBooked = $RoomsBooked->item(0)->nodeValue;
+                } else {
+                    $RoomsBooked = "";
+                }
+            }
+
+            //TotalRateUSD
+            $TotalRateUSD = $Booking->item($j)->getElementsByTagName('TotalRateUSD');
+            if ($TotalRateUSD->length > 0) {
+                $inclusive = $TotalRateUSD->item(0)->getAttribute('inclusive');
+                $fees = $TotalRateUSD->item(0)->getAttribute('fees');
+                $tax = $TotalRateUSD->item(0)->getAttribute('tax');
+                $exclusive = $TotalRateUSD->item(0)->getAttribute('exclusive');
+                $ratetype = $TotalRateUSD->item(0)->getAttribute('ratetype');
+                $rateplan = $TotalRateUSD->item(0)->getAttribute('rateplan');
             } else {
                 $inclusive = "";
                 $fees = "";
                 $tax = "";
                 $exclusive = "";
-            }
-            $PaxSettings = $Hotel->item($i)->getElementsByTagName('PaxSettings');
-            if ($PaxSettings->length > 0) {
-                $childage = $PaxSettings->item(0)->getAttribute('childage');
-                $infantage = $PaxSettings->item(0)->getAttribute('infantage');
-                $submit = $PaxSettings->item(0)->getAttribute('submit');
-            } else {
-                $childage = "";
-                $infantage = "";
-                $submit = "";
+                $ratetype = "";
+                $rateplan = "";
             }
 
-            $Rooms = $Hotel->item($i)->getElementsByTagName('Rooms');
-            if ($Rooms->length > 0) {
-                $Room = $Rooms->item(0)->getElementsByTagName('Room');
-                if ($Room->length > 0) {
-                    for ($r=0; $r < $Room->length; $r++) { 
-                        $Roomid = $Room->item($r)->getAttribute('id');
-                        $Roomname = $Room->item($r)->getAttribute('name');
-                        $promoeligible = $Room->item($r)->getAttribute('promoeligible');
-                        $blockid = $Room->item($r)->getAttribute('blockid');
-                        $ratecategoryid = $Room->item($r)->getAttribute('ratecategoryid');
-                        $model = $Room->item($r)->getAttribute('model');
-                        $currency = $Room->item($r)->getAttribute('currency');
-                        $ratetype = $Room->item($r)->getAttribute('ratetype');
-                        $rateplan = $Room->item($r)->getAttribute('rateplan');
-                        $lineitemid = $Room->item($r)->getAttribute('lineitemid');
-                        $promotionid = $Room->item($r)->getAttribute('promotionid');
+            //Payment
+            $pay = "";
+            $Payment = $Booking->item($j)->getElementsByTagName('Payment');
+            if ($Payment->length > 0){
+                $PaymentRateInclusive = $Payment->item(0)->getElementsByTagName('PaymentRateInclusive');
+                if ($PaymentRateInclusive->length > 0){
+                    $currency = $PaymentRateInclusive->item(0)->getAttribute('currency');
+                    $pay = $PaymentRateInclusive->item(0)->nodeValue;
+                } else {
+                    $currency = "";
+                    $pay = ""; 
+                }
+            }
 
-                        $StandardTranslation = $Room->item($r)->getElementsByTagName('StandardTranslation');
-                        if ($StandardTranslation->length > 0) {
-                            $StandardTranslation = $StandardTranslation->item(0)->nodeValue;
+            //GuestDetails
+            $GuestDetails = $Booking->item($j)->getElementsByTagName('GuestDetails');
+            if ($GuestDetails->length > 0) {
+                $GuestDetail = $GuestDetails->item(0)->getElementsByTagName('GuestDetail');
+                if ($GuestDetail->length > 0) {
+                    for ($i=0; $i < $GuestDetail->length; $i++) { 
+                        $Primary = $GuestDetail->item($i)->getAttribute('Primary');
+                        $Title = $GuestDetail->item($i)->getElementsByTagName('Title');
+                        if ($Title->length > 0) {
+                            $Title = $Title->item(0)->nodeValue;
                         } else {
-                            $StandardTranslation = "";
+                            $Title = "";
                         }
-                        $RemainingRooms = $Room->item($r)->getElementsByTagName('RemainingRooms');
-                        if ($RemainingRooms->length > 0) {
-                            $RemainingRooms = $RemainingRooms->item(0)->nodeValue;
+                        $FirstName = $GuestDetail->item($i)->getElementsByTagName('FirstName');
+                        if ($FirstName->length > 0) {
+                            $FirstName = $FirstName->item(0)->nodeValue;
                         } else {
-                            $RemainingRooms = "";
+                            $FirstName = "";
                         }
-                        //Benefits
-                        $Benefits = $Room->item($r)->getElementsByTagName('Benefits');
-                        if ($Benefits->length > 0) {
-                            $Benefit = $Benefits->item(0)->getElementsByTagName('Benefit');
-                            if ($Benefit->length > 0) {
-                                $Benefitid = $Benefit->item(0)->getAttribute('id');
-                                $BenefitName = $Benefit->item(0)->getElementsByTagName('Name');
-                                if ($BenefitName->length > 0) {
-                                    $BenefitName = $BenefitName->item(0)->nodeValue;
-                                } else {
-                                    $BenefitName = "";
-                                }
-                                $BenefitTranslation = $Benefit->item(0)->getElementsByTagName('Translation');
-                                if ($BenefitTranslation->length > 0) {
-                                    $BenefitTranslation = $BenefitTranslation->item(0)->nodeValue;
-                                } else {
-                                    $BenefitTranslation = "";
-                                }
-                            }
-                        }
-                        //ParentRoom
-                        $ParentRoom = $Room->item($r)->getElementsByTagName('ParentRoom');
-                        if ($ParentRoom->length > 0) {
-                            $ParentRoomid = $ParentRoom->item(0)->getAttribute('id');
-                            $ParentRoomname = $ParentRoom->item(0)->getAttribute('name');
-                            $ParentRoomtranslationname = $ParentRoom->item(0)->getAttribute('translationname');
+                        $LastName = $GuestDetail->item($i)->getElementsByTagName('LastName');
+                        if ($LastName->length > 0) {
+                            $LastName = $LastName->item(0)->nodeValue;
                         } else {
-                            $ParentRoomid = "";
-                            $ParentRoomname = "";
-                            $ParentRoomtranslationname = "";
+                            $LastName = "";
                         }
-                        //MaxRoomOccupancy
-                        $MaxRoomOccupancy = $Room->item($r)->getElementsByTagName('MaxRoomOccupancy');
-                        if ($MaxRoomOccupancy->length > 0) {
-                            $extrabeds = $MaxRoomOccupancy->item(0)->getAttribute('extrabeds');
-                            $normalbedding = $MaxRoomOccupancy->item(0)->getAttribute('normalbedding');
+                        $CountryOfPassport = $GuestDetail->item($i)->getElementsByTagName('CountryOfPassport');
+                        if ($CountryOfPassport->length > 0) {
+                            $CountryOfPassport = $CountryOfPassport->item(0)->nodeValue;
                         } else {
-                            $extrabeds = "";
-                            $normalbedding = "";
+                            $CountryOfPassport = "";
                         }
-                        //RateInfo
-                        $RateInfo = $Room->item($r)->getElementsByTagName('RateInfo');
-                        if ($RateInfo->length > 0) {
-                            $Included = $RateInfo->item(0)->getElementsByTagName('Included');
-                            if ($Included->length > 0) {
-                                $Included = $Included->item(0)->nodeValue;
-                            } else {
-                                $Included = "";
-                            }
-                            $Rate = $RateInfo->item(0)->getElementsByTagName('Rate');
-                            if ($Rate->length > 0) {
-                                $Rateinclusive = $Rate->item(0)->getAttribute('inclusive');
-                                $Ratefees = $Rate->item(0)->getAttribute('fees');
-                                $Ratetax = $Rate->item(0)->getAttribute('tax');
-                                $Rateexclusive = $Rate->item(0)->getAttribute('exclusive');
-                            } else {
-                                $Rateinclusive = "";
-                                $Ratefees = "";
-                                $Ratetax = "";
-                                $Rateexclusive = "";
-                            }
-                            $Promotion = $RateInfo->item(0)->getElementsByTagName('Promotion');
-                            if ($Promotion->length > 0) {
-                                $text = $Promotion->item(0)->getAttribute('text');
-                                $savings = $Promotion->item(0)->getAttribute('savings');
-                            } else {
-                                $text = "";
-                                $savings = "";
-                            }
-                            $TotalPaymentAmount = $RateInfo->item(0)->getElementsByTagName('TotalPaymentAmount');
-                            if ($TotalPaymentAmount->length > 0) {
-                                $TotalPaymentAmountinclusive = $TotalPaymentAmount->item(0)->getAttribute('inclusive');
-                                $TotalPaymentAmountfees = $TotalPaymentAmount->item(0)->getAttribute('fees');
-                                $TotalPaymentAmounttax = $TotalPaymentAmount->item(0)->getAttribute('tax');
-                                $TotalPaymentAmountexclusive = $TotalPaymentAmount->item(0)->getAttribute('exclusive');
-                            } else {
-                                $TotalPaymentAmountinclusive = "";
-                                $TotalPaymentAmountfees = "";
-                                $TotalPaymentAmounttax = "";
-                                $TotalPaymentAmountexclusive = "";
-                            }
-                        }
-
-                        //Cancellation
-                        $policy = "";
-                        $policyTrans = "";
-                        $policyParam = "";
-                        $Cancellation = $Room->item($r)->getElementsByTagName('Cancellation');
-                        if ($Cancellation->length > 0) {
-                            $PolicyText = $Cancellation->item(0)->getElementsByTagName('PolicyText');
-                            if ($PolicyText->length > 0) {
-                                $language = $PolicyText->item(0)->getAttribute('language');
-                                $policy = $PolicyText->item(0)->nodeValue;
-                            } else {
-                                $policy = "";
-                            }
-                            $PolicyTranslated = $Cancellation->item(0)->getElementsByTagName('PolicyTranslated');
-                            if ($PolicyTranslated->length > 0) {
-                                $language = $PolicyTranslated->item(0)->getAttribute('language');
-                                $policyTrans = $PolicyTranslated->item(0)->nodeValue;
-                            } else {
-                                $policyTrans = "";
-                            }
-                            $PolicyParameters = $Cancellation->item(0)->getElementsByTagName('PolicyParameters');
-                            if ($PolicyParameters->length > 0) {
-                                $PolicyParameter = $PolicyParameters->item(0)->getElementsByTagName('PolicyParameter');
-                                if ($PolicyParameter->length > 0) {
-                                    for ($j=0; $j < $PolicyParameter->length; $j++) { 
-                                        $PolicyParametercharge = $PolicyParameter->item($j)->getAttribute('charge');
-                                        $PolicyParameterdays = $PolicyParameter->item($j)->getAttribute('days');
-                                        $policyParam = $PolicyParameter->item($j)->nodeValue;
-                                    }
-                                }
-                            }
-                            $PolicyDates = $Cancellation->item(0)->getElementsByTagName('PolicyDates');
-                            if ($PolicyDates->length > 0) {
-                                $PolicyDate = $PolicyDates->item(0)->getElementsByTagName('PolicyDate');
-                                if ($PolicyDate->length > 0) {
-                                    $after = $PolicyDate->item(0)->getAttribute('after');
-                                    $RatePD = $PolicyDate->item(0)->getElementsByTagName('Rate');
-                                    if ($RatePD->length > 0) {
-                                        $RatePDinclusive = $RatePD->item(0)->getAttribute('inclusive');
-                                        $RatePDfees = $RatePD->item(0)->getAttribute('fees');
-                                        $RatePDtax = $RatePD->item(0)->getAttribute('tax');
-                                        $RatePDexclusive = $RatePD->item(0)->getAttribute('exclusive');
-                                    } else {
-                                        $RatePDinclusive = "";
-                                        $RatePDfees = "";
-                                        $RatePDtax = "";
-                                        $RatePDexclusive = "";
-                                    }
-                                }
-                            }
-                        }
-                        
                     }
                 }
             }
-            
         }
     }
 }
