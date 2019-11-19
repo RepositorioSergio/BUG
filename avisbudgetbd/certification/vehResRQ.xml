@@ -1,0 +1,51 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance" xmlns:xsd="http://www.w3.org/1999/XMLSchema">
+<SOAP-ENV:Header>
+    <ns:credentials xmlns:ns="http://wsg.avis.com/wsbang/authInAny">
+        <ns:userID ns:encodingType="xsd:string">CTMTours</ns:userID>
+        <ns:password ns:encodingType="xsd:string">zGkWdCXG8yrw</ns:password>
+    </ns:credentials>
+    <ns:WSBang-Roadmap xmlns:ns="http://wsg.avis.com/wsbang"/>
+</SOAP-ENV:Header>
+<SOAP-ENV:Body>
+    <ns:Request xmlns:ns="http://wsg.avis.com/wsbang">
+        <OTA_VehResRQ xmlns:xsi="http://www.w3.org/2008/XMLSchema-instance" Version="1.0">
+        <POS> 
+<Source> 
+<RequestorID Type="1" ID="CTMTours"/> 
+</Source> 
+<Source> 
+<RequestorID Type="5" ID="91502994"/> 
+</Source> 
+</POS> 
+<VehResRQCore Status="Available"> 
+<VehRentalCore PickUpDateTime="2019-11-24T12:00:00" ReturnDateTime="2019-11-25T14:00:00"> 
+<PickUpLocation LocationCode="JFK"></PickUpLocation> 
+<ReturnLocation LocationCode="JFK"></ReturnLocation> 
+</VehRentalCore> 
+<Customer> 
+<Primary> 
+<PersonName> 
+<GivenName>Andre</GivenName> 
+<Surname>Castro</Surname> 
+</PersonName> 
+<CitizenCountryName Code="US"></CitizenCountryName> 
+</Primary> 
+</Customer> 
+<VendorPref CompanyShortName="Avis">Avis Rent-A-Car</VendorPref> 
+<VehPref AirConditionPref="Preferred" TransmissionPref="Preferred" TransmissionType="Automatic" ClassPref="Preferred" TypePref="Preferred"> 
+<VehType VehicleCategory="1"></VehType> 
+<VehClass Size="4"></VehClass> 
+<VehGroup GroupType="SIPP" GroupValue="CCAR"></VehGroup> 
+</VehPref> 
+<RateQualifier RateCategory="3" RateQualifier="8A"/> 
+</VehResRQCore> 
+<VehResRQInfo> 
+<RentalPaymentPref> 
+<Voucher Identifier="12345678" ValueType="FixedValue" ElectronicIndicator="true"/> 
+<PaymentAmount Amount="237.65" CurrencyCode="USD"/> 
+</RentalPaymentPref> 
+</VehResRQInfo> 
+      </OTA_VehResRQ>
+</ns:Request>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

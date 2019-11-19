@@ -32,10 +32,6 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $affiliate_id = 0;
 $branch_filter = "";
 
-echo $return;
-echo "PASSOU 0";
-echo $return;
-
 $config = new \Zend\Config\Config(include '../config/autoload/globlal.avisbudget.php');
 $config = [
     'driver' => $config->db->driver,
@@ -45,9 +41,6 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
-echo $return;
-echo "PASSOU 1";
-echo $return;
 
 
 $raw = '<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance" xmlns:xsd="http://www.w3.org/1999/XMLSchema">
@@ -70,7 +63,7 @@ $raw = '<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envel
                 </Source>
             </POS>
         <VehAvailRQCore Status="Available">
-            <VehRentalCore PickUpDateTime="2019-04-24T12:00:00" ReturnDateTime="2019-04-25T14:00:00">
+            <VehRentalCore PickUpDateTime="2019-11-24T12:00:00" ReturnDateTime="2019-11-25T14:00:00">
                 <PickUpLocation LocationCode="JFK"/>
                 <ReturnLocation LocationCode="JFK"/>
             </VehRentalCore>
@@ -99,8 +92,12 @@ $raw = '<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envel
 
 $url = 'https://qaservices.carrental.com/wsbang/HTTPSOAPRouter/ws9071';
 echo $return;
-echo "PASSOU 2";
+echo "RAW ";
 echo $return;
+
+echo "<xmp>";
+var_dump($raw);
+echo "</xmp>";
 
 $client = new Client();
 $client->setOptions(array(
@@ -114,32 +111,28 @@ $client->setHeaders(array(
     "Content-length: " . strlen($raw)
 ));
 
-echo $return;
-echo "PASSOU 3";
-echo $return;
-
 $client->setUri($url);
 $client->setMethod('POST');
 $client->setRawBody($raw);
 $response = $client->send();
 if ($response->isSuccess()) {
-$response = $response->getBody();
+    $response = $response->getBody();
 } else {
-$logger = new Logger();
-$writer = new Writer\Stream('/srv/www/htdocs/error_log');
-$logger->addWriter($writer);
-$logger->info($client->getUri());
-$logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
-echo $return;
-echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
-echo $return;
-die();
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($client->getUri());
+    $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
+    echo $return;
+    echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
+    echo $return;
+    die();
 }
 
 echo "<xmp>";
 var_dump($response);
 echo "</xmp>";
-
+die();
 $config = new \Zend\Config\Config(include '../config/autoload/globlal.avisbudget.php');
 $config = [
     'driver' => $config->db->driver,

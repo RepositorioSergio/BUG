@@ -1,0 +1,82 @@
+<?xml version="1.0"?><SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Body><ns:Response TID="bd5c2846-9be0-40cf-93a8-eddd60f1157e" xmlns:ns="http://wsg.avis.com/wsbang"><OTA_VehResRS xsi:schemaLocation="http://www.opentravel.org/OTA/2008/05 OTA_VehResRS" Target="Production" Version="1.0" SequenceNmbr="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.opentravel.org/OTA/2003/05">
+  <Success/>
+  <VehResRSCore>
+    <VehReservation>
+      <Customer>
+        <Primary/>
+      </Customer>
+      <VehSegmentCore>
+        <ConfID Type="14" ID="12217259US5"/>
+        <Vendor>Avis</Vendor>
+        <VehRentalCore PickUpDateTime="2019-11-24T12:00:00" ReturnDateTime="2019-11-25T14:00:00">
+          <PickUpLocation LocationCode="JFK" CodeContext="IATA"/>
+          <ReturnLocation LocationCode="JFK" CodeContext="IATA"/>
+        </VehRentalCore>
+        <Vehicle AirConditionInd="true" TransmissionType="Automatic">
+          <VehType VehicleCategory="1"/>
+          <VehClass Size="4"/>
+          <VehGroup GroupType="SIPP" GroupValue="CCAR"/>
+          <VehMakeModel Name="Group B - Ford Focus or similar" Code="CCAR"/>
+        </Vehicle>
+        <RentalRate>
+          <RateDistance Unlimited="true" DistUnitName="Mile" VehiclePeriodUnitName="RentalPeriod"/>
+          <VehicleCharges>
+            <VehicleCharge TaxInclusive="false" Description="Return rental by Monday 23:59;  Checkout before 3PM Sunday" GuaranteedInd="false" IncludedInRate="true" Amount="146.00" CurrencyCode="USD" Purpose="1">
+              <TaxAmounts>
+                <TaxAmount Total="91.65" CurrencyCode="USD" Description="Taxes and surcharges"/>
+              </TaxAmounts>
+              <Calculation UnitName="Day" Quantity="2"/>
+            </VehicleCharge>
+            <VehicleCharge TaxInclusive="true" Description="Airport/City/Other Surcharge" GuaranteedInd="false" IncludedInRate="true" Amount="30.00" CurrencyCode="USD" Purpose="5"/>
+            <VehicleCharge TaxInclusive="true" Description="Airport Concession Fee" GuaranteedInd="false" IncludedInRate="true" Amount="16.22" CurrencyCode="USD" Purpose="6"/>
+            <VehicleCharge TaxInclusive="true" Description="Local Tax" GuaranteedInd="false" IncludedInRate="true" Amount="34.43" CurrencyCode="USD" Purpose="7"/>
+            <VehicleCharge TaxInclusive="false" Description="$/DY C.R.F. SURCHARGE" IncludedInRate="true" Amount="1.00" CurrencyCode="USD" Purpose="6"/>
+            <VehicleCharge TaxInclusive="false" Description="TRANSP FAC CHG" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+            <VehicleCharge TaxInclusive="false" Description="DEFAULT LABEL" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+            <VehicleCharge TaxInclusive="false" Description="$10.00    EXTENSION FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+            <VehicleCharge TaxInclusive="false" Description="FUEL POLICY IS FULL TO FULL" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+            <VehicleCharge TaxInclusive="false" Description="$15.00    LATE FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+          </VehicleCharges>
+          <RateQualifier RateCategory="3" RateQualifier="8A"/>
+        </RentalRate>
+        <TotalCharge RateTotalAmount="146.00" EstimatedTotalAmount="237.65" CurrencyCode="USD"/>
+      </VehSegmentCore>
+      <VehSegmentInfo>
+        <RentalPaymentAmount>
+          <Voucher Identifier="12345678"/>
+          <PaymentAmount Amount="237.65" CurrencyCode="USD"/>
+        </RentalPaymentAmount>
+        <VendorMessages>
+          <VendorMessage>
+            <SubSection>
+              <Paragraph>
+                <Text>VoucherType="FixedValue"</Text>
+                <Text>VoucherNumber="12345678"</Text>
+              </Paragraph>
+            </SubSection>
+          </VendorMessage>
+        </VendorMessages>
+        <LocationDetails AtAirport="true" Code="JFK" Name="John F Kennedy Intl Airport" CodeContext="Pickup Location" ExtendedLocationCode="JFKT01">
+          <Address>
+            <StreetNmbr>305 Federal Circle</StreetNmbr>
+            <CityName>Jamaica</CityName>
+            <PostalCode>11430</PostalCode>
+            <StateProv StateCode="NY">New York</StateProv>
+            <CountryName Code="US">U S A</CountryName>
+          </Address>
+          <Telephone PhoneNumber="(1) 718-244-5400"/>
+        </LocationDetails>
+        <LocationDetails AtAirport="true" Code="JFK" Name="John F Kennedy Intl Airport" CodeContext="Return Location" ExtendedLocationCode="JFKT01">
+          <Address>
+            <StreetNmbr>305 Federal Circle</StreetNmbr>
+            <CityName>Jamaica</CityName>
+            <PostalCode>11430</PostalCode>
+            <StateProv StateCode="NY">New York</StateProv>
+            <CountryName Code="US">U S A</CountryName>
+          </Address>
+          <Telephone PhoneNumber="(1) 718-244-5400"/>
+        </LocationDetails>
+      </VehSegmentInfo>
+    </VehReservation>
+  </VehResRSCore>
+</OTA_VehResRS><!-- Processed by Direct Connect ver. 14.26 build 7 --></ns:Response></SOAP-ENV:Body></SOAP-ENV:Envelope>

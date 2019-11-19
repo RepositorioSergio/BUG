@@ -1,0 +1,46 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"  xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance" xmlns:xsd="http://www.w3.org/1999/XMLSchema">
+<SOAP-ENV:Header>
+    <ns:credentials xmlns:ns="http://wsg.avis.com/wsbang/authInAny">
+        <ns:userID ns:encodingType="xsd:string">CTMTours</ns:userID>
+        <ns:password ns:encodingType="xsd:string">zGkWdCXG8yrw</ns:password>
+    </ns:credentials>
+    <ns:WSBang-Roadmap xmlns:ns="http://wsg.avis.com/wsbang"/>
+</SOAP-ENV:Header>
+<SOAP-ENV:Body>
+    <ns:Request xmlns:ns="http://wsg.avis.com/wsbang">
+        <OTA_VehAvailRateRQ MaxResponses="100" ReqRespVersion="small" Version="1.0" xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 OTA_VehAvailRateRQ.xsd">
+            <POS>
+                <Source>
+                    <RequestorID ID="CTMTours" Type="1"/>
+                </Source>
+                <Source>
+                    <RequestorID ID="00000000" Type="5"/>
+                </Source>
+            </POS>
+        <VehAvailRQCore Status="Available">
+            <VehRentalCore PickUpDateTime="2019-11-24T12:00:00" ReturnDateTime="2019-11-25T14:00:00">
+                <PickUpLocation LocationCode="JFK"/>
+                <ReturnLocation LocationCode="JFK"/>
+            </VehRentalCore>
+            <VendorPrefs>
+                <VendorPref CompanyShortName="Avis"/>
+            </VendorPrefs>
+            <VehPrefs>
+               <VehPref AirConditionPref="Preferred" ClassPref="Preferred" TransmissionPref="Preferred" TransmissionType="Automatic" TypePref="Preferred">
+                   <VehType VehicleCategory="1" />
+                   <VehClass Size="1"/>
+               </VehPref>
+            </VehPrefs>
+          <RateQualifier RateCategory="3" />         
+</VehAvailRQCore>
+        <VehAvailRQInfo>
+            <Customer>
+                <Primary>
+                    <CitizenCountryName Code="US"/>
+                </Primary>
+            </Customer>
+        </VehAvailRQInfo>
+    </OTA_VehAvailRateRQ>
+</ns:Request>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

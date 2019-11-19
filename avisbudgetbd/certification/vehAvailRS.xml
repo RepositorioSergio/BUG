@@ -1,0 +1,476 @@
+<?xml version="1.0"?><SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Body><ns:Response TID="30bdace2-a059-4326-bbc0-eddd60f1191d" xmlns:ns="http://wsg.avis.com/wsbang"><OTA_VehAvailRateRS xsi:schemaLocation="http://www.opentravel.org/OTA/2008/05 OTA_VehAvailRateRS" Target="Production" Version="1.0" SequenceNmbr="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.opentravel.org/OTA/2003/05">
+  <Success/>
+  <VehAvailRSCore>
+    <VehRentalCore PickUpDateTime="2019-11-24T12:00:00" ReturnDateTime="2019-11-25T14:00:00">
+      <PickUpLocation LocationCode="JFK" CodeContext="IATA"/>
+      <ReturnLocation LocationCode="JFK" CodeContext="IATA"/>
+    </VehRentalCore>
+    <VehVendorAvails>
+      <VehVendorAvail>
+        <Vendor>Avis</Vendor>
+        <VehAvails>
+          <VehAvail>
+            <VehAvailCore Status="Available">
+              <Vehicle AirConditionInd="true" TransmissionType="Automatic">
+                <VehType VehicleCategory="1"/>
+                <VehClass Size="4"/>
+                <VehMakeModel Name="Group B - Ford Focus or similar" Code="CCAR"/>
+                <PictureURL>2019-ford-focus-se-sedan-black.png</PictureURL>
+              </Vehicle>
+              <RentalRate>
+                <RateDistance Unlimited="true" DistUnitName="Mile" VehiclePeriodUnitName="RentalPeriod"/>
+                <VehicleCharges>
+                  <VehicleCharge TaxInclusive="false" Description="Minimum 1 Day(s); Return rental by Monday 23:59;  Checkout bef" GuaranteedInd="false" IncludedInRate="true" Amount="146.00" CurrencyCode="USD" Purpose="1">
+                    <TaxAmounts>
+                      <TaxAmount Total="91.65" CurrencyCode="USD" Description="Taxes and surcharges"/>
+                    </TaxAmounts>
+                    <Calculation UnitName="Day" Quantity="2"/>
+                  </VehicleCharge>
+                  <VehicleCharge TaxInclusive="true" Description="Airport/City/Other Surcharge" GuaranteedInd="false" IncludedInRate="true" Amount="30.00" CurrencyCode="USD" Purpose="5"/>
+                  <VehicleCharge TaxInclusive="true" Description="Airport Concession Fee" GuaranteedInd="false" IncludedInRate="true" Amount="16.22" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="true" Description="Local Tax" GuaranteedInd="false" IncludedInRate="true" Amount="34.43" CurrencyCode="USD" Purpose="7"/>
+                  <VehicleCharge TaxInclusive="false" Description="$/DY C.R.F. SURCHARGE" IncludedInRate="true" Amount="1.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="TRANSP FAC CHG" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="DEFAULT LABEL" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="$10.00    EXTENSION FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="FUEL POLICY IS FULL TO FULL" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="$15.00    LATE FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                </VehicleCharges>
+                <RateQualifier RateCategory="3" RateQualifier="8A"/>
+              </RentalRate>
+              <TotalCharge RateTotalAmount="146.00" EstimatedTotalAmount="237.65" CurrencyCode="USD"/>
+            </VehAvailCore>
+          </VehAvail>
+          <VehAvail>
+            <VehAvailCore Status="Available">
+              <Vehicle AirConditionInd="true" TransmissionType="Automatic">
+                <VehType VehicleCategory="1"/>
+                <VehClass Size="6"/>
+                <VehMakeModel Name="Group C - Toyota Corolla or similar" Code="ICAR"/>
+                <PictureURL>2020-toyota-corolla-le-sedan-grey.png</PictureURL>
+              </Vehicle>
+              <RentalRate>
+                <RateDistance Unlimited="true" DistUnitName="Mile" VehiclePeriodUnitName="RentalPeriod"/>
+                <VehicleCharges>
+                  <VehicleCharge TaxInclusive="false" Description="Minimum 1 Day(s); Maximum 1 Day(s) and 2 Hours(s)" GuaranteedInd="false" IncludedInRate="true" Amount="150.00" CurrencyCode="USD" Purpose="1">
+                    <TaxAmounts>
+                      <TaxAmount Total="92.98" CurrencyCode="USD" Description="Taxes and surcharges"/>
+                    </TaxAmounts>
+                    <Calculation UnitName="Day" Quantity="2"/>
+                  </VehicleCharge>
+                  <VehicleCharge TaxInclusive="true" Description="Airport/City/Other Surcharge" GuaranteedInd="false" IncludedInRate="true" Amount="30.00" CurrencyCode="USD" Purpose="5"/>
+                  <VehicleCharge TaxInclusive="true" Description="Airport Concession Fee" GuaranteedInd="false" IncludedInRate="true" Amount="16.67" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="true" Description="Local Tax" GuaranteedInd="false" IncludedInRate="true" Amount="35.31" CurrencyCode="USD" Purpose="7"/>
+                  <VehicleCharge TaxInclusive="false" Description="$/DY C.R.F. SURCHARGE" IncludedInRate="true" Amount="1.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="TRANSP FAC CHG" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="DEFAULT LABEL" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="$10.00    EXTENSION FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="FUEL POLICY IS FULL TO FULL" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="$15.00    LATE FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                </VehicleCharges>
+                <RateQualifier RateCategory="3" RateQualifier="H3"/>
+              </RentalRate>
+              <TotalCharge RateTotalAmount="150.00" EstimatedTotalAmount="242.98" CurrencyCode="USD"/>
+            </VehAvailCore>
+          </VehAvail>
+          <VehAvail>
+            <VehAvailCore Status="Available">
+              <Vehicle AirConditionInd="true" TransmissionType="Automatic">
+                <VehType VehicleCategory="1"/>
+                <VehClass Size="7"/>
+                <VehMakeModel Name="Group D - Volkswagen Jetta or similar" Code="SCAR"/>
+                <PictureURL>2019-volkswagen-jetta-s-sedan-grey.png</PictureURL>
+              </Vehicle>
+              <RentalRate>
+                <RateDistance Unlimited="true" DistUnitName="Mile" VehiclePeriodUnitName="RentalPeriod"/>
+                <VehicleCharges>
+                  <VehicleCharge TaxInclusive="false" Description="Minimum 1 Day(s); Return rental by Monday 23:59;  Checkout bef" GuaranteedInd="false" IncludedInRate="true" Amount="156.00" CurrencyCode="USD" Purpose="1">
+                    <TaxAmounts>
+                      <TaxAmount Total="94.97" CurrencyCode="USD" Description="Taxes and surcharges"/>
+                    </TaxAmounts>
+                    <Calculation UnitName="Day" Quantity="2"/>
+                  </VehicleCharge>
+                  <VehicleCharge TaxInclusive="true" Description="Airport/City/Other Surcharge" GuaranteedInd="false" IncludedInRate="true" Amount="30.00" CurrencyCode="USD" Purpose="5"/>
+                  <VehicleCharge TaxInclusive="true" Description="Airport Concession Fee" GuaranteedInd="false" IncludedInRate="true" Amount="17.33" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="true" Description="Local Tax" GuaranteedInd="false" IncludedInRate="true" Amount="36.64" CurrencyCode="USD" Purpose="7"/>
+                  <VehicleCharge TaxInclusive="false" Description="$/DY C.R.F. SURCHARGE" IncludedInRate="true" Amount="1.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="TRANSP FAC CHG" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="DEFAULT LABEL" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="$10.00    EXTENSION FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="FUEL POLICY IS FULL TO FULL" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="$15.00    LATE FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                </VehicleCharges>
+                <RateQualifier RateCategory="3" RateQualifier="8A"/>
+              </RentalRate>
+              <TotalCharge RateTotalAmount="156.00" EstimatedTotalAmount="250.97" CurrencyCode="USD"/>
+            </VehAvailCore>
+          </VehAvail>
+          <VehAvail>
+            <VehAvailCore Status="Available">
+              <Vehicle AirConditionInd="true" TransmissionType="Automatic">
+                <VehType VehicleCategory="1"/>
+                <VehClass Size="8"/>
+                <VehMakeModel Name="Group E - Ford Fusion or similar" Code="FCAR"/>
+                <PictureURL>2019-ford-fusion-se-sedan-silver.png</PictureURL>
+              </Vehicle>
+              <RentalRate>
+                <RateDistance Unlimited="true" DistUnitName="Mile" VehiclePeriodUnitName="RentalPeriod"/>
+                <VehicleCharges>
+                  <VehicleCharge TaxInclusive="false" Description="Minimum 1 Day(s); Return rental by Monday 23:59;  Checkout bef" GuaranteedInd="false" IncludedInRate="true" Amount="156.00" CurrencyCode="USD" Purpose="1">
+                    <TaxAmounts>
+                      <TaxAmount Total="94.97" CurrencyCode="USD" Description="Taxes and surcharges"/>
+                    </TaxAmounts>
+                    <Calculation UnitName="Day" Quantity="2"/>
+                  </VehicleCharge>
+                  <VehicleCharge TaxInclusive="true" Description="Airport/City/Other Surcharge" GuaranteedInd="false" IncludedInRate="true" Amount="30.00" CurrencyCode="USD" Purpose="5"/>
+                  <VehicleCharge TaxInclusive="true" Description="Airport Concession Fee" GuaranteedInd="false" IncludedInRate="true" Amount="17.33" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="true" Description="Local Tax" GuaranteedInd="false" IncludedInRate="true" Amount="36.64" CurrencyCode="USD" Purpose="7"/>
+                  <VehicleCharge TaxInclusive="false" Description="$/DY C.R.F. SURCHARGE" IncludedInRate="true" Amount="1.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="TRANSP FAC CHG" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="DEFAULT LABEL" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="$10.00    EXTENSION FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="FUEL POLICY IS FULL TO FULL" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="$15.00    LATE FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                </VehicleCharges>
+                <RateQualifier RateCategory="3" RateQualifier="8A"/>
+              </RentalRate>
+              <TotalCharge RateTotalAmount="156.00" EstimatedTotalAmount="250.97" CurrencyCode="USD"/>
+            </VehAvailCore>
+          </VehAvail>
+          <VehAvail>
+            <VehAvailCore Status="Available">
+              <Vehicle AirConditionInd="true" TransmissionType="Automatic">
+                <VehType VehicleCategory="3"/>
+                <VehClass Size="37"/>
+                <VehMakeModel Name="Group S - Ford Explorer AWD or similar" Code="RFAR"/>
+                <PictureURL>2019-ford-explorer-sport-suv-black.png</PictureURL>
+              </Vehicle>
+              <RentalRate>
+                <RateDistance Unlimited="true" DistUnitName="Mile" VehiclePeriodUnitName="RentalPeriod"/>
+                <VehicleCharges>
+                  <VehicleCharge TaxInclusive="false" Description="Minimum 1 Day(s); Maximum 5 Day(s)" GuaranteedInd="false" IncludedInRate="true" Amount="180.00" CurrencyCode="USD" Purpose="1">
+                    <TaxAmounts>
+                      <TaxAmount Total="102.94" CurrencyCode="USD" Description="Taxes and surcharges"/>
+                    </TaxAmounts>
+                    <Calculation UnitName="Day" Quantity="2"/>
+                  </VehicleCharge>
+                  <VehicleCharge TaxInclusive="true" Description="Airport/City/Other Surcharge" GuaranteedInd="false" IncludedInRate="true" Amount="30.00" CurrencyCode="USD" Purpose="5"/>
+                  <VehicleCharge TaxInclusive="true" Description="Airport Concession Fee" GuaranteedInd="false" IncludedInRate="true" Amount="20.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="true" Description="Local Tax" GuaranteedInd="false" IncludedInRate="true" Amount="41.94" CurrencyCode="USD" Purpose="7"/>
+                  <VehicleCharge TaxInclusive="false" Description="$/DY C.R.F. SURCHARGE" IncludedInRate="true" Amount="1.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="TRANSP FAC CHG" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="DEFAULT LABEL" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="$10.00    EXTENSION FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="FUEL POLICY IS FULL TO FULL" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="$15.00    LATE FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                </VehicleCharges>
+                <RateQualifier RateCategory="3" RateQualifier="8C"/>
+              </RentalRate>
+              <TotalCharge RateTotalAmount="180.00" EstimatedTotalAmount="282.94" CurrencyCode="USD"/>
+            </VehAvailCore>
+          </VehAvail>
+          <VehAvail>
+            <VehAvailCore Status="Available">
+              <Vehicle AirConditionInd="true" TransmissionType="Automatic">
+                <VehType VehicleCategory="2"/>
+                <VehClass Size="8"/>
+                <VehMakeModel Name="Group P - Ford Transit 12 Passenger or similar" Code="FVAR"/>
+                <PictureURL>2017-ford-transit-150-xlt-low-roof-passenger-van-white.png</PictureURL>
+              </Vehicle>
+              <RentalRate>
+                <RateDistance Unlimited="true" DistUnitName="Mile" VehiclePeriodUnitName="RentalPeriod"/>
+                <VehicleCharges>
+                  <VehicleCharge TaxInclusive="false" Description="Minimum 1 Day(s); Maximum 1 Day(s) and 2 Hours(s)" GuaranteedInd="false" IncludedInRate="true" Amount="500.00" CurrencyCode="USD" Purpose="1">
+                    <TaxAmounts>
+                      <TaxAmount Total="209.15" CurrencyCode="USD" Description="Taxes and surcharges"/>
+                    </TaxAmounts>
+                    <Calculation UnitName="Day" Quantity="2"/>
+                  </VehicleCharge>
+                  <VehicleCharge TaxInclusive="true" Description="Airport/City/Other Surcharge" GuaranteedInd="false" IncludedInRate="true" Amount="30.00" CurrencyCode="USD" Purpose="5"/>
+                  <VehicleCharge TaxInclusive="true" Description="Airport Concession Fee" GuaranteedInd="false" IncludedInRate="true" Amount="55.55" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="true" Description="Local Tax" GuaranteedInd="false" IncludedInRate="true" Amount="112.60" CurrencyCode="USD" Purpose="7"/>
+                  <VehicleCharge TaxInclusive="false" Description="$/DY C.R.F. SURCHARGE" IncludedInRate="true" Amount="1.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="TRANSP FAC CHG" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="DEFAULT LABEL" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="$10.00    EXTENSION FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="FUEL POLICY IS FULL TO FULL" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="$15.00    LATE FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                </VehicleCharges>
+                <RateQualifier RateCategory="3" RateQualifier="H3"/>
+              </RentalRate>
+              <TotalCharge RateTotalAmount="500.00" EstimatedTotalAmount="709.15" CurrencyCode="USD"/>
+            </VehAvailCore>
+          </VehAvail>
+          <VehAvail>
+            <VehAvailCore Status="Available">
+              <Vehicle AirConditionInd="true" TransmissionType="Automatic">
+                <VehType VehicleCategory="1"/>
+                <VehClass Size="10"/>
+                <VehMakeModel Name="Group G - Chevrolet Impala or similar" Code="PCAR"/>
+                <PictureURL>2019-chevrolet-impala-1lt-sedan-grey.png</PictureURL>
+              </Vehicle>
+              <RentalRate>
+                <RateDistance Unlimited="true" DistUnitName="Mile" VehiclePeriodUnitName="RentalPeriod"/>
+                <VehicleCharges>
+                  <VehicleCharge TaxInclusive="false" Description="Minimum 1 Day(s); Maximum 5 Day(s)" GuaranteedInd="false" IncludedInRate="true" Amount="168.00" CurrencyCode="USD" Purpose="1">
+                    <TaxAmounts>
+                      <TaxAmount Total="98.94" CurrencyCode="USD" Description="Taxes and surcharges"/>
+                    </TaxAmounts>
+                    <Calculation UnitName="Day" Quantity="2"/>
+                  </VehicleCharge>
+                  <VehicleCharge TaxInclusive="true" Description="Airport/City/Other Surcharge" GuaranteedInd="false" IncludedInRate="true" Amount="30.00" CurrencyCode="USD" Purpose="5"/>
+                  <VehicleCharge TaxInclusive="true" Description="Airport Concession Fee" GuaranteedInd="false" IncludedInRate="true" Amount="18.66" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="true" Description="Local Tax" GuaranteedInd="false" IncludedInRate="true" Amount="39.28" CurrencyCode="USD" Purpose="7"/>
+                  <VehicleCharge TaxInclusive="false" Description="$/DY C.R.F. SURCHARGE" IncludedInRate="true" Amount="1.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="TRANSP FAC CHG" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="DEFAULT LABEL" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="$10.00    EXTENSION FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="FUEL POLICY IS FULL TO FULL" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="$15.00    LATE FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                </VehicleCharges>
+                <RateQualifier RateCategory="3" RateQualifier="2E"/>
+              </RentalRate>
+              <TotalCharge RateTotalAmount="168.00" EstimatedTotalAmount="266.94" CurrencyCode="USD"/>
+            </VehAvailCore>
+          </VehAvail>
+          <VehAvail>
+            <VehAvailCore Status="Available">
+              <Vehicle AirConditionInd="true" TransmissionType="Automatic">
+                <VehType VehicleCategory="1"/>
+                <VehClass Size="9"/>
+                <VehMakeModel Name="Group H - Chrysler 300 or similar" Code="LCAR"/>
+                <PictureURL>2019-chrysler-300-limited-sedan-black.png</PictureURL>
+              </Vehicle>
+              <RentalRate>
+                <RateDistance Unlimited="true" DistUnitName="Mile" VehiclePeriodUnitName="RentalPeriod"/>
+                <VehicleCharges>
+                  <VehicleCharge TaxInclusive="false" Description="Minimum 1 Day(s); Return rental by Monday 23:59;  Checkout bef" GuaranteedInd="false" IncludedInRate="true" Amount="190.00" CurrencyCode="USD" Purpose="1">
+                    <TaxAmounts>
+                      <TaxAmount Total="106.25" CurrencyCode="USD" Description="Taxes and surcharges"/>
+                    </TaxAmounts>
+                    <Calculation UnitName="Day" Quantity="2"/>
+                  </VehicleCharge>
+                  <VehicleCharge TaxInclusive="true" Description="Airport/City/Other Surcharge" GuaranteedInd="false" IncludedInRate="true" Amount="30.00" CurrencyCode="USD" Purpose="5"/>
+                  <VehicleCharge TaxInclusive="true" Description="Airport Concession Fee" GuaranteedInd="false" IncludedInRate="true" Amount="21.11" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="true" Description="Local Tax" GuaranteedInd="false" IncludedInRate="true" Amount="44.14" CurrencyCode="USD" Purpose="7"/>
+                  <VehicleCharge TaxInclusive="false" Description="$/DY C.R.F. SURCHARGE" IncludedInRate="true" Amount="1.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="TRANSP FAC CHG" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="DEFAULT LABEL" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="$10.00    EXTENSION FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="FUEL POLICY IS FULL TO FULL" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="$15.00    LATE FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                </VehicleCharges>
+                <RateQualifier RateCategory="3" RateQualifier="8A"/>
+              </RentalRate>
+              <TotalCharge RateTotalAmount="190.00" EstimatedTotalAmount="296.25" CurrencyCode="USD"/>
+            </VehAvailCore>
+          </VehAvail>
+          <VehAvail>
+            <VehAvailCore Status="Available">
+              <Vehicle AirConditionInd="true" TransmissionType="Automatic">
+                <VehType VehicleCategory="3"/>
+                <VehClass Size="10"/>
+                <VehMakeModel Name="Group L - Chevrolet Suburban or similar" Code="PFAR"/>
+                <PictureURL>2019-chevrolet-suburban-1500-ls-suv-black.png</PictureURL>
+              </Vehicle>
+              <RentalRate>
+                <RateDistance Unlimited="true" DistUnitName="Mile" VehiclePeriodUnitName="RentalPeriod"/>
+                <VehicleCharges>
+                  <VehicleCharge TaxInclusive="false" Description="Minimum 1 Day(s); Maximum 5 Day(s)" GuaranteedInd="false" IncludedInRate="true" Amount="432.00" CurrencyCode="USD" Purpose="1">
+                    <TaxAmounts>
+                      <TaxAmount Total="186.59" CurrencyCode="USD" Description="Taxes and surcharges"/>
+                    </TaxAmounts>
+                    <Calculation UnitName="Day" Quantity="2"/>
+                  </VehicleCharge>
+                  <VehicleCharge TaxInclusive="true" Description="Airport/City/Other Surcharge" GuaranteedInd="false" IncludedInRate="true" Amount="30.00" CurrencyCode="USD" Purpose="5"/>
+                  <VehicleCharge TaxInclusive="true" Description="Airport Concession Fee" GuaranteedInd="false" IncludedInRate="true" Amount="48.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="true" Description="Local Tax" GuaranteedInd="false" IncludedInRate="true" Amount="97.59" CurrencyCode="USD" Purpose="7"/>
+                  <VehicleCharge TaxInclusive="false" Description="$/DY C.R.F. SURCHARGE" IncludedInRate="true" Amount="1.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="TRANSP FAC CHG" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="DEFAULT LABEL" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="$10.00    EXTENSION FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="FUEL POLICY IS FULL TO FULL" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="$15.00    LATE FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                </VehicleCharges>
+                <RateQualifier RateCategory="3" RateQualifier="2E"/>
+              </RentalRate>
+              <TotalCharge RateTotalAmount="432.00" EstimatedTotalAmount="618.59" CurrencyCode="USD"/>
+            </VehAvailCore>
+          </VehAvail>
+          <VehAvail>
+            <VehAvailCore Status="Available">
+              <Vehicle AirConditionInd="true" TransmissionType="Automatic">
+                <VehType VehicleCategory="4"/>
+                <VehClass Size="7"/>
+                <VehMakeModel Name="Group K - Ford Mustang Convertible or similar" Code="STAR"/>
+                <PictureURL>2019-ford-mustang-ecoboost-convertible-black.png</PictureURL>
+              </Vehicle>
+              <RentalRate>
+                <RateDistance Unlimited="true" DistUnitName="Mile" VehiclePeriodUnitName="RentalPeriod"/>
+                <VehicleCharges>
+                  <VehicleCharge TaxInclusive="false" Description="Minimum 1 Day(s); Maximum 1 Day(s) and 2 Hours(s)" GuaranteedInd="false" IncludedInRate="true" Amount="580.00" CurrencyCode="USD" Purpose="1">
+                    <TaxAmounts>
+                      <TaxAmount Total="235.71" CurrencyCode="USD" Description="Taxes and surcharges"/>
+                    </TaxAmounts>
+                    <Calculation UnitName="Day" Quantity="2"/>
+                  </VehicleCharge>
+                  <VehicleCharge TaxInclusive="true" Description="Airport/City/Other Surcharge" GuaranteedInd="false" IncludedInRate="true" Amount="30.00" CurrencyCode="USD" Purpose="5"/>
+                  <VehicleCharge TaxInclusive="true" Description="Airport Concession Fee" GuaranteedInd="false" IncludedInRate="true" Amount="64.44" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="true" Description="Local Tax" GuaranteedInd="false" IncludedInRate="true" Amount="130.27" CurrencyCode="USD" Purpose="7"/>
+                  <VehicleCharge TaxInclusive="false" Description="$/DY C.R.F. SURCHARGE" IncludedInRate="true" Amount="1.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="TRANSP FAC CHG" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="DEFAULT LABEL" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="$10.00    EXTENSION FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="FUEL POLICY IS FULL TO FULL" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="$15.00    LATE FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                </VehicleCharges>
+                <RateQualifier RateCategory="3" RateQualifier="H3"/>
+              </RentalRate>
+              <TotalCharge RateTotalAmount="580.00" EstimatedTotalAmount="815.71" CurrencyCode="USD"/>
+            </VehAvailCore>
+          </VehAvail>
+          <VehAvail>
+            <VehAvailCore Status="Available">
+              <Vehicle AirConditionInd="true" TransmissionType="Automatic">
+                <VehType VehicleCategory="3"/>
+                <VehClass Size="7"/>
+                <VehMakeModel Name="Group W - Ford Edge or similar" Code="SFAR"/>
+                <PictureURL>2019-ford-edge-titanium-suv-grey.png</PictureURL>
+              </Vehicle>
+              <RentalRate>
+                <RateDistance Unlimited="true" DistUnitName="Mile" VehiclePeriodUnitName="RentalPeriod"/>
+                <VehicleCharges>
+                  <VehicleCharge TaxInclusive="false" Description="Minimum 1 Day(s); Maximum 5 Day(s)" GuaranteedInd="false" IncludedInRate="true" Amount="134.00" CurrencyCode="USD" Purpose="1">
+                    <TaxAmounts>
+                      <TaxAmount Total="87.67" CurrencyCode="USD" Description="Taxes and surcharges"/>
+                    </TaxAmounts>
+                    <Calculation UnitName="Day" Quantity="2"/>
+                  </VehicleCharge>
+                  <VehicleCharge TaxInclusive="true" Description="Airport/City/Other Surcharge" GuaranteedInd="false" IncludedInRate="true" Amount="30.00" CurrencyCode="USD" Purpose="5"/>
+                  <VehicleCharge TaxInclusive="true" Description="Airport Concession Fee" GuaranteedInd="false" IncludedInRate="true" Amount="14.89" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="true" Description="Local Tax" GuaranteedInd="false" IncludedInRate="true" Amount="31.78" CurrencyCode="USD" Purpose="7"/>
+                  <VehicleCharge TaxInclusive="false" Description="$/DY C.R.F. SURCHARGE" IncludedInRate="true" Amount="1.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="TRANSP FAC CHG" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="DEFAULT LABEL" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="$10.00    EXTENSION FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="FUEL POLICY IS FULL TO FULL" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="$15.00    LATE FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                </VehicleCharges>
+                <RateQualifier RateCategory="3" RateQualifier="2E"/>
+              </RentalRate>
+              <TotalCharge RateTotalAmount="134.00" EstimatedTotalAmount="221.67" CurrencyCode="USD"/>
+            </VehAvailCore>
+          </VehAvail>
+          <VehAvail>
+            <VehAvailCore Status="Available">
+              <Vehicle AirConditionInd="true" TransmissionType="Automatic">
+                <VehType VehicleCategory="2"/>
+                <VehClass Size="1"/>
+                <VehMakeModel Name="Group V - Chrysler Pacifica or similar" Code="MVAR"/>
+                <PictureURL>2019-chrysler-pacifica-lx-minivan-silver.png</PictureURL>
+              </Vehicle>
+              <RentalRate>
+                <RateDistance Unlimited="true" DistUnitName="Mile" VehiclePeriodUnitName="RentalPeriod"/>
+                <VehicleCharges>
+                  <VehicleCharge TaxInclusive="false" Description="Minimum 1 Day(s); Maximum 5 Day(s)" GuaranteedInd="false" IncludedInRate="true" Amount="260.00" CurrencyCode="USD" Purpose="1">
+                    <TaxAmounts>
+                      <TaxAmount Total="129.49" CurrencyCode="USD" Description="Taxes and surcharges"/>
+                    </TaxAmounts>
+                    <Calculation UnitName="Day" Quantity="2"/>
+                  </VehicleCharge>
+                  <VehicleCharge TaxInclusive="true" Description="Airport/City/Other Surcharge" GuaranteedInd="false" IncludedInRate="true" Amount="30.00" CurrencyCode="USD" Purpose="5"/>
+                  <VehicleCharge TaxInclusive="true" Description="Airport Concession Fee" GuaranteedInd="false" IncludedInRate="true" Amount="28.89" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="true" Description="Local Tax" GuaranteedInd="false" IncludedInRate="true" Amount="59.60" CurrencyCode="USD" Purpose="7"/>
+                  <VehicleCharge TaxInclusive="false" Description="$/DY C.R.F. SURCHARGE" IncludedInRate="true" Amount="1.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="TRANSP FAC CHG" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="DEFAULT LABEL" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="$10.00    EXTENSION FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="FUEL POLICY IS FULL TO FULL" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="$15.00    LATE FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                </VehicleCharges>
+                <RateQualifier RateCategory="3" RateQualifier="2E"/>
+              </RentalRate>
+              <TotalCharge RateTotalAmount="260.00" EstimatedTotalAmount="389.49" CurrencyCode="USD"/>
+            </VehAvailCore>
+          </VehAvail>
+          <VehAvail>
+            <VehAvailCore Status="Available">
+              <Vehicle AirConditionInd="true" TransmissionType="Automatic">
+                <VehType VehicleCategory="3"/>
+                <VehClass Size="6"/>
+                <VehMakeModel Name="Group F - Ford Escape or similar" Code="IFAR"/>
+                <PictureURL>2017-ford-escape-se-suv-white.png</PictureURL>
+              </Vehicle>
+              <RentalRate>
+                <RateDistance Unlimited="true" DistUnitName="Mile" VehiclePeriodUnitName="RentalPeriod"/>
+                <VehicleCharges>
+                  <VehicleCharge TaxInclusive="false" Description="Minimum 1 Day(s); Maximum 5 Day(s)" GuaranteedInd="false" IncludedInRate="true" Amount="134.00" CurrencyCode="USD" Purpose="1">
+                    <TaxAmounts>
+                      <TaxAmount Total="87.67" CurrencyCode="USD" Description="Taxes and surcharges"/>
+                    </TaxAmounts>
+                    <Calculation UnitName="Day" Quantity="2"/>
+                  </VehicleCharge>
+                  <VehicleCharge TaxInclusive="true" Description="Airport/City/Other Surcharge" GuaranteedInd="false" IncludedInRate="true" Amount="30.00" CurrencyCode="USD" Purpose="5"/>
+                  <VehicleCharge TaxInclusive="true" Description="Airport Concession Fee" GuaranteedInd="false" IncludedInRate="true" Amount="14.89" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="true" Description="Local Tax" GuaranteedInd="false" IncludedInRate="true" Amount="31.78" CurrencyCode="USD" Purpose="7"/>
+                  <VehicleCharge TaxInclusive="false" Description="$/DY C.R.F. SURCHARGE" IncludedInRate="true" Amount="1.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="TRANSP FAC CHG" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="DEFAULT LABEL" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="$10.00    EXTENSION FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="FUEL POLICY IS FULL TO FULL" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="$15.00    LATE FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                </VehicleCharges>
+                <RateQualifier RateCategory="3" RateQualifier="2E"/>
+              </RentalRate>
+              <TotalCharge RateTotalAmount="134.00" EstimatedTotalAmount="221.67" CurrencyCode="USD"/>
+            </VehAvailCore>
+          </VehAvail>
+          <VehAvail>
+            <VehAvailCore Status="Available">
+              <Vehicle AirConditionInd="true" TransmissionType="Automatic">
+                <VehType VehicleCategory="3"/>
+                <VehClass Size="8"/>
+                <VehMakeModel Name="Group Z - Chevrolet Tahoe or similar" Code="FFAR"/>
+                <PictureURL>2019-chevrolet-tahoe-lt-suv-black.png</PictureURL>
+              </Vehicle>
+              <RentalRate>
+                <RateDistance Unlimited="true" DistUnitName="Mile" VehiclePeriodUnitName="RentalPeriod"/>
+                <VehicleCharges>
+                  <VehicleCharge TaxInclusive="false" Description="Minimum 1 Day(s); Maximum 5 Day(s)" GuaranteedInd="false" IncludedInRate="true" Amount="394.00" CurrencyCode="USD" Purpose="1">
+                    <TaxAmounts>
+                      <TaxAmount Total="173.96" CurrencyCode="USD" Description="Taxes and surcharges"/>
+                    </TaxAmounts>
+                    <Calculation UnitName="Day" Quantity="2"/>
+                  </VehicleCharge>
+                  <VehicleCharge TaxInclusive="true" Description="Airport/City/Other Surcharge" GuaranteedInd="false" IncludedInRate="true" Amount="30.00" CurrencyCode="USD" Purpose="5"/>
+                  <VehicleCharge TaxInclusive="true" Description="Airport Concession Fee" GuaranteedInd="false" IncludedInRate="true" Amount="43.77" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="true" Description="Local Tax" GuaranteedInd="false" IncludedInRate="true" Amount="89.19" CurrencyCode="USD" Purpose="7"/>
+                  <VehicleCharge TaxInclusive="false" Description="$/DY C.R.F. SURCHARGE" IncludedInRate="true" Amount="1.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="TRANSP FAC CHG" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="DEFAULT LABEL" IncludedInRate="true" Amount="5.00" CurrencyCode="USD" Purpose="6"/>
+                  <VehicleCharge TaxInclusive="false" Description="$10.00    EXTENSION FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="FUEL POLICY IS FULL TO FULL" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                  <VehicleCharge TaxInclusive="false" Description="$15.00    LATE FEE MAY APPLY" IncludedInRate="false" Amount="0.00" CurrencyCode="USD" Purpose="28"/>
+                </VehicleCharges>
+                <RateQualifier RateCategory="3" RateQualifier="2E"/>
+              </RentalRate>
+              <TotalCharge RateTotalAmount="394.00" EstimatedTotalAmount="567.96" CurrencyCode="USD"/>
+            </VehAvailCore>
+          </VehAvail>
+        </VehAvails>
+        <Info>
+          <LocationDetails AtAirport="true" Code="JFK" Name="John F Kennedy Intl Airport" CodeContext="Rental Location" ExtendedLocationCode="JFKT01">
+            <Address>
+              <StreetNmbr>305 Federal Circle</StreetNmbr>
+              <CityName>Jamaica</CityName>
+              <PostalCode>11430</PostalCode>
+              <StateProv StateCode="NY">New York</StateProv>
+              <CountryName Code="US">U S A</CountryName>
+            </Address>
+            <Telephone PhoneNumber="(1) 718-244-5400"/>
+          </LocationDetails>
+        </Info>
+      </VehVendorAvail>
+    </VehVendorAvails>
+  </VehAvailRSCore>
+</OTA_VehAvailRateRS><!-- Processed by Direct Connect ver. 14.26 build 7 --></ns:Response></SOAP-ENV:Body></SOAP-ENV:Envelope>
