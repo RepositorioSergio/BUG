@@ -33,7 +33,7 @@ $affiliate_id = 0;
 $branch_filter = "";
 
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -68,11 +68,11 @@ $client->setOptions(array(
     'sslverifyhost' => false
 ));
 $client->setHeaders(array(
-    'Accept: application/json',
-    'Content-Type: application/json;charset=UTF-8',
     'X-Bokun-Date: ' . $date,
     'X-Bokun-AccessKey: ' . $accessKey,
     'X-Bokun-Signature: ' . $signature,
+    'Accept: application/json',
+    'Content-Type: application/json;charset=UTF-8',
     'Content-Length: ' . strlen($raw)
 ));
 $client->setUri($url . '/activity.json/active-ids');
@@ -99,8 +99,7 @@ echo $return;
 
 $response = json_decode($response, true);
  
-die();
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -119,43 +118,29 @@ for ($k = 0; $k < count($suppliers); $k ++) {
     $activityIds = $suppliers[$k]['activityIds'];
     for ($i=0; $i < count($activityIds); $i++) { 
         $actIds = $activityIds[$i];
+
+        try {
+            $sql = new Sql($db);
+            $insert = $sql->insert();
+            $insert->into('activityIds');
+            $insert->values(array(
+                'datetime_created' => time(),
+                'datetime_updated' => 0,
+                'activityId' => $actIds,
+                'supplierId' => $supplierId
+            ), $insert::VALUES_MERGE);
+            $statement = $sql->prepareStatementForSqlObject($insert);
+            $results = $statement->execute();
+            $db->getDriver()
+                ->getConnection()
+                ->disconnect(); 
+
+        } catch (\Exception $e) {
+            echo $return;
+            echo "ERROR 1: " . $e;
+            echo $return;
+        }
     }
-    
-    /* try {
-
-        $sql = new Sql($db);
-        $insert = $sql->insert();
-        $insert->into('cache');
-        $insert->values(array(
-            'circuitDetailsId' => $circuitDetailsId,
-            'datetime_created' => time(),
-            'datetime_updated' => 0,
-            'circuitCode' => $circuitCode,
-            'circuitType' => $circuitType,
-            'name' => $name,
-            'thumbnail' => $thumbnail,
-            'description' => $description,
-            'details' => $details,
-            'circuitPromotionCode' => $circuitPromotionCode,
-            'duration' => $duration,
-            'included' => $included,
-            'notIncluded' => $notIncluded,
-            'flightsInfo' => $flightsInfo,
-            'salesConditions' => $salesConditions,
-            'archives' => $archives
-        ), $insert::VALUES_MERGE);
-        $statement = $sql->prepareStatementForSqlObject($insert);
-        $results = $statement->execute();
-        $db->getDriver()
-            ->getConnection()
-            ->disconnect(); 
-
-    } catch (\Exception $e) {
-        echo $return;
-        echo "ERROR 1: " . $e;
-        echo $return;
-    } */
-
 }
 
 // EOF

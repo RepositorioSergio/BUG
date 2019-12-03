@@ -32,8 +32,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $affiliate_id = 0;
 $branch_filter = "";
 
-
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -95,8 +94,8 @@ echo $return;
 
 $response = json_decode($response, true);
 
-die();
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+//die();
+$config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -871,9 +870,9 @@ if (count($items) > 0) {
             $insert = $sql->insert();
             $insert->into('items_activities');
             $insert->values(array(
-                'id' => $id,
                 'datetime_created' => time(),
                 'datetime_updated' => 0,
+                'itemsid' => $id,
                 'externalid' => $externalId,
                 'productgroupId' => $productGroupId,
                 'title' => $title,
@@ -1042,9 +1041,9 @@ if (count($items) > 0) {
             $insert = $sql->insert();
             $insert->into('keyPhoto_activities');
             $insert->values(array(
-                'id' => $id,
                 'datetime_created' => time(),
                 'datetime_updated' => 0,
+                'keyphotoid' => $id,
                 'originalurl' => $originalUrl,
                 'description' => $description,
                 'alternatetext' => $alternateText,

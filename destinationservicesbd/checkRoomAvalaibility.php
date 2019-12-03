@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU SEARCH ACCOMMODATION<br/>";
+echo "COMECOU CHECK ROOM<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -50,7 +50,7 @@ $date = $date->format("Y-m-d H:i:s");
 $accessKey = "709cc0c1189a46cca41796193c4f19af";
 $secretKey = "7a846c68ec6b4a7ba964d3856307a54f";
 $method = "POST";
-$path = "/accommodation.json/search?currency=USD&lang=EN";
+$path = "/check-room-availability";
 
 $word = $date . "" . $accessKey . "" . $method . "" . $path;
 
@@ -61,15 +61,9 @@ $signature = base64_encode($signature);
 $url = "https://api.bokun.io";
 
 $raw = '{
-    "locationFilters": {
-      "geoDistanceFilter": {
-        "center": {
-          "lat": 64.135338,
-          "lng": -21.895210
-        },
-        "distance": "100km"
-      }
-    }
+    "accommodationId": 380, 
+    "checkIn": "2019-12-11",
+    "checkOut": "2019-12-13" 
   }';
 
 $client = new Client();
@@ -86,7 +80,7 @@ $client->setHeaders(array(
     'X-Bokun-Signature: ' . $signature,
     'Content-Length: ' . strlen($raw)
 ));
-$client->setUri($url . '/accommodation.json/search?currency=USD&lang=EN');
+$client->setUri($url . '/check-room-availability');
 $client->setMethod('POST');
 $client->setRawBody($raw);
 $response = $client->send();

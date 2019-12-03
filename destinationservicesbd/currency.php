@@ -32,8 +32,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $affiliate_id = 0;
 $branch_filter = "";
 
-
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -90,7 +89,7 @@ echo $return;
 $response = json_decode($response, true);
  
 die();
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,

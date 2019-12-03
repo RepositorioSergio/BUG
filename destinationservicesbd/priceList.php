@@ -32,8 +32,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $affiliate_id = 0;
 $branch_filter = "";
 
-
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -68,11 +67,11 @@ $client->setOptions(array(
     'sslverifyhost' => false
 ));
 $client->setHeaders(array(
-    'Accept: application/json',
-    'Content-Type: application/json;charset=UTF-8',
     'X-Bokun-Date: ' . $date,
     'X-Bokun-AccessKey: ' . $accessKey,
     'X-Bokun-Signature: ' . $signature,
+    'Accept: application/json',
+    'Content-Type: application/json;charset=UTF-8',
     'Content-Length: ' . strlen($raw)
 ));
 $client->setUri($url . '/activity.json/35726/price-list');
@@ -99,8 +98,7 @@ echo $return;
 
 $response = json_decode($response, true);
  
-die();
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -114,67 +112,124 @@ $activityId = $response['activityId'];
 $isPriceConverted = $response['isPriceConverted'];
 $defaultCurrency = $response['defaultCurrency'];
 
+try {
+    $sql = new Sql($db);
+    $insert = $sql->insert();
+    $insert->into('pricelist');
+    $insert->values(array(
+        'datetime_created' => time(),
+        'datetime_updated' => 0,
+        'activityid' => $activityId,
+        'ispriceconverted' => $isPriceConverted,
+        'defaultcurrency' => $defaultCurrency
+    ), $insert::VALUES_MERGE);
+    $statement = $sql->prepareStatementForSqlObject($insert);
+    $results = $statement->execute();
+    $db->getDriver()
+        ->getConnection()
+        ->disconnect(); 
+
+} catch (\Exception $e) {
+    echo $return;
+    echo "ERROR 1: " . $e;
+    echo $return;
+}
+
 $pricesByDateRange = $response['pricesByDateRange'];
 for ($k = 0; $k < count($pricesByDateRange); $k ++) {
     $from = $pricesByDateRange[$k]['from'];
+    $to = $pricesByDateRange[$k]['to'];
 
-    $rates = $pricesByDateRange[$k]['rates'];
-    for ($i=0; $i < count($rates); $i++) { 
-        $rateId = $rates[$i]['rateId'];
-        $title = $rates[$i]['title'];
-
-        $passengers = $rates[$i]['passengers'];
-        if (count($passengers) > 0) {
-            for ($j=0; $j < count($passengers); $j++) { 
-                $pricingCategoryId = $passengers[$j]['pricingCategoryId'];
-                $title = $passengers[$j]['title'];
-                $ticketCategory = $passengers[$j]['ticketCategory'];
-
-                $price = $passengers[$j]['price'];
-                if (count($price) > 0) {
-                    $currency = $price['currency'];
-                    $amount = $price['amount'];
-                    $ofWhichTax = $price['ofWhichTax'];
-                }
-            }
-        }
-    }
-    
-    /* try {
-
+    try {
         $sql = new Sql($db);
         $insert = $sql->insert();
-        $insert->into('cache');
+        $insert->into('pricesByDateRange_pricelist');
         $insert->values(array(
-            'circuitDetailsId' => $circuitDetailsId,
             'datetime_created' => time(),
             'datetime_updated' => 0,
-            'circuitCode' => $circuitCode,
-            'circuitType' => $circuitType,
-            'name' => $name,
-            'thumbnail' => $thumbnail,
-            'description' => $description,
-            'details' => $details,
-            'circuitPromotionCode' => $circuitPromotionCode,
-            'duration' => $duration,
-            'included' => $included,
-            'notIncluded' => $notIncluded,
-            'flightsInfo' => $flightsInfo,
-            'salesConditions' => $salesConditions,
-            'archives' => $archives
+            'from' => $from,
+            'to' => $to,
+            'activityid' => $activityId
         ), $insert::VALUES_MERGE);
         $statement = $sql->prepareStatementForSqlObject($insert);
         $results = $statement->execute();
         $db->getDriver()
             ->getConnection()
             ->disconnect(); 
-
+    
     } catch (\Exception $e) {
         echo $return;
-        echo "ERROR 1: " . $e;
+        echo "ERROR 2: " . $e;
         echo $return;
-    } */
+    }
 
+    $rates = $pricesByDateRange[$k]['rates'];
+    for ($i=0; $i < count($rates); $i++) { 
+        $rateId = $rates[$i]['rateId'];
+        $title = $rates[$i]['title'];
+
+        try {
+            $sql = new Sql($db);
+            $insert = $sql->insert();
+            $insert->into('rates_pricelist');
+            $insert->values(array(
+                'datetime_created' => time(),
+                'datetime_updated' => 0,
+                'rateid' => $rateId,
+                'title' => $title,
+                'activityid' => $activityId
+            ), $insert::VALUES_MERGE);
+            $statement = $sql->prepareStatementForSqlObject($insert);
+            $results = $statement->execute();
+            $db->getDriver()
+                ->getConnection()
+                ->disconnect(); 
+        
+        } catch (\Exception $e) {
+            echo $return;
+            echo "ERROR 3: " . $e;
+            echo $return;
+        }
+
+        $passengers = $rates[$i]['passengers'];
+        for ($j=0; $j < count($passengers); $j++) { 
+            $pricingCategoryId = $passengers[$j]['pricingCategoryId'];
+            $title = $passengers[$j]['title'];
+            $ticketCategory = $passengers[$j]['ticketCategory'];
+
+            $price = $passengers[$j]['price'];
+            $currency = $price['currency'];
+            $amount = $price['amount'];
+            $ofWhichTax = $price['ofWhichTax'];
+
+            try {
+                $sql = new Sql($db);
+                $insert = $sql->insert();
+                $insert->into('passengers_pricelist');
+                $insert->values(array(
+                    'datetime_created' => time(),
+                    'datetime_updated' => 0,
+                    'pricingcategoryid' => $pricingCategoryId,
+                    'title' => $title,
+                    'ticketcategory' => $ticketCategory,
+                    'currency' => $currency,
+                    'amount' => $amount,
+                    'ofwhichtax' => $ofWhichTax,
+                    'rateid' => $rateId
+                ), $insert::VALUES_MERGE);
+                $statement = $sql->prepareStatementForSqlObject($insert);
+                $results = $statement->execute();
+                $db->getDriver()
+                    ->getConnection()
+                    ->disconnect(); 
+            
+            } catch (\Exception $e) {
+                echo $return;
+                echo "ERROR 4: " . $e;
+                echo $return;
+            }
+        }
+    }
 }
 
 // EOF

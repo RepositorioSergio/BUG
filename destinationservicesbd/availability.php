@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU AVAILABILITY<br/>";
+echo "COMECOU AVAIL<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -33,7 +33,7 @@ $affiliate_id = 0;
 $branch_filter = "";
 
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -51,7 +51,7 @@ $date = $date->format("Y-m-d H:i:s");
 $accessKey = "709cc0c1189a46cca41796193c4f19af";
 $secretKey = "7a846c68ec6b4a7ba964d3856307a54f";
 $method = "GET";
-$path = "/activity.json/35726/availabilities?currency=USD&start=2019-11-25&end=2019-12-31";
+$path = "/activity.json/22777/availabilities?currency=USD&start=2019-12-25&end=2019-12-31";
 
 $word = $date . "" . $accessKey . "" . $method . "" . $path;
 
@@ -68,14 +68,14 @@ $client->setOptions(array(
     'sslverifyhost' => false
 ));
 $client->setHeaders(array(
-    'Accept: application/json',
-    'Content-Type: application/json;charset=UTF-8',
     'X-Bokun-Date: ' . $date,
     'X-Bokun-AccessKey: ' . $accessKey,
     'X-Bokun-Signature: ' . $signature,
+    'Accept: application/json',
+    'Content-Type: application/json;charset=UTF-8',
     'Content-Length: ' . strlen($raw)
 ));
-$client->setUri($url . '/activity.json/35726/availabilities?currency=USD&start=2019-12-25&end=2019-12-31');
+$client->setUri($url . '/activity.json/22777/availabilities?currency=USD&start=2019-12-25&end=2019-12-31');
 $client->setMethod('GET');
 //$client->setRawBody($raw);
 $response = $client->send();
@@ -100,7 +100,7 @@ echo $return;
 $response = json_decode($response, true);
  
 die();
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,

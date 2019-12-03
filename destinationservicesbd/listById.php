@@ -32,8 +32,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $affiliate_id = 0;
 $branch_filter = "";
 
-
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -51,7 +50,7 @@ $date = $date->format("Y-m-d H:i:s");
 $accessKey = "709cc0c1189a46cca41796193c4f19af";
 $secretKey = "7a846c68ec6b4a7ba964d3856307a54f";
 $method = "GET";
-$path = "/activity.json/list-by-id?ids=35726&currency=USD&lang=EN";
+$path = "/activity.json/list-by-id?ids=35726&currency=ISK&lang=EN";
 
 $word = $date . "" . $accessKey . "" . $method . "" . $path;
 
@@ -100,7 +99,7 @@ echo $return;
 $response = json_decode($response, true);
  
 die();
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,

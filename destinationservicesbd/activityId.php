@@ -33,7 +33,7 @@ $affiliate_id = 0;
 $branch_filter = "";
 
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -68,11 +68,11 @@ $client->setOptions(array(
     'sslverifyhost' => false
 ));
 $client->setHeaders(array(
-    'Accept: application/json',
-    'Content-Type: application/json;charset=UTF-8',
     'X-Bokun-Date: ' . $date,
     'X-Bokun-AccessKey: ' . $accessKey,
     'X-Bokun-Signature: ' . $signature,
+    'Accept: application/json',
+    'Content-Type: application/json;charset=UTF-8',
     'Content-Length: ' . strlen($raw)
 ));
 $client->setUri($url . '/activity.json/22777');
@@ -100,7 +100,7 @@ echo $return;
 $response = json_decode($response, true);
  
 die();
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
