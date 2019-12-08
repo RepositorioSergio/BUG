@@ -1,19 +1,286 @@
-<?php //0050f
-// Bug Software LLC
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
+<?php
+use Zend\Db\Adapter\Adapter;
+use Zend\Db\Adapter\Driver\ResultInterface;
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\Sql\Sql;
+use Zend\Log\Logger;
+use Zend\Log\Writer;
+use Zend\I18n\Translator\Translator;
+use Zend\Http\Client;
+use Zend\Http\Request;
+$translator = new Translator();
+$valid = 0;
+$hid = 0;
+$shid = 0;
+$total = 0;
+error_log("\r\n COMECA POLICIES OTS \r\n", 3, "/srv/www/htdocs/error_log");
+try {
+    $db = new \Zend\Db\Adapter\Adapter($config);
+    $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_ots where session_id='$session_id'";
+    $statement = $db->createStatement($sql);
+    $statement->prepare();
+    $row_settings = $statement->execute();
+} catch (Exception $e) {
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($e->getMessage());
+}
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $data = unserialize(base64_decode($row_settings["data"]));
+    $searchsettings = unserialize(base64_decode($row_settings["searchsettings"]));
+    $lang = $searchsettings['lang'];
+    $currency = $searchsettings['currency'];
+    $from = $searchsettings['from'];
+    $to = $searchsettings['to'];
+    $destination = $searchsettings['destination'];
+    $affiliate_id = $searchsettings['affiliate_id'];
+    $agent_id = $searchsettings['agent_id'];
+    $index = $searchsettings['index'];
+    $ipaddress = $searchsettings['ipaddress'];
+    $nationality = $searchsettings['nationality'];
+    error_log("\r\n nationality  $nationality \r\n", 3, "/srv/www/htdocs/error_log");
+    $residency = $searchsettings['residency'];
+    $room_type = $searchsettings['room'];
+    $adt = $searchsettings['adults'];
+    $chd = $searchsettings['children'];
+    $children_ages = $searchsettings['children_ages'];
+} else {
+    $response['error'] = "Unable to handle request #2";
+    return false;
+}
+error_log("\r\n COMECA ENABLE \r\n", 3, "/srv/www/htdocs/error_log");
+$affiliate_id = 0;
+$branch_filter = '';
+$sql = "select value from settings where name='enableexpedia' and affiliate_id=$affiliate_id" . $branch_filter;
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $affiliate_id_expedia= $affiliate_id;
+} else {
+    $affiliate_id_expedia = 0;
+}
+
+$sql = "select value from settings where name='expediaAPIKey' and affiliate_id=$affiliate_id_expedia" . $branch_filter;
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $expediaAPIKey = $row_settings['value'];
+}
+$sql = "select value from settings where name='expediaMarkup' and affiliate_id=$affiliate_id_expedia" . $branch_filter;
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $expediaMarkup = (double) $row_settings['value'];
+} else {
+    $expediaMarkup = 0;
+}
+$sql = "select value from settings where name='expediaSharedSecret' and affiliate_id=$affiliate_id_expedia" . $branch_filter;
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $expediaSharedSecret = base64_decode($row_settings['value']);
+}
+$sql = "select value from settings where name='expediaServiceURL' and affiliate_id=$affiliate_id_expedia" . $branch_filter;
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $expediaServiceURL = $row_settings['value'];
+}
+error_log("\r\n expediaServiceURL  $expediaServiceURL \r\n", 3, "/srv/www/htdocs/error_log");
+
+$breakdown = array();
+for ($w = 0; $w < count($quoteid); $w ++) {
+    $outputArray = array();
+    $arrIt = new RecursiveIteratorIterator(new RecursiveArrayIterator($data));
+    foreach ($arrIt as $sub) {
+        $subArray = $arrIt->getSubIterator();
+        if (isset($quoteid[$w])) {
+            if (isset($subArray['quoteid'])) {
+                if ($subArray['quoteid'] === $quoteid[$w]) {
+                    $outputArray[] = iterator_to_array($subArray);
+                    $hid = $arrIt->getSubIterator($arrIt->getDepth() - 4)
+                        ->key();
+                }
+            }
+        }
+    }
+    if (! is_array($outputArray)) {
+        $response['error'] = "Unable to handle request #3";
+        return false;
+    } else {
+        array_push($breakdown, $outputArray);
+    }
+}
+
+$fromHotelsPRO = DateTime::createFromFormat("d-m-Y", $from);
+$toHotelsPro = DateTime::createFromFormat("d-m-Y", $to);
+$nights = $fromHotelsPRO->diff($toHotelsPro);
+$nights = $nights->format('%a');
+
+
+$c = 0;
+$response = array();
+$roombreakdown = array();
+foreach ($breakdown as $k => $v) {
+    foreach ($v as $key => $value) {
+        error_log("\r\n ENTROU FOREACH \r\n", 3, "/srv/www/htdocs/error_log");
+        if ($shid == 0) {
+            $shid = $value['shid'];
+            $code = $value['HotelId'];
+            $scode = $value['shid'];
+            $HotelId = $value['HotelId'];
+            // error_log("\r\n" . print_r($value, true) . "\r\n", 3, "/srv/www/htdocs/error_log");
+        } else {
+            if ($shid != $value['shid']) {
+                // We can't book two rooms from two suppliers
+                $response['error'] = "Unable to handle request #4";
+                return false;
+            }
+        }
+
+        $cancelpolicy = "";
+        $cancelpolicy_deadline = "";
+
+        //
+        // EOF Policies
+        // EOF Check prices & availability
+        $total = $total + $value['total'];
+        $tot = $value['total'];
+        $item['room'] = $value['room'];
+        $item['meal'] = $value['meal'];
+        $item['total'] = $value['total'];
+        $item['totalplain'] = number_format($tot, 2, '.', '');
+        $avg = $tot / $nights;
+        $item['avgnight'] = $filter->filter($avg);
+        $item['avgplain'] = number_format($avg, 2, '.', '');
+        $item['adults'] = $selectedAdults[$c];
+        $item['children'] = $selectedChildren[$c];
+        $item['children_ages'] = json_decode(json_encode($selectedChildrenAges[$c]), false);
+
+
+        //$item['cancelpolicy'] = $cancelpolicy;
+        //$item['cancelpolicy_deadline'] = $cancelpolicy_deadline;
+        //$item['cancelpolicy_deadlinetimestamp'] = $CancellationDeadline; 
+        //$item['cancelpolicy_details'] = $cancelpolicy;
+        array_push($roombreakdown, $item);
+    }
+    $c ++;
+}
+$db = new \Zend\Db\Adapter\Adapter($config);
+$hotel = array();
+$sql = "select sid from xmlhotels_mots where sid='" . $shid . "' and hid=" . $hid;
+$statement = $db->createStatement($sql);
+try {
+    $statement->prepare();
+} catch (Exception $e) {
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($e->getMessage());
+}
+$row_hotel = $statement->execute();
+if (! $row_hotel->valid()) {
+    $response['error'] = "Unable to handle request #5";
+    return false;
+}
+$db->getDriver()
+    ->getConnection()
+    ->disconnect();
+$db = new \Zend\Db\Adapter\Adapter($config);
+$sql = "select description as name, stars, hotel_info, address_1, address_2, address_3, address_4, latitude, longitude, city, city_name, seo, zipcode, country from xmlhotels where id=" . $hid;
+$statement = $db->createStatement($sql);
+$statement->prepare();
+try {
+    $row_hotel = $statement->execute();
+} catch (Exception $e) {
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($e->getMessage());
+}
+if ($row_hotel->valid()) {
+    $row_hotel = $row_hotel->current();
+    if ($starsArray[$row_hotel['stars']]['stars']) {
+        $row_hotel['stars'] = $starsArray[$row_hotel['stars']]['stars'];
+    } else {
+        $row_hotel['stars'] = 0;
+    }
+    $db2 = new \Zend\Db\Adapter\Adapter($config);
+    $sql = "select name from countries where id=" . (int) $row_hotel['country'];
+    $statement2 = $db2->createStatement($sql);
+    $statement2->prepare();
+    try {
+        $row_country = $statement2->execute();
+    } catch (Exception $e) {
+        $logger = new Logger();
+        $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+        $logger->addWriter($writer);
+        $logger->info($e->getMessage());
+    }
+    if ($row_country->valid()) {
+        $row_country = $row_country->current();
+        $row_hotel['country_name'] = $row_country['name'];
+    } else {
+        $row_hotel['country_name'] = "";
+    }
+    $db2->getDriver()
+        ->getConnection()
+        ->disconnect();
+    $hotel = $row_hotel;
+} else {
+    $response['error'] = "Unable to handle request #6";
+    return false;
+}
+$db->getDriver()
+    ->getConnection()
+    ->disconnect();
+$images = array();
+try {
+    $db = new \Zend\Db\Adapter\Adapter($config);
+    $sql = "select url, description from xmlhotels_images where hotel_id=" . $hid . " order by sortorder";
+    $statement = $db->createStatement($sql);
+    $statement->prepare();
+    $result = $statement->execute();
+    if ($result instanceof ResultInterface && $result->isQueryResult()) {
+        $resultSet = new ResultSet();
+        $resultSet->initialize($result);
+        foreach ($resultSet as $row) {
+            $item = array();
+            $item['url'] = "//world-wide-web-servers.com/static/hotels/" . $row->url;
+            $item['description'] = $row->description;
+            array_push($images, $item);
+        }
+    }
+    $db->getDriver()
+        ->getConnection()
+        ->disconnect();
+} catch (Exception $e) {
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($e->getMessage());
+}
+$response['hotel'] = $hotel;
+$response['hotel']['images'] = $images;
+$response['breakdown'] = $roombreakdown;
+$response['total'] = $filter->filter($total);
+$response['totalplain'] = number_format($total, 2, '.', '');
+$response['searchsettings'] = $searchsettings;
+$response['code'] = $vector['code'];
 ?>
-HR+cP/JB4tWG4+X/g7+6MsbGgY424peFlpIqInTqVpZhVDqH3cNbP1ARr18Xk8xfR89oCWfps4nT
-+TT91lF0ZC3e+XUSwW8OY3CWwoFoCIWWUsbx/gkUf9QmnLeoKTe3+w0k6S9vFT+A6Xnt5fGqfiyO
-FJXHDsqMBokk1Wk5Q3rY7EjfbJFL97RzyjTM2ALvXGGrBC2drMFnEARzKcTt80xim11c4tvgTPFs
-oUmDqjT8rDpBfUw6mgauCoeDFbnCM6cRyCz2bCdzhi1myXMbZTvGvqMYMB/yXJUeXmJEcfoyEW6N
-qTK80eLKrLe0s9p7xPhHKpFOy2YN3lLnKtDv3zIT6inrrT1zRCDJ0bWK/b4eCANRqw+N5h0Ma8lM
-zOSrCTQqZmn/w/AZm+p0t2J/tl6FCYOdRgzbq8qDTKoWEtJGOonXkY2FePpWDWtZAJE6O3rSwPBz
-VpOz5ucE/264+0g/bwcyy6YE14hJt+dNp9NxoeooZmqgi/WT5AC9gXwYL4f96j62uRbvBApKaPpl
-cN4V3gt4AnBMK6ak8VqOuR3jsYI9sBB9EwRtzTOubqb5cwPbdIrlA/C/HE2X64s9fS2XKH5YCnsS
-KVl9QPTUfD9p7Rq+uJ2NWu76MRDmr8Udjr0EL913n6PR3i8iWiJFG4E48P3TZ2NoxqBMCRFKG6B1
-MU2I06L5JPxyjqPwI0ZnVAcTZPyvFrZ8Ppb6X5sKP44utbwMEFSJtsoI/GVkOJWZC74ektxu5DSo
-CJcRxzX7QVTU8aZQQipnjbonTh5YN0MkBlZTbKYs2SrpBFJG8verQBMZ0E46yO7+RW7SZgzZnAA5
-ipY6vikXDsPos07qsU7SZN65pPQnCt8s/GvcMONu2dIlf4mRJSCEIzd/pv/R/HDSnIC1WZGhbN+o
-ov9GGE7aEditVdKjdRYLKWmZ9NLqqpDLe7ZSd+sskq4hRRAcWaF6ito5Z3NyNKJ1fUERh8GungbD
-payRvhHcVD6UdNzKWTeiclN8USgbDZBrJgYbz5YeMSlUwyY/kk0YC9zWuc26jJSGnRtOZsxRZ0eO
-f2kqTkcrihK2Lw4WvECW58sdQG+QzT4E4iHFB8cwpIFEyTwSlLbEB0isphv15Jkg
