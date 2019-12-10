@@ -74,7 +74,7 @@ echo "<xmp>";
 echo $response;
 echo "</xmp>";
 
-die();
+//die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
 $config = [
     'driver' => $config->db->driver,
@@ -140,7 +140,7 @@ if ($hotel->length > 0) {
             $distance = "";
         }
 
-        try {
+        /* try {
             $sql = new Sql($db);
             $insert = $sql->insert();
             $insert->into('search');
@@ -165,7 +165,7 @@ if ($hotel->length > 0) {
             echo $return;
             echo "ERRO 1: " . $e;
             echo $return;
-        }
+        } */
 
         $roomtypes = $hotel->item($i)->getElementsByTagName("roomtypes");
         if ($roomtypes->length > 0) {
@@ -254,7 +254,7 @@ if ($hotel->length > 0) {
                                     }
                                 }
 
-                                try {
+                                /* try {
                                     $sql = new Sql($db);
                                     $insert = $sql->insert();
                                     $insert->into('rooms_search');
@@ -284,7 +284,7 @@ if ($hotel->length > 0) {
                                     echo $return;
                                     echo "ERRO 2: " . $e;
                                     echo $return;
-                                }
+                                } */
 
                                 $meals = $room->item($jAux)->getElementsByTagName("meals");
                                 if ($meals->length > 0) {
@@ -334,7 +334,7 @@ if ($hotel->length > 0) {
                                                 }
                                             }
 
-                                            try {
+                                            /* try {
                                                 $sql = new Sql($db);
                                                 $insert = $sql->insert();
                                                 $insert->into('meals_search');
@@ -360,7 +360,7 @@ if ($hotel->length > 0) {
                                                 echo $return;
                                                 echo "ERRO 3: " . $e;
                                                 echo $return;
-                                            }
+                                            } */
                                         }
                                     }
                                 }
