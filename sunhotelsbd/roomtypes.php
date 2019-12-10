@@ -88,7 +88,7 @@ echo $response;
 /* echo "<xmp>";
 echo $response;
 echo "</xmp>"; */
-die();
+
 $config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
 $config = [
     'driver' => $config->db->driver,
