@@ -65,8 +65,8 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
       <mealId>3</mealId>
       <customerCountry>gb</customerCountry>
       <b2c>0</b2c>
-      <searchPrice>145</searchPrice>
-      <roomId>29163433</roomId>
+      <searchPrice>492</searchPrice>
+      <roomId>23040486</roomId>
       <hotelId></hotelId>
       <roomtypeId></roomtypeId>
       <blockSuperDeal></blockSuperDeal>
