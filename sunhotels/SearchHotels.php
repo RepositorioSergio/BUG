@@ -164,6 +164,8 @@ if ($url != "") {
         $logger->info($e->getMessage());
     }
 
+    $mealname = "";
+
     $inputDoc = new DOMDocument();
     $inputDoc->loadXML($response);
     $searchresult = $inputDoc->getElementsByTagName("searchresult");
@@ -356,6 +358,19 @@ if ($url != "") {
                                                         $price2 = 0;
                                                     }
                                                 }
+
+                                                if ($mealid == 1) {
+                                                    $mealname = "No meals";
+                                                } else if ($mealid == 3) {
+                                                    $mealname = "Breakfast";
+                                                } else if ($mealid == 4) {
+                                                    $mealname = "Half board";
+                                                } else if ($mealid == 5) {
+                                                    $mealname = "Full board";
+                                                } else if ($mealid == 6) {
+                                                    $mealname = "All inclusive";
+                                                }
+                                                
                                             
             
                                                 for ($zRooms = 0; $zRooms < count($selectedAdults); $zRooms ++) {
@@ -384,7 +399,7 @@ if ($url != "") {
                                                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['special'] = false;
                                                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = "";
                                                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['mealid'] = $mealid;
-                                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['meal'] = $translator->translate($mealid);
+                                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['meal'] = $translator->translate($mealname);
                                                     $pricebreakdown = array();
                                                     $pricebreakdownCount = 0;
                                                     for ($rZZ = 0; $rZZ < $noOfNights; $rZZ ++) {

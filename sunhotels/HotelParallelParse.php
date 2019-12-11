@@ -5,6 +5,7 @@ use Zend\Log\Writer;
 error_log("\r\n SunHotels - Hotel Parallel Search - Parse\r\n", 3, "/srv/www/htdocs/error_log");
 if ($response != "") {
     error_log("\r\n Response - $response\r\n", 3, "/srv/www/htdocs/error_log");
+    $mealname = "";
     $inputDoc = new DOMDocument();
     $inputDoc->loadXML($response);
     $searchresult = $inputDoc->getElementsByTagName("searchresult");
@@ -196,6 +197,18 @@ if ($response != "") {
                                                 }
                                             }
 
+                                            if ($mealid == 1) {
+                                                $mealname = "No meals";
+                                            } else if ($mealid == 3) {
+                                                $mealname = "Breakfast";
+                                            } else if ($mealid == 4) {
+                                                $mealname = "Half board";
+                                            } else if ($mealid == 5) {
+                                                $mealname = "Full board";
+                                            } else if ($mealid == 6) {
+                                                $mealname = "All inclusive";
+                                            }
+
                                             //$rooms[$baseCounterDetails]['name'] = $name;
                                             $rooms[$baseCounterDetails]['hotelid'] = $hotelid;
                                             $rooms[$baseCounterDetails]['roomid'] = $roomid;
@@ -230,7 +243,7 @@ if ($response != "") {
                                                 $logger->addWriter($writer);
                                                 $logger->info($e->getMessage());
                                             }
-                                            $rooms[$baseCounterDetails]['meal'] = $translator->translate($mealid);
+                                            $rooms[$baseCounterDetails]['meal'] = $translator->translate($mealname);
                                             $pricebreakdown = array();
                                             $pricebreakdownCount = 0;
                                             for ($rZZ = 0; $rZZ < $noOfNights; $rZZ ++) {
