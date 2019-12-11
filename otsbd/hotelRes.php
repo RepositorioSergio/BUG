@@ -44,7 +44,7 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$raw = '<OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05" AvailRatesOnly="true" Version="0.1" ResStatus="Quote">
+$raw = '<OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05" AvailRatesOnly="true" Version="0.1" ResStatus="Commit">
 <POS>
   <Source>
   <RequestorID Type="22" ID="TEST" ID_Context="AxisData"/>
@@ -58,20 +58,22 @@ $raw = '<OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05" AvailRates
     <RoomStays>
       <RoomStay>
         <RoomTypes>
-          <RoomType RoomTypeCode = "RMSDDB000E"></RoomType>
+          <RoomType RoomTypeCode="RMSDDB00B0" IsRoom="true"></RoomType>
         </RoomTypes>
-        <TimeSpan End = "2019-12-09" Start = "2019-12-06"></TimeSpan>
-        <Total AmountAfterTax = "87.24" CurrencyCode = "EUR"></Total>
-        <BasicPropertyInfo HotelCode = "AMTSPT0019"></BasicPropertyInfo>
+        <RoomRates>
+          <RoomRate>
+            <Features>
+             <Feature>
+             <Description><Text>BB</Text></Description> 
+             </Feature>
+            </Features>
+          </RoomRate>
+        </RoomRates>
+        <TimeSpan End="2019-12-20" Start="2019-12-16"></TimeSpan>
+        <Total AmountAfterTax="162.56" CurrencyCode="EUR"></Total>
+        <BasicPropertyInfo HotelCode="AMTSPT0006"></BasicPropertyInfo>
       </RoomStay>
     </RoomStays> 
-    <Services>
-        <Service ServiceCategoryCode="S0000" ServiceRPH="2">
-            <Price>
-                <Total CurrencyCode="EUR" AmountAfterTax="50.00"/>
-            </Price>
-        </Service>
-    </Services>   
     <ResGuests>
         <ResGuest AgeQualifyingCode="10" ResGuestRPH="1">
           <Profiles>
@@ -84,13 +86,14 @@ $raw = '<OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05" AvailRates
                     <Surname>Smith</Surname>
                   </PersonName>
                   <Telephone PhoneNumber="+34625625625"/>
-                  <email>michael.smith@provider.com</Email>
+                  <Email>michael.smith@provider.com</Email>
+                  <Address>street 2, 20321 Miami</Address>
                 </Customer>
               </Profile>
             </ProfileInfo>
           </Profiles>
           <GuestCounts>
-            <GuestCount Count="1" Age="42"/>
+            <GuestCount Count="2" AgeQualifyingCode="10"/>
           </GuestCounts>
         </ResGuest>
     </ResGuests>
@@ -101,7 +104,7 @@ $raw = '<OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05" AvailRates
         </HotelReservationIDs>
     </ResGlobalInfo>
     <TPA_Extensions>
-        <EBPrepayment Value="87.24" PaymentDueDate="2019-12-06"/>
+        <EBPrepayment Value="162.56" PaymentDueDate="2019-12-16"/>
         <ns1:BookingStatus xmlns:ns1="http://www.opentravel.org/OTA/2003/05/tpa" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:BookingStatus" ReservationStatusType="Reserved"/>
     </TPA_Extensions>
   </HotelReservation>
