@@ -44,8 +44,7 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$raw = '<OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" Version="2009.1"
-PrimaryLangID="EN" AltLangID="ES">
+$raw = '<OTA_HotelDescriptiveInfoRQ xmlns="http://www.opentravel.org/OTA/2003/05" Version="2009.1" PrimaryLangID="EN" AltLangID="ES">
 <POS>
     <Source>
         <RequestorID Type="22" ID="TEST" ID_Context="AxisData"/>
@@ -58,13 +57,8 @@ PrimaryLangID="EN" AltLangID="ES">
     <HotelDescriptiveInfo BrandCode="TEST">
         <HotelInfo SendData="false"/>
         <AreaInfo SendRefPoints="false"/>
-        <ContactInfo SendData="false"/>
+        <AffiliationInfo SendAwards="false"/>
         <MultimediaObjects SendData="false"/>
-        <ContentInfos>
-            <ContentInfo Code="GeoLatitude" Name="27.791146"/>
-            <ContentInfo Code="GeoLongitude" Name="-015.714269"/>
-            <ContentInfo Code="GeoRadius" Name="200"/>
-        </ContentInfos>
     </HotelDescriptiveInfo>
 </HotelDescriptiveInfos>
 </OTA_HotelDescriptiveInfoRQ>';

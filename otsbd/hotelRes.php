@@ -44,69 +44,80 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$raw = '<OTA_HotelResRQ xmlns="http://www.opentravel.org/OTA/2003/05" AvailRatesOnly="true" Version="0.1" ResStatus="Commit">
+$raw = '<OTA_HotelResRQ ResStatus="Quote" EchoToken="550e8efd-344e-4f13-9551-d517a9520bbd" Version="1" xmlns="http://www.opentravel.org/OTA/2003/05">
 <POS>
   <Source>
-  <RequestorID Type="22" ID="TEST" ID_Context="AxisData"/>
+    <RequestorID Type="88" ID="TEST" MessagePassword="testpass"/> 
   </Source>
   <Source>
-  <RequestorID Type="88" ID="TEST" MessagePassword="testpass"/>
+    <RequestorID ID_Context="AxisData" Type="22" ID="TEST"/>
   </Source>
 </POS>
 <HotelReservations>
   <HotelReservation>
     <RoomStays>
-      <RoomStay>
+      <RoomStay RPH="1">
         <RoomTypes>
-          <RoomType RoomTypeCode="RMSDDB00B0" IsRoom="true"></RoomType>
+          <RoomType RoomTypeCode="RMSPD20000"/>
         </RoomTypes>
-        <RoomRates>
-          <RoomRate>
-            <Features>
-             <Feature>
-             <Description><Text>BB</Text></Description> 
-             </Feature>
-            </Features>
-          </RoomRate>
-        </RoomRates>
-        <TimeSpan End="2019-12-20" Start="2019-12-16"></TimeSpan>
-        <Total AmountAfterTax="162.56" CurrencyCode="EUR"></Total>
-        <BasicPropertyInfo HotelCode="AMTSPT0006"></BasicPropertyInfo>
+        <TimeSpan End="2020-06-16" Start="2020-06-12"/>
+        <Total AmountAfterTax = "1203.31" CurrencyCode ="EUR" />
+        <BasicPropertyInfo HotelCode="AUSNYC9WO8"/>
+        <ResGuestRPHs>
+          <ResGuestRPH RPH="1"/>
+          <ResGuestRPH RPH="2"/>
+          <ResGuestRPH RPH="3"/>
+        </ResGuestRPHs>
+        <ServiceRPHs>
+          <ServiceRPH RPH="1"/>
+        </ServiceRPHs>
       </RoomStay>
-    </RoomStays> 
+      <RoomStay RPH="1">
+        <RoomTypes>
+          <RoomType RoomTypeCode="RMSPD20000"/>
+        </RoomTypes>
+        <TimeSpan End="2020-06-16" Start="2020-06-12"/>
+        <Total AmountAfterTax = "1203.31" CurrencyCode ="EUR" />
+        <BasicPropertyInfo HotelCode="AUSNYC9WO8"/>
+        <ResGuestRPHs>
+          <ResGuestRPH RPH="4"/>
+          <ResGuestRPH RPH="5"/>
+        </ResGuestRPHs>
+        <ServiceRPHs>
+          <ServiceRPH RPH="1"/>
+        </ServiceRPHs>
+      </RoomStay>
+    </RoomStays>
+    <Services>
+      <Service ServiceInventoryCode="RO" ServiceRPH="1"/>
+    </Services>
     <ResGuests>
-        <ResGuest AgeQualifyingCode="10" ResGuestRPH="1">
-          <Profiles>
-            <ProfileInfo>
-              <Profile>
-                <Customer BirthDate="1977-01-27">
-                  <PersonName>
-                    <NamePrefix>Mr</NamePrefix>
-                    <GivenName>Michael</GivenName>
-                    <Surname>Smith</Surname>
-                  </PersonName>
-                  <Telephone PhoneNumber="+34625625625"/>
-                  <Email>michael.smith@provider.com</Email>
-                  <Address>street 2, 20321 Miami</Address>
-                </Customer>
-              </Profile>
-            </ProfileInfo>
-          </Profiles>
-          <GuestCounts>
-            <GuestCount Count="2" AgeQualifyingCode="10"/>
-          </GuestCounts>
-        </ResGuest>
+      <ResGuest AgeQualifyingCode="10" ResGuestRPH="1">
+        <GuestCounts>
+          <GuestCount Age="32"/>
+        </GuestCounts>
+      </ResGuest>
+      <ResGuest AgeQualifyingCode="10" ResGuestRPH="2">
+        <GuestCounts>
+          <GuestCount Age="32"/>
+        </GuestCounts>
+      </ResGuest>
+      <ResGuest AgeQualifyingCode="7" ResGuestRPH="3">
+        <GuestCounts>
+          <GuestCount Age="1"/>
+        </GuestCounts>
+      </ResGuest>
+      <ResGuest AgeQualifyingCode="10" ResGuestRPH="4">
+        <GuestCounts>
+          <GuestCount Age="30"/>
+        </GuestCounts>
+      </ResGuest>
+      <ResGuest AgeQualifyingCode="10" ResGuestRPH="5">
+        <GuestCounts>
+          <GuestCount Age="30"/>
+        </GuestCounts>
+      </ResGuest>
     </ResGuests>
-    <ResGlobalInfo>
-        <HotelReservationIDs>
-            <HotelReservationID ResID_SourceContext="Client" ResID_Type="36" ResID_Value="1234"/>
-            <HotelReservationID ResID_SourceContext="Client" ResID_Type="37" ResID_Value="1234_1" Item_RPH="1"/>
-        </HotelReservationIDs>
-    </ResGlobalInfo>
-    <TPA_Extensions>
-        <EBPrepayment Value="162.56" PaymentDueDate="2019-12-16"/>
-        <ns1:BookingStatus xmlns:ns1="http://www.opentravel.org/OTA/2003/05/tpa" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:BookingStatus" ReservationStatusType="Reserved"/>
-    </TPA_Extensions>
   </HotelReservation>
 </HotelReservations>
 </OTA_HotelResRQ>';
@@ -151,8 +162,72 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $inputDoc = new DOMDocument();
 $inputDoc->loadXML($response);
-$string = $inputDoc->getElementsByTagName("string");
+$OTA_HotelResRS = $inputDoc->getElementsByTagName("OTA_HotelResRS");
 
+$HotelReservations = $OTA_HotelResRS->item(0)->getElementsByTagName("HotelReservations");
+if ($HotelReservations->length > 0) {
+  $HotelReservation = $HotelReservations->item(0)->getElementsByTagName("HotelReservation");
+  if ($HotelReservation->length > 0) {
+    $RoomStays = $HotelReservation->item(0)->getElementsByTagName("RoomStays");
+    if ($RoomStays->length > 0) {
+      $RoomStay = $RoomStays->item(0)->getElementsByTagName("RoomStay");
+      if ($RoomStay->length > 0) {
+        $IndexNumber = $RoomStay->item(0)->getAttribute("IndexNumber");
+        $RPH = $RoomStay->item(0)->getAttribute("RPH");
+        $Total = $RoomStay->item(0)->getElementsByTagName("Total");
+        if ($Total->length > 0) {
+          $AmountAfterTax = $Total->item(0)->getElementsByTagName("AmountAfterTax");
+          $CurrencyCode = $Total->item(0)->getElementsByTagName("CurrencyCode");
+        } else {
+          $AmountAfterTax = "";
+          $CurrencyCode = "";
+        }
+      }
+    }
+    //ResGlobalInfo
+    $ResGlobalInfo = $HotelReservation->item(0)->getElementsByTagName("ResGlobalInfo");
+    if ($ResGlobalInfo->length > 0) {
+      $TotalRGI = $ResGlobalInfo->item(0)->getElementsByTagName("Total");
+      if ($TotalRGI->length > 0) {
+        $AmountAfterTaxRGI = $TotalRGI->item(0)->getElementsByTagName("AmountAfterTax");
+        $CurrencyCodeRGI = $TotTotalRGIal->item(0)->getElementsByTagName("CurrencyCode");
+      } else {
+        $AmountAfterTaxRGI = "";
+        $CurrencyCodeRGI = "";
+      }
+      $CancelPenalties = $ResGlobalInfo->item(0)->getElementsByTagName("CancelPenalties");
+      if ($CancelPenalties->length > 0) {
+        $CancelPenalty = $CancelPenalties->item(0)->getElementsByTagName("CancelPenalty");
+        if ($CancelPenalty->length > 0) {
+          for ($i=0; $i < $CancelPenalty->length; $i++) { 
+            $Item_RPH = $CancelPenalty->item($i)->getAttribute("Item_RPH");
+            //Deadline
+            $Deadline = $CancelPenalty->item($i)->getElementsByTagName("Deadline");
+            if ($Deadline->length > 0) {
+              $OffsetDropTime = $Deadline->item(0)->getAttribute("OffsetDropTime");
+              $OffsetTimeUnit = $Deadline->item(0)->getAttribute("OffsetTimeUnit");
+              $OffsetUnitMultiplier = $Deadline->item(0)->getAttribute("OffsetUnitMultiplier");
+            }
+            //AmountPercent
+            $AmountPercent = $CancelPenalty->item($i)->getElementsByTagName("AmountPercent");
+            if ($AmountPercent->length > 0) {
+              $Percent = $AmountPercent->item(0)->getAttribute("Percent");
+              $NmbrOfNights = $AmountPercent->item(0)->getAttribute("NmbrOfNights");
+            }
+          }
+        }
+      }
+    }
+    //TPA_Extensions
+    $TPA_Extensions = $HotelReservation->item(0)->getElementsByTagName("TPA_Extensions");
+    if ($TPA_Extensions->length > 0) {
+      $BookingStatus = $TPA_Extensions->item(0)->getElementsByTagName("BookingStatus");
+      if ($BookingStatus->length > 0) {
+        $ReservationStatusType = $BookingStatus->item(0)->getAttribute("ReservationStatusType");
+      }
+    }
+  }
+}
 
 // EOF
 $db->getDriver()

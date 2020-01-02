@@ -54,19 +54,26 @@ $raw = '<OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" AvailRat
     </Source>
 </POS>
 <AvailRequestSegments>
-    <AvailRequestSegment InfoSource="12">
-        <StayDateRange End="2019-12-20" Start="2019-12-16"/>
+    <AvailRequestSegment>
+        <StayDateRange End="2020-06-16" Start="2020-06-12"/>
         <RoomStayCandidates>
             <RoomStayCandidate>
                 <GuestCounts>
-                    <GuestCount Count="2" AgeQualifyingCode="10"/>
+                    <GuestCount Age="32" Count="2" AgeQualifyingCode="10"/>
+                    <GuestCount Age="1" AgeQualifyingCode="7" Count="1"></GuestCount>
+                </GuestCounts>
+            </RoomStayCandidate>
+            <RoomStayCandidate>
+                <GuestCounts>
+                    <GuestCount Age="30" Count="2" AgeQualifyingCode="10"/>
                 </GuestCounts>
             </RoomStayCandidate>
         </RoomStayCandidates>
         <HotelSearchCriteria>
             <Criterion>
-                <RefPoint CodeContext="Country">Portugal</RefPoint>
-                <RefPoint CodeContext="Destination">Algarve</RefPoint>
+                <RefPoint CodeContext="CountryCode">US</RefPoint>
+                <RefPoint CodeContext="Destination">New York</RefPoint>
+                <RefPoint CodeContext="Region">New York City Area</RefPoint>
             </Criterion>
         </HotelSearchCriteria>
     </AvailRequestSegment>
@@ -281,6 +288,7 @@ if ($Areas->length > 0) {
 }
 
 //RoomStays
+$text2 = "";
 $RoomStays = $OTA_HotelAvailRS->item(0)->getElementsByTagName("RoomStays");
 if ($RoomStays->length > 0) {
     $RoomStay = $RoomStays->item(0)->getElementsByTagName("RoomStay");
@@ -295,6 +303,26 @@ if ($RoomStays->length > 0) {
                 $RoomType = $RoomTypes->item(0)->getElementsByTagName("RoomType");
                 if ($RoomType->length > 0) {
                     $RoomTypeCode = $RoomType->item(0)->getAttribute("RoomTypeCode");
+                    //RoomDescription
+                    $RoomDescription = $RoomType->item(0)->getElementsByTagName("RoomDescription");
+                    if ($RoomDescription->length > 0) {
+                        $Text = $RoomDescription->item(0)->getElementsByTagName("Text");
+                        if ($Text->length > 0) {
+                            $Language = $Text->item(0)->getAttribute("Language");
+                            $text2 = $Text->item(0)->nodeValue;
+                        }
+                    }
+                    //Amenities
+                    $amenit = "";
+                    $Amenities = $RoomType->item(0)->getElementsByTagName("Amenities");
+                    if ($Amenities->length > 0) {
+                        $Amenity = $Amenities->item(0)->getElementsByTagName("Amenity");
+                        if ($Amenity->length > 0) {
+                            for ($t=0; $t < $Amenity->length; $t++) { 
+                                $amenit = $Amenity->item($t)->nodeValue;
+                            }
+                        }
+                    }
                 }
             }
 

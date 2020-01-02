@@ -1,0 +1,46 @@
+<OTA_HotelResRQ ResStatus="Quote" EchoToken="550e8efd-344e-4f13-9551-d517a9520bbd" Version="1" xmlns="http://www.opentravel.org/OTA/2003/05">
+<POS>
+  <Source>
+    <RequestorID Type="88" ID="TEST" MessagePassword="testpass"/> 
+  </Source>
+  <Source>
+    <RequestorID ID_Context="AxisData" Type="22" ID="TEST"/>
+  </Source>
+</POS>
+<HotelReservations>
+  <HotelReservation>
+    <RoomStays>
+      <RoomStay RPH="1">
+        <RoomTypes>
+          <RoomType RoomTypeCode="RMSDQ10000"/>
+        </RoomTypes>
+        <TimeSpan End="2020-05-16" Start="2020-05-12"/>
+        <Total AmountAfterTax = "973.58" CurrencyCode ="EUR" />
+        <BasicPropertyInfo HotelCode="AUSNYCB4N4"/>
+        <ResGuestRPHs>
+          <ResGuestRPH RPH="1"/>
+          <ResGuestRPH RPH="2"/>
+        </ResGuestRPHs>
+        <ServiceRPHs>
+          <ServiceRPH RPH="1"/>
+        </ServiceRPHs>
+      </RoomStay>
+    </RoomStays>
+    <Services>
+      <Service ServiceInventoryCode="RO" ServiceRPH="1"/>
+    </Services>
+    <ResGuests>
+      <ResGuest AgeQualifyingCode="10" ResGuestRPH="1">
+        <GuestCounts>
+          <GuestCount Age="30"/>
+        </GuestCounts>
+      </ResGuest>
+      <ResGuest AgeQualifyingCode="10" ResGuestRPH="2">
+        <GuestCounts>
+          <GuestCount Age="30"/>
+        </GuestCounts>
+      </ResGuest>
+    </ResGuests>
+  </HotelReservation>
+</HotelReservations>
+</OTA_HotelResRQ>
