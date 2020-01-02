@@ -2,7 +2,7 @@
 use Zend\Db\Sql\Sql;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-error_log("\r\n SunHotels - Hotel Parallel Search - Parse\r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\nSunHotels - Hotel Parallel Search - Parse\r\n", 3, "/srv/www/htdocs/error_log");
 if ($response != "") {
     error_log("\r\n Response - $response\r\n", 3, "/srv/www/htdocs/error_log");
     $mealname = "";
@@ -60,24 +60,24 @@ if ($response != "") {
         } else {
             $distance = "";
         }
-
+        
         $roomtypes = $hotel->item(0)->getElementsByTagName("roomtypes");
         if ($roomtypes->length > 0) {
             $roomtype = $roomtypes->item(0)->getElementsByTagName("roomtype");
             if ($roomtype->length > 0) {
-                for ($j=0; $j < $roomtype->length; $j++) { 
+                for ($j = 0; $j < $roomtype->length; $j ++) {
                     $roomtypeid = $roomtype->item($j)->getElementsByTagName("roomtype.ID");
                     if ($roomtypeid->length > 0) {
                         $roomtypeid = $roomtypeid->item(0)->nodeValue;
                     } else {
                         $roomtypeid = "";
                     }
-
+                    
                     $roomsInfo = $roomtype->item($j)->getElementsByTagName("rooms");
                     if ($roomsInfo->length > 0) {
                         $room = $roomsInfo->item(0)->getElementsByTagName("room");
                         if ($room->length > 0) {
-                            for ($jAux=0; $jAux < $room->length; $jAux++) { 
+                            for ($jAux = 0; $jAux < $room->length; $jAux ++) {
                                 $roomid = $room->item($jAux)->getElementsByTagName("id");
                                 if ($roomid->length > 0) {
                                     $roomid = $roomid->item(0)->nodeValue;
@@ -147,12 +147,12 @@ if ($response != "") {
                                         $paymentMethodid = $paymentMethod->item(0)->getAttribute("id");
                                     }
                                 }
-
+                                
                                 $meals = $room->item($jAux)->getElementsByTagName("meals");
                                 if ($meals->length > 0) {
                                     $meal = $meals->item(0)->getElementsByTagName("meal");
                                     if ($meal->length > 0) {
-                                        for ($jAux2=0; $jAux2 < $meal->length; $jAux2++) { 
+                                        for ($jAux2 = 0; $jAux2 < $meal->length; $jAux2 ++) {
                                             $mealid = $meal->item($jAux2)->getElementsByTagName("id");
                                             if ($mealid->length > 0) {
                                                 $mealid = $mealid->item(0)->nodeValue;
@@ -196,7 +196,7 @@ if ($response != "") {
                                                     $price2 = 0;
                                                 }
                                             }
-
+                                            
                                             if ($mealid == 1) {
                                                 $mealname = "No meals";
                                             } else if ($mealid == 3) {
@@ -208,8 +208,8 @@ if ($response != "") {
                                             } else if ($mealid == 6) {
                                                 $mealname = "All inclusive";
                                             }
-
-                                            //$rooms[$baseCounterDetails]['name'] = $name;
+                                            
+                                            // $rooms[$baseCounterDetails]['name'] = $name;
                                             $rooms[$baseCounterDetails]['hotelid'] = $hotelid;
                                             $rooms[$baseCounterDetails]['roomid'] = $roomid;
                                             $rooms[$baseCounterDetails]['code'] = $shid;
@@ -224,9 +224,11 @@ if ($response != "") {
                                             $rooms[$baseCounterDetails]['ratePlanscode'] = $roomtypeid;
                                             $rooms[$baseCounterDetails]['adults'] = $adults;
                                             $rooms[$baseCounterDetails]['children'] = $children;
+                                            $rooms[$baseCounterDetails]['childrenages'] = $childrenages;
                                             $rooms[$baseCounterDetails]['total'] = (double) $price2;
                                             $rooms[$baseCounterDetails]['totalplain'] = (double) $price2;
                                             $rooms[$baseCounterDetails]['nettotal'] = (double) $price2;
+                                            $rooms[$baseCounterDetails]['mealid'] = $mealid;
                                             try {
                                                 $sql = "select mapped from board_mapping where description='" . addslashes($board_name) . "'";
                                                 $statement = $db->createStatement($sql);
@@ -280,20 +282,20 @@ if ($response != "") {
                                             
                                             $rooms[$baseCounterDetails]['special'] = false;
                                             $rooms[$baseCounterDetails]['specialdescription'] = "";
-
+                                            
                                             if ($deadline != "") {
                                                 $rooms[$baseCounterDetails]['cancelpolicy'] = $percentage . "%";
-                                                $rooms[$baseCounterDetails]['cancelpolicy_deadline'] = $deadline . " days";
+                                                $rooms[$baseCounterDetails]['cancelpolicy_deadline'] = $deadline . " hours";
                                             } else {
-                                                $checkin = date('Y-m-d',$from);
+                                                $checkin = date('Y-m-d', $from);
                                                 $rooms[$baseCounterDetails]['cancelpolicy'] = $percentage . "%";
                                                 $rooms[$baseCounterDetails]['cancelpolicy_deadline'] = $checkin;
                                             }
-                                            //$rooms[$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = $rooms[$baseCounterDetails]['cancelpolicy_deadline'];
-
+                                            // $rooms[$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = $rooms[$baseCounterDetails]['cancelpolicy_deadline'];
+                                            
                                             $rooms[$baseCounterDetails]['currency'] = strtoupper($currency);
                                             $baseCounterDetails ++;
-                                        //$agoda = true;
+                                            // $agoda = true;
                                         }
                                     }
                                 }
@@ -305,6 +307,7 @@ if ($response != "") {
         }
     }
     // Store Session
+    error_log("\r\nStore Session - $hid - $session_id - $index\r\n", 3, "/srv/www/htdocs/error_log");
     $srooms[$hid]['details'][0] = $rooms;
     $session_id_tmp = $session_id . "-" . $index;
     $sql = new Sql($db);
@@ -341,6 +344,7 @@ if ($response != "") {
         $logger->addWriter($writer);
         $logger->info($e->getMessage());
     }
-
 }
+error_log("\r\nEOF SunHotels - Hotel Parallel Search - Parse\r\n", 3, "/srv/www/htdocs/error_log");
+
 ?>

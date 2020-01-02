@@ -110,9 +110,42 @@ $noOfNights = $dateStart->diff($dateEnd)->format('%d');
 
 $date = new Datetime();
 $timestamp = $date->format('U');
+$userName = "testagent";
+$password = "785623";
+$checkin = date('Y-m-d', $from);
+$checkout = date('Y-m-d', $to);
+$currency = "USD";
+$language = "en";
+$customercountry = "gb";
+$destinationid = 695;
+$numberadults = 0;
+$numberchildrens = 0;
+$numberinfants = 0;
+$childrenages = "";
+$tam = 0;
+error_log("\r\n ANTES URL \r\n", 3, "/srv/www/htdocs/error_log");
+$url = "http://xml.sunhotels.net/15/PostGet/NonStaticXMLAPI.asmx/SearchV2?userName=$userName&password=$password&language=en&currencies=$currency&checkInDate=$checkin&checkOutDate=$checkout&numberOfRooms=$rooms&destination=&destinationID=$destinationid&hotelIDs=&resortIDs=&accommodationTypes=";
+for ($r=0; $r < $rooms; $r++) { 
+    $numberadults = $numberadults + $selectedAdults[$r];
+    if (count($selectedChildren[$r]) > 0) {
+        $numberchildrens = $numberchildrens + $selectedChildren[$r];
+        for ($z=0; $z < $selectedChildren[$r]; $z++) { 
+            if ($selectedChildrenAges[$r][$z] >= 2) {
+                if ($tam >= 1) {
+                    $childrenages = $childrenages . "," . $selectedChildrenAges[$r][$z];
+                } else {
+                    $childrenages = $childrenages . $selectedChildrenAges[$r][$z];
+                }
+            } else {
+                $numberinfants = 1;
+            }  
+            $tam = $tam + 1; 
+        }
+    }
+}
+$url = $url . "&numberOfAdults=$numberadults&numberOfChildren=$numberchildrens&childrenAges=$childrenages&infant=0&sortBy=&sortOrder=&exactDestinationMatch=&blockSuperdeal=&showTransfer=&mealIds=&showCoordinates=&showReviews=&referencePointLatitude=&referencePointLongitude=&maxDistanceFromReferencePoint=&minStarRating=&maxStarRating=&featureIds=&minPrice=&maxPrice=&themeIds=&excludeSharedRooms=&excludeSharedFacilities=&prioritizedHotelIds=&totalRoomsInBatch=&paymentMethodId=&CustomerCountry=gb&B2C=";
 
-$url = "http://xml.sunhotels.net/15/PostGet/NonStaticXMLAPI.asmx/SearchV2?userName=testagent&password=785623&language=en&currencies=USD&checkInDate=2019-12-12&checkOutDate=2019-12-14&numberOfRooms=1&destination=&destinationID=695&hotelIDs=&resortIDs=&accommodationTypes=&numberOfAdults=2&numberOfChildren=0&childrenAges=&infant=0&sortBy=&sortOrder=&exactDestinationMatch=&blockSuperdeal=&showTransfer=&mealIds=&showCoordinates=&showReviews=&referencePointLatitude=&referencePointLongitude=&maxDistanceFromReferencePoint=&minStarRating=&maxStarRating=&featureIds=&minPrice=&maxPrice=&themeIds=&excludeSharedRooms=&excludeSharedFacilities=&prioritizedHotelIds=&totalRoomsInBatch=&paymentMethodId=&CustomerCountry=gb&B2C=";
-
+error_log("\r\n URL $url \r\n", 3, "/srv/www/htdocs/error_log");
 if ($url != "") {
     
     $headers = array(
@@ -393,6 +426,8 @@ if ($url != "") {
                                                     // $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['RoomDescription'] = $Name;
                                                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['adults'] = $selectedAdults[$zRooms];
                                                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['children'] = $selectedChildren[$zRooms];
+                                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['childrenages'] = $childrenages;
+                                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['infants'] = $numberinfants;
                                                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['total'] = (double) $price2;
                                                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nett'] = $price2;
                                                     // $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['NonRefundable'] = $NonRefundable;

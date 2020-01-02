@@ -1,13 +1,12 @@
 <?php
-error_log("\r\n SunHotels - Hotel Parallel Search\r\n", 3, "/srv/www/htdocs/error_log");
-
+error_log("\r\nSunHotels - Hotel Parallel Search\r\n", 3, "/srv/www/htdocs/error_log");
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\Sql\Sql;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
 $hotellist = "";
-$sql = "select sid from xmlhotels_mhotelbeds where hid=" . $hid;
+$sql = "select sid from xmlhotels_msunhotels where hid=" . $hid;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 try {
@@ -152,13 +151,15 @@ if ($hotellist != "") {
     } else {
         $sourceMarket = "";
     }
-
-    $hotelid = 6184;
-    $checkin = date('Y-m-d',$from);
-    $checkout = date('Y-m-d',$to);
-
-    $url = "http://xml.sunhotels.net/15/PostGet/NonStaticXMLAPI.asmx/SearchV2?userName=testagent&password=785623&language=en&currencies=USD&checkInDate=$checkin&checkOutDate=$checkout&numberOfRooms=1&destination=&destinationID=&hotelIDs=$hotelid&resortIDs=&accommodationTypes=&numberOfAdults=$adults&numberOfChildren=$children&childrenAges=&infant=0&sortBy=&sortOrder=&exactDestinationMatch=&blockSuperdeal=&showTransfer=&mealIds=&showCoordinates=&showReviews=&referencePointLatitude=&referencePointLongitude=&maxDistanceFromReferencePoint=&minStarRating=&maxStarRating=&featureIds=&minPrice=&maxPrice=&themeIds=&excludeSharedRooms=&excludeSharedFacilities=&prioritizedHotelIds=&totalRoomsInBatch=&paymentMethodId=&CustomerCountry=gb&B2C=";
-
+    
+    $checkin = date('Y-m-d', $from);
+    $checkout = date('Y-m-d', $to);
+    $userName = "testagent";
+    $password = "785623";
+    $numberrooms = 1;
+    
+    $url = "http://xml.sunhotels.net/15/PostGet/NonStaticXMLAPI.asmx/SearchV2?userName=$userName&password=$password&language=en&currencies=USD&checkInDate=$checkin&checkOutDate=$checkout&numberOfRooms=$numberrooms&destination=&destinationID=&hotelIDs=$hotellist&resortIDs=&accommodationTypes=&numberOfAdults=$adults&numberOfChildren=$children&childrenAges=&infant=0&sortBy=&sortOrder=&exactDestinationMatch=&blockSuperdeal=&showTransfer=&mealIds=&showCoordinates=&showReviews=&referencePointLatitude=&referencePointLongitude=&maxDistanceFromReferencePoint=&minStarRating=&maxStarRating=&featureIds=&minPrice=&maxPrice=&themeIds=&excludeSharedRooms=&excludeSharedFacilities=&prioritizedHotelIds=&totalRoomsInBatch=&paymentMethodId=&CustomerCountry=gb&B2C=";
+    error_log("\r\nURL: - $url\r\n", 3, "/srv/www/htdocs/error_log");
     if ($hotelbedsTimeout == 0) {
         $hotelbedsTimeout = 120;
     }
@@ -168,14 +169,14 @@ if ($hotellist != "") {
         'Host: xml.sunhotels.net',
         'Content-Length: 0'
     );
-    //curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+    // curl_setopt($ch, CURLINFO_HEADER_OUT, true);
     curl_setopt($ch, CURLOPT_URL, $url);
-    //curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-    //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+    // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_VERBOSE, true);
-    //curl_setopt($ch, CURLOPT_POST, true);
+    // curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_ENCODING, "gzip,deflate");
-    //curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+    // curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $hotelbedsTimeout);
     curl_setopt($ch, CURLOPT_TIMEOUT, $hotelbedsTimeout);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -184,5 +185,4 @@ if ($hotellist != "") {
     $channelsParallel[$nC] = $ch;
     $nC ++;
 }
-
 ?>

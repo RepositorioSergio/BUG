@@ -14,8 +14,8 @@ $hid = 0;
 $shid = 0;
 $total = 0;
 error_log("\r\n COMECOU POLICIES \r\n", 3, "/srv/www/htdocs/error_log");
+$db = new \Zend\Db\Adapter\Adapter($config);
 try {
-    $db = new \Zend\Db\Adapter\Adapter($config);
     $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_sunhotels where session_id='$session_id'";
     $statement = $db->createStatement($sql);
     $statement->prepare();
@@ -87,12 +87,10 @@ for ($w = 0; $w < count($quoteid); $w ++) {
     }
 }
 
-
 $fromHotelsPRO = DateTime::createFromFormat("d-m-Y", $from);
 $toHotelsPro = DateTime::createFromFormat("d-m-Y", $to);
 $nights = $fromHotelsPRO->diff($toHotelsPro);
 $nights = $nights->format('%a');
-
 
 /*
  * $fromHotelsPRO = $fromHotelsPRO->getTimestamp();
@@ -120,29 +118,40 @@ foreach ($breakdown as $k => $v) {
         $item = array();
         $cancelation_deadline = 0;
         $cancelation_details = "";
-
-        $pricetotal = (int)$value['total'];
+        
+        $pricetotal = (int) $value['total'];
         $mealid = $value['mealid'];
+        $adults = $value['adults'];
+        $children = $value['children'];
+        $childrenages = $value['childrenages'];
+        $infants = $value['infants'];
+        $checkin = date('Y-m-d', strtotime($from));;
+        $checkout = date('Y-m-d', strtotime($to));;
+        $userName = "testagent";
+        $password = "785623";
+        $currency = "USD";
+        $language = "en";
+        $customercountry = "gb";
         
         $url = "http://xml.sunhotels.net/15/PostGet/NonStaticXMLAPI.asmx?op=PreBookV2";
-
+        
         $raw = '<?xml version="1.0" encoding="utf-8"?>
         <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
         <soap:Body>
             <PreBookV2 xmlns="http://xml.sunhotels.net/15/">
-            <userName>testagent</userName>
-            <password>785623</password>
-            <currency>USD</currency>
-            <language>en</language>
-            <checkInDate>2019-12-12</checkInDate>
-            <checkOutDate>2019-12-14</checkOutDate>
-            <rooms>1</rooms>
-            <adults>2</adults>
-            <children>0</children>
-            <childrenAges></childrenAges>
-            <infant>0</infant>
+            <userName>' . $userName . '</userName>
+            <password>' . $password . '</password>
+            <currency>' . $currency . '</currency>
+            <language>' . $language . '</language>
+            <checkInDate>' . $checkin . '</checkInDate>
+            <checkOutDate>' . $checkout . '</checkOutDate>
+            <rooms>' . $rooms . '</rooms>
+            <adults>' . $adults . '</adults>
+            <children>' . $children . '</children>
+            <childrenAges>' . $childrenages . '</childrenAges>
+            <infant>' . $infants . '</infant>
             <mealId>' . $mealid . '</mealId>
-            <customerCountry>gb</customerCountry>
+            <customerCountry>' . $customercountry . '</customerCountry>
             <b2c>0</b2c>
             <searchPrice>' . $pricetotal . '</searchPrice>
             <roomId>' . $room_code . '</roomId>
@@ -153,23 +162,24 @@ foreach ($breakdown as $k => $v) {
             </PreBookV2>
         </soap:Body>
         </soap:Envelope>';
-
+        error_log("\r\n RAW $raw \r\n", 3, "/srv/www/htdocs/error_log");
+        
         $headers = array(
             'Accept-Encoding: gzip,deflate',
             'Host: xml.sunhotels.net',
             'Content-Type: text/xml; charset=utf-8',
             'SOAPAction: http://xml.sunhotels.net/15/PreBookV2',
             'Content-Length: ' . strlen($raw)
-        ); 
-
+        );
+        
         $ch = curl_init();
-        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+        // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
         curl_setopt($ch, CURLOPT_VERBOSE, true);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_ENCODING , "gzip,deflate");
+        curl_setopt($ch, CURLOPT_ENCODING, "gzip,deflate");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $response2 = curl_exec($ch);
@@ -182,12 +192,12 @@ foreach ($breakdown as $k => $v) {
         // die();
         $endTime = microtime();
         error_log("\r\n Response: $response2 \r\n", 3, "/srv/www/htdocs/error_log");
-
+        
         $inputDoc = new DOMDocument();
         $inputDoc->loadXML($response2);
         $Envelope = $inputDoc->getElementsByTagName("Envelope");
         $Body = $Envelope->item(0)->getElementsByTagName("Body");
-
+        
         $PreBookV2Response = $Body->item(0)->getElementsByTagName("PreBookV2Response");
         if ($PreBookV2Response->length > 0) {
             $preBookResult = $PreBookV2Response->item(0)->getElementsByTagName("preBookResult");
@@ -208,12 +218,12 @@ foreach ($breakdown as $k => $v) {
                     $currency = "";
                     $price2 = "";
                 }
-                //Notes
+                // Notes
                 $Notes = $preBookResult->item(0)->getElementsByTagName("Notes");
                 if ($Notes->length > 0) {
                     $Note = $Notes->item(0)->getElementsByTagName("Note");
                     if ($Note->length > 0) {
-                        for ($i=0; $i < $Note->length; $i++) { 
+                        for ($i = 0; $i < $Note->length; $i ++) {
                             $end_date = $Note->item($i)->getAttribute("end_date");
                             $start_date = $Note->item($i)->getAttribute("start_date");
                             $text = $Note->item($i)->getElementsByTagName("text");
@@ -225,16 +235,16 @@ foreach ($breakdown as $k => $v) {
                         }
                     }
                 }
-                //PriceBreakdown
+                // PriceBreakdown
                 $PriceBreakdown = $preBookResult->item(0)->getElementsByTagName("PriceBreakdown");
                 if ($PriceBreakdown->length > 0) {
                     $currency = $PriceBreakdown->item(0)->getAttribute("currency");
                     $to = $PriceBreakdown->item(0)->getAttribute("to");
                     $from = $PriceBreakdown->item(0)->getAttribute("from");
-                    $total = $PriceBreakdown->item(0)->getAttribute("total");
+                    $total2 = $PriceBreakdown->item(0)->getAttribute("total");
                     $guest = $PriceBreakdown->item(0)->getElementsByTagName("guest");
                     if ($guest->length > 0) {
-                        for ($j=0; $j < $guest->length; $j++) { 
+                        for ($j = 0; $j < $guest->length; $j ++) {
                             $guesttotal = $guest->item($j)->getAttribute("total");
                             $price = $guest->item($j)->getElementsByTagName("price");
                             if ($price->length > 0) {
@@ -246,49 +256,55 @@ foreach ($breakdown as $k => $v) {
                                 $type = "";
                                 $breakdown = "";
                             }
-                            
                         }
                     }
                 } else {
                     $currency = "";
-                    $total = "";
+                    $total2 = "";
                     $from = "";
                     $to = "";
                 }
-                //CancellationPolicies
+                // CancellationPolicies
+                $CancellationPoliciesText = "";
+                $CancellationPoliciesArray = array();
+                $count = 0;
                 $CancellationPolicies = $preBookResult->item(0)->getElementsByTagName("CancellationPolicies");
                 if ($CancellationPolicies->length > 0) {
                     $CancellationPolicy = $CancellationPolicies->item(0)->getElementsByTagName("CancellationPolicy");
                     if ($CancellationPolicy->length > 0) {
-                        $deadline = $CancellationPolicy->item(0)->getElementsByTagName("deadline");
-                        if ($deadline->length > 0) {
-                            $deadline = $deadline->item(0)->nodeValue;
-                        } else {
-                            $deadline = "";
-                        }
-                        $percentage = $CancellationPolicy->item(0)->getElementsByTagName("percentage");
-                        if ($percentage->length > 0) {
-                            $percentage = $percentage->item(0)->nodeValue;
-                        } else {
-                            $percentage = "";
-                        }
-                        $text = $CancellationPolicy->item(0)->getElementsByTagName("text");
-                        if ($text->length > 0) {
-                            $text = $text->item(0)->nodeValue;
-                        } else {
-                            $text = "";
+                        for ($c=0; $c < $CancellationPolicy->length; $c++) { 
+                            $deadline = $CancellationPolicy->item($c)->getElementsByTagName("deadline");
+                            if ($deadline->length > 0) {
+                                $deadline = $deadline->item(0)->nodeValue;
+                            } else {
+                                $deadline = "";
+                            }
+                            $percentage = $CancellationPolicy->item($c)->getElementsByTagName("percentage");
+                            if ($percentage->length > 0) {
+                                $percentage = $percentage->item(0)->nodeValue;
+                            } else {
+                                $percentage = "";
+                            }
+                            $text = $CancellationPolicy->item($c)->getElementsByTagName("text");
+                            if ($text->length > 0) {
+                                $text = $text->item(0)->nodeValue;
+                            } else {
+                                $text = "";
+                            }
+                            $CancellationPoliciesArray[$count]['deadline'] = $deadline;
+                            $CancellationPoliciesArray[$count]['percentage'] = $percentage;
+                            $CancellationPoliciesText = $CancellationPoliciesText . $text . "\n";
                         }
                     }
                 }
             }
         }
-
-
+        
         //
         // Policies
         //
         $item['code'] = $value['shid'];
-        //$item['name'] = $value['name'];
+        // $item['name'] = $value['name'];
         $item['total'] = $price2;
         $item['nett'] = $price2;
         $total = $total + $price2;
@@ -296,7 +312,7 @@ foreach ($breakdown as $k => $v) {
         $item['room'] = $value['room'];
         $item['RoomTypeCode'] = $value['RoomTypeCode'];
         $item['RoomType'] = $value['RoomTypeCode'];
-        //$item['RoomDescription'] = $value['room_description'];
+        // $item['RoomDescription'] = $value['room_description'];
         $item['meal'] = $value['meal'];
         $item['total'] = $price2;
         $item['totalplain'] = number_format($tot, 2, '.', '');
@@ -307,20 +323,20 @@ foreach ($breakdown as $k => $v) {
         $item['children'] = $selectedChildren[$c];
         $item['children_ages'] = json_decode(json_encode($selectedChildrenAges[$c]), false);
         
-        if ($deadline != "") {
-            $cancelation_details = $text;
-            $cancelation_deadline = $deadline . 'days';
-           
+        if ($CancellationPoliciesArray[0]['deadline'] != "") {
+            $cancelation_details = $CancellationPoliciesText;
+            $cancelation_deadline = $CancellationPoliciesArray[0]['deadline'] . ' hours';
+            
             $item['cancelpolicy'] = $cancelation_details;
             $item['cancelpolicy_deadline'] = $cancelation_deadline;
         } else {
-            $cancelation_details = $text;
+            $cancelation_details = $CancellationPoliciesText;
             $cancelation_deadline = $from;
-           
+            
             $item['cancelpolicy'] = $cancelation_details;
             $item['cancelpolicy_deadline'] = $cancelation_deadline;
         }
-         
+        
         array_push($roombreakdown, $item);
     }
     $c ++;
