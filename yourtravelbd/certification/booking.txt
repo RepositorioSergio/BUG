@@ -1,0 +1,8 @@
+http://testxml.youtravel.com/webservicestest/bookings.asp?Session_ID=1018722767472202003411515&LangID=EN&HID=3913&Username=xmltestme&Password=testme&Nights=2&Checkin_Date=12/04/2020&Rooms=1&ADLTS_1=2&CHILD_1=0&RID=1476215&Room1_Rate=98.88&Customer_title=Mr&Customer_firstname=Charles&Customer_Lastname=Bill&Email=charlesbill@gmail.com
+
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<HtSearchRq>
+    <Success>true</Success>
+    <Booking_ref>102113229</Booking_ref>
+    <Voucher_Url>http://www.youtravel.com/voucher.asp?ID=102113229_32eebca6a126d13539e17407d77334cb</Voucher_Url>
+</HtSearchRq>

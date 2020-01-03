@@ -41,7 +41,7 @@ $config = [
 ];
 
 
-$url = 'http://testxml.youtravel.com/webservicestest/index.asp?Dstn=FAO&LangID=EN&Username=xmltestme&Password=testme&Nights=2&Checkin_Date=10/10/2019&Rooms=2&ADLTS_1=1&ADLTS_2=2&BT=1&SBT=1';
+$url = 'http://testxml.youtravel.com/webservicestest/index.asp?Dstn=FAO&LangID=EN&Username=xmltestme&Password=testme&Nights=2&Checkin_Date=12/04/2020&Rooms=1&ADLTS_1=1&ADLTS_2=2&BT=1&SBT=1';
 
 $client = new Client();
 $client->setOptions(array(

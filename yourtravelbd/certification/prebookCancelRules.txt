@@ -1,0 +1,14 @@
+http://xml.youtravel.com/webservices/get_canx_policy.asp?token=yiqbeytadjaiaepeppiyeaeayaeapadigie
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<HtSearchRq>
+    <Success>True</Success>
+    <Room>1476215</Room>
+    <Policies>
+        <Policy>
+            <FromDate>03/01/2020</FromDate>
+            <Fees>89</Fees>
+            <Currency>EUR</Currency>
+        </Policy>
+    </Policies>
+</HtSearchRq>

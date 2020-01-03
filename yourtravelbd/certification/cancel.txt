@@ -1,0 +1,7 @@
+http://testxml.youtravel.com/webservicestest/cancel.asp?Booking_ref=102113229&Username=xmltestme&Password=testme
+
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<HtSearchRq>
+    <Success>True</Success>
+    <Booking_ref>102113229</Booking_ref>
+</HtSearchRq>
