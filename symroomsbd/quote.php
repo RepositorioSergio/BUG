@@ -45,7 +45,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $url = "https://api.travelgatex.com/";
 
-$raw = '{"query":"{\n hotelX {\n quote(criteria: {\n  optionRefId: \"81@01[191223[191224[1[14[1[EN[GB[en[EUR[300[0[422[1[14[1[0[18111026[DPR#DPR[50#0#false#EUR##0#[1|30#30|1|2019-12-23|1|143250|143278|14|0|0[1@1[30#30[[mercado@EN@ExpireDate@24/12/2019\"},\n  settings: {\n  client: \"Demo_Client\",\n  testMode: true,\n  context: \"HOTELTEST\"}) {\n  optionQuote {\n  optionRefId\n  status\n  price {\n  currency\n  binding\n  net\n gross\n  exchange {\n  currency\n  rate\n  }\n  }\n  }\n  errors {\n  code\n  description\n  }\n  warnings {\n  code\n  description\n  }\n  }\n  }\n  }"}';
+$raw = '{"query":"{\n hotelX {\n quote(criteria: {\n  optionRefId: \"81@01[200623[200625[1[14[0[EN[GB[en[EUR[300[0[1023[1[14[0[0[03011209[BARTEST#BARTEST@BARTEST#BARTEST[290#0#false#EUR##0#[1|30#30/30#30#5|1|2020-06-23|2|1215681|1215700|14|0|0[1325@1325[30#30[2|30#30/30#30#5|1|2020-06-23|2|1215681|1215700|14|0|0[1325@1325[30#30#5[[mercado@EN@ExpireDate@25/06/2020@RateRule@tarifaOpaca\"},\n  settings: {\n  client: \"Demo_Client\",\n  testMode: true,\n  context: \"HOTELTEST\"}) {\n  optionQuote {\n  optionRefId\n  status\n  price {\n  currency\n  binding\n  net\n gross\n  exchange {\n  currency\n  rate\n  }\n  }\n  }\n  errors {\n  code\n  description\n  }\n  warnings {\n  code\n  description\n  }\n  }\n  }\n  }"}';
 
  $headers = array(
     'Authorization: Apikey 64780338-49c8-4439-7c7d-d03c2033b145',

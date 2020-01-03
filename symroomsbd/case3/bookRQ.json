@@ -1,0 +1,134 @@
+mutation {
+    hotelX {
+      book (
+              input: {
+                  optionRefId: "81@11[200623[200625[1[14[0[EN[GB[en[EUR[300[0[1023[1[14[0[1[03011403[BARTEST@BARTEST@BARTEST@BARTEST[350#0#false#EUR##0#[1|30#30/30#30#5|1|2020-06-23|2|1215681|1215700|14|0|0[1325@1325[30#30[2|30#30/30#30#5|1|2020-06-23|2|1215681|1215700|14|0|0[1325@1325[30#30#5[168#2#EUR#171.5@24#2#EUR#175[After@350@Before@200@ExpireDate@25/06/2020@mercado@EN@tgx_sess@5cf867e3-087b-42d9-9a97-457a827596be",
+                  clientReference: "BookTest008",
+                  deltaPrice: {
+                      amount: 350.00,
+                      percent: 0,
+                      applyBoth: true
+                  },
+                  holder: {
+                      name: "Test",
+                      surname: "surnameTest"
+                  },
+                  rooms: [{ 
+                      occupancyRefId: 1,
+                      paxes: [{
+                          name: "Pax1 name",
+                          surname: "Pax1 surname",
+                          age: 30
+                          },
+                          {
+                          name: "Pax2 name",
+                          surname: "Pax2 surname",
+                          age: 30
+                      }]},{ 
+                      occupancyRefId: 2,
+                      paxes: [{
+                          name: "Pax3 name",
+                          surname: "Pax3 surname",
+                          age: 30
+                          },
+                          {
+                          name: "Pax4 name",
+                          surname: "Pax4 surname",
+                          age: 30
+                      },{
+                          name: "Pax3 name",
+                          surname: "Pax3 surname",
+                          age: 5
+                      }]
+                  }]
+              },
+              settings: {
+                  client: "Demo_Client",
+                  testMode: true
+              }) {
+        booking {
+          price {
+            currency
+            binding
+            net
+            gross
+            exchange {
+              currency
+              rate
+            }
+            markups {
+              channel
+              currency
+              binding
+              net
+              gross
+              exchange {
+                currency
+                rate
+              }
+            }
+          }
+          status
+          remarks
+          reference {
+            client
+            supplier
+          }
+          holder {
+            name
+            surname
+          }
+          hotel {
+            creationDate
+            checkIn
+            checkOut
+            hotelCode
+            hotelName
+            boardCode
+            occupancies {
+              id
+              paxes {
+                age
+              }
+            }
+            rooms {
+              code
+              description
+              occupancyRefId
+              price {
+                currency
+                binding
+                net
+                gross
+                exchange {
+                  currency
+                  rate
+                }
+                markups {
+                  channel
+                  currency
+                  binding
+                  net
+                  gross
+                  exchange {
+                    currency
+                    rate
+                  }
+                }
+              }
+            }
+          }
+        }
+        errors {
+          code
+          type
+          description
+        }
+        warnings {
+          code
+          type
+          description
+        }
+      }
+    }
+  }
