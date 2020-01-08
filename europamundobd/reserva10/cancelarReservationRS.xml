@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <cancelarPreReservaResponse xmlns="http://tempuri.org/">
+            <cancelarPreReservaResult>
+                <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+                    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="Resultados" msdata:UseCurrentLocale="true">
+                        <xs:complexType>
+                            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                <xs:element name="Resultados">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element name="CancelacionCompletada" type="xs:boolean" minOccurs="0" />
+                                            <xs:element name="FechaCancelacion" type="xs:string" minOccurs="0" />
+                                            <xs:element name="HoraCancelacion" type="xs:string" minOccurs="0" />
+                                            <xs:element name="IDAgenteCancelacion" type="xs:int" minOccurs="0" />
+                                            <xs:element name="TextoError" msdata:DataType="System.String[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:anyType" minOccurs="0" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:choice>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:schema>
+                <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+                    <DocumentElement xmlns="">
+                        <Resultados diffgr:id="Resultados1" msdata:rowOrder="0" diffgr:hasChanges="inserted">
+                            <CancelacionCompletada>true</CancelacionCompletada>
+                            <FechaCancelacion>20200108</FechaCancelacion>
+                            <HoraCancelacion>102735</HoraCancelacion>
+                            <IDAgenteCancelacion>39497</IDAgenteCancelacion>
+                            <TextoError>
+                                <string>Sin errores</string>
+                            </TextoError>
+                        </Resultados>
+                    </DocumentElement>
+                </diffgr:diffgram>
+            </cancelarPreReservaResult>
+        </cancelarPreReservaResponse>
+    </soap:Body>
+</soap:Envelope>

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="1" EchoToken="550e8efd-344e-4f13-9551-d517a9520bbd">
+<?xml version="1.0" encoding="UTF-8"?><OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="1" EchoToken="550e8efd-344e-4f13-9551-d517a9520bbd" ResResponseType="Committed">
 <Success/>
 <HotelReservations>
-<HotelReservation>
+<HotelReservation CreateDateTime="2020-01-06T20:03:15">
 <RoomStays>
 <RoomStay RPH="1" IndexNumber="1">
 <Total CurrencyCode="EUR" AmountAfterTax="1203.29"/>
@@ -14,6 +14,7 @@
 <Total CurrencyCode="EUR" AmountAfterTax="2406.58"/>
 <HotelReservationIDs>
 <HotelReservationID ResID_Type="36" ResID_SourceContext="Client" ResID_Value="AAA"/>
+<HotelReservationID ResID_Value="31969626" ResID_Type="36" ResID_SourceContext="Internal"/>
 <HotelReservationID Item_RPH="1" ResID_Value="AAA_001" ResID_Type="37" ResID_SourceContext="Client"/>
 <HotelReservationID Item_RPH="1" ResID_Value="1" ResID_Type="37" ResID_SourceContext="Internal"/>
 <HotelReservationID Item_RPH="1" ResID_Value="AAA_001" ResID_Type="37" ResID_SourceContext="Client"/>
@@ -38,7 +39,7 @@
 </CancelPenalty>
 </CancelPenalties><BasicPropertyInfo HotelCodeContext="22984" AreaID="13916" HotelName="The Roosevelt Hotel New York City" HotelCode="AUSNYC9WO8"><VendorMessages><VendorMessage Title="IncidentsAndErrata" InfoType="5"><SubSection><Paragraph><Text>Mandatory Charges,  Fee Amount: 40,  charge cycle: per Room per Night,  charge method: cash or card,  Currency: USD,  Extra Types: Resort Fee</Text></Paragraph></SubSection></VendorMessage><VendorMessage Title="IncidentsAndErrata"><SubSection><Paragraph><Text>Seasonal Facilities,  Comment:  Waived Resort fee of $40.17 per day for stays January &amp; February 2019 for any new bookings made after July 15, 2018.</Text></Paragraph></SubSection></VendorMessage></VendorMessages></BasicPropertyInfo></ResGlobalInfo>
 <TPA_Extensions>
-<ns1:BookingStatus xmlns:ns1="http://www.opentravel.org/OTA/2003/05/tpa" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:BookingStatusType" ReservationStatusType="Available"/>
+<ns1:BookingStatus xmlns:ns1="http://www.opentravel.org/OTA/2003/05/tpa" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:BookingStatusType" ReservationStatusType="Reserved"/>
 </TPA_Extensions>
 </HotelReservation>
 </HotelReservations>

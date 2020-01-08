@@ -45,7 +45,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $date = new DateTime("NOW");
 $timestamp = $date->format( "Y-m-d\TH:i:s.v" );
 
-$url = 'https://xtest.wamos.com/packageTravel';
+$url = 'https://xtest.wamos.com/packageTravelXml';
 
 $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pac="http://packages.servicePackage.dome.com/">
 <soapenv:Header/>

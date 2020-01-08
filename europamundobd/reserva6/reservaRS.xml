@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <setPreReservaResponse xmlns="http://tempuri.org/">
+            <setPreReservaResult>
+                <xs:schema id="PreReserva" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+                    <xs:element name="PreReserva" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+                        <xs:complexType>
+                            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                <xs:element name="PreReserva">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element name="Codigo_Reserva" type="xs:string" minOccurs="0" />
+                                            <xs:element name="Fecha_PreReserva" type="xs:string" minOccurs="0" />
+                                            <xs:element name="Hora_PreReserva" type="xs:string" minOccurs="0" />
+                                            <xs:element name="Fecha_Limite_Confirma" type="xs:string" minOccurs="0" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="Pasajeros">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element name="_x0031_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0032_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0033_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0034_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0035_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0036_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0037_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0038_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0039_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_0" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_1" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_2" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_3" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_4" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_5" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_6" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_7" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_8" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_9" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0032_0" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0032_1" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0032_2" type="xs:string" minOccurs="0" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element name="ERrrores">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element name="_x0030_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0032_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0033_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0034_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0035_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0036_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0037_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0038_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0039_" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_0" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_1" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_2" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_3" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_4" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_5" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_6" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_7" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_8" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_9" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0032_0" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0032_1" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0032_2" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0032_3" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0032_4" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0032_5" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0032_6" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0032_7" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0032_8" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0032_9" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0033_0" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0033_1" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0033_2" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0033_3" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0033_4" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0033_5" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0033_6" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0033_7" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0033_8" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0033_9" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0034_0" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0034_1" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0034_2" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0034_3" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0034_4" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0034_5" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0034_6" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0034_7" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0034_8" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0034_9" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0035_0" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0035_1" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0035_2" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0035_3" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0035_4" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0035_5" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0035_6" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0035_7" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0035_8" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0035_9" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0036_0" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0036_1" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0036_2" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0036_3" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0036_4" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0036_5" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0036_6" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0036_7" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0036_8" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0036_9" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0037_0" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0037_1" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0037_2" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0037_3" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0037_4" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0037_5" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0037_6" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0037_7" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0037_8" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0037_9" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0038_0" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0038_1" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0038_2" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0038_3" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0038_4" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0038_5" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0038_6" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0038_7" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0038_8" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0038_9" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0039_0" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0039_1" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0039_2" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0039_3" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0039_4" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0039_5" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0039_6" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0039_7" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0039_8" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0039_9" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_00" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_01" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_02" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_03" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_04" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_05" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_06" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_07" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_08" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_09" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_10" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_11" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_12" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_13" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_14" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_15" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_16" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_17" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_18" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_19" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_20" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_21" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_22" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_23" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_24" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_25" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_26" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_27" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_28" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_29" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_30" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_31" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_32" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_33" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_34" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_35" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_36" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_37" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_38" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_39" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_40" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_41" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_42" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_43" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_44" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_45" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_46" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_47" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_48" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_49" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_50" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_51" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_52" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_53" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_54" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_55" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_56" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_57" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_58" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_59" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_60" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_61" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_62" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_63" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_64" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_65" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_66" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_67" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_68" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_69" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_70" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_71" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_72" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_73" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_74" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_75" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_76" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_77" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_78" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_79" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_80" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_81" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_82" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_83" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_84" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_85" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_86" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_87" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_88" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_89" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_90" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_91" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_92" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_93" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_94" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_95" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_96" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_97" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_98" type="xs:string" minOccurs="0" />
+                                            <xs:element name="_x0031_99" type="xs:string" minOccurs="0" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:choice>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:schema>
+                <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+                    <PreReserva xmlns="">
+                        <PreReserva diffgr:id="PreReserva1" msdata:rowOrder="0" diffgr:hasChanges="inserted">
+                            <Codigo_Reserva>EM024826</Codigo_Reserva>
+                            <Fecha_PreReserva>20200107</Fecha_PreReserva>
+                            <Hora_PreReserva>194907</Hora_PreReserva>
+                            <Fecha_Limite_Confirma>20200110194907</Fecha_Limite_Confirma>
+                        </PreReserva>
+                        <Pasajeros diffgr:id="Pasajeros1" msdata:rowOrder="0" diffgr:hasChanges="inserted">
+                            <_x0031_>System.String[]</_x0031_>
+                            <_x0032_>System.String[]</_x0032_>
+                        </Pasajeros>
+                    </PreReserva>
+                </diffgr:diffgram>
+            </setPreReservaResult>
+        </setPreReservaResponse>
+    </soap:Body>
+</soap:Envelope>

@@ -44,23 +44,23 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $user = 'CTMWS';
 $pass = 'Ctmws123';
-$ID_Viaje = 16539;
+$ID_Viaje = 17884;
 
 
 $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
 <soapenv:Header/>
 <soapenv:Body>
   <tem:setPreReserva>
-    <tem:Localizador>XXXVV41</tem:Localizador>
-    <tem:Fecha>20200106</tem:Fecha>
+    <tem:Localizador>XXXVV42</tem:Localizador>
+    <tem:Fecha>20200530</tem:Fecha>
     <tem:ID_Viaje>' . $ID_Viaje . '</tem:ID_Viaje>
     <tem:Rotativo>N</tem:Rotativo>
     <tem:Sector>N</tem:Sector>
     <tem:Paradas>S</tem:Paradas>
     <tem:Ciudad_Incorporacion>0</tem:Ciudad_Incorporacion>
     <tem:Ciudad_Finalizacion>0</tem:Ciudad_Finalizacion>
-    <tem:Ciudad_Parada>12</tem:Ciudad_Parada>
-    <tem:Tiempo_Parada>28</tem:Tiempo_Parada>
+    <tem:Ciudad_Parada>2</tem:Ciudad_Parada>
+    <tem:Tiempo_Parada>2</tem:Tiempo_Parada>
     <tem:Plazas>2</tem:Plazas>
     <tem:PlazasAdulto>2</tem:PlazasAdulto>
     <tem:PlazasNinio>0</tem:PlazasNinio>
@@ -104,8 +104,8 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
       <tem:CO_RESERVA></tem:CO_RESERVA>
       <tem:TIPO_TRASLADO>L</tem:TIPO_TRASLADO>
       <tem:MODIFICACION>0</tem:MODIFICACION>
-      <tem:FECHA>20200106</tem:FECHA>
-      <tem:CIUDAD>Praga</tem:CIUDAD>
+      <tem:FECHA>20200712</tem:FECHA>
+      <tem:CIUDAD>MADRID</tem:CIUDAD>
       <tem:OPCION_ELEGIDA>FD</tem:OPCION_ELEGIDA>
       <tem:NUM_VUELO></tem:NUM_VUELO>
       <tem:COMPANYA_AEREA></tem:COMPANYA_AEREA>
@@ -127,8 +127,8 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
       <tem:CO_RESERVA></tem:CO_RESERVA>
       <tem:TIPO_TRASLADO>N</tem:TIPO_TRASLADO>
       <tem:MODIFICACION>0</tem:MODIFICACION>
-      <tem:FECHA>20200209</tem:FECHA>
-      <tem:CIUDAD>VENECIA</tem:CIUDAD>
+      <tem:FECHA>20200628</tem:FECHA>
+      <tem:CIUDAD>VIENA</tem:CIUDAD>
       <tem:OPCION_ELEGIDA>FD</tem:OPCION_ELEGIDA>
       <tem:NUM_VUELO></tem:NUM_VUELO>
       <tem:COMPANYA_AEREA></tem:COMPANYA_AEREA>

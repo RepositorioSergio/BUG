@@ -1,20 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
 <soapenv:Header/>
 <soapenv:Body>
   <tem:setPreReserva>
-    <tem:Localizador>XXXVV47</tem:Localizador>
-    <tem:Fecha>20200220</tem:Fecha>
-    <tem:ID_Viaje>16810</tem:ID_Viaje>
+    <tem:Localizador>XXXVV81</tem:Localizador>
+    <tem:Fecha>20200514</tem:Fecha>
+    <tem:ID_Viaje>18397</tem:ID_Viaje>
     <tem:Rotativo>N</tem:Rotativo>
-    <tem:Sector>N</tem:Sector>
-    <tem:Paradas>N</tem:Paradas>
-    <tem:Ciudad_Incorporacion>0</tem:Ciudad_Incorporacion>
-    <tem:Ciudad_Finalizacion>0</tem:Ciudad_Finalizacion>
-    <tem:Ciudad_Parada>38</tem:Ciudad_Parada>
-    <tem:Tiempo_Parada>14</tem:Tiempo_Parada>
-    <tem:Plazas>1</tem:Plazas>
-    <tem:PlazasAdulto>1</tem:PlazasAdulto>
+    <tem:Sector>S</tem:Sector>
+    <tem:Paradas>S</tem:Paradas>
+    <tem:Ciudad_Incorporacion>2</tem:Ciudad_Incorporacion>
+    <tem:Ciudad_Finalizacion>5</tem:Ciudad_Finalizacion>
+    <tem:Ciudad_Parada>4</tem:Ciudad_Parada>
+    <tem:Tiempo_Parada>7</tem:Tiempo_Parada>
+    <tem:Plazas>2</tem:Plazas>
+    <tem:PlazasAdulto>2</tem:PlazasAdulto>
     <tem:PlazasNinio>0</tem:PlazasNinio>
     <tem:Pasajeros>
       <tem:ArrayOfString>
@@ -32,17 +31,32 @@
         <tem:string>19800312</tem:string>
         <tem:string>italiana</tem:string>
       </tem:ArrayOfString>
+      <tem:ArrayOfString>
+        <tem:string>Juarez</tem:string>
+        <tem:string>Maria Jose</tem:string>
+        <tem:string>25</tem:string>
+        <tem:string>adulto</tem:string>
+        <tem:string>M</tem:string>
+        <tem:string>S</tem:string>
+        <tem:string>N</tem:string>
+        <tem:string></tem:string>
+        <tem:string>N</tem:string>
+        <tem:string>1122332d</tem:string>
+        <tem:string>1122332p</tem:string>
+        <tem:string>20000909</tem:string>
+        <tem:string>italiana</tem:string>
+      </tem:ArrayOfString>
     </tem:Pasajeros>
     <tem:Observaciones>texto obsv</tem:Observaciones>
     <tem:NOCHES_ADICIONALES_INICIO>1</tem:NOCHES_ADICIONALES_INICIO>
-    <tem:NOCHES_ADICIONALES_FINAL>2</tem:NOCHES_ADICIONALES_FINAL>
+    <tem:NOCHES_ADICIONALES_FINAL>0</tem:NOCHES_ADICIONALES_FINAL>
     <tem:Observaciones_Bono>lo que me da la gana</tem:Observaciones_Bono>
     <tem:TrasladoLlegada>
       <tem:CO_RESERVA></tem:CO_RESERVA>
-      <tem:TIPO_TRASLADO>L</tem:TIPO_TRASLADO>
+      <tem:TIPO_TRASLADO>S</tem:TIPO_TRASLADO>
       <tem:MODIFICACION>0</tem:MODIFICACION>
-      <tem:FECHA>20200219</tem:FECHA>
-      <tem:CIUDAD>Lisboa</tem:CIUDAD>
+      <tem:FECHA>20200514</tem:FECHA>
+      <tem:CIUDAD>BERLIN</tem:CIUDAD>
       <tem:OPCION_ELEGIDA>FD</tem:OPCION_ELEGIDA>
       <tem:NUM_VUELO></tem:NUM_VUELO>
       <tem:COMPANYA_AEREA></tem:COMPANYA_AEREA>
@@ -64,8 +78,8 @@
       <tem:CO_RESERVA></tem:CO_RESERVA>
       <tem:TIPO_TRASLADO>N</tem:TIPO_TRASLADO>
       <tem:MODIFICACION>0</tem:MODIFICACION>
-      <tem:FECHA>20200401</tem:FECHA>
-      <tem:CIUDAD>Berlin</tem:CIUDAD>
+      <tem:FECHA>20200523</tem:FECHA>
+      <tem:CIUDAD>Bamderg</tem:CIUDAD>
       <tem:OPCION_ELEGIDA>FD</tem:OPCION_ELEGIDA>
       <tem:NUM_VUELO></tem:NUM_VUELO>
       <tem:COMPANYA_AEREA></tem:COMPANYA_AEREA>

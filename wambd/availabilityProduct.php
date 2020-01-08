@@ -45,7 +45,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $date = new DateTime("NOW");
 $timestamp = $date->format( "Y-m-d\TH:i:s.v" );
 
-$url = 'https://booktest.wamos.com/';
+$url = 'https://xtest.wamos.com/packageTravel';
 
 $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pac="http://packages.servicePackage.dome.com/">
 <soapenv:Header/>
@@ -53,10 +53,10 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
    <pac:availabilityProduct>
       <arg0>
          <login>
-            <clientId>${#Project#clientId}</clientId>
-            <password>${#Project#clave}</password>
-            <system>${#Project#system}</system>
-            <user>${#Project#user}</user>
+            <clientId>XMLCON</clientId>
+            <password>CT8954TO</password>
+            <system>WWCTM001</system>
+            <user>XMLCON</user>
          </login>
        <!--ideses></ideses-->
          <!--beginDate>2019-12-11</beginDate-->
@@ -72,36 +72,27 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
 </soapenv:Body>
 </soapenv:Envelope>';
 
-$client = new Client();
-$client->setOptions(array(
-    'timeout' => 100,
-    'sslverifypeer' => false,
-    'sslverifyhost' => false
-));
-$client->setHeaders(array(
-    "Content-type: text/xml;charset=\"utf-8\"",
+$headers = array(
+	"Content-type: text/xml;charset=\"utf-8\"",
     "Accept: text/xml",
     "Content-length: ".strlen($raw)
-));
+); 
 
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
+curl_setopt($ch, CURLOPT_VERBOSE, true);
+curl_setopt($ch, CURLOPT_POST, true);
+//curl_setopt($ch, CURLOPT_ENCODING , "gzip");
+curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+$response = curl_exec($ch);
+$error = curl_error($ch);
+$headers = curl_getinfo($ch);
+curl_close($ch);
 
-$client->setUri($url);
-$client->setMethod('POST');
-$client->setRawBody($raw);
-$response = $client->send();
-if ($response->isSuccess()) {
-    $response = $response->getBody();
-} else {
-    $logger = new Logger();
-    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
-    $logger->addWriter($writer);
-    $logger->info($client->getUri());
-    $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
-    echo $return;
-    echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
-    echo $return;
-    die();
-}
 echo "<br/>RESPONSE";
 echo '<xmp>';
 var_dump($response);

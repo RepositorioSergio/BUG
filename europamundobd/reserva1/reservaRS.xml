@@ -258,10 +258,10 @@
                 <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
                     <PreReserva xmlns="">
                         <PreReserva diffgr:id="PreReserva1" msdata:rowOrder="0" diffgr:hasChanges="inserted">
-                            <Codigo_Reserva>EM015449</Codigo_Reserva>
-                            <Fecha_PreReserva>20191029</Fecha_PreReserva>
-                            <Hora_PreReserva>164157</Hora_PreReserva>
-                            <Fecha_Limite_Confirma>20191101164157</Fecha_Limite_Confirma>
+                            <Codigo_Reserva>EM024810</Codigo_Reserva>
+                            <Fecha_PreReserva>20200107</Fecha_PreReserva>
+                            <Hora_PreReserva>181202</Hora_PreReserva>
+                            <Fecha_Limite_Confirma>20200110181202</Fecha_Limite_Confirma>
                         </PreReserva>
                         <Pasajeros diffgr:id="Pasajeros1" msdata:rowOrder="0" diffgr:hasChanges="inserted">
                             <_x0031_>System.String[]</_x0031_>

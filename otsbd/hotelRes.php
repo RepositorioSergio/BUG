@@ -44,7 +44,7 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$raw = '<OTA_HotelResRQ ResStatus="Quote" EchoToken="550e8efd-344e-4f13-9551-d517a9520bbd" Version="1" xmlns="http://www.opentravel.org/OTA/2003/05">
+$raw = '<OTA_HotelResRQ ResStatus="Commit" EchoToken="550e8efd-344e-4f13-9551-d517a9520bbd" Version="1" xmlns="http://www.opentravel.org/OTA/2003/05">
 <POS>
   <Source>
     <RequestorID Type="88" ID="TEST" MessagePassword="testpass"/> 
@@ -65,8 +65,6 @@ $raw = '<OTA_HotelResRQ ResStatus="Quote" EchoToken="550e8efd-344e-4f13-9551-d51
         <BasicPropertyInfo HotelCode="AUSNYC9WO8"/>
         <ResGuestRPHs>
           <ResGuestRPH RPH="1"/>
-          <ResGuestRPH RPH="2"/>
-          <ResGuestRPH RPH="3"/>
         </ResGuestRPHs>
         <ServiceRPHs>
           <ServiceRPH RPH="1"/>
@@ -80,8 +78,7 @@ $raw = '<OTA_HotelResRQ ResStatus="Quote" EchoToken="550e8efd-344e-4f13-9551-d51
         <Total AmountAfterTax = "1203.31" CurrencyCode ="EUR" />
         <BasicPropertyInfo HotelCode="AUSNYC9WO8"/>
         <ResGuestRPHs>
-          <ResGuestRPH RPH="4"/>
-          <ResGuestRPH RPH="5"/>
+          <ResGuestRPH RPH="2"/>
         </ResGuestRPHs>
         <ServiceRPHs>
           <ServiceRPH RPH="1"/>
@@ -97,27 +94,34 @@ $raw = '<OTA_HotelResRQ ResStatus="Quote" EchoToken="550e8efd-344e-4f13-9551-d51
           <GuestCount Age="32"/>
         </GuestCounts>
       </ResGuest>
-      <ResGuest AgeQualifyingCode="10" ResGuestRPH="2">
+      <ResGuest AgeQualifyingCode="10" ResGuestRPH="1">
         <GuestCounts>
           <GuestCount Age="32"/>
         </GuestCounts>
       </ResGuest>
-      <ResGuest AgeQualifyingCode="7" ResGuestRPH="3">
+      <ResGuest AgeQualifyingCode="7" ResGuestRPH="1">
         <GuestCounts>
           <GuestCount Age="1"/>
         </GuestCounts>
       </ResGuest>
-      <ResGuest AgeQualifyingCode="10" ResGuestRPH="4">
+      <ResGuest AgeQualifyingCode="10" ResGuestRPH="2">
         <GuestCounts>
           <GuestCount Age="30"/>
         </GuestCounts>
       </ResGuest>
-      <ResGuest AgeQualifyingCode="10" ResGuestRPH="5">
+      <ResGuest AgeQualifyingCode="10" ResGuestRPH="2">
         <GuestCounts>
           <GuestCount Age="30"/>
         </GuestCounts>
       </ResGuest>
     </ResGuests>
+    <ResGlobalInfo>
+				<HotelReservationIDs>
+					<HotelReservationID ResID_Type="36" ResID_SourceContext="Client" ResID_Value="AAA" /> 
+          <HotelReservationID ResID_SourceContext="Client" ResID_Type="37" ResID_Value="AAA_001" Item_RPH="1"/>
+					<HotelReservationID ResID_SourceContext="Client" ResID_Type="37" ResID_Value="AAA_002" Item_RPH="2"/>
+				</HotelReservationIDs>
+			</ResGlobalInfo>
   </HotelReservation>
 </HotelReservations>
 </OTA_HotelResRQ>';

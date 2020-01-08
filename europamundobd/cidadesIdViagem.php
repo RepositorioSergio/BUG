@@ -42,7 +42,7 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$sql = "SELECT ID_Viaje FROM viagens";
+/* $sql = "SELECT ID_Viaje FROM viagens";
 $statement = $db->createStatement($sql);
 try {
     $statement->prepare();
@@ -59,7 +59,8 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
     $resultSet = new ResultSet();
     $resultSet->initialize($result);
     foreach ($resultSet as $row) {
-        $ID_Viaje = $row->ID_Viaje;
+        $ID_Viaje = $row->ID_Viaje; */
+        $ID_Viaje = 17884;
 
         $user = 'CTMWS';
         $pass = 'Ctmws123';
@@ -167,8 +168,8 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                 }
             }
         } 
-    }
-}
+    //}
+//}
 
 // EOF
 $db->getDriver()

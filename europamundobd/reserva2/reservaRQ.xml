@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
 <soapenv:Header/>
 <soapenv:Body>
   <tem:setPreReserva>
-    <tem:Localizador>XXXVV41</tem:Localizador>
-    <tem:Fecha>20200106</tem:Fecha>
-    <tem:ID_Viaje>16539</tem:ID_Viaje>
+    <tem:Localizador>XXXVV71</tem:Localizador>
+    <tem:Fecha>20200413</tem:Fecha>
+    <tem:ID_Viaje>17885</tem:ID_Viaje>
     <tem:Rotativo>N</tem:Rotativo>
     <tem:Sector>N</tem:Sector>
     <tem:Paradas>S</tem:Paradas>
     <tem:Ciudad_Incorporacion>0</tem:Ciudad_Incorporacion>
     <tem:Ciudad_Finalizacion>0</tem:Ciudad_Finalizacion>
-    <tem:Ciudad_Parada>12</tem:Ciudad_Parada>
-    <tem:Tiempo_Parada>28</tem:Tiempo_Parada>
+    <tem:Ciudad_Parada>4</tem:Ciudad_Parada>
+    <tem:Tiempo_Parada>14</tem:Tiempo_Parada>
     <tem:Plazas>2</tem:Plazas>
     <tem:PlazasAdulto>2</tem:PlazasAdulto>
     <tem:PlazasNinio>0</tem:PlazasNinio>
@@ -56,8 +55,8 @@
       <tem:CO_RESERVA></tem:CO_RESERVA>
       <tem:TIPO_TRASLADO>L</tem:TIPO_TRASLADO>
       <tem:MODIFICACION>0</tem:MODIFICACION>
-      <tem:FECHA>20200106</tem:FECHA>
-      <tem:CIUDAD>Praga</tem:CIUDAD>
+      <tem:FECHA>20200413</tem:FECHA>
+      <tem:CIUDAD>PRAGA</tem:CIUDAD>
       <tem:OPCION_ELEGIDA>FD</tem:OPCION_ELEGIDA>
       <tem:NUM_VUELO></tem:NUM_VUELO>
       <tem:COMPANYA_AEREA></tem:COMPANYA_AEREA>
@@ -79,7 +78,7 @@
       <tem:CO_RESERVA></tem:CO_RESERVA>
       <tem:TIPO_TRASLADO>N</tem:TIPO_TRASLADO>
       <tem:MODIFICACION>0</tem:MODIFICACION>
-      <tem:FECHA>20200213</tem:FECHA>
+      <tem:FECHA>20200507</tem:FECHA>
       <tem:CIUDAD>VENECIA</tem:CIUDAD>
       <tem:OPCION_ELEGIDA>FD</tem:OPCION_ELEGIDA>
       <tem:NUM_VUELO></tem:NUM_VUELO>

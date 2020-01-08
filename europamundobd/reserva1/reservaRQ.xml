@@ -2,16 +2,16 @@
 <soapenv:Header/>
 <soapenv:Body>
   <tem:setPreReserva>
-    <tem:Localizador>XXXVV72</tem:Localizador>
-    <tem:Fecha>20200706</tem:Fecha>
-    <tem:ID_Viaje>17885</tem:ID_Viaje>
+    <tem:Localizador>XXXVV70</tem:Localizador>
+    <tem:Fecha>20200404</tem:Fecha>
+    <tem:ID_Viaje>17884</tem:ID_Viaje>
     <tem:Rotativo>N</tem:Rotativo>
     <tem:Sector>N</tem:Sector>
     <tem:Paradas>S</tem:Paradas>
     <tem:Ciudad_Incorporacion>0</tem:Ciudad_Incorporacion>
     <tem:Ciudad_Finalizacion>0</tem:Ciudad_Finalizacion>
     <tem:Ciudad_Parada>4</tem:Ciudad_Parada>
-    <tem:Tiempo_Parada>21</tem:Tiempo_Parada>
+    <tem:Tiempo_Parada>7</tem:Tiempo_Parada>
     <tem:Plazas>2</tem:Plazas>
     <tem:PlazasAdulto>2</tem:PlazasAdulto>
     <tem:PlazasNinio>0</tem:PlazasNinio>
@@ -48,15 +48,15 @@
       </tem:ArrayOfString>
     </tem:Pasajeros>
     <tem:Observaciones>texto obsv</tem:Observaciones>
-    <tem:NOCHES_ADICIONALES_INICIO>2</tem:NOCHES_ADICIONALES_INICIO>
+    <tem:NOCHES_ADICIONALES_INICIO>0</tem:NOCHES_ADICIONALES_INICIO>
     <tem:NOCHES_ADICIONALES_FINAL>0</tem:NOCHES_ADICIONALES_FINAL>
     <tem:Observaciones_Bono>lo que me da la gana</tem:Observaciones_Bono>
     <tem:TrasladoLlegada>
       <tem:CO_RESERVA></tem:CO_RESERVA>
       <tem:TIPO_TRASLADO>L</tem:TIPO_TRASLADO>
       <tem:MODIFICACION>0</tem:MODIFICACION>
-      <tem:FECHA>20200704</tem:FECHA>
-      <tem:CIUDAD>PRAGA</tem:CIUDAD>
+      <tem:FECHA>20200404</tem:FECHA>
+      <tem:CIUDAD>MADRID</tem:CIUDAD>
       <tem:OPCION_ELEGIDA>FD</tem:OPCION_ELEGIDA>
       <tem:NUM_VUELO></tem:NUM_VUELO>
       <tem:COMPANYA_AEREA></tem:COMPANYA_AEREA>
@@ -78,8 +78,8 @@
       <tem:CO_RESERVA></tem:CO_RESERVA>
       <tem:TIPO_TRASLADO>N</tem:TIPO_TRASLADO>
       <tem:MODIFICACION>0</tem:MODIFICACION>
-      <tem:FECHA>20200806</tem:FECHA>
-      <tem:CIUDAD>VENECIA</tem:CIUDAD>
+      <tem:FECHA>20200426</tem:FECHA>
+      <tem:CIUDAD>VIENA</tem:CIUDAD>
       <tem:OPCION_ELEGIDA>FD</tem:OPCION_ELEGIDA>
       <tem:NUM_VUELO></tem:NUM_VUELO>
       <tem:COMPANYA_AEREA></tem:COMPANYA_AEREA>

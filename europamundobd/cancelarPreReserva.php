@@ -44,7 +44,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $user = 'CTMWS';
 $pass = 'Ctmws123';
-$coreserva = "EM015428";
+$coreserva = "EM024808";
 
 $raw = '<?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">

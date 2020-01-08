@@ -1,4 +1,4 @@
-<OTA_HotelResRQ ResStatus="Quote" EchoToken="550e8efd-344e-4f13-9551-d517a9520bbd" Version="1" xmlns="http://www.opentravel.org/OTA/2003/05">
+<OTA_HotelResRQ ResStatus="Commit" EchoToken="550e8efd-344e-4f13-9551-d517a9520bbd" Version="1" xmlns="http://www.opentravel.org/OTA/2003/05">
 <POS>
   <Source>
     <RequestorID Type="88" ID="TEST" MessagePassword="testpass"/> 
