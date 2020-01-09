@@ -45,7 +45,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $url = "https://api.travelgatex.com/";
 
-$raw = '{"query":" mutation {\n  hotelX {\n  cancel (\n  input: {\n  accessCode: \"422\",\n  language: \"es\",\n  hotelCode: \"1\",\n  reference: {\n  client: \"BookTest008\",\n  supplier: \"895196\"  }\n  },\n  settings:{\n  client: \"Demo_Client\",\n  testMode: true  }\n  ) {\n  cancellation {\n  reference {\n  client\n  supplier\n  }\n  cancelReference\n  status\n   price {\n  currency\n   binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  markups {\n  channel\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  }\n  }\n  booking {\n  reference {\n  client\n  supplier\n  }\n  holder {\n  name\n  surname\n  }\n  hotel {\n  creationDate\n  checkIn\n  checkOut\n  hotelCode\n  hotelName\n  boardCode\n  occupancies {\n  id\n  paxes {\n  age\n  }\n  }\n  rooms {\n  occupancyRefId\n  code\n  description\n  price {\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  markups {\n  channel\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  }\n  }\n  }\n  }\n  price {\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  markups {\n  channel\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  }\n  }\n  cancelPolicy {\n  refundable\n  cancelPenalties {\n  hoursBefore\n  penaltyType\n  currency\n  value\n  }\n  }\n  remarks\n  status\n  payable\n  }\n  }\n  }\n  }\n  }"}';
+$raw = '{"query":" mutation {\n  hotelX {\n  cancel (\n  input: {\n  accessCode: \"422\",\n   hotelCode: \"1\",\n language: \"es\",\n  reference: {\n  client: \"BookTest011\",\n  supplier: \"902842\"  }\n  },\n  settings:{\n  client: \"Demo_Client\",\n  context: \"HOTELTEST\",\n  testMode: true,\n  auditTransactions: true,\n   timeout: 25000  }\n  ) {\n  cancellation {\n  reference {\n  client\n  supplier\n  }\n  cancelReference\n  status\n   price {\n  currency\n   binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  markups {\n  channel\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  }\n  }\n  booking {\n  reference {\n  client\n  supplier\n  }\n  holder {\n  name\n  surname\n  }\n  hotel {\n  creationDate\n  checkIn\n  checkOut\n  hotelCode\n  hotelName\n  boardCode\n  occupancies {\n  id\n  paxes {\n  age\n  }\n  }\n  rooms {\n  occupancyRefId\n  code\n  description\n  price {\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  markups {\n  channel\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  }\n  }\n  }\n  }\n  price {\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  markups {\n  channel\n  currency\n  binding\n  net\n  gross\n  exchange {\n  currency\n  rate\n  }\n  }\n  }\n  cancelPolicy {\n  refundable\n  cancelPenalties {\n  hoursBefore\n  penaltyType\n  currency\n  value\n  }\n  }\n  remarks\n  status\n  payable\n  }\n  }\n  }\n  }\n  }"}';
 
  $headers = array(
     'Authorization: Apikey 64780338-49c8-4439-7c7d-d03c2033b145',
@@ -80,7 +80,7 @@ $response = json_decode($response, true);
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';  */
-
+die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.symrooms.php');
 $config = [
     'driver' => $config->db->driver,

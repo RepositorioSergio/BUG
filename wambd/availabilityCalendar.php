@@ -45,7 +45,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $date = new DateTime("NOW");
 $timestamp = $date->format( "Y-m-d\TH:i:s.v" );
 
-$url = 'https://xtest.wamos.com/packageTravelXml';
+$url = 'https://xtest.wamos.com/packageTravel';
 
 $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pac="http://packages.servicePackage.dome.com/">
 <soapenv:Header/>
@@ -55,7 +55,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
        <beginDate>2020-02-01</beginDate>
          <!-- El campo "FareCode" es obligatorio-->
          <fareCode>NORMAL</fareCode>
-         <ideses>WAW#40290#117051999560733</ideses>
+         <ideses>WAW#40292#576072745195722</ideses>
          <!-- El campo "PackageCode" es obligatorio -->
          <packageCode>IT19T-27819</packageCode>
       </arg0>

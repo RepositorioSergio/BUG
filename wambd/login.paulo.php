@@ -63,6 +63,10 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
 </soapenv:Body>
 </soapenv:Envelope>';
 
+echo $return;
+echo $raw;
+echo $return;
+
 $client = new Client();
 $client->setOptions(array(
     'timeout' => 100,

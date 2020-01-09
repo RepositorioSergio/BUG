@@ -53,9 +53,9 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
    <pac:availabilityProduct>
       <arg0>
          <login>
-            <clientId>XMLCON</clientId>
+            <clientId>WWCTM001</clientId>
             <password>CT8954TO</password>
-            <system>WWCTM001</system>
+            <system>WAW</system>
             <user>XMLCON</user>
          </login>
        <!--ideses></ideses-->
