@@ -113,9 +113,9 @@ $raw = "<?xml version='1.0' encoding='utf-8'?>
     <HotelSearchListNetGuestCount>
         <LanguageCode>AR</LanguageCode>
         <TravelerNationality>AR</TravelerNationality>
-        <CityCode>MIA</CityCode>
-        <CheckInDate>2019-09-17</CheckInDate>
-        <CheckOutDate>2019-09-24</CheckOutDate>
+        <CityCode>MOW</CityCode>
+        <CheckInDate>2020-05-14</CheckInDate>
+        <CheckOutDate>2020-05-16</CheckOutDate>
         <StarRating>0</StarRating>
         <LocationCode></LocationCode>
         <SupplierCompCode></SupplierCompCode>
@@ -134,7 +134,14 @@ $raw = "<?xml version='1.0' encoding='utf-8'?>
         </ItemCodeList>
         <GuestList>
             <GuestsInfo>
-                <AdultCount>1</AdultCount>
+                <AdultCount>2</AdultCount>
+                <ChildCount>0</ChildCount>
+                <RoomCount>1</RoomCount>
+                <ChildAge1>0</ChildAge1>
+                <ChildAge2>0</ChildAge2>
+            </GuestsInfo>
+            <GuestsInfo>
+                <AdultCount>3</AdultCount>
                 <ChildCount>0</ChildCount>
                 <RoomCount>1</RoomCount>
                 <ChildAge1>0</ChildAge1>
@@ -145,6 +152,11 @@ $raw = "<?xml version='1.0' encoding='utf-8'?>
 </GetHotelSearchListForCustomerCount>
 </soap:Body>
 </soap:Envelope>";
+
+echo '<xmp>';
+var_dump($raw);
+echo '</xmp>';
+
 $soapUrl = 'http://devwsar.rts.net/WebServiceProjects/NetWebService/WsHotelProducts.asmx';
 $headers = array(
     "Content-type: text/xml;",
@@ -165,14 +177,16 @@ $response = curl_exec($ch);
 curl_close($ch);
 
 
-echo $return;
+/* echo $return;
 echo $response;
-echo $return;
+echo $return; */
 
 $response = str_replace('&lt;', '<', $response);
 $response = str_replace('&gt;', '>', $response);
 
-//echo $response;
+echo '<xmp>';
+var_dump($response);
+echo '</xmp>';
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.rts.php');
 $config = [
@@ -233,9 +247,6 @@ if ($CityCode->length > 0) {
 } else {
     $CityCode = "";
 }
-echo $return;
-echo "CityCode: " . $CityCode;
-echo $return;
 $CityEname = $node->item(0)->getElementsByTagName("CityEname");
 if ($CityEname->length > 0) {
     $CityEname = $CityEname->item(0)->nodeValue;
@@ -254,9 +265,6 @@ if ($CountryCode->length > 0) {
 } else {
     $CountryCode = "";
 }
-echo $return;
-echo "CountryCode: " . $CountryCode;
-echo $return;
 $CountryEname = $node->item(0)->getElementsByTagName("CountryEname");
 if ($CountryEname->length > 0) {
     $CountryEname = $CountryEname->item(0)->nodeValue;
@@ -311,9 +319,6 @@ if ($CheckOutWeekday->length > 0) {
 } else {
     $CheckOutWeekday = "";
 }
-echo $return;
-echo "CheckOutWeekday: " . $CheckOutWeekday;
-echo $return;
 $Duration = $node->item(0)->getElementsByTagName("Duration");
 if ($Duration->length > 0) {
     $Duration = $Duration->item(0)->nodeValue;
@@ -374,9 +379,6 @@ if ($TotalResultCount->length > 0) {
 } else {
     $TotalResultCount = "";
 }
-echo $return;
-echo "TotalResultCount: " . $TotalResultCount;
-echo $return;
 $ExchangeConvertDate = $node->item(0)->getElementsByTagName("ExchangeConvertDate");
 if ($ExchangeConvertDate->length > 0) {
     $ExchangeConvertDate = $ExchangeConvertDate->item(0)->nodeValue;
@@ -407,9 +409,6 @@ if ($CityEventList->length > 0) {
 } else {
     $CityEventList = "";
 }
-echo $return;
-echo "CityEventList: " . $CityEventList;
-echo $return;
 
 $sql = new Sql($db);
 $insert = $sql->insert();
@@ -460,9 +459,6 @@ $db->getDriver()
 $RoomList = $node->item(0)->getElementsByTagName("RoomList");
 if ($RoomList->length > 0) {
     $RoomInfo = $RoomList->item(0)->getElementsByTagName("RoomInfo");
-    echo $return;
-    echo "TAM: " . $RoomInfo->length;
-    echo $return;
     if ($RoomInfo->length > 0) {
         for ($i = 0; $i < $RoomInfo->length; $i++) {
             $BedTypeCode = $RoomInfo->item($i)->getElementsByTagName("BedTypeCode");
@@ -471,9 +467,6 @@ if ($RoomList->length > 0) {
             } else {
                 $BedTypeCode = "";
             }
-            echo $return;
-            echo "BedTypeCode: " . $BedTypeCode;
-            echo $return;
             $RoomCount = $RoomInfo->item($i)->getElementsByTagName("RoomCount");
             if ($RoomCount->length > 0) {
                 $RoomCount = $RoomCount->item(0)->nodeValue;
@@ -492,9 +485,7 @@ if ($RoomList->length > 0) {
             } else {
                 $ChlidAge2 = "";
             }
-            echo $return;
-            echo "ChlidAge2: " . $ChlidAge2;
-            echo $return;
+
             
             $sql = new Sql($db);
             $insert = $sql->insert();
@@ -607,9 +598,29 @@ if ($HotelSearchList->length > 0) {
             echo $return;
             $LocationList = $HotelItemInfo->item($w)->getElementsByTagName("LocationList");
             if ($LocationList->length > 0) {
-                $LocationList = $LocationList->item(0)->nodeValue;
-            } else {
-                $LocationList = "";
+                $Location = $LocationList->item(0)->getElementsByTagName("Location");
+                if ($Location->length > 0) {
+                    for ($l=0; $l < $Location->length; $l++) { 
+                        $LocationCode = $Location->item($l)->getElementsByTagName("LocationCode");
+                        if ($LocationCode->length > 0) {
+                            $LocationCode = $LocationCode->item(0)->nodeValue;
+                        } else {
+                            $LocationCode = "";
+                        }
+                        $LocationName = $Location->item($l)->getElementsByTagName("LocationName");
+                        if ($LocationName->length > 0) {
+                            $LocationName = $LocationName->item(0)->nodeValue;
+                        } else {
+                            $LocationName = "";
+                        }
+                        $GeneralLocationYn = $Location->item($l)->getElementsByTagName("GeneralLocationYn");
+                        if ($GeneralLocationYn->length > 0) {
+                            $GeneralLocationYn = $GeneralLocationYn->item(0)->nodeValue;
+                        } else {
+                            $GeneralLocationYn = "";
+                        }
+                    }
+                }
             }
             
             $GeoCode = $HotelItemInfo->item($w)->getElementsByTagName("GeoCode");
@@ -668,9 +679,6 @@ if ($HotelSearchList->length > 0) {
                         } else {
                             $PriceInfoItemNo = "";
                         }
-                        echo $return;
-                        echo "PriceInfoItemNo: " . $PriceInfoItemNo;
-                        echo $return;
                         $PriceInfoItemCode = $PriceInfo->item($k)->getElementsByTagName("ItemCode");
                         if ($PriceInfoItemCode->length > 0) {
                             $PriceInfoItemCode = $PriceInfoItemCode->item(0)->nodeValue;
@@ -701,9 +709,6 @@ if ($HotelSearchList->length > 0) {
                         } else {
                             $BreakfastTypeName = "";
                         }
-                        echo $return;
-                        echo "BreakfastTypeName: " . $BreakfastTypeName;
-                        echo $return;
                         $AddBreakfastTypeName = $PriceInfo->item($k)->getElementsByTagName("AddBreakfastTypeName");
                         if ($AddBreakfastTypeName->length > 0) {
                             $AddBreakfastTypeName = $AddBreakfastTypeName->item(0)->nodeValue;
@@ -734,9 +739,6 @@ if ($HotelSearchList->length > 0) {
                         } else {
                             $NetCurrencyCode = "";
                         }
-                        echo $return;
-                        echo "NetCurrencyCode: " . $NetCurrencyCode;
-                        echo $return;
                         $NetConvertRate = $PriceInfo->item($k)->getElementsByTagName("NetConvertRate");
                         if ($NetConvertRate->length > 0) {
                             $NetConvertRate = $NetConvertRate->item(0)->nodeValue;
@@ -779,9 +781,6 @@ if ($HotelSearchList->length > 0) {
                         } else {
                             $DoubleBedYn = "";
                         }
-                        echo $return;
-                        echo "DoubleBedYn: " . $DoubleBedYn;
-                        echo $return;
                         
                         $SupplierPromotion = $PriceInfo->item($k)->getElementsByTagName("SupplierPromotion");
                         if ($SupplierPromotion->length > 0) {
@@ -855,9 +854,6 @@ if ($HotelSearchList->length > 0) {
                                 } else {
                                     $Price = "";
                                 }
-                                echo $return;
-                                echo "Price: " . $Price;
-                                echo $return;
                                 
                                 $sql = new Sql($db);
                                 $insert = $sql->insert();

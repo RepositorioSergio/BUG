@@ -113,14 +113,18 @@ xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.
     <BookingCancel xmlns='http://www.rts.co.kr/'>
         <BookingCancel>
             <LanguageCode>AR</LanguageCode>
-            <BookingCode>BUEF27273</BookingCode>
-            <ItemNo>7</ItemNo>
+            <BookingCode>BUEF29810</BookingCode>
+            <ItemNo>29</ItemNo>
             <CancelReasonCode>CR99</CancelReasonCode>
             <LastWriterUno>813054</LastWriterUno>
         </BookingCancel>
     </BookingCancel>
 </soap:Body>
 </soap:Envelope>";
+
+echo '<xmp>';
+var_dump($raw);
+echo '</xmp>';
 
 $soapUrl = 'http://devwsar.rts.net/WebServiceProjects/NetWebService/WsBookings.asmx';
 
@@ -151,8 +155,10 @@ echo $return;
 $response = str_replace('&lt;', '<', $response);
 $response = str_replace('&gt;', '>', $response);
 
-echo $response;
-
+echo '<xmp>';
+var_dump($response);
+echo '</xmp>';
+die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.rts.php');
 $config = [
     'driver' => $config->db->driver,

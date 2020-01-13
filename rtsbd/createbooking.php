@@ -192,15 +192,63 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                <rts:PassportNo></rts:PassportNo>
                <!--Optional:-->
                <rts:PassportExpiry></rts:PassportExpiry>
-            </rts:CustomerInfo>             
+            </rts:CustomerInfo> 
+            <rts:CustomerInfo>
+               <rts:No>2</rts:No>
+               <!--Optional:-->
+               <rts:Name>Lisete Vinagre</rts:Name>
+               <!--Optional:-->
+               <rts:LastName>Vinagre</rts:LastName>
+               <!--Optional:-->
+               <rts:FirstName>Lisete</rts:FirstName>
+               <!--Optional:-->
+               <rts:Gender>F</rts:Gender>
+               <!--Optional:-->
+               <rts:Age>30</rts:Age>
+               <!--Optional:-->
+               <rts:Country></rts:Country>
+               <!--Optional:-->
+               <rts:Birthday></rts:Birthday>
+               <!--Optional:-->
+               <rts:JuminNo></rts:JuminNo>
+               <rts:LeadYn>false</rts:LeadYn>
+               <!--Optional:-->
+               <rts:PassportNo></rts:PassportNo>
+               <!--Optional:-->
+               <rts:PassportExpiry></rts:PassportExpiry>
+            </rts:CustomerInfo>  
+            <rts:CustomerInfo>
+               <rts:No>3</rts:No>
+               <!--Optional:-->
+               <rts:Name>Alexandra Vinagre</rts:Name>
+               <!--Optional:-->
+               <rts:LastName>Vinagre</rts:LastName>
+               <!--Optional:-->
+               <rts:FirstName>Alexandra</rts:FirstName>
+               <!--Optional:-->
+               <rts:Gender>F</rts:Gender>
+               <!--Optional:-->
+               <rts:Age>26</rts:Age>
+               <!--Optional:-->
+               <rts:Country></rts:Country>
+               <!--Optional:-->
+               <rts:Birthday></rts:Birthday>
+               <!--Optional:-->
+               <rts:JuminNo></rts:JuminNo>
+               <rts:LeadYn>false</rts:LeadYn>
+               <!--Optional:-->
+               <rts:PassportNo></rts:PassportNo>
+               <!--Optional:-->
+               <rts:PassportExpiry></rts:PassportExpiry>
+            </rts:CustomerInfo>     
          </rts:CustomerList>
          <!--Optional:-->
          <rts:BookingHotelList>
             <!--Zero or more repetitions:-->
             <rts:BookingHotelInfo>
                <!--Optional:-->
-               <rts:ItemCode>MIA0406</rts:ItemCode>
-               <rts:ItemNo>8</rts:ItemNo>
+               <rts:ItemCode>PAR0136</rts:ItemCode>
+               <rts:ItemNo>25</rts:ItemNo>
                <!--Optional:-->
                <rts:AgentBookingReference></rts:AgentBookingReference>
                <!--Optional:-->
@@ -208,13 +256,13 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                <!--Optional:-->
                <rts:BookingPathCode>PATH01</rts:BookingPathCode>
                <!--Optional:-->
-               <rts:AppliedFromDate>2019-09-17</rts:AppliedFromDate>
+               <rts:AppliedFromDate>2020-05-14</rts:AppliedFromDate>
                <!--Optional:-->
-               <rts:AppliedToDate>2019-09-24</rts:AppliedToDate>
+               <rts:AppliedToDate>2020-05-16</rts:AppliedToDate>
                <!--Optional:-->
-               <rts:RoomTypeCode>20190917|20190924|W|235|128528|DBL.GR|ID_B2B_26|BB|DRBL|1~1~0||N@02~null~1A112AD092274DE155499749478802PAAR0000139011300100823d9b9:CEIJ.GB:double guest room:|ZMMJRBBZG|~BED AND BREAKFAST</rts:RoomTypeCode>
+               <rts:RoomTypeCode>43|49265|17351951|1020#Double room|EUR#1#IHJ|1*2#0*0#0#|1#None|BED01#1*BED03#1|AR|48|HHFGRGKFKPFBZ|~None</rts:RoomTypeCode>
                <!--Optional:-->
-               <rts:FreeBreakfastTypeName>BED AND BREAKFAST</rts:FreeBreakfastTypeName>
+               <rts:FreeBreakfastTypeName>None</rts:FreeBreakfastTypeName>
                <!--Optional:-->
                <rts:AddBreakfastTypeName></rts:AddBreakfastTypeName>
                <rts:VatSheetYn>false</rts:VatSheetYn>
@@ -230,6 +278,38 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                         <!--Zero or more repetitions:-->
                         <rts:GuestInfo>
                            <rts:GuestNo>1</rts:GuestNo>
+                           <!--Optional:-->
+                           <rts:AgeTypeCode></rts:AgeTypeCode>
+                           <!--Optional:-->
+                           <rts:ProductId></rts:ProductId>
+                        </rts:GuestInfo>                         
+                     </rts:GuestList>
+                  </rts:GuestCountAndGuestInfo>
+                  <rts:GuestCountAndGuestInfo>
+                     <rts:RoomNo>2</rts:RoomNo>
+                     <rts:AdultCount>1</rts:AdultCount>
+                     <rts:ChildCount>0</rts:ChildCount>
+                     <!--Optional:-->
+                     <rts:GuestList>
+                        <!--Zero or more repetitions:-->
+                        <rts:GuestInfo>
+                           <rts:GuestNo>2</rts:GuestNo>
+                           <!--Optional:-->
+                           <rts:AgeTypeCode></rts:AgeTypeCode>
+                           <!--Optional:-->
+                           <rts:ProductId></rts:ProductId>
+                        </rts:GuestInfo>                         
+                     </rts:GuestList>
+                  </rts:GuestCountAndGuestInfo>
+                  <rts:GuestCountAndGuestInfo>
+                     <rts:RoomNo>3</rts:RoomNo>
+                     <rts:AdultCount>1</rts:AdultCount>
+                     <rts:ChildCount>0</rts:ChildCount>
+                     <!--Optional:-->
+                     <rts:GuestList>
+                        <!--Zero or more repetitions:-->
+                        <rts:GuestInfo>
+                           <rts:GuestNo>3</rts:GuestNo>
                            <!--Optional:-->
                            <rts:AgeTypeCode></rts:AgeTypeCode>
                            <!--Optional:-->
@@ -275,18 +355,14 @@ if ($response === false) {
     echo $return;
 }
 curl_close($ch);
-/*
- * echo $return;
- * echo $response;
- * echo $return;
- */
+
 $response = str_replace('&lt;', '<', $response);
 $response = str_replace('&gt;', '>', $response);
 
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
-
+die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.rts.php');
 $config = [
     'driver' => $config->db->driver,

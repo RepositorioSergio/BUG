@@ -120,8 +120,8 @@ $raw = '<?xml version="1.0"?>
             <LanguageCode>AR</LanguageCode>
             <TravelerNationality>AR</TravelerNationality>
             <CityCode>HKG</CityCode>
-            <CheckInDate>2019-06-14</CheckInDate>
-            <CheckOutDate>2019-06-17</CheckOutDate>
+            <CheckInDate>2020-05-11</CheckInDate>
+            <CheckOutDate>2020-05-13</CheckOutDate>
             <StarRating>0</StarRating>
             <LocationCode/>
             <SupplierCompCode/>
@@ -134,7 +134,7 @@ $raw = '<?xml version="1.0"?>
             <SortType/>
             <ItemCodeList>
                 <ItemCodeInfo>
-                    <ItemCode>HKG0001</ItemCode>
+                    <ItemCode>HKG0258</ItemCode>
                     <ItemNo>0</ItemNo>
                 </ItemCodeInfo>
             </ItemCodeList>
@@ -147,15 +147,15 @@ $raw = '<?xml version="1.0"?>
                     <ChildAge2>0</ChildAge2>
                 </GuestsInfo>
                 <GuestsInfo>
-                    <AdultCount>2</AdultCount>
-                    <ChildCount>1</ChildCount>
+                    <AdultCount>3</AdultCount>
+                    <ChildCount>0</ChildCount>
                     <RoomCount>1</RoomCount>
-                    <ChildAge1>5</ChildAge1>
+                    <ChildAge1>0</ChildAge1>
                     <ChildAge2>0</ChildAge2>
                 </GuestsInfo>
             </GuestList>
         </HotelSearchListNetGuestCount>
-        <RoomTypeCode>HK|007:BIS:267405:SGLySTzNRFvBARvDISzROz:N:524539|STANDARD SINGLE|SB*1#|HKG||EZZ.ZC|USD|JDDRBFGK|~None</RoomTypeCode>
+        <RoomTypeCode>beb91247-3ed9-4d1c-87fb-c296721d3a7c|00003|Standard King (with extra bed)|RO|TGCRNT||A|20200109|Standard King (with extra bed)|BED03*1^BED04*1|Y|GZJRZGGZ|~None</RoomTypeCode>
     </GetRemarkHotelInformationForCustomerCount>
 </soap:Body>
 </soap:Envelope>';
@@ -181,11 +181,11 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             <!--Optional:-->
             <rts:TravelerNationality>AR</rts:TravelerNationality>
             <!--Optional:-->
-            <rts:CityCode>MIA</rts:CityCode>
+            <rts:CityCode>HKG</rts:CityCode>
             <!--Optional:-->
-            <rts:CheckInDate>2019-09-17</rts:CheckInDate>
+            <rts:CheckInDate>2020-05-11</rts:CheckInDate>
             <!--Optional:-->
-            <rts:CheckOutDate>2019-09-24</rts:CheckOutDate>
+            <rts:CheckOutDate>2020-05-13</rts:CheckOutDate>
             <!--Optional:-->
             <rts:StarRating>0</rts:StarRating>
             <!--Optional:-->
@@ -208,15 +208,22 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                <!--Zero or more repetitions:-->
                <rts:ItemCodeInfo>
                   <!--Optional:-->
-                  <rts:ItemCode>MIA0406</rts:ItemCode>
-                  <rts:ItemNo>8</rts:ItemNo>
+                  <rts:ItemCode>HKG0258</rts:ItemCode>
+                  <rts:ItemNo>43</rts:ItemNo>
                </rts:ItemCodeInfo>
             </rts:ItemCodeList>
             <!--Optional:-->
             <rts:GuestList>
                <!--Zero or more repetitions:-->
                <rts:GuestsInfo>
-                  <rts:AdultCount>1</rts:AdultCount>
+                  <rts:AdultCount>2</rts:AdultCount>
+                  <rts:ChildCount>0</rts:ChildCount>
+                  <rts:RoomCount>1</rts:RoomCount>
+                  <rts:ChildAge1>0</rts:ChildAge1>
+                  <rts:ChildAge2>0</rts:ChildAge2>
+               </rts:GuestsInfo>
+               <rts:GuestsInfo>
+                  <rts:AdultCount>3</rts:AdultCount>
                   <rts:ChildCount>0</rts:ChildCount>
                   <rts:RoomCount>1</rts:RoomCount>
                   <rts:ChildAge1>0</rts:ChildAge1>
@@ -225,7 +232,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             </rts:GuestList>
          </rts:HotelSearchListNetGuestCount>
          <!--Optional:-->
-         <rts:RoomTypeCode>20190917|20190924|W|235|128528|DBL.GR|ID_B2B_26|BB|DRBL|1~1~0||N@02~null~1A112AD092274DE155499749478802PAAR0000139011300100823d9b9:CEIJ.GB:double guest room:|ZMMJRBBZG|~BED AND BREAKFAST</rts:RoomTypeCode>
+         <rts:RoomTypeCode>beb91247-3ed9-4d1c-87fb-c296721d3a7c|00003|Standard King (with extra bed)|RO|TGCRNT||A|20200109|Standard King (with extra bed)|BED03*1^BED04*1|Y|GZJRZGGZ|~None</rts:RoomTypeCode>
       </rts:GetRemarkHotelInformationForCustomerCount>
    </soapenv:Body>
 </soapenv:Envelope>';
@@ -253,18 +260,14 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $response = curl_exec($ch);
 curl_close($ch);
-/*
- * echo $return;
- * echo $response;
- * echo $return;
- */
+
 $response = str_replace('&lt;', '<', $response);
 $response = str_replace('&gt;', '>', $response);
 
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
-
+die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.rts.php');
 $config = [
     'driver' => $config->db->driver,

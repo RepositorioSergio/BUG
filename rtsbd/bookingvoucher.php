@@ -112,7 +112,7 @@ xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.
 <soap:Body>
     <GetBookingVoucher xmlns='http://www.rts.co.kr/'>
         <BookingVoucher>
-            
+            <BookingCode>BUEF212724</BookingCode>
         </BookingVoucher>
     </GetBookingVoucher>
 </soap:Body>

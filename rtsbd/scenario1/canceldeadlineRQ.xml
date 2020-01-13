@@ -1,0 +1,49 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rts="http://www.rts.co.kr/">
+<soapenv:Header>
+   <rts:BaseInfo>
+      <!--Optional:-->
+      <rts:SiteCode>CTM1X-00</rts:SiteCode>
+      <!--Optional:-->
+      <rts:Password>test1234</rts:Password>
+      <!--Optional:-->
+      <rts:RequestType>NetPartner</rts:RequestType>
+   </rts:BaseInfo>
+</soapenv:Header>
+<soapenv:Body>
+   <rts:GetCancelDeadlineForCustomerCount>
+      <rts:GetCancelDeadline>
+         <!--Optional:-->
+         <rts:ItemCode>MIA0002</rts:ItemCode>
+         <rts:ItemNo>35</rts:ItemNo>
+         <!--Optional:-->
+         <rts:RoomTypeCode>20200314|20200316|W|235|54833|DBL.KG|FIT RO|RO||1~1~0||P@04~~237213~52469981~N~~0D2FA192B615427157893079526302PAAR00001180052000508237213^20200314|20200316|W|235|54833|DBL.KG|FIT RO|RO||1~2~0||N@04~~24b2c4~701028650~N~~0D2FA192B615427157893079526302PAAR0000118005200050824b2c4:BCEA.DA:double king size bed:235|53082|3:A0#B0#C0#D0#E0|HJZGRHZH|~None</rts:RoomTypeCode>
+         <!--Optional:-->
+         <rts:CheckInDate>2020-03-14</rts:CheckInDate>
+         <!--Optional:-->
+         <rts:CheckOutDate>2020-03-16</rts:CheckOutDate>
+         <!--Optional:-->
+         <rts:GuestList>
+            <!--Zero or more repetitions:-->
+            <rts:GuestsInfo>
+               <rts:AdultCount>1</rts:AdultCount>
+               <rts:ChildCount>0</rts:ChildCount>
+               <rts:RoomCount>1</rts:RoomCount>
+               <rts:ChildAge1>0</rts:ChildAge1>
+               <rts:ChildAge2>0</rts:ChildAge2>
+            </rts:GuestsInfo>
+            <rts:GuestsInfo>
+               <rts:AdultCount>2</rts:AdultCount>
+               <rts:ChildCount>0</rts:ChildCount>
+               <rts:RoomCount>1</rts:RoomCount>
+               <rts:ChildAge1>0</rts:ChildAge1>
+               <rts:ChildAge2>0</rts:ChildAge2>
+            </rts:GuestsInfo>
+         </rts:GuestList>
+         <!--Optional:-->
+         <rts:LanguageCode>AR</rts:LanguageCode>
+         <!--Optional:-->
+         <rts:TravelerNationality>AR</rts:TravelerNationality>
+      </rts:GetCancelDeadline>
+   </rts:GetCancelDeadlineForCustomerCount>
+</soapenv:Body>
+</soapenv:Envelope>

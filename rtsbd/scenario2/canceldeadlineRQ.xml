@@ -1,0 +1,42 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rts="http://www.rts.co.kr/">
+<soapenv:Header>
+   <rts:BaseInfo>
+      <!--Optional:-->
+      <rts:SiteCode>CTM1X-00</rts:SiteCode>
+      <!--Optional:-->
+      <rts:Password>test1234</rts:Password>
+      <!--Optional:-->
+      <rts:RequestType>NetPartner</rts:RequestType>
+   </rts:BaseInfo>
+</soapenv:Header>
+<soapenv:Body>
+   <rts:GetCancelDeadlineForCustomerCount>
+      <rts:GetCancelDeadline>
+         <!--Optional:-->
+         <rts:ItemCode>SAO0001</rts:ItemCode>
+         <rts:ItemNo>9</rts:ItemNo>
+         <!--Optional:-->
+         <rts:RoomTypeCode>20200414|20200416|W|258|62311|DBL.ST|HBG SELECT RO|RO||1~2~0||N@04~~22083~-1398801743~N~~8F43F77A5822455157893370013002PAAR0000069006200120822083:BDB.DC:double standard::A0#B0#C0#D0#E0|HDFRKHZD|~None</rts:RoomTypeCode>
+         <!--Optional:-->
+         <rts:CheckInDate>2020-04-14</rts:CheckInDate>
+         <!--Optional:-->
+         <rts:CheckOutDate>2020-04-16</rts:CheckOutDate>
+         <!--Optional:-->
+         <rts:GuestList>
+            <!--Zero or more repetitions:-->
+            <rts:GuestsInfo>
+               <rts:AdultCount>2</rts:AdultCount>
+               <rts:ChildCount>0</rts:ChildCount>
+               <rts:RoomCount>1</rts:RoomCount>
+               <rts:ChildAge1>0</rts:ChildAge1>
+               <rts:ChildAge2>0</rts:ChildAge2>
+            </rts:GuestsInfo>
+         </rts:GuestList>
+         <!--Optional:-->
+         <rts:LanguageCode>AR</rts:LanguageCode>
+         <!--Optional:-->
+         <rts:TravelerNationality>AR</rts:TravelerNationality>
+      </rts:GetCancelDeadline>
+   </rts:GetCancelDeadlineForCustomerCount>
+</soapenv:Body>
+</soapenv:Envelope>

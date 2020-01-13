@@ -114,19 +114,26 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
    <rts:GetCancelDeadlineForCustomerCount>
       <rts:GetCancelDeadline>
          <!--Optional:-->
-         <rts:ItemCode>ROM0029</rts:ItemCode>
-         <rts:ItemNo>0</rts:ItemNo>
+         <rts:ItemCode>MOW0004</rts:ItemCode>
+         <rts:ItemNo>29</rts:ItemNo>
          <!--Optional:-->
-         <rts:RoomTypeCode>10b724_60699520326194_1_51_2_2_0_1_2172055041_3_0-0-0_0_9.20190620_7_1_1_9_zen62aa085b57804c20a3055d1404dfac8a__155388526510|GDD.DE|Room for 1 adult|10b724|None|RO|E|PJBRHMFHKFKJPD|~None</rts:RoomTypeCode>
+         <rts:RoomTypeCode>8AL|DBE.AB|EXHMGB2C|STANDARD|8AL|S27634||NONE|JPKRGZGBJFKHKB|~Breakfast</rts:RoomTypeCode>
          <!--Optional:-->
-         <rts:CheckInDate>2019-06-20</rts:CheckInDate>
+         <rts:CheckInDate>2020-05-14</rts:CheckInDate>
          <!--Optional:-->
-         <rts:CheckOutDate>2019-06-27</rts:CheckOutDate>
+         <rts:CheckOutDate>2020-05-16</rts:CheckOutDate>
          <!--Optional:-->
          <rts:GuestList>
             <!--Zero or more repetitions:-->
             <rts:GuestsInfo>
-               <rts:AdultCount>1</rts:AdultCount>
+               <rts:AdultCount>2</rts:AdultCount>
+               <rts:ChildCount>0</rts:ChildCount>
+               <rts:RoomCount>1</rts:RoomCount>
+               <rts:ChildAge1>0</rts:ChildAge1>
+               <rts:ChildAge2>0</rts:ChildAge2>
+            </rts:GuestsInfo>
+            <rts:GuestsInfo>
+               <rts:AdultCount>3</rts:AdultCount>
                <rts:ChildCount>0</rts:ChildCount>
                <rts:RoomCount>1</rts:RoomCount>
                <rts:ChildAge1>0</rts:ChildAge1>
@@ -175,7 +182,7 @@ $response = str_replace('&gt;', '>', $response);
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
-
+die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.rts.php');
 $config = [
     'driver' => $config->db->driver,

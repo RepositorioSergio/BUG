@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>
+<soap:Header>
+    <BaseInfo xmlns='http://www.rts.co.kr/'>
+        <SiteCode>CTM1X-00</SiteCode>
+        <Password>test1234</Password>
+        <RequestType>NetPartner</RequestType>
+    </BaseInfo>
+</soap:Header>
+<soap:Body>
+<GetHotelSearchListForCustomerCount xmlns='http://www.rts.co.kr/'>
+    <HotelSearchListNetGuestCount>
+        <LanguageCode>AR</LanguageCode>
+        <TravelerNationality>AR</TravelerNationality>
+        <CityCode>LAS</CityCode>
+        <CheckInDate>2020-04-11</CheckInDate>
+        <CheckOutDate>2020-04-14</CheckOutDate>
+        <StarRating>0</StarRating>
+        <LocationCode></LocationCode>
+        <SupplierCompCode></SupplierCompCode>
+        <AvailableHotelOnly>true</AvailableHotelOnly>
+        <RecommendHotelOnly>false</RecommendHotelOnly>
+        <ClientCurrencyCode>USD</ClientCurrencyCode>
+        <ItemName></ItemName>
+        <SellerMarkup>*1</SellerMarkup>
+        <CompareYn>false</CompareYn>
+        <SortType></SortType>
+        <ItemCodeList>
+            <ItemCodeInfo>
+                <ItemCode></ItemCode>
+                <ItemNo>0</ItemNo>
+            </ItemCodeInfo>
+        </ItemCodeList>
+        <GuestList>
+            <GuestsInfo>
+                <AdultCount>3</AdultCount>
+                <ChildCount>2</ChildCount>
+                <RoomCount>1</RoomCount>
+                <ChildAge1>4</ChildAge1>
+                <ChildAge2>6</ChildAge2>
+            </GuestsInfo>
+        </GuestList>
+    </HotelSearchListNetGuestCount>
+</GetHotelSearchListForCustomerCount>
+</soap:Body>
+</soap:Envelope>

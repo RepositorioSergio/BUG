@@ -1,0 +1,42 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rts="http://www.rts.co.kr/">
+<soapenv:Header>
+   <rts:BaseInfo>
+      <!--Optional:-->
+      <rts:SiteCode>CTM1X-00</rts:SiteCode>
+      <!--Optional:-->
+      <rts:Password>test1234</rts:Password>
+      <!--Optional:-->
+      <rts:RequestType>NetPartner</rts:RequestType>
+   </rts:BaseInfo>
+</soapenv:Header>
+<soapenv:Body>
+   <rts:GetCancelDeadlineForCustomerCount>
+      <rts:GetCancelDeadline>
+         <!--Optional:-->
+         <rts:ItemCode>SEL0037</rts:ItemCode>
+         <rts:ItemNo>21</rts:ItemNo>
+         <!--Optional:-->
+         <rts:RoomTypeCode>42976|BQERAT|BNRZD|Q|E|Standard Twin|e15158f5-a256-1281-c5f6-c9597ea10d95|NONE|BGKRDDDD|~None</rts:RoomTypeCode>
+         <!--Optional:-->
+         <rts:CheckInDate>2020-04-11</rts:CheckInDate>
+         <!--Optional:-->
+         <rts:CheckOutDate>2020-04-14</rts:CheckOutDate>
+         <!--Optional:-->
+         <rts:GuestList>
+            <!--Zero or more repetitions:-->
+            <rts:GuestsInfo>
+               <rts:AdultCount>1</rts:AdultCount>
+               <rts:ChildCount>0</rts:ChildCount>
+               <rts:RoomCount>3</rts:RoomCount>
+               <rts:ChildAge1>0</rts:ChildAge1>
+               <rts:ChildAge2>0</rts:ChildAge2>
+            </rts:GuestsInfo>
+         </rts:GuestList>
+         <!--Optional:-->
+         <rts:LanguageCode>AR</rts:LanguageCode>
+         <!--Optional:-->
+         <rts:TravelerNationality>AR</rts:TravelerNationality>
+      </rts:GetCancelDeadline>
+   </rts:GetCancelDeadlineForCustomerCount>
+</soapenv:Body>
+</soapenv:Envelope>
