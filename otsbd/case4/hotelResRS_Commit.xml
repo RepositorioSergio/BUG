@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="1" EchoToken="550e8efd-344e-4f13-9551-d517a9520bbd" ResResponseType="Committed">
 <Success/>
 <HotelReservations>
-<HotelReservation CreateDateTime="2020-01-06T20:03:15">
+<HotelReservation CreateDateTime="2020-01-15T19:07:57">
 <RoomStays>
 <RoomStay RPH="1" IndexNumber="1">
 <Total CurrencyCode="EUR" AmountAfterTax="1203.29"/>
@@ -13,11 +13,11 @@
 <ResGlobalInfo>
 <Total CurrencyCode="EUR" AmountAfterTax="2406.58"/>
 <HotelReservationIDs>
-<HotelReservationID ResID_Type="36" ResID_SourceContext="Client" ResID_Value="AAA"/>
-<HotelReservationID ResID_Value="31969626" ResID_Type="36" ResID_SourceContext="Internal"/>
-<HotelReservationID Item_RPH="1" ResID_Value="AAA_001" ResID_Type="37" ResID_SourceContext="Client"/>
+<HotelReservationID ResID_Type="36" ResID_SourceContext="Client" ResID_Value="AAB"/>
+<HotelReservationID ResID_Value="31971672" ResID_Type="36" ResID_SourceContext="Internal"/>
+<HotelReservationID Item_RPH="1" ResID_Value="AAB_002" ResID_Type="37" ResID_SourceContext="Client"/>
 <HotelReservationID Item_RPH="1" ResID_Value="1" ResID_Type="37" ResID_SourceContext="Internal"/>
-<HotelReservationID Item_RPH="1" ResID_Value="AAA_001" ResID_Type="37" ResID_SourceContext="Client"/>
+<HotelReservationID Item_RPH="1" ResID_Value="AAB_002" ResID_Type="37" ResID_SourceContext="Client"/>
 <HotelReservationID Item_RPH="1" ResID_Value="1" ResID_Type="37" ResID_SourceContext="Internal"/>
 </HotelReservationIDs>
 <CancelPenalties>
