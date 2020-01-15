@@ -98,6 +98,7 @@ $config = [
     'password' => $config->db->password,
     'hostname' => $config->db->hostname
 ];
+$db = new \Zend\Db\Adapter\Adapter($config);
 
 $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rts="http://www.rts.co.kr/">
 <soapenv:Header>
@@ -228,7 +229,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                <!--Optional:-->
                <rts:Gender>F</rts:Gender>
                <!--Optional:-->
-               <rts:Age>26</rts:Age>
+               <rts:Age>6</rts:Age>
                <!--Optional:-->
                <rts:Country></rts:Country>
                <!--Optional:-->
@@ -247,8 +248,8 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             <!--Zero or more repetitions:-->
             <rts:BookingHotelInfo>
                <!--Optional:-->
-               <rts:ItemCode>PAR0136</rts:ItemCode>
-               <rts:ItemNo>25</rts:ItemNo>
+               <rts:ItemCode>SAO0037</rts:ItemCode>
+               <rts:ItemNo>16</rts:ItemNo>
                <!--Optional:-->
                <rts:AgentBookingReference></rts:AgentBookingReference>
                <!--Optional:-->
@@ -256,13 +257,13 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                <!--Optional:-->
                <rts:BookingPathCode>PATH01</rts:BookingPathCode>
                <!--Optional:-->
-               <rts:AppliedFromDate>2020-05-14</rts:AppliedFromDate>
+               <rts:AppliedFromDate>2020-04-14</rts:AppliedFromDate>
                <!--Optional:-->
-               <rts:AppliedToDate>2020-05-16</rts:AppliedToDate>
+               <rts:AppliedToDate>2020-04-17</rts:AppliedToDate>
                <!--Optional:-->
-               <rts:RoomTypeCode>43|49265|17351951|1020#Double room|EUR#1#IHJ|1*2#0*0#0#|1#None|BED01#1*BED03#1|AR|48|HHFGRGKFKPFBZ|~None</rts:RoomTypeCode>
+               <rts:RoomTypeCode>20200416|20200419|W|258|47369|SUI.SU|GAR|BB||1~1~0||N@04~~246c3~-513337453~N~~927FE06EFE78440157909834038802PAAR00000580026000508246c3^20200416|20200419|W|258|47369|SUI.SU|GAR|BB||1~1~1|6|N@04~~246c3~-1117434062~N~~927FE06EFE78440157909834038802PAAR00000580026000508246c3:DJB.EA:suite single twin superior:258|17368|431:A1#B0#C0#D0#E0|DHBRGPB|~Breakfast</rts:RoomTypeCode>
                <!--Optional:-->
-               <rts:FreeBreakfastTypeName>None</rts:FreeBreakfastTypeName>
+               <rts:FreeBreakfastTypeName>Breakfast</rts:FreeBreakfastTypeName>
                <!--Optional:-->
                <rts:AddBreakfastTypeName></rts:AddBreakfastTypeName>
                <rts:VatSheetYn>false</rts:VatSheetYn>
@@ -288,7 +289,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                   <rts:GuestCountAndGuestInfo>
                      <rts:RoomNo>2</rts:RoomNo>
                      <rts:AdultCount>1</rts:AdultCount>
-                     <rts:ChildCount>0</rts:ChildCount>
+                     <rts:ChildCount>1</rts:ChildCount>
                      <!--Optional:-->
                      <rts:GuestList>
                         <!--Zero or more repetitions:-->
@@ -298,23 +299,14 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                            <rts:AgeTypeCode></rts:AgeTypeCode>
                            <!--Optional:-->
                            <rts:ProductId></rts:ProductId>
-                        </rts:GuestInfo>                         
-                     </rts:GuestList>
-                  </rts:GuestCountAndGuestInfo>
-                  <rts:GuestCountAndGuestInfo>
-                     <rts:RoomNo>3</rts:RoomNo>
-                     <rts:AdultCount>1</rts:AdultCount>
-                     <rts:ChildCount>0</rts:ChildCount>
-                     <!--Optional:-->
-                     <rts:GuestList>
-                        <!--Zero or more repetitions:-->
+                        </rts:GuestInfo> 
                         <rts:GuestInfo>
                            <rts:GuestNo>3</rts:GuestNo>
                            <!--Optional:-->
                            <rts:AgeTypeCode></rts:AgeTypeCode>
                            <!--Optional:-->
                            <rts:ProductId></rts:ProductId>
-                        </rts:GuestInfo>                         
+                        </rts:GuestInfo>                        
                      </rts:GuestList>
                   </rts:GuestCountAndGuestInfo>
                </rts:GuestCountAndGuestList>
@@ -326,6 +318,10 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
    </rts:CreateSystemBookingForGuestCount>
 </soapenv:Body>
 </soapenv:Envelope>';
+
+echo $return;
+echo "SAO0037";
+echo $return;
 
 $soapUrl = 'http://devwsar.rts.net/WebServiceProjects/NetWebService/WsBookings.asmx';
 

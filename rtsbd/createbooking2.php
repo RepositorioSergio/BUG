@@ -282,9 +282,9 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                     <!--Optional:-->
                     <rts:BookingPathCode>PATH01</rts:BookingPathCode>
                     <!--Optional:-->
-                    <rts:AppliedFromDate>2020-05-14</rts:AppliedFromDate>
+                    <rts:AppliedFromDate>2020-04-15</rts:AppliedFromDate>
                     <!--Optional:-->
-                    <rts:AppliedToDate>2020-05-16</rts:AppliedToDate>
+                    <rts:AppliedToDate>2020-04-18</rts:AppliedToDate>
                     <!--Optional:-->
                     <rts:RoomTypeCode>' . $RoomTypeCode . '</rts:RoomTypeCode>
                     <!--Optional:-->

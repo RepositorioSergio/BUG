@@ -104,63 +104,7 @@ $config = [
     'password' => $config->db->password,
     'hostname' => $config->db->hostname
 ];
-
-$raw = '<?xml version="1.0"?>
-<soap:Envelope xmlns:rts="http://www.rts.co.kr/" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
-<soap:Header>
-<BaseInfo>
-<SiteCode>' . $rtsSiteCode . '</SiteCode>
-<Password>' . $rtsPassword . '</Password>
-<RequestType>NetPartner</RequestType>
-</BaseInfo>
-</soap:Header>
-<soap:Body>
-    <GetRemarkHotelInformationForCustomerCount>
-        <HotelSearchListNetGuestCount>
-            <LanguageCode>AR</LanguageCode>
-            <TravelerNationality>AR</TravelerNationality>
-            <CityCode>HKG</CityCode>
-            <CheckInDate>2020-05-11</CheckInDate>
-            <CheckOutDate>2020-05-13</CheckOutDate>
-            <StarRating>0</StarRating>
-            <LocationCode/>
-            <SupplierCompCode/>
-            <AvailableHotelOnly>true</AvailableHotelOnly>
-            <RecommendHotelOnly>false</RecommendHotelOnly>
-            <ClientCurrencyCode>USD</ClientCurrencyCode>
-            <ItemName/>
-            <SellerMarkup>*1</SellerMarkup>
-            <CompareYn>false</CompareYn>
-            <SortType/>
-            <ItemCodeList>
-                <ItemCodeInfo>
-                    <ItemCode>HKG0258</ItemCode>
-                    <ItemNo>0</ItemNo>
-                </ItemCodeInfo>
-            </ItemCodeList>
-            <GuestList>
-                <GuestsInfo>
-                    <AdultCount>2</AdultCount>
-                    <ChildCount>0</ChildCount>
-                    <RoomCount>1</RoomCount>
-                    <ChildAge1>0</ChildAge1>
-                    <ChildAge2>0</ChildAge2>
-                </GuestsInfo>
-                <GuestsInfo>
-                    <AdultCount>3</AdultCount>
-                    <ChildCount>0</ChildCount>
-                    <RoomCount>1</RoomCount>
-                    <ChildAge1>0</ChildAge1>
-                    <ChildAge2>0</ChildAge2>
-                </GuestsInfo>
-            </GuestList>
-        </HotelSearchListNetGuestCount>
-        <RoomTypeCode>beb91247-3ed9-4d1c-87fb-c296721d3a7c|00003|Standard King (with extra bed)|RO|TGCRNT||A|20200109|Standard King (with extra bed)|BED03*1^BED04*1|Y|GZJRZGGZ|~None</RoomTypeCode>
-    </GetRemarkHotelInformationForCustomerCount>
-</soap:Body>
-</soap:Envelope>';
-
-
+$db = new \Zend\Db\Adapter\Adapter($config);
 
 $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rts="http://www.rts.co.kr/">
    <soapenv:Header>
@@ -183,9 +127,9 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             <!--Optional:-->
             <rts:CityCode>HKG</rts:CityCode>
             <!--Optional:-->
-            <rts:CheckInDate>2020-05-11</rts:CheckInDate>
+            <rts:CheckInDate>2020-04-16</rts:CheckInDate>
             <!--Optional:-->
-            <rts:CheckOutDate>2020-05-13</rts:CheckOutDate>
+            <rts:CheckOutDate>2020-04-19</rts:CheckOutDate>
             <!--Optional:-->
             <rts:StarRating>0</rts:StarRating>
             <!--Optional:-->
@@ -208,31 +152,31 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                <!--Zero or more repetitions:-->
                <rts:ItemCodeInfo>
                   <!--Optional:-->
-                  <rts:ItemCode>HKG0258</rts:ItemCode>
-                  <rts:ItemNo>43</rts:ItemNo>
+                  <rts:ItemCode>SAO0037</rts:ItemCode>
+                  <rts:ItemNo>16</rts:ItemNo>
                </rts:ItemCodeInfo>
             </rts:ItemCodeList>
             <!--Optional:-->
             <rts:GuestList>
                <!--Zero or more repetitions:-->
                <rts:GuestsInfo>
-                  <rts:AdultCount>2</rts:AdultCount>
+                  <rts:AdultCount>1</rts:AdultCount>
                   <rts:ChildCount>0</rts:ChildCount>
                   <rts:RoomCount>1</rts:RoomCount>
                   <rts:ChildAge1>0</rts:ChildAge1>
                   <rts:ChildAge2>0</rts:ChildAge2>
                </rts:GuestsInfo>
                <rts:GuestsInfo>
-                  <rts:AdultCount>3</rts:AdultCount>
-                  <rts:ChildCount>0</rts:ChildCount>
+                  <rts:AdultCount>1</rts:AdultCount>
+                  <rts:ChildCount>1</rts:ChildCount>
                   <rts:RoomCount>1</rts:RoomCount>
-                  <rts:ChildAge1>0</rts:ChildAge1>
+                  <rts:ChildAge1>6</rts:ChildAge1>
                   <rts:ChildAge2>0</rts:ChildAge2>
                </rts:GuestsInfo>			   
             </rts:GuestList>
          </rts:HotelSearchListNetGuestCount>
          <!--Optional:-->
-         <rts:RoomTypeCode>beb91247-3ed9-4d1c-87fb-c296721d3a7c|00003|Standard King (with extra bed)|RO|TGCRNT||A|20200109|Standard King (with extra bed)|BED03*1^BED04*1|Y|GZJRZGGZ|~None</rts:RoomTypeCode>
+         <rts:RoomTypeCode>20200416|20200419|W|258|47369|SUI.SU|GAR|BB||1~1~0||N@04~~246c3~-513337453~N~~927FE06EFE78440157909834038802PAAR00000580026000508246c3^20200416|20200419|W|258|47369|SUI.SU|GAR|BB||1~1~1|6|N@04~~246c3~-1117434062~N~~927FE06EFE78440157909834038802PAAR00000580026000508246c3:DJB.EA:suite single twin superior:258|17368|431:A1#B0#C0#D0#E0|DHBRGPB|~Breakfast</rts:RoomTypeCode>
       </rts:GetRemarkHotelInformationForCustomerCount>
    </soapenv:Body>
 </soapenv:Envelope>';
