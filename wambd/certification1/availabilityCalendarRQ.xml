@@ -1,0 +1,15 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pac="http://packages.servicePackage.dome.com/">
+<soapenv:Header/>
+<soapenv:Body>
+   <pac:availabilityCalendar>
+      <arg0>
+       <beginDate>2020-03-14</beginDate>
+         <!-- El campo "FareCode" es obligatorio-->
+         <fareCode>NORMAL</fareCode>
+         <ideses>WAW#40292#575217075065147</ideses>
+         <!-- El campo "PackageCode" es obligatorio -->
+         <packageCode>IT19T-27819</packageCode>
+      </arg0>
+   </pac:availabilityCalendar>
+</soapenv:Body>
+</soapenv:Envelope>

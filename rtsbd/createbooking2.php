@@ -254,7 +254,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                         <!--Optional:-->
                         <rts:Gender>F</rts:Gender>
                         <!--Optional:-->
-                        <rts:Age>26</rts:Age>
+                        <rts:Age>6</rts:Age>
                         <!--Optional:-->
                         <rts:Country></rts:Country>
                         <!--Optional:-->
@@ -266,55 +266,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                         <rts:PassportNo></rts:PassportNo>
                         <!--Optional:-->
                         <rts:PassportExpiry></rts:PassportExpiry>
-                    </rts:CustomerInfo>
-                    <rts:CustomerInfo>
-                        <rts:No>4</rts:No>
-                        <!--Optional:-->
-                        <rts:Name>Pablo Vinagre</rts:Name>
-                        <!--Optional:-->
-                        <rts:LastName>Vinagre</rts:LastName>
-                        <!--Optional:-->
-                        <rts:FirstName>Pablo</rts:FirstName>
-                        <!--Optional:-->
-                        <rts:Gender>M</rts:Gender>
-                        <!--Optional:-->
-                        <rts:Age>36</rts:Age>
-                        <!--Optional:-->
-                        <rts:Country></rts:Country>
-                        <!--Optional:-->
-                        <rts:Birthday></rts:Birthday>
-                        <!--Optional:-->
-                        <rts:JuminNo></rts:JuminNo>
-                        <rts:LeadYn>false</rts:LeadYn>
-                        <!--Optional:-->
-                        <rts:PassportNo></rts:PassportNo>
-                        <!--Optional:-->
-                        <rts:PassportExpiry></rts:PassportExpiry>
-                    </rts:CustomerInfo>
-                    <rts:CustomerInfo>
-                        <rts:No>5</rts:No>
-                        <!--Optional:-->
-                        <rts:Name>Vania Vinagre</rts:Name>
-                        <!--Optional:-->
-                        <rts:LastName>Vinagre</rts:LastName>
-                        <!--Optional:-->
-                        <rts:FirstName>Vania</rts:FirstName>
-                        <!--Optional:-->
-                        <rts:Gender>F</rts:Gender>
-                        <!--Optional:-->
-                        <rts:Age>26</rts:Age>
-                        <!--Optional:-->
-                        <rts:Country></rts:Country>
-                        <!--Optional:-->
-                        <rts:Birthday></rts:Birthday>
-                        <!--Optional:-->
-                        <rts:JuminNo></rts:JuminNo>
-                        <rts:LeadYn>false</rts:LeadYn>
-                        <!--Optional:-->
-                        <rts:PassportNo></rts:PassportNo>
-                        <!--Optional:-->
-                        <rts:PassportExpiry></rts:PassportExpiry>
-                    </rts:CustomerInfo>    
+                    </rts:CustomerInfo> 
                 </rts:CustomerList>
                 <!--Optional:-->
                 <rts:BookingHotelList>
@@ -345,7 +297,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                         <!--Zero or more repetitions:-->
                         <rts:GuestCountAndGuestInfo>
                             <rts:RoomNo>1</rts:RoomNo>
-                            <rts:AdultCount>2</rts:AdultCount>
+                            <rts:AdultCount>1</rts:AdultCount>
                             <rts:ChildCount>0</rts:ChildCount>
                             <!--Optional:-->
                             <rts:GuestList>
@@ -356,44 +308,30 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                                     <rts:AgeTypeCode></rts:AgeTypeCode>
                                     <!--Optional:-->
                                     <rts:ProductId></rts:ProductId>
-                                </rts:GuestInfo>   
+                                </rts:GuestInfo>                          
+                            </rts:GuestList>
+                        </rts:GuestCountAndGuestInfo>
+                        <rts:GuestCountAndGuestInfo>
+                            <rts:RoomNo>2</rts:RoomNo>
+                            <rts:AdultCount>1</rts:AdultCount>
+                            <rts:ChildCount>1</rts:ChildCount>
+                            <!--Optional:-->
+                            <rts:GuestList>
+                                <!--Zero or more repetitions:-->
                                 <rts:GuestInfo>
                                     <rts:GuestNo>2</rts:GuestNo>
                                     <!--Optional:-->
                                     <rts:AgeTypeCode></rts:AgeTypeCode>
                                     <!--Optional:-->
                                     <rts:ProductId></rts:ProductId>
-                                </rts:GuestInfo>                       
-                            </rts:GuestList>
-                        </rts:GuestCountAndGuestInfo>
-                        <rts:GuestCountAndGuestInfo>
-                            <rts:RoomNo>2</rts:RoomNo>
-                            <rts:AdultCount>3</rts:AdultCount>
-                            <rts:ChildCount>0</rts:ChildCount>
-                            <!--Optional:-->
-                            <rts:GuestList>
-                                <!--Zero or more repetitions:-->
+                                </rts:GuestInfo> 
                                 <rts:GuestInfo>
                                     <rts:GuestNo>3</rts:GuestNo>
                                     <!--Optional:-->
                                     <rts:AgeTypeCode></rts:AgeTypeCode>
                                     <!--Optional:-->
                                     <rts:ProductId></rts:ProductId>
-                                </rts:GuestInfo> 
-                                <rts:GuestInfo>
-                                    <rts:GuestNo>4</rts:GuestNo>
-                                    <!--Optional:-->
-                                    <rts:AgeTypeCode></rts:AgeTypeCode>
-                                    <!--Optional:-->
-                                    <rts:ProductId></rts:ProductId>
-                                </rts:GuestInfo>
-                                <rts:GuestInfo>
-                                    <rts:GuestNo>5</rts:GuestNo>
-                                    <!--Optional:-->
-                                    <rts:AgeTypeCode></rts:AgeTypeCode>
-                                    <!--Optional:-->
-                                    <rts:ProductId></rts:ProductId>
-                                </rts:GuestInfo>                        
+                                </rts:GuestInfo>                       
                             </rts:GuestList>
                         </rts:GuestCountAndGuestInfo>
                     </rts:GuestCountAndGuestList>

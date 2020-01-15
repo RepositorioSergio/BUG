@@ -1,0 +1,24 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pac="http://packages.servicePackage.dome.com/">
+<soapenv:Header/>
+<soapenv:Body>
+   <pac:availabilityProduct>
+      <arg0>
+         <login>
+            <clientId>WWCTM001</clientId>
+            <password>CT8954TO</password>
+            <system>WAW</system>
+            <user>XMLCON</user>
+         </login>
+       <!--ideses></ideses-->
+         <!--beginDate>2019-12-11</beginDate-->
+         <!--campaign>4</campaign-->
+         <!--destination></destination-->
+         <!--monthSearch>2019-12</monthSearch-->
+         <!--origin>MAD</origin-->
+         <productCode>EU13992</productCode>
+         <!--publishedCode></publishedCode-->
+         <!--searchText>P.48</searchText-->
+      </arg0>
+   </pac:availabilityProduct>
+</soapenv:Body>
+</soapenv:Envelope>

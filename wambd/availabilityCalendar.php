@@ -55,9 +55,9 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
        <beginDate>2020-02-01</beginDate>
          <!-- El campo "FareCode" es obligatorio-->
          <fareCode>NORMAL</fareCode>
-         <ideses>WAW#40292#576072745195722</ideses>
+         <ideses>WAW#40292#857114544257531</ideses>
          <!-- El campo "PackageCode" es obligatorio -->
-         <packageCode>IT19T-27819</packageCode>
+         <packageCode>EU13992</packageCode>
       </arg0>
    </pac:availabilityCalendar>
 </soapenv:Body>

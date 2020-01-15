@@ -64,9 +64,9 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
          <!--destination></destination-->
          <!--monthSearch>2019-12</monthSearch-->
          <!--origin>MAD</origin-->
-         <productCode>IT19T-27819</productCode>
+         <productCode>EU13992</productCode>
          <!--publishedCode></publishedCode-->
-         <!--searchText>P.12</searchText-->
+         <!--searchText>P.48</searchText-->
       </arg0>
    </pac:availabilityProduct>
 </soapenv:Body>

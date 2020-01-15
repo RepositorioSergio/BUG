@@ -57,27 +57,27 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             <pax>
                <age>30</age>
                <documentNumber></documentNumber>
-               <firstName>Juan</firstName>
-               <lastName>Pablo</lastName>
+               <firstName>NOMBRETESTA1</firstName>
+               <lastName>APELLIDOTESTA1</lastName>
                <paxId>1</paxId>
                <phone></phone>
             </pax>
             <pax>
                <age>35</age>
                <documentNumber></documentNumber>
-               <firstName>Alexandra</firstName>
-               <lastName>Pablo</lastName>
+               <firstName>NOMBRETESTA2</firstName>
+               <lastName>APELLIDOTESTA2</lastName>
                <paxId>2</paxId>
                <phone></phone>
-            </pax>    
+            </pax>     
         </distribution>
 
          <!--El campo "ideses" es obligatorio-->
-         <ideses>WAW#40292#779824565346450</ideses>
-         <optionalServiceId>5:SE</optionalServiceId>
+         <ideses>WAW#40292#282785001313254</ideses>
+         <optionalServiceId>9-1/9-1</optionalServiceId>
          
          <!--El campo "serviceGroupId" es obligatorio-->
-         <serviceGroupId>27819</serviceGroupId>
+         <serviceGroupId>2-1111295/2</serviceGroupId>
       </arg0>
    </pac:select>
 </soapenv:Body>

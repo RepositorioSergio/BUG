@@ -53,7 +53,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
    <pac:availability>
       <arg0>
        <!--El campo "BeginDate" es obligatorio-->
-         <beginDate>2020-03-28</beginDate>
+         <beginDate>2020-02-01</beginDate>
        <!--endDate>2019-02-02</endDate-->
          <categoryCode>T</categoryCode>
          <!--El campo "distribution" es obligatorio -->
@@ -62,19 +62,19 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             <pax>
                <age>30</age>
                <documentNumber></documentNumber>
-               <firstName>Juan</firstName>
-               <lastName>Pablo</lastName>
+               <firstName>NOMBRETESTA1</firstName>
+               <lastName>APELLIDOTESTA1</lastName>
                <paxId>1</paxId>
                <phone></phone>
             </pax>
             <pax>
                <age>35</age>
                <documentNumber></documentNumber>
-               <firstName>Alexandra</firstName>
-               <lastName>Pablo</lastName>
+               <firstName>NOMBRETESTA2</firstName>
+               <lastName>APELLIDOTESTA2</lastName>
                <paxId>2</paxId>
                <phone></phone>
-            </pax>    
+            </pax>   
          </distribution>
          <!-- El campo "fareCode" es obligatorio -->
          <fareCode>NORMAL</fareCode>
@@ -86,9 +86,9 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             <user>XMLCON</user>
          </login>
          <!-- El campo "packageCode" es obligatorio -->
-         <packageCode>IT19T-27819</packageCode>
+         <packageCode>EU13992</packageCode>
          <showOptionals>Y</showOptionals>
-         <stayCode>7</stayCode>
+         <stayCode>3N</stayCode>
       </arg0>
    </pac:availability>
 </soapenv:Body>

@@ -49,13 +49,13 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
 <soapenv:Body>
    <pac:confirm>
       <arg0>
-         <agencyReference>AGENCIA DE PRUEBA</agencyReference>
+         <agencyReference>REFERENCIA TEST</agencyReference>
          <flightInformation>
             <arrivalAirport>LHR</arrivalAirport>
             <company>IB</company>
             <departureAirport>SCL</departureAirport>
             <flightInOut>I</flightInOut>
-            <flightLocalDateTime>2020/03/17 13:25</flightLocalDateTime>
+            <flightLocalDateTime>2020/02/01 13:25</flightLocalDateTime>
             <flightNumber>3524</flightNumber>
          </flightInformation>
          <flightInformation>
@@ -63,28 +63,28 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             <company>IB</company>
             <departureAirport>MAD</departureAirport>
             <flightInOut>O</flightInOut>
-            <flightLocalDateTime>2020/04/05 18:25</flightLocalDateTime>
+            <flightLocalDateTime>2020/02/05 18:25</flightLocalDateTime>
             <flightNumber>3523</flightNumber>
          </flightInformation>
          
          <!--El campo "ideses" es obligatorio-->
-         <ideses>WAW#40292#779824565346450</ideses>
+         <ideses>WAW#40292#282785001313254</ideses>
          <pax>
-            <age>30</age>
-            <documentNumber></documentNumber>
-            <firstName>Juan</firstName>
-            <lastName>Pablo</lastName>
-            <paxId>1</paxId>
-            <phone></phone>
-         </pax>
-         <pax>
-            <age>35</age>
-            <documentNumber></documentNumber>
-            <firstName>Alexandra</firstName>
-            <lastName>Pablo</lastName>
-            <paxId>2</paxId>
-            <phone></phone>
-         </pax>  
+               <age>30</age>
+               <documentNumber></documentNumber>
+               <firstName>NOMBRETESTA1</firstName>
+               <lastName>APELLIDOTESTA1</lastName>
+               <paxId>1</paxId>
+               <phone></phone>
+            </pax>
+            <pax>
+               <age>35</age>
+               <documentNumber></documentNumber>
+               <firstName>NOMBRETESTA2</firstName>
+               <lastName>APELLIDOTESTA2</lastName>
+               <paxId>2</paxId>
+               <phone></phone>
+            </pax>  
          <remark>
             <code>1</code>
             <type>AGE</type>

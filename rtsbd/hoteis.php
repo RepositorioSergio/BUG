@@ -103,8 +103,8 @@ $raw = "<?xml version='1.0' encoding='utf-8'?>
 <soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>
 <soap:Header>
     <BaseInfo xmlns='http://www.rts.co.kr/'>
-        <SiteCode>" . $rtsSiteCode . "</SiteCode>
-        <Password>" . $rtsPassword . "</Password>
+        <SiteCode>CTM1X-00</SiteCode>
+        <Password>test1234</Password>
         <RequestType>NetPartner</RequestType>
     </BaseInfo>
 </soap:Header>
@@ -113,9 +113,9 @@ $raw = "<?xml version='1.0' encoding='utf-8'?>
     <HotelSearchListNetGuestCount>
         <LanguageCode>AR</LanguageCode>
         <TravelerNationality>AR</TravelerNationality>
-        <CityCode>MOW</CityCode>
-        <CheckInDate>2020-05-14</CheckInDate>
-        <CheckOutDate>2020-05-16</CheckOutDate>
+        <CityCode>MFM</CityCode>
+        <CheckInDate>2020-04-15</CheckInDate>
+        <CheckOutDate>2020-04-18</CheckOutDate>
         <StarRating>0</StarRating>
         <LocationCode></LocationCode>
         <SupplierCompCode></SupplierCompCode>
@@ -134,17 +134,17 @@ $raw = "<?xml version='1.0' encoding='utf-8'?>
         </ItemCodeList>
         <GuestList>
             <GuestsInfo>
-                <AdultCount>2</AdultCount>
+                <AdultCount>1</AdultCount>
                 <ChildCount>0</ChildCount>
                 <RoomCount>1</RoomCount>
                 <ChildAge1>0</ChildAge1>
                 <ChildAge2>0</ChildAge2>
             </GuestsInfo>
             <GuestsInfo>
-                <AdultCount>3</AdultCount>
-                <ChildCount>0</ChildCount>
+                <AdultCount>1</AdultCount>
+                <ChildCount>1</ChildCount>
                 <RoomCount>1</RoomCount>
-                <ChildAge1>0</ChildAge1>
+                <ChildAge1>6</ChildAge1>
                 <ChildAge2>0</ChildAge2>
             </GuestsInfo>
         </GuestList>
