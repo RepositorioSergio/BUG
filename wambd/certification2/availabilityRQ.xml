@@ -27,6 +27,25 @@
                <phone></phone>
             </pax>   
          </distribution>
+         <distribution>
+            <distributionId>2</distributionId>
+            <pax>
+               <age>40</age>
+               <documentNumber></documentNumber>
+               <firstName>NOMBRETESTA3</firstName>
+               <lastName>APELLIDOTESTA3</lastName>
+               <paxId>3</paxId>
+               <phone></phone>
+            </pax>
+            <pax>
+               <age>39</age>
+               <documentNumber></documentNumber>
+               <firstName>NOMBRETESTA4</firstName>
+               <lastName>APELLIDOTESTA4</lastName>
+               <paxId>4</paxId>
+               <phone></phone>
+            </pax>   
+         </distribution>
          <!-- El campo "fareCode" es obligatorio -->
          <fareCode>NORMAL</fareCode>
          <!--ideses></ideses-->
