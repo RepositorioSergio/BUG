@@ -56,37 +56,23 @@ $raw = '<OTA_HotelResRQ ResStatus="Commit" EchoToken="550e8efd-344e-4f13-9551-d5
 <HotelReservations>
   <HotelReservation>
     <RoomStays>
-      <RoomStay RPH="1">
+      <RoomStay RPH="0">
         <RoomTypes>
-          <RoomType RoomTypeCode="RMSPD20000"/>
+          <RoomType RoomTypeCode="STSD000000"/>
         </RoomTypes>
         <TimeSpan End="2020-06-16" Start="2020-06-12"/>
-        <Total AmountAfterTax = "1203.31" CurrencyCode ="EUR" />
-        <BasicPropertyInfo HotelCode="AUSNYC9WO8"/>
+        <Total AmountAfterTax = "1205.06" CurrencyCode ="EUR" />
+        <BasicPropertyInfo HotelCode="AUSNYCB6D4"/>
         <ResGuestRPHs>
           <ResGuestRPH RPH="0"/>
         </ResGuestRPHs>
         <ServiceRPHs>
-          <ServiceRPH RPH="1"/>
-        </ServiceRPHs>
-      </RoomStay>
-      <RoomStay RPH="1">
-        <RoomTypes>
-          <RoomType RoomTypeCode="RMSPD20000"/>
-        </RoomTypes>
-        <TimeSpan End="2020-06-16" Start="2020-06-12"/>
-        <Total AmountAfterTax = "1203.31" CurrencyCode ="EUR" />
-        <BasicPropertyInfo HotelCode="AUSNYC9WO8"/>
-        <ResGuestRPHs>
-          <ResGuestRPH RPH="1"/>
-        </ResGuestRPHs>
-        <ServiceRPHs>
-          <ServiceRPH RPH="1"/>
+          <ServiceRPH RPH="0"/>
         </ServiceRPHs>
       </RoomStay>
     </RoomStays>
     <Services>
-      <Service ServiceInventoryCode="RO" ServiceRPH="1"/>
+      <Service ServiceInventoryCode="RO" ServiceRPH="0"/>
     </Services>
     <ResGuests>
       <ResGuest AgeQualifyingCode="10" ResGuestRPH="0">
@@ -129,72 +115,11 @@ $raw = '<OTA_HotelResRQ ResStatus="Commit" EchoToken="550e8efd-344e-4f13-9551-d5
           <GuestCount Age="32"/>
         </GuestCounts>
       </ResGuest>
-      <ResGuest AgeQualifyingCode="7" ResGuestRPH="0">
-      <Profiles>
-      <ProfileInfo>
-        <Profile>
-          <Customer BirthDate="2019-01-12">
-            <PersonName>
-              <NamePrefix>Mr</NamePrefix>
-              <GivenName>Edson</GivenName>
-              <Surname>Smith</Surname>
-            </PersonName>
-            <Telephone PhoneNumber="+34625625625"/>
-            <Email>michael.smith@provider.com</Email>
-          </Customer>
-        </Profile>
-      </ProfileInfo>
-    </Profiles>
-        <GuestCounts>
-          <GuestCount Age="1"/>
-        </GuestCounts>
-      </ResGuest>
-      <ResGuest AgeQualifyingCode="10" ResGuestRPH="1">
-      <Profiles>
-      <ProfileInfo>
-        <Profile>
-          <Customer BirthDate="1990-01-03">
-            <PersonName>
-              <NamePrefix>Mr</NamePrefix>
-              <GivenName>Isaac</GivenName>
-              <Surname>Smith</Surname>
-            </PersonName>
-            <Telephone PhoneNumber="+34625625625"/>
-            <Email>isaac.smith@provider.com</Email>
-          </Customer>
-        </Profile>
-      </ProfileInfo>
-    </Profiles>
-        <GuestCounts>
-          <GuestCount Age="30"/>
-        </GuestCounts>
-      </ResGuest>
-      <ResGuest AgeQualifyingCode="10" ResGuestRPH="1">
-      <Profiles>
-      <ProfileInfo>
-        <Profile>
-          <Customer BirthDate="1990-01-07">
-            <PersonName>
-              <NamePrefix>Mrs</NamePrefix>
-              <GivenName>Kelly</GivenName>
-              <Surname>Smith</Surname>
-            </PersonName>
-            <Telephone PhoneNumber="+34625625625"/>
-            <Email>kelly.smith@provider.com</Email>
-          </Customer>
-        </Profile>
-      </ProfileInfo>
-    </Profiles>
-        <GuestCounts>
-          <GuestCount Age="30"/>
-        </GuestCounts>
-      </ResGuest>
     </ResGuests>
     <ResGlobalInfo>
 				<HotelReservationIDs>
-					<HotelReservationID ResID_Type="36" ResID_SourceContext="Client" ResID_Value="AAB" /> 
-          <HotelReservationID ResID_SourceContext="Client" ResID_Type="37" ResID_Value="AAB_001" Item_RPH="0"/>
-					<HotelReservationID ResID_SourceContext="Client" ResID_Type="37" ResID_Value="AAB_002" Item_RPH="1"/>
+					<HotelReservationID ResID_Type="36" ResID_SourceContext="Client" ResID_Value="AAF" /> 
+          <HotelReservationID ResID_SourceContext="Client" ResID_Type="37" ResID_Value="AAF_001" Item_RPH="0"/>
 				</HotelReservationIDs>
 			</ResGlobalInfo>
   </HotelReservation>

@@ -1,27 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?><OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="1" EchoToken="550e8efd-344e-4f13-9551-d517a9520bbd">
+<?xml version="1.0" encoding="UTF-8"?><OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="1" EchoToken="550e8efd-344e-4f13-9551-d517a9520bbd" ResResponseType="Committed">
 <Success/>
 <HotelReservations>
-<HotelReservation>
+<HotelReservation CreateDateTime="2020-01-16T11:27:49">
 <RoomStays>
-<RoomStay RPH="0" IndexNumber="1">
-<Total CurrencyCode="EUR" AmountAfterTax="1935.39"/>
+<RoomStay RPH="3" IndexNumber="1">
+<Total CurrencyCode="EUR" AmountAfterTax="358.91"/>
 </RoomStay>
 </RoomStays>
 <ResGlobalInfo>
-<Total CurrencyCode="EUR" AmountAfterTax="1935.39"/>
+<Total CurrencyCode="EUR" AmountAfterTax="358.91"/>
+<HotelReservationIDs>
+<HotelReservationID ResID_Type="36" ResID_SourceContext="Client" ResID_Value="AAE"/>
+<HotelReservationID ResID_Value="31971736" ResID_Type="36" ResID_SourceContext="Internal"/>
+<HotelReservationID Item_RPH="3" ResID_Value="" ResID_Type="37" ResID_SourceContext="Client"/>
+<HotelReservationID Item_RPH="3" ResID_Value="1" ResID_Type="37" ResID_SourceContext="Internal"/>
+</HotelReservationIDs>
 <CancelPenalties>
-<CancelPenalty Item_RPH="0">
-<Deadline OffsetUnitMultiplier="3" OffsetTimeUnit="Day" OffsetDropTime="BeforeArrival"/>
+<CancelPenalty Item_RPH="3">
+<Deadline OffsetUnitMultiplier="1" OffsetTimeUnit="Day" OffsetDropTime="BeforeArrival"/>
 <AmountPercent NmbrOfNights="1" Percent="100"/>
 </CancelPenalty>
-<CancelPenalty Item_RPH="0">
+<CancelPenalty Item_RPH="3">
 <Deadline OffsetUnitMultiplier="0" OffsetTimeUnit="Day" OffsetDropTime="BeforeArrival"/>
 <AmountPercent NmbrOfNights="1" Percent="100"/>
 </CancelPenalty>
 </CancelPenalties>
 </ResGlobalInfo>
 <TPA_Extensions>
-<ns1:BookingStatus xmlns:ns1="http://www.opentravel.org/OTA/2003/05/tpa" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:BookingStatusType" ReservationStatusType="Available"/>
+<ns1:BookingStatus xmlns:ns1="http://www.opentravel.org/OTA/2003/05/tpa" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:BookingStatusType" ReservationStatusType="Reserved"/>
 </TPA_Extensions>
 </HotelReservation>
 </HotelReservations>
