@@ -55,7 +55,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             <company>IB</company>
             <departureAirport>SCL</departureAirport>
             <flightInOut>I</flightInOut>
-            <flightLocalDateTime>2020/02/01 13:25</flightLocalDateTime>
+            <flightLocalDateTime>2020/03/13 13:25</flightLocalDateTime>
             <flightNumber>3524</flightNumber>
          </flightInformation>
          <flightInformation>
@@ -63,12 +63,12 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             <company>IB</company>
             <departureAirport>MAD</departureAirport>
             <flightInOut>O</flightInOut>
-            <flightLocalDateTime>2020/02/05 18:25</flightLocalDateTime>
+            <flightLocalDateTime>2020/03/29 18:25</flightLocalDateTime>
             <flightNumber>3523</flightNumber>
          </flightInformation>
          
          <!--El campo "ideses" es obligatorio-->
-         <ideses>WAW#40292#282785001313254</ideses>
+         <ideses>WAW#40292#350364252580116</ideses>
          <pax>
                <age>30</age>
                <documentNumber></documentNumber>

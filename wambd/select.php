@@ -73,11 +73,11 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
         </distribution>
 
          <!--El campo "ideses" es obligatorio-->
-         <ideses>WAW#40292#282785001313254</ideses>
-         <optionalServiceId>9-1/9-1</optionalServiceId>
+         <ideses>WAW#40292#350364252580116</ideses>
+         <optionalServiceId>5:SE</optionalServiceId>
          
          <!--El campo "serviceGroupId" es obligatorio-->
-         <serviceGroupId>2-1111295/2</serviceGroupId>
+         <serviceGroupId>27819</serviceGroupId>
       </arg0>
    </pac:select>
 </soapenv:Body>

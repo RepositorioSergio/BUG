@@ -25,14 +25,6 @@
                <lastName>APELLIDOTESTA2</lastName>
                <paxId>2</paxId>
                <phone></phone>
-            </pax> 
-            <pax>
-               <age>5</age>
-               <documentNumber></documentNumber>
-               <firstName>NOMBRETESTA3</firstName>
-               <lastName>APELLIDOTESTA3</lastName>
-               <paxId>3</paxId>
-               <phone></phone>
             </pax>   
          </distribution>
          <!-- El campo "fareCode" es obligatorio -->

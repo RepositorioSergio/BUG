@@ -17,12 +17,12 @@
             <company>IB</company>
             <departureAirport>MAD</departureAirport>
             <flightInOut>O</flightInOut>
-            <flightLocalDateTime>2020/02/29 18:25</flightLocalDateTime>
+            <flightLocalDateTime>2020/02/05 18:25</flightLocalDateTime>
             <flightNumber>3523</flightNumber>
          </flightInformation>
          
          <!--El campo "ideses" es obligatorio-->
-         <ideses>WAW#40292#571125067489256</ideses>
+         <ideses>WAW#40292#179336979318074</ideses>
          <pax>
                <age>30</age>
                <documentNumber></documentNumber>

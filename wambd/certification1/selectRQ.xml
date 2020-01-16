@@ -23,19 +23,11 @@
                <lastName>APELLIDOTESTA2</lastName>
                <paxId>2</paxId>
                <phone></phone>
-            </pax> 
-            <pax>
-               <age>5</age>
-               <documentNumber></documentNumber>
-               <firstName>NOMBRETESTA3</firstName>
-               <lastName>APELLIDOTESTA3</lastName>
-               <paxId>3</paxId>
-               <phone></phone>
             </pax>     
         </distribution>
 
          <!--El campo "ideses" es obligatorio-->
-         <ideses>WAW#40292#317741975754541</ideses>
+         <ideses>WAW#40292#350364252580116</ideses>
          <optionalServiceId>5:SE</optionalServiceId>
          
          <!--El campo "serviceGroupId" es obligatorio-->
