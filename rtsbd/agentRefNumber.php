@@ -113,11 +113,15 @@ xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>
     <GetAgentReferenceNumber xmlns='http://www.rts.co.kr/'>
         <GetAgentReference>
             <LanguageCode>AR</LanguageCode>
-            <AgentReferenceNumber>QWDSA21323</AgentReferenceNumber>
+            <AgentReferenceNumber>QWDSA00003</AgentReferenceNumber>
         </GetAgentReference>
     </GetAgentReferenceNumber>
 </soap:Body>
 </soap:Envelope>";
+
+echo '<xmp>';
+var_dump($raw);
+echo '</xmp>';
 
 $soapUrl = 'http://devwsar.rts.net/WebServiceProjects/NetWebService/WsBookings.asmx';
 
@@ -141,14 +145,12 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $response = curl_exec($ch);
 curl_close($ch);
 
-echo $return;
-echo $response;
-echo $return;
-
 $response = str_replace('&lt;', '<', $response);
 $response = str_replace('&gt;', '>', $response);
 
-echo $response;
+echo '<xmp>';
+var_dump($response);
+echo '</xmp>';
 die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.rts.php');
 $config = [

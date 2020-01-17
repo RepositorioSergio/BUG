@@ -1,0 +1,10 @@
+
+<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><GetRemarkHotelInformationForCustomerCountResponse xmlns="http://www.rts.co.kr/"><GetRemarkHotelInformationForCustomerCountResult><RemarkHotelInformation>     <ItemCode>MOW0007</ItemCode>     <ItemNo>19</ItemNo>     <RoomTypeCode>|01001|Superior Double|RB|ADDZRDQ|BED10#6|E|20200417|Superior Double|BED01*1^BED10*1|N</RoomTypeCode>     <Remarks>         <Remark1><![CDATA[* For Japan market only *
+
+
+
+Japanese tourists need visa to go to Russia. Travel company need to have all
+
+documents to get visa yourself.
+
+Please note this information when you book all Russia hotels.]]></Remark1>         <Remark2><![CDATA[]]></Remark2>     </Remarks></RemarkHotelInformation></GetRemarkHotelInformationForCustomerCountResult></GetRemarkHotelInformationForCustomerCountResponse></soap:Body></soap:Envelope>

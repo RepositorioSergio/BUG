@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+    xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>
+    <soap:Header>
+        <BaseInfo xmlns='http://www.rts.co.kr/'>
+            <SiteCode>CTM1X-00</SiteCode>
+            <Password>test1234</Password>
+            <RequestType>NetPartner</RequestType>
+        </BaseInfo>
+    </soap:Header>
+    <soap:Body>
+        <BookingCancel xmlns='http://www.rts.co.kr/'>
+            <BookingCancel>
+                <LanguageCode>AR</LanguageCode>
+                <BookingCode>BUEF29827</BookingCode>
+                <ItemNo>30</ItemNo>
+                <CancelReasonCode>CR99</CancelReasonCode>
+                <LastWriterUno>813054</LastWriterUno>
+            </BookingCancel>
+        </BookingCancel>
+    </soap:Body>
+</soap:Envelope>

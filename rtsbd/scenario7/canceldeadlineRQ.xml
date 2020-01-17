@@ -1,0 +1,49 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rts="http://www.rts.co.kr/">
+<soapenv:Header>
+   <rts:BaseInfo>
+      <!--Optional:-->
+      <rts:SiteCode>CTM1X-00</rts:SiteCode>
+      <!--Optional:-->
+      <rts:Password>test1234</rts:Password>
+      <!--Optional:-->
+      <rts:RequestType>NetPartner</rts:RequestType>
+   </rts:BaseInfo>
+</soapenv:Header>
+<soapenv:Body>
+   <rts:GetCancelDeadlineForCustomerCount>
+      <rts:GetCancelDeadline>
+         <!--Optional:-->
+         <rts:ItemCode>MOW0007</rts:ItemCode>
+         <rts:ItemNo>19</rts:ItemNo>
+         <!--Optional:-->
+         <rts:RoomTypeCode>5f576ffe-a19b-4548-a43e-6c66f1ffbb87|01001|Superior Double|RB|ADDZRDQ|BED10#6|E|20200417|Superior Double|BED01*1^BED10*1|N|HBHGRGMPKGFHPZ|~American buffet breakfast at hotel</rts:RoomTypeCode>
+         <!--Optional:-->
+         <rts:CheckInDate>2020-04-18</rts:CheckInDate>
+         <!--Optional:-->
+         <rts:CheckOutDate>2020-04-21</rts:CheckOutDate>
+         <!--Optional:-->
+         <rts:GuestList>
+            <!--Zero or more repetitions:-->
+            <rts:GuestsInfo>
+               <rts:AdultCount>1</rts:AdultCount>
+               <rts:ChildCount>0</rts:ChildCount>
+               <rts:RoomCount>1</rts:RoomCount>
+               <rts:ChildAge1>0</rts:ChildAge1>
+               <rts:ChildAge2>0</rts:ChildAge2>
+            </rts:GuestsInfo>
+            <rts:GuestsInfo>
+               <rts:AdultCount>1</rts:AdultCount>
+               <rts:ChildCount>1</rts:ChildCount>
+               <rts:RoomCount>1</rts:RoomCount>
+               <rts:ChildAge1>6</rts:ChildAge1>
+               <rts:ChildAge2>0</rts:ChildAge2>
+            </rts:GuestsInfo>
+         </rts:GuestList>
+         <!--Optional:-->
+         <rts:LanguageCode>AR</rts:LanguageCode>
+         <!--Optional:-->
+         <rts:TravelerNationality>AR</rts:TravelerNationality>
+      </rts:GetCancelDeadline>
+   </rts:GetCancelDeadlineForCustomerCount>
+</soapenv:Body>
+</soapenv:Envelope>

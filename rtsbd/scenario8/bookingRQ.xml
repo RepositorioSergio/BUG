@@ -1,131 +1,4 @@
-<?php
-require '../vendor/autoload.php';
-use Zend\Db\Sql\Sql;
-use Zend\Db\Adapter\Adapter;
-use Zend\Db\Adapter\Driver\ResultInterface;
-use Zend\Db\ResultSet\ResultSet;
-use Zend\Db\Metadata;
-use Zend\Http\Client;
-use Zend\Http\Request;
-use Zend\Json\Json;
-use Zend\Config;
-use Zend\Log\Logger;
-use Zend\Log\Writer;
-if (! $_SERVER['DOCUMENT_ROOT']) {
-    // On Command Line
-    $return = "\r\n";
-} else {
-    // HTTP Browser
-    $return = "<br>";
-}
-
-$config = new \Zend\Config\Config(include '../config/autoload/global.php');
-$config = [
-    'driver' => $config->db->driver,
-    'database' => $config->db->database,
-    'username' => $config->db->username,
-    'password' => $config->db->password,
-    'hostname' => $config->db->hostname
-];
-$db = new \Zend\Db\Adapter\Adapter($config);
-// Start
-$affiliate_id = 0;
-$branch_filter = "";
-$sql = "select value from settings where name='enablerts' and affiliate_id=$affiliate_id" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $affiliate_id_rts = $affiliate_id;
-} else {
-    $affiliate_id_rts = 0;
-}
-$sql = "select value from settings where name='rtsID' and affiliate_id=$affiliate_id_rts";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $rtsID = $row_settings['value'];
-}
-$sql = "select value from settings where name='rtsPassword' and affiliate_id=$affiliate_id_rts";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $rtsPassword = base64_decode($row_settings['value']);
-}
-$sql = "select value from settings where name='rtsSiteCode' and affiliate_id=$affiliate_id_rts";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $rtsSiteCode = $row_settings['value'];
-}
-$sql = "select value from settings where name='rtsRequestType' and affiliate_id=$affiliate_id_rts";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $rtsRequestType = $row_settings['value'];
-}
-$sql = "select value from settings where name='rtsServiceURL' and affiliate_id=$affiliate_id_rts";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$result = $statement->execute();
-$result->buffer();
-if ($result->valid()) {
-    $row = $result->current();
-    $rtsServiceURL = $row['value'];
-}
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
-
-$config = new \Zend\Config\Config(include '../config/autoload/global.rts.php');
-$config = [
-    'driver' => $config->db->driver,
-    'database' => $config->db->database,
-    'username' => $config->db->username,
-    'password' => $config->db->password,
-    'hostname' => $config->db->hostname
-];
-$db = new \Zend\Db\Adapter\Adapter($config);
-$sql = "SELECT PriceInfoItemNo, PriceInfoItemCode, RoomTypeCode, BreakfastTypeName FROM hoteis_PriceInfo";
-$statement = $db->createStatement($sql);
-try {
-    $statement->prepare();
-} catch (\Exception $e) {
-    echo $return;
-    echo $e->getMessage();
-    echo $return;
-    die();
-}
-
-$result = $statement->execute();
-$result->buffer();
-if ($result instanceof ResultInterface && $result->isQueryResult()) {
-    $resultSet = new ResultSet();
-    $resultSet->initialize($result);
-    foreach ($resultSet as $row) {
-        $PriceInfoItemNo = $row->PriceInfoItemNo;
-        $PriceInfoItemCode = $row->PriceInfoItemCode;
-        $RoomTypeCode = $row->RoomTypeCode;
-        $BreakfastTypeName = $row->BreakfastTypeName;
-
-        echo $return;
-        echo "ItemCode: " . $PriceInfoItemCode;
-        echo $return;
-
-        $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rts="http://www.rts.co.kr/">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rts="http://www.rts.co.kr/">
         <soapenv:Header>
         <rts:BaseInfo>
             <!--Optional:-->
@@ -249,8 +122,8 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                     <!--Zero or more repetitions:-->
                     <rts:BookingHotelInfo>
                     <!--Optional:-->
-                    <rts:ItemCode>' . $PriceInfoItemCode . '</rts:ItemCode>
-                    <rts:ItemNo>' . $PriceInfoItemNo . '</rts:ItemNo>
+                    <rts:ItemCode>SEL0001</rts:ItemCode>
+                    <rts:ItemNo>30</rts:ItemNo>
                     <!--Optional:-->
                     <rts:AgentBookingReference>QWDSA00003</rts:AgentBookingReference>
                     <!--Optional:-->
@@ -262,9 +135,9 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                     <!--Optional:-->
                     <rts:AppliedToDate>2020-06-22</rts:AppliedToDate>
                     <!--Optional:-->
-                    <rts:RoomTypeCode>' . $RoomTypeCode . '</rts:RoomTypeCode>
+                    <rts:RoomTypeCode>20200618|20200622|W|435|128032|TWN.DX|FIT|RO||1~2~0||N@04~~25c137~-489583348~N~~A1BA76D2495942D157927527827102PAAR0000027002500050825c137:DBB.JC:twin deluxe::A0#B0#C0#D0#E0|JJJRGKDD|~None</rts:RoomTypeCode>
                     <!--Optional:-->
-                    <rts:FreeBreakfastTypeName>' . $BreakfastTypeName . '</rts:FreeBreakfastTypeName>
+                    <rts:FreeBreakfastTypeName>None</rts:FreeBreakfastTypeName>
                     <!--Optional:-->
                     <rts:AddBreakfastTypeName></rts:AddBreakfastTypeName>
                     <rts:VatSheetYn>false</rts:VatSheetYn>
@@ -302,88 +175,4 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
             </rts:SystemBookingInfoNetForGuestCount>
         </rts:CreateSystemBookingForGuestCount>
         </soapenv:Body>
-        </soapenv:Envelope>';
-
-        echo '<xmp>';
-        var_dump($raw);
-        echo '</xmp>';
-
-        $soapUrl = 'http://devwsar.rts.net/WebServiceProjects/NetWebService/WsBookings.asmx';
-
-        $headers = array(
-            "Content-type: text/xml;charset=\"utf-8\"",
-            "Accept: text/xml",
-            "SOAPAction: http://www.rts.co.kr/CreateSystemBookingForGuestCount",
-            "Content-length: " . strlen($raw)
-        );
-
-        $url = $soapUrl;
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        $response = curl_exec($ch);
-        $error = curl_error($ch);
-        if ($response === false) {
-            echo $return;
-            echo "ERRO: " . $error;
-            echo $return;
-        }
-        curl_close($ch);
-
-        $response = str_replace('&lt;', '<', $response);
-        $response = str_replace('&gt;', '>', $response);
-
-        echo '<xmp>';
-        var_dump($response);
-        echo '</xmp>';
-        $config = new \Zend\Config\Config(include '../config/autoload/global.rts.php');
-        $config = [
-            'driver' => $config->db->driver,
-            'database' => $config->db->database,
-            'username' => $config->db->username,
-            'password' => $config->db->password,
-            'hostname' => $config->db->hostname
-        ];
-        $db = new \Zend\Db\Adapter\Adapter($config);
-
-        $inputDoc = new DOMDocument();
-        $inputDoc->loadXML($response);
-        $Envelope = $inputDoc->getElementsByTagName("Envelope");
-        $Body = $Envelope->item(0)->getElementsByTagName("Body");
-        $CreateSystemBookingForGuestCountResponse = $Body->item(0)->getElementsByTagName("CreateSystemBookingForGuestCountResponse");
-        // CreateSystemBookingForGuestCountResult
-        $CreateSystemBookingForGuestCountResult = $CreateSystemBookingForGuestCountResponse->item(0)->getElementsByTagName("CreateSystemBookingForGuestCountResult");
-        // GetBookingDetailResponse
-        $GetBookingDetailResponse = $CreateSystemBookingForGuestCountResult->item(0)->getElementsByTagName("GetBookingDetailResponse");
-        if ($GetBookingDetailResponse->length > 0) {
-            $BookingResult = $GetBookingDetailResponse->item(0)->getElementsByTagName("BookingResult");
-            if ($BookingResult->length > 0) {
-                $BookingCode = $BookingResult->item(0)->getElementsByTagName("BookingCode");
-                if ($BookingCode->length > 0) {
-                    $BookingCode = $BookingCode->item(0)->nodeValue;
-                } else {
-                    $BookingCode = "";
-                }
-                $NormalReceivedYn = $BookingResult->item(0)->getElementsByTagName("NormalReceivedYn");
-                if ($BookinNormalReceivedYngCode->length > 0) {
-                    $NormalReceivedYn = $NormalReceivedYn->item(0)->nodeValue;
-                } else {
-                    $NormalReceivedYn = "";
-                }
-                echo $return;
-                echo "FIM";
-                echo $return;
-                die();
-            }
-        }
-    }
-}
-echo "FIM2<br/>";
-?>
+        </soapenv:Envelope>

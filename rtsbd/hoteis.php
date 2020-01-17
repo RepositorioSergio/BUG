@@ -115,9 +115,9 @@ $raw = "<?xml version='1.0' encoding='utf-8'?>
             <HotelSearchListNetGuestCount>
                 <LanguageCode>AR</LanguageCode>
                 <TravelerNationality>AR</TravelerNationality>
-                <CityCode>SAO</CityCode>
-                <CheckInDate>2020-04-16</CheckInDate>
-                <CheckOutDate>2020-04-19</CheckOutDate>
+                <CityCode>SEL</CityCode>
+                <CheckInDate>2020-06-18</CheckInDate>
+                <CheckOutDate>2020-06-22</CheckOutDate>
                 <StarRating>0</StarRating>
                 <LocationCode></LocationCode>
                 <SupplierCompCode></SupplierCompCode>
@@ -136,17 +136,10 @@ $raw = "<?xml version='1.0' encoding='utf-8'?>
                 </ItemCodeList>
                 <GuestList>
                     <GuestsInfo>
-                        <AdultCount>1</AdultCount>
+                        <AdultCount>2</AdultCount>
                         <ChildCount>0</ChildCount>
                         <RoomCount>1</RoomCount>
                         <ChildAge1>0</ChildAge1>
-                        <ChildAge2>0</ChildAge2>
-                    </GuestsInfo>
-                    <GuestsInfo>
-                        <AdultCount>1</AdultCount>
-                        <ChildCount>1</ChildCount>
-                        <RoomCount>1</RoomCount>
-                        <ChildAge1>6</ChildAge1>
                         <ChildAge2>0</ChildAge2>
                     </GuestsInfo>
                 </GuestList>
@@ -156,8 +149,8 @@ $raw = "<?xml version='1.0' encoding='utf-8'?>
 </soap:Envelope>";
 
 echo '<xmp>';
-    var_dump($raw);
-    echo '</xmp>';
+var_dump($raw);
+echo '</xmp>';
 
 $soapUrl = 'http://devwsar.rts.net/WebServiceProjects/NetWebService/WsHotelProducts.asmx';
 $headers = array(

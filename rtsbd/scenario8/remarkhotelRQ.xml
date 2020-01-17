@@ -1,0 +1,67 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rts="http://www.rts.co.kr/">
+   <soapenv:Header>
+      <rts:BaseInfo>
+         <!--Optional:-->
+         <rts:SiteCode>CTM1X-00</rts:SiteCode>
+         <!--Optional:-->
+         <rts:Password>test1234</rts:Password>
+         <!--Optional:-->
+         <rts:RequestType>NetPartner</rts:RequestType>
+      </rts:BaseInfo>
+   </soapenv:Header>
+   <soapenv:Body>
+      <rts:GetRemarkHotelInformationForCustomerCount>
+        <rts:HotelSearchListNetGuestCount>
+            <!--Optional:-->
+            <rts:LanguageCode>AR</rts:LanguageCode>
+            <!--Optional:-->
+            <rts:TravelerNationality>AR</rts:TravelerNationality>
+            <!--Optional:-->
+            <rts:CityCode>SEL</rts:CityCode>
+            <!--Optional:-->
+            <rts:CheckInDate>2020-06-18</rts:CheckInDate>
+            <!--Optional:-->
+            <rts:CheckOutDate>2020-06-22</rts:CheckOutDate>
+            <!--Optional:-->
+            <rts:StarRating>0</rts:StarRating>
+            <!--Optional:-->
+            <rts:LocationCode></rts:LocationCode>
+            <!--Optional:-->
+            <rts:SupplierCompCode></rts:SupplierCompCode>
+            <rts:AvailableHotelOnly>true</rts:AvailableHotelOnly>
+            <rts:RecommendHotelOnly>false</rts:RecommendHotelOnly>
+            <!--Optional:-->
+            <rts:ClientCurrencyCode>USD</rts:ClientCurrencyCode>
+            <!--Optional:-->
+            <rts:ItemName></rts:ItemName>
+            <!--Optional:-->
+            <rts:SellerMarkup>*1</rts:SellerMarkup>
+            <rts:CompareYn>false</rts:CompareYn>
+            <!--Optional:-->
+            <rts:SortType></rts:SortType>
+            <!--Optional:-->
+            <rts:ItemCodeList>
+               <!--Zero or more repetitions:-->
+               <rts:ItemCodeInfo>
+                  <!--Optional:-->
+                  <rts:ItemCode>SEL0001</rts:ItemCode>
+                  <rts:ItemNo>30</rts:ItemNo>
+               </rts:ItemCodeInfo>
+            </rts:ItemCodeList>
+            <!--Optional:-->
+            <rts:GuestList>
+               <!--Zero or more repetitions:-->
+               <rts:GuestsInfo>
+                  <rts:AdultCount>2</rts:AdultCount>
+                  <rts:ChildCount>0</rts:ChildCount>
+                  <rts:RoomCount>1</rts:RoomCount>
+                  <rts:ChildAge1>0</rts:ChildAge1>
+                  <rts:ChildAge2>0</rts:ChildAge2>
+               </rts:GuestsInfo>			   
+            </rts:GuestList>
+         </rts:HotelSearchListNetGuestCount>
+         <!--Optional:-->
+         <rts:RoomTypeCode>20200618|20200622|W|435|128032|TWN.DX|FIT|RO||1~2~0||N@04~~25c137~-489583348~N~~A1BA76D2495942D157927527827102PAAR0000027002500050825c137:DBB.JC:twin deluxe::A0#B0#C0#D0#E0|JJJRGKDD|~None</rts:RoomTypeCode>
+      </rts:GetRemarkHotelInformationForCustomerCount>
+   </soapenv:Body>
+</soapenv:Envelope>

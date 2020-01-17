@@ -114,8 +114,8 @@ $raw = "<?xml version='1.0' encoding='utf-8'?>
         <BookingCancel xmlns='http://www.rts.co.kr/'>
             <BookingCancel>
                 <LanguageCode>AR</LanguageCode>
-                <BookingCode>BUEF29819</BookingCode>
-                <ItemNo>16</ItemNo>
+                <BookingCode>BUEF29827</BookingCode>
+                <ItemNo>30</ItemNo>
                 <CancelReasonCode>CR99</CancelReasonCode>
                 <LastWriterUno>813054</LastWriterUno>
             </BookingCancel>
@@ -149,12 +149,9 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $response = curl_exec($ch);
 curl_close($ch);
 
-echo $return;
-echo $response;
-echo $return;
-
 $response = str_replace('&lt;', '<', $response); 
 $response=str_replace('&gt;', '>' , $response); 
+
 echo '<xmp>' ;
 var_dump($response); 
 echo '</xmp>' ; 

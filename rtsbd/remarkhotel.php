@@ -125,11 +125,11 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             <!--Optional:-->
             <rts:TravelerNationality>AR</rts:TravelerNationality>
             <!--Optional:-->
-            <rts:CityCode>HKG</rts:CityCode>
+            <rts:CityCode>SEL</rts:CityCode>
             <!--Optional:-->
-            <rts:CheckInDate>2020-04-16</rts:CheckInDate>
+            <rts:CheckInDate>2020-06-18</rts:CheckInDate>
             <!--Optional:-->
-            <rts:CheckOutDate>2020-04-19</rts:CheckOutDate>
+            <rts:CheckOutDate>2020-06-22</rts:CheckOutDate>
             <!--Optional:-->
             <rts:StarRating>0</rts:StarRating>
             <!--Optional:-->
@@ -152,31 +152,24 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                <!--Zero or more repetitions:-->
                <rts:ItemCodeInfo>
                   <!--Optional:-->
-                  <rts:ItemCode>SAO0037</rts:ItemCode>
-                  <rts:ItemNo>16</rts:ItemNo>
+                  <rts:ItemCode>SEL0001</rts:ItemCode>
+                  <rts:ItemNo>30</rts:ItemNo>
                </rts:ItemCodeInfo>
             </rts:ItemCodeList>
             <!--Optional:-->
             <rts:GuestList>
                <!--Zero or more repetitions:-->
                <rts:GuestsInfo>
-                  <rts:AdultCount>1</rts:AdultCount>
+                  <rts:AdultCount>2</rts:AdultCount>
                   <rts:ChildCount>0</rts:ChildCount>
                   <rts:RoomCount>1</rts:RoomCount>
                   <rts:ChildAge1>0</rts:ChildAge1>
-                  <rts:ChildAge2>0</rts:ChildAge2>
-               </rts:GuestsInfo>
-               <rts:GuestsInfo>
-                  <rts:AdultCount>1</rts:AdultCount>
-                  <rts:ChildCount>1</rts:ChildCount>
-                  <rts:RoomCount>1</rts:RoomCount>
-                  <rts:ChildAge1>6</rts:ChildAge1>
                   <rts:ChildAge2>0</rts:ChildAge2>
                </rts:GuestsInfo>			   
             </rts:GuestList>
          </rts:HotelSearchListNetGuestCount>
          <!--Optional:-->
-         <rts:RoomTypeCode>20200416|20200419|W|258|47369|SUI.SU|GAR|BB||1~1~0||N@04~~246c3~-513337453~N~~927FE06EFE78440157909834038802PAAR00000580026000508246c3^20200416|20200419|W|258|47369|SUI.SU|GAR|BB||1~1~1|6|N@04~~246c3~-1117434062~N~~927FE06EFE78440157909834038802PAAR00000580026000508246c3:DJB.EA:suite single twin superior:258|17368|431:A1#B0#C0#D0#E0|DHBRGPB|~Breakfast</rts:RoomTypeCode>
+         <rts:RoomTypeCode>20200618|20200622|W|435|128032|TWN.DX|FIT|RO||1~2~0||N@04~~25c137~-489583348~N~~A1BA76D2495942D157927527827102PAAR0000027002500050825c137:DBB.JC:twin deluxe::A0#B0#C0#D0#E0|JJJRGKDD|~None</rts:RoomTypeCode>
       </rts:GetRemarkHotelInformationForCustomerCount>
    </soapenv:Body>
 </soapenv:Envelope>';
