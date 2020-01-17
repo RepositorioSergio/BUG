@@ -55,7 +55,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
        <!--El campo "BeginDate" es obligatorio-->
          <beginDate>2020-04-12</beginDate>
        <!--endDate>2019-02-02</endDate-->
-         <categoryCode>T</categoryCode>
+         <categoryCode>S</categoryCode>
          <!--El campo "distribution" es obligatorio -->
          <distribution>
             <distributionId>1</distributionId>

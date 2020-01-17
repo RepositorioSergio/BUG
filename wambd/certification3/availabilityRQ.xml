@@ -1,38 +1,38 @@
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pac="http://packages.servicePackage.dome.com/">
-    <soapenv:Header/>
-    <soapenv:Body>
-        <pac:availability>
-            <arg0>
-                <!--El campo "BeginDate" es obligatorio-->
-                <beginDate>2020-04-12</beginDate>
-                <!--endDate>2019-02-02</endDate-->
-                <categoryCode>T</categoryCode>
-                <!--El campo "distribution" es obligatorio -->
-                <distribution>
-                    <distributionId>1</distributionId>
-                    <pax>
-                        <age>30</age>
-                        <documentNumber></documentNumber>
-                        <firstName>NOMBRETESTA1</firstName>
-                        <lastName>APELLIDOTESTA1</lastName>
-                        <paxId>1</paxId>
-                        <phone></phone>
-                    </pax>
-                </distribution>
-                <!-- El campo "fareCode" es obligatorio -->
-                <fareCode>NORMAL</fareCode>
-                <!--ideses></ideses-->
-                <login>
-                    <clientId>WWCTM001</clientId>
-                    <password>CT8954TO</password>
-                    <system>WAW</system>
-                    <user>XMLCON</user>
-                </login>
-                <!-- El campo "packageCode" es obligatorio -->
-                <packageCode>IT20T-LEYMM</packageCode>
-                <showOptionals>Y</showOptionals>
-                <stayCode>21</stayCode>
-            </arg0>
-        </pac:availability>
-    </soapenv:Body>
+<soapenv:Header/>
+<soapenv:Body>
+   <pac:availability>
+      <arg0>
+       <!--El campo "BeginDate" es obligatorio-->
+         <beginDate>2020-04-12</beginDate>
+       <!--endDate>2019-02-02</endDate-->
+         <categoryCode>S</categoryCode>
+         <!--El campo "distribution" es obligatorio -->
+         <distribution>
+            <distributionId>1</distributionId>
+            <pax>
+               <age>30</age>
+               <documentNumber></documentNumber>
+               <firstName>NOMBRETESTA1</firstName>
+               <lastName>APELLIDOTESTA1</lastName>
+               <paxId>1</paxId>
+               <phone></phone>
+            </pax>   
+         </distribution>
+         <!-- El campo "fareCode" es obligatorio -->
+         <fareCode>NORMAL</fareCode>
+         <!--ideses></ideses-->
+         <login>
+            <clientId>WWCTM001</clientId>
+            <password>CT8954TO</password>
+            <system>WAW</system>
+            <user>XMLCON</user>
+         </login>
+         <!-- El campo "packageCode" es obligatorio -->
+         <packageCode>IT20T-LEYMM</packageCode>
+         <showOptionals>Y</showOptionals>
+         <stayCode>21</stayCode>
+      </arg0>
+   </pac:availability>
+</soapenv:Body>
 </soapenv:Envelope>

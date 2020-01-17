@@ -54,7 +54,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
       <arg0>
          <!--beginDate></beginDate-->
          <!--fareCode></fareCode-->
-         <ideses>WAW#40292#372732783199669</ideses>
+         <ideses>WAW#40292#687191869057668</ideses>
          <!--origin>
             <originCode></originCode>
             <originName></originName>

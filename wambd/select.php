@@ -65,7 +65,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
         </distribution>
 
          <!--El campo "ideses" es obligatorio-->
-         <ideses>WAW#40292#707369312472232</ideses>
+         <ideses>WAW#40292#569337069176473</ideses>
          <optionalServiceId>56:PP</optionalServiceId>
          
          <!--El campo "serviceGroupId" es obligatorio-->

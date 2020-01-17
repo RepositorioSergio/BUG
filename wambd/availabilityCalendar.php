@@ -55,7 +55,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
        <beginDate>2020-04-12</beginDate>
          <!-- El campo "FareCode" es obligatorio-->
          <fareCode>NORMAL</fareCode>
-         <ideses>WAW#40292#372732783199669</ideses>
+         <ideses>WAW#40292#687191869057668</ideses>
          <!-- El campo "PackageCode" es obligatorio -->
          <packageCode>IT20T-LEYMM</packageCode>
       </arg0>

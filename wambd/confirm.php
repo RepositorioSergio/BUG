@@ -68,7 +68,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
          </flightInformation>
          
          <!--El campo "ideses" es obligatorio-->
-         <ideses>WAW#40292#707369312472232</ideses>
+         <ideses>WAW#40292#569337069176473</ideses>
          <pax>
                <age>30</age>
                <documentNumber></documentNumber>
