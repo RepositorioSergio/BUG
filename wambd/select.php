@@ -61,42 +61,15 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                <lastName>APELLIDOTESTA1</lastName>
                <paxId>1</paxId>
                <phone></phone>
-            </pax>
-            <pax>
-               <age>35</age>
-               <documentNumber></documentNumber>
-               <firstName>NOMBRETESTA2</firstName>
-               <lastName>APELLIDOTESTA2</lastName>
-               <paxId>2</paxId>
-               <phone></phone>
-            </pax>      
+            </pax>     
         </distribution>
-        <distribution>
-            <distributionId>2</distributionId>
-            <pax>
-               <age>40</age>
-               <documentNumber></documentNumber>
-               <firstName>NOMBRETESTA3</firstName>
-               <lastName>APELLIDOTESTA3</lastName>
-               <paxId>3</paxId>
-               <phone></phone>
-            </pax>
-            <pax>
-               <age>39</age>
-               <documentNumber></documentNumber>
-               <firstName>NOMBRETESTA4</firstName>
-               <lastName>APELLIDOTESTA4</lastName>
-               <paxId>4</paxId>
-               <phone></phone>
-            </pax>   
-         </distribution>
 
          <!--El campo "ideses" es obligatorio-->
-         <ideses>WAW#40292#219180234658010</ideses>
-         <optionalServiceId>9-1/9-1</optionalServiceId>
+         <ideses>WAW#40292#707369312472232</ideses>
+         <optionalServiceId>56:PP</optionalServiceId>
          
          <!--El campo "serviceGroupId" es obligatorio-->
-         <serviceGroupId>2-1111295/4/3</serviceGroupId>
+         <serviceGroupId>LEYMM</serviceGroupId>
       </arg0>
    </pac:select>
 </soapenv:Body>

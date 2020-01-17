@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Affirm Example Code - PHP - Checkout</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1>Checkout Page</h1>
+	<div id="content">
+		<div id="forms">
+		<form onsubmit="checkoutHandler()" action="">
+			<div class="column">
+				<table>
+					<tr>
+						<td colspan="2">
+							<h4>
+								Customer
+							</h4>
+						</td>
+					</tr>
+					<tr>
+						<td>First Name</td>
+						<td><input type="text" value="Joe" id="firstName"></td>
+					</tr>
+					<tr>
+						<td>Last Name</td>
+						<td><input type="text" value="Doe" id="lastName"></td>
+					</tr>
+					<tr>
+						<td>Adddress 1</td>
+						<td><input type="text" value="225 Bush St" id="addressLine1"></td>
+					</tr>
+					<tr>
+						<td>Address 2</td>
+						<td><input type="text" value="Floor 16" id="addressLine2"></td>
+					</tr>
+					<tr>
+						<td>City</td>
+						<td><input type="text" value="San Francisco" id="city"></td>
+					</tr>
+					<tr>
+						<td>State</td>
+						<td><input type="text" value="CA" id="state"></td>
+					</tr>
+					<tr>
+						<td>ZIP</td>
+						<td><input type="text" value="94104" id="zipcode"><br/></td>
+					</tr>
+					<tr>
+						<td>Phone</td>
+						<td><input type="text" value="877-661-4468" id="phoneNumber"></td>
+					</tr>
+					<tr>
+						<td>Email</td>
+						<td><input type="text" value="joe.doe@affirm.com" id="email"><br/></td>
+					</tr>
+				</table>
+			</div>
+			<div class="column">
+				<table>
+					<tr>
+						<td colspan="2">
+							<h4>
+								Product
+							</h4>
+						</td>
+					</tr>
+					<tr>
+						<td>Product Name</td>
+						<td><input type="text" id="productName" value="Best Product Ever"></td>
+					</tr>
+					<tr>
+						<td>Unit Price</td>
+						<td><input type="number" id="unitPrice" value="100.00"></td>
+					</tr>
+					<tr>
+						<td>Product Quantity</td>
+						<td><input type="text" id="productQuantity" value="4"></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<h4>
+								Totals
+							</h4>
+						</td>
+					</tr>
+					<tr>
+						<td>Subtotal</td>
+						<td><input type="number" id="subTotal" value="400.00"></td>
+					</tr>
+					<tr>
+						<td>Discount</td>
+						<td><input type="number" id="discount" value="50.00"></td>
+					</tr>
+					<tr>
+						<td>Shipping</td>
+						<td><input type="number" id="shipping" value="20.00"></td>
+					</tr>
+					<tr>
+						<td>Tax</td>
+						<td><input type="number" id="tax" value="40.00"></td>
+					</tr>
+					<tr>
+						<td>Total</td>
+						<td><input type="number" id="total" value="400.00"></td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+		<div>
+			<input id="checkoutButton" type="button"  value="Checkout with Affirm">
+		</div>
+	</div>
+	</form>
+	<script>
+
+	// Start Affirm JS embed code
+	// =======================
+
+	// Initialize the Affirm runtime JS
+	var _affirm_config = {
+		// Production
+		script:"https://cdn1.affirm.com/js/v2/affirm.js",
+		public_api_key:"YOUR_LIVE_PUBLIC_API_KEY"
+	};
+	(function(l,g,m,e,a,f,b){var d,c=l[m]||{},h=document.createElement(f),n=document.getElementsByTagName(f)[0],k=function(a,b,c){return function(){a[b]._.push([c,arguments])}};c[e]=k(c,e,"set");d=c[e];c[a]={};c[a]._=[];d._=[];c[a][b]=k(c,a,b);a=0;for(b="set add save post open empty reset on off trigger ready setProduct".split(" ");a<b.length;a++)d[b[a]]=k(c,e,b[a]);a=0;for(b=["get","token","url","items"];a<b.length;a++)d[b[a]]=function(){};h.async=!0;h.src=g[f];n.parentNode.insertBefore(h,n);delete g[f];d(g);l[m]=c})(window,_affirm_config,"affirm","checkout","ui","script","ready");
+
+	// =======================
+	// End Affirm JS embed code
+
+
+	// Global variables
+	// -----------------------
+
+		// Declare form variables
+		// var chargeId,checkoutToken,billingFirst,billingLast,billingAddress1,billingAddress2,billingCity,billingState,billingEmail,billingZip,billingPhone,totalRaw,total,productName,unitPriceRaw,unitPrice,productQuantity,taxRaw,tax,shippingRaw,shipping,discountRaw,discount,calculatedTotal,calculatedSubtotal;
+
+		// Use current location
+		var baseURL = location.href.substring(0, location.href.lastIndexOf("/")+1);
+		var currentLocation = location.href;
+		var confirmLocation = baseURL + "order_confirmation.php?env=live";
+
+	// Checkout
+	// -----------------------
+		// Checkout button
+		var checkoutButton = document.getElementById('checkoutButton');
+		checkoutButton.addEventListener('click', checkoutHandler, false);
+		document.body.onkeypress=function(e){
+			if(e.keyCode==13){
+				checkoutButton.click();
+			}
+		}
+
+		// Checkout function
+		function checkoutHandler() {
+
+			checkoutButton.value = "Redirecting to Affirm...";
+			checkoutButton.style = "background:#333";
+
+			// Grab form values
+			var billingFirst = document.getElementById('firstName').value,
+			billingLast = document.getElementById('lastName').value,
+			billingAddress1 = document.getElementById('addressLine1').value,
+			billingAddress2 = document.getElementById('addressLine2').value,
+			billingCity = document.getElementById('city').value,
+			billingState = document.getElementById('state').value,
+			billingEmail = document.getElementById('email').value,
+			billingZip = document.getElementById('zipcode').value,
+			billingPhone = document.getElementById('phoneNumber').value,
+			productName = document.getElementById('productName').value,
+			productQuantity = document.getElementById('productQuantity').value,
+			unitPrice = document.getElementById('unitPrice').value,
+			tax = document.getElementById('tax').value,
+			shipping = document.getElementById('shipping').value,
+			discount = document.getElementById('discount').value,
+			total = document.getElementById('total').value;
+
+			// Define checkout object
+			affirm.checkout({
+				
+				// Financial Product Key is provided along with your API keys
+				"config": {
+					"financial_product_key":"CN29VP56R79EMSEI",
+				},
+
+				// Define URLs for the two outcomes of the checkout
+				"merchant": {
+					"name": "BMO",
+					// User is sent to this URL if they voluntarily cancel/close checkout, or are denied
+					"user_cancel_url": currentLocation,
+					// User is sent to this URL if the checkout is successful
+					"user_confirmation_url": confirmLocation,	
+					// This is always 'POST'
+					"user_confirmation_url_action" : "POST",
+				},
+
+					// "financing_program":"program_2",
+				"financing_program":"zero_pct_3_6_12_no_standard",
+					// "financing_program":"standard_3_6",
+				// Add each product to this array
+				"items": [{
+					"display_name": productName,
+					"sku": "",
+					"unit_price": unitPrice,
+					"qty": productQuantity,
+					"item_image_url": "http://merchantsite.com/images/awesome-pants.jpg",
+					"item_url": "http://merchantsite.com/products/awesome-pants.html"
+				}],
+
+				// Add each discount that applies
+				"discounts": {
+					// The name of each discount is the name of the nested discount object
+					"discountABC123": {
+						"discount_amount": discount
+					}
+				},
+
+				"order_id": '123456789',
+				"metadata": {
+					"shipping_type": "UPS Ground"
+				},
+				"shipping": {
+					"name": {
+						"first": billingFirst,
+						"last": billingLast
+					},
+					"address": {
+						"line1": billingAddress1,
+						"line2": billingAddress2,
+						"city": billingCity,
+						"state": billingState,
+						"zipcode": billingZip
+					},
+					"phone_number": billingPhone,
+					"email": billingEmail,
+				},
+				"billing": {
+					"name": {
+						"first": billingFirst,
+						"last": billingLast
+					},
+					"address": {
+						"line1": billingAddress1,
+						"line2": billingAddress2,
+						"city": billingCity,
+						"state": billingState,
+						"zipcode": billingZip
+					},
+					"phone_number": billingPhone,
+					"email": billingEmail,
+				},
+				"shipping_amount":shipping,
+				"tax_amount": tax,
+				"total":total
+			});
+
+			// Initialize Affirm checkout
+			affirm.checkout.post();
+		}
+	</script>
+</body>
+</html>

@@ -2,8 +2,8 @@
 $checkout_token = $_REQUEST['checkout_token'];
         
 //These are sandbox credentials
-$public_key = "ARQBLCL7NAMBTZ7F";
-$private_key = "RkHBmVSP5ayC2rCUujwhArpGWPxpuTtv";
+$public_key = "R2APT9RTSF8ZUX1H";
+$private_key = "HMLk1etOUp8AkoMnZB0cW2QJ54KLanZ6";
 //This is the sandbox API URL
 $url = "https://sandbox.affirm.com/api/v2/charges/";
 

@@ -53,7 +53,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
    <pac:availability>
       <arg0>
        <!--El campo "BeginDate" es obligatorio-->
-         <beginDate>2020-02-01</beginDate>
+         <beginDate>2020-04-12</beginDate>
        <!--endDate>2019-02-02</endDate-->
          <categoryCode>T</categoryCode>
          <!--El campo "distribution" es obligatorio -->
@@ -65,33 +65,6 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                <firstName>NOMBRETESTA1</firstName>
                <lastName>APELLIDOTESTA1</lastName>
                <paxId>1</paxId>
-               <phone></phone>
-            </pax>
-            <pax>
-               <age>35</age>
-               <documentNumber></documentNumber>
-               <firstName>NOMBRETESTA2</firstName>
-               <lastName>APELLIDOTESTA2</lastName>
-               <paxId>2</paxId>
-               <phone></phone>
-            </pax>   
-         </distribution>
-         <distribution>
-            <distributionId>2</distributionId>
-            <pax>
-               <age>40</age>
-               <documentNumber></documentNumber>
-               <firstName>NOMBRETESTA3</firstName>
-               <lastName>APELLIDOTESTA3</lastName>
-               <paxId>3</paxId>
-               <phone></phone>
-            </pax>
-            <pax>
-               <age>39</age>
-               <documentNumber></documentNumber>
-               <firstName>NOMBRETESTA4</firstName>
-               <lastName>APELLIDOTESTA4</lastName>
-               <paxId>4</paxId>
                <phone></phone>
             </pax>   
          </distribution>
@@ -105,9 +78,9 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             <user>XMLCON</user>
          </login>
          <!-- El campo "packageCode" es obligatorio -->
-         <packageCode>EU13992</packageCode>
+         <packageCode>IT20T-LEYMM</packageCode>
          <showOptionals>Y</showOptionals>
-         <stayCode>3N</stayCode>
+         <stayCode>21</stayCode>
       </arg0>
    </pac:availability>
 </soapenv:Body>

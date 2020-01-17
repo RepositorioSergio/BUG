@@ -54,13 +54,13 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
       <arg0>
          <!--beginDate></beginDate-->
          <!--fareCode></fareCode-->
-         <ideses>WAW#40292#452533423930522</ideses>
+         <ideses>WAW#40292#372732783199669</ideses>
          <!--origin>
             <originCode></originCode>
             <originName></originName>
          </origin-->
          <!-- El campo "packageCode" es obligatorio -->
-         <packageCode>EU13992</packageCode>
+         <packageCode>IT20T-LEYMM</packageCode>
          <!--stayCode></stayCode-->
       </arg0>
    </pac:minimumPrice>

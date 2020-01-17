@@ -1,0 +1,43 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pac="http://packages.servicePackage.dome.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pac:confirm>
+         <arg0>
+            <agencyReference>REFERENCIA TEST</agencyReference>
+            <flightInformation>
+               <arrivalAirport>LHR</arrivalAirport>
+               <company>IB</company>
+               <departureAirport>SCL</departureAirport>
+               <flightInOut>I</flightInOut>
+               <flightLocalDateTime>2020/04/11 13:25</flightLocalDateTime>
+               <flightNumber>3524</flightNumber>
+            </flightInformation>
+            <flightInformation>
+               <arrivalAirport>SCL</arrivalAirport>
+               <company>IB</company>
+               <departureAirport>MAD</departureAirport>
+               <flightInOut>O</flightInOut>
+               <flightLocalDateTime>2020/04/26 18:25</flightLocalDateTime>
+               <flightNumber>3523</flightNumber>
+            </flightInformation>
+
+            <!--El campo "ideses" es obligatorio-->
+            <ideses>WAW#40292#707369312472232</ideses>
+            <pax>
+               <age>30</age>
+               <documentNumber></documentNumber>
+               <firstName>NOMBRETESTA1</firstName>
+               <lastName>APELLIDOTESTA1</lastName>
+               <paxId>1</paxId>
+               <phone></phone>
+            </pax>
+            <remark>
+               <code>1</code>
+               <type>AGE</type>
+               <value>COMENTARIOS SOBRE LA RESERVA</value>
+            </remark>
+         </arg0>
+
+      </pac:confirm>
+   </soapenv:Body>
+</soapenv:Envelope>

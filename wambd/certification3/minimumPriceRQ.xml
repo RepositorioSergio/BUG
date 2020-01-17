@@ -1,0 +1,19 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pac="http://packages.servicePackage.dome.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pac:minimumPrice>
+         <arg0>
+            <!--beginDate></beginDate-->
+            <!--fareCode></fareCode-->
+            <ideses>WAW#40292#372732783199669</ideses>
+            <!--origin>
+               <originCode></originCode>
+               <originName></originName>
+            </origin-->
+            <!-- El campo "packageCode" es obligatorio -->
+            <packageCode>IT20T-LEYMM</packageCode>
+            <!--stayCode></stayCode-->
+         </arg0>
+      </pac:minimumPrice>
+   </soapenv:Body>
+</soapenv:Envelope>
