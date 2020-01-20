@@ -1,0 +1,30 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pac="http://packages.servicePackage.dome.com/">
+<soapenv:Header/>
+<soapenv:Body>
+   <pac:select>
+      <arg0>
+         <!--addPostNights>1</addPostNights-->
+         <!--addPreNights>2</addPreNights-->
+         <!--El campo "distribution" es obligatorio-->
+         <distribution>
+            <distributionId>1</distributionId>
+            <pax>
+               <age>30</age>
+               <documentNumber></documentNumber>
+               <firstName>NOMBRETESTA1</firstName>
+               <lastName>APELLIDOTESTA1</lastName>
+               <paxId>1</paxId>
+               <phone></phone>
+            </pax>     
+        </distribution>
+
+         <!--El campo "ideses" es obligatorio-->
+         <ideses>WAW#40292#569337069176473</ideses>
+         <optionalServiceId>56:PP</optionalServiceId>
+         
+         <!--El campo "serviceGroupId" es obligatorio-->
+         <serviceGroupId>LEYMM</serviceGroupId>
+      </arg0>
+   </pac:select>
+</soapenv:Body>
+</soapenv:Envelope>

@@ -66,7 +66,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
          <!--origin>MAD</origin-->
          <productCode></productCode>
          <!--publishedCode></publishedCode-->
-         <searchText>P.68</searchText>
+         <searchText>P.108</searchText>
       </arg0>
    </pac:availabilityProduct>
 </soapenv:Body>
