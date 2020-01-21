@@ -1,11 +1,11 @@
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pac="http://packages.servicePackage.dome.com/">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <pac:information>
-         <arg0>
-            <ideses></ideses>
-            <productCode>IT20T-LEYMM</productCode>
-         </arg0>
-      </pac:information>
-   </soapenv:Body>
+<soapenv:Header/>
+<soapenv:Body>
+   <pac:information>
+      <arg0>
+         <ideses></ideses>
+         <productCode>IT19T-80519</productCode>
+      </arg0>
+   </pac:information>
+</soapenv:Body>
 </soapenv:Envelope>

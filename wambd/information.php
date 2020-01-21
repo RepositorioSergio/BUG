@@ -53,7 +53,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
    <pac:information>
       <arg0>
          <ideses></ideses>
-         <productCode>IT20T-LEYMM</productCode>
+         <productCode>IT19T-80519</productCode>
       </arg0>
    </pac:information>
 </soapenv:Body>

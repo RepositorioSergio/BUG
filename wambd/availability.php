@@ -53,9 +53,9 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
    <pac:availability>
       <arg0>
        <!--El campo "BeginDate" es obligatorio-->
-         <beginDate>2020-04-12</beginDate>
+         <beginDate>2020-03-22</beginDate>
        <!--endDate>2019-02-02</endDate-->
-         <categoryCode>S</categoryCode>
+         <categoryCode>G</categoryCode>
          <!--El campo "distribution" es obligatorio -->
          <distribution>
             <distributionId>1</distributionId>
@@ -68,6 +68,33 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                <phone></phone>
             </pax>   
          </distribution>
+         <distribution>
+            <distributionId>2</distributionId>
+            <pax>
+               <age>35</age>
+               <documentNumber></documentNumber>
+               <firstName>NOMBRETESTA2</firstName>
+               <lastName>APELLIDOTESTA2</lastName>
+               <paxId>2</paxId>
+               <phone></phone>
+            </pax>   
+            <pax>
+               <age>36</age>
+               <documentNumber></documentNumber>
+               <firstName>NOMBRETESTA3</firstName>
+               <lastName>APELLIDOTESTA3</lastName>
+               <paxId>3</paxId>
+               <phone></phone>
+            </pax> 
+            <pax>
+               <age>36</age>
+               <documentNumber></documentNumber>
+               <firstName>NOMBRETESTA4</firstName>
+               <lastName>APELLIDOTESTA4</lastName>
+               <paxId>4</paxId>
+               <phone></phone>
+            </pax> 
+         </distribution>
          <!-- El campo "fareCode" es obligatorio -->
          <fareCode>NORMAL</fareCode>
          <!--ideses></ideses-->
@@ -78,9 +105,9 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             <user>XMLCON</user>
          </login>
          <!-- El campo "packageCode" es obligatorio -->
-         <packageCode>IT20T-LEYMM</packageCode>
+         <packageCode>IT19T-80519</packageCode>
          <showOptionals>Y</showOptionals>
-         <stayCode>21</stayCode>
+         <stayCode>5</stayCode>
       </arg0>
    </pac:availability>
 </soapenv:Body>

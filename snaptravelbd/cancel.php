@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU HOTEL LIST<br/>";
+echo "COMECOU CANCEL<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -42,35 +42,29 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$url = 'https://b2b-api-staging.snaptravel.com/b2b';
+$url = 'https://b2b-api-staging.snaptravel.com/cancel';
 
 $raw = '{
-    "arrivalDate": "03/27/2020",
-    "departureDate": "03/30/2020",
-    "room1": "2",
-    "hotelIdList": [108540,112915,118583,118903,119566,122212],
-    "locale": "en_US",
-    "currencyCode": "USD",
-    "timeout": 2
+    "itineraryId": "demo-6667247",
+    "confirmationNumber": "6707662"
   }';
 
-/* $client = new Client();
+$client = new Client();
 $client->setOptions(array(
     'timeout' => 100,
     'sslverifypeer' => false,
     'sslverifyhost' => false
 ));
 $client->setHeaders(array(
-    "Content-type: text/xml",
     "x-api-key: 1Yr3v5xEXGqwB8MD2g1n3oma0r3blov3Exgo0r86",
-    "locale: en_US",
-    "currencyCode: USD",
-    'Content-Length: 0'
+    "Content-Type: application/json",
+    "version: 3",
+    "Content-Length: " . strlen($raw)
 ));
 
 $client->setUri($url);
-$client->setMethod('GET');
-//$client->setRawBody($raw);
+$client->setMethod('POST');
+$client->setRawBody($raw);
 $response = $client->send();
 if ($response->isSuccess()) {
     $response = $response->getBody();
@@ -84,32 +78,11 @@ if ($response->isSuccess()) {
     echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
     echo $return;
     die();
-}   */
-
-$headers = array(
-    "x-api-key: 1Yr3v5xEXGqwB8MD2g1n3oma0r3blov3Exgo0r86",
-    "Content-Type: application/json",
-    "version: 3",
-    "Content-Length: " . strlen($raw)
-);
-
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
-curl_setopt($ch, CURLOPT_VERBOSE, true);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $raw); 
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-$response = curl_exec($ch);
-$error = curl_error($ch);
-$headers = curl_getinfo($ch);
-curl_close($ch);
+} 
 
 echo $response;
 
-$response = json_decode($response, true);
+$response = json_decode($response, true); 
 die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.mmc.php');
 $config = [
@@ -121,25 +94,8 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$HotelListResponse = $response['HotelListResponse'];
-$customerSessionId = $HotelListResponse['customerSessionId'];
-$HotelList = $HotelListResponse['HotelList'];
-if (count($HotelList) > 0) {
-    $size = $HotelList['size'];
-    $HotelSummary = $HotelList['HotelSummary'];
-    if (count($HotelSummary) > 0) {
-        for ($i=0; $i < count($HotelSummary); $i++) { 
-            $hotelId = $HotelSummary[$i]['hotelId'];
-            $RoomRateDetailsList = $HotelSummary[$i]['RoomRateDetailsList'];
-            $RoomRateDetails = $RoomRateDetailsList['RoomRateDetails'];
-            $RateInfos = $RoomRateDetails['RateInfos'];
-            $RateInfo = $RateInfos['RateInfo'];
-            $ChargeableRateInfo = $RateInfo['ChargeableRateInfo'];
-            $currencyCode = $ChargeableRateInfo['currencyCode'];
-            $total = $ChargeableRateInfo['total'];
-        }
-    }
-}
+
+
 
 // EOF
 $db->getDriver()

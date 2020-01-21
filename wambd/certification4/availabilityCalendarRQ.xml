@@ -3,12 +3,12 @@
 <soapenv:Body>
    <pac:availabilityCalendar>
       <arg0>
-       <beginDate>2020-04-12</beginDate>
+       <beginDate>2020-03-22</beginDate>
          <!-- El campo "FareCode" es obligatorio-->
          <fareCode>NORMAL</fareCode>
-         <ideses>WAW#40292#687191869057668</ideses>
+         <ideses>WAW#40292#250941801616500</ideses>
          <!-- El campo "PackageCode" es obligatorio -->
-         <packageCode>IT20T-LEYMM</packageCode>
+         <packageCode>IT19T-80519</packageCode>
       </arg0>
    </pac:availabilityCalendar>
 </soapenv:Body>
