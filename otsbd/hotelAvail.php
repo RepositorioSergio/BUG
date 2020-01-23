@@ -55,7 +55,7 @@ $raw = '<OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" AvailRat
 </POS>
 <AvailRequestSegments>
     <AvailRequestSegment>
-        <StayDateRange End="2020-06-05" Start="2020-05-29"/>
+        <StayDateRange End="2020-07-05" Start="2020-06-29"/>
         <RoomStayCandidates>
             <RoomStayCandidate Quantity="1" RPH="1">
                 <GuestCounts>
