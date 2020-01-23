@@ -29,7 +29,14 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
         }
     }
 }
-$hotellist = [108540,112915,118583,118903,119566,122212];
+$hotellist = [
+    108540,
+    112915,
+    118583,
+    118903,
+    119566,
+    122212
+];
 if ($hotellist != "") {
     $affiliate_id_snaptravel = 0;
     $sql = "select value from settings where name='snaptravelbranches_id' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
@@ -49,42 +56,6 @@ if ($hotellist != "") {
     if ($row_settings->valid()) {
         $row_settings = $row_settings->current();
         $snaptravelRevisionVersion = $row_settings['value'];
-    }
-    $sql = "select value from settings where name='snaptraveldaleschannel' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
-    $statement = $db->createStatement($sql);
-    $statement->prepare();
-    $row_settings = $statement->execute();
-    $row_settings->buffer();
-    if ($row_settings->valid()) {
-        $row_settings = $row_settings->current();
-        $snaptraveldaleschannel = $row_settings['value'];
-    }
-    $sql = "select value from settings where name='snaptravelsalesenvironment' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
-    $statement = $db->createStatement($sql);
-    $statement->prepare();
-    $row_settings = $statement->execute();
-    $row_settings->buffer();
-    if ($row_settings->valid()) {
-        $row_settings = $row_settings->current();
-        $snaptravelsalesenvironment = $row_settings['value'];
-    }
-    $sql = "select value from settings where name='snaptravelSearchSortorder' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
-    $statement = $db->createStatement($sql);
-    $statement->prepare();
-    $row_settings = $statement->execute();
-    $row_settings->buffer();
-    if ($row_settings->valid()) {
-        $row_settings = $row_settings->current();
-        $snaptravelSearchSortorder = $row_settings['value'];
-    }
-    $sql = "select value from settings where name='snaptravelSharedSecret' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
-    $statement = $db->createStatement($sql);
-    $statement->prepare();
-    $row_settings = $statement->execute();
-    $row_settings->buffer();
-    if ($row_settings->valid()) {
-        $row_settings = $row_settings->current();
-        $snaptravelSharedSecret = $row_settings['value'];
     }
     $sql = "select value from settings where name='snaptravelServiceURL' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
     $statement = $db->createStatement($sql);
@@ -124,17 +95,6 @@ if ($hotellist != "") {
     } else {
         $snaptravelMarkup = 0;
     }
-    $sql = "select value from settings where name='snaptravelb2cMarkup' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
-    $statement = $db->createStatement($sql);
-    $statement->prepare();
-    $row_settings = $statement->execute();
-    $row_settings->buffer();
-    if ($row_settings->valid()) {
-        $row_settings = $row_settings->current();
-        $snaptravelb2cMarkup = (double) $row_settings['value'];
-    } else {
-        $snaptravelb2cMarkup = 0;
-    }
     $sfilter = array();
     $signature = hash("sha256", $hotelbedsuser . $hotelbedspassword . time());
     $endpoint = $hotelbedsserviceURL . "hotel-api/1.0/hotels";
@@ -153,11 +113,11 @@ if ($hotellist != "") {
     } else {
         $sourceMarket = "";
     }
-
+    
     $local = 'en_US';
     $hotelList = "108540,112915,118583,118903,119566,122212";
     $currency = 'USD';
-
+    
     $raw2 = '{
         "arrivalDate": "' . strftime("%m/%d/%Y", $from) . '",
         "departureDate": "' . strftime("%m/%d/%Y", $to) . '",
@@ -197,24 +157,26 @@ if ($hotellist != "") {
     $customerSessionId = $HotelListResponse['customerSessionId'];
     
     $hotelId = 119566;
-
+    
     $numbers = '';
     $raw = '{
         "hotelId": ' . $hotelId . ',
         "sessionId": "' . $customerSessionId . '",
         "arrivalDate": "' . strftime("%m/%d/%Y", $from) . '",
         "departureDate": "' . strftime("%m/%d/%Y", $to) . '",';
-        /* for ($r=0; $r < count($adults); $r++) { 
-            $numbers = $adults[$r];
-            if (count($children[$r]) > 0) {
-                for ($z=0; $z < $children[$r]; $z++) { 
-                    $numbers = $numbers . ',' . $selectedChildrenAges[$r][$z];
-                }
-            }
-            $raw = $raw . '"room' . ($r+1) .'": "' . $numbers . '",';
-        } */
-
-        $raw = $raw . '"room1": "2",
+    /*
+     * for ($r=0; $r < count($adults); $r++) {
+     * $numbers = $adults[$r];
+     * if (count($children[$r]) > 0) {
+     * for ($z=0; $z < $children[$r]; $z++) {
+     * $numbers = $numbers . ',' . $selectedChildrenAges[$r][$z];
+     * }
+     * }
+     * $raw = $raw . '"room' . ($r+1) .'": "' . $numbers . '",';
+     * }
+     */
+    
+    $raw = $raw . '"room1": "2",
         "locale": "' . $local . '",
         "currencyCode": "' . $currency . '",
         "timeout": ' . $snaptravelTimeout . '
@@ -238,7 +200,7 @@ if ($hotellist != "") {
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
     curl_setopt($ch, CURLOPT_VERBOSE, true);
     curl_setopt($ch, CURLOPT_POST, true);
-    //curl_setopt($ch, CURLOPT_ENCODING, "gzip");
+    // curl_setopt($ch, CURLOPT_ENCODING, "gzip");
     curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $hotelbedsTimeout);
     curl_setopt($ch, CURLOPT_TIMEOUT, $hotelbedsTimeout);

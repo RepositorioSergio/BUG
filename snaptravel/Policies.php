@@ -79,42 +79,6 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $snaptravelRevisionVersion = $row_settings['value'];
 }
-$sql = "select value from settings where name='snaptraveldaleschannel' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $snaptraveldaleschannel = $row_settings['value'];
-}
-$sql = "select value from settings where name='snaptravelsalesenvironment' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $snaptravelsalesenvironment = $row_settings['value'];
-}
-$sql = "select value from settings where name='snaptravelSearchSortorder' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $snaptravelSearchSortorder = $row_settings['value'];
-}
-$sql = "select value from settings where name='snaptravelSharedSecret' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $snaptravelSharedSecret = $row_settings['value'];
-}
 $sql = "select value from settings where name='snaptravelServiceURL' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -153,17 +117,6 @@ if ($row_settings->valid()) {
 } else {
     $snaptravelMarkup = 0;
 }
-$sql = "select value from settings where name='snaptravelb2cMarkup' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $snaptravelb2cMarkup = (double) $row_settings['value'];
-} else {
-    $snaptravelb2cMarkup = 0;
-}
 
 $breakdown = array();
 for ($w = 0; $w < count($quoteid); $w ++) {
@@ -188,7 +141,6 @@ for ($w = 0; $w < count($quoteid); $w ++) {
         array_push($breakdown, $outputArray);
     }
 }
-
 
 $fromHotelsPRO = DateTime::createFromFormat("d-m-Y", $from);
 $toHotelsPro = DateTime::createFromFormat("d-m-Y", $to);
@@ -221,25 +173,25 @@ foreach ($breakdown as $k => $v) {
         $local = 'en_US';
         $sessionid = $value['sessionid'];
         $rateKey = $value['rateKey'];
-
+        
         $from_date = date("m/d/Y", strtotime($from));
         $to_date = date("m/d/Y", strtotime($to));
-
+        
         $numbers = '';
         $raw = '{
             "hotelId": ' . $hotel_code . ',
             "sessionId": "' . $sessionid . '",
             "arrivalDate": "' . $from_date . '",
             "departureDate": "' . $to_date . '",';
-            for ($r = 0; $r < $rooms; $r ++) {
-                $numbers = $selectedAdults[$r];
-                if (count($selectedChildren[$r]) > 0) {
-                    for ($z = 0; $z < $selectedChildren[$r]; $z ++) {
-                        $numbers = $numbers . ',' . $selectedChildrenAges[$r][$z];
-                    }
+        for ($r = 0; $r < $rooms; $r ++) {
+            $numbers = $selectedAdults[$r];
+            if (count($selectedChildren[$r]) > 0) {
+                for ($z = 0; $z < $selectedChildren[$r]; $z ++) {
+                    $numbers = $numbers . ',' . $selectedChildrenAges[$r][$z];
                 }
-                $raw = $raw . '"room' . ($r + 1) . '": "' . $numbers . '",';
             }
+            $raw = $raw . '"room' . ($r + 1) . '": "' . $numbers . '",';
+        }
         $raw = $raw . '"rateKey": "' . $rateKey . '",
             "locale": "' . $local . '",
             "currencyCode": "' . strtoupper($currency) . '",
@@ -253,7 +205,7 @@ foreach ($breakdown as $k => $v) {
             "version: $snaptravelRevisionVersion",
             "Content-Length: " . strlen($raw)
         );
-
+        
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
         curl_setopt($ch, CURLOPT_URL, $snaptravelServiceURL . 'avail');
@@ -261,7 +213,7 @@ foreach ($breakdown as $k => $v) {
         curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
         curl_setopt($ch, CURLOPT_VERBOSE, true);
         curl_setopt($ch, CURLOPT_POST, true);
-        //curl_setopt($ch, CURLOPT_ENCODING, "gzip,deflate");
+        // curl_setopt($ch, CURLOPT_ENCODING, "gzip,deflate");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $response2 = curl_exec($ch);
@@ -289,11 +241,11 @@ foreach ($breakdown as $k => $v) {
             $logger->addWriter($writer);
             $logger->info($e->getMessage());
         }
-
+        
         $response2 = json_decode($response2, true);
-    
-        //error_log("\r\n " . print_r($response2, true) . " \r\n", 3, "/srv/www/htdocs/error_log");
-
+        
+        // error_log("\r\n " . print_r($response2, true) . " \r\n", 3, "/srv/www/htdocs/error_log");
+        
         $HotelRoomAvailabilityResponse = $response2['HotelRoomAvailabilityResponse'];
         if (count($HotelRoomAvailabilityResponse) > 0) {
             $hotelId = $HotelRoomAvailabilityResponse['hotelId'];
@@ -346,7 +298,7 @@ foreach ($breakdown as $k => $v) {
                 }
             }
         }
-
+        
         //
         // Policies
         //
@@ -376,10 +328,12 @@ foreach ($breakdown as $k => $v) {
             error_log("\r\n ENTROU \r\n", 3, "/srv/www/htdocs/error_log");
             $item['cancelpolicy'] = $cancelation_details;
             $item['cancelpolicy_deadline'] = $cancelation_deadline;
-            /* $item['cancelpolicy_deadlinetimestamp'] = $cancelation_deadline;
-            $item['cancelpolicy_details'] = $cancelation_details; */
+            /*
+             * $item['cancelpolicy_deadlinetimestamp'] = $cancelation_deadline;
+             * $item['cancelpolicy_details'] = $cancelation_details;
+             */
         }
-         
+        
         array_push($roombreakdown, $item);
     }
     $c ++;

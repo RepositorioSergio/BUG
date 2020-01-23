@@ -8,7 +8,7 @@ if ($response != "") {
     error_log("\r\n " . print_r($response, true) . " \r\n", 3, "/srv/www/htdocs/error_log");
     $HotelRoomAvailabilityResponse = $response['HotelRoomAvailabilityResponse'];
     
-    //error_log("\r\n SIZE = " . $HotelRoomAvailabilityResponse['@size'] . " \r\n", 3, "/srv/www/htdocs/error_log");
+    // error_log("\r\n SIZE = " . $HotelRoomAvailabilityResponse['@size'] . " \r\n", 3, "/srv/www/htdocs/error_log");
     
     if (count($HotelRoomAvailabilityResponse) > 0) {
         $hotelId = $HotelRoomAvailabilityResponse['hotelId'];
@@ -58,8 +58,8 @@ if ($response != "") {
                         }
                     }
                 }
-                                
-                //$rooms[$baseCounterDetails]['name'] = $Hotel_Name;
+                
+                // $rooms[$baseCounterDetails]['name'] = $Hotel_Name;
                 $rooms[$baseCounterDetails]['hotelid'] = $hotelId;
                 $rooms[$baseCounterDetails]['roomid'] = $id;
                 $rooms[$baseCounterDetails]['code'] = $hotelId;
@@ -129,11 +129,11 @@ if ($response != "") {
                 $rooms[$baseCounterDetails]['pricebreakdown'] = $pricebreakdown;
                 $rooms[$baseCounterDetails]['scurrency'] = $currencyCode;
                 /*
-                    * if ($PromotionName != "") {
-                    * $rooms[$baseCounterDetails]['special'] = true;
-                    * $rooms[$baseCounterDetails]['specialdescription'] = $PromotionName;
-                    * } else {
-                    */
+                 * if ($PromotionName != "") {
+                 * $rooms[$baseCounterDetails]['special'] = true;
+                 * $rooms[$baseCounterDetails]['specialdescription'] = $PromotionName;
+                 * } else {
+                 */
                 $rooms[$baseCounterDetails]['special'] = false;
                 $rooms[$baseCounterDetails]['specialdescription'] = "";
                 // }

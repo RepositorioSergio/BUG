@@ -104,42 +104,6 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $snaptravelRevisionVersion = $row_settings['value'];
 }
-$sql = "select value from settings where name='snaptraveldaleschannel' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $snaptraveldaleschannel = $row_settings['value'];
-}
-$sql = "select value from settings where name='snaptravelsalesenvironment' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $snaptravelsalesenvironment = $row_settings['value'];
-}
-$sql = "select value from settings where name='snaptravelSearchSortorder' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $snaptravelSearchSortorder = $row_settings['value'];
-}
-$sql = "select value from settings where name='snaptravelSharedSecret' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $snaptravelSharedSecret = $row_settings['value'];
-}
 $sql = "select value from settings where name='snaptravelServiceURL' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -178,17 +142,7 @@ if ($row_settings->valid()) {
 } else {
     $snaptravelMarkup = 0;
 }
-$sql = "select value from settings where name='snaptravelb2cMarkup' and affiliate_id=$affiliate_id_snaptravel" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $snaptravelb2cMarkup = (double) $row_settings['value'];
-} else {
-    $snaptravelb2cMarkup = 0;
-}
+
 $outputArray = array();
 $arrIt = new RecursiveIteratorIterator(new RecursiveArrayIterator($data));
 foreach ($arrIt as $sub) {
@@ -224,7 +178,7 @@ foreach ($breakdownTmp as $k => $v) {
         $scode = $value['shid'];
         $HotelId = $value['hotelid'];
         $room_code = $value['roomid'];
-
+        
         $cancelpolicy_deadline = 0;
         $cancelpolicy = "";
         $start = $value['start'];
@@ -249,29 +203,29 @@ foreach ($breakdownTmp as $k => $v) {
         $cancelation_deadline = 0;
         $cancelation_details = "";
         
-        $sessionid =  $value['sessionid'];
-        $rateKey =  $value['rateKey'];
-        $pricetotal =  $value['total'];
+        $sessionid = $value['sessionid'];
+        $rateKey = $value['rateKey'];
+        $pricetotal = $value['total'];
         $mealid = $value['mealid'];
         $childrenages = $value['childrenages'];
         $numberrooms = 1;
         $local = 'en_US';
         $numbers = '';
-
+        
         $raw = '{
             "hotelId": ' . $HotelId . ',
             "sessionId": "' . $sessionid . '",
             "arrivalDate": "' . $from_date . '",
             "departureDate": "' . $to_date . '",';
-            for ($r = 0; $r < $rooms; $r ++) {
-                $numbers = $selectedAdults[$r];
-                if (count($selectedChildren[$r]) > 0) {
-                    for ($z = 0; $z < $selectedChildren[$r]; $z ++) {
-                        $numbers = $numbers . ',' . $selectedChildrenAges[$r][$z];
-                    }
+        for ($r = 0; $r < $rooms; $r ++) {
+            $numbers = $selectedAdults[$r];
+            if (count($selectedChildren[$r]) > 0) {
+                for ($z = 0; $z < $selectedChildren[$r]; $z ++) {
+                    $numbers = $numbers . ',' . $selectedChildrenAges[$r][$z];
                 }
-                $raw = $raw . '"room' . ($r + 1) . '": "' . $numbers . '",';
             }
+            $raw = $raw . '"room' . ($r + 1) . '": "' . $numbers . '",';
+        }
         $raw = $raw . '"rateKey": "' . $rateKey . '",
             "locale": "' . $local . '",
             "currencyCode": "' . strtoupper($currency) . '",
@@ -293,7 +247,7 @@ foreach ($breakdownTmp as $k => $v) {
         curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
         curl_setopt($ch, CURLOPT_VERBOSE, true);
         curl_setopt($ch, CURLOPT_POST, true);
-        //curl_setopt($ch, CURLOPT_ENCODING, "gzip,deflate");
+        // curl_setopt($ch, CURLOPT_ENCODING, "gzip,deflate");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $response2 = curl_exec($ch);
@@ -458,16 +412,16 @@ foreach ($breakdownTmp as $k => $v) {
         //
         // $cancelpolicy = $CancellationPoliciesText;
         // if ($CancellationPoliciesArray[0]['deadline'] == "") {
-        //     $cancelpolicy_deadline = time();
+        // $cancelpolicy_deadline = time();
         // } else {
-        //     $cancelpolicy_deadline = $CancellationPoliciesArray[0]['deadline'] . " hours";
+        // $cancelpolicy_deadline = $CancellationPoliciesArray[0]['deadline'] . " hours";
         // }
         // error_log("\r\nA - Cancel Policy Deadline / Cancel Policy / Status = " . $cancelpolicy_deadline . " - " . $cancelpolicy . " - " . $status . " \r\n", 3, "/srv/www/htdocs/error_log");
         // if ($cancelpolicy_deadline == 0 and $status == "matched") {
-        //     $cancelpolicy_deadline = $value['cancelpolicy_deadlinetimestamp'];
+        // $cancelpolicy_deadline = $value['cancelpolicy_deadlinetimestamp'];
         // }
         // if ($cancelpolicy == "" and $status == "matched") {
-        //     $cancelpolicy = $value['cancelpolicy'];
+        // $cancelpolicy = $value['cancelpolicy'];
         // }
         // error_log("\r\nB - Cancel Policy Deadline = " . $cancelpolicy_deadline . "\r\n", 3, "/srv/www/htdocs/error_log");
         // error_log("\r\nCancel Policy = " . $cancelpolicy . "\r\n", 3, "/srv/www/htdocs/error_log");
@@ -484,9 +438,9 @@ foreach ($breakdownTmp as $k => $v) {
         $item['adults'] = $selectedAdults[$c];
         $item['children'] = $selectedChildren[$c];
         $item['children_ages'] = json_decode(json_encode($selectedChildrenAges[$c]), false);
-        //$item['cancelpolicy'] = $cancelpolicy;
-        //$item['cancelpolicy_deadlinetimestamp'] = $cancelpolicy_deadline;
-        //$item['cancelpolicy_deadline'] = $cancelpolicy_deadline;
+        // $item['cancelpolicy'] = $cancelpolicy;
+        // $item['cancelpolicy_deadlinetimestamp'] = $cancelpolicy_deadline;
+        // $item['cancelpolicy_deadline'] = $cancelpolicy_deadline;
         
         $item['nonrefundable'] = $value['nonrefundable'];
         if ($item['nonrefundable'] == true) {

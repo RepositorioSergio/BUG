@@ -21,7 +21,7 @@ $query = "";
 $auxArray = array();
 $reviewsFilter = "";
 $cAuxCounter = 0;
-error_log("\r\n COMECOU SNAPTRAVEL \r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\nSnapTravel\r\n", 3, "/srv/www/htdocs/error_log");
 $sql = "select name, country_id, zone_id,city_xml19, latitude, longitude from cities where id=" . $destination;
 $statement2 = $db->createStatement($sql);
 $statement2->prepare();
@@ -39,7 +39,6 @@ if ($row_settings->valid()) {
     $city_xml19 = "";
 }
 $city_xml19 = "HKG";
-
 $affiliate_id = 0;
 $sql = "select value from settings where name='enablesnaptravel' and affiliate_id=$affiliate_id" . $branch_filter;
 $statement = $db->createStatement($sql);
@@ -50,29 +49,6 @@ if ($row_settings->valid()) {
     $affiliate_id_snaptravel = $affiliate_id;
 } else {
     $affiliate_id_snaptravel = 0;
-}
-if ((int) $nationality > 0) {
-    $sql = "select iso_code_2 from countries where id=" . (int) $nationality;
-    $statement2 = $db->createStatement($sql);
-    $statement2->prepare();
-    $row_settings = $statement2->execute();
-    $row_settings->buffer();
-    if ($row_settings->valid()) {
-        $row_settings = $row_settings->current();
-        $sourceMarket = $row_settings["iso_code_2"];
-    } else {
-        $sourceMarket = "";
-    }
-} else {
-    $sql = "select value from settings where name='snaptravelDefaultNationalityCountryCode' and affiliate_id=$affiliate_id_snaptravel";
-    $statement = $db->createStatement($sql);
-    $statement->prepare();
-    $row_settings = $statement->execute();
-    $row_settings->buffer();
-    if ($row_settings->valid()) {
-        $row_settings = $row_settings->current();
-        $sourceMarket = $row_settings['value'];
-    }
 }
 $sql = "select value from settings where name='snaptravelbranches_id' and affiliate_id=$affiliate_id_snaptravel";
 $statement = $db->createStatement($sql);
@@ -92,42 +68,6 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $snaptravelRevisionVersion = $row_settings['value'];
 }
-$sql = "select value from settings where name='snaptraveldaleschannel' and affiliate_id=$affiliate_id_snaptravel";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $snaptraveldaleschannel = $row_settings['value'];
-}
-$sql = "select value from settings where name='snaptravelsalesenvironment' and affiliate_id=$affiliate_id_snaptravel";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $snaptravelsalesenvironment = $row_settings['value'];
-}
-$sql = "select value from settings where name='snaptravelSearchSortorder' and affiliate_id=$affiliate_id_snaptravel";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $snaptravelSearchSortorder = $row_settings['value'];
-}
-$sql = "select value from settings where name='snaptravelSharedSecret' and affiliate_id=$affiliate_id_snaptravel";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $snaptravelSharedSecret = $row_settings['value'];
-}
 $sql = "select value from settings where name='snaptravelServiceURL' and affiliate_id=$affiliate_id_snaptravel";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -145,6 +85,9 @@ $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $snaptravelTimeout = $row_settings['value'];
+}
+if ($snaptravelTimeout == 0) {
+    $snaptravelTimeout = 120;
 }
 $sql = "select value from settings where name='snaptravelAPIKey' and affiliate_id=$affiliate_id_snaptravel";
 $statement = $db->createStatement($sql);
@@ -166,18 +109,6 @@ if ($row_settings->valid()) {
 } else {
     $snaptravelMarkup = 0;
 }
-$sql = "select value from settings where name='snaptravelb2cMarkup' and affiliate_id=$affiliate_id_snaptravel";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $snaptravelb2cMarkup = (double) $row_settings['value'];
-} else {
-    $snaptravelb2cMarkup = 0;
-}
-
 // error_log("\r\n Request: $raw \r\n", 3, "/srv/www/htdocs/error_log");
 if ($snaptravelServiceURL != "") {
     $local = 'en_US';
@@ -210,7 +141,7 @@ if ($snaptravelServiceURL != "") {
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
     curl_setopt($ch, CURLOPT_URL, $snaptravelServiceURL . 'b2b');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
+    curl_setopt($ch, CURLOPT_TIMEOUT, $snaptravelTimeout);
     curl_setopt($ch, CURLOPT_VERBOSE, true);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $raw2);
@@ -243,20 +174,17 @@ if ($snaptravelServiceURL != "") {
         }
         $raw = $raw . '"room' . ($r + 1) . '": "' . $numbers . '",';
     }
-    
     $raw = $raw . '"locale": "' . $local . '",
         "currencyCode": "' . strtoupper($currency) . '",
         "timeout": ' . $snaptravelTimeout . '
     }';
-    error_log("\r\n RAW: $raw \r\n", 3, "/srv/www/htdocs/error_log");
-    
+    error_log("\r\nRAW: $raw \r\n", 3, "/srv/www/htdocs/error_log");
     $headers = array(
         "x-api-key: $snaptravelAPIKey",
         "Content-Type: application/json",
         "version: $snaptravelRevisionVersion",
         "Content-Length: " . strlen($raw)
     );
-    
     $startTime = microtime();
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
@@ -272,9 +200,7 @@ if ($snaptravelServiceURL != "") {
     $headers = curl_getinfo($ch);
     curl_close($ch);
     $endTime = microtime();
-    
     // error_log("\r\n Response2: $response \r\n", 3, "/srv/www/htdocs/error_log");
-    
     try {
         $sql = new Sql($db);
         $insert = $sql->insert();
@@ -295,15 +221,10 @@ if ($snaptravelServiceURL != "") {
         $logger->addWriter($writer);
         $logger->info($e->getMessage());
     }
-    
     $response = json_decode($response, true);
-    
-    error_log("\r\n " . print_r($response, true) . " \r\n", 3, "/srv/www/htdocs/error_log");
-    
     $HotelRoomAvailabilityResponse = $response['HotelRoomAvailabilityResponse'];
-    
+    // error_log("\r\n " . print_r($response, true) . " \r\n", 3, "/srv/www/htdocs/error_log");
     // error_log("\r\n SIZE = " . $HotelRoomAvailabilityResponse['@size'] . " \r\n", 3, "/srv/www/htdocs/error_log");
-    
     if (count($HotelRoomAvailabilityResponse) > 0) {
         $hotelId = $HotelRoomAvailabilityResponse['hotelId'];
         $shid = $hotelId;
@@ -352,76 +273,113 @@ if ($snaptravelServiceURL != "") {
                         }
                     }
                 }
-                
-                for ($zRooms = 0; $zRooms < count($selectedAdults); $zRooms ++) {
-                    if (is_array($tmp[$shid])) {
-                        $baseCounterDetails = count($tmp[$shid]['details'][$zRooms]);
-                    } else {
-                        $baseCounterDetails = 0;
-                    }
-                    
-                    // $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['name'] = $name;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['hotelid'] = $hotelId;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['roomid'] = $id;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['code'] = $hotelId;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['scode'] = $shid;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['shid'] = $shid;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['sessionid'] = $customerSessionId;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['status'] = 1;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['quoteid'] = md5(uniqid($session_id, true)) . "-" . $index . "-70";
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room'] = $description;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room_description'] = $description;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room_type'] = $roomTypeCode;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['rate_code'] = $rateCode;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['rateKey'] = $rateKey;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['adults'] = $selectedAdults[$zRooms];
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['children'] = $selectedChildren[$zRooms];
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['total'] = (double) $total;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nettotal'] = $total;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['meal'] = $translator->translate($roomTypeDescription);
-                    $pricebreakdown = array();
-                    $pricebreakdownCount = 0;
-                    for ($rZZ = 0; $rZZ < $noOfNights; $rZZ ++) {
-                        $pricebreakdown[$pricebreakdownCount]['date'] = strftime("%d %b %Y", mktime(0, 0, 0, date("m", $from), date("d", $from) + $rZZ, date("y", $from)));
-                        $amount = $total / $noOfNights;
-                        if ($snaptravelMarkup != 0) {
-                            $amount = $amount + (($amount * $snaptravelMarkup) / 100);
-                        }
-                        // Geo target markup
-                        if ($internalmarkup != 0) {
-                            $amount = $amount + (($amount * $internalmarkup) / 100);
-                        }
-                        // Agent markup
-                        if ($agent_markup != 0) {
-                            $amount = $amount + (($amount * $agent_markup) / 100);
-                        }
-                        // Fallback Markup
-                        if ($snaptravelMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
-                            $amount = $amount + (($amount * $HotelsMarkupFallback) / 100);
-                        }
-                        // Agent discount
-                        if ($agent_discount != 0) {
-                            $amount = $amount - (($amount * $agent_discount) / 100);
-                        }
-                        if ($scurrency != "" and $currency != $scurrency) {
-                            $amount = $CurrencyConverter->convert($amount, $currency, $scurrency);
-                        }
-                        $pricebreakdown[$pricebreakdownCount]['price'] = $filter->filter($amount);
-                        $pricebreakdown[$pricebreakdownCount]['priceplain'] = $amount;
-                        $pricebreakdownCount = $pricebreakdownCount + 1;
-                    }
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['pricebreakdown'] = $pricebreakdown;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['scurrency'] = $currencyCode;
-                    
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['special'] = false;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = "";
-                    
-                    /*
-                     * $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy'] = $CancelCost;
-                     * $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy_deadline'] = $DeadLineCancel;
-                     */
-                    $count = $count + 1;
+                if (is_array($tmp[$shid])) {
+                    $baseCounterDetails = count($tmp[$shid]['details'][$zRooms]);
+                } else {
+                    $baseCounterDetails = 0;
                 }
+                $zRooms = 0;
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['hotelid'] = $hotelId;
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['roomid'] = $id;
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['code'] = $hotelId;
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['scode'] = $shid;
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['shid'] = $shid;
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['sessionid'] = $customerSessionId;
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['status'] = 1;
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['quoteid'] = md5(uniqid($session_id, true)) . "-" . $index . "-70";
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room'] = $description;
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room_description'] = $description;
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room_type'] = $roomTypeCode;
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['rate_code'] = $rateCode;
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['rateKey'] = $rateKey;
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['adults'] = $selectedAdults[$zRooms];
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['children'] = $selectedChildren[$zRooms];
+                // Net Total -> Antes do Markup
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nettotal'] = $total;
+                // Fazer markup
+                if ($snaptravelMarkup != 0) {
+                    $total = $total + (($total * $snaptravelMarkup) / 100);
+                }
+                // Geo target markup
+                if ($internalmarkup != 0) {
+                    $total = $total + (($total * $internalmarkup) / 100);
+                }
+                // Agent markup
+                if ($agent_markup != 0) {
+                    $total = $total + (($total * $agent_markup) / 100);
+                }
+                // Fallback Markup
+                if ($snaptravelMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
+                    $total = $total + (($total * $HotelsMarkupFallback) / 100);
+                }
+                // Agent discount
+                if ($agent_discount != 0) {
+                    $total = $total - (($total * $agent_discount) / 100);
+                }
+                if ($scurrency != "" and $currency != $scurrency) {
+                    $total = $CurrencyConverter->convert($total, $currency, $scurrency);
+                }
+                // Total com markup
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['total'] = (double) $total;
+                // Mapping do Board Type
+                try {
+                    $sql = "select mapped from board_mapping where description='" . $roomTypeDescription . "'";
+                    $statement = $db->query($sql);
+                    $row_board_mapping = $statement->execute();
+                    $row_board_mapping->buffer();
+                    if ($row_board_mapping->valid()) {
+                        $row_board_mapping = $row_board_mapping->current();
+                        $roomTypeDescription = $row_board_mapping["mapped"];
+                    }
+                } catch (Exception $e) {
+                    $logger = new Logger();
+                    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+                    $logger->addWriter($writer);
+                    $logger->info($e->getMessage());
+                }
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['meal'] = $translator->translate($roomTypeDescription);
+                $pricebreakdown = array();
+                $pricebreakdownCount = 0;
+                // Markup - Amount Breakdown
+                $amount = $total / $noOfNights;
+                if ($snaptravelMarkup != 0) {
+                    $amount = $amount + (($amount * $snaptravelMarkup) / 100);
+                }
+                // Geo target markup
+                if ($internalmarkup != 0) {
+                    $amount = $amount + (($amount * $internalmarkup) / 100);
+                }
+                // Agent markup
+                if ($agent_markup != 0) {
+                    $amount = $amount + (($amount * $agent_markup) / 100);
+                }
+                // Fallback Markup
+                if ($snaptravelMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
+                    $amount = $amount + (($amount * $HotelsMarkupFallback) / 100);
+                }
+                // Agent discount
+                if ($agent_discount != 0) {
+                    $amount = $amount - (($amount * $agent_discount) / 100);
+                }
+                if ($scurrency != "" and $currency != $scurrency) {
+                    $amount = $CurrencyConverter->convert($amount, $currency, $scurrency);
+                }
+                for ($rZZ = 0; $rZZ < $noOfNights; $rZZ ++) {
+                    $pricebreakdown[$pricebreakdownCount]['date'] = strftime("%d %b %Y", mktime(0, 0, 0, date("m", $from), date("d", $from) + $rZZ, date("y", $from)));
+                    $pricebreakdown[$pricebreakdownCount]['price'] = $filter->filter($amount);
+                    $pricebreakdown[$pricebreakdownCount]['priceplain'] = $amount;
+                    $pricebreakdownCount = $pricebreakdownCount + 1;
+                }
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['pricebreakdown'] = $pricebreakdown;
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['scurrency'] = $currencyCode;
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['special'] = false;
+                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = "";
+                
+                /*
+                 * $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy'] = $CancelCost;
+                 * $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy_deadline'] = $DeadLineCancel;
+                 */
+                $count = $count + 1;
             }
         }
     }
