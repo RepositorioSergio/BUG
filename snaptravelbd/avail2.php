@@ -104,45 +104,49 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $HotelRoomAvailabilityResponse = $response['HotelRoomAvailabilityResponse'];
 if (count($HotelRoomAvailabilityResponse) > 0) {
     $hotelId = $HotelRoomAvailabilityResponse['hotelId'];
-    $size = $HotelRoomAvailabilityResponse['size'];
+    $size = $HotelRoomAvailabilityResponse['@size'];
     $customerSessionId = $HotelRoomAvailabilityResponse['customerSessionId'];
     $HotelRoomResponse = $HotelRoomAvailabilityResponse['HotelRoomResponse'];
     if (count($HotelRoomResponse) > 0) {
-        $RoomImages = $HotelRoomResponse['RoomImages'];
-        $ValueAdds = $HotelRoomResponse['ValueAdds'];
-        $rateCode = $HotelRoomResponse['rateCode'];
-        $rateDescription = $HotelRoomResponse['rateDescription'];
-        $rateOccupancyPerRoom = $HotelRoomResponse['rateOccupancyPerRoom'];
-        $roomTypeCode = $HotelRoomResponse['roomTypeCode'];
-        $roomTypeDescription = $HotelRoomResponse['roomTypeDescription'];
-        //BedTypes
-        $BedTypes = $HotelRoomResponse['BedTypes'];
-        if (count($BedTypes) > 0) {
-            $size = $BedTypes['size'];
-            $BedType = $BedTypes['BedType'];
-            if (count($BedType) > 0) {
-                for ($i=0; $i < count($BedType); $i++) { 
-                    $id = $BedType[$i]['id'];
-                    $description = $BedType[$i]['description'];
+        for ($j = 0; $j < count($HotelRoomResponse); $j ++) {
+            $RoomImages = $HotelRoomResponse[$j]['RoomImages'];
+            $ValueAdds = $HotelRoomResponse[$j]['ValueAdds'];
+            $rateCode = $HotelRoomResponse[$j]['rateCode'];
+            $rateDescription = $HotelRoomResponse['rateDescription'];
+            $rateOccupancyPerRoom = $HotelRoomResponse[$j]['rateOccupancyPerRoom'];
+            $roomTypeCode = $HotelRoomResponse[$j]['roomTypeCode'];
+            $roomTypeDescription = $HotelRoomResponse[$j]['roomTypeDescription'];
+            // BedTypes
+            $BedTypes = $HotelRoomResponse[$j]['BedTypes'];
+            if (count($BedTypes) > 0) {
+                $size2 = $BedTypes['@size'];
+                $BedType = $BedTypes['BedType'];
+                if (count($BedType) > 0) {
+                    for ($i = 0; $i < count($BedType); $i ++) {
+                        $id = $BedType[$i]['@id'];
+                        $description = $BedType[$i]['description'];
+                    }
                 }
             }
-        }
-        //RateInfos
-        $RateInfos = $HotelRoomResponse['RateInfos'];
-        if (count($RateInfos) > 0) {
-            $RateInfo = $RateInfos['RateInfo'];
-            if (count($RateInfo) > 0) {
-                $nonRefundable = $RateInfo['nonRefundable'];
-                $ChargeableRateInfo = $RateInfo['ChargeableRateInfo'];
-                if (count($ChargeableRateInfo) > 0) {
-                    $currencyCode = $ChargeableRateInfo['currencyCode'];
-                    $total = $ChargeableRateInfo['total'];
-                }
-                $RoomGroup = $RateInfo['RoomGroup'];
-                if (count($RoomGroup) > 0) {
-                    $Room = $RoomGroup['Room'];
-                    if (count($Room) > 0) {
-                        $rateKey = $Room['rateKey'];
+            // RateInfos
+            $RateInfos = $HotelRoomResponse[$j]['RateInfos'];
+            if (count($RateInfos) > 0) {
+                $RateInfo = $RateInfos['RateInfo'];
+                if (count($RateInfo) > 0) {
+                    $nonRefundable = $RateInfo['nonRefundable'];
+                    $ChargeableRateInfo = $RateInfo['ChargeableRateInfo'];
+                    if (count($ChargeableRateInfo) > 0) {
+                        $currencyCode2 = $ChargeableRateInfo['@currencyCode'];
+                        $totalC2 = $ChargeableRateInfo['@total'];
+                        $currencyCode = $ChargeableRateInfo['currencyCode'];
+                        $totalC = $ChargeableRateInfo['total'];
+                    }
+                    $RoomGroup = $RateInfo['RoomGroup'];
+                    if (count($RoomGroup) > 0) {
+                        $Room = $RoomGroup['Room'];
+                        if (count($Room) > 0) {
+                            $rateKey = $Room['rateKey'];
+                        }
                     }
                 }
             }
