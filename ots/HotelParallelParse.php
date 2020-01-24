@@ -238,8 +238,8 @@ if ($response != "") {
                 for ($rZZ = 0; $rZZ < $noOfNights; $rZZ ++) {
                     $pricebreakdown[$pricebreakdownCount]['date'] = strftime("%d %b %Y", mktime(0, 0, 0, date("m", $from), date("d", $from) + $rZZ, date("y", $from)));
                     $amount = $TotalAmountAfterTax / $noOfNights;
-                    if ($roomerMarkup != 0) {
-                        $amount = $amount + (($amount * $roomerMarkup) / 100);
+                    if ($OTSMarkup != 0) {
+                        $amount = $amount + (($amount * $OTSMarkup) / 100);
                     }
                     // Geo target markup
                     if ($internalmarkup != 0) {
@@ -250,7 +250,7 @@ if ($response != "") {
                         $amount = $amount + (($amount * $agent_markup) / 100);
                     }
                     // Fallback Markup
-                    if ($roomerMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
+                    if ($OTSMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
                         $amount = $amount + (($amount * $HotelsMarkupFallback) / 100);
                     }
                     // Agent discount

@@ -34,15 +34,15 @@ if ($row_settings->valid()) {
 } else {
     $city_xml47 = "";
 }
-$sql = "select value from settings where name='enablemajesticusa' and affiliate_id=$affiliate_id" . $branch_filter;
+$sql = "select value from settings where name='enableOTS' and affiliate_id=$affiliate_id" . $branch_filter;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
-    $affiliate_id_majestic = $affiliate_id;
+    $affiliate_id_ots = $affiliate_id;
 } else {
-    $affiliate_id_majestic = 0;
+    $affiliate_id_ots = 0;
 }
 if ((int) $nationality > 0) {
     $sql = "select iso_code_2 from countries where id=" . (int) $nationality;
@@ -57,7 +57,7 @@ if ((int) $nationality > 0) {
         $sourceMarket = "";
     }
 } else {
-    $sql = "select value from settings where name='majesticusaDefaultNationalityCountryCode' and affiliate_id=$affiliate_id_majestic";
+    $sql = "select value from settings where name='otsDefaultNationalityCountryCode' and affiliate_id=$affiliate_id_ots";
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
@@ -67,43 +67,43 @@ if ((int) $nationality > 0) {
         $sourceMarket = $row_settings['value'];
     }
 }
-$sql = "select value from settings where name='majesticusaLoginEmail' and affiliate_id=$affiliate_id_majestic";
+$sql = "select value from settings where name='OTSID' and affiliate_id=$affiliate_id_ots";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $majesticusaLoginEmail = $row_settings['value'];
+    $OTSID = $row_settings['value'];
 }
-$sql = "select value from settings where name='majesticusaPassword' and affiliate_id=$affiliate_id_majestic";
+$sql = "select value from settings where name='OTSPassword' and affiliate_id=$affiliate_id_ots";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $majesticusaPassword = base64_decode($row_settings['value']);
+    $OTSPassword = base64_decode($row_settings['value']);
 }
-$sql = "select value from settings where name='majesticusaMarkup' and affiliate_id=$affiliate_id_majestic";
+$sql = "select value from settings where name='OTSMarkup' and affiliate_id=$affiliate_id_ots";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $majesticusaMarkup = (double) $row_settings['value'];
+    $OTSMarkup = (double) $row_settings['value'];
 } else {
-    $majesticusaMarkup = 0;
+    $OTSMarkup = 0;
 }
-$sql = "select value from settings where name='majesticusaServiceURL' and affiliate_id=$affiliate_id_majestic";
+$sql = "select value from settings where name='OTSServiceURL' and affiliate_id=$affiliate_id_ots";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $majesticusaServiceURL = $row_settings['value'];
+    $OTSServiceURL = $row_settings['value'];
 }
 $dateStart = new DateTime(strftime("%Y-%m-%d", $from));
 $dateEnd = new DateTime(strftime("%Y-%m-%d", $to));
@@ -111,38 +111,59 @@ $noOfNights = $dateStart->diff($dateEnd)->format('%d');
 $date = new Datetime();
 $timestamp = $date->format('U');
 $time = date('H:i:s', time());
+$countryCode = 'US';
+$Destination = 'New York';
+$Region = 'New York City Area';
+$count = 0;
 $raw = '<OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" AvailRatesOnly="true" Version="0.1">
 <POS>
     <Source>
-        <RequestorID Instance="MF001" ID_Context="AxisData" ID="TEST" Type="22"/>
+        <RequestorID Instance="MF001" ID_Context="AxisData" ID="' . $OTSID . '" Type="22"/>
     </Source>
     <Source>
-        <RequestorID Type="88" ID="TEST" MessagePassword="testpass"/>
+        <RequestorID Type="88" ID="' . $OTSID . '" MessagePassword="' . $OTSPassword . '"/>
     </Source>
 </POS>
 <AvailRequestSegments>
-    <AvailRequestSegment InfoSource="12">
-        <StayDateRange End="2019-12-12" Start="2019-12-10"/>
-        <RoomStayCandidates>
-            <RoomStayCandidate>
-                <GuestCounts>
-                    <GuestCount Count="2" AgeQualifyingCode="10"/>
-                </GuestCounts>
-            </RoomStayCandidate>
-        </RoomStayCandidates>
+    <AvailRequestSegment>
+        <StayDateRange End="' . strftime("%Y-%m-%d", $to) . '" Start="' . strftime("%Y-%m-%d", $from) . '"/>
+        <RoomStayCandidates>';
+        for ($r=0; $r < $rooms; $r++) { 
+            $raw = $raw . '<RoomStayCandidate Quantity="1" RPH="' . ($r+1) . '">
+            <GuestCounts>
+            <GuestCount Age="32" Count="' . $selectedAdults[$r] . '" AgeQualifyingCode="10"/>';
+            if ($selectedChildren[$r] > 0) {
+                for ($z=0; $z < $selectedChildren[$r]; $z++) { 
+                    if ($selectedChildrenAges[$r][$z] > 1 ) {
+                        $count = $count +1;
+                        $raw = $raw . '<GuestCount Age="' . $selectedChildrenAges[$r][$z] . '" Count="' . $count . '" AgeQualifyingCode="8"/>';
+                        $count = 0;
+                    } else {
+                        $count = $count +1;
+                        $raw = $raw . '<GuestCount Age="' . $selectedChildrenAges[$r][$z] . '" Count="' . $count . '" AgeQualifyingCode="7"/>';
+                        $count = 0;
+                    }
+                }
+            }
+            $raw = $raw . '</GuestCounts>
+                    </RoomStayCandidate>';
+        }
+            
+$raw = $raw . '</RoomStayCandidates>
         <HotelSearchCriteria>
             <Criterion>
-                <RefPoint CodeContext="Country">Portugal</RefPoint>
-                <RefPoint CodeContext="Destination">Algarve</RefPoint>
+                <RefPoint CodeContext="CountryCode">' . $countryCode . '</RefPoint>
+                <RefPoint CodeContext="Destination">' . $Destination . '</RefPoint>
+                <RefPoint CodeContext="Region">' . $Region . '</RefPoint>
             </Criterion>
         </HotelSearchCriteria>
     </AvailRequestSegment>
 </AvailRequestSegments>
 </OTA_HotelAvailRQ>';
 
-$url = "https://sintesb.axisdata.net/apu-test/ota";
+error_log("\r\n RAW: $raw \r\n", 3, "/srv/www/htdocs/error_log");
 
-if ($url != "") {
+if ($OTSServiceURL != "") {
     $headers = array(
         "Accept: application/xml",
         "Content-type: application/x-www-form-urlencoded",
@@ -153,7 +174,7 @@ if ($url != "") {
     $startTime = microtime();
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
-    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_URL, $OTSServiceURL);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
     curl_setopt($ch, CURLOPT_VERBOSE, true);
@@ -405,8 +426,8 @@ if ($url != "") {
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['RoomStayCandidateRPH'] = $RPRoomStayCandidateRPHH;
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['special'] = false;
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = "";
-                    /* try {
-                        $sql = "select mapped from board_mapping where description='" . addslashes($Text) . "'";
+                    try {
+                        $sql = "select mapped from board_mapping where description='" . addslashes($board_name) . "'";
                         $statement = $db->createStatement($sql);
                         $statement->prepare();
                         $row_board_mapping = $statement->execute();
@@ -420,15 +441,15 @@ if ($url != "") {
                         $writer = new Writer\Stream('/srv/www/htdocs/error_log');
                         $logger->addWriter($writer);
                         $logger->info($e->getMessage());
-                    } */
+                    }
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['meal'] = $translator->translate($Text);
                     $pricebreakdown = array();
                     $pricebreakdownCount = 0;
                     for ($rZZ = 0; $rZZ < $noOfNights; $rZZ ++) {
                         $pricebreakdown[$pricebreakdownCount]['date'] = strftime("%d %b %Y", mktime(0, 0, 0, date("m", $from), date("d", $from) + $rZZ, date("y", $from)));
                         $amount = $TotalAmountAfterTax / $noOfNights;
-                        if ($majesticusaMarkup != 0) {
-                            $amount = $amount + (($amount * $majesticusaMarkup) / 100);
+                        if ($OTSMarkup != 0) {
+                            $amount = $amount + (($amount * $OTSMarkup) / 100);
                         }
                         // Geo target markup
                         if ($internalmarkup != 0) {
@@ -439,7 +460,7 @@ if ($url != "") {
                             $amount = $amount + (($amount * $agent_markup) / 100);
                         }
                         // Fallback Markup
-                        if ($majesticusaMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
+                        if ($OTSMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
                             $amount = $amount + (($amount * $HotelsMarkupFallback) / 100);
                         }
                         // Agent discount

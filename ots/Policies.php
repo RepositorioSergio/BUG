@@ -50,59 +50,56 @@ if ($row_settings->valid()) {
     $response['error'] = "Unable to handle request #2";
     return false;
 }
-error_log("\r\n COMECA ENABLE \r\n", 3, "/srv/www/htdocs/error_log");
 $affiliate_id = 0;
 $branch_filter = '';
-$sql = "select value from settings where name='enableexpedia' and affiliate_id=$affiliate_id" . $branch_filter;
+$sql = "select value from settings where name='enableOTS' and affiliate_id=$affiliate_id" . $branch_filter;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
-    $affiliate_id_expedia= $affiliate_id;
+    $affiliate_id_ots = $affiliate_id;
 } else {
-    $affiliate_id_expedia = 0;
+    $affiliate_id_ots = 0;
 }
-
-$sql = "select value from settings where name='expediaAPIKey' and affiliate_id=$affiliate_id_expedia" . $branch_filter;
+$sql = "select value from settings where name='OTSID' and affiliate_id=$affiliate_id_ots" . $branch_filter;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $expediaAPIKey = $row_settings['value'];
+    $OTSID = $row_settings['value'];
 }
-$sql = "select value from settings where name='expediaMarkup' and affiliate_id=$affiliate_id_expedia" . $branch_filter;
+$sql = "select value from settings where name='OTSPassword' and affiliate_id=$affiliate_id_ots" . $branch_filter;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $expediaMarkup = (double) $row_settings['value'];
+    $OTSPassword = base64_decode($row_settings['value']);
+}
+$sql = "select value from settings where name='OTSMarkup' and affiliate_id=$affiliate_id_ots" . $branch_filter;
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $OTSMarkup = (double) $row_settings['value'];
 } else {
-    $expediaMarkup = 0;
+    $OTSMarkup = 0;
 }
-$sql = "select value from settings where name='expediaSharedSecret' and affiliate_id=$affiliate_id_expedia" . $branch_filter;
+$sql = "select value from settings where name='OTSServiceURL' and affiliate_id=$affiliate_id_ots" . $branch_filter;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $expediaSharedSecret = base64_decode($row_settings['value']);
+    $OTSServiceURL = $row_settings['value'];
 }
-$sql = "select value from settings where name='expediaServiceURL' and affiliate_id=$affiliate_id_expedia" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $expediaServiceURL = $row_settings['value'];
-}
-error_log("\r\n expediaServiceURL  $expediaServiceURL \r\n", 3, "/srv/www/htdocs/error_log");
 
 $breakdown = array();
 for ($w = 0; $w < count($quoteid); $w ++) {
@@ -139,7 +136,6 @@ $response = array();
 $roombreakdown = array();
 foreach ($breakdown as $k => $v) {
     foreach ($v as $key => $value) {
-        error_log("\r\n ENTROU FOREACH \r\n", 3, "/srv/www/htdocs/error_log");
         if ($shid == 0) {
             $shid = $value['shid'];
             $code = $value['HotelId'];
