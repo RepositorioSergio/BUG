@@ -45,7 +45,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $url = 'https://b2b-api-staging.snaptravel.com/itin';
 
 $raw = '{
-    "itineraryId": "demo-6667247"
+    "itineraryId": "demo-6682659"
   }';
 
 $client = new Client();

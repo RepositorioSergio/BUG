@@ -168,8 +168,6 @@ if ($response != "") {
                 $BasicPropertyInfo = $RoomStay->item($k)->getElementsByTagName("BasicPropertyInfo");
                 if ($BasicPropertyInfo->length > 0) {
                     $HotelCode = $BasicPropertyInfo->item(0)->getAttribute("HotelCode");
-                    $shid = $HotelCode;
-                    $sfilter[] = " sid='$HotelCode' ";
                     $VendorMessages = $BasicPropertyInfo->item(0)->getElementsByTagName('VendorMessages');
                     if ($VendorMessages->length > 0) {
                         $VendorMessage = $VendorMessages->item(0)->getElementsByTagName('VendorMessage');
@@ -198,7 +196,6 @@ if ($response != "") {
                     }
                 }
 
-
                 $rooms[$baseCounterDetails]['name'] = $HotelName;
                 $rooms[$baseCounterDetails]['hotelid'] = $HotelCode;
                 $rooms[$baseCounterDetails]['roomid'] = $RoomTypeCode;
@@ -217,7 +214,7 @@ if ($response != "") {
                 $rooms[$baseCounterDetails]['totalplain'] = (double) $TotalAmountAfterTax;
                 $rooms[$baseCounterDetails]['nettotal'] = (double) $BaseAmountAfterTax;
                 try {
-                    $sql = "select mapped from board_mapping where description='" . addslashes($board_name) . "'";
+                    $sql = "select mapped from board_mapping where description='" . addslashes($Text) . "'";
                     $statement = $db->createStatement($sql);
                     $statement->prepare();
                     $row_board_mapping = $statement->execute();
@@ -284,44 +281,45 @@ if ($response != "") {
             }
         }
     }
-
+    error_log("\r\n PASSOU AQUI \r\n", 3, "/srv/www/htdocs/error_log");
     // Store Session
     $srooms[$hid]['details'][0] = $rooms;
-        $session_id_tmp = $session_id . "-" . $index;
-        $sql = new Sql($db);
-        $delete = $sql->delete();
-        $delete->from('quote_session_ots');
-        $delete->where(array(
-            'session_id' => $session_id_tmp
-        ));
-        $statement = $sql->prepareStatementForSqlObject($delete);
-        try {
-            $results = $statement->execute();
-        } catch (\Exception $e) {
-            $logger = new Logger();
-            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
-            $logger->addWriter($writer);
-            $logger->info($e->getMessage());
-        }
-        $sql = new Sql($db);
-        $insert = $sql->insert();
-        $insert->into('quote_session_ots');
-        $insert->values(array(
-            'session_id' => $session_id_tmp,
-            'xmlrequest' => (string) $raw,
-            'xmlresult' => (string) $response,
-            'data' => base64_encode(serialize($srooms)),
-            'searchsettings' => base64_encode(serialize($requestdata))
-        ), $insert::VALUES_MERGE);
-        $statement = $sql->prepareStatementForSqlObject($insert);
-        try {
-            $results = $statement->execute();
-        } catch (\Exception $e) {
-            $logger = new Logger();
-            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
-            $logger->addWriter($writer);
-            $logger->info($e->getMessage());
-        }
-
+    $session_id_tmp = $session_id . "-" . $index;
+    $sql = new Sql($db);
+    $delete = $sql->delete();
+    $delete->from('quote_session_ots');
+    $delete->where(array(
+        'session_id' => $session_id_tmp
+    ));
+    $statement = $sql->prepareStatementForSqlObject($delete);
+    try {
+        $results = $statement->execute();
+    } catch (\Exception $e) {
+        $logger = new Logger();
+        $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+        $logger->addWriter($writer);
+        $logger->info($e->getMessage());
+    }
+    error_log("\r\n PASSOU AQUI 2 \r\n", 3, "/srv/www/htdocs/error_log");
+    $sql = new Sql($db);
+    $insert = $sql->insert();
+    $insert->into('quote_session_ots');
+    $insert->values(array(
+        'session_id' => $session_id_tmp,
+        'xmlrequest' => (string) $raw,
+        'xmlresult' => (string) $response,
+        'data' => base64_encode(serialize($srooms)),
+        'searchsettings' => base64_encode(serialize($requestdata))
+    ), $insert::VALUES_MERGE);
+    $statement = $sql->prepareStatementForSqlObject($insert);
+    try {
+        $results = $statement->execute();
+    } catch (\Exception $e) {
+        $logger = new Logger();
+        $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+        $logger->addWriter($writer);
+        $logger->info($e->getMessage());
+    }
 }
+error_log("\r\n FIM \r\n", 3, "/srv/www/htdocs/error_log");
 ?>

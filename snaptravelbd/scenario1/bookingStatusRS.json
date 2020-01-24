@@ -1,0 +1,1 @@
+{"HotelConfirmation":{"RateInfos":{"RateInfo":{"CancelPolicyInfoList":[{"percent":100,"startWindowHours":0},{"percent":0,"startWindowHours":336}],"ChargeableRateInfo":{"currencyCode":"USD","tax":"12.89","total":"112.04"},"nonRefundable":false,"surcharge":"0.00"}},"status":"CF"},"itineraryEndDate":"05/29/2020","itineraryId":"demo-6682659","itineraryStartDate":"05/28/2020"}

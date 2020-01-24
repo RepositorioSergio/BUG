@@ -45,8 +45,8 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $url = 'https://b2b-api-staging.snaptravel.com/cancel';
 
 $raw = '{
-    "itineraryId": "demo-6667247",
-    "confirmationNumber": "6707662"
+    "itineraryId": "demo-6681749",
+    "confirmationNumber": "6722315"
   }';
 
 $client = new Client();

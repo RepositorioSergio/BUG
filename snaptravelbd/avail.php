@@ -45,11 +45,11 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $url = 'https://b2b-api-staging.snaptravel.com/avail';
 
 $raw = '{
-    "hotelId": 119566,
-    "sessionId": "k9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-ycr%3AYR8gTd893NM%3A-c%3ALbj8yZ2DkvN%3A-yiyLbJncZjIIfMD%3AMjYrQ%7DN%7DB2LyvN1-ju%7D4-uQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM131dDkju1vKMNABBY31RCLB%7DPBrNIc%7D2IvNi7-Zu1r8Nycyi%7DL1Mn%27Z2IY8MLcBByLviE%27U%7DPi%3ANr-ZcrvYMN-7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31MD%27U%7DrZzM%7Dcjj131dD%27Z%7D%3ALrNI-jj1q7i7%7Dj-yY%3ANy-Iuy4Y-D%27T%7DYAbMIcZBy4NiE%27U%7DPi%3ANr-ZcrvYMN-7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3nMNBZ%7D%3ALCNIc%22j1311n%27UjI%3ArNI-yir%3A7i7%7DB%7Dr1QNy-pBYmQJDLB2D%27%7BNM%3AAiyLNiE%27U%7DPi%3ANr-ZcrvYMNd%3D",
-    "arrivalDate": "03/27/2020",
-    "departureDate": "03/29/2020",
-    "room1": "2",
+    "hotelId": 105485,
+    "sessionId": "Yk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-yi1vY-nLB2N93N0ABcrv1Z8AU%7Dy%7DmN%3A-BiYqYNnLT%7D%3AI%3ANrcPuYvn-ncj-Ph8NM%3AMjIvCuQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM131-ncZ%7Dy%7DmM%7Dc%22jI31%7DNyB-%3A%7DrNIcZBY%3AviMLj-Y%3AvNy-Uu1vn-N%7DU%7DP%27bNn4ZB1vNiE%27U%7DPi%3ANr-pcrvYZC47j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31-D4BjI%3ACNL-Ju131RCLZ2DkrNIcAiI%3ANiMLBjL1QNycyi%3AIQ%7DNBZ2I%7DmML-giYv4iE%27U%7DPi%3ANr-pcrvYZC47j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n%7Dncj%7DYvkMD%3AAiI3n-Dkj-%3AyrNI-BiY%3A4iM%27T%7Drv%7BNy-A2I%3AnNnLZ2D%27bM%7D--iIv7iE%27U%7DPi%3ANr-pcrvYZCz%3D",
+    "arrivalDate": "05/28/2020",
+    "departureDate": "05/29/2020",
+    "room1": "2,8",
     "locale": "en_US",
     "currencyCode": "USD",
     "timeout": 5
@@ -89,7 +89,7 @@ if ($response->isSuccess()) {
 echo $response;
 
 $response = json_decode($response, true);
-die();
+
 $config = new \Zend\Config\Config(include '../config/autoload/global.mmc.php');
 $config = [
     'driver' => $config->db->driver,
@@ -147,6 +147,20 @@ if (count($HotelRoomAvailabilityResponse) > 0) {
                     }
                 }
             }
+            $sql = new Sql($db);
+            $insert = $sql->insert();
+            $insert->into('snaptravelbd');
+            $insert->values(array(
+                'datetime_created' => time(),
+                'datetime_updated' => 0,
+                'rateKey' => $rateKey,
+                'rateCode' => $rateCode
+            ), $insert::VALUES_MERGE);
+            $statement = $sql->prepareStatementForSqlObject($insert);
+            $results = $statement->execute();
+            $db->getDriver()
+            ->getConnection()
+            ->disconnect();
         }
     }
 }

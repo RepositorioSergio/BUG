@@ -1,0 +1,706 @@
+{
+    "HotelRoomAvailabilityResponse": {
+        "@size": 22,
+        "HotelRoomResponse": [
+            {
+                "BedTypes": {
+                    "@size": "2",
+                    "BedType": [
+                        {
+                            "@id": "14",
+                            "description": "1 king"
+                        },
+                        {
+                            "@id": "23",
+                            "description": "2 queen"
+                        }
+                    ]
+                },
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "331.98",
+                            "currencyCode": "USD",
+                            "total": "331.98"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYtd3R0HCZ7hmitrvBXYf6N-LiM%2FkRNiCBQr%3Ai0YmBNYfRNdvRNiJZHz3OtdrBXivZ7H3RJrXRNgL6N-0iDYkUNI8ZJr3U7%270U7%2FCR0i%3ARM%2FJON%2FfiNRrB0Rmi-%2FijXL+ZQwQ%2FEy%3AZM%7D+P%27%3AJuXqk%2Fyc4cP99itg-cM%7DLutgThtg6jMvp%2FYALZOzOOgHtH99O%2291%22HCg0Z7%2FLO9B%7D1rdJ79zy7nEq41iJgdrO3-%27OP9m%22gd%3A3Vj%7D7Y91BH%7B1Rd0bW7dbX7dr%22dMcL%2FyALhC-QjMBrjMq+%2FY-4hXB%7BuCB%3AhD1s7d41jP19hD%7D8ZnAXRn-4uXm9jPq%7BZP%7DQ%2FP%3A%3AhCd9RD19i0Y92M%7D%27hpi9uXR9RMcL%2FPqQ%2FPq%7BZP%7DQ69r%227d4EcMyQRMvrZM191Pq%7BjMBvU9r%221D%7D8ZnAXRn-4uXm9jni9ZC%7D%27hDy+cP%7DLZOgDuC%2F9RnAQjnZ%27uOgFutgrjP19RXq+ZDLQuM%7DI%2FPBzZMBK6ML+%2FP-%27cP19uXv%7B2Jm9JMR92Mq%3A%2FP-Futcr%2FPBzZMBK6ML+%2FE-F%2FE-zZJgzuC-LuOgFutgrjP19ZDLQhCd9ZPyv%2FPqD%2FELFcn%2F9hD%7D8ZnAXRn-4uXm9RMvI%2FELFcJgIuQg+uCd9RM3Lhpd9cP%27L%2FP%27FcP%7D%7B%2FPL+%2FPyIcDy+RX19cP%27L%2FEALuMy4uDL+ZQgfuCArjMq+%2FPqD%2FELFcn%2F9hD%7D8ZnAXRn-4uXm9cXL%7BuOgtZJg0RMv0ZM3LZOg%27uDd92Mq%3A%2FEc4uPf9uDqr%2FPAL%2FP%7D+cPLruP%7DI%2FE-F%2FPY9hD%7DDcMvI69r%227d4JuXqk%2FYBzRnApZJgYjnB0uPq8cnALU9r%22MMq%3Ahtg0hD%7DIjnd9RXyQZOg4hQg0jPyQZX%7DI%2FE-zZJgruC-%27uOg0uCBr%2FPyr%2FE-4uM19uXR9hE%7DQRX%27%27hX1+%2FygQjMBLhQg%27uDd9hDqFuJg%27cDy4uPytjM34cEI9RnAL%2FPvFcOgpcMyQRMvrZM%7DI%2FE%7D+cPL%7B%2FPZ%3AuPf9hPyvuM%7D+cOg4hQgQZMBLjnZLZOmBO9r%221DqFuJgTRXB%3AhPy+RCI9-PL8RX3FhC%7DQZNzBOIy%7BuOgQuXqkhQg%27RXBFuM%3AFZPyrZJgrcXw9ZC%7DLhC-86tgNhP%7D0jMy%7B%2FPvLZM-86OgtZMd9cELfZJgFhtgFcP%27LhtgQZny%3AZnBrhQg%27hD19Rnd9cP%27L%2FP-4hXBQZn-4uXm9uXR9cP%27L%2FPBFuDZ4hD%3ALZOgzuC-LuOm91P3LRnBL%2FPBFup-%27RCd9cP%27L%2FP%27FcP%7D%7B%2FP-4hD%7D0cP3v%2FPZFhtg%27cDy4uPytjM34cEI+7dzBOIBzZMBK6ML+%2FygFuPL02NzBOL-zZJgQZnBLhpZ%27cPLFutgzuX3IZn%2F9un%7D8cOgfhD%7D8ZMvr%2FPY9cDy%7BjMd9hP%27FcPw9J1d9RMvI%2FPBQZM-4cOg0RnAI%2FPyr%2FPBzZMBK6ML+6tH9%7DP%27L%2FPBQZM-4cOg0RnAI%2FPL8%2FEALhn%7D4hD%7DI%2FPZFhtg%27upI9RM-Ijn-4uXv%27uOgzuC-LuOg8hP%7D0jMZ4RQg8ZnAXjMBL%2FPZLZni9uC%2F9jMv0jM-Lup-%27uOg0jPyQZX%7D8%2FPqQ%2FPZLZni9cP%27%27cOgkRnI9RD19RX%27%27hDcLZOgt2JgrjP19jPqrZMf9cPw9cP%27L%2FPB%3AhC-FuM%7DQ%2FPyr%2FPBzZMBKuC%7Dr6tg1jP%7D8ZJg0jPyQZX%7D8%2FP%3A%272JgtZJgkRMvIRn-FhpI9%22P1+ZQm%7B%2FEALhXqQcOgDZM%7D8%22JgFhtgFhE-4uXv%27uOHzhPyQjXL+ZQf9hP%27FuD19RXy%7BuEi9uC%2F9uML+jJ%3AtRn%2F9RX%27%27hDcLhQI9RMvI%2FPyQZJg+uCd9jMv0uE%7DIZMd9jMm9cP%27L%2FEAFuXr9hDyrZJmBO9r%221P%7DrhQgduX34RCIs7d4dZn-8%2FPyQZJgfZnAkjn-rZMd+7dzBOI%3A%27uD-%27cPqQ2JgPZM191Pq%7BjMBvU9r%22%7DP%274hQgzuC-LuOg0jPyQZX%7D8%2FPy+%2FPyIZPLrjMq+RMf9A71360HQ%2Fy%7DN-Of9hP%7DQ%2FEAFuXr9hP%7DQ%2FPv4ZX%27r6tg1jPL8%2FPZLZJgCjM3%7B%2FPAL%2FPBzRnApZMd9cPw92Mq%3A%2FP-4hD%7D0cP3v%2FPAv%2FE-zZJgzuC-LuOm9NMy+ZPyruCAv%2FPZLZni9RnAL%2FPvFcOgFhE-4uXv%27uOg%27uDd9cELfjMB%27uP3v%2FPBFcD%7DQ%2FPLrZM%3A8%2FEB%3ARX99Rni9hD%7D8uCAr%2FPZLZni%7B%2FP%7D+ZnAp2Jg0jPyQZX%7D8%2FPqQ%2FEB%27ZD19ZD%7DLhQm9%7DP%27L%2FPykuC%7D+cOgFZtgrjP19RX%27%27hDcL%2FPL8%2FEB%3ARD4LRCd9cPw9RX%27%27uDcL69r%227d4iuCL%27uE-v%2FygFjMvrhQgyuPLpjMA4uPLr2NzBOL-zZJgQRn-L%2FEBLuP%7D0cP%7DI%2FP%3A%272JgtZJgLuPLpjMA%7BZJgDuC%2F9uPqvRM3r2JgfuXL+cOg%27RXBQcMy%7B69r%227d4iuCL%27uE-v%2FygFjMvrhQgyuPLpjMA4uPLr2NzBOL-zZJgQRn-L%2FEBLuP%7D0cP%7DI%2FP%3A%272JgtZJgLuPLpjMA%7BZJgDuC%2F9uPqvRM3r2JgfuXL+cOg%27RXBQcMy%7B69r%22%229gJtHyyj%7DymMM4gi%3A4YR8-BjNH%3AN0Aycr311D3B%7DrLrM%7D-Birvvi7yBjI1rNL-yc%3AL11N%7DZ%7DY%3A%271Yim2YqYRCZT-PirNn4pcLAYJncBjIyCN%7D-AiyZY-n%27B2ILsNDIvu%7DLsZP%3Aj%7DyY3NIcy2Iv1j8gZ%7Dr%3ACMM4gBy4E%7DNBZiL%7DCNr-Uu1%3Ab1D%3AjdNrql%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": true
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "mWhqcr%3Ajosjr2omhXjoqqC2o%3AwwhwXWuCvju",
+                "rateDescription": "Room With 2 Queen Or King Bed",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "201646681",
+                "roomTypeDescription": "king/2 queen"
+            },
+            {
+                "BedTypes": {
+                    "@size": "2",
+                    "BedType": [
+                        {
+                            "@id": "14",
+                            "description": "1 king"
+                        },
+                        {
+                            "@id": "23",
+                            "description": "2 queen"
+                        }
+                    ]
+                },
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "331.98",
+                            "currencyCode": "USD",
+                            "total": "331.98"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlOFrAO9LfhDL0ZM34uD1JWfL%2F-%7DAx%7DrLEML-phX-YBMBrc%3ALRiL-Kc8AIuMLK%7D8%7DihygyhXqCJrmQ1DmCiP4-Bp4g-MAEBYk4J%7Dc4JYZ1UMiCdLq1JyBpJP%27%2Fj%7DLxZnyAd1h8J8%27EhDyphDLvZI%3Aiu0-1ZCgI-rkPd1ZF1y%27%7D1rAx%7DN%7DRBM4%2F114m%7DLIQR1Lt%7D0ZL2M%2FrMyc%2FuP-+1XkYi1q%2FNPy-RIk0hN-%27%7DEY%3Aip-%3A-%7DykhpygcrkguC-kBPkBupBzc14b%7DX%3ADJpy0jYyMBpAd61AYjEyzZE%27v1ry+NMA0%7D%3Agv11rfRCHk-y%7D+ZD%3AXd%3ABkc%3AApJy%7DjiMv8Rnd%3A%7Dn%2Fri1%27%7DUP%3AEU1%27Oj7%7D%27j%3Ay6n%3A%27z2p-41IZfhIZtj0-D1X%27IhM-LNNHrB1rfUEgXB0Ikdn%7DdNC1Cn%3AgZjLgp-rBKM1Zk-IqzjMi8JIc4BIBY1MLXZy-Ed%7Dq%2FRL-bdM3nur3MJ0-IiDiQhLLiiD-M1n-KNY4B1PqdiM-%2FhY3FdLqQ2PfCiDYfN%3AqxUP4iZPB4-YZrcNL%7BBPkL-D-d11%27z2p4rJ0-DRr1CN7gxRn%2FXhE%7DfJDApZP%7D1iMZ-jXy%3Au8%27x2PkI1IyiBILP1PLbc1v6dXB-NY4%7DiP-P6NcxME4dh7A7irq0j7-%7D-pHCc7ZviXdk2L%27Yiyc%7BZN%27%22u1-6BrBB-Lq%22hDvYRnZ3NYA%7B6%7DLjZ7%7D%27RryUZpZmdLLMhE-EnQ%3AQjN%2F%3AuI%7DKNYc-nr-%7B2NIXBEcr1Xy4hryZZYLiRM%3A6hPZ+Zyq%7DcDrr1%3A-Z1CY3dIc+cXkUZ0ARi%3AAXhEgJ-yAENy4O%7DXZ%27iIYvRnH3uCg%7BjMk%222nZ-u7%27pjPr8hIBgiCLRiXZOiDAEU%7DZshL-jiPkx%7DE%2FrMLgZjXAC%7DCZQcX%3A+U%7D-4cXADBN-A2N%27PjP%3AtZ7iQNMv4u0Zv%7DL9fJDfQuIk%7D2%7DgK20%27d%7DP%7Bvup%7Dd614t%7D1%3AT1L%7D8Rrv7ZIBmjMvmhPd8BDLzcDL8ZYAgNyyNZN%7DMJDAIZP1XMy-bc1%27+c8YrhDkn1rhQBYLKZEAxNQ%3AsR0B0Z8hQj%3AcgB13ZJ7yDR1%7D3jXvt2137MMZyi1BQc1yTcyZ8jryinrdX%7D%7D4%7BiPB+NM-xjnLO-X%7DrjI3DUnHmuY%27s-1BRhP4ZBrI81%7DB%7BdIkPu1cicY1fiYqkcrBP-X%3AUN%3ARQcI-%7BZ1yTj0yJ-M%3AKj1Z7M7yNhEy-JpLm-n%27K2yADiDqEc1AMZyBYd1qXi1BpU14xNpcN2IAbJPL%27i1ynj7%27CBX-Bh8ApBCBZBrq%7DjMAJhP%270NIZFU1416%7DA4iMc61P4punA%7Bin-m1Mc1M0hXdIqEcrA%22h7%7DzJ0cZBYk3hDwC%7DYANRncC-MLTZrBAMIhriCZXJpB8-1cCND4Q-0-Zh1vPj7ZxNrRQirkm%7DEZJJMA%3AB1vO%7DP-iiE%7DjUYkJhnhC-11mML%27+UYL6nrvpj%7D%7DEZ%7DArZrqUN7ZNM1%3AQjL4%2FR1B4NXzvj7A%22jDAtB7-BcMc1RDqdhrBIjpgB-Eg%272IB%22NIZvB8gJ-0y6BM-OZrA%3AUY%27Rj7yO-7-%22ZnBJc%7DRk2DvQ%7DD%273i%7D-bBPc+cLyTB0%7DnU%7Dzfh%3A%7Dkjnyy%7DYv6cI%7DM-EZb%7DMzCuIq3Zy%7DXdXcnU%7D%7DP1X%7DiMMzCur4%2FcLAfn8%2FfN%3ALg-8AAhP%3AN-X3DRr%7BXhYkJhI4P1%3ALRMNBXZ1L3NY-xB7gkjyYC6NL1cNcXBy%7D%2FNI%27%7DBIYJKfY%22idzFZ0hvUMBtRM1kiXB%27BOrrZ7y06NLDUN%2FkU7HXZ0HQZ0y%27UNLL6NY%3AB8ImB0RrU7HJ7Pk4uDhFitg3cM%7DLu%27z1JXL+ZQgThtHQ%2Fyy%3AZM%7D+%2FYALZEit1%27%2F%2FO9Z7RnB4uDwJyfz%7D-DLruD%7D8hQg7ZMvrZn%2F9uC%2F91Cg%27Y9m%227ygLcEi9dM3%7BuCcLZg%2FiO94JZnBrRn%7DQRMvrY9w%227%7DBCjM%3AkjMvp%2FygFuXfbH99d%2F9%2F%2FHtzEO9%7DfuD%7DrZ7%2FLO9B%7D1rdJ79zy7nEq41iJgdrO3-%27OP9m%22gd%3A3Vj%7D7Y91BH%7B1Rd0bBgHbYgYZFhtgrjP19hDqFuJgr2ngL%2FELFcJcXZJg8ZM3LRC-LZOf92Mq%3A%2FPB%27utg0RMv0ZMf92Mq%3AhtgQZnBLhpZ%27cPLFutgDuC%2F9RJgDcM3%7B%2FEALZp%7D+ZOg%3AhOg%3Aup-4uOHmU0H8%2FygB%2FPq+%2Fy-zcnA8ZPyv6Og%22RMv%3ARnAv%2F7%2F8%2FO%27%7BuXB%27uOgzuC-LuOgrjM%3AL%22Jm9JMR92Mq%3A%2FP-LRXLIZJgruQg0RMv0ZMf92Mq%3AhtgQZnBLhpZ%27cPLFutg%27upI9cPLkZJgtZn-CZM%7D+%2F79si7i91Yr9uXm9%7DP%27%3AhpBIRnI%7B%2FY4%27up%7D%27hpI9i0i9RMvI%2F7hsi7H9d1r9uXm91XyrcnAIRnI%7B%2FYyfhDL%7B%2F7%2F%3A%2FO%27%7BuXB%27uOgzuC-LuOgrjM%3AL%22Jf9cP%27L%2FP%27FcP%7D%7B%2FEALhn%7D4hD%7D8%2FPY9hPyvuM%7D+cOgFZtHQBJmfiOg%7D1rd+%2FOgAZtgvuC19ZP%7D0jM-L%2FE-F%2FPB%27uDBLuOgvuC%7DQ%2FEALhX%7DQcDyrjMq+%2FPy+2JgrjM%3AL%2FPALcEcLZMm9B8zfiOggNJgFutgNRn-%3AhD-%272Jf9dngQjMf9i019RMvI%2FPvFuXm9uXm9%7DE%7DLhX-%272Jf9dngQjMf9i099%22P3FRXy%7B%2FP%27FcP%7D%7B%2FE-4uM146OgrjP19jPqrZMf9hD%7D3cMLQZni9RJgfRnLkZMvr%2FPqD%2F7i3iJm3iOg%7D1rd+%2Fg%2FOOHYbHy6%7B71Bg1%7DiCcX3A1LZ%22ZLRfuY%27nuyA+R8AJ-1vnN0gIiM3ZNM3JhD-sJDkt%7DX3Q%7Dp4MNMBPdIZ0i0I818Hr2%7D%7DkB7BB-CgJNDvfdLAnJI%27U-n-f1%3AZIhyByML%7DT%7Drr81Mfv%7D%7DBPNDvN-X%27AR%7DZ%7BZL4R-I4-%7DMBs1C4zJPBk-Dv0uMf%3AMD%7B3NMAb1L%7DjirAK10gr-%3Ay%7DMpZ%7D-D%27M%7DNg%22ZLZ1%7DLLU%7DCgA%7D%7D%7DfByZ%7BjCLZ%7DM34%7DD4juP%7DnJNgn-D-ARIcJc%7D1QcY%7DB%7DNLA%7DYcP1LLKcP40%7DyAz%7DI%27yi1%3A+10yJ%7DIZrRXvPdDdfcYAti%3AArNIcrNDA+NDqI%7Dng3%7D0%2F3u%7DB+-D4%27-1ZnNDv%22113%7DJI%7D%27JYZFMI%27zB%7D1f-p%7D1%7Dr4b%7D0yOB%7D%7D%7DiEcZiryr1IZMc%7D4kiNA-i1vrZ7y%22uLBP%7DDyB%7D8%7DsM%7D%27-i%7DZRJNgB%7DM%27MNrh3JYq%7DjYB%27-yZzRNyPNy93jPqLuLAf%7DMkjcXBKMDL%27jLAk%7DNAzjXBn1D31%7DYYfNL1fcrq%2Fd0AUjDkr1%7D%27M1%7Dd8%7DNBRi1AjRM3OuL%2FfNpAn%7D%7D4r1D%7BvuXynNn4NjX-fNDkU-%7D%7Dnu7Aj-LA%2F1%7DRvJ%7DL%7B1py-%7DC%27RR0gm%7D%3ABb1DkBu1%3AvRX3%7BN1%3Ak1Lc%7DMyAQ%7DY%7DfNL%7DEU%7DyB%7D%3AAARr%7DmcLy%7BUnLL-Ch8NM%3Ayc%3Ad3UMZT-CgBMIcUhyAyM0gI%7DP38NIcruyAk1Ly%7D%7DM%27FZMvfiyBb1D%3AZiy18%7DY-OZLLRJNA0JyZC1X%3A%22uL4E%7DL%7DB%7D%3A4JRNAPiMAsjPZL-C-K%7DMkPN1vKuYc%7D-X33Zy1%3ANyYQNLA1-ngMN1cJ-r31ZPZnJEg-Rr-%22-YrfUM4%27-yAM1DvgiX-YM0%7DBiLyrZM3z-1%3APZEBj%7DP%276RL%7DJNYmfNIvJu7L6RXr%3A-%7DLRMp%271-148NyZ%7BR%7D4Y%7DD%27ZiYZTMDvjByy%7Buyc0JyA%2FMEI32My1JNytj%3AZQ%7DY%7DI1L9f1pBL%7DP%7BQNI%27Iiy1Q-pg0iYZjMI%7D%7BN%7DLni130-%3A4%3AMIRv%7DD-ki7g%7Di%7DAj%7DNBy2yyKZE%7DIip-TMD4%22M1r3J0A0JYAN1IZ%22Jy-PhYBMiL4zNMkyB%7DLRdn%27tirA8R%7DcrJX%7DRMLAt-P%27+R1hf2DBKNIABiX3ZNNAjdr%3AkJI%27T%7DLzXRX3JR1%3AEcPZMJYIf%7DX3OMDYQJ0BMi%3A4vZ7%2F3c1qM1pgIiI4kNL-JJD%7D1jYc%27-8y4MI-B2%7D-nBngtjLz%3A%7DD3pc%3ABkcCLtjC-MZ%7DZOhD%7DbjyyM-Ci%3ARDvM113%7DhPLM%7DNyd%7DM3M2LIfB1-jjrmrR%7Dh%3ABPBE1n4UuM3FZP%3A%7B2L4yJIA1-IZ1ML-M%7D%3ABkJDkj-%3A1Q%7DrZJhM-%7DjE%7DI2I1fRX%3ArMy1fRCLU-M3QMI%27%22ZL-viNZZjIvbMp402MY3ZYAU%7Dn%27j1r-Pu%7DL%7D%7Dp%27%27i0%7D4Z%7D%7Dm-ycnMIZB%7D1vvZy%7DP1P-PMp4%27iYZBM7g-iLZMhEBB-rv%3A%7DycJZDyRuYBJiLRfRMkmu1qRdN-t-M9X1L%7DUMMBEhy4UiPks%7D%7DZUh%3AyKcYct%7DM-BZY%7D%7Dcr%3AyUn-IiYvE10%2F3N%3Ad3MnLIj%3AA8ML%7DP1Pyb-LBJ%7D8yQR%7D%7Dj-ycY-L-0JYZJ1Xv%7BByARjEAL-I4kNMrvJP-%7DJLcj-Ivy1%7D1viI%3A%7DNDvT%7DngD%7DPvI%7DP%7DKJpyN-X3zN%7D%7DPMPyYj7BUiLAURC4%22uIm8NL4Ui7LMR%7Dc%221XBEjP41j%3A4XN%3A%7Df%7D13MJpgB%7DX-i%7D1cfuDARJpBBMy%2Fr%7D%7DcI%7D%7DcbR8A-j8L%2FZ7g%22JXBY%7DDqNjD-jNI%7Dr2PBkU7BM-141M%7D%27Ii%3AAnuygjiYv%22%7DXk0iYr8M0ANuIvs1L%7DIi%3A-khELJjLAjR%3A1%3A-XyYMDZ1iyLvNNgrByZ%2FMLBN%7Drz3NL1%3Ad%3AZE1I%3ABJyZ%27Nr%7Dr1XBRR8BJ%7D%7D1r%7DX3zc1qyuY3Ri7%7D+R%7DZMJy4MJ0gji7LT%7DY-j%7Dyc%7DinL%27uEgAM%7D%7DUhydQu8%7D%27-Y46RM%3A%22j1vY1IvI%7DX-%7DMMrv1MifNDk%27uIAU1I%27OjP%7DKNIk1j%3Az%3ANp4O1%3AAb-I3U%7D%3AA7M0g%22i1qyjyL%27-YZ71I-JJ%3A4RNLBI%7DLLrZMr%3A2%7DZkjE%27B%7DLA3NIcIcM-%7B-LgUjLZRN%3AZFcXi3%7Dp-%27MYZP%7DI1%3ANP-K%7DLcJJy43%7DLcFiXAKUn%27j-LRQ1NAIMYqM%7DIc%7DiLZB%7D%3AcFiX%2FfhYLIuY4CME4Ac%3Ad3uYAJ2I4%22Rrh3%7Dy%2FQ2P%3AZiEiQRr%7Dr1XBKhYc%7DiM3Z%7D%3A-UiL4%7DuE%271-%7DADNI-OcPyP-NBi%7DP3%7DZy-IiIvP%7DIL1jX%27MNDkyR1qMdLBN%7D1vP%7DY%7D%7BN%3AANiMkZjI1fN%7DcB2IvviM%3AU%7DPBmNy--iI%3AsjC-T-yAkMIifiyLnJD3U-%3A%7DCN%7DcPjIvbjC-B%7Dy18N%3A-piIv1%7DNyUZ8rql%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": true
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "xWqqhuj2oChjmomc%3AhoqxqXowrsxrXx%3Ajqq2o%3AvWqwssmwr",
+                "rateDescription": "King Or 2 Queen Beds",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": null,
+                "roomTypeDescription": "king/2 queen"
+            },
+            {
+                "BedTypes": {
+                    "@size": "1",
+                    "BedType": [
+                        {
+                            "@id": "14",
+                            "description": "1 king"
+                        }
+                    ]
+                },
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "359.98",
+                            "currencyCode": "USD",
+                            "total": "359.98"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYt-IU7HQiPi8RJ%3AtZPBt6NdrZPdkRD%7DLBJrCRD-0U7%2FCZP13B7dJ1dz3Ot-0i7cDB89CiO%3A0BX1X6NdvZ79kRM1rBtrvUMBDU7%7DLRNyIRDYJON%2FfiNRrB0Rmi-%2FYjXL+Z3zJ1DqFuJgnjn-z%2FYk4uDh9dD%7DI%229%2F%2FgQ%2FOOH%2Fbgdz7hPBIit1%22H%3A%7DN-g%2FUO91BhxX8d3%2Fy7RspA1%2Fj79zy7nEq%7BriJgdXU4Q%7DOUK%7BBOKRB7d4gZX191D%7D8cEA4RC-4uXm9-PL8RX3FhC%7DQZNzBOL-zZJgQZnBLhpZ%27cPLFutgzuX3IZn%2F9un%7D8cOgtZJHQiJgvZMyQhQgFZtg%27ZX19uC%2F9uX3IZn%2F+7dzBOIc%3ARnA%27up-LZJgduX34RCIs7d4JZnBLhpZ%27cPLFutg4hQgpcMyQRMvrZM%7DI%2FPZFhtg%27hpA4cDy%7B%2FPq+%2FE-zZJg0uXvDjnAkZMd9RX%27LRX%7BkjMm9ZPyrZJgFuD3v6tgAZtgvuC19ZPq+ACd9RX%27LRX%7BkjMm9cPw9cP%27L%2FP%27FcP%7D%7B%2FPq+%2FE-zZJgDjnA8cOgIRnI9uXR92Mq%3AhtgQZnBLhpZ%27cPLFutg%27uDd92Mq%3A%2FP-F%2FPvFcOg%27uP%7DQcOgrjP19jPqrZMf9jMm9RM-XRMv0ZJgrjP19hD%7DkRML+jMvp%2FEgFhp-4uXm9uXR92Mq%3AhtgQZnBLhpZ%27cPLFutgCjM3%7B%2FPAL%2FPB%27uDBLuP%7DI%2FPy+ZOgvuC19cXL%7BuOg+uCd9RD19ZMvrjn-%7BZMd9cPw9RJgQZMZ%3AuDd+7dzBOLAFuXr9dX%27%27hDcL%2FY-4hXB%7BuCB%3AhD1s7d4ZuC%7DQ%2FPBQZM-4cOg0RnAI%2FPL8%2FPBzRnApZMd9cP%27L%2FE-FcPy%7B%2FPBFhCd9Rnd9cPLkZJgFZtgfcnA0jPy8ZJm91EA4RX%7D8%2FPy+ZOgQuXqk%2FPyXRML%7BRMA4uPLr2Jg%27hD19uDqr%2FPc%3ARnA%27up-LZMd9cMvrjMf9Zp%7D%7BuOgfRnLkZMvr%2FPL8%2FEALRX%7D4cD%7DI69r%227d4JuXqk%2FYq0RC%7DfRMv02JgYjnB0uPq8cnALU9r%22dM3%7B%2FEAFuX%3A8%2FPy0RXqkuMqIRn-L%2FE-CuQgpcM%7D8cEi+%2FyBfZMB4RMf9uD%7DLZEi%7B%2FPALZOgr2ngL%2FPqQ%2FPqrjP%7DQ%2FEALhn%7DLhC-8%2FPyQZJg%27cOgrjP19ZPL8RCALcPLFutgFZtgrjP19RXq+ZDLQuM%7DI%2FP%27FcP%7D%7B6tgduP%7D%27hX19RXq+cPy0cOgrjP19jPqrZMf9ZPLQZMBruEI9ZDqQ%2FPyXRML%7BRMA4uPLr2JmBO9r%22dX%27LRX%7BkjMm91Pq%7BjMBvU9r%22%7DP%27L%2FEALhX%7DQcDyrjMq+%2FP%27FuP-LhtgkcnBr%2FEgQZnBLupd9RJgXRM34ZOgfjPqruQgA-Og%27uDd9RCALZPLr%2FPB%27hDd9Rnd9RX%27LRX%7BkjMm+%2FOg1jP19RCALZPLr%2FPB%27hDd9jni9hD%7D3cMLQZMd9ZDqQ%2FPy+2Jg%27ZP-4cPLFuDy%7B%2FP%27FcP%7D%7B%2FEBfZMB4ZDL0%2FEBLhpZ4RX19ZD%7DLhQgFhtg4uDB4ZP%7D+cPy%7B%2FPBzRnApZni9uC%2F9ZD%7DLhQgrjPyr%2FP%3A%272JgtZJg0jPyQZX%7DI%2FPAv%2FE-zZJgzuC-LuOgruQgrjP19RC%7D8cPqkZn%2F9Rnd9RX%27LRXkFcnd+%2Fy-zZnBL%2FPBzRnApZni9uMyv%2FPAL%2FP%3A%27uD-%27cPqQ2JHzZJvp6tf9hD%7D8uCAr%2FPZLZni4%2FPqQ%2FPqfcPLFuDy%7B%2FO%27fRnAKjMvp6OgfjPq+ZJg0RM3%7BhQgFhtgkjMv46MA%27htg0jPyQZX%7D8%22Jg%27uDd9RnAL%2FPvFcOg4uDB%7BcM-LZOg4utgrjP19hDqFuJgQRn-L69r%227d4dZn-8%2FygFuPL02NzBOLgLcEi9RnAL%2FEgLhD%3A4cE-LZOmBO9r%22NMy+ZPyruCAv%2FYZLZJgduX34RCIs7d41jPL8%2FP%27FcP%7D%7B%2FPBzRnApZni9RMm9RM-Ijn-4uXv%27uOHIBNY+i7%2F9%7D%7DBY6OgfZn%2F9hDqFuJgfZn%2F9uDLpjEd+%2Fy-zjni9ZD%7DL%2FEc4uPf9RD19RX%27%27hDcLZOgruQgvuC19ZPLQZMBruEI9RpI9cP%27L%2FP%27FcP%7D%7B6tgBRMvIRn-FhpI9ZD%7DLhQg%27hD19uDqr%2FPqfcPLFuDy%7B%2FPy+ZOgr2ng4RXy%7BuEI9RXqXZn%2F9jn-Luni9hC%7D0jOg%27hQgQZnBFhpd9ZD%7DLhQf9ZMvLhDcv%2FPBzRnApZni9uC%2F9hXyDZJgDZM%7D86tg1jP19RM%3AFcMvr%2FPqD%2FE-zZJg0jPyQZX19jni9hC%7DtjD%7D0cOgruQg0jPy+ZX1+7dzBOI3F2My%7BcEI91Pq4up-8%2FY%7D%7BjMc4RDL%7Bjn-vU9r%22%7DP%27L%2FEA%27cP19hX%7D%7BZMBrZMd9uMyv%2FPAL%2FP%7D%7BjMc4RD3L%2FPZFhtg%7BuCL%27uE-v%2FEgFjMvr%2FPy0RCA%3ARMf+7dzBOI3F2My%7BcEI91Pq4up-8%2FY%7D%7BjMc4RDL%7Bjn-vU9r%22%7DP%27L%2FEA%27cP19hX%7D%7BZMBrZMd9uMyv%2FPAL%2FP%7D%7BjMc4RD3L%2FPZFhtg%7BuCL%27uE-v%2FEgFjMvr%2FPy0RCA%3ARMf+7dzbHy%22%2FH1%7D41DkT-YyvN1cB2LLNiMLj-rv4Ny--iy4E1n-Zu%7DZ%7BNLifi%3ALk1D4T-YI8MIc%7D2YvY1Mydd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4gTNr%3Dl%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": true
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "hrWxWwWrohW2somqcwoj2msoqqhxwv2j%3Acuj",
+                "rateDescription": "Room With King Bed",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "201646681",
+                "roomTypeDescription": "king"
+            },
+            {
+                "BedTypes": {
+                    "@size": "1",
+                    "BedType": [
+                        {
+                            "@id": "14",
+                            "description": "1 king"
+                        }
+                    ]
+                },
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "359.98",
+                            "currencyCode": "USD",
+                            "total": "359.98"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlOFr%2FO9LfhDL0ZM34uD1JWf%27%2F-%7DAxM1-K%7DXqJcMZfUNgiN1q%3A%7DN%27AM1yiiIhvcp4UZCcni%7D%7DI6M%7DRMYAb%7DyZAj1z8iNhv-14m2ng3NMyJuYh%3A61kJ-X-%3A%7D8BNcEgnd%3AgUur%3Axi0hCi%3Awf2YBA-Iq%22Bn%27kJMkUi8%27Bj%7D-PMIk0%7DrBEuE-7nX-%272p%2FrBIfQ-%3A%27%3Aj%7DZTJ8%27KdX4Uh%7DZzNNBxjER3N%3AdkRL9kM7yfdML%2FNXZ%7Dj1%3A1h%7D9rh8B627-xdDkM6%7Dg%27ZMzkh8y3-rmXu%7D%2FfRMypNX%27%222py%2F27yZd8iXZ7c%2FByARJMvb20gXN0yYZC4%7B1NHXi0c8hELbjpLZuEcFj7%7D+j8h8J8%27%7B%7DYA7jIBNcr%7Dn%7Dp%2FkhpH827ICM7Ap-D%27+2%7D%7D%27c0BzUM%3AABrkEdL-OMNyQB1%7Bmd%7DApJ0-0%7DDvUN%3A%7DJ1n4BN0Ljung11McBjN%7D1ZY-id%3AZA1PBpJIvviC4MdX%7Djd%7DcMBpyDiMyU6%7DcIJ%7DqT27cs%7D%7DyMiY93h%7DAR%7DNLd27B11IdXMYZ421vghIBIi7H%3AhDcBj7%27IjCLv-LZxdpgCNNL-UYwvRDzfJ1%27jnCZQN%7DBC%7D%7DqFNL4fBCBnupyX1NBr2ImQdJ%3Agh0Ln613PZMdrc%7DcmcYA%7BBELId144JX4fM%7DgXJ1ANdN%2FvJL4b1D4%3AN%7DcxJ1vKMEZf6MADiCg+uPA+iy1rurydu8YCh%7Dgv1r%27ku%3A%7DDiEg-d1yCh0B%7B%7DMvI61qmNy%7D%7DhD%27IZEZg-%7Dq46NB0RrZg-ChQuNLtjrd3h%3AgQ2DmCMMvA1I3%7BZE%27%22MLy%7BunBguQ%3AkuXLJJL9%3ARMqQiyLn2Yq0Mn%7D+6M4I2MyPjYL0RMZ7iIw8MELJN%7DirNXY31P%277-p4bu1%3AXuXmfd%7D4fd8%7D8ZY4dBNdQBnBKR%3AA7JX%7Dv27ZCN%7DZ61Y-CiI346n%7D1iYqs1%3Acdi%3A-g2YZRdpgFBrvbiIk-uP4YJMAyNN%277iPLjiM4rBQ%3AP%7DP4DZpcCM1%3AU-Xy%27-%3AgCdD%3A+Mni%3AiNgmcMynuI%3Ak1yBEZD4yh0%27tc8Bz-rB46%7DzmBL-%7Dj0B7j7-AZL4QMD%27E17-rUyhQZM%7DENX%3AZZ1ZpBnLUirLvBX%2761pz8jCH%3AJrhm1%7Ddvd13mZpArJX3nh%3Ac%2FMMYQU%7D4xZEc%3AZMZd2I%7DyhO%3A4cYz8cIZ+jOrfu13giNcRZ8Z8upAMuX4FNIk%7B1r%3A%27j1Bf-y%27XiNyDuDwvc8%27C%7DE-A1rZMM%7D4AND4KN7BxjEhvJNhrjn%7D-RMAvh1RC6NggJr4Y1YZx18A0iD%7DNZLqxJ1%7Df-%7D%7DIhMATZMq41XfrJNy%3A1N13MpLZBEyf%7Dr4jJIBRBIvTJLw%3A27-%7B-IZ%7BjPv%3AN1hf%7DC%2FCBXYfu%7D-7NMIvUnyEh7ZXdI%7D+d1-%2Fj0LF-YqzZLy%3AjYL%22Z0-A%7D0cUuMv%22d1vx1D%3AO1CLJBMZRiryvuE%27yZI%7Dyj8Z0jY%7Di%7DEgPZMrmiIvzZMZLJY-pd%3A%7DrZM%27P1nd8BrrC1E%27TZ0%27%7DuY3-iyRf-n-yhMkyjLhXjLdkJ0A71r%27LdM%3A6n8c7uEIknrvxu%7D4bJr%27g-YyPZXBAYbigO0Y%2268AIiD1miXRX6Mi%3AZPikB7iQBOrmiP1Q6Ng0i7i3BX1QRDdfUJr3BNhvU7RXB79fY9-KjMvpP%27gJZnBFhpd9JXL+ZQgJuXqk%2FL%2FJOHzPdXy8jMvFY%27h%22y1Z4cPvLhCi9dX%7D+cP%7DQ%2FPqQ%2FyBfR-%2FUO93dZn-8%2FYy%7BuPqCZMdJ7Hz%221D%7D8cPy%3AhDy+cg%2FTO9%3ANcXLkuML+ZQgduXq%7B%229%2F%2FgQ%2FOOH%2FbgfzyhPvLcPdQAdz7%7D%7DBYY9m%22gd%3A3VuB7Y91B0bhLd%27zUO91BhxX8d3%2Fy7RspA1%2Fsf9Y%22+dy1jPL8%2FPAFuXk4uDh9jni9NDq+6%7DALZp%7D+ZPytuP19RMvI%2FPB%27uDvFcOgtZJg%27uM%7D+ZP%7DI%2FPqQ%2FP%3AFZPLDjM%7DI6tgPRML%7BcnAL%2FE-F%2FPyQhDLXZJg%27cOgvuC%7DQ%2FP%27FcP%7D%7B%2FPqQ%2FEgQuCgLhp-v%2FEc4uPf9RD19cEALRn-LZOg%27hQg%27%2FYvF6%7DBzuCh9RMvI%2FPvF%2FEALZp%7D+ZOgCjM3%7B%2FPAL%2FPc4cD%7D+%2FO%27dhDqfZnAr2JgfuX34RCI46%27%2FOOHYbHy6H7YBg1%7DiCcX%27A1LZ%22ZLc%7D1pAMi0LNZycjcrq1dI%3A1%7DNI3%7DL-zJLc%7D-I%3ABjXi%3AZPvfN%3Az8Zy%27B%7DLZKNycMM%7DcyJpyM-L4%22R%7D%7DF2I%3A1R8%7DJ%7DnHrZ%7D%27O2y-n-LBt-Mi3Ny%7Dr1%3A%2FQ10yM2Iv1ZY%27OMyY3dIqti7yDNM40irr3UEcL-1v%221D%7BvJrvRjE-N%7DC-TNn4zNDyM1IcnjC-b%7D0gUJPA%2F1I-RiLAzZMvAiYvKcCLJiM93R%7DZj1yBsjEA-ipgTR%3AZju%3A-1NDZ%27JyLm%7D7y-cyL%7BZC-n-YZC1%7Dc%7BJ%7DdQMLZ%27%7DNy%7DR%3AZpiPBsNI3L-yAD1M%3Ar%7Dr3MdD%27j%7DXqrRC4P2y%2FfB7At%7DILCM%7DcPuLdQjYkLuIZAZ1-PMLysNNAj-P-ANIZ%22M%7DBnBnyLjI%2FQ%7DP4P-%7Dz8hEB%7D%7DYYQNM4I2DB%2FuEy%27uD3jRI%27IcDyY%7Dp%7D%272DBs1C4zh%3AZyJI-%27jrv1Z7gMMyZ+Jn-0uIysZ1-Ki%3AcYJDvJuM%27%3AZ%7DZMjP-bNDqT%7D8y%22N0grJyy%7B1IBn%7DYZvNL%7D8ByyMJDvNjLAb%7DDr%3AN%3Ad3%7DLB%7DMEgU%7DP4%7BRMARdL%7D%7D%7DX-UR%7D-M%7D%7D4y1I%3A-i%7D4%22%7D1cUuLBKBN%7DBiCgn1NAMR%7DyMZycUuIZkN%7DcPNr3MZPkN%7D0LdZ1-IBLZM-LcB-McmR%3AZ%22M%7DZ1uyyL-Yv%7D%7DMk-iLcyMpgL%7DN%7DORXkUjr%3AYdNy0uM-UR1-zjXY8u7%7DJuy4D1MvOi%3A-1uyAT-N9%3AMM%3AFc%3AB%7DjPyRi%3A4v%7DyZUi%3AZMUnZ1uEgCN0BUMPA+-0A%7D%7DYmfZM%7Br2%7DyNi1A0jD3RNy%7Dm-%3A4n1NgI%7DDdrZY%7D%22hrv%2FuPk-%7Dngf18Afc%3AcMd0AN%7D1411%7D-AB%7DB%7BhEy%7DunH3%7DyZIZLB%7DBnAnJy4CNyc%22u1r8dp%7Dt-r4%3AN1Z%7DiP%2Ff-Lyt2I18R%3AZOB%7D1fjE-ti%7DZkN1%27O1Ly%7D-0B0jIv8%7DLh%3Ajr3%7DUN-1-LZMRX%3Azj%3A4%2FMIAJ%7D0LfNy-UjLIfMIAJiXBvRL-%7BjMYf1n%270i1AvZMrri%3AcnB14%7DjC%278MI%27zJ%3Ac%7B-pBtMYvORpI3cP%2FQuyBNuPh3M%7Dhv21%3APuy%27L-NLb%7D%3A%27Mc13nhPkL%7DrZER1%7D%7BjLLnMI-Bj8%27s%7Dr%27%7B1%3A-MNNg1iI%7Dm%7D1cz-yA+hEyt%7DNYQR0%2Frc%3AyMhEc-2LZsMI%7Df11v11nLUMYvQMNy%22-yiQ%7D0%7DL-yz8%7DyZjNy%7Dy10BBjC%27fNy%27M%7D1%3AyUNZ%7DiM--NNyJdD%7DyMLL-uIAXN0H%3Ah1%3AKcyAt-Cgy1%3Ac%22-L-1jY-B-X3%27N%7DcfiYvvi1cM-CgkMDvIi%3Ac%7Di1qJiIZz10yOi%3Aykin%7DnMYr3N%7D-OBP-n-L%27tj8yr%7D1ZUJy4khYZ0jD%274ZE4Uu%3A%2FfNpgi%7DDwrND3J%7DDybNI-%27-yA%22MD3f2%7DckjY%27%7D-y%2FfNrZ02%7D4n%7DI%271i0yjML%7DjuIvRuYqBiPf%3AN0AzNy%7D+uC4%27irY318g0By%7DM1N%7D-%7Dn9rMDv%22iyiQ2y%270iM-A%7D%3Acy21qMhPZjJPd3MLcj1M%7DK%7DIZ0d8yfZY%7DF2D-KMp%7D%27d8gCRL%7DmdI%3A1ZyLj2L4sRDv%22%7DX%2FQhEZ1jC-8%7DNH3jPy%7DNpcJ-D9QN%7D-PuMAkU7%7DI2D98%7DI%27JJL1fMLcn%7Dpg%22%7DP%3AfhL-YNDZ%27JPi%3A1%3A-0iPyR%7DLAZ%7Drz%3AR%3A%7DZir31dIANiEgy%7D1%7DjZL%7DsJD4Bu%7DZ1MDfvZLB%7D%7DpcJ%7DLZKR%3Ac%221y4nUng%7Diphf1%3A-Pi%7D%7D1%7Dn%27nuD3jNI%27Pc%3ARfhPyNjrvZND%7B%3A1yB%7BU7yL-yA81DkjhXyEBNy1%7DMBC%7D0BAirmQ-nct%7DLAY%7DycKB1qR-I%270-yzQ1MkMc%7Dy%7D1IL%27jD3X1I1vu%3A4%7B-0y%27-M36MD4JJLZbZYqt%7D8%7D61%7D1%3AZL%7Dki1B%7DiX3NNLcjM1rf-0%7DtJP%27PMDkM-DysMD4%27-%7DZB%7DI%27O-%3A4ni7-Bj8%7DFMLcjuyBy1Dv-i%7DRfMLcz-%3A%7DR1n4Ui7H8%7D1%27z1y4bjyZt-n%27JN1ZZc%3AAR1IZ0%7DC-PRM30iDy%7B1n-NjI4Y%7DNgzuyyni13R2D-YRI%27Kcy9fBMZt%7Dpg318gzdLAy-IcjiIv%22-X4%7B1%7D%7DKuY-J%7Dn%27%22%7DPk%7Dcy4EJn%27U-YZbNn40cy4b%7DNBB18HfND4BB131Z8gju%7DyrNIcPj%7D411D3B-YZzMn4ZB131-NyU2D%7BrND4%7Di1v1MNr%3Dl%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": true
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "XcX2wCxsohvchomCXmowr2XorhrC%3AW2Xucrqo%3AvWqwssmwr",
+                "rateDescription": "Resort King Room",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": null,
+                "roomTypeDescription": "king"
+            },
+            {
+                "BedTypes": {
+                    "@size": "1",
+                    "BedType": [
+                        {
+                            "@id": "23",
+                            "description": "2 queen"
+                        }
+                    ]
+                },
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "378.98",
+                            "currencyCode": "USD",
+                            "total": "378.98"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYtdvRX%7D%27Z0%27tBQ%3A%27i8Ym6NdfZP%2FkUMiriOrQZ71%3AU79%3ARX%2F3iN%2FJ%7Dfz3Otd%3AiDYXB8%2FvRJ%3ADi0%2F86NdfBN1kRNctRJrQBXY%3AUNi%3ABNLtBDRJON%2FfiNRrB0Rmig%2FEitg3cM%7DLu%27z%7D1DqFuJgnjn-z%2F7%2F91n%7DLZMm9dD%7DI%229%2F%2FYO%2FOOH%2Fbgdz7hPBIit1%22H%3A%7DN-g%2FUO91BhnXqd3%2Fy7ckL6I%2Fj79zy7nyqF1iJgdCuZJvOUK%7BBOKRB7d4gZX191D%7D8cEA4RC-4uXm9-PL8RX3FhC%7DQZNzBOL-zZJgQZnBLhpZ%27cPLFutgzuX3IZn%2F9un%7D8cOgtZJHQiJgvZMyQhQgFZtg%27ZX19uC%2F9uX3IZn%2F+7dzBOIc%3ARnA%27up-LZJgduX34RCIs7d4JZnBLhpZ%27cPLFutg4hQgpcMyQRMvrZM%7DI%2FPZFhtg%27hpA4cDy%7B%2FPq+%2FE-zZJg0uXvDjnAkZMd9RX%27LRX%7BkjMm9ZPyrZJgFuD3v6tgAZtgvuC19ZPq+ACd9RX%27LRX%7BkjMm9cPw9cP%27L%2FP%27FcP%7D%7B%2FPq+%2FE-zZJgDjnA8cOgIRnI9uXR92Mq%3AhtgQZnBLhpZ%27cPLFutg%27uDd92Mq%3A%2FP-F%2FPvFcOg%27uP%7DQcOgrjP19jPqrZMf9jMm9RM-XRMv0ZJgrjP19hD%7DkRML+jMvp%2FEgFhp-4uXm9uXR92Mq%3AhtgQZnBLhpZ%27cPLFutgCjM3%7B%2FPAL%2FPB%27uDBLuP%7DI%2FPy+ZOgvuC19cXL%7BuOg+uCd9RD19ZMvrjn-%7BZMd9cPw9RJgQZMZ%3AuDd+7dzBOLAFuXr9dX%27%27hDcL%2FY-4hXB%7BuCB%3AhD1s7d4ZuC%7DQ%2FPBQZM-4cOg0RnAI%2FPL8%2FPBzRnApZMd9cP%27L%2FE-FcPy%7B%2FPBFhCd9Rnd9cPLkZJgFZtgfcnA0jPy8ZJm91EA4RX%7D8%2FPy+ZOgQuXqk%2FPyXRML%7BRMA4uPLr2Jg%27hD19uDqr%2FPc%3ARnA%27up-LZMd9cMvrjMf9Zp%7D%7BuOgfRnLkZMvr%2FPL8%2FEALRX%7D4cD%7DI69r%227d4JuXqk%2FYq0RC%7DfRMv02JgYjnB0uPq8cnALU9r%22dM3%7B%2FEAFuX%3A8%2FPy0RXqkuMqIRn-L%2FE-CuQgpcM%7D8cEi+%2FyBfZMB4RMf9uD%7DLZEi%7B%2FPALZOgr2ngL%2FPqQ%2FPqrjP%7DQ%2FEALhn%7DLhC-8%2FPyQZJg%27cOgrjP19ZPL8RCALcPLFutgFZtgrjP19RXq+ZDLQuM%7DI%2FP%27FcP%7D%7B6tgduP%7D%27hX19RXq+cPy0cOgrjP19jPqrZMf9ZPLQZMBruEI9ZDqQ%2FPyXRML%7BRMA4uPLr2JmBO9r%22dX%27LRX%7BkjMm91Pq%7BjMBvU9r%22%7DP%27L%2FEALhX%7DQcDyrjMq+%2FP%27FuP-LhtgkcnBr%2FEgQZnBLupd9RJgXRM34ZOgfjPqruQgA-Og%27uDd9RCALZPLr%2FPB%27hDd9Rnd9RX%27LRX%7BkjMm+%2FOg1jP19RCALZPLr%2FPB%27hDd9jni9hD%7D3cMLQZMd9ZDqQ%2FPy+2Jg%27ZP-4cPLFuDy%7B%2FP%27FcP%7D%7B%2FEBfZMB4ZDL0%2FEBLhpZ4RX19ZD%7DLhQgFhtg4uDB4ZP%7D+cPy%7B%2FPBzRnApZni9uC%2F9ZD%7DLhQgrjPyr%2FP%3A%272JgtZJg0jPyQZX%7DI%2FPAv%2FE-zZJgzuC-LuOgruQgrjP19RC%7D8cPqkZn%2F9Rnd9RX%27LRXkFcnd+%2Fy-zZnBL%2FPBzRnApZni9uMyv%2FPAL%2FP%3A%27uD-%27cPqQ2JHzZJvp6tf9hD%7D8uCAr%2FPZLZni4%2FPqQ%2FPqfcPLFuDy%7B%2FO%27fRnAKjMvp6OgfjPq+ZJg0RM3%7BhQgFhtgkjMv46MA%27htg0jPyQZX%7D8%22Jg%27uDd9RnAL%2FPvFcOg4uDB%7BcM-LZOg4utgrjP19hDqFuJgQRn-L69r%227d4dZn-8%2FygFuPL02NzBOLgLcEi9RnAL%2FEgLhD%3A4cE-LZOmBO9r%22NMy+ZPyruCAv%2FYZLZJgduX34RCIs7d41jPL8%2FP%27FcP%7D%7B%2FPBzRnApZni9RMm9RM-Ijn-4uXv%27uOHIBNY+i7%2F9%7D%7DBY6OgfZn%2F9hDqFuJgfZn%2F9uDLpjEd+%2Fy-zjni9ZD%7DL%2FEc4uPf9RD19RX%27%27hDcLZOgruQgvuC19ZPLQZMBruEI9RpI9cP%27L%2FP%27FcP%7D%7B6tgBRMvIRn-FhpI9ZD%7DLhQg%27hD19uDqr%2FPqfcPLFuDy%7B%2FPy+ZOgr2ng4RXy%7BuEI9RXqXZn%2F9jn-Luni9hC%7D0jOg%27hQgQZnBFhpd9ZD%7DLhQf9ZMvLhDcv%2FPBzRnApZni9uC%2F9hXyDZJgDZM%7D86tg1jP19RM%3AFcMvr%2FPqD%2FE-zZJg0jPyQZX19jni9hC%7DtjD%7D0cOgruQg0jPy+ZX1+7dzBOI3F2My%7BcEI91Pq4up-8%2FY%7D%7BjMc4RDL%7Bjn-vU9r%22%7DP%27L%2FEA%27cP19hX%7D%7BZMBrZMd9uMyv%2FPAL%2FP%7D%7BjMc4RD3L%2FPZFhtg%7BuCL%27uE-v%2FEgFjMvr%2FPy0RCA%3ARMf+7dzBOI3F2My%7BcEI91Pq4up-8%2FY%7D%7BjMc4RDL%7Bjn-vU9r%22%7DP%27L%2FEA%27cP19hX%7D%7BZMBrZMd9uMyv%2FPAL%2FP%7D%7BjMc4RD3L%2FPZFhtg%7BuCL%27uE-v%2FEgFjMvr%2FPy0RCA%3ARMf+7dzbHy%22%2FH1%7D41N%7DZiLZzMD4zj1vviM%27B2I1rNy--c%3A4EJn-T%7DrrfN1if2%7D4Y%7DNyT-Ph3MNAA2Y%3A1JMydd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4gTNr%3Dl%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": true
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "vXjsWXqjoxXXComrvvojWujoXWjvqCvvqusx",
+                "rateDescription": "Room With 2 Queen Bed",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "201646680",
+                "roomTypeDescription": "2 queen"
+            },
+            {
+                "BedTypes": {
+                    "@size": "1",
+                    "BedType": [
+                        {
+                            "@id": "14",
+                            "description": "1 king"
+                        }
+                    ]
+                },
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "412.98",
+                            "currencyCode": "USD",
+                            "total": "412.98"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYt-%27RX-Li0A%27iJr3BN%2Fm6NdmBX1kRN98ZOrvRXd%3ABXd8ZDZIB8YJnHz3Ot-0B7YQB0RriJ%3ADRXZL6Nd%3AiN%2FkUPZLUJr3RXyLiNRXB0R8UPiJON%2Ffi0YfiNdri-%2FYjXL+Z3zc1DqFuJgnjn-z%2FYk4uDh9dD%7DI6yBrhDLf%2FyZ4ZnhbH99E%2F9%2F%2FHtzyO9BfRXdQAdz7%7D%7DBYY9m%22gd%3A3xhv7Y91BTd%7B%2Bd%27zUO91BhnCUd3%2Fy7Nr6TI%2Fs+fr%22k9rBOIypZJgJZnBrhDL0cPLFutgYjnB0uPq8cnALU9r%22%7DP%27L%2FEALhX%7DQcDyrjMq+%2FP%27FuP-LhtgkcnBr%2FPAL%2F7%2F3%2FELLRnA8%2FPqD%2FPypZJgFhtgFuP-LhtmBO9r%22-C%7D%27hDy+cP%7DL%2FygFuPL02NzBOLALhX%7DQcDyrjMq+%2FPL8%2FPc%3ARnA%27up-LZMd9ZDqQ%2FPyQhDLXRMf9uXm9cP%27L%2FPBFuDZ4hD%3ALZOg0jP%7D0jQ%3A4utgIRn-L%2FPq+uEI+%2FYLD%2FELFcJgIuXmpcOg0jP%7D0jQ%3A4utgruQgrjP19jPqrZMf9uXm9cP%27L%2FPZ4hpBr%2FP-%272JgFZtgvuC%7DQ%2FEALhX%7DQcDyrjMq+%2FPy+ZOgvuC19ZPw9uDqr%2FPy%7BZnAr%2FE-zZJgzuC-LuOg4utg%27ZEZ%27uDBL%2FE-zZJgQZM%3A%27jMv4uDh9hPqQcPLFutgFZtgvuC%7DQ%2FEALhX%7DQcDyrjMq+%2FEc4uPf9RD19RXy+RX%7D%7BZMd9RMvI%2FELFcJgCjM3%7B%2FPvFcOgtZJgLup-4cP3LZOgruQg%27%2FEALZp%7D+ZOmBO9r%221DqFuJg7jPyQZX19-PL8RX3FhC%7DQZNzBOLLFcn%2F9RCALZPLr%2FPB%27hDd9jni9RX%27%27hDcLZOgrjP19cPqrRMf9RXq8cOg%27cOgrjM%3AL%2FPqD%2FEg%3AhDBzRnBL6tgdhDL0Zni9RMvI%2FEAFuXr9RnZ%27jM3%27RDL%7Bjn-v%2FPyQZJg+uCd9ZC%7D%27hDy+cP%7DLZOg%3Aup-4uOgDcM3%7B%2FEg%272M%3ALupd9jni9hD%7D0ZMLXZMd+7dzBOLAFuXr9NXB0cng%27uDBv%2FY-4hXB%7BuCB%3AhD1s7d4guPf9hDqFuni9RMB0uX%3AkuX-%27cP19cEcF%2FPc%3AZnBrhQm91CgLRXL%27uOg+ZM%7DIhQf9RD%7DI%2FE-vhP19uC%2F9uC-zZn%2F9hD%7D3cM%7D8cEi9RnAL%2FPyr%2FE-zZJgIjnB0hD%7DrjMq+%2FPqD%2FE-zZJg0uXvDjnAkZMd9jPqrZMf+%2Fyg%7BZMy8ZJg0uXvrRMBr%2FE-zZJgzuC-LuOgIjnALRC-%7B2JgDuC%2F9RnZ%27jM3%27RDL%7Bjn-v69r%227d47jP%7D0jQ%3A4utgduX34RCIs7d41jP19hD%7D8ZnAXRn-4uXm9jPq%7BZP%7DQ%2FP%3A%3AhCd9hEALhX%7D+cOg%27%2FEZ%27uPLI%2FEgzuC-F%2FYLY%2FPy+ZOg0hD%7DIjnd9RXyQZOg%27cOg0jP%7D0jQ%3A4utm9%2Fy-zZJg0hD%7DIjnd9RXyQZOg4hQgQZny%3AjnALZOgDuC%2F9RMvv%2FPyIZPLrjMq+RMf9jPqrZMf9hCgLRXLDjMi9hX%7DQcDL0ZJgDZM%7D8%2FPqQ%2FPL+RXLIZMvrRMf9RX%27%27hDcLhQgFhtgDZM%7D8%2FE-zRnd9uMyv%2FPAL%2FPBzRnApZMd9RpI9cP%27L%2FP%27FcP%7D%7B%2FE-F%2FE-zZJg0cnBruX%3ALhtg%27cOg0jP%7D0jXq%3AcOm9%7DP%27LhX19RX%27%27hDcLhQgkRnI9RD19uMy+ZPyruCAv%2FO%27L6Dh+6OgQZnBFhpd9ZD%7DLhQI9uC%2F9uCgrjMq+RMf9%22Eg%27hDk4uDh%7B%2FEgzuXvL%2FPB%27uP38%2FPqQ%2FP%3A4uDIkRDyQ%2FPBzRnApZni4%2FPy+ZOg%27hD19uDqr%2FPL+RX3%3AZP%7DI%2FPL+%2FE-zZJgQuXqk%2FEA%27cP1+7dzBOLgLcEi91Pq%7BjMBvU9r%221P%7DrhQg%27hD19hP%7DQuMLrcP%7DI69r%227d4BRMvIRn-FhpI9-D%7DL%2FygFuPL02NzBOL-zjni9jPqrZMf9RX%27%27hDcLhQg%27utg%27ZP-4cPLFuDy%7B%2FOd%3AiJmfitg%7D1rd%7B%2FEgLhtgQuXqk%2FEgLhtg+jMczcOm9%7DP%274hQgDZM19cXL%7BuOgtZJg0jPyQZX%7DI%2FE-F%2FELFcJgIjnALRC-%7B2Jgt2JgrjP19jPqrZMf+%2FY%3A%27uD-%27cPqQ2JgDZM%7D8%2FPyQZJg+uCd9uCgrjMq+RMf9RMvI%2FE-vhPL0RM3%7B2Jg0uCZLhtg4cP%7DkhQg8cMBz%2FPy8%2FEALhXqQcOgDZM%7D86OgLuD%7DQZCI9RX%27%27hDcLhQgFhtg8RMZL%2FPZLZni+%2Fy-zZJg%27uMq%3Aupd9uXR9cP%27L%2FPBzRnApZJg4hQg8cMAbZMBr%2FE-F%2FPBzRMvpZJmBO9r%22NPqvRM3r2JgduXL+cEi9-M34ZXLtjM34cEIs7d41jP19hDyrZJg8ZM3LRC-LZOgkRnI9RD19ZM34ZXLtuP19ZDqQ%2FP3F2My%7BcEI9hPq4upd9RMB0hp%7D%27uOmBO9r%22NPqvRM3r2JgduXL+cEi9-M34ZXLtjM34cEIs7d41jP19hDyrZJg8ZM3LRC-LZOgkRnI9RD19ZM34ZXLtuP19ZDqQ%2FP3F2My%7BcEI9hPq4upd9RMB0hp%7D%27uOmBOtzH1z9g-MLJjyIQ1D3BjI4zN%7Dif2Yv1JN-i%7DyYrN0A%7DcyL1ZC4jd8H%3AMNA-i1mQ1n4ju%7D4KNp4yR%7Dg7UE%27T-PBXNr-0BY%3AsZCZJ-YLCNM4gcr%3A1JNgM-Y%7DmNn4A2Iv4UM%3AZ2D-kML--i1vE-n4U%7DP%7BfM%7DcBc%3ALbdN-j-%3A18MNA%7DcrqYND%3ABjLAkMIYqTd%3D%3Dl%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": true
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "hm%3AXssm%3Aoxhx2omv%3AXowx2qo%3Ahj2%3AssssCwh",
+                "rateDescription": "Room With King Bed,Strip View",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "202101441",
+                "roomTypeDescription": "king"
+            },
+            {
+                "BedTypes": {
+                    "@size": "1",
+                    "BedType": [
+                        {
+                            "@id": "15",
+                            "description": "1 queen"
+                        }
+                    ]
+                },
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "425.98",
+                            "currencyCode": "USD",
+                            "total": "425.98"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYtd%3Ai8cDR0RfBQr3iXY36Nd%3ABNdkUN%2FCRt%3AIB7i3iN98U7hQR0iJM9z3OtdrB7hvZ0dQUJ%3ALi8Yv6Nd8BMikRMRXBJrXRNRQiNIfR0RvB7YJON%2FfiNRrB0Rmi-%2Fyhn%7DLZMmjPI-LuE%7DmZJgJuXqk%2Fyc4cP991n%7DLZMm9dD%7DI%229%2F%2Fgt%2FOOH%2Fbgdz7hPBIit1%22H%3A%7DN-g%2FUO91BhxC1d3%2Fy7u1P-Y%2Fj79zy7nEq%3AYiJgdX%3AgI-OUK%7BBOKRB7d4gZX191D%7D8cEA4RC-4uXm9-PL8RX3FhC%7DQZNzBOL-zZJgQZnBLhpZ%27cPLFutgzuX3IZn%2F9un%7D8cOgtZJHQiJgvZMyQhQgFZtg%27ZX19uC%2F9uX3IZn%2F+7dzBOIc%3ARnA%27up-LZJgduX34RCIs7d4JZnBLhpZ%27cPLFutg4hQgpcMyQRMvrZM%7DI%2FPZFhtg%27hpA4cDy%7B%2FPq+%2FE-zZJg0uXvDjnAkZMd9RX%27LRX%7BkjMm9ZPyrZJgFuD3v6tgAZtgvuC19ZPq+ACd9RX%27LRX%7BkjMm9cPw9cP%27L%2FP%27FcP%7D%7B%2FPq+%2FE-zZJgDjnA8cOgIRnI9uXR92Mq%3AhtgQZnBLhpZ%27cPLFutg%27uDd92Mq%3A%2FP-F%2FPvFcOg%27uP%7DQcOgrjP19jPqrZMf9jMm9RM-XRMv0ZJgrjP19hD%7DkRML+jMvp%2FEgFhp-4uXm9uXR92Mq%3AhtgQZnBLhpZ%27cPLFutgCjM3%7B%2FPAL%2FPB%27uDBLuP%7DI%2FPy+ZOgvuC19cXL%7BuOg+uCd9RD19ZMvrjn-%7BZMd9cPw9RJgQZMZ%3AuDd+7dzBOLAFuXr9dX%27%27hDcL%2FY-4hXB%7BuCB%3AhD1s7d4ZuC%7DQ%2FPBQZM-4cOg0RnAI%2FPL8%2FPBzRnApZMd9cP%27L%2FE-FcPy%7B%2FPBFhCd9Rnd9cPLkZJgFZtgfcnA0jPy8ZJm91EA4RX%7D8%2FPy+ZOgQuXqk%2FPyXRML%7BRMA4uPLr2Jg%27hD19uDqr%2FPc%3ARnA%27up-LZMd9cMvrjMf9Zp%7D%7BuOgfRnLkZMvr%2FPL8%2FEALRX%7D4cD%7DI69r%227d4JuXqk%2FYq0RC%7DfRMv02JgYjnB0uPq8cnALU9r%22dM3%7B%2FEAFuX%3A8%2FPy0RXqkuMqIRn-L%2FE-CuQgpcM%7D8cEi+%2FyBfZMB4RMf9uD%7DLZEi%7B%2FPALZOgr2ngL%2FPqQ%2FPqrjP%7DQ%2FEALhn%7DLhC-8%2FPyQZJg%27cOgrjP19ZPL8RCALcPLFutgFZtgrjP19RXq+ZDLQuM%7DI%2FP%27FcP%7D%7B6tgduP%7D%27hX19RXq+cPy0cOgrjP19jPqrZMf9ZPLQZMBruEI9ZDqQ%2FPyXRML%7BRMA4uPLr2JmBO9r%22dX%27LRX%7BkjMm91Pq%7BjMBvU9r%22%7DP%27L%2FEALhX%7DQcDyrjMq+%2FP%27FuP-LhtgkcnBr%2FEgQZnBLupd9RJgXRM34ZOgfjPqruQgA-Og%27uDd9RCALZPLr%2FPB%27hDd9Rnd9RX%27LRX%7BkjMm+%2FOg1jP19RCALZPLr%2FPB%27hDd9jni9hD%7D3cMLQZMd9ZDqQ%2FPy+2Jg%27ZP-4cPLFuDy%7B%2FP%27FcP%7D%7B%2FEBfZMB4ZDL0%2FEBLhpZ4RX19ZD%7DLhQgFhtg4uDB4ZP%7D+cPy%7B%2FPBzRnApZni9uC%2F9ZD%7DLhQgrjPyr%2FP%3A%272JgtZJg0jPyQZX%7DI%2FPAv%2FE-zZJgzuC-LuOgruQgrjP19RC%7D8cPqkZn%2F9Rnd9RX%27LRXkFcnd+%2Fy-zZnBL%2FPBzRnApZni9uMyv%2FPAL%2FP%3A%27uD-%27cPqQ2JHzZJvp6tf9hD%7D8uCAr%2FPZLZni4%2FPqQ%2FPqfcPLFuDy%7B%2FO%27fRnAKjMvp6OgfjPq+ZJg0RM3%7BhQgFhtgkjMv46MA%27htg0jPyQZX%7D8%22Jg%27uDd9RnAL%2FPvFcOg4uDB%7BcM-LZOg4utgrjP19hDqFuJgQRn-L69r%227d4dZn-8%2FygFuPL02NzBOLgLcEi9RnAL%2FEgLhD%3A4cE-LZOmBO9r%22NMy+ZPyruCAv%2FYZLZJgduX34RCIs7d41jPL8%2FP%27FcP%7D%7B%2FPBzRnApZni9RMm9RM-Ijn-4uXv%27uOHIBNY+i7%2F9%7D%7DBY6OgfZn%2F9hDqFuJgfZn%2F9uDLpjEd+%2Fy-zjni9ZD%7DL%2FEc4uPf9RD19RX%27%27hDcLZOgruQgvuC19ZPLQZMBruEI9RpI9cP%27L%2FP%27FcP%7D%7B6tgBRMvIRn-FhpI9ZD%7DLhQg%27hD19uDqr%2FPqfcPLFuDy%7B%2FPy+ZOgr2ng4RXy%7BuEI9RXqXZn%2F9jn-Luni9hC%7D0jOg%27hQgQZnBFhpd9ZD%7DLhQf9ZMvLhDcv%2FPBzRnApZni9uC%2F9hXyDZJgDZM%7D86tg1jP19RM%3AFcMvr%2FPqD%2FE-zZJg0jPyQZX19jni9hC%7DtjD%7D0cOgruQg0jPy+ZX1+7dzBOI3F2My%7BcEI91Pq4up-8%2FY%7D%7BjMc4RDL%7Bjn-vU9r%22%7DP%27L%2FEA%27cP19hX%7D%7BZMBrZMd9uMyv%2FPAL%2FP%7D%7BjMc4RD3L%2FPZFhtg%7BuCL%27uE-v%2FEgFjMvr%2FPy0RCA%3ARMf+7dzBOI3F2My%7BcEI91Pq4up-8%2FY%7D%7BjMc4RDL%7Bjn-vU9r%22%7DP%27L%2FEA%27cP19hX%7D%7BZMBrZMd9uMyv%2FPAL%2FP%7D%7BjMc4RD3L%2FPZFhtg%7BuCL%27uE-v%2FEgFjMvr%2FPy0RCA%3ARMf+7dzbHy%22%2FH1%7D41NyB2D-kMM4ZcrvviE%27BiI%7DmNy--i1v11n-T%7DYI8MMI3jrvYNn%27B%7DPcsNr-02%7DLbNMydd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4gTNr%3Dl%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": true
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "mmWqxmXqo2C%3AqomCvhojxsvosjsX%3Aqrusqm%3A",
+                "rateDescription": "Deluxe Room With Queen Bed",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "201646681",
+                "roomTypeDescription": "queen"
+            },
+            {
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "425.98",
+                            "currencyCode": "USD",
+                            "total": "425.98"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYtdCZP1fRXyIBtr%3AiN-L6N-LRM%2FkRM1Qitr%3ARM%2F8Z793ZPdCU7HJn9z3Ot-LiNd8UM%2FrUO%3ALiDdr6N-tR8RkU7iXBQrXi8Y8ZM%2F%3ABNdCBDYJON%2FfiNRrB0Rmi-%2FAhn%7D%27ZEA%3AhP3LP%273JuXqk%2Fyc4cP99-Pq%3ARD3L%2FOR91n%7DLZMm9dD%7DI%229HtH99O%2291%22HCg0Z7%2FLO9B%7D1rdJ79zy7nEq%3AYiJgdX%3AgI-OP9m%22gd%3A3Vc-7Y91BkdZYd0bW7dbX7dr%22dMcL%2FyALhC-QjMBrjMq+%2FY-4hXB%7BuCB%3AhD1s7d41jP19hD%7D8ZnAXRn-4uXm9jPq%7BZP%7DQ%2FP%3A%3AhCd9RD19i0Y92M%7D%27hpi9uXR9RMcL%2FPqQ%2FPq%7BZP%7DQ69r%227d4EcMyQRMvrZM191Pq%7BjMBvU9r%221D%7D8ZnAXRn-4uXm9jni9ZC%7D%27hDy+cP%7DLZOgDuC%2F9RnAQjnZ%27uOgFutgrjP19RXq+ZDLQuM%7DI%2FPBzZMBK6ML+%2FP-%27cP19uXv%7B2Jm9JMR92Mq%3A%2FP-Futcr%2FPBzZMBK6ML+%2FE-F%2FE-zZJgzuC-LuOgFutgrjP19ZDLQhCd9ZPyv%2FPqD%2FELFcn%2F9hD%7D8ZnAXRn-4uXm9RMvI%2FELFcJgIuQg+uCd9RM3Lhpd9cP%27L%2FP%27FcP%7D%7B%2FPL+%2FPyIcDy+RX19cP%27L%2FEALuMy4uDL+ZQgfuCArjMq+%2FPqD%2FELFcn%2F9hD%7D8ZnAXRn-4uXm9cXL%7BuOgtZJg0RMv0ZM3LZOg%27uDd92Mq%3A%2FEc4uPf9uDqr%2FPAL%2FP%7D+cPLruP%7DI%2FE-F%2FPY9hD%7DDcMvI69r%227d4JuXqk%2FYBzRnApZJgYjnB0uPq8cnALU9r%22MMq%3Ahtg0hD%7DIjnd9RXyQZOg4hQg0jPyQZX%7DI%2FE-zZJgruC-%27uOg0uCBr%2FPyr%2FE-4uM19uXR9hE%7DQRX%27%27hX1+%2FygQjMBLhQg%27uDd9hDqFuJg%27cDy4uPytjM34cEI9RnAL%2FPvFcOgpcMyQRMvrZM%7DI%2FE%7D+cPL%7B%2FPZ%3AuPf9hPyvuM%7D+cOg4hQgQZMBLjnZLZOmBO9r%221DqFuJgTRXB%3AhPy+RCI9-PL8RX3FhC%7DQZNzBOIy%7BuOgQuXqkhQg%27RXBFuM%3AFZPyrZJgrcXw9ZC%7DLhC-86tgNhP%7D0jMy%7B%2FPvLZM-86OgtZMd9cELfZJgFhtgFcP%27LhtgQZny%3AZnBrhQg%27hD19Rnd9cP%27L%2FP-4hXBQZn-4uXm9uXR9cP%27L%2FPBFuDZ4hD%3ALZOgzuC-LuOm91P3LRnBL%2FPBFup-%27RCd9cP%27L%2FP%27FcP%7D%7B%2FP-4hD%7D0cP3v%2FPZFhtg%27cDy4uPytjM34cEI+7dzBOIBzZMBK6ML+%2FygFuPL02NzBOL-zZJgQZnBLhpZ%27cPLFutgzuX3IZn%2F9un%7D8cOgfhD%7D8ZMvr%2FPY9cDy%7BjMd9hP%27FcPw9J1d9RMvI%2FPBQZM-4cOg0RnAI%2FPyr%2FPBzZMBK6ML+6tH9%7DP%27L%2FPBQZM-4cOg0RnAI%2FPL8%2FEALhn%7D4hD%7DI%2FPZFhtg%27upI9RM-Ijn-4uXv%27uOgzuC-LuOg8hP%7D0jMZ4RQg8ZnAXjMBL%2FPZLZni9uC%2F9jMv0jM-Lup-%27uOg0jPyQZX%7D8%2FPqQ%2FPZLZni9cP%27%27cOgkRnI9RD19RX%27%27hDcLZOgt2JgrjP19jPqrZMf9cPw9cP%27L%2FPB%3AhC-FuM%7DQ%2FPyr%2FPBzZMBKuC%7Dr6tg1jP%7D8ZJg0jPyQZX%7D8%2FP%3A%272JgtZJgkRMvIRn-FhpI9%22P1+ZQm%7B%2FEALhXqQcOgDZM%7D8%22JgFhtgFhE-4uXv%27uOHzhPyQjXL+ZQf9hP%27FuD19RXy%7BuEi9uC%2F9uML+jJ%3AtRn%2F9RX%27%27hDcLhQI9RMvI%2FPyQZJg+uCd9jMv0uE%7DIZMd9jMm9cP%27L%2FEAFuXr9hDyrZJmBO9r%221P%7DrhQgduX34RCIs7d4dZn-8%2FPyQZJgfZnAkjn-rZMd+7dzBOI%3A%27uD-%27cPqQ2JgPZM191Pq%7BjMBvU9r%22%7DP%274hQgzuC-LuOg0jPyQZX%7D8%2FPy+%2FPyIZPLrjMq+RMf9A71360HQ%2Fy%7DN-Of9hP%7DQ%2FEAFuXr9hP%7DQ%2FPv4ZX%27r6tg1jPL8%2FPZLZJgCjM3%7B%2FPAL%2FPBzRnApZMd9cPw92Mq%3A%2FP-4hD%7D0cP3v%2FPAv%2FE-zZJgzuC-LuOm9NMy+ZPyruCAv%2FPZLZni9RnAL%2FPvFcOgFhE-4uXv%27uOg%27uDd9cELfjMB%27uP3v%2FPBFcD%7DQ%2FPLrZM%3A8%2FEB%3ARX99Rni9hD%7D8uCAr%2FPZLZni%7B%2FP%7D+ZnAp2Jg0jPyQZX%7D8%2FPqQ%2FEB%27ZD19ZD%7DLhQm9%7DP%27L%2FPykuC%7D+cOgFZtgrjP19RX%27%27hDcL%2FPL8%2FEB%3ARD4LRCd9cPw9RX%27%27uDcL69r%227d4iuCL%27uE-v%2FygFjMvrhQgyuPLpjMA4uPLr2NzBOL-zZJgQRn-L%2FEBLuP%7D0cP%7DI%2FP%3A%272JgtZJgLuPLpjMA%7BZJgDuC%2F9uPqvRM3r2JgfuXL+cOg%27RXBQcMy%7B69r%227d4iuCL%27uE-v%2FygFjMvrhQgyuPLpjMA4uPLr2NzBOL-zZJgQRn-L%2FEBLuP%7D0cP%7DI%2FP%3A%272JgtZJgLuPLpjMA%7BZJgDuC%2F9uPqvRM3r2JgfuXL+cOg%27RXBQcMy%7B69r%22%229gJtHyyj%7DY8MIc%7Dc%3AIQ-DkUjNH3N%7D-JuY311D3Z%7DrLrM%7Dc%7D21%3A4i7yZ%7DrLsMI-p2y4E1NBT-Yy%271Yim2YqYRCZT-PirNn4pcLAYJncBjIyCN%7D-AiyZY-n%27B2ILsNDIvu%7DLsZP%3Aj%7DyY3NIcy2Iv1j8gZ%7Dr%3ACMM4gBy4E%7DNBZiL%7DCNr-Uu1%3Ab1D%3AjdNrql%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": true
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "2%3AmCqumwo2XcmomuhsowCsWosC%3AC2uvvmWsj",
+                "rateDescription": "Room With Double & Queen Bed",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "201646681",
+                "roomTypeDescription": "quadruple"
+            },
+            {
+                "BedTypes": {
+                    "@size": "1",
+                    "BedType": [
+                        {
+                            "@id": "14",
+                            "description": "1 king"
+                        }
+                    ]
+                },
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "433.18",
+                            "currencyCode": "USD",
+                            "total": "433.18"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYt-0iN%2FXB0ctUJrviMBI6N-0ZDRkRMYXZO%3ADBD%2F8BX-DBP%2FQRNiJ1dz3Ot-LR0ytB0%27DRQrXRD1Q6NdQZNHkU71fZJ%3AIUM%7D0BXyDB0%7DtR8dJON%2FfiNRrB0Rmi-%2FYjXL+Z3zJ1DqFuJgnjn-z%2FYk4uDh9dD%7DI%229%2F%2FgQ%2FOOH%2Fbgdz7jP%2FQit1%22H%3A%7DN-g%2FUO91BO4xRd3%2Fy72cM-r%2Fj79zy7dbnXYiJgdCp%7DIcOU9%2FjHy%22%2FH1%7D41D4B%7DYIQND4Ij1qNi7%7DB%7DrvKNy-JjL4kMn-Z%7Dr1QMIi3u1vkJn4UiLAkNIcA2%7DL1NMydd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4gTNr%3Dl%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": null
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "2u%3Auswxhosu2XomX2rowvr2ocq2hWjxsvuhm",
+                "rateDescription": "Room With King Bed",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "201646681",
+                "roomTypeDescription": "king"
+            },
+            {
+                "BedTypes": {
+                    "@size": "2",
+                    "BedType": [
+                        {
+                            "@id": "13",
+                            "description": "1 double"
+                        },
+                        {
+                            "@id": "18",
+                            "description": "One Twin Bed"
+                        }
+                    ]
+                },
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "443.98",
+                            "currencyCode": "USD",
+                            "total": "443.98"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYt-IUPBLZDifBQ%3A0BNRv6NdfZ7ikRNd%3ABJr3ZNHQi7RrRMRfi8%2FJ%7Ddz3Ot-tBP%2FfUMi%3AiQ%3A0i7H%3A6Ndvi01kR0h%3ABt%3ALRD-IZN%2F%3AR0gDi0dJON%2Ffi0YfiNdri-%2F6ZPq%3ARD3L6C-CjMmj7%3AAFuXr%7B1C-QjnH9%7DDLLcQzOOH1tH99O%2291%22HCg0Z7%2FLO9B%7D1rdJ79zy7nEqC1iJgdr8Nr3OP9m%22gd%3A3Vc%3A7Y91Birqid0bW7dbX7dr%22dMcL%2FyALhC-QjMBrjMq+%2FY-4hXB%7BuCB%3AhD1s7d41jP19hD%7D8ZnAXRn-4uXm9jPq%7BZP%7DQ%2FP%3A%3AhCd9RD19i0Y92M%7D%27hpi9uXR9RMcL%2FPqQ%2FPq%7BZP%7DQ69r%227d4EcMyQRMvrZM191Pq%7BjMBvU9r%221D%7D8ZnAXRn-4uXm9jni9ZC%7D%27hDy+cP%7DLZOgDuC%2F9RnAQjnZ%27uOgFutgrjP19RXq+ZDLQuM%7DI%2FPBzZMBK6ML+%2FP-%27cP19uXv%7B2Jm9JMR92Mq%3A%2FP-Futcr%2FPBzZMBK6ML+%2FE-F%2FE-zZJgzuC-LuOgFutgrjP19ZDLQhCd9ZPyv%2FPqD%2FELFcn%2F9hD%7D8ZnAXRn-4uXm9RMvI%2FELFcJgIuQg+uCd9RM3Lhpd9cP%27L%2FP%27FcP%7D%7B%2FPL+%2FPyIcDy+RX19cP%27L%2FEALuMy4uDL+ZQgfuCArjMq+%2FPqD%2FELFcn%2F9hD%7D8ZnAXRn-4uXm9cXL%7BuOgtZJg0RMv0ZM3LZOg%27uDd92Mq%3A%2FEc4uPf9uDqr%2FPAL%2FP%7D+cPLruP%7DI%2FE-F%2FPY9hD%7DDcMvI69r%227d4JuXqk%2FYBzRnApZJgYjnB0uPq8cnALU9r%22MMq%3Ahtg0hD%7DIjnd9RXyQZOg4hQg0jPyQZX%7DI%2FE-zZJgruC-%27uOg0uCBr%2FPyr%2FE-4uM19uXR9hE%7DQRX%27%27hX1+%2FygQjMBLhQg%27uDd9hDqFuJg%27cDy4uPytjM34cEI9RnAL%2FPvFcOgpcMyQRMvrZM%7DI%2FE%7D+cPL%7B%2FPZ%3AuPf9hPyvuM%7D+cOg4hQgQZMBLjnZLZOmBO9r%221DqFuJgTRXB%3AhPy+RCI9-PL8RX3FhC%7DQZNzBOIy%7BuOgQuXqkhQg%27RXBFuM%3AFZPyrZJgrcXw9ZC%7DLhC-86tgNhP%7D0jMy%7B%2FPvLZM-86OgtZMd9cELfZJgFhtgFcP%27LhtgQZny%3AZnBrhQg%27hD19Rnd9cP%27L%2FP-4hXBQZn-4uXm9uXR9cP%27L%2FPBFuDZ4hD%3ALZOgzuC-LuOm91P3LRnBL%2FPBFup-%27RCd9cP%27L%2FP%27FcP%7D%7B%2FP-4hD%7D0cP3v%2FPZFhtg%27cDy4uPytjM34cEI+7dzBOIBzZMBK6ML+%2FygFuPL02NzBOL-zZJgQZnBLhpZ%27cPLFutgzuX3IZn%2F9un%7D8cOgfhD%7D8ZMvr%2FPY9cDy%7BjMd9hP%27FcPw9J1d9RMvI%2FPBQZM-4cOg0RnAI%2FPyr%2FPBzZMBK6ML+6tH9%7DP%27L%2FPBQZM-4cOg0RnAI%2FPL8%2FEALhn%7D4hD%7DI%2FPZFhtg%27upI9RM-Ijn-4uXv%27uOgzuC-LuOg8hP%7D0jMZ4RQg8ZnAXjMBL%2FPZLZni9uC%2F9jMv0jM-Lup-%27uOg0jPyQZX%7D8%2FPqQ%2FPZLZni9cP%27%27cOgkRnI9RD19RX%27%27hDcLZOgt2JgrjP19jPqrZMf9cPw9cP%27L%2FPB%3AhC-FuM%7DQ%2FPyr%2FPBzZMBKuC%7Dr6tg1jP%7D8ZJg0jPyQZX%7D8%2FP%3A%272JgtZJgkRMvIRn-FhpI9%22P1+ZQm%7B%2FEALhXqQcOgDZM%7D8%22JgFhtgFhE-4uXv%27uOHzhPyQjXL+ZQf9hP%27FuD19RXy%7BuEi9uC%2F9uML+jJ%3AtRn%2F9RX%27%27hDcLhQI9RMvI%2FPyQZJg+uCd9jMv0uE%7DIZMd9jMm9cP%27L%2FEAFuXr9hDyrZJmBO9r%221P%7DrhQgduX34RCIs7d4dZn-8%2FPyQZJgfZnAkjn-rZMd+7dzBOI%3A%27uD-%27cPqQ2JgPZM191Pq%7BjMBvU9r%22%7DP%274hQgzuC-LuOg0jPyQZX%7D8%2FPy+%2FPyIZPLrjMq+RMf9A71360HQ%2Fy%7DN-Of9hP%7DQ%2FEAFuXr9hP%7DQ%2FPv4ZX%27r6tg1jPL8%2FPZLZJgCjM3%7B%2FPAL%2FPBzRnApZMd9cPw92Mq%3A%2FP-4hD%7D0cP3v%2FPAv%2FE-zZJgzuC-LuOm9NMy+ZPyruCAv%2FPZLZni9RnAL%2FPvFcOgFhE-4uXv%27uOg%27uDd9cELfjMB%27uP3v%2FPBFcD%7DQ%2FPLrZM%3A8%2FEB%3ARX99Rni9hD%7D8uCAr%2FPZLZni%7B%2FP%7D+ZnAp2Jg0jPyQZX%7D8%2FPqQ%2FEB%27ZD19ZD%7DLhQm9%7DP%27L%2FPykuC%7D+cOgFZtgrjP19RX%27%27hDcL%2FPL8%2FEB%3ARD4LRCd9cPw9RX%27%27uDcL69r%227d4iuCL%27uE-v%2FygFjMvrhQgyuPLpjMA4uPLr2NzBOL-zZJgQRn-L%2FEBLuP%7D0cP%7DI%2FP%3A%272JgtZJgLuPLpjMA%7BZJgDuC%2F9uPqvRM3r2JgfuXL+cOg%27RXBQcMy%7B69r%227d4iuCL%27uE-v%2FygFjMvrhQgyuPLpjMA4uPLr2NzBOL-zZJgQRn-L%2FEBLuP%7D0cP%7DI%2FP%3A%272JgtZJgLuPLpjMA%7BZJgDuC%2F9uPqvRM3r2JgfuXL+cOg%27RXBQcMy%7B69r%22%229gJtHyyj%7DAKNrcUuy4kNncU2NybNL-ZB1311ncj-Y%3ArM%7D--i1vNiE%27j%7DYyvN1-ZiyLnMncB2IL%271Yim2YqYRCZT-PirNn4pcLAYJncBjIyCN%7D-AiyZY-n%27B2ILsNDIvu%7DLsZP%3Aj%7DyY3NIcy2Iv1j8gZ%7Dr%3ACMM4gBy4E%7DNBZiL%7DCNr-Uu1%3Ab1D%3AjdNrql%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": true
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "umurqhvCohrrvomqXvouWvso2ucc2XvurxXm",
+                "rateDescription": "Room,Strip View",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "202101441",
+                "roomTypeDescription": "double/twin"
+            },
+            {
+                "BedTypes": {
+                    "@size": "1",
+                    "BedType": [
+                        {
+                            "@id": "23",
+                            "description": "2 queen"
+                        }
+                    ]
+                },
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "481.04",
+                            "currencyCode": "USD",
+                            "total": "481.04"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYt-LUN%27LiN%27LiJr3BDiX6NdXRMdkR0HrRQ%3AtBNALUP1QB0dQBDdJ%7Dfz3OtdCZN1mB098iJ%3A0RNdQ6NdviPRkRMYQRJrQU7%270BXZ0B0HmiP%2FJON%2FfiNRrB0Rmig%2FEitg3cM%7DLu%27z%7D1DqFuJgnjn-z%2F7%2F91n%7DLZMm9dD%7DI%229%2F%2FYO%2FOOH%2Fbgdz7jP%2FQit1%22H%3A%7DN-g%2FUO91BEmnfd3%2Fy7-ycn1%2Fj79zy7-%2BywYiJgdr-n%7D%3AOU9%2FjHy%22%2FH1%7D41D3T%7DP%27%7BN%7D-zuY%3ANiE%27Uu1rQNy--iLLn1n-ZjIYfMnI3j1v1JD3T-%3A%7DvND4-21vk1Mydd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4gTNr%3Dl%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": null
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "W2vwswC%3AohjmXomqrxojjXjoXwwhWxhsrwru",
+                "rateDescription": "Room With 2 Queen Bed",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "201646680",
+                "roomTypeDescription": "2 queen"
+            },
+            {
+                "BedTypes": {
+                    "@size": "1",
+                    "BedType": [
+                        {
+                            "@id": "14",
+                            "description": "1 king"
+                        }
+                    ]
+                },
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "516.94",
+                            "currencyCode": "USD",
+                            "total": "516.94"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYtdXZPi3ZD%2FmRQrvi8Rv6NdrUNYkRD%7D0iJ%3A%27BPZDBN9vBNRvZ7dJnHz3OtdQUNc0iNYfRt%3AIRXdQ6Nd3RD%2FkRD%7D%27UJrCR0H8i09QiNLDRN1JON%2Ffi0YfiNdri-%2FYjXL+Z3zc1DqFuJgnjn-z%2FYk4uDh9dD%7DI6yBrhDLf%2FyZ4ZnhbH99E%2F9%2F%2FHtzyO9BzR0%2FQAdz7%7D%7DBYY9m%22gdr4THyYY91B-+Akd%27zUO91B%22Nfg-g%2Fy71utu1%2FsH%27zH1z9g-ML-iL4ENn%27ju1IrMnIfB1%3AsMN%7Di%7DyYfN%3A-ycyLk%7DD4B18yzNIcju1v1Z8%7DU%7DyI%3AMI--R%7Dg7UE%27T-PBXNr-0BY%3AsZCZJ-YLCNM4gcr%3A1JNgM-Y%7DmNn4A2Iv4UM%3AZ2D-kML--i1vE-n4U%7DP%7BfM%7DcBc%3ALbdN-j-%3A18MNA%7DcrqYND%3ABjLAkMIYqTd%3D%3Dl%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": null
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "XqWh%3A%3AruochcXom%3Auuou2jqoWurCXwX%3Aqxjv",
+                "rateDescription": "Room With King Bed,Strip View",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "202101441",
+                "roomTypeDescription": "king"
+            },
+            {
+                "BedTypes": {
+                    "@size": "1",
+                    "BedType": [
+                        {
+                            "@id": "14",
+                            "description": "1 king"
+                        }
+                    ]
+                },
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "540.08",
+                            "currencyCode": "USD",
+                            "total": "540.08"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYtdCZM1ri7iCZO%3A0iPAL6Nd8BMikU7Z0ZtrXBM-tB01%3AUP%7DDi7iJnfz3Otd%3AUN9ri0y%27BO%3AtBPim6NdmU79kRD13iQr3B8h3RNLtUPRQR0YJON%2FfiNRrB0RCUg%2FYjXL+Z3z91DqFuJgnjn-z%2FYk4uDh9dD%7DI6YZFcMvrRML+%2FyZ4ZnhbH99E%2F9%2F%2FHtzyO9BzR0%2FQAdz7%7D%7DBYY9m%22gdrxgdcYY91BJm%27md%27zUO91BEf1E-g%2Fy71+%2F2Y%2FsHtzH1z9g-ML-i%3A4n%7DNgB-Yr8MIi3jI%3AEJD3i%7DyysNLcBcYqYMD4jjNHQNLcJj1vb%7DNyT-%3AZkN1-BR%7Dg7UE%27T-PBXNr-0BY%3AsZCZJ-YLCNM4gcr%3A1JNgM-Y%7DmNn4A2Iv4UM%3AZ2D-kML--i1vE-n4U%7DP%7BfM%7DcBc%3ALbdN-j-%3A18MNA%7DcrqYND%3ABjLAkMIYqTd%3D%3Dl%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": true
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "vqwmX%3Ajmoumhwomwwwou2%3ACo%3AWW%3AjquwxXu%3A",
+                "rateDescription": "Room With King Bed,Fountain View",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "201646678",
+                "roomTypeDescription": "king"
+            },
+            {
+                "BedTypes": {
+                    "@size": "1",
+                    "BedType": [
+                        {
+                            "@id": "23",
+                            "description": "2 queen"
+                        }
+                    ]
+                },
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "548.7",
+                            "currencyCode": "USD",
+                            "total": "548.7"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYtdvB79%3Ai8HrZJrQZ0hQ6NdQi0hkRM-tRJ%3ADZ7YQZP13i0HrZNYJZdz3Otdmi0dmBPAIRJrQZM1C6Nd3B0hkRNR%3Ait%3A0U7R%3Ai0L%27BP1%3AU7iJON%2FfiNRrB0RCB3%2FEitg3cM%7DLu%27z01DqFuJgnjn-z%2F7%2F91n%7DLZMm9dD%7DI6YZFcMvrRML+%2FyZ4ZnhbH99d%2F9%2F%2FHtzyO9BzR0%2FQAdz7%7D%7DBYY9m%22gdCB6HLYY91B3pqwd%27zUO91B8JfA-g%2Fy7hZVxY%2FsHtzH1z9g-ML-B1vYZ8yB2IYfMLif2%7D4bRCLi%7DyyvNM40cyLn1DLZ18ykMI-y2%7D4E%7Dn%27BjIYfML-yR%7Dg7UE%27T-PBXNr-0BY%3AsZCZJ-YLCNM4gcr%3A1JNgM-Y%7DmNn4A2Iv4UM%3AZ2D-kML--i1vE-n4U%7DP%7BfM%7DcBc%3ALbdN-j-%3A18MNA%7DcrqYND%3ABjLAkMIYqTd%3D%3Dl%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": true
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "wXmwmucjoX22Wom%3AsWojsvXohwsvXqjm2vwC",
+                "rateDescription": "Room With 2 Queen Bed,Fountain View",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "201646677",
+                "roomTypeDescription": "2 queen"
+            },
+            {
+                "BedTypes": {
+                    "@size": "1",
+                    "BedType": [
+                        {
+                            "@id": "14",
+                            "description": "1 king"
+                        }
+                    ]
+                },
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "564.82",
+                            "currencyCode": "USD",
+                            "total": "564.82"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYtdrU7c0ZNB0Zt%3ALBNgI6N-LBNhkUNdviJrfRM1QB8cDZMRQU7%2FJnfz3Otd3RXi8RNctZt%3ADiN1m6Nd%3AB7IkR0ALBOrQZ7RCB7cDZ0%2FCZ0HJON%2FfiNRrB0RCUg%2FYjXL+Z3z91DqFuJgnjn-z%2FYk4uDh9dD%7DI6YZFcMvrRML+%2FyZ4ZnhbH99E%2F9%2F%2FHtzyO9BzR0%2FQAdz7%7D%7DBYY9m%22gd%3AWBH%3AYY91BZFMgd%27zUO91B28dB-g%2Fy7Mu%3A91%2FsH%27zH1z9g-ML-iYqYZP4j%7DYvbMDI3uYv1dDki%7DyA%7BNL-0cYq11N%7DB18gCM%7Dc%7D21vsZP%3Aj%7D%3ALvNr-AR%7Dg7UE%27T-PBXNr-0BY%3AsZCZJ-YLCNM4gcr%3A1JNgM-Y%7DmNn4A2Iv4UM%3AZ2D-kML--i1vE-n4U%7DP%7BfM%7DcBc%3ALbdN-j-%3A18MNA%7DcrqYND%3ABjLAkMIYqTd%3D%3Dl%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": null
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "%3AhhCjWuxox%3AvwomvmqouX2moXcsWmWxxXWxr",
+                "rateDescription": "Room With King Bed,Fountain View",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "201646678",
+                "roomTypeDescription": "king"
+            },
+            {
+                "BedTypes": {
+                    "@size": "1",
+                    "BedType": [
+                        {
+                            "@id": "23",
+                            "description": "2 queen"
+                        }
+                    ]
+                },
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "600.7",
+                            "currencyCode": "USD",
+                            "total": "600.7"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYtd8BNADiNH8BQrQU7%27L6N-LBN9kUNHfBQrQiDR8iDZ0Z7ALZNiJZdz3OtdmUNLLZDiCRJrvBMB06N-0U7YkRM-%27ZJrrB8%27IBNLDR0ADB0hJON%2FfiNRrB0RCB3%2FEitg3cM%7DLu%27z01DqFuJgnjn-z%2F7%2F91n%7DLZMm9dD%7DI6YZFcMvrRML+%2FyZ4ZnhbH99d%2F9%2F%2FHtzyO9BzR0%2FQAdz7%7D%7DBYY9m%22gdCB6gZYY91Br8j%22d%27zUO91B8JfM-g%2Fy7ciXtI%2FsH%27zH1z9g-ML-2Iv1JD%3AB%7DYysNpIf21qYjP3i%7DyA%7BNL-pcYq1dncU2NgvNM%3AZ2I%3AkMD4j-Y4%7BML-BR%7Dg7UE%27T-PBXNr-0BY%3AsZCZJ-YLCNM4gcr%3A1JNgM-Y%7DmNn4A2Iv4UM%3AZ2D-kML--i1vE-n4U%7DP%7BfM%7DcBc%3ALbdN-j-%3A18MNA%7DcrqYND%3ABjLAkMIYqTd%3D%3Dl%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": null
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "wqq2xhWjoqvhhomhw%3Aojcj2omWwcvqxuXxsW",
+                "rateDescription": "Room With 2 Queen Bed,Fountain View",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "201646677",
+                "roomTypeDescription": "2 queen"
+            },
+            {
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "617.52",
+                            "currencyCode": "USD",
+                            "total": "617.52"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYtdQZPYQB7yLBOrQi7HX6N-%27BDYkU7ALZtr3R8-LR0hvi0BIi8IJNHz3OtdfZ0-IBNIXiJ%3AIRDi36N-DZN%2FkUMYXiJ%3A0RMZ%27iXiQR0-tRNYJON%2FfiNRrB0RmBg%2FyhC%7D4cP1j7yB%27uPq+ZJgNcMLrZJzOOgitH99O%2291%22HX%27ti0%2FLO9B%7D1rdJ79zy71%27%27PIdJgdX-yRvOP9m%22gd%3A%2FR-4YY91BI-MUd0zO%229gJtHyyj%7DyvMIcy21vY-D3Ud8gvN1-giI311D%27Uu1%7DrNr-%22uy44iE%27Z2LA%7BMM40B1%3AbNDkB2Dk%271Yim2YqYRCZT-PirNn4pcLAYJncBjIyCN%7D-AiyZY-n%27B2ILsNDIvu%7DLsZP%3Aj%7DyY3NIcy2Iv1j8gZ%7Dr%3ACMM4gBy4E%7DNBZiL%7DCNr-Uu1%3Ab1D%3AjdNrql%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": true
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "rxmcvqs%3Aocuh%3Aomx2Xoqjs%3AohjxjChXumuj%3A",
+                "rateDescription": "Salone Suite",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "201646684",
+                "roomTypeDescription": "suite"
+            },
+            {
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "672.5",
+                            "currencyCode": "USD",
+                            "total": "672.5"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYt-0BNhmB0%270Btr%3Ai0dC6N-LZNikUNY3iO%3AtU79XB0IfU71QRNHJNHz3OtdXB8%27IiX%2FriO%3ALR0Zt6N-DiMdkUNHXitrXZNc0UM%2F%3Ai7%2FviPdJON%2FfiNRrB0RmBg%2FyhC%7D4cP1j7yB%27uPq+ZJgNcMLrZJzOOgitH99O%2291%22HX%27ti0%2FLO9B%7D1rdJ79zy7dH9%22YdJgdrAFA4OP9m%22gdrH%2FO%27YY91BOuQjd0zOP9gJtHyyj%7DAbNL-0BYvbjP4UjNH3NM4-ir311D3j%7DY%3ArN%3A-y2Y%3A7iMLT-PhQND4KcrqY%7DnLZ%7DYy%271Yim2YqYRCZT-PirNn4pcLAYJncBjIyCN%7D-AiyZY-n%27B2ILsNDIvu%7DLsZP%3Aj%7DyY3NIcy2Iv1j8gZ%7Dr%3ACMM4gBy4E%7DNBZiL%7DCNr-Uu1%3Ab1D%3AjdNrql%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": null
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "sWwcCumro2usuomx%3AcoqrsXos2WhquvrXqrc",
+                "rateDescription": "Salone Suite",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "201646684",
+                "roomTypeDescription": "suite"
+            },
+            {
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "737.88",
+                            "currencyCode": "USD",
+                            "total": "737.88"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYt-0BD%7DIUPiXRQrvi8Zt6NdfB8%2FkUP1QZJrrR0i3BDdvi8BIZMiJN9z3OtdCi09rB7hQZtrviN%2Fr6N-LRMdkU7hCRJ%3AIi7y%27Z7Rvi7y%27B8iJON%2FfiNRrB0Rmi%27%2FyhC%7D4cP1j7IALuP3%27ZXLF%2FyB%3Ajn-L%229%2F%2FYQ%2FOOH%2Fbgdz7jP%2FQit1%22H%3A%7DN-g%2FUO91B1p9m-g%2Fy7-xEb1%2Fj79zy7%7DAmUYdJgdrn3sLOU9%2FbHy%22%2FH1%7D41D4Uu%7DZKNrcBiLLvi7%7DB2L44Ny--crvsJn-T-%3A%7DvMLifiyLbNn%27Uu%7DY%3ANn4Uj%3A4nNMydd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4gTNr%3Dl%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": true
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "WXwmmWXxoq%3AXmom2jcowWWjocr%3Ajcsqr%3AjWC",
+                "rateDescription": "Bellagio Suite",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "201646682",
+                "roomTypeDescription": "suite"
+            },
+            {
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "840.02",
+                            "currencyCode": "USD",
+                            "total": "840.02"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYtd3ZNc0U7%27LBJ%3AIU7Y36NdQZ7IkRD%7DtitrQB8cDB8%2FCUN98Z0%2FJN9z3OtdfZPZDUNL0UJrQRXdr6N-%27Z79kUM1vZt%3AtUNL%27BP13i7i%3ABMdJON%2FfiNRrB0Rmi%27%2FyhC%7D4cP1j7IALuP3%27ZXLF%2FyB%3Ajn-L%229%2F%2FYQ%2FOOH%2Fbgdz7jP%2FQit1%22H%3A%7DN-g%2FUO91BJHyJ-g%2Fy7M%27Ef1%2Fj79zy719g1IdJgd%3Az-wyOU9%2FjHy%22%2FH1%7D41n%27j%7DP-bNr-zuYvNiMkT-Y%7DmNy--2%7D4YjC-Zu%7DZ4NMIf21vsZP%3AU2II8N%3A-p2L4bJMydd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4gTNr%3Dl%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": null
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "rcxxqqhqoXhcmomjcwoq2qxouqqjm2%3ArCvvc",
+                "rateDescription": "Bellagio Suite",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "201646682",
+                "roomTypeDescription": "suite"
+            },
+            {
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "961.52",
+                            "currencyCode": "USD",
+                            "total": "961.52"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYtdvRNdXB0AtBJ%3ADi0Lt6NdQZPikRDdXBO%3A%27BN1vUP-LZ7HXiDRJNfz3Ot-LBNH%3Ai8YvBJ%3ALZPBL6N-LiPdkUP%7DtZtr3iM%2FXRXiQi8ytRM%2FJON%2FfiNRrB0Rmi3%2FyhC%7D4cP1j7%3AB%3Ajn-L6ygLup-zuC%7D8ZJzOOgitH99O%2291%22HX%27ti0%2FLO9B%7D1rdJ79zy71%27%27hYdJgdr1TB%3AOP9m%22gd%3A%2FRngYY91By78cd0zO%229gJtHyyj%7DY%3AM%7D--iIvbJDLU18ykNM4%7Bj1311nLj-r%3ArMM%3A-iIv7iM%27U%7Dy1%3ANrcJuy4YdNABu%7DL%271Yim2YqYRCZT-PirNn4pcLAYJncBjIyCN%7D-AiyZY-n%27B2ILsNDIvu%7DLsZP%3Aj%7DyY3NIcy2Iv1j8gZ%7Dr%3ACMM4gBy4E%7DNBZiL%7DCNr-Uu1%3Ab1D%3AjdNrql%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": true
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "2vrvC%3Aqvo2ch2om2rcow2uxo%3A%3AushhXC%3Auju",
+                "rateDescription": "Suite,Penthouse",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "201646683",
+                "roomTypeDescription": "suite"
+            },
+            {
+                "RateInfos": {
+                    "RateInfo": {
+                        "ChargeableRateInfo": {
+                            "@currencyCode": "USD",
+                            "@total": "1131.2",
+                            "currencyCode": "USD",
+                            "total": "1131.2"
+                        },
+                        "RoomGroup": {
+                            "Room": {
+                                "rateKey": "al%7B2%7B%7Btzp_tclSGlYk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3Dl%2CGlKjk2_4KzkzlSGlO0R%227p-QRnZFuE%7DrjMq+RnAvYt-%27B7%2FCi7g%27UOrXR8LI6NdmR0dkR0HQBOrvRNZDUMimi0IQB0RJNfz3Otd8UPytBD1riQ%3AtRD1r6NdviP%2FkU7d%3ABJ%3AIZM1%3AU7drZMiXi89JON%2FfiNRrB0Rmi3%2FyhC%7D4cP1j7%3AB%3Ajn-L6ygLup-zuC%7D8ZJzOOgitH99O%2291%22HX%27ti0%2FLO9B%7D1rdJ79zy7MZD01dJgd%3An%2FfA7P9m%22gd%3ADZz%3AYY91B%7DQiOd8zOP9gJtHyyj%7DAzNI-Air%3AYdD%27Td8HQMn4%7Bjr311N-ZjLyrMM4g21v7i7%7DZ%7Dy4kN%3AcBBY%3AbjCLUjLL%271Yim2YqYRCZT-PirNn4pcLAYJncBjIyCN%7D-AiyZY-n%27B2ILsNDIvu%7DLsZP%3Aj%7DyY3NIcy2Iv1j8gZ%7Dr%3ACMM4gBy4E%7DNBZiL%7DCNr-Uu1%3Ab1D%3AjdNrql%2CGlx22lSGp+LL5"
+                            }
+                        },
+                        "nonRefundable": null
+                    }
+                },
+                "RoomImages": null,
+                "ValueAdds": null,
+                "rateCode": "Cwjus2mCouu2momqruowmvvoc22vwmm2hsCw",
+                "rateDescription": "Suite,Penthouse",
+                "rateOccupancyPerRoom": 2,
+                "roomTypeCode": "201646683",
+                "roomTypeDescription": "suite"
+            }
+        ],
+        "customerSessionId": "Yk9O-nRmdIBbByBdd8%27mNr-0cIqYR8-B2DcX1I-Acr%3AbdncB%7DYIf%7DI-y2Y%3AsJn4UjNLkMn4Iu%7D411NyU-r%7DsNL-KiyLnNncZjIYrMIc%7Di%3AIQ%7DncT-YvkNM4Ju%7D4guQq7d1%7DNN8yJ1%3AyMMIZ1-M-O%7DI%7DMM1311N%7Dj%7Dr13N%7D-ju131%7DNgT%7Dr%7DrNI-gB%7D4NiM%27UjLysNycMjI%3AnJN-ZiIrfM%7Dc-i1vNiE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdn%27AB%7DByU%7D%7DJ%7Dn%2771L%7DJ%7DY31%7DNBB2IYQMn4%7Bu131dD%27U2L%7DrNIcPu1%3Avi7%7DB2IYrNy-Ju1%3Ab%7DNgZjI%7DmNn4yiYvviE%27U%7DPi%3ANr-Zi1v1%7DNA7j0gAdIAAB%7D%7DPJI4-iyZB1%3A1%3A-I3n1DLB%7DyymMn4Bir3nMNyU2I%7DrNI-Z2IqNi7-U-%3A4KNy-JjyLk%7DNgj%7DYymM%7DcBiIqNiE%27U%7DPi%3ANr-Zi1v1%7DN%2F%3D",
+        "hotelId": "119566"
+    }
+}

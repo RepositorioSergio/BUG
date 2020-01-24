@@ -30,10 +30,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
         }
     }
 }
-error_log("\r\n ANTES \r\n", 3, "/srv/www/htdocs/error_log");
-$hotellist = "1";
 if ($hotellist != "") {
-    error_log("\r\n ENTROU \r\n", 3, "/srv/www/htdocs/error_log");
     $affiliate_id_ots = 0;
     $sql = "select value from settings where name='OTSID' and affiliate_id=$affiliate_id_ots";
     $statement = $db->createStatement($sql);
@@ -83,6 +80,7 @@ if ($hotellist != "") {
         $OTSTimeout = $row_settings['value'];
     }
     $sfilter = array();
+    error_log("\r\n ENTROU \r\n", 3, "/srv/www/htdocs/error_log");
 
     $HotelCode = "AMTSPT0012";
     $count = 0;
@@ -100,12 +98,12 @@ if ($hotellist != "") {
         <AvailRequestSegment>
             <StayDateRange End="' . strftime("%Y-%m-%d", $to) . '" Start="' . strftime("%Y-%m-%d", $from) . '"/>
             <RoomStayCandidates>';
-            for ($r=0; $r < $rooms; $r++) { 
+            for ($r=0; $r < 1; $r++) { 
                 $raw = $raw . '<RoomStayCandidate Quantity="1" RPH="' . ($r+1) . '">
                 <GuestCounts>
-                <GuestCount Age="32" Count="' . $selectedAdults[$r] . '" AgeQualifyingCode="10"/>';
-                if ($selectedChildren[$r] > 0) {
-                    for ($z=0; $z < $selectedChildren[$r]; $z++) { 
+                <GuestCount Age="32" Count="' . $adults . '" AgeQualifyingCode="10"/>';
+                if ($children > 0) {
+                    for ($z=0; $z < $children; $z++) { 
                         if ($selectedChildrenAges[$r][$z] > 1 ) {
                             $count = $count +1;
                             $raw = $raw . '<GuestCount Age="' . $selectedChildrenAges[$r][$z] . '" Count="' . $count . '" AgeQualifyingCode="8"/>';
@@ -129,6 +127,7 @@ if ($hotellist != "") {
         </AvailRequestSegment>
     </AvailRequestSegments>
     </OTA_HotelAvailRQ>';
+    error_log("\r\n RAW $raw \r\n", 3, "/srv/www/htdocs/error_log");
     if ($OTSTimeout == 0) {
         $OTSTimeout = 120;
     }
@@ -148,7 +147,7 @@ if ($hotellist != "") {
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_ENCODING, "gzip,deflate");
     curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $hotelbedsTimeout);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $OTSTimeout);
     curl_setopt($ch, CURLOPT_TIMEOUT, $OTSTimeout);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

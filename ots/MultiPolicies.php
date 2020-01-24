@@ -1,5 +1,5 @@
 <?php
-error_log("\r\nMulti Policies OTS  \r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\n Multi Policies OTS  \r\n", 3, "/srv/www/htdocs/error_log");
 use Zend\Db\Adapter\Adapter;
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\ResultSet\ResultSet;
@@ -178,18 +178,19 @@ foreach ($breakdownTmp as $k => $v) {
             $cancelpolicy_deadline = strtotime($start);
             $cancelpolicy = $Description;
         }
-        $from_date = date('m/d/Y', strtotime($from));
-        $to_date = date('m/d/Y', strtotime($to));
+        $from_date = date('Y-m-d', strtotime($from));
+        $to_date = date('Y-m-d', strtotime($to));
         $item = array();
         $cancelation_string = "";
         $cancelation_deadline = 0;
         $cancelation_details = "";
+        $pricechanged = true;
         
 
         if ($pricechanged == true) {
             $oldtotal = $value['total'];
             $oldnettotal = $value['nettotal'];
-            $value['nettotal'] = $totalC;
+            $value['nettotal'] = $oldnettotal;
             if ($snaptravelMarkup != 0) {
                 $valueRInclusive = $valueRInclusive + (($valueRInclusive * $snaptravelMarkup) / 100);
             }

@@ -427,7 +427,7 @@ if ($OTSServiceURL != "") {
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['special'] = false;
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = "";
                     try {
-                        $sql = "select mapped from board_mapping where description='" . addslashes($board_name) . "'";
+                        $sql = "select mapped from board_mapping where description='" . addslashes($Text) . "'";
                         $statement = $db->createStatement($sql);
                         $statement->prepare();
                         $row_board_mapping = $statement->execute();
