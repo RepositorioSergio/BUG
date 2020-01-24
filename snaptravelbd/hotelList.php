@@ -45,8 +45,8 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $url = 'https://b2b-api-staging.snaptravel.com/b2b';
 
 $raw = '{
-    "arrivalDate": "03/27/2020",
-    "departureDate": "03/30/2020",
+    "arrivalDate": "06/28/2020",
+    "departureDate": "06/30/2020",
     "room1": "2",
     "hotelIdList": [108540,112915,118583,118903,119566,122212],
     "locale": "en_US",
