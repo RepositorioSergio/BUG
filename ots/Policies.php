@@ -40,7 +40,6 @@ if ($row_settings->valid()) {
     $index = $searchsettings['index'];
     $ipaddress = $searchsettings['ipaddress'];
     $nationality = $searchsettings['nationality'];
-    error_log("\r\n nationality  $nationality \r\n", 3, "/srv/www/htdocs/error_log");
     $residency = $searchsettings['residency'];
     $room_type = $searchsettings['room'];
     $adt = $searchsettings['adults'];
@@ -130,7 +129,6 @@ $toHotelsPro = DateTime::createFromFormat("d-m-Y", $to);
 $nights = $fromHotelsPRO->diff($toHotelsPro);
 $nights = $nights->format('%a');
 
-
 $c = 0;
 $response = array();
 $roombreakdown = array();
@@ -141,7 +139,6 @@ foreach ($breakdown as $k => $v) {
             $code = $value['HotelId'];
             $scode = $value['shid'];
             $HotelId = $value['HotelId'];
-            // error_log("\r\n" . print_r($value, true) . "\r\n", 3, "/srv/www/htdocs/error_log");
         } else {
             if ($shid != $value['shid']) {
                 // We can't book two rooms from two suppliers
@@ -149,13 +146,231 @@ foreach ($breakdown as $k => $v) {
                 return false;
             }
         }
-
+        
         $cancelpolicy = "";
         $cancelpolicy_deadline = "";
-
+        $from_date = date('Y-m-d', strtotime($from));
+        $to_date = date('Y-m-d', strtotime($to));
+        $item = array();
+        $roomtypecode = $value['roomtypecode'];
+        $meal = $value['mealinformation'];
+        $adults = $value['adults'];
+        $children = $value['children'];
+        $chd_ages = $value['chd_ages'];
+        $count = 0;
+        $count2 = 0;
         //
         // EOF Policies
+        //
         // EOF Check prices & availability
+        //
+
+        $raw = '<OTA_HotelResRQ ResStatus="Quote" EchoToken="550e8efd-344e-4f13-9551-d517a9520bbd" Version="2009.1" xmlns="http://www.opentravel.org/OTA/2003/05">
+        <POS>
+        <Source>
+            <RequestorID Type="88" ID="' . $OTSID . '" MessagePassword="' . $OTSPassword . '"/> 
+        </Source>
+        <Source>
+            <RequestorID ID_Context="AxisData" Type="22" ID="' . $OTSID . '"/>
+        </Source>
+        </POS>
+        <HotelReservations>
+        <HotelReservation>
+            <RoomStays>';
+            for ($r=0; $r < count($adults); $r++) { 
+                $raw = $raw . '<RoomStay RPH="' . ($r + 1) . '">
+                <RoomTypes>
+                    <RoomType RoomTypeCode="' . $roomtypecode . '" />
+                </RoomTypes>
+                <TimeSpan End="' . $to_date . '" Start="' . $from_date . '" />
+                <BasicPropertyInfo HotelCode="' . $HotelId . '" />
+                <ResGuestRPHs>';
+                for ($y=0; $y < $adults[$r]; $y++) { 
+                    $count = $count + 1;
+                    $raw = $raw . '<ResGuestRPH RPH="' . $count . '" />';
+                }
+
+                if ($children > 0) {
+                    for ($z=0; $z < $chd_ages; $z++) { 
+                        $count = $count + 1;
+                        $raw = $raw . '<ResGuestRPH RPH="' . $count . '" />';
+                    }
+                }
+                $raw = $raw . '</ResGuestRPHs>
+                    <ServiceRPHs>
+                        <ServiceRPH RPH="1" />
+                    </ServiceRPHs>
+                </RoomStay>';
+            }
+
+            $raw = $raw . '</RoomStays>
+            <Services>
+                <Service ServiceInventoryCode="' . $meal . '" ServiceRPH="1" />
+            </Services>
+            <ResGuests>';
+            for ($x=0; $x < $adults; $x++) { 
+                $count2 = $count2 + 1;
+                $raw = $raw . '<ResGuest AgeQualifyingCode="10" ResGuestRPH="' . $count2 . '">
+                    <GuestCounts>
+                    <GuestCount Age="30" />
+                    </GuestCounts>
+                </ResGuest>';
+            }
+            if ($children > 0) {
+                $chd_ages = explode(",", $chd_ages);
+                for ($w = 0; $w < count($chd_ages); $w ++) {
+                    $count2 = $count2 + 1;
+                    if ($chd_ages[$w] > 1) {
+                        $raw = $raw . '<ResGuest AgeQualifyingCode="8" ResGuestRPH="' . $count2 . '">
+                            <GuestCounts>
+                            <GuestCount Age="' . $chd_ages[$w] . '" />
+                            </GuestCounts>
+                        </ResGuest>';
+                    } else {
+                        $raw = $raw . '<ResGuest AgeQualifyingCode="7" ResGuestRPH="' . $count2 . '">
+                            <GuestCounts>
+                            <GuestCount Age="' . $chd_ages[$w] . '" />
+                            </GuestCounts>
+                        </ResGuest>';
+                    }
+                }
+            }
+        $raw = $raw . '</ResGuests>
+        </HotelReservation>
+        </HotelReservations>
+        </OTA_HotelResRQ>';
+
+        error_log("\r\n RAW - $raw \r\n", 3, "/srv/www/htdocs/error_log");
+
+        $headers = array(
+            "Accept: application/xml",
+            "Content-type: application/x-www-form-urlencoded",
+            "Content-Encoding: UTF-8",
+            "Accept-Encoding: gzip,deflate",
+            "Content-length: " . strlen($raw)
+        );
+        
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+        curl_setopt($ch, CURLOPT_URL, $OTSServiceURL);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
+        curl_setopt($ch, CURLOPT_VERBOSE, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+        curl_setopt($ch, CURLOPT_ENCODING, "gzip");
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $response2 = curl_exec($ch);
+        $error = curl_error($ch);
+        $headers = curl_getinfo($ch);
+        curl_close($ch);
+
+        error_log("\r\n Response - $response2 \r\n", 3, "/srv/www/htdocs/error_log");
+        try {
+            $sql = new Sql($db);
+            $insert = $sql->insert();
+            $insert->into('log_snaptravel');
+            $insert->values(array(
+                'datetime_created' => time(),
+                'filename' => 'Policies.php',
+                'errorline' => "",
+                'errormessage' => $OTSServiceURL,
+                'sqlcontext' => $response2,
+                'errcontext' => ''
+            ), $insert::VALUES_MERGE);
+            $statement = $sql->prepareStatementForSqlObject($insert);
+            $results = $statement->execute();
+        } catch (\Exception $e) {
+            $logger = new Logger();
+            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+            $logger->addWriter($writer);
+            $logger->info($e->getMessage());
+        }
+
+        $inputDoc = new DOMDocument();
+        $inputDoc->loadXML($response2);
+        $OTA_HotelResRS = $inputDoc->getElementsByTagName("OTA_HotelResRS");
+
+        $HotelReservations = $OTA_HotelResRS->item(0)->getElementsByTagName("HotelReservations");
+        if ($HotelReservations->length > 0) {
+            $HotelReservation = $HotelReservations->item(0)->getElementsByTagName("HotelReservation");
+            if ($HotelReservation->length > 0) {
+                $RoomStays = $HotelReservation->item(0)->getElementsByTagName("RoomStays");
+                if ($RoomStays->length > 0) {
+                    $RoomStay = $RoomStays->item(0)->getElementsByTagName("RoomStay");
+                    if ($RoomStay->length > 0) {
+                        $IndexNumber = $RoomStay->item(0)->getAttribute("IndexNumber");
+                        $RPH = $RoomStay->item(0)->getAttribute("RPH");
+                        $Total = $RoomStay->item(0)->getElementsByTagName("Total");
+                        if ($Total->length > 0) {
+                        $AmountAfterTax = $Total->item(0)->getElementsByTagName("AmountAfterTax");
+                        $CurrencyCode = $Total->item(0)->getElementsByTagName("CurrencyCode");
+                        } else {
+                        $AmountAfterTax = "";
+                        $CurrencyCode = "";
+                        }
+                    }
+                }
+                //ResGlobalInfo
+                $CancellationPoliciesArray = array();
+                $count3 = 0;
+                $ResGlobalInfo = $HotelReservation->item(0)->getElementsByTagName("ResGlobalInfo");
+                if ($ResGlobalInfo->length > 0) {
+                    $TotalRGI = $ResGlobalInfo->item(0)->getElementsByTagName("Total");
+                    if ($TotalRGI->length > 0) {
+                        $AmountAfterTaxRGI = $TotalRGI->item(0)->getElementsByTagName("AmountAfterTax");
+                        $CurrencyCodeRGI = $TotalRGI->item(0)->getElementsByTagName("CurrencyCode");
+                    } else {
+                        $AmountAfterTaxRGI = "";
+                        $CurrencyCodeRGI = "";
+                    }
+                    $CancelPenalties = $ResGlobalInfo->item(0)->getElementsByTagName("CancelPenalties");
+                    if ($CancelPenalties->length > 0) {
+                        $CancelPenalty = $CancelPenalties->item(0)->getElementsByTagName("CancelPenalty");
+                        if ($CancelPenalty->length > 0) {
+                            for ($i=0; $i < $CancelPenalty->length; $i++) { 
+                                $Item_RPH = $CancelPenalty->item($i)->getAttribute("Item_RPH");
+                                //Deadline
+                                $Deadline = $CancelPenalty->item($i)->getElementsByTagName("Deadline");
+                                if ($Deadline->length > 0) {
+                                    $OffsetDropTime = $Deadline->item(0)->getAttribute("OffsetDropTime");
+                                    $OffsetTimeUnit = $Deadline->item(0)->getAttribute("OffsetTimeUnit");
+                                    $OffsetUnitMultiplier = $Deadline->item(0)->getAttribute("OffsetUnitMultiplier");
+                                }
+                                //AmountPercent
+                                $AmountPercent = $CancelPenalty->item($i)->getElementsByTagName("AmountPercent");
+                                if ($AmountPercent->length > 0) {
+                                    $Percent = $AmountPercent->item(0)->getAttribute("Percent");
+                                    $NmbrOfNights = $AmountPercent->item(0)->getAttribute("NmbrOfNights");
+                                }
+                                $CancellationPoliciesArray[$count3]['Item_RPH'] = $Item_RPH;
+                                $CancellationPoliciesArray[$count3]['OffsetDropTime'] = $OffsetDropTime;
+                                $CancellationPoliciesArray[$count3]['OffsetTimeUnit'] = $OffsetTimeUnit;
+                                $CancellationPoliciesArray[$count3]['OffsetUnitMultiplier'] = $OffsetUnitMultiplier;
+                                $CancellationPoliciesArray[$count3]['Percent'] = $Percent;
+                                $CancellationPoliciesArray[$count3]['NmbrOfNights'] = $NmbrOfNights;
+                                $count3 = $count3 + 1;
+                            }
+                        }
+                    }
+                }
+                //TPA_Extensions
+                $TPA_Extensions = $HotelReservation->item(0)->getElementsByTagName("TPA_Extensions");
+                if ($TPA_Extensions->length > 0) {
+                    $BookingStatus = $TPA_Extensions->item(0)->getElementsByTagName("BookingStatus");
+                    if ($BookingStatus->length > 0) {
+                        $ReservationStatusType = $BookingStatus->item(0)->getAttribute("ReservationStatusType");
+                    }
+                }
+            }
+        }
+      
+        $tam = count($CancellationPoliciesArray); 
+        for ($i=0; $i < $tam; $i++) { 
+            $cancelpolicy = $cancelpolicy . 'If you cancel reservation ' . $CancellationPoliciesArray[$i]['OffsetUnitMultiplier'] . ' ' . $CancellationPoliciesArray[$i]['OffsetTimeUnit'] . 's ' . $CancellationPoliciesArray[$i]['OffsetDropTime'] . ' cost ' . $CancellationPoliciesArray[$i]['NmbrOfNights'] . ' nights ' . $CancellationPoliciesArray[$i]['Percent'] . '% . <br/>';
+        }   
+        $cancelpolicy_deadline = $CancellationPoliciesArray[($tam - 1)]['OffsetUnitMultiplier'] . ' ' . $CancellationPoliciesArray[($tam - 1)]['OffsetTimeUnit'] . 's';
+
         $total = $total + $value['total'];
         $tot = $value['total'];
         $item['room'] = $value['room'];
@@ -168,12 +383,11 @@ foreach ($breakdown as $k => $v) {
         $item['adults'] = $selectedAdults[$c];
         $item['children'] = $selectedChildren[$c];
         $item['children_ages'] = json_decode(json_encode($selectedChildrenAges[$c]), false);
-
-
-        //$item['cancelpolicy'] = $cancelpolicy;
-        //$item['cancelpolicy_deadline'] = $cancelpolicy_deadline;
-        //$item['cancelpolicy_deadlinetimestamp'] = $CancellationDeadline; 
-        //$item['cancelpolicy_details'] = $cancelpolicy;
+        
+        $item['cancelpolicy'] = $cancelpolicy;
+        $item['cancelpolicy_deadline'] = $cancelpolicy_deadline;
+        //$item['cancelpolicy_deadlinetimestamp'] = $CancellationDeadline;
+        // $item['cancelpolicy_details'] = $cancelpolicy;
         array_push($roombreakdown, $item);
     }
     $c ++;

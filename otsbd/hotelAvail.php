@@ -59,12 +59,12 @@ $raw = '<OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" AvailRat
         <RoomStayCandidates>
             <RoomStayCandidate Quantity="1" RPH="1">
                 <GuestCounts>
-                    <GuestCount Age="32" Count="2" AgeQualifyingCode="10"/>
+                    <GuestCount Age="30" Count="2" AgeQualifyingCode="10"/>
                 </GuestCounts>
             </RoomStayCandidate>
             <RoomStayCandidate Quantity="1" RPH="2">
                 <GuestCounts>
-                    <GuestCount Age="32" Count="2" AgeQualifyingCode="10"/>
+                    <GuestCount Age="30" Count="2" AgeQualifyingCode="10"/>
                     <GuestCount Age="5" Count="2" AgeQualifyingCode="8"/>
                 </GuestCounts>
             </RoomStayCandidate>

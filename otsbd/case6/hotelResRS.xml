@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="2009.1" EchoToken="550e8efd-344e-4f13-9551-d517a9520bbd">
+<Success/>
+<HotelReservations>
+<HotelReservation>
+<RoomStays>
+<RoomStay RPH="1" IndexNumber="1">
+<Total CurrencyCode="EUR" AmountAfterTax="1470.03"/>
+</RoomStay>
+<RoomStay RPH="2" IndexNumber="2">
+<Total CurrencyCode="EUR" AmountAfterTax="1340.18"/>
+</RoomStay>
+</RoomStays>
+<ResGlobalInfo>
+<Total CurrencyCode="EUR" AmountAfterTax="2810.21"/>
+<CancelPenalties>
+<CancelPenalty Item_RPH="1">
+<Deadline OffsetUnitMultiplier="3" OffsetTimeUnit="Day" OffsetDropTime="BeforeArrival"/>
+<AmountPercent NmbrOfNights="1" Percent="100"/>
+</CancelPenalty>
+<CancelPenalty Item_RPH="1">
+<Deadline OffsetUnitMultiplier="0" OffsetTimeUnit="Day" OffsetDropTime="BeforeArrival"/>
+<AmountPercent NmbrOfNights="1" Percent="100"/>
+</CancelPenalty>
+<CancelPenalty Item_RPH="2">
+<Deadline OffsetUnitMultiplier="3" OffsetTimeUnit="Day" OffsetDropTime="BeforeArrival"/>
+<AmountPercent NmbrOfNights="1" Percent="100"/>
+</CancelPenalty>
+<CancelPenalty Item_RPH="2">
+<Deadline OffsetUnitMultiplier="0" OffsetTimeUnit="Day" OffsetDropTime="BeforeArrival"/>
+<AmountPercent NmbrOfNights="1" Percent="100"/>
+</CancelPenalty>
+</CancelPenalties>
+</ResGlobalInfo>
+<TPA_Extensions>
+<ns1:BookingStatus xmlns:ns1="http://www.opentravel.org/OTA/2003/05/tpa" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:BookingStatusType" ReservationStatusType="Available"/>
+</TPA_Extensions>
+</HotelReservation>
+</HotelReservations>
+</OTA_HotelResRS>

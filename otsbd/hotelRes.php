@@ -44,7 +44,7 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$raw = '<OTA_HotelResRQ ResStatus="Quote" Version="2009.1" xmlns="http://www.opentravel.org/OTA/2003/05">
+$raw = '<OTA_HotelResRQ ResStatus="Quote" EchoToken="550e8efd-344e-4f13-9551-d517a9520bbd" Version="2009.1" xmlns="http://www.opentravel.org/OTA/2003/05">
 <POS>
   <Source>
     <RequestorID Type="88" ID="TEST" MessagePassword="testpass"/> 
@@ -58,16 +58,16 @@ $raw = '<OTA_HotelResRQ ResStatus="Quote" Version="2009.1" xmlns="http://www.ope
     <RoomStays>
       <RoomStay RPH="1">
         <RoomTypes>
-          <RoomType RoomTypeCode="RMSDK10010" />
+          <RoomType RoomTypeCode="RMSDDB0000" />
         </RoomTypes>
         <TimeSpan End="2020-07-05" Start="2020-06-29" />
-        <BasicPropertyInfo HotelCode="AUSNYCAYMI" />
+        <BasicPropertyInfo HotelCode="AUSNYCB6D4" />
         <ResGuestRPHs>
           <ResGuestRPH RPH="1" />
           <ResGuestRPH RPH="3" />
         </ResGuestRPHs>
         <ServiceRPHs>
-          <ServiceRPH RPH="1" />
+          <ServiceRPH RPH="2" />
         </ServiceRPHs>
       </RoomStay>
       <RoomStay RPH="2">
@@ -75,7 +75,7 @@ $raw = '<OTA_HotelResRQ ResStatus="Quote" Version="2009.1" xmlns="http://www.ope
           <RoomType RoomTypeCode="RMSDD20000" />
         </RoomTypes>
         <TimeSpan End="2020-07-05" Start="2020-06-29" />
-        <BasicPropertyInfo HotelCode="AUSNYCAYMI" />
+        <BasicPropertyInfo HotelCode="AUSNYCB6D4" />
         <ResGuestRPHs>
           <ResGuestRPH RPH="2" />
           <ResGuestRPH RPH="4" />

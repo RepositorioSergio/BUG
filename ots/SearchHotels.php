@@ -44,29 +44,6 @@ if ($row_settings->valid()) {
 } else {
     $affiliate_id_ots = 0;
 }
-if ((int) $nationality > 0) {
-    $sql = "select iso_code_2 from countries where id=" . (int) $nationality;
-    $statement2 = $db->createStatement($sql);
-    $statement2->prepare();
-    $row_settings = $statement2->execute();
-    $row_settings->buffer();
-    if ($row_settings->valid()) {
-        $row_settings = $row_settings->current();
-        $sourceMarket = $row_settings["iso_code_2"];
-    } else {
-        $sourceMarket = "";
-    }
-} else {
-    $sql = "select value from settings where name='otsDefaultNationalityCountryCode' and affiliate_id=$affiliate_id_ots";
-    $statement = $db->createStatement($sql);
-    $statement->prepare();
-    $row_settings = $statement->execute();
-    $row_settings->buffer();
-    if ($row_settings->valid()) {
-        $row_settings = $row_settings->current();
-        $sourceMarket = $row_settings['value'];
-    }
-}
 $sql = "select value from settings where name='OTSID' and affiliate_id=$affiliate_id_ots";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -105,50 +82,38 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $OTSServiceURL = $row_settings['value'];
 }
-$dateStart = new DateTime(strftime("%Y-%m-%d", $from));
-$dateEnd = new DateTime(strftime("%Y-%m-%d", $to));
-$noOfNights = $dateStart->diff($dateEnd)->format('%d');
-$date = new Datetime();
-$timestamp = $date->format('U');
-$time = date('H:i:s', time());
 $countryCode = 'US';
 $Destination = 'New York';
 $Region = 'New York City Area';
 $count = 0;
+$chd_ages = array();
 $raw = '<OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" AvailRatesOnly="true" Version="0.1">
 <POS>
     <Source>
-        <RequestorID Instance="MF001" ID_Context="AxisData" ID="' . $OTSID . '" Type="22"/>
+        <RequestorID Instance="MF001" ID_Context="AxisData" ID="' . $OTSID . '" Type="22" />
     </Source>
     <Source>
-        <RequestorID Type="88" ID="' . $OTSID . '" MessagePassword="' . $OTSPassword . '"/>
+        <RequestorID Type="88" ID="' . $OTSID . '" MessagePassword="' . $OTSPassword . '" />
     </Source>
 </POS>
-<AvailRequestSegments>
-    <AvailRequestSegment>
-        <StayDateRange End="' . strftime("%Y-%m-%d", $to) . '" Start="' . strftime("%Y-%m-%d", $from) . '"/>
-        <RoomStayCandidates>';
-        for ($r=0; $r < $rooms; $r++) { 
-            $raw = $raw . '<RoomStayCandidate Quantity="1" RPH="' . ($r+1) . '">
-            <GuestCounts>
-            <GuestCount Age="32" Count="' . $selectedAdults[$r] . '" AgeQualifyingCode="10"/>';
-            if ($selectedChildren[$r] > 0) {
-                for ($z=0; $z < $selectedChildren[$r]; $z++) { 
-                    if ($selectedChildrenAges[$r][$z] > 1 ) {
-                        $count = $count +1;
-                        $raw = $raw . '<GuestCount Age="' . $selectedChildrenAges[$r][$z] . '" Count="' . $count . '" AgeQualifyingCode="8"/>';
-                        $count = 0;
-                    } else {
-                        $count = $count +1;
-                        $raw = $raw . '<GuestCount Age="' . $selectedChildrenAges[$r][$z] . '" Count="' . $count . '" AgeQualifyingCode="7"/>';
-                        $count = 0;
-                    }
-                }
-            }
-            $raw = $raw . '</GuestCounts>
-                    </RoomStayCandidate>';
+<AvailRequestSegments><AvailRequestSegment><StayDateRange End="' . strftime("%Y-%m-%d", $to) . '" Start="' . strftime("%Y-%m-%d", $from) . '"/><RoomStayCandidates>';
+$raw = $raw . '<RoomStayCandidate Quantity="1" RPH="1"><GuestCounts><GuestCount Age="32" Count="' . $selectedAdults[0] . '" AgeQualifyingCode="10"/>';
+if ($selectedChildren[0] > 0) {
+    for ($z = 0; $z < $selectedChildren[0]; $z ++) {
+        if ($selectedChildrenAges[0][$z] > 1) {
+            $count = $count + 1;
+            $raw = $raw . '<GuestCount Age="' . $selectedChildrenAges[0][$z] . '" Count="' . $count . '" AgeQualifyingCode="8"/>';
+            $count = 0;
+            array_push($chd_ages, $selectedChildrenAges[0][$z]);
+        } else {
+            $count = $count + 1;
+            $raw = $raw . '<GuestCount Age="' . $selectedChildrenAges[0][$z] . '" Count="' . $count . '" AgeQualifyingCode="7"/>';
+            $count = 0;
+            array_push($chd_ages, $selectedChildrenAges[0][$z]);
         }
-            
+    }
+}
+$raw = $raw . '</GuestCounts></RoomStayCandidate>';
 $raw = $raw . '</RoomStayCandidates>
         <HotelSearchCriteria>
             <Criterion>
@@ -160,9 +125,7 @@ $raw = $raw . '</RoomStayCandidates>
     </AvailRequestSegment>
 </AvailRequestSegments>
 </OTA_HotelAvailRQ>';
-
-error_log("\r\n RAW: $raw \r\n", 3, "/srv/www/htdocs/error_log");
-
+error_log("\r\nOTS RAW: $raw \r\n", 3, "/srv/www/htdocs/error_log");
 if ($OTSServiceURL != "") {
     $headers = array(
         "Accept: application/xml",
@@ -187,9 +150,7 @@ if ($OTSServiceURL != "") {
     $headers = curl_getinfo($ch);
     curl_close($ch);
     $endTime = microtime();
-
-    error_log("\r\n RESPONSE: $response \r\n", 3, "/srv/www/htdocs/error_log");
-
+    error_log("\r\nOTS RESPONSE: $response \r\n", 3, "/srv/www/htdocs/error_log");
     try {
         $sql = new Sql($db);
         $insert = $sql->insert();
@@ -210,31 +171,28 @@ if ($OTSServiceURL != "") {
         $logger->addWriter($writer);
         $logger->info($e->getMessage());
     }
-
-    
     $inputDoc = new DOMDocument();
     $inputDoc->loadXML($response);
     $OTA_HotelAvailRS = $inputDoc->getElementsByTagName("OTA_HotelAvailRS");
-    //HotelStays
+    // HotelStays
     $HotelStays = $OTA_HotelAvailRS->item(0)->getElementsByTagName("HotelStays");
     if ($HotelStays->length > 0) {
         $HotelStay = $HotelStays->item(0)->getElementsByTagName("HotelStay");
         if ($HotelStay->length > 0) {
-            for ($i=0; $i < $HotelStay->length; $i++) { 
+            for ($i = 0; $i < $HotelStay->length; $i ++) {
                 $BasicPropertyInfo = $HotelStay->item($i)->getElementsByTagName("BasicPropertyInfo");
                 if ($BasicPropertyInfo->length > 0) {
                     $HotelCode = $BasicPropertyInfo->item(0)->getAttribute("HotelCode");
                     $HotelName = $BasicPropertyInfo->item(0)->getAttribute("HotelName");
                     $AreaID = $BasicPropertyInfo->item(0)->getAttribute("AreaID");
                     $HotelCodeContext = $BasicPropertyInfo->item(0)->getAttribute("HotelCodeContext");
-
                     $Award = $BasicPropertyInfo->item(0)->getElementsByTagName("Award");
                     if ($Award->length > 0) {
                         $Rating = $Award->item(0)->getAttribute("Rating");
                     } else {
                         $Rating = "";
                     }
-
+                    
                     $img = "";
                     $VendorMessages = $BasicPropertyInfo->item(0)->getElementsByTagName("VendorMessages");
                     if ($VendorMessages->length > 0) {
@@ -247,7 +205,7 @@ if ($OTSServiceURL != "") {
                                 if ($Paragraph->length > 0) {
                                     $Image = $Paragraph->item(0)->getElementsByTagName("Image");
                                     if ($Image->length > 0) {
-                                        for ($iAux=0; $iAux < $Image->length; $iAux++) { 
+                                        for ($iAux = 0; $iAux < $Image->length; $iAux ++) {
                                             $img = $Image->item($iAux)->nodeValue;
                                         }
                                     }
@@ -255,33 +213,32 @@ if ($OTSServiceURL != "") {
                             }
                         }
                     }
-                    
                 } else {
                     $HotelCode = "";
                     $HotelName = "";
                     $AreaID = "";
                     $HotelCodeContext = "";
-                }  
+                }
             }
         }
     }
-
-    //Areas
+    
+    // Areas
     $txt = "";
     $Areas = $OTA_HotelAvailRS->item(0)->getElementsByTagName("Areas");
     if ($Areas->length > 0) {
         $Area = $Areas->item(0)->getElementsByTagName("Area");
         if ($Area->length > 0) {
-            for ($j=0; $j < $Area->length; $j++) { 
+            for ($j = 0; $j < $Area->length; $j ++) {
                 $AreaID = $Area->item($j)->getAttribute("AreaID");
-
+                
                 $AreaDescription = $Area->item($j)->getElementsByTagName("AreaDescription");
                 if ($AreaDescription->length > 0) {
                     $Name = $AreaDescription->item($jAux)->getAttribute("Name");
-
+                    
                     $Text = $AreaDescription->item($jAux)->getElementsByTagName("Text");
                     if ($Text->length > 0) {
-                        for ($jAux2=0; $jAux2 < $Text->length; $jAux2++) { 
+                        for ($jAux2 = 0; $jAux2 < $Text->length; $jAux2 ++) {
                             $txt = $Text->item($jAux2)->nodeValue;
                         }
                     }
@@ -289,17 +246,17 @@ if ($OTSServiceURL != "") {
             }
         }
     }
-
-    //RoomStays
+    
+    // RoomStays
     $RoomStays = $OTA_HotelAvailRS->item(0)->getElementsByTagName("RoomStays");
     if ($RoomStays->length > 0) {
         $RoomStay = $RoomStays->item(0)->getElementsByTagName("RoomStay");
         if ($RoomStay->length > 0) {
-            for ($k=0; $k < $RoomStay->length; $k++) { 
+            for ($k = 0; $k < $RoomStay->length; $k ++) {
                 $ResponseType = $RoomStay->item($k)->getAttribute("ResponseType");
                 $RPH = $RoomStay->item($k)->getAttribute("RPH");
                 $RoomStayCandidateRPH = $RoomStay->item($k)->getAttribute("RoomStayCandidateRPH");
-
+                
                 $RoomTypes = $RoomStay->item($k)->getElementsByTagName("RoomTypes");
                 if ($RoomTypes->length > 0) {
                     $RoomType = $RoomTypes->item(0)->getElementsByTagName("RoomType");
@@ -307,14 +264,14 @@ if ($OTSServiceURL != "") {
                         $RoomTypeCode = $RoomType->item(0)->getAttribute("RoomTypeCode");
                     }
                 }
-
+                
                 $RoomRates = $RoomStay->item($k)->getElementsByTagName("RoomRates");
                 if ($RoomRates->length > 0) {
                     $RoomRate = $RoomRates->item(0)->getElementsByTagName("RoomRate");
                     if ($RoomRate->length > 0) {
                         $RoomTypeCode2 = $RoomRate->item(0)->getAttribute("RoomTypeCode");
                         $NumberOfUnits = $RoomRate->item(0)->getAttribute("NumberOfUnits");
-                        //Rates
+                        // Rates
                         $Rates = $RoomRate->item(0)->getElementsByTagName("Rates");
                         if ($Rates->length > 0) {
                             $Rate = $Rates->item(0)->getElementsByTagName("Rate");
@@ -331,7 +288,7 @@ if ($OTSServiceURL != "") {
                                 }
                             }
                         }
-                        //Features
+                        // Features
                         $Features = $RoomRate->item(0)->getElementsByTagName("Features");
                         if ($Features->length > 0) {
                             $Feature = $Features->item(0)->getElementsByTagName("Feature");
@@ -349,7 +306,7 @@ if ($OTSServiceURL != "") {
                         }
                     }
                 }
-                //GuestCounts
+                // GuestCounts
                 $GuestCounts = $RoomStay->item($k)->getElementsByTagName("GuestCounts");
                 if ($GuestCounts->length > 0) {
                     $GuestCount = $GuestCounts->item(0)->getElementsByTagName("GuestCount");
@@ -358,20 +315,20 @@ if ($OTSServiceURL != "") {
                         $AgeQualifyingCode = $GuestCount->item(0)->getAttribute("AgeQualifyingCode");
                     }
                 }
-                //TimeSpan
+                // TimeSpan
                 $TimeSpan = $RoomStay->item($k)->getElementsByTagName("TimeSpan");
                 if ($TimeSpan->length > 0) {
                     $End = $TimeSpan->item(0)->getAttribute("End");
                     $Start = $TimeSpan->item(0)->getAttribute("Start");
                 }
-                //Reference
+                // Reference
                 $Reference = $RoomStay->item($k)->getElementsByTagName("Reference");
                 if ($Reference->length > 0) {
                     $ID_Context = $Reference->item(0)->getAttribute("ID_Context");
                     $ReferenceID = $Reference->item(0)->getAttribute("ID");
                     $Type = $Reference->item(0)->getAttribute("Type");
                 }
-                //BasicPropertyInfo
+                // BasicPropertyInfo
                 $BasicPropertyInfo = $RoomStay->item($k)->getElementsByTagName("BasicPropertyInfo");
                 if ($BasicPropertyInfo->length > 0) {
                     $HotelCode = $BasicPropertyInfo->item(0)->getAttribute("HotelCode");
@@ -383,13 +340,13 @@ if ($OTSServiceURL != "") {
                         if ($VendorMessage->length > 0) {
                             $VendorMessageTitle = $VendorMessage->item(0)->getAttribute("Title");
                             $VendorMessageInfoType = $VendorMessage->item(0)->getAttribute("InfoType");
-
+                            
                             $SubSection = $VendorMessage->item(0)->getElementsByTagName('SubSection');
                             if ($SubSection->length > 0) {
-                                for ($x=0; $x < $SubSection->length; $x++) { 
+                                for ($x = 0; $x < $SubSection->length; $x ++) {
                                     $SubCode = $SubSection->item($x)->getAttribute("SubCode");
                                     $SubTitle = $SubSection->item($x)->getAttribute("SubTitle");
-
+                                    
                                     $Paragraph = $SubSection->item($x)->getElementsByTagName('Paragraph');
                                     if ($Paragraph->length > 0) {
                                         $ParagraphText = $Paragraph->item(0)->getElementsByTagName('Text');
@@ -404,7 +361,7 @@ if ($OTSServiceURL != "") {
                         }
                     }
                 }
-
+                
                 for ($zRooms = 0; $zRooms < count($selectedAdults); $zRooms ++) {
                     if (is_array($tmp[$shid])) {
                         $baseCounterDetails = count($tmp[$shid]['details'][$zRooms]);
@@ -416,14 +373,39 @@ if ($OTSServiceURL != "") {
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['status'] = 1;
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['quoteid'] = md5(uniqid($session_id, true)) . "-" . $index . "-1";
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room'] = $RoomTypeCode;
+                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['roomtypecode'] = $RoomTypeCode;
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['roomid'] = $RoomTypeCode;
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['roomtype'] = $RoomTypeCode;
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['adults'] = $selectedAdults[$zRooms];
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['children'] = $selectedChildren[$zRooms];
+                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['chd_ages'] = $chd_ages;
+                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['mealinformation'] = $Text;
+                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nettotal'] = $TotalAmountAfterTax;
+                    if ($OTSMarkup != 0) {
+                        $TotalAmountAfterTax = $TotalAmountAfterTax + (($TotalAmountAfterTax * $OTSMarkup) / 100);
+                    }
+                    // Geo target markup
+                    if ($internalmarkup != 0) {
+                        $TotalAmountAfterTax = $TotalAmountAfterTax + (($TotalAmountAfterTax * $internalmarkup) / 100);
+                    }
+                    // Agent markup
+                    if ($agent_markup != 0) {
+                        $TotalAmountAfterTax = $TotalAmountAfterTax + (($TotalAmountAfterTax * $agent_markup) / 100);
+                    }
+                    // Fallback Markup
+                    if ($OTSMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
+                        $TotalAmountAfterTax = $TotalAmountAfterTax + (($TotalAmountAfterTax * $HotelsMarkupFallback) / 100);
+                    }
+                    // Agent discount
+                    if ($agent_discount != 0) {
+                        $TotalAmountAfterTax = $TotalAmountAfterTax - (($TotalAmountAfterTax * $agent_discount) / 100);
+                    }
+                    if ($scurrency != "" and $currency != $scurrency) {
+                        $TotalAmountAfterTax = $CurrencyConverter->convert($TotalAmountAfterTax, $currency, $scurrency);
+                    }
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['total'] = (double) $TotalAmountAfterTax;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nettotal'] = $BaseAmountAfterTax;
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['RPH'] = $RPH;
-                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['RoomStayCandidateRPH'] = $RPRoomStayCandidateRPHH;
+                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['RoomStayCandidateRPH'] = $RoomStayCandidateRPH;
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['special'] = false;
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = "";
                     try {
@@ -434,7 +416,7 @@ if ($OTSServiceURL != "") {
                         $row_board_mapping->buffer();
                         if ($row_board_mapping->valid()) {
                             $row_board_mapping = $row_board_mapping->current();
-                            $NameM = $row_board_mapping["mapped"];
+                            $Text = $row_board_mapping["mapped"];
                         }
                     } catch (\Exception $e) {
                         $logger = new Logger();
@@ -445,31 +427,9 @@ if ($OTSServiceURL != "") {
                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['meal'] = $translator->translate($Text);
                     $pricebreakdown = array();
                     $pricebreakdownCount = 0;
+                    $amount = $TotalAmountAfterTax / $noOfNights;
                     for ($rZZ = 0; $rZZ < $noOfNights; $rZZ ++) {
                         $pricebreakdown[$pricebreakdownCount]['date'] = strftime("%d %b %Y", mktime(0, 0, 0, date("m", $from), date("d", $from) + $rZZ, date("y", $from)));
-                        $amount = $TotalAmountAfterTax / $noOfNights;
-                        if ($OTSMarkup != 0) {
-                            $amount = $amount + (($amount * $OTSMarkup) / 100);
-                        }
-                        // Geo target markup
-                        if ($internalmarkup != 0) {
-                            $amount = $amount + (($amount * $internalmarkup) / 100);
-                        }
-                        // Agent markup
-                        if ($agent_markup != 0) {
-                            $amount = $amount + (($amount * $agent_markup) / 100);
-                        }
-                        // Fallback Markup
-                        if ($OTSMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
-                            $amount = $amount + (($amount * $HotelsMarkupFallback) / 100);
-                        }
-                        // Agent discount
-                        if ($agent_discount != 0) {
-                            $amount = $amount - (($amount * $agent_discount) / 100);
-                        }
-                        if ($scurrency != "" and $currency != $scurrency) {
-                            $amount = $CurrencyConverter->convert($amount, $currency, $scurrency);
-                        }
                         $pricebreakdown[$pricebreakdownCount]['price'] = $filter->filter($amount);
                         $pricebreakdown[$pricebreakdownCount]['priceplain'] = $amount;
                         $pricebreakdownCount = $pricebreakdownCount + 1;
@@ -483,12 +443,11 @@ if ($OTSServiceURL != "") {
     }
     $ots = true;
 }
-
 if ($ots == true) {
     $sfilter = implode(' or ', $sfilter);
     try {
         $sql = "select hid, sid from xmlhotels_mots where " . $sfilter;
-        error_log("\r\n SQL $sql \r\n", 3, "/srv/www/htdocs/error_log");
+        error_log("\r\nOTS - SQL $sql \r\n", 3, "/srv/www/htdocs/error_log");
         $statement2 = $db->createStatement($sql);
         $statement2->prepare();
         $result2 = $statement2->execute();

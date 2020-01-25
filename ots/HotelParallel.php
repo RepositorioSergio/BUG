@@ -1,6 +1,5 @@
 <?php
-error_log("\r\n OTS - Hotel Parallel Search\r\n", 3, "/srv/www/htdocs/error_log");
-
+error_log("\r\nOTS - Hotel Parallel Search\r\n", 3, "/srv/www/htdocs/error_log");
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\Sql\Sql;
@@ -23,11 +22,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
     $resultSet = new ResultSet();
     $resultSet->initialize($result);
     foreach ($resultSet as $row) {
-        if ($hotellist == "") {
-            $hotellist = $row->sid;
-        } else {
-            $hotellist .= "," . $row->sid;
-        }
+        $hotellist .= '<HotelRef HotelCode="' . $row->sid . '"/>';
     }
 }
 if ($hotellist != "") {
@@ -40,6 +35,15 @@ if ($hotellist != "") {
     if ($row_settings->valid()) {
         $row_settings = $row_settings->current();
         $OTSID = $row_settings['value'];
+    }
+    $sql = "select value from settings where name='OTSTimeout' and affiliate_id=$affiliate_id_ots";
+    $statement = $db->createStatement($sql);
+    $statement->prepare();
+    $row_settings = $statement->execute();
+    $row_settings->buffer();
+    if ($row_settings->valid()) {
+        $row_settings = $row_settings->current();
+        $OTSTimeout = (int) $row_settings['value'];
     }
     $sql = "select value from settings where name='OTSPassword' and affiliate_id=$affiliate_id_ots";
     $statement = $db->createStatement($sql);
@@ -70,23 +74,8 @@ if ($hotellist != "") {
         $row_settings = $row_settings->current();
         $OTSServiceURL = $row_settings['value'];
     }
-    $sql = "select value from settings where name='OTSTimeout' and affiliate_id=$affiliate_id_ots";
-    $statement = $db->createStatement($sql);
-    $statement->prepare();
-    $row_settings = $statement->execute();
-    $row_settings->buffer();
-    if ($row_settings->valid()) {
-        $row_settings = $row_settings->current();
-        $OTSTimeout = $row_settings['value'];
-    }
-    $sfilter = array();
-    error_log("\r\n ENTROU \r\n", 3, "/srv/www/htdocs/error_log");
-
-    $HotelCode = "AMTSPT0012";
     $count = 0;
-
-    $raw = '<OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="OTA_HotelAvailRQ.xsd" Version="0.1" EchoToken="123322344">
-    <POS>
+    $raw = '<OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="OTA_HotelAvailRQ.xsd" Version="0.1" EchoToken="123322344"><POS>
         <Source>
             <RequestorID Instance="MF001" ID_Context="AxisData" ID="' . $OTSID . '" Type="22"/>
         </Source>
@@ -94,40 +83,17 @@ if ($hotellist != "") {
             <RequestorID Type="88" ID="' . $OTSID . '" MessagePassword="' . $OTSPassword . '"/>
         </Source>
     </POS>
-    <AvailRequestSegments>
-        <AvailRequestSegment>
-            <StayDateRange End="' . strftime("%Y-%m-%d", $to) . '" Start="' . strftime("%Y-%m-%d", $from) . '"/>
-            <RoomStayCandidates>';
-            for ($r=0; $r < 1; $r++) { 
-                $raw = $raw . '<RoomStayCandidate Quantity="1" RPH="' . ($r+1) . '">
-                <GuestCounts>
-                <GuestCount Age="32" Count="' . $adults . '" AgeQualifyingCode="10"/>';
-                if ($children > 0) {
-                    for ($z=0; $z < $children; $z++) { 
-                        if ($selectedChildrenAges[$r][$z] > 1 ) {
-                            $count = $count +1;
-                            $raw = $raw . '<GuestCount Age="' . $selectedChildrenAges[$r][$z] . '" Count="' . $count . '" AgeQualifyingCode="8"/>';
-                            $count = 0;
-                        } else {
-                            $count = $count +1;
-                            $raw = $raw . '<GuestCount Age="' . $selectedChildrenAges[$r][$z] . '" Count="' . $count . '" AgeQualifyingCode="7"/>';
-                            $count = 0;
-                        }
-                    }
-                }
-                $raw = $raw . '</GuestCounts>
-                        </RoomStayCandidate>';
+    <AvailRequestSegments><AvailRequestSegment><StayDateRange End="' . strftime("%Y-%m-%d", $to) . '" Start="' . strftime("%Y-%m-%d", $from) . '"/><RoomStayCandidates><RoomStayCandidate Quantity="1" RPH="1"><GuestCounts><GuestCount Age="32" Count="' . $adults . '" AgeQualifyingCode="10"/>';
+    if ($children > 0) {
+        for ($z = 0; $z < $children; $z ++) {
+            if ($children_ages[$z] > 1) {
+                $raw = $raw . '<GuestCount Age="' . $$children_ages[$z] . '" Count="1" AgeQualifyingCode="8"/>';
+            } else {
+                $raw = $raw . '<GuestCount Age="' . $children_ages[$z] . '" Count="1" AgeQualifyingCode="7"/>';
             }
-    $raw = $raw . '</RoomStayCandidates>
-            <HotelSearchCriteria>
-                <Criterion ExactMatch="true">
-                    <HotelRef HotelCode="' . $HotelCode . '"/>
-                </Criterion>
-            </HotelSearchCriteria>
-        </AvailRequestSegment>
-    </AvailRequestSegments>
-    </OTA_HotelAvailRQ>';
-    error_log("\r\n RAW $raw \r\n", 3, "/srv/www/htdocs/error_log");
+        }
+    }
+    $raw = $raw . '</GuestCounts></RoomStayCandidate></RoomStayCandidates><HotelSearchCriteria><Criterion ExactMatch="true">' . $hotellist . '</Criterion></HotelSearchCriteria></AvailRequestSegment></AvailRequestSegments></OTA_HotelAvailRQ>';
     if ($OTSTimeout == 0) {
         $OTSTimeout = 120;
     }
@@ -135,10 +101,8 @@ if ($hotellist != "") {
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'Accept-Encoding: gzip,deflate',
         'Content-Length:' . strlen($raw),
-        'Content-Type: text/xml;charset=utf-8',
-        'Authorization: 1831338:b57a754c-5e06-4cdd-ac0d-2ea58c48ef74'
+        'Content-Type: text/xml;charset=utf-8'
     ));
-    
     curl_setopt($ch, CURLINFO_HEADER_OUT, true);
     curl_setopt($ch, CURLOPT_URL, $OTSServiceURL);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
@@ -149,12 +113,11 @@ if ($hotellist != "") {
     curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $OTSTimeout);
     curl_setopt($ch, CURLOPT_TIMEOUT, $OTSTimeout);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_multi_add_handle($multiParallel, $ch);
     $requestsParallel[$nC] = 'ots';
     $channelsParallel[$nC] = $ch;
+    $channelsParallelRequest[$nC] = $raw;
     $nC ++;
 }
-
 ?>

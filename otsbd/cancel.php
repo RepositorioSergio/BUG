@@ -53,7 +53,7 @@ $raw = '<OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="h
         <RequestorID Type="88" ID="TEST" MessagePassword="testpass"/>
     </Source>
 </POS>
-<UniqueID Type="36" ID="AAF" ID_Context="Client"/>
+<UniqueID Type="36" ID="AAD" ID_Context="Client"/>
 </OTA_CancelRQ>';
 
 $headers = array(
