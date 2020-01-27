@@ -87,7 +87,7 @@ if ($hotellist != "") {
     if ($children > 0) {
         for ($z = 0; $z < $children; $z ++) {
             if ($children_ages[$z] > 1) {
-                $raw = $raw . '<GuestCount Age="' . $$children_ages[$z] . '" Count="1" AgeQualifyingCode="8"/>';
+                $raw = $raw . '<GuestCount Age="' . $children_ages[$z] . '" Count="1" AgeQualifyingCode="8"/>';
             } else {
                 $raw = $raw . '<GuestCount Age="' . $children_ages[$z] . '" Count="1" AgeQualifyingCode="7"/>';
             }

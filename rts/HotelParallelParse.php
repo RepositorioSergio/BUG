@@ -2,8 +2,10 @@
 use Zend\Db\Sql\Sql;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-error_log("\r\n OTS - Hotel Parallel Search - Parse\r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\n RTS - Hotel Parallel Search - Parse\r\n", 3, "/srv/www/htdocs/error_log");
 if ($response != "") {
+    $response = str_replace('&lt;', '<', $response);
+    $response = str_replace('&gt;', '>', $response);
     error_log("\r\nResponse - $response\r\n", 3, "/srv/www/htdocs/error_log");
     $inputDoc = new DOMDocument();
     $inputDoc->loadXML($response);
@@ -21,7 +23,6 @@ if ($response != "") {
     } else {
         $LanguageCode = "";
     }
-    error_log("\r\n LanguageCode: $LanguageCode \r\n", 3, "/srv/www/htdocs/error_log");
     $LanguageName = $node->item(0)->getElementsByTagName("LanguageName");
     if ($LanguageName->length > 0) {
         $LanguageName = $LanguageName->item(0)->nodeValue;
@@ -503,47 +504,44 @@ if ($response != "") {
                         }
                         $rooms[$baseCounterDetails]['name'] = $Name;
                         $rooms[$baseCounterDetails]['hotelid'] = $ItemCode;
-                        $rooms[$baseCounterDetails]['roomid'] = $RoomTypeCode;
-                        $rooms[$baseCounterDetails]['code'] = $HotelCode;
-                        $rooms[$baseCounterDetails]['scode'] = $HotelCode;
-                        $rooms[$baseCounterDetails]['shid'] = $HotelCode;
+                        $rooms[$baseCounterDetails]['roomid'] = $IDRoomRate;
+                        $rooms[$baseCounterDetails]['code'] = $ItemCode;
+                        $rooms[$baseCounterDetails]['scode'] = $ItemCode;
+                        $rooms[$baseCounterDetails]['shid'] = $ItemCode;
                         $rooms[$baseCounterDetails]['status'] = 1;
-                        $rooms[$baseCounterDetails]['quoteid'] = md5(uniqid($session_id, true)) . "-" . $index . "-1";
-                        $rooms[$baseCounterDetails]['room'] = $RoomTypeCode;
-                        $rooms[$baseCounterDetails]['roomtypecode'] = $RoomTypeCode;
-                        $rooms[$baseCounterDetails]['room_description'] = $Roomname;
-                        $rooms[$baseCounterDetails]['RPH'] = $RPH;
-                        $rooms[$baseCounterDetails]['RoomStayCandidateRPH'] = $RoomStayCandidateRPH;
+                        $rooms[$baseCounterDetails]['quoteid'] = md5(uniqid($session_id, true)) . "-" . $index . "-19";
+                        $rooms[$baseCounterDetails]['room'] = $RoomTypeName;
+                        $rooms[$baseCounterDetails]['roomtype'] = $RoomTypeCode;
+                        $rooms[$baseCounterDetails]['room_description'] = $RoomTypeName;
                         $rooms[$baseCounterDetails]['adults'] = $adults;
                         $rooms[$baseCounterDetails]['children'] = $children;
-                        $rooms[$baseCounterDetails]['mealinformation'] = $Text;
                         $rooms[$baseCounterDetails]['nettotal'] = (double) $TotalAmountAfterTax;
                         if ($OTSMarkup != 0) {
-                            $TotalAmountAfterTax = $TotalAmountAfterTax + (($TotalAmountAfterTax * $OTSMarkup) / 100);
+                            $SellerNetPrice = $SellerNetPrice + (($SellerNetPrice * $OTSMarkup) / 100);
                         }
                         // Geo target markup
                         if ($internalmarkup != 0) {
-                            $TotalAmountAfterTax = $TotalAmountAfterTax + (($TotalAmountAfterTax * $internalmarkup) / 100);
+                            $SellerNetPrice = $SellerNetPrice + (($SellerNetPrice * $internalmarkup) / 100);
                         }
                         // Agent markup
                         if ($agent_markup != 0) {
-                            $TotalAmountAfterTax = $TotalAmountAfterTax + (($TotalAmountAfterTax * $agent_markup) / 100);
+                            $SellerNetPrice = $SellerNetPrice + (($SellerNetPrice * $agent_markup) / 100);
                         }
                         // Fallback Markup
                         if ($OTSMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
-                            $TotalAmountAfterTax = $TotalAmountAfterTax + (($TotalAmountAfterTax * $HotelsMarkupFallback) / 100);
+                            $SellerNetPrice = $SellerNetPrice + (($SellerNetPrice * $HotelsMarkupFallback) / 100);
                         }
                         // Agent discount
                         if ($agent_discount != 0) {
-                            $TotalAmountAfterTax = $TotalAmountAfterTax - (($TotalAmountAfterTax * $agent_discount) / 100);
+                            $SellerNetPrice = $SellerNetPrice - (($SellerNetPrice * $agent_discount) / 100);
                         }
                         if ($scurrency != "" and $currency != $scurrency) {
-                            $TotalAmountAfterTax = $CurrencyConverter->convert($TotalAmountAfterTax, $currency, $scurrency);
+                            $SellerNetPrice = $CurrencyConverter->convert($SellerNetPrice, $currency, $scurrency);
                         }
-                        $rooms[$baseCounterDetails]['total'] = (double) $TotalAmountAfterTax;
-                        $rooms[$baseCounterDetails]['totalplain'] = (double) $TotalAmountAfterTax;
+                        $rooms[$baseCounterDetails]['total'] = (double) $SellerNetPrice;
+                        $rooms[$baseCounterDetails]['totalplain'] = (double) $SellerNetPrice;
                         try {
-                            $sql = "select mapped from board_mapping where description='" . addslashes($Text) . "'";
+                            $sql = "select mapped from board_mapping where description='" . addslashes($BreakfastTypeName) . "'";
                             $statement = $db->createStatement($sql);
                             $statement->prepare();
                             $row_board_mapping = $statement->execute();
@@ -558,10 +556,10 @@ if ($response != "") {
                             $logger->addWriter($writer);
                             $logger->info($e->getMessage());
                         }
-                        $rooms[$baseCounterDetails]['meal'] = $translator->translate($Text);
+                        $rooms[$baseCounterDetails]['meal'] = $translator->translate($BreakfastTypeName);
                         $pricebreakdown = array();
                         $pricebreakdownCount = 0;
-                        $amount = $TotalAmountAfterTax / $noOfNights;
+                        $amount = $SellerNetPrice / $noOfNights;
                         if ($OTSMarkup != 0) {
                             $amount = $amount + (($amount * $OTSMarkup) / 100);
                         }
@@ -591,26 +589,26 @@ if ($response != "") {
                             $pricebreakdownCount = $pricebreakdownCount + 1;
                         }
                         $rooms[$baseCounterDetails]['pricebreakdown'] = $pricebreakdown;
-                        $rooms[$baseCounterDetails]['scurrency'] = $TotalCurrencyCode;
+                        $rooms[$baseCounterDetails]['scurrency'] = $ClientCurrencyCode;
                         //
                         // TODO - Specials
                         //
-                        /*
-                        * if ($PromotionName != "") {
-                        * $rooms[$baseCounterDetails]['special'] = true;
-                        * $rooms[$baseCounterDetails]['specialdescription'] = $PromotionName;
-                        * } else {
-                        */
-                        $rooms[$baseCounterDetails]['special'] = false;
-                        $rooms[$baseCounterDetails]['specialdescription'] = "";
-                        // }
+                        if ($PromotionName != "") {
+                            $rooms[$baseCounterDetails]['special'] = true;
+                            $rooms[$baseCounterDetails]['specialdescription'] = $PromotionName;
+                        } else {
+                            $rooms[$baseCounterDetails]['special'] = false;
+                            $rooms[$baseCounterDetails]['specialdescription'] = "";
+                        }
+                        $rooms[$baseCounterDetails]['FareRateType'] = $FareRateType;
+                        $rooms[$baseCounterDetails]['DailyCostCancel'] = $DailyCostCancel;
                         //
                         // TODO - Cancellation policies
                         //
-                        $rooms[$baseCounterDetails]['cancelpolicy'] = "";
-                        $rooms[$baseCounterDetails]['cancelpolicy_deadline'] = 0;
-                        $rooms[$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = 0;
-                        $rooms[$baseCounterDetails]['currency'] = strtoupper($TotalCurrencyCode);
+                        // $rooms[$baseCounterDetails]['cancelpolicy'] = "";
+                        // $rooms[$baseCounterDetails]['cancelpolicy_deadline'] = 0;
+                        // $rooms[$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = 0;
+                        $rooms[$baseCounterDetails]['currency'] = strtoupper($ClientCurrencyCode);
                         $baseCounterDetails ++;
                         // $agoda = true;
                     }
@@ -625,7 +623,7 @@ if ($response != "") {
     $session_id_tmp = $session_id . "-" . $index;
     $sql = new Sql($db);
     $delete = $sql->delete();
-    $delete->from('quote_session_ots');
+    $delete->from('quote_session_rts');
     $delete->where(array(
         'session_id' => $session_id_tmp
     ));
@@ -640,7 +638,7 @@ if ($response != "") {
     }
     $sql = new Sql($db);
     $insert = $sql->insert();
-    $insert->into('quote_session_ots');
+    $insert->into('quote_session_rts');
     $insert->values(array(
         'session_id' => $session_id_tmp,
         'xmlrequest' => (string) $request,
