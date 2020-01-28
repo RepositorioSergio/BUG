@@ -515,7 +515,7 @@ if ($response != "") {
                         $rooms[$baseCounterDetails]['room_description'] = $RoomTypeName;
                         $rooms[$baseCounterDetails]['adults'] = $adults;
                         $rooms[$baseCounterDetails]['children'] = $children;
-                        $rooms[$baseCounterDetails]['nettotal'] = (double) $TotalAmountAfterTax;
+                        $rooms[$baseCounterDetails]['nettotal'] = (double) $SellerNetPrice;
                         if ($OTSMarkup != 0) {
                             $SellerNetPrice = $SellerNetPrice + (($SellerNetPrice * $OTSMarkup) / 100);
                         }

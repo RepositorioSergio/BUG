@@ -1,4 +1,5 @@
 <?php
+error_log("\r\nMulti Policies ABREU\r\n", 3, "/srv/www/htdocs/error_log");
 use Zend\Db\Adapter\Adapter;
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\ResultSet\ResultSet;
@@ -12,10 +13,20 @@ $translator = new Translator();
 $valid = 0;
 $hid = 0;
 $shid = 0;
-$total = 0;
+$salestaxes = 0;
+$salestaxesfees = 0;
+$baserate = 0;
+$affiliate_id_expedia = 0;
+$occupancies = "";
+$sindex = $index;
 $db = new \Zend\Db\Adapter\Adapter($config);
-try {
+if ($details == "hoteldetails") {
+    // Detail level
+    $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_abreu where session_id='" . $session_id . "-" . $index . "'";
+} else {
     $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_abreu where session_id='$session_id'";
+}
+try {
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
@@ -45,11 +56,26 @@ if ($row_settings->valid()) {
     $adt = $searchsettings['adults'];
     $chd = $searchsettings['children'];
     $children_ages = $searchsettings['children_ages'];
+    if ($details == "hoteldetails") {
+        $selectedAdults = array();
+        $selectedAdults[$nroom] = $adt;
+        // Children + Ages
+        $selectedChildrenAges = array();
+        $selectedChildren = array();
+        $selectedChildren[$nroom] = $chd;
+        if ($chd > 0) {
+            $children_ages = explode(",", $children_ages);
+            for ($w = 0; $w < count($children_ages); $w ++) {
+                $selectedChildrenAges[$nroom][$w] = $children_ages[$w];
+            }
+        }
+    }
 } else {
     $response['error'] = "Unable to handle request #2";
     return false;
 }
 $affiliate_id = 0;
+$branch_filter = '';
 $sql = "select value from settings where name='enableabreu' and affiliate_id=$affiliate_id" . $branch_filter;
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -147,65 +173,59 @@ if ($row_settings->valid()) {
 if ($AbreuCurrency == "") {
     $AbreuCurrency = "USD";
 }
-$breakdown = array();
-for ($w = 0; $w < count($quoteid); $w ++) {
-    $outputArray = array();
-    $arrIt = new RecursiveIteratorIterator(new RecursiveArrayIterator($data));
-    foreach ($arrIt as $sub) {
-        $subArray = $arrIt->getSubIterator();
-        if (isset($quoteid[$w])) {
-            if (isset($subArray['quoteid'])) {
-                if ($subArray['quoteid'] === $quoteid[$w]) {
-                    $outputArray[] = iterator_to_array($subArray);
-                    $hid = $arrIt->getSubIterator($arrIt->getDepth() - 4)
-                        ->key();
-                }
+
+$outputArray = array();
+$arrIt = new RecursiveIteratorIterator(new RecursiveArrayIterator($data));
+foreach ($arrIt as $sub) {
+    $subArray = $arrIt->getSubIterator();
+    if (isset($quoteid[$nroom])) {
+        if (isset($subArray['quoteid'])) {
+            if ($subArray['quoteid'] === $quoteid[$nroom]) {
+                $outputArray[] = iterator_to_array($subArray);
+                $hid = $arrIt->getSubIterator($arrIt->getDepth() - 4)
+                    ->key();
             }
         }
-    }
-    if (! is_array($outputArray)) {
-        $response['error'] = "Unable to handle request #3";
-        return false;
-    } else {
-        array_push($breakdown, $outputArray);
     }
 }
-$fromAbreu = DateTime::createFromFormat("d-m-Y", $from);
-$toAbreu = DateTime::createFromFormat("d-m-Y", $to);
-$nights = $fromAbreu->diff($toAbreu);
+$breakdownTmp = array();
+if (! is_array($outputArray)) {
+    $response['error'] = "Unable to handle request #3";
+    return false;
+} else {
+    array_push($breakdownTmp, $outputArray);
+}
+$fromHotelsPRO = DateTime::createFromFormat("d-m-Y", $from);
+$toHotelsPro = DateTime::createFromFormat("d-m-Y", $to);
+$nights = $fromHotelsPRO->diff($toHotelsPro);
 $nights = $nights->format('%a');
-$fromAbreu = $fromAbreu->getTimestamp();
-$toAbreu = $toAbreu->getTimestamp();
-$c = 0;
+$c = $nroom;
 $response = array();
-$roombreakdown = array();
-foreach ($breakdown as $k => $v) {
+$roombreakdown2 = array();
+foreach ($breakdownTmp as $k => $v) {
     foreach ($v as $key => $value) {
-        if ($shid == 0) {
-            $shid = $value['shid'];
-            $scode = $value['shid'];
-            $hotel_code = $value['shid'];
-            $bookingcode = $value['bookingcode'];
-            $sourceMarket = $value['sourceMarket'];
-            $MealPlanCode = $value['MealPlanCode'];
-            // error_log("\r\n" . print_r($value, true) . "\r\n", 3, "/srv/www/htdocs/error_log");
-        } else {
-            if ($shid != $value['shid']) {
-                // We can't book two rooms from two suppliers
-                $response['error'] = "Unable to handle request #4";
-                return false;
-            }
-        }
+        $shid = $value['shid'];
+        $code = $value['hotelid'];
+        $scode = $value['shid'];
+        $HotelId = $value['hotelid'];
+        $room_code = $value['roomid'];
         $roomid = $value['roomid'];
-        $meal = $value['mealplancode'];
+        $bookingcode = $value['bookingcode'];
+        $sourceMarket = $value['sourceMarket'];
+        $MealPlanCode = $value['MealPlanCode'];
+        
         $item = array();
         $cancelation_deadline = 0;
         $cancelation_details = "";
         $nonrefundable = false;
         $from = date("Y-m-d", strtotime($from));
         $to = date("Y-m-d", strtotime($to));
-        $raw2 = '<?xml version="1.0" encoding="utf-8"?><soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsse:Username>' . $AbreuUsername . '</wsse:Username><wsse:Password>' . $Abreupassword . '</wsse:Password><Context>' . $AbreuContext . '</Context></wsse:Security></soap-env:Header><soap-env:Body><OTA_HotelAvailRQ xmlns=" http://parsec.es/hotelapi/OTA2014Compact" ><HotelSearch><HotelLocation HotelCode="' . $shid . '" /><MealPlan Code="' . $MealPlanCode . '" /><Currency Code="' . $AbreuCurrency . '" /><DateRange Start="' . $from . '" End="' . $to . '" /><GuestCountry Code="' . $sourceMarket . '"/><RoomCandidates><RoomCandidate RPH="1" RoomTypeCode="' . $roomid . '"><Guests><Guest AgeCode="A" Count="2" /></Guests></RoomCandidate></RoomCandidates></HotelSearch></OTA_HotelAvailRQ></soap-env:Body></soap-env:Envelope>';
-        // error_log("\r\nAbreu Request: $raw2\r\n", 3, "/srv/www/htdocs/error_log");
+        $raw2 = '<?xml version="1.0" encoding="utf-8"?><soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsse:Username>' . $AbreuUsername . '</wsse:Username><wsse:Password>' . $Abreupassword . '</wsse:Password><Context>' . $AbreuContext . '</Context></wsse:Security></soap-env:Header><soap-env:Body><OTA_HotelAvailRQ xmlns=" http://parsec.es/hotelapi/OTA2014Compact" ><HotelSearch><HotelLocation HotelCode="' . $HotelId . '" /><MealPlan Code="' . $MealPlanCode . '" /><Currency Code="' . $AbreuCurrency . '" /><DateRange Start="' . $from . '" End="' . $to . '" /><GuestCountry Code="ES"/><RoomCandidates><RoomCandidate RPH="1" RoomTypeCode="' . $roomid . '"><Guests><Guest AgeCode="A" Count="' . $adt . '" />';
+        for ($z = 0; $z < $chd; $z ++) {
+            $raw2 .= '<Guest AgeCode="C" Count="1" Age="' . $children_ages[$z] . '" />';
+        }
+        $raw2 .= '</Guests></RoomCandidate></RoomCandidates></HotelSearch></OTA_HotelAvailRQ></soap-env:Body></soap-env:Envelope>';
+        error_log("\r\nAbreu Request: $raw2\r\n", 3, "/srv/www/htdocs/error_log");
         $startTime = microtime();
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $AbreuHOTELAVAILABILITY);
@@ -226,7 +246,7 @@ foreach ($breakdown as $k => $v) {
         $error = curl_error($ch);
         $headers = curl_getinfo($ch);
         curl_close($ch);
-        // error_log("\r\nAbreu Policies Response: $response2\r\n", 3, "/srv/www/htdocs/error_log");
+        error_log("\r\nAbreu Policies Response: $response2\r\n", 3, "/srv/www/htdocs/error_log");
         // error_log("\r\nBooking Code: $bookingcode\r\n", 3, "/srv/www/htdocs/error_log");
         try {
             $sql = new Sql($db);
@@ -248,6 +268,7 @@ foreach ($breakdown as $k => $v) {
             $logger->addWriter($writer);
             $logger->info($e->getMessage());
         }
+
         $cancel = array();
         $count = 0;
         $BookingCode = "";
@@ -259,10 +280,10 @@ foreach ($breakdown as $k => $v) {
             if ($OTA_HotelAvailRS->length > 0) {
                 $Hotels = $OTA_HotelAvailRS->item(0)->getElementsByTagName('Hotels');
                 if ($Hotels->length > 0) {
-                    $Hotel = $Hotels->item(0)->getElementsByTagName('Hotel');
-                    if ($Hotel->length > 0) {
-                        for ($i = 0; $i < $Hotel->length; $i ++) {
-                            $Info = $Hotel->item($i)->getElementsByTagName('Info');
+                    $HotelInfo = $Hotels->item(0)->getElementsByTagName('Hotel');
+                    if ($HotelInfo->length > 0) {
+                        for ($i = 0; $i < $HotelInfo->length; $i ++) {
+                            $Info = $HotelInfo->item($i)->getElementsByTagName('Info');
                             if ($Info->length > 0) {
                                 $Recommended = $Info->item(0)->getAttribute('Recommended');
                                 $MasterCode = $Info->item(0)->getAttribute('MasterCode');
@@ -271,12 +292,12 @@ foreach ($breakdown as $k => $v) {
                                 $HotelName = $Info->item(0)->getAttribute('HotelName');
                                 $HotelCode = $Info->item(0)->getAttribute('HotelCode');
                             }
-                            $BestPrice = $Hotel->item($i)->getElementsByTagName('BestPrice');
+                            $BestPrice = $HotelInfo->item($i)->getElementsByTagName('BestPrice');
                             if ($BestPrice->length > 0) {
                                 $Currency = $BestPrice->item(0)->getAttribute('Currency');
                                 $Amount = $BestPrice->item(0)->getAttribute('Amount');
                             }
-                            $Rooms = $Hotel->item($i)->getElementsByTagName('Rooms');
+                            $Rooms = $HotelInfo->item($i)->getElementsByTagName('Rooms');
                             if ($Rooms->length > 0) {
                                 $Room = $Rooms->item(0)->getElementsByTagName('Room');
                                 // error_log("\r\nRoom Length: " . $Room->length . "\r\n", 3, "/srv/www/htdocs/error_log");
@@ -359,6 +380,7 @@ foreach ($breakdown as $k => $v) {
                 }
             }
         }
+
         if ($Amount == "") {
             $pricesold_out = true;
         }
@@ -477,15 +499,17 @@ foreach ($breakdown as $k => $v) {
                 $item['cancelpolicy'] = $cancelation_details;
                 $item['cancelpolicy_details'] = $cancelation_details;
                 $item['cancelpolicy_deadline'] = $cancel[0]['Units'] . " " . $cancel[0]['TimeUnit'];
-                $item['cancelpolicy_deadlinetimestamp'] = 0;
             }
         }
+        
         array_push($roombreakdown, $item);
+        array_push($roombreakdown2, $item);
     }
     $c ++;
 }
 $hotel = array();
 $sql = "select sid from xmlhotels_mabreu where sid='" . $shid . "' and hid=" . $hid;
+error_log("\r\n$sql\r\n", 3, "/srv/www/htdocs/error_log");
 $statement = $db->createStatement($sql);
 try {
     $statement->prepare();
@@ -502,6 +526,7 @@ if (! $row_hotel->valid()) {
     return false;
 }
 $sql = "select description as name, stars, hotel_info, address_1, address_2, address_3, address_4, latitude, longitude, city, city_name, seo, zipcode, country from xmlhotels where id=" . $hid;
+error_log("\r\n$sql\r\n", 3, "/srv/www/htdocs/error_log");
 $statement = $db->createStatement($sql);
 $statement->prepare();
 try {
@@ -566,14 +591,57 @@ try {
     $logger->addWriter($writer);
     $logger->info($e->getMessage());
 }
+// error_log("\r\n" . print_r($responseContent, true) . "\r\n", 3, "/srv/www/htdocs/error_log");
+$hotel['checkin'] = $responseContent[$shid]['checkin'];
+$hotel['fees'] = $responseContent[$shid]['fees'];
 $response['hotel'] = $hotel;
 $response['hotel']['images'] = $images;
-$response['breakdown'] = $roombreakdown;
+$response['breakdown'] = $roombreakdown2;
 $response['total'] = $filter->filter($total);
 $response['totalplain'] = number_format($total, 2, '.', '');
+$response['sales_taxes'] = $filter->filter($salestaxes);
+$response['sales_taxesplain'] = number_format($salestaxes, 2, '.', '');
+$response['taxes'] = $filter->filter($salestaxesfees);
+$response['taxesplain'] = number_format($salestaxesfees, 2, '.', '');
+$response['base_rate'] = $filter->filter($baserate);
+$response['base_rateplain'] = number_format($baserate, 2, '.', '');
+$response['occupancies'] = json_encode($occupancies);
 $response['searchsettings'] = $searchsettings;
-$response['ppn_book_bundle'] = $BookingCode;
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
+$response['ean'] = 1;
+$response['eanbookhref'] = $href;
+//
+// Store Session
+//
+$sql = new Sql($db);
+$sql = "delete from quote_session_hotel_multipolicies where session_id='" . $session_id . "' and sindex=$sindex";
+try {
+    $statement = $db->createStatement($sql);
+    $statement->prepare();
+    $results = $statement->execute();
+} catch (\Exception $e) {
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($e->getMessage());
+}
+$sql = new Sql($db);
+$insert = $sql->insert();
+$insert->into('quote_session_hotel_multipolicies');
+$insert->values(array(
+    'session_id' => $session_id,
+    'sindex' => $sindex,
+    'data' => base64_encode(serialize($response)),
+    'searchsettings' => base64_encode(serialize($searchsettings))
+), $insert::VALUES_MERGE);
+try {
+    $statement = $sql->prepareStatementForSqlObject($insert);
+    $results = $statement->execute();
+} catch (\Exception $e) {
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($e->getMessage());
+}
+$response['breakdown'] = $roombreakdown;
+error_log("\r\nOTS Policies Multi - EOF\r\n", 3, "/srv/www/htdocs/error_log");
 ?>
