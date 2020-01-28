@@ -1,5 +1,5 @@
 <?php
-error_log("\r\n ABREU - Hotel Parallel Search\r\n", 3, "/srv/www/htdocs/error_log");
+// error_log("\r\nAbreu - Hotel Parallel Search\r\n", 3, "/srv/www/htdocs/error_log");
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\Sql\Sql;
@@ -25,7 +25,6 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
         $hotellist .= '' . $row->sid . '';
     }
 }
-error_log("\r\n HOTEL $hotellist \r\n", 3, "/srv/www/htdocs/error_log");
 if ($hotellist != "") {
     $affiliate_id_abreu = 0;
     if ((int) $nationality > 0) {
@@ -60,7 +59,7 @@ if ($hotellist != "") {
         $row_settings = $row_settings->current();
         $AbreuUsername = $row_settings['value'];
     }
-
+    
     $sql = "select value from settings where name='Abreupassword' and affiliate_id=$affiliate_id_abreu";
     $statement = $db->createStatement($sql);
     $statement->prepare();
@@ -91,7 +90,6 @@ if ($hotellist != "") {
         $row_settings = $row_settings->current();
         $AbreuHOTELAVAILABILITY = $row_settings['value'];
     }
-    error_log("\r\n PASSOU $AbreuHOTELAVAILABILITY \r\n", 3, "/srv/www/htdocs/error_log");
     $sql = "select value from settings where name='AbreuContext' and affiliate_id=$affiliate_id_abreu";
     $statement = $db->createStatement($sql);
     $statement->prepare();
@@ -128,7 +126,7 @@ if ($hotellist != "") {
         $row_settings = $row_settings->current();
         $Abreub2cMarkup = $row_settings['value'];
     }
-    /* $sql = "select value from settings where name='abreuTimeout' and affiliate_id=$affiliate_id_rts";
+    $sql = "select value from settings where name='abreuTimeout' and affiliate_id=$affiliate_id_abreu";
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
@@ -136,7 +134,7 @@ if ($hotellist != "") {
     if ($row_settings->valid()) {
         $row_settings = $row_settings->current();
         $abreuTimeout = (int) $row_settings['value'];
-    } */
+    }
     $sql = "select value from settings where name='AbreuCurrency' and affiliate_id=$affiliate_id_abreu";
     $statement = $db->createStatement($sql);
     $statement->prepare();
@@ -149,22 +147,20 @@ if ($hotellist != "") {
     if ($AbreuCurrency == "") {
         $AbreuCurrency = "USD";
     }
-
     $raw = '<?xml version="1.0" encoding="utf-8"?><soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsse:Username>' . $AbreuUsername . '</wsse:Username><wsse:Password>' . $Abreupassword . '</wsse:Password><Context>' . $AbreuContext . '</Context></wsse:Security></soap-env:Header><soap-env:Body><OTA_HotelAvailRQ xmlns=" http://parsec.es/hotelapi/OTA2014Compact" ><HotelSearch><Currency Code="' . $AbreuCurrency . '" /><HotelRef HotelCode="' . $hotellist . '" /><DateRange Start="' . date("Y-m-d", $from) . '" End="' . date("Y-m-d", $to) . '" /><GuestCountry Code="' . $sourceMarket . '" /><RoomCandidates><RoomCandidate RPH="1"><Guests><Guest AgeCode="A" Count="' . $adults . '" />';
     for ($z = 0; $z < $children; $z ++) {
         $raw .= '<Guest AgeCode="C" Count="1" Age="' . $children_ages[$z] . '" />';
     }
     $raw .= '</Guests></RoomCandidate></RoomCandidates></HotelSearch></OTA_HotelAvailRQ></soap-env:Body></soap-env:Envelope>';
-    error_log("\r\n RAW - $raw\r\n", 3, "/srv/www/htdocs/error_log");
-    $abreuTimeout = 0;
+    // error_log("\r\nAbreu Request: $raw\r\n", 3, "/srv/www/htdocs/error_log");
     if ($abreuTimeout == 0) {
         $abreuTimeout = 120;
     }
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         "Accept: application/xml",
-            "Content-type: text/xml",
-            "Content-length: " . strlen($raw)
+        "Content-type: text/xml",
+        "Content-length: " . strlen($raw)
     ));
     curl_setopt($ch, CURLINFO_HEADER_OUT, true);
     curl_setopt($ch, CURLOPT_URL, $AbreuHOTELAVAILABILITY);
@@ -172,7 +168,6 @@ if ($hotellist != "") {
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
     curl_setopt($ch, CURLOPT_VERBOSE, false);
     curl_setopt($ch, CURLOPT_POST, true);
-    //curl_setopt($ch, CURLOPT_ENCODING, "gzip,deflate");
     curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $abreuTimeout);
     curl_setopt($ch, CURLOPT_TIMEOUT, $abreuTimeout);

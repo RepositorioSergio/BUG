@@ -220,12 +220,12 @@ foreach ($breakdownTmp as $k => $v) {
         $nonrefundable = false;
         $from = date("Y-m-d", strtotime($from));
         $to = date("Y-m-d", strtotime($to));
-        $raw2 = '<?xml version="1.0" encoding="utf-8"?><soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsse:Username>' . $AbreuUsername . '</wsse:Username><wsse:Password>' . $Abreupassword . '</wsse:Password><Context>' . $AbreuContext . '</Context></wsse:Security></soap-env:Header><soap-env:Body><OTA_HotelAvailRQ xmlns=" http://parsec.es/hotelapi/OTA2014Compact" ><HotelSearch><HotelLocation HotelCode="' . $HotelId . '" /><MealPlan Code="' . $MealPlanCode . '" /><Currency Code="' . $AbreuCurrency . '" /><DateRange Start="' . $from . '" End="' . $to . '" /><GuestCountry Code="ES"/><RoomCandidates><RoomCandidate RPH="1" RoomTypeCode="' . $roomid . '"><Guests><Guest AgeCode="A" Count="' . $adt . '" />';
+        $raw2 = '<?xml version="1.0" encoding="utf-8"?><soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsse:Username>' . $AbreuUsername . '</wsse:Username><wsse:Password>' . $Abreupassword . '</wsse:Password><Context>' . $AbreuContext . '</Context></wsse:Security></soap-env:Header><soap-env:Body><OTA_HotelAvailRQ xmlns=" http://parsec.es/hotelapi/OTA2014Compact" ><HotelSearch><HotelLocation HotelCode="' . $HotelId . '" /><MealPlan Code="' . $MealPlanCode . '" /><Currency Code="' . $AbreuCurrency . '" /><DateRange Start="' . $from . '" End="' . $to . '" /><GuestCountry Code="' . $sourceMarket . '"/><RoomCandidates><RoomCandidate RPH="1" RoomTypeCode="' . $roomid . '"><Guests><Guest AgeCode="A" Count="' . $adt . '" />';
         for ($z = 0; $z < $chd; $z ++) {
             $raw2 .= '<Guest AgeCode="C" Count="1" Age="' . $children_ages[$z] . '" />';
         }
         $raw2 .= '</Guests></RoomCandidate></RoomCandidates></HotelSearch></OTA_HotelAvailRQ></soap-env:Body></soap-env:Envelope>';
-        error_log("\r\nAbreu Request: $raw2\r\n", 3, "/srv/www/htdocs/error_log");
+        // error_log("\r\nAbreu Multi Request: $raw2\r\n", 3, "/srv/www/htdocs/error_log");
         $startTime = microtime();
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $AbreuHOTELAVAILABILITY);
@@ -246,7 +246,7 @@ foreach ($breakdownTmp as $k => $v) {
         $error = curl_error($ch);
         $headers = curl_getinfo($ch);
         curl_close($ch);
-        error_log("\r\nAbreu Policies Response: $response2\r\n", 3, "/srv/www/htdocs/error_log");
+        // error_log("\r\nAbreu Multi Policies Response: $response2\r\n", 3, "/srv/www/htdocs/error_log");
         // error_log("\r\nBooking Code: $bookingcode\r\n", 3, "/srv/www/htdocs/error_log");
         try {
             $sql = new Sql($db);
@@ -268,7 +268,7 @@ foreach ($breakdownTmp as $k => $v) {
             $logger->addWriter($writer);
             $logger->info($e->getMessage());
         }
-
+        
         $cancel = array();
         $count = 0;
         $BookingCode = "";
@@ -380,7 +380,6 @@ foreach ($breakdownTmp as $k => $v) {
                 }
             }
         }
-
         if ($Amount == "") {
             $pricesold_out = true;
         }
@@ -509,7 +508,7 @@ foreach ($breakdownTmp as $k => $v) {
 }
 $hotel = array();
 $sql = "select sid from xmlhotels_mabreu where sid='" . $shid . "' and hid=" . $hid;
-error_log("\r\n$sql\r\n", 3, "/srv/www/htdocs/error_log");
+// error_log("\r\n$sql\r\n", 3, "/srv/www/htdocs/error_log");
 $statement = $db->createStatement($sql);
 try {
     $statement->prepare();
@@ -526,7 +525,7 @@ if (! $row_hotel->valid()) {
     return false;
 }
 $sql = "select description as name, stars, hotel_info, address_1, address_2, address_3, address_4, latitude, longitude, city, city_name, seo, zipcode, country from xmlhotels where id=" . $hid;
-error_log("\r\n$sql\r\n", 3, "/srv/www/htdocs/error_log");
+// error_log("\r\n$sql\r\n", 3, "/srv/www/htdocs/error_log");
 $statement = $db->createStatement($sql);
 $statement->prepare();
 try {
@@ -643,5 +642,5 @@ try {
     $logger->info($e->getMessage());
 }
 $response['breakdown'] = $roombreakdown;
-error_log("\r\nOTS Policies Multi - EOF\r\n", 3, "/srv/www/htdocs/error_log");
+// error_log("\r\nAbreu Policies Multi - EOF\r\n", 3, "/srv/www/htdocs/error_log");
 ?>
