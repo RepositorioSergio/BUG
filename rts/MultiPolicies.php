@@ -86,7 +86,8 @@ if ($row_settings->valid()) {
 } else {
     $affiliate_id_rts = 0;
 }
-$sql = "select value from settings where name='rtsID' and affiliate_id=$affiliate_id_rts" . $branch_filter;;
+$sql = "select value from settings where name='rtsID' and affiliate_id=$affiliate_id_rts" . $branch_filter;
+;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
@@ -95,7 +96,8 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $rtsID = $row_settings['value'];
 }
-$sql = "select value from settings where name='rtsPassword' and affiliate_id=$affiliate_id_rts" . $branch_filter;;
+$sql = "select value from settings where name='rtsPassword' and affiliate_id=$affiliate_id_rts" . $branch_filter;
+;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
@@ -104,7 +106,8 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $rtsPassword = base64_decode($row_settings['value']);
 }
-$sql = "select value from settings where name='rtsSiteCode' and affiliate_id=$affiliate_id_rts" . $branch_filter;;
+$sql = "select value from settings where name='rtsSiteCode' and affiliate_id=$affiliate_id_rts" . $branch_filter;
+;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
@@ -113,7 +116,8 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $rtsSiteCode = $row_settings['value'];
 }
-$sql = "select value from settings where name='rtsRequestType' and affiliate_id=$affiliate_id_rts" . $branch_filter;;
+$sql = "select value from settings where name='rtsRequestType' and affiliate_id=$affiliate_id_rts" . $branch_filter;
+;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
@@ -122,7 +126,7 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $rtsRequestType = $row_settings['value'];
 }
-$sql = "select value from settings where name='rtsServiceURL' and affiliate_id=$affiliate_id_rts" . $branch_filter;;
+$sql = "select value from settings where name='rtsServiceURL' and affiliate_id=$affiliate_id_rts" . $branch_filter;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $result = $statement->execute();
@@ -130,6 +134,41 @@ $result->buffer();
 if ($result->valid()) {
     $row = $result->current();
     $rtsServiceURL = $row['value'];
+}
+$sql = "select value from settings where name='rtsLanguageCode' and affiliate_id=$affiliate_id_rts" . $branch_filter;
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$result = $statement->execute();
+$result->buffer();
+if ($result->valid()) {
+    $row = $result->current();
+    $rtsLanguageCode = $row['value'];
+}
+if ($rtsLanguageCode == "") {
+    $rtsLanguageCode = "AR";
+}
+if ((int) $nationality > 0) {
+    $sql = "select iso_code_2 from countries where id=" . (int) $nationality;
+    $statement2 = $db->createStatement($sql);
+    $statement2->prepare();
+    $row_settings = $statement2->execute();
+    $row_settings->buffer();
+    if ($row_settings->valid()) {
+        $row_settings = $row_settings->current();
+        $sourceMarket = $row_settings["iso_code_2"];
+    } else {
+        $sourceMarket = "";
+    }
+} else {
+    $sql = "select value from settings where name='rtsDefaultNationalityCountryCode' and affiliate_id=$affiliate_id_rts";
+    $statement = $db->createStatement($sql);
+    $statement->prepare();
+    $row_settings = $statement->execute();
+    $row_settings->buffer();
+    if ($row_settings->valid()) {
+        $row_settings = $row_settings->current();
+        $sourceMarket = $row_settings['value'];
+    }
 }
 
 $outputArray = array();
@@ -168,10 +207,283 @@ foreach ($breakdownTmp as $k => $v) {
         $HotelId = $value['hotelid'];
         $room_code = $value['roomid'];
         
+        $from_date = date('Y-m-d', strtotime($from));
+        $to_date = date('Y-m-d', strtotime($to));
         $cancelpolicy_deadline = 0;
         $cancelpolicy = "";
         $item = array();
-
+        $CityCode = $value['CityCode'];
+        $roomtypecode = $value['roomtype'];
+        $ItemCode = $value['ItemCode'];
+        $ItemNo = $value['ItemNo'];
+        
+        $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rts="http://www.rts.co.kr/"><soapenv:Header><rts:BaseInfo><rts:SiteCode>' . $rtsSiteCode . '</rts:SiteCode><rts:Password>' . $rtsPassword . '</rts:Password><rts:RequestType>NetPartner</rts:RequestType></rts:BaseInfo></soapenv:Header>
+        <soapenv:Body>
+            <rts:GetRemarkHotelInformationForCustomerCount>
+                <rts:HotelSearchListNetGuestCount>
+                    <rts:LanguageCode>' . $rtsLanguageCode . '</rts:LanguageCode>
+                    <rts:TravelerNationality>' . $sourceMarket . '</rts:TravelerNationality>
+                    <rts:CityCode>' . $CityCode . '</rts:CityCode>
+                    <rts:CheckInDate>' . $from_date . '</rts:CheckInDate>
+                    <rts:CheckOutDate>' . $to_date . '</rts:CheckOutDate>
+                    <rts:StarRating>0</rts:StarRating>
+                    <rts:LocationCode></rts:LocationCode>
+                    <rts:SupplierCompCode></rts:SupplierCompCode>
+                    <rts:AvailableHotelOnly>true</rts:AvailableHotelOnly>
+                    <rts:RecommendHotelOnly>false</rts:RecommendHotelOnly>
+                    <rts:ClientCurrencyCode>' . $currency . '</rts:ClientCurrencyCode>
+                    <rts:ItemName></rts:ItemName>
+                    <rts:SellerMarkup>*1</rts:SellerMarkup>
+                    <rts:CompareYn>false</rts:CompareYn>
+                    <rts:SortType></rts:SortType>
+                    <rts:ItemCodeList>
+                    <rts:ItemCodeInfo>
+                        <rts:ItemCode>' . $ItemCode . '</rts:ItemCode>
+                        <rts:ItemNo>' . $ItemNo . '</rts:ItemNo>
+                    </rts:ItemCodeInfo>
+                    </rts:ItemCodeList>
+                    <rts:GuestList>
+                    <rts:GuestsInfo>
+                        <rts:AdultCount>' . $adt . '</rts:AdultCount>
+                        <rts:ChildCount>' . $chd . '</rts:ChildCount>
+                        <rts:RoomCount>1</rts:RoomCount>';
+                        if ($chd > 0) {
+                            for ($z = 0; $z < $chd; $z ++) {
+                                $raw .= '<rts:ChildAge' . ($z + 1) . '>' . $children_ages[$z] . '</rts:ChildAge' . ($z + 1) . '>';
+                            }
+                        } else {
+                            $raw .= '<rts:ChildAge1>0</rts:ChildAge1>
+                                        <rts:ChildAge2>0</rts:ChildAge2>';
+                        }
+        $raw .= '</rts:GuestsInfo>			   
+                    </rts:GuestList>
+                </rts:HotelSearchListNetGuestCount>
+                <rts:RoomTypeCode>' . $roomtypecode . '</rts:RoomTypeCode>
+            </rts:GetRemarkHotelInformationForCustomerCount></soapenv:Body></soapenv:Envelope>';
+        error_log("\r\nRTS Request: $raw \r\n", 3, "/srv/www/htdocs/error_log");
+        $headers = array(
+            "Content-type: text/xml",
+            "SOAPAction: http://www.rts.co.kr/GetRemarkHotelInformationForCustomerCount",
+            "Content-length: " . strlen($raw)
+        );
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+        curl_setopt($ch, CURLOPT_URL, $rtsServiceURL . 'WebServiceProjects/NetWebService/WsHotelProducts.asmx');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $response2 = curl_exec($ch);
+        curl_close($ch);
+        $response2 = str_replace('&lt;', '<', $response2);
+        $response2 = str_replace('&gt;', '>', $response2);
+        error_log("\r\nRTS Response: $response2 \r\n", 3, "/srv/www/htdocs/error_log");
+        try {
+            $sql = new Sql($db);
+            $insert = $sql->insert();
+            $insert->into('log_rts');
+            $insert->values(array(
+                'datetime_created' => time(),
+                'filename' => 'Policies.php',
+                'errorline' => "",
+                'errormessage' => $rtsServiceURL,
+                'sqlcontext' => $response2,
+                'errcontext' => ''
+            ), $insert::VALUES_MERGE);
+            $statement = $sql->prepareStatementForSqlObject($insert);
+            $results = $statement->execute();
+        } catch (\Exception $e) {
+            $logger = new Logger();
+            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+            $logger->addWriter($writer);
+            $logger->info($e->getMessage());
+        }
+        $inputDoc = new DOMDocument();
+        $inputDoc->loadXML($response2);
+        $Envelope = $inputDoc->getElementsByTagName("Envelope");
+        $Body = $Envelope->item(0)->getElementsByTagName("Body");
+        $GetRemarkHotelInformationForCustomerCountResponse = $Body->item(0)->getElementsByTagName("GetRemarkHotelInformationForCustomerCountResponse");
+        // GetRemarkHotelInformationForCustomerCountResult
+        $GetRemarkHotelInformationForCustomerCountResult = $GetRemarkHotelInformationForCustomerCountResponse->item(0)->getElementsByTagName("GetRemarkHotelInformationForCustomerCountResult");
+        
+        // RemarkHotelInformation
+        $RemarkHotelInformation = $GetRemarkHotelInformationForCustomerCountResult->item(0)->getElementsByTagName("RemarkHotelInformation");
+        
+        $ItemCode = $RemarkHotelInformation->item(0)->getElementsByTagName("ItemCode");
+        if ($ItemCode->length > 0) {
+            $ItemCode = $ItemCode->item(0)->nodeValue;
+        } else {
+            $ItemCode = "";
+        }
+        $ItemNo = $RemarkHotelInformation->item(0)->getElementsByTagName("ItemNo");
+        if ($ItemNo->length > 0) {
+            $ItemNo = $ItemNo->item(0)->nodeValue;
+        } else {
+            $ItemNo = "";
+        }
+        $RoomTypeCode = $RemarkHotelInformation->item(0)->getElementsByTagName("RoomTypeCode");
+        if ($RoomTypeCode->length > 0) {
+            $RoomTypeCode = $RoomTypeCode->item(0)->nodeValue;
+        } else {
+            $RoomTypeCode = "";
+        }
+        
+        $Remarks = $RemarkHotelInformation->item(0)->getElementsByTagName("Remarks");
+        $Remark1 = $Remarks->item(0)->getElementsByTagName("Remark1");
+        if ($Remark1->length > 0) {
+            $Remark1 = $Remark1->item(0)->nodeValue;
+        } else {
+            $Remark1 = "";
+        }
+        $Remark2 = $Remarks->item(0)->getElementsByTagName("Remark2");
+        if ($Remark2->length > 0) {
+            $Remark2 = $Remark2->item(0)->nodeValue;
+        } else {
+            $Remark2 = "";
+        }
+        //
+        // CANCELDEADLINE
+        //
+        $raw2 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rts="http://www.rts.co.kr/">
+        <soapenv:Header>
+        <rts:BaseInfo>
+            <rts:SiteCode>' . $rtsSiteCode . '</rts:SiteCode>
+            <rts:Password>' . $rtsPassword . '</rts:Password>
+            <rts:RequestType>NetPartner</rts:RequestType>
+        </rts:BaseInfo>
+        </soapenv:Header>
+        <soapenv:Body>
+        <rts:GetCancelDeadlineForCustomerCount>
+            <rts:GetCancelDeadline>
+                <rts:ItemCode>' . $ItemCode . '</rts:ItemCode>
+                <rts:ItemNo>' . $ItemNo . '</rts:ItemNo>
+                <rts:RoomTypeCode>' . $RoomTypeCode . '</rts:RoomTypeCode>
+                <rts:CheckInDate>' . $from_date . '</rts:CheckInDate>
+                <rts:CheckOutDate>' . $to_date . '</rts:CheckOutDate>
+                <rts:GuestList>
+                    <rts:GuestsInfo>
+                    <rts:AdultCount>' . $adt . '</rts:AdultCount>
+                    <rts:ChildCount>' . $chd . '</rts:ChildCount>
+                    <rts:RoomCount>1</rts:RoomCount>';
+        if ($chd > 0) {
+            for ($z = 0; $z < $chd; $z ++) {
+                $raw2 .= '<rts:ChildAge' . ($z + 1) . '>' . $children_ages[$z] . '</rts:ChildAge' . ($z + 1) . '>';
+            }
+        } else {
+            $raw2 .= '<rts:ChildAge1>0</rts:ChildAge1>
+                        <rts:ChildAge2>0</rts:ChildAge2>';
+        }
+        
+        $raw2 .= '</rts:GuestsInfo>
+                </rts:GuestList>
+                <rts:LanguageCode>' . $rtsLanguageCode . '</rts:LanguageCode>
+                <rts:TravelerNationality>' . $sourceMarket . '</rts:TravelerNationality>
+            </rts:GetCancelDeadline>
+        </rts:GetCancelDeadlineForCustomerCount>
+        </soapenv:Body>
+        </soapenv:Envelope>';
+       // error_log("\r\nRTS RAW Request (2): $raw2 \r\n", 3, "/srv/www/htdocs/error_log");
+        
+        $raw3 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rts="http://www.rts.co.kr/">
+        <soapenv:Header>
+           <rts:BaseInfo>
+              <!--Optional:-->
+              <rts:SiteCode>CTM1X-00</rts:SiteCode>
+              <!--Optional:-->
+              <rts:Password>test1234</rts:Password>
+              <!--Optional:-->
+              <rts:RequestType>NetPartner</rts:RequestType>
+           </rts:BaseInfo>
+        </soapenv:Header>
+        <soapenv:Body>
+           <rts:GetCancelDeadlineForCustomerCount>
+              <rts:GetCancelDeadline>
+                 <!--Optional:-->
+                 <rts:ItemCode>SEL0001</rts:ItemCode>
+                 <rts:ItemNo>30</rts:ItemNo>
+                 <!--Optional:-->
+                 <rts:RoomTypeCode>5f576ffe-a19b-4548-a43e-6c66f1ffbb87|01001|Superior Double|RB|ADDZRDQ|BED10#6|E|20200417|Superior Double|BED01*1^BED10*1|N|HBHGRGMPKGFHPZ|~American buffet breakfast at hotel</rts:RoomTypeCode>
+                 <!--Optional:-->
+                 <rts:CheckInDate>2020-06-18</rts:CheckInDate>
+                 <!--Optional:-->
+                 <rts:CheckOutDate>2020-06-22</rts:CheckOutDate>
+                 <!--Optional:-->
+                 <rts:GuestList>
+                    <!--Zero or more repetitions:-->
+                    <rts:GuestsInfo>
+                       <rts:AdultCount>2</rts:AdultCount>
+                       <rts:ChildCount>0</rts:ChildCount>
+                       <rts:RoomCount>1</rts:RoomCount>
+                       <rts:ChildAge1>0</rts:ChildAge1>
+                       <rts:ChildAge2>0</rts:ChildAge2>
+                    </rts:GuestsInfo>
+                 </rts:GuestList>
+                 <!--Optional:-->
+                 <rts:LanguageCode>AR</rts:LanguageCode>
+                 <!--Optional:-->
+                 <rts:TravelerNationality>AR</rts:TravelerNationality>
+              </rts:GetCancelDeadline>
+           </rts:GetCancelDeadlineForCustomerCount>
+        </soapenv:Body>
+        </soapenv:Envelope>';
+        error_log("\r\nRTS RAW Request (3): $raw3 \r\n", 3, "/srv/www/htdocs/error_log");
+        $headers2 = array(
+            "Content-type: text/xml;charset=\"utf-8\"",
+            "Accept: text/xml",
+            "SOAPAction: http://www.rts.co.kr/GetCancelDeadlineForCustomerCount",
+            "Content-length: " . strlen($raw3)
+        );
+        
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+        curl_setopt($ch, CURLOPT_URL, $rtsServiceURL . 'WebServiceProjects/NetWebService/WsBookings.asmx');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $raw3);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers2);
+        $response3 = curl_exec($ch);
+        curl_close($ch);
+        
+        $response3 = str_replace('&lt;', '<', $response3);
+        $response3 = str_replace('&gt;', '>', $response3);
+        error_log("\r\n Response: $response3 \r\n", 3, "/srv/www/htdocs/error_log");
+        
+        $CancelDeadlineDate = "";
+        $inputDoc = new DOMDocument();
+        $inputDoc->loadXML($response3);
+        $Envelope = $inputDoc->getElementsByTagName("Envelope");
+        $Body = $Envelope->item(0)->getElementsByTagName("Body");
+        $GetCancelDeadlineForCustomerCountResponse = $Body->item(0)->getElementsByTagName("GetCancelDeadlineForCustomerCountResponse");
+        if ($GetCancelDeadlineForCustomerCountResponse->length > 0) {
+            // GetCancelDeadlineForCustomerCountResult
+            $GetCancelDeadlineForCustomerCountResult = $GetCancelDeadlineForCustomerCountResponse->item(0)->getElementsByTagName("GetCancelDeadlineForCustomerCountResult");
+            if ($GetCancelDeadlineForCustomerCountResult->length > 0) {
+                // GetCancelDeadlineResponse
+                $GetCancelDeadlineResponse = $GetCancelDeadlineForCustomerCountResult->item(0)->getElementsByTagName("GetCancelDeadlineResponse");
+                if ($GetCancelDeadlineResponse->length > 0) {
+                    $GetCancelDeadlineResult = $GetCancelDeadlineResponse->item(0)->getElementsByTagName("GetCancelDeadlineResult");
+                    if ($GetCancelDeadlineResult->length > 0) {
+                        $CancelDeadlineDate = $GetCancelDeadlineResult->item(0)->getElementsByTagName("CancelDeadlineDate");
+                        if ($CancelDeadlineDate->length > 0) {
+                            $CancelDeadlineDate = $CancelDeadlineDate->item(0)->nodeValue;
+                        } else {
+                            $CancelDeadlineDate = "";
+                        }
+                        $TypeCode = $GetCancelDeadlineResult->item(0)->getElementsByTagName("TypeCode");
+                        if ($TypeCode->length > 0) {
+                            $TypeCode = $TypeCode->item(0)->nodeValue;
+                        } else {
+                            $TypeCode = "";
+                        }
+                        error_log("\r\n CancelDeadlineDate: $CancelDeadlineDate \r\n", 3, "/srv/www/htdocs/error_log");
+                    }
+                }
+            }
+        }
         //
         // EOF Policies
         //
@@ -197,11 +509,21 @@ foreach ($breakdownTmp as $k => $v) {
         $item['children'] = $selectedChildren[$c];
         $item['children_ages'] = json_decode(json_encode($selectedChildrenAges[$c]), false);
         
-        $promotion = $value['specialdescription'];
-        $pos = strpos( $promotion, "Non-Refundable" );
-        if ($promotion == "Non-Refundable" or $pos === true) {
-            $item['cancelpolicy'] = "This booking is Non Refundable. Is not recommendable.";
-            $item['cancelpolicy_deadline'] = date("%d-%m-%Y");
+        if ($CancelDeadlineDate == "") {
+            $promotion = $value['specialdescription'];
+            $procurar = "Non-Refundable";
+            if (strpos($promotion, $procurar) !== false) {
+                $item['nonrefundable'] = true;
+                $item['cancelpolicy'] = $translator->translate("This is a non refundable booking");
+                $item['cancelpolicy_details'] = $translator->translate("This is a non refundable booking");
+                $item['cancelpolicy_deadline'] = strftime("%a, %e %b %Y", time());
+                $item['cancelpolicy_deadlinetimestamp'] = time();
+            }
+        } else {
+            $cancelation_details = "If you cancel after " . $CancelDeadlineDate . " is penalized.";
+            $item['cancelpolicy'] = $cancelation_details;
+            $item['cancelpolicy_details'] = $cancelation_details;
+            $item['cancelpolicy_deadline'] = $CancelDeadlineDate;
         }
         // $cancelation_deadline = $value['DailyRateStart'];
         // $cancelation_details = $value['cancelpolicy'];
@@ -217,7 +539,7 @@ foreach ($breakdownTmp as $k => $v) {
 }
 $hotel = array();
 $sql = "select sid from xmlhotels_mrts where sid='" . $shid . "' and hid=" . $hid;
-error_log("\r\n$sql\r\n", 3, "/srv/www/htdocs/error_log");
+// error_log("\r\n$sql\r\n", 3, "/srv/www/htdocs/error_log");
 $statement = $db->createStatement($sql);
 try {
     $statement->prepare();
@@ -234,7 +556,7 @@ if (! $row_hotel->valid()) {
     return false;
 }
 $sql = "select description as name, stars, hotel_info, address_1, address_2, address_3, address_4, latitude, longitude, city, city_name, seo, zipcode, country from xmlhotels where id=" . $hid;
-error_log("\r\n$sql\r\n", 3, "/srv/www/htdocs/error_log");
+// error_log("\r\n$sql\r\n", 3, "/srv/www/htdocs/error_log");
 $statement = $db->createStatement($sql);
 $statement->prepare();
 try {
@@ -351,5 +673,5 @@ try {
     $logger->info($e->getMessage());
 }
 $response['breakdown'] = $roombreakdown;
-error_log("\r\nOTS Policies Multi - EOF\r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\nRTS Policies Multi - EOF\r\n", 3, "/srv/www/htdocs/error_log");
 ?>

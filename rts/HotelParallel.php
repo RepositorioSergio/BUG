@@ -1,5 +1,5 @@
 <?php
-error_log("\r\n RTS - Hotel Parallel Search\r\n", 3, "/srv/www/htdocs/error_log");
+// error_log("\r\nRTS - Hotel Parallel Search\r\n", 3, "/srv/www/htdocs/error_log");
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\Sql\Sql;
@@ -25,7 +25,6 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
         $hotellist .= '' . $row->sid . '';
     }
 }
-error_log("\r\n HOTEL $hotellist \r\n", 3, "/srv/www/htdocs/error_log");
 if ($hotellist != "") {
     $affiliate_id_rts = 0;
     $sql = "select value from settings where name='rtsID' and affiliate_id=$affiliate_id_rts";
@@ -93,7 +92,8 @@ if ($hotellist != "") {
         $row_settings = $row_settings->current();
         $RTSTimeout = (int) $row_settings['value'];
     }
-    $city_xml19 = preg_replace("/[^A-Z]/", "", $hotellist);;
+    $city_xml19 = preg_replace("/[^A-Z]/", "", $hotellist);
+    ;
     $raw = "<?xml version='1.0' encoding='utf-8'?>
     <soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>
     <soap:Header>
@@ -158,14 +158,8 @@ if ($hotellist != "") {
         }
         $raw = $raw . "</GuestsInfo>";
     }
-
-    $raw = $raw . "</GuestList>
-        </HotelSearchListNetGuestCount>
-    </GetHotelSearchListForCustomerCount>
-    </soap:Body>
-    </soap:Envelope>";
-    error_log("\r\n RAW - $raw\r\n", 3, "/srv/www/htdocs/error_log");
-    $RTSTimeout = 0;
+    $raw = $raw . "</GuestList></HotelSearchListNetGuestCount></GetHotelSearchListForCustomerCount></soap:Body></soap:Envelope>";
+    error_log("\r\nRTS RAW - $raw\r\n", 3, "/srv/www/htdocs/error_log");
     if ($RTSTimeout == 0) {
         $RTSTimeout = 120;
     }
@@ -181,7 +175,7 @@ if ($hotellist != "") {
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
     curl_setopt($ch, CURLOPT_VERBOSE, false);
     curl_setopt($ch, CURLOPT_POST, true);
-    //curl_setopt($ch, CURLOPT_ENCODING, "gzip,deflate");
+    // curl_setopt($ch, CURLOPT_ENCODING, "gzip,deflate");
     curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $RTSTimeout);
     curl_setopt($ch, CURLOPT_TIMEOUT, $RTSTimeout);

@@ -21,6 +21,7 @@ $query = "";
 $auxArray = array();
 $reviewsFilter = "";
 $cAuxCounter = 0;
+// error_log("\r\Start RTS\r\n", 3, "/srv/www/htdocs/error_log");
 $sql = "select name, country_id, zone_id,city_xml19, latitude, longitude from cities where id=" . $destination;
 $statement2 = $db->createStatement($sql);
 $statement2->prepare();
@@ -38,7 +39,7 @@ if ($row_settings->valid()) {
     $city_xml19 = "";
 }
 $city_xml19 = "HKG";
-error_log("\r\n TODO - RTS - city_xml19 : $city_xml19 \r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\nTODO - RTS - city_xml19 : $city_xml19\r\n", 3, "/srv/www/htdocs/error_log");
 $affiliate_id = 0;
 $sql = "select value from settings where name='enablerts' and affiliate_id=$affiliate_id" . $branch_filter;
 $statement = $db->createStatement($sql);
@@ -129,8 +130,7 @@ if ($row_settings->valid()) {
 } else {
     $rtsMarkup = 0;
 }
-$raw = "<?xml version='1.0' encoding='utf-8'?>
-<soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>
+$raw = "<?xml version='1.0' encoding='utf-8'?><soap:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>
 <soap:Header>
     <BaseInfo xmlns='http://www.rts.co.kr/'>
         <SiteCode>" . $rtsSiteCode . "</SiteCode>
@@ -193,12 +193,7 @@ for ($r = 0; $r < count($selectedAdults); $r ++) {
     }
     $raw = $raw . "</GuestsInfo>";
 }
-
-$raw = $raw . "</GuestList>
-    </HotelSearchListNetGuestCount>
-</GetHotelSearchListForCustomerCount>
-</soap:Body>
-</soap:Envelope>";
+$raw = $raw . "</GuestList></HotelSearchListNetGuestCount></GetHotelSearchListForCustomerCount></soap:Body></soap:Envelope>";
 // error_log("\r\n Request: $raw \r\n", 3, "/srv/www/htdocs/error_log");
 if ($rtsServiceURL != "" and $rtsID != "" and $rtsPassword != "") {
     $headers = array(
@@ -745,81 +740,102 @@ if ($rtsServiceURL != "" and $rtsID != "" and $rtsPassword != "") {
                                 }
                             }
                         }
-                        for ($zRooms = 0; $zRooms < count($selectedAdults); $zRooms ++) {
-                            if (is_array($tmp[$shid])) {
-                                $baseCounterDetails = count($tmp[$shid]['details'][$zRooms]);
-                            } else {
-                                $baseCounterDetails = 0;
-                            }
-                            
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['name'] = $Name;
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['hotelid'] = $ItemCode;
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['roomid'] = $IDRoomRate;
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['code'] = $RoomTypeCode;
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['scode'] = $shid;
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['shid'] = $shid;
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['status'] = 1;
-                            // cancellationType nao existe
-                            // $tmp[$code]['details'][$zRooms][$baseCounterDetails]['cancellationType'] = $c_type;
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['quoteid'] = md5(uniqid($session_id, true)) . "-" . $index . "-19";
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room'] = $RoomTypeName;
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room_description'] = $RoomTypeName;
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room_type'] = $RoomTypeCode;
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['adults'] = $selectedAdults[$zRooms];
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['children'] = $selectedChildren[$zRooms];
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['total'] = (double) $SellerNetPrice;
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nettotal'] = $SellerNetPrice;
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['meal'] = $translator->translate($BreakfastTypeName);
-                            $pricebreakdown = array();
-                            $pricebreakdownCount = 0;
-                            for ($rZZ = 0; $rZZ < $noOfNights; $rZZ ++) {
-                                $pricebreakdown[$pricebreakdownCount]['date'] = strftime("%d %b %Y", mktime(0, 0, 0, date("m", $from), date("d", $from) + $rZZ, date("y", $from)));
-                                $amount = $SellerNetPrice / $noOfNights;
-                                if ($rtsMarkup != 0) {
-                                    $amount = $amount + (($amount * $rtsMarkup) / 100);
-                                }
-                                // Geo target markup
-                                if ($internalmarkup != 0) {
-                                    $amount = $amount + (($amount * $internalmarkup) / 100);
-                                }
-                                // Agent markup
-                                if ($agent_markup != 0) {
-                                    $amount = $amount + (($amount * $agent_markup) / 100);
-                                }
-                                // Fallback Markup
-                                if ($rtsMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
-                                    $amount = $amount + (($amount * $HotelsMarkupFallback) / 100);
-                                }
-                                // Agent discount
-                                if ($agent_discount != 0) {
-                                    $amount = $amount - (($amount * $agent_discount) / 100);
-                                }
-                                if ($scurrency != "" and $currency != $scurrency) {
-                                    $amount = $CurrencyConverter->convert($amount, $currency, $scurrency);
-                                }
-                                $pricebreakdown[$pricebreakdownCount]['price'] = $filter->filter($amount);
-                                $pricebreakdown[$pricebreakdownCount]['priceplain'] = $amount;
-                                $pricebreakdownCount = $pricebreakdownCount + 1;
-                            }
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['pricebreakdown'] = $pricebreakdown;
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['scurrency'] = $ClientCurrencyCode;
-                            
-                            if ($PromotionName != "") {
-                                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['special'] = true;
-                                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = $PromotionName;
-                            } else {
-                                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['special'] = false;
-                                $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = "";
-                            }
-                            
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['FareRateType'] = $FareRateType;
-                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['DailyCostCancel'] = $DailyCostCancel;
-                            /*
-                             * $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy'] = $CancelCost;
-                             * $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy_deadline'] = $DeadLineCancel;
-                             */
-                            $count = $count + 1;
+                        $zRooms = 0;
+                        if (is_array($tmp[$shid])) {
+                            $baseCounterDetails = count($tmp[$shid]['details'][$zRooms]);
+                        } else {
+                            $baseCounterDetails = 0;
                         }
+                        
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['name'] = $Name;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['hotelid'] = $ItemCode;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['roomid'] = $IDRoomRate;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['code'] = $RoomTypeCode;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['scode'] = $shid;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['shid'] = $shid;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['status'] = 1;
+                        // cancellationType nao existe
+                        // $tmp[$code]['details'][$zRooms][$baseCounterDetails]['cancellationType'] = $c_type;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['quoteid'] = md5(uniqid($session_id, true)) . "-" . $index . "-19";
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room'] = $RoomTypeName;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room_description'] = $RoomTypeName;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room_type'] = $RoomTypeCode;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['adults'] = $selectedAdults[$zRooms];
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['children'] = $selectedChildren[$zRooms];
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nettotal'] = $SellerNetPrice;
+                        if ($rtsMarkup != 0) {
+                            $SellerNetPrice = $SellerNetPrice + (($SellerNetPrice * $rtsMarkup) / 100);
+                        }
+                        // Geo target markup
+                        if ($internalmarkup != 0) {
+                            $SellerNetPrice = $SellerNetPrice + (($SellerNetPrice * $internalmarkup) / 100);
+                        }
+                        // Agent markup
+                        if ($agent_markup != 0) {
+                            $SellerNetPrice = $SellerNetPrice + (($SellerNetPrice * $agent_markup) / 100);
+                        }
+                        // Fallback Markup
+                        if ($rtsMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
+                            $SellerNetPrice = $SellerNetPrice + (($SellerNetPrice * $HotelsMarkupFallback) / 100);
+                        }
+                        // Agent discount
+                        if ($agent_discount != 0) {
+                            $SellerNetPrice = $SellerNetPrice - (($SellerNetPrice * $agent_discount) / 100);
+                        }
+                        if ($scurrency != "" and $currency != $scurrency) {
+                            $SellerNetPrice = $CurrencyConverter->convert($SellerNetPrice, $currency, $scurrency);
+                        }
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['total'] = (double) $SellerNetPrice;
+                        try {
+                            $sql = "select mapped from board_mapping where description='" . addslashes($BreakfastTypeName) . "'";
+                            $statement = $db->createStatement($sql);
+                            $statement->prepare();
+                            $row_board_mapping = $statement->execute();
+                            $row_board_mapping->buffer();
+                            if ($row_board_mapping->valid()) {
+                                $row_board_mapping = $row_board_mapping->current();
+                                $BreakfastTypeName = $row_board_mapping["mapped"];
+                            }
+                        } catch (\Exception $e) {
+                            $logger = new Logger();
+                            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+                            $logger->addWriter($writer);
+                            $logger->info($e->getMessage());
+                        }
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['meal'] = $translator->translate($BreakfastTypeName);
+                        $pricebreakdown = array();
+                        $pricebreakdownCount = 0;
+                        $amount = $SellerNetPrice / $noOfNights;
+                        for ($rZZ = 0; $rZZ < $noOfNights; $rZZ ++) {
+                            $pricebreakdown[$pricebreakdownCount]['date'] = strftime("%d %b %Y", mktime(0, 0, 0, date("m", $from), date("d", $from) + $rZZ, date("y", $from)));
+                            $pricebreakdown[$pricebreakdownCount]['price'] = $filter->filter($amount);
+                            $pricebreakdown[$pricebreakdownCount]['priceplain'] = $amount;
+                            $pricebreakdownCount = $pricebreakdownCount + 1;
+                        }
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['pricebreakdown'] = $pricebreakdown;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['scurrency'] = $ClientCurrencyCode;
+                        if ($PromotionName != "") {
+                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['special'] = true;
+                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = $PromotionName;
+                        } else {
+                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['special'] = false;
+                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = "";
+                        }
+                        $procurar = "Non-Refundable";
+                        if (strpos($PromotionName, $procurar) !== false) {
+                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nonrefundable'] = true;
+                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy'] = $translator->translate("This is a non refundable booking");
+                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy_details'] = $translator->translate("This is a non refundable booking");
+                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy_deadline'] = strftime("%a, %e %b %Y", time());
+                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = time();
+                        } else {
+                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails][$baseCounterDetails]['cancelpolicy'] = "";
+                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails][$baseCounterDetails]['cancelpolicy_deadline'] = 0;
+                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails][$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = 0;
+                        }
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['FareRateType'] = $FareRateType;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['DailyCostCancel'] = $DailyCostCancel;
+                        $count = $count + 1;
                     }
                 }
             }
@@ -870,7 +886,7 @@ if ($rts == true) {
         $sidfilter = implode(',', $sidfilter);
         $query = 'call xmlhotels("' . $sidfilter . '")';
         $supplier = 19;
-        error_log("\r\nRTS QUERY $query \r\n", 3, "/srv/www/htdocs/error_log");
+        // error_log("\r\nRTS Query: $query \r\n", 3, "/srv/www/htdocs/error_log");
         try {
             $sql = new Sql($db);
             $delete = $sql->delete();
@@ -900,4 +916,5 @@ if ($rts == true) {
         }
     }
 }
+// error_log("\r\End RTS\r\n", 3, "/srv/www/htdocs/error_log");
 ?>
