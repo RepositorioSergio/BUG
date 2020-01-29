@@ -168,6 +168,12 @@ if ($HotelRooms->length > 0) {
             } else {
                 $Amenities = "";
             }
+            $MealType = $HotelRoom->item($i)->getElementsByTagName("MealType");
+            if ($MealType->length > 0) {
+                $MealType = $MealType->item(0)->nodeValue;
+            } else {
+                $MealType = "";
+            }
 
 
             try {
