@@ -231,7 +231,7 @@ foreach ($breakdownTmp as $k => $v) {
                     <rts:SupplierCompCode></rts:SupplierCompCode>
                     <rts:AvailableHotelOnly>true</rts:AvailableHotelOnly>
                     <rts:RecommendHotelOnly>false</rts:RecommendHotelOnly>
-                    <rts:ClientCurrencyCode>' . $currency . '</rts:ClientCurrencyCode>
+                    <rts:ClientCurrencyCode>' . strtoupper($currency) . '</rts:ClientCurrencyCode>
                     <rts:ItemName></rts:ItemName>
                     <rts:SellerMarkup>*1</rts:SellerMarkup>
                     <rts:CompareYn>false</rts:CompareYn>
@@ -384,7 +384,7 @@ foreach ($breakdownTmp as $k => $v) {
         </rts:GetCancelDeadlineForCustomerCount>
         </soapenv:Body>
         </soapenv:Envelope>';
-       // error_log("\r\nRTS RAW Request (2): $raw2 \r\n", 3, "/srv/www/htdocs/error_log");
+       error_log("\r\nRTS RAW Request (2): $raw2 \r\n", 3, "/srv/www/htdocs/error_log");
         
         $raw3 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rts="http://www.rts.co.kr/">
         <soapenv:Header>
@@ -428,12 +428,12 @@ foreach ($breakdownTmp as $k => $v) {
            </rts:GetCancelDeadlineForCustomerCount>
         </soapenv:Body>
         </soapenv:Envelope>';
-        error_log("\r\nRTS RAW Request (3): $raw3 \r\n", 3, "/srv/www/htdocs/error_log");
+        //error_log("\r\nRTS RAW Request (3): $raw3 \r\n", 3, "/srv/www/htdocs/error_log");
         $headers2 = array(
             "Content-type: text/xml;charset=\"utf-8\"",
             "Accept: text/xml",
             "SOAPAction: http://www.rts.co.kr/GetCancelDeadlineForCustomerCount",
-            "Content-length: " . strlen($raw3)
+            "Content-length: " . strlen($raw2)
         );
         
         $ch = curl_init();
@@ -443,7 +443,7 @@ foreach ($breakdownTmp as $k => $v) {
         curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
         curl_setopt($ch, CURLOPT_TIMEOUT, 10);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $raw3);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $raw2);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers2);
         $response3 = curl_exec($ch);
         curl_close($ch);

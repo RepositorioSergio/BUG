@@ -512,6 +512,7 @@ if ($response != "") {
                                 $rooms[$baseCounterDetails]['room'] = $RoomTypeName;
                                 $rooms[$baseCounterDetails]['roomtype'] = $RoomTypeCode;
                                 $rooms[$baseCounterDetails]['room_description'] = $RoomTypeName;
+                                $rooms[$baseCounterDetails]['CityCode'] = $CityCode;
                                 $rooms[$baseCounterDetails]['ItemCode'] = $ItemCode;
                                 $rooms[$baseCounterDetails]['ItemNo'] = $ItemNo;
                                 $rooms[$baseCounterDetails]['adults'] = $adults;

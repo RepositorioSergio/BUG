@@ -112,7 +112,41 @@ if ($result->valid()) {
     $row = $result->current();
     $rtsServiceURL = $row['value'];
 }
-error_log("\r\n rtsServiceURL  $rtsServiceURL  \r\n", 3, "/srv/www/htdocs/error_log");
+$sql = "select value from settings where name='rtsLanguageCode' and affiliate_id=$affiliate_id_rts" . $branch_filter;
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$result = $statement->execute();
+$result->buffer();
+if ($result->valid()) {
+    $row = $result->current();
+    $rtsLanguageCode = $row['value'];
+}
+if ($rtsLanguageCode == "") {
+    $rtsLanguageCode = "AR";
+}
+if ((int) $nationality > 0) {
+    $sql = "select iso_code_2 from countries where id=" . (int) $nationality;
+    $statement2 = $db->createStatement($sql);
+    $statement2->prepare();
+    $row_settings = $statement2->execute();
+    $row_settings->buffer();
+    if ($row_settings->valid()) {
+        $row_settings = $row_settings->current();
+        $sourceMarket = $row_settings["iso_code_2"];
+    } else {
+        $sourceMarket = "";
+    }
+} else {
+    $sql = "select value from settings where name='rtsDefaultNationalityCountryCode' and affiliate_id=$affiliate_id_rts";
+    $statement = $db->createStatement($sql);
+    $statement->prepare();
+    $row_settings = $statement->execute();
+    $row_settings->buffer();
+    if ($row_settings->valid()) {
+        $row_settings = $row_settings->current();
+        $sourceMarket = $row_settings['value'];
+    }
+}
 
 $breakdown = array();
 for ($w = 0; $w < count($quoteid); $w ++) {
@@ -172,9 +206,11 @@ foreach ($breakdown as $k => $v) {
         $cancelpolicy = "";
         $item = array();
         $CityCode = $value['CityCode'];
-        $roomtypecode = $value['roomtypecode'];
+        $roomtypecode = $value['room_type'];
         $ItemCode = $value['ItemCode'];
         $ItemNo = $value['ItemNo'];
+        $adults = $value['adults'];
+        $children = $value['children'];
 
         $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rts="http://www.rts.co.kr/">
         <soapenv:Header>
@@ -191,9 +227,9 @@ foreach ($breakdown as $k => $v) {
             <rts:GetRemarkHotelInformationForCustomerCount>
                 <rts:HotelSearchListNetGuestCount>
                     <!--Optional:-->
-                    <rts:LanguageCode>AR</rts:LanguageCode>
+                    <rts:LanguageCode>' . $rtsLanguageCode . '</rts:LanguageCode>
                     <!--Optional:-->
-                    <rts:TravelerNationality>AR</rts:TravelerNationality>
+                    <rts:TravelerNationality>' . $sourceMarket . '</rts:TravelerNationality>
                     <!--Optional:-->
                     <rts:CityCode>' . $CityCode . '</rts:CityCode>
                     <!--Optional:-->
@@ -209,7 +245,7 @@ foreach ($breakdown as $k => $v) {
                     <rts:AvailableHotelOnly>true</rts:AvailableHotelOnly>
                     <rts:RecommendHotelOnly>false</rts:RecommendHotelOnly>
                     <!--Optional:-->
-                    <rts:ClientCurrencyCode>USD</rts:ClientCurrencyCode>
+                    <rts:ClientCurrencyCode>' . strtoupper($currency) . '</rts:ClientCurrencyCode>
                     <!--Optional:-->
                     <rts:ItemName></rts:ItemName>
                     <!--Optional:-->
@@ -230,11 +266,16 @@ foreach ($breakdown as $k => $v) {
                     <rts:GuestList>
                     <!--Zero or more repetitions:-->
                     <rts:GuestsInfo>
-                        <rts:AdultCount>' . $adt . '</rts:AdultCount>
-                        <rts:ChildCount>' . $chd . '</rts:ChildCount>
+                        <rts:AdultCount>' . $adults . '</rts:AdultCount>
+                        <rts:ChildCount>' . $children . '</rts:ChildCount>
                         <rts:RoomCount>1</rts:RoomCount>';
-                        for ($z=0; $z < $chd; $z++) { 
-                            $raw .= '<rts:ChildAge' . ($z+1) . '>' . $children_ages[$z] . '</rts:ChildAge' . ($z+1) . '>';
+                        if ($children > 0) {
+                            for ($z = 0; $z < $children; $z ++) {
+                                $raw .= '<rts:ChildAge' . ($z + 1) . '>' . $children_ages[$z] . '</rts:ChildAge' . ($z + 1) . '>';
+                            }
+                        } else {
+                            $raw .= '<rts:ChildAge1>0</rts:ChildAge1>
+                                        <rts:ChildAge2>0</rts:ChildAge2>';
                         }
                 $raw .= '</rts:GuestsInfo>			   
                     </rts:GuestList>
@@ -360,11 +401,11 @@ foreach ($breakdown as $k => $v) {
                 <rts:GuestList>
                     <!--Zero or more repetitions:-->
                     <rts:GuestsInfo>
-                    <rts:AdultCount>' . $adt . '</rts:AdultCount>
-                    <rts:ChildCount>' . $chd . '</rts:ChildCount>
+                    <rts:AdultCount>' . $adults . '</rts:AdultCount>
+                    <rts:ChildCount>' . $children . '</rts:ChildCount>
                     <rts:RoomCount>1</rts:RoomCount>';
-                    if ($chd > 0) {
-                        for ($z=0; $z < $chd; $z++) { 
+                    if ($children > 0) {
+                        for ($z=0; $z < $children; $z++) { 
                             $raw2 .= '<rts:ChildAge' . ($z+1) . '>' . $children_ages[$z] . '</rts:ChildAge' . ($z+1) . '>';
                         }
                     } else {
@@ -375,9 +416,9 @@ foreach ($breakdown as $k => $v) {
                 $raw2 .= '</rts:GuestsInfo>
                 </rts:GuestList>
                 <!--Optional:-->
-                <rts:LanguageCode>AR</rts:LanguageCode>
+                <rts:LanguageCode>' . $rtsLanguageCode . '</rts:LanguageCode>
                 <!--Optional:-->
-                <rts:TravelerNationality>AR</rts:TravelerNationality>
+                <rts:TravelerNationality>' . $sourceMarket . '</rts:TravelerNationality>
             </rts:GetCancelDeadline>
         </rts:GetCancelDeadlineForCustomerCount>
         </soapenv:Body>
@@ -394,7 +435,7 @@ foreach ($breakdown as $k => $v) {
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
-        curl_setopt($ch, CURLOPT_URL, $rtsServiceURL . 'WebServiceProjects/NetWebService/WsHotelProducts.asmx');
+        curl_setopt($ch, CURLOPT_URL, $rtsServiceURL . 'WebServiceProjects/NetWebService/WsBookings.asmx');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
         curl_setopt($ch, CURLOPT_TIMEOUT, 10);
@@ -408,6 +449,7 @@ foreach ($breakdown as $k => $v) {
         $response3 = str_replace('&gt;', '>', $response3);
         error_log("\r\n Response: $response3 \r\n", 3, "/srv/www/htdocs/error_log");
 
+        $CancelDeadlineDate = "";
         $inputDoc = new DOMDocument();
         $inputDoc->loadXML($response3);
         $Envelope = $inputDoc->getElementsByTagName("Envelope");
@@ -416,22 +458,27 @@ foreach ($breakdown as $k => $v) {
         if ($GetCancelDeadlineForCustomerCountResponse->length > 0) {
             // GetCancelDeadlineForCustomerCountResult
             $GetCancelDeadlineForCustomerCountResult = $GetCancelDeadlineForCustomerCountResponse->item(0)->getElementsByTagName("GetCancelDeadlineForCustomerCountResult");
-
-            // GetCancelDeadlineResponse
-            $GetCancelDeadlineResponse = $GetCancelDeadlineForCustomerCountResult->item(0)->getElementsByTagName("GetCancelDeadlineResponse");
-            $GetCancelDeadlineResult = $GetCancelDeadlineResponse->item(0)->getElementsByTagName("GetCancelDeadlineResult");
-
-            $CancelDeadlineDate = $GetCancelDeadlineResult->item(0)->getElementsByTagName("CancelDeadlineDate");
-            if ($CancelDeadlineDate->length > 0) {
-                $CancelDeadlineDate = $CancelDeadlineDate->item(0)->nodeValue;
-            } else {
-                $CancelDeadlineDate = "";
-            }
-            $TypeCode = $GetCancelDeadlineResult->item(0)->getElementsByTagName("TypeCode");
-            if ($TypeCode->length > 0) {
-                $TypeCode = $TypeCode->item(0)->nodeValue;
-            } else {
-                $TypeCode = "";
+            if ($GetCancelDeadlineForCustomerCountResult->length > 0) {
+                // GetCancelDeadlineResponse
+                $GetCancelDeadlineResponse = $GetCancelDeadlineForCustomerCountResult->item(0)->getElementsByTagName("GetCancelDeadlineResponse");
+                if ($GetCancelDeadlineResponse->length > 0) {
+                    $GetCancelDeadlineResult = $GetCancelDeadlineResponse->item(0)->getElementsByTagName("GetCancelDeadlineResult");
+                    if ($GetCancelDeadlineResult->length > 0) {
+                        $CancelDeadlineDate = $GetCancelDeadlineResult->item(0)->getElementsByTagName("CancelDeadlineDate");
+                        if ($CancelDeadlineDate->length > 0) {
+                            $CancelDeadlineDate = $CancelDeadlineDate->item(0)->nodeValue;
+                        } else {
+                            $CancelDeadlineDate = "";
+                        }
+                        $TypeCode = $GetCancelDeadlineResult->item(0)->getElementsByTagName("TypeCode");
+                        if ($TypeCode->length > 0) {
+                            $TypeCode = $TypeCode->item(0)->nodeValue;
+                        } else {
+                            $TypeCode = "";
+                        }
+                        error_log("\r\n CancelDeadlineDate: $CancelDeadlineDate \r\n", 3, "/srv/www/htdocs/error_log");
+                    }
+                }
             }
         }
         

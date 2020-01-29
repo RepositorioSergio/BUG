@@ -760,6 +760,9 @@ if ($rtsServiceURL != "" and $rtsID != "" and $rtsPassword != "") {
                         $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room'] = $RoomTypeName;
                         $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room_description'] = $RoomTypeName;
                         $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room_type'] = $RoomTypeCode;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['CityCode'] = $CityCode;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['ItemCode'] = $ItemCode;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['ItemNo'] = $ItemNo;
                         $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['adults'] = $selectedAdults[$zRooms];
                         $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['children'] = $selectedChildren[$zRooms];
                         $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nettotal'] = $SellerNetPrice;
