@@ -102,7 +102,7 @@ curl_setopt($ch, CURLOPT_VERBOSE, false);
 curl_setopt($ch, CURLOPT_POST, false);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
-curl_close($ch);
+curl_cloes($ch);
 
 echo "<xmp>";
 var_dump($response);
