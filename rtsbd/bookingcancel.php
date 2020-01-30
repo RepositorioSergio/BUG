@@ -114,7 +114,7 @@ $raw = "<?xml version='1.0' encoding='utf-8'?>
         <BookingCancel xmlns='http://www.rts.co.kr/'>
             <BookingCancel>
                 <LanguageCode>AR</LanguageCode>
-                <BookingCode>BUEF29827</BookingCode>
+                <BookingCode>BUEF29832</BookingCode>
                 <ItemNo>30</ItemNo>
                 <CancelReasonCode>CR99</CancelReasonCode>
                 <LastWriterUno>813054</LastWriterUno>

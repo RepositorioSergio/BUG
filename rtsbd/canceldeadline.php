@@ -118,11 +118,11 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
          <rts:ItemCode>SEL0001</rts:ItemCode>
          <rts:ItemNo>30</rts:ItemNo>
          <!--Optional:-->
-         <rts:RoomTypeCode>5f576ffe-a19b-4548-a43e-6c66f1ffbb87|01001|Superior Double|RB|ADDZRDQ|BED10#6|E|20200417|Superior Double|BED01*1^BED10*1|N|HBHGRGMPKGFHPZ|~American buffet breakfast at hotel</rts:RoomTypeCode>
+         <rts:RoomTypeCode>20200701|20200703|W|435|128032|TWN.DX|FIT|RO||1~2~0||N@04~~20c77~-1751002900~N~~9EFDEF54851C4F6158037749818602PAAR0000028002600060820c77:BBJ.BC:twin deluxe::A0#B0#C0#D0#E0|HZGRDKBD|~None</rts:RoomTypeCode>
          <!--Optional:-->
-         <rts:CheckInDate>2020-06-18</rts:CheckInDate>
+         <rts:CheckInDate>2020-07-01</rts:CheckInDate>
          <!--Optional:-->
-         <rts:CheckOutDate>2020-06-22</rts:CheckOutDate>
+         <rts:CheckOutDate>2020-07-03</rts:CheckOutDate>
          <!--Optional:-->
          <rts:GuestList>
             <!--Zero or more repetitions:-->
@@ -165,11 +165,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $response = curl_exec($ch);
 curl_close($ch);
-/*
- * echo $return;
- * echo $response;
- * echo $return;
- */
+
 $response = str_replace('&lt;', '<', $response);
 $response = str_replace('&gt;', '>', $response);
 

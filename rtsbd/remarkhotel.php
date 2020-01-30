@@ -127,9 +127,9 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             <!--Optional:-->
             <rts:CityCode>SEL</rts:CityCode>
             <!--Optional:-->
-            <rts:CheckInDate>2020-06-18</rts:CheckInDate>
+            <rts:CheckInDate>2020-07-01</rts:CheckInDate>
             <!--Optional:-->
-            <rts:CheckOutDate>2020-06-22</rts:CheckOutDate>
+            <rts:CheckOutDate>2020-07-03</rts:CheckOutDate>
             <!--Optional:-->
             <rts:StarRating>0</rts:StarRating>
             <!--Optional:-->
@@ -169,7 +169,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             </rts:GuestList>
          </rts:HotelSearchListNetGuestCount>
          <!--Optional:-->
-         <rts:RoomTypeCode>20200618|20200622|W|435|128032|TWN.DX|FIT|RO||1~2~0||N@04~~25c137~-489583348~N~~A1BA76D2495942D157927527827102PAAR0000027002500050825c137:DBB.JC:twin deluxe::A0#B0#C0#D0#E0|JJJRGKDD|~None</rts:RoomTypeCode>
+         <rts:RoomTypeCode>20200701|20200703|W|435|128032|TWN.DX|FIT|RO||1~2~0||N@04~~20c77~-1751002900~N~~9EFDEF54851C4F6158037749818602PAAR0000028002600060820c77:BBJ.BC:twin deluxe::A0#B0#C0#D0#E0|HZGRDKBD|~None</rts:RoomTypeCode>
       </rts:GetRemarkHotelInformationForCustomerCount>
    </soapenv:Body>
 </soapenv:Envelope>';
