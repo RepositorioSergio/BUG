@@ -16,11 +16,11 @@ $filter = new \Zend\I18n\Filter\NumberFormat($NumberFormat, 2);
 unset($tmp);
 $sfilter = array();
 $totalstay = false;
-$db = new \Zend\Db\Adapter\Adapter($config);
 $sql = "select city_xml44, latitude, longitude from cities where id=" . $destination;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $city_xml44 = $row_settings["city_xml44"];
@@ -34,6 +34,7 @@ if ((int) $nationality > 0) {
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
+    $row_settings->buffer();
     if ($row_settings->valid()) {
         $row_settings = $row_settings->current();
         $sourceMarket = $row_settings["iso_code_2"];
@@ -45,6 +46,7 @@ if ((int) $nationality > 0) {
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
+    $row_settings->buffer();
     if ($row_settings->valid()) {
         $row_settings = $row_settings->current();
         $sourceMarket = $row_settings['value'];
@@ -54,6 +56,7 @@ $sql = "select value from settings where name='totalstayuser' and affiliate_id=$
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $totalstayuser = $row_settings['value'];
@@ -62,6 +65,7 @@ $sql = "select value from settings where name='totalstaypassword' and affiliate_
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $totalstaypassword = base64_decode($row_settings['value']);
@@ -70,6 +74,7 @@ $sql = "select value from settings where name='totalstayMarkup' and affiliate_id
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $totalstayMarkup = (double) $row_settings['value'];
@@ -80,49 +85,34 @@ $sql = "select value from settings where name='totalstayserviceURL' and affiliat
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $totalstayserviceURL = $row_settings['value'];
 }
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
 $dateStart = new DateTime(strftime("%Y-%m-%d", $from));
 $dateEnd = new DateTime(strftime("%Y-%m-%d", $to));
 $noOfNights = $dateStart->diff($dateEnd)->format('%d');
-$ArrivalDate = strftime("%Y-%m-%d", $from);
-
 $date = new Datetime();
 $timestamp = $date->format('U');
-$raw = 'Data=<SearchRequest><LoginDetails>
-  <Login>' . $totalstayuser . '</Login>
-  <Password>' . $totalstaypassword . '</Password>
-</LoginDetails>
-<SearchDetails>
-  <ArrivalDate>' . $ArrivalDate . '</ArrivalDate>
-  <Duration>' . $noOfNights . '</Duration>
-  <RegionID>72</RegionID>
-  <MealBasisID>0</MealBasisID>
-  <MinStarRating>0</MinStarRating>
-  <ContractSpecialOfferID>0</ContractSpecialOfferID>
-  <RoomRequests>';
-  for ($a=0; $a < count($selectedAdults); $a++) { 
-      $raw .= '<RoomRequest>
+$raw = 'Data=<SearchRequest><LoginDetails><Login>' . $totalstayuser . '</Login><Password>' . $totalstaypassword . '</Password></LoginDetails><SearchDetails><ArrivalDate>' . strftime("%Y-%m-%d", $from) . '</ArrivalDate><Duration>' . $noOfNights . '</Duration><RegionID>72</RegionID><MealBasisID>0</MealBasisID><MinStarRating>0</MinStarRating><ContractSpecialOfferID>0</ContractSpecialOfferID><RoomRequests>';
+for ($a = 0; $a < count($selectedAdults); $a ++) {
+    $raw .= '<RoomRequest>
       <Adults>' . $selectedAdults[$a] . '</Adults>
       <Children>' . $selectedChildren[$a] . '</Children>
       <Infants>0</Infants>';
-        if ($selectedChildren[$a] == 0) {
-            $raw .= '<ChildAges/>';
-        } else {
-            $raw .= '<ChildAges>';
-            for ($z = 0; $z < $selectedChildren[$a]; $z++) {
-                $raw .= '<ChildAge><Age>' . $selectedChildrenAges[$a][$z] . '</Age></ChildAge>';
-            }
-            $raw .= '</ChildAges>';
+    if ($selectedChildren[$a] == 0) {
+        $raw .= '<ChildAges/>';
+    } else {
+        $raw .= '<ChildAges>';
+        for ($z = 0; $z < $selectedChildren[$a]; $z ++) {
+            $raw .= '<ChildAge><Age>' . $selectedChildrenAges[$a][$z] . '</Age></ChildAge>';
         }
-        $raw .= '</RoomRequest>';
-  }
-  $raw .=  '</RoomRequests></SearchDetails></SearchRequest>';
+        $raw .= '</ChildAges>';
+    }
+    $raw .= '</RoomRequest>';
+}
+$raw .= '</RoomRequests></SearchDetails></SearchRequest>';
 if ($totalstayserviceURL != "" and $totalstayuser != "" and $totalstaypassword != "") {
     $startTime = microtime();
     $ch = curl_init();
@@ -138,8 +128,7 @@ if ($totalstayserviceURL != "" and $totalstayuser != "" and $totalstaypassword !
     curl_close($ch);
     $endTime = microtime();
     try {
-        $db2 = new \Zend\Db\Adapter\Adapter($config);
-        $sql = new Sql($db2);
+        $sql = new Sql($db);
         $insert = $sql->insert();
         $insert->into('log_totalstay');
         $insert->values(array(
@@ -152,10 +141,7 @@ if ($totalstayserviceURL != "" and $totalstayuser != "" and $totalstaypassword !
         ), $insert::VALUES_MERGE);
         $statement = $sql->prepareStatementForSqlObject($insert);
         $results = $statement->execute();
-        $db2->getDriver()
-            ->getConnection()
-            ->disconnect();
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
         $logger = new Logger();
         $writer = new Writer\Stream('/srv/www/htdocs/error_log');
         $logger->addWriter($writer);
@@ -235,10 +221,6 @@ if ($totalstayserviceURL != "" and $totalstayuser != "" and $totalstaypassword !
                 $Seq = $RoomType->item($Auxjj)->getElementsByTagName('Seq');
                 if ($Seq->length > 0) {
                     $Seq = $Seq->item(0)->nodeValue;
-                } else {
-                    $Seq = 0;
-                }
-                if ($Seq > 0) {
                     $PropertyRoomTypeID = $RoomType->item($Auxjj)->getElementsByTagName('PropertyRoomTypeID');
                     if ($PropertyRoomTypeID->length > 0) {
                         $PropertyRoomTypeID = $PropertyRoomTypeID->item(0)->nodeValue;
@@ -251,6 +233,7 @@ if ($totalstayserviceURL != "" and $totalstayuser != "" and $totalstaypassword !
                     } else {
                         $BookingToken = "";
                     }
+                    
                     $MealBasisID = $RoomType->item($Auxjj)->getElementsByTagName('MealBasisID');
                     if ($MealBasisID->length > 0) {
                         $MealBasisID = $MealBasisID->item(0)->nodeValue;
@@ -358,6 +341,7 @@ if ($totalstayserviceURL != "" and $totalstayuser != "" and $totalstaypassword !
                         $baseCounterDetails = 0;
                     }
                     $tmp[$shid]['details'][$Seq][$baseCounterDetails]['name'] = $PropertyName;
+                    $tmp[$shid]['details'][$Seq][$baseCounterDetails]['hotelid'] = $PropertyID;
                     $tmp[$shid]['details'][$Seq][$baseCounterDetails]['shid'] = $PropertyID;
                     $tmp[$shid]['details'][$Seq][$baseCounterDetails]['status'] = 1;
                     // cancellationType nao existe
@@ -368,41 +352,44 @@ if ($totalstayserviceURL != "" and $totalstayuser != "" and $totalstaypassword !
                     }
                     $tmp[$shid]['details'][$Seq][$baseCounterDetails]['room'] = $RoomType2;
                     $tmp[$shid]['details'][$Seq][$baseCounterDetails]['room_type'] = $RoomType2;
+                    $tmp[$shid]['details'][$Seq][$baseCounterDetails]['PropertyRoomTypeID'] = $PropertyRoomTypeID;
+                    $tmp[$shid]['details'][$Seq][$baseCounterDetails]['BookingToken'] = $BookingToken;
                     $tmp[$shid]['details'][$Seq][$baseCounterDetails]['adults'] = $Adults;
                     $tmp[$shid]['details'][$Seq][$baseCounterDetails]['children'] = $Children;
-                    $tmp[$shid]['details'][$Seq][$baseCounterDetails]['total'] = (double) $Total;
+                    $tmp[$shid]['details'][$Seq][$baseCounterDetails]['infants'] = $Infants;
                     $tmp[$shid]['details'][$Seq][$baseCounterDetails]['nett'] = $Total;
+                    if ($totalstayMarkup != 0) {
+                        $Total = $Total + (($Total * $totalstayMarkup) / 100);
+                    }
+                    // Geo target markup
+                    if ($internalmarkup != 0) {
+                        $Total = $Total + (($Total * $internalmarkup) / 100);
+                    }
+                    // Agent markup
+                    if ($agent_markup != 0) {
+                        $Total = $Total + (($Total * $agent_markup) / 100);
+                    }
+                    // Fallback Markup
+                    if ($totalstayMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
+                        $Total = $Total + (($Total * $HotelsMarkupFallback) / 100);
+                    }
+                    // Agent discount
+                    if ($agent_discount != 0) {
+                        $Total = $Total - (($Total * $agent_discount) / 100);
+                    }
+                    if ($scurrency != "" and $currency != $scurrency) {
+                        $Total = $CurrencyConverter->convert($Total, $currency, $scurrency);
+                    }
+                    $tmp[$shid]['details'][$Seq][$baseCounterDetails]['total'] = (double) $Total;
                     $tmp[$shid]['details'][$Seq][$baseCounterDetails]['special'] = false;
                     $tmp[$shid]['details'][$Seq][$baseCounterDetails]['specialdescription'] = "";
                     $tmp[$shid]['details'][$Seq][$baseCounterDetails]['mealid'] = $MealBasisID;
                     $tmp[$shid]['details'][$Seq][$baseCounterDetails]['meal'] = $translator->translate($MealBasis);
                     $pricebreakdown = array();
                     $pricebreakdownCount = 0;
+                    $amount = $Total / $noOfNights;
                     for ($rZZ = 0; $rZZ < $noOfNights; $rZZ ++) {
                         $pricebreakdown[$pricebreakdownCount]['date'] = strftime("%d %b %Y", mktime(0, 0, 0, date("m", $from), date("d", $from) + $rZZ, date("y", $from)));
-                        $amount = $noOfNights * $Total;
-                        if ($totalstayMarkup != 0) {
-                            $amount = $amount + (($amount * $totalstayMarkup) / 100);
-                        }
-                        // Geo target markup
-                        if ($internalmarkup != 0) {
-                            $amount = $amount + (($amount * $internalmarkup) / 100);
-                        }
-                        // Agent markup
-                        if ($agent_markup != 0) {
-                            $amount = $amount + (($amount * $agent_markup) / 100);
-                        }
-                        // Fallback Markup
-                        if ($totalstayMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
-                            $amount = $amount + (($amount * $HotelsMarkupFallback) / 100);
-                        }
-                        // Agent discount
-                        if ($agent_discount != 0) {
-                            $amount = $amount - (($amount * $agent_discount) / 100);
-                        }
-                        if ($scurrency != "" and $currency != $scurrency) {
-                            $amount = $CurrencyConverter->convert($amount, $currency, $scurrency);
-                        }
                         $pricebreakdown[$pricebreakdownCount]['price'] = $filter->filter($amount);
                         $pricebreakdown[$pricebreakdownCount]['priceplain'] = $amount;
                         $pricebreakdownCount = $pricebreakdownCount + 1;
@@ -418,26 +405,23 @@ if ($totalstayserviceURL != "" and $totalstayuser != "" and $totalstaypassword !
     }
     $totalstay = true;
 }
-// error_log("\r\n " . print_r($tmp, true) . " \r\n", 3, "/srv/www/htdocs/error_log");
 if ($totalstay == true) {
     $sfilter = implode(' or ', $sfilter);
     try {
-        $db2 = new \Zend\Db\Adapter\Adapter($config);
-        $sql = "select hid, sid from xmlhotels_mtotalstay where " . $sfilter;
-        // error_log("\r\n $sql \r\n", 3, "/srv/www/htdocs/error_log");
-        $statement2 = $db2->createStatement($sql);
-        $statement2->prepare();
-        $result2 = $statement2->execute();
-        if ($result2 instanceof ResultInterface && $result2->isQueryResult()) {
-            $resultSet2 = new ResultSet();
-            $resultSet2->initialize($result2);
-            foreach ($resultSet2 as $row2) {
-                // $sidfilter[] = "id=" . $row2->hid;
-                $sidfilter[] = $row2->hid;
-                if (is_array($hotels_array[$row2->hid])) {
+        $sql = "select hid, sid from xmlhotels_mexclusivelyhotels where " . $sfilter;
+        $statement = $db->createStatement($sql);
+        $statement->prepare();
+        $result = $statement->execute();
+        $result->buffer();
+        if ($result instanceof ResultInterface && $result->isQueryResult()) {
+            $resultSet = new ResultSet();
+            $resultSet->initialize($result);
+            foreach ($resultSet as $row) {
+                $sidfilter[] = $row->hid;
+                if (is_array($hotels_array[$row->hid])) {
                     // Append to original details
-                    $tmph = $hotels_array[$row2->hid]['details'];
-                    $tmps = $tmp[$row2->sid]['details'];
+                    $tmph = $hotels_array[$row->hid]['details'];
+                    $tmps = $tmp[$row->sid]['details'];
                     foreach ($tmph as $key => $value) {
                         $last = count($tmph[$key]);
                         foreach ($tmps[$key] as $keyd => $valued) {
@@ -445,16 +429,13 @@ if ($totalstay == true) {
                             $last ++;
                         }
                     }
-                    $hotels_array[$row2->hid]['details'] = $tmph;
+                    $hotels_array[$row->hid]['details'] = $tmph;
                 } else {
-                    $hotels_array[$row2->hid] = $tmp[$row2->sid];
+                    $hotels_array[$row->hid] = $tmp[$row->sid];
                 }
             }
         }
-        $db2->getDriver()
-            ->getConnection()
-            ->disconnect();
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
         $logger = new Logger();
         $writer = new Writer\Stream('/srv/www/htdocs/error_log');
         $logger->addWriter($writer);
@@ -465,8 +446,7 @@ if ($totalstay == true) {
         $query = 'call xmlhotels("' . $sidfilter . '")';
         $supplier = 44;
         try {
-            $db2 = new \Zend\Db\Adapter\Adapter($config);
-            $sql = new Sql($db2);
+            $sql = new Sql($db);
             $delete = $sql->delete();
             $delete->from('quote_session_totalstay');
             $delete->where(array(
@@ -474,7 +454,7 @@ if ($totalstay == true) {
             ));
             $statement = $sql->prepareStatementForSqlObject($delete);
             $results = $statement->execute();
-            $sql = new Sql($db2);
+            $sql = new Sql($db);
             $insert = $sql->insert();
             $insert->into('quote_session_totalstay');
             $insert->values(array(
@@ -486,10 +466,7 @@ if ($totalstay == true) {
             ), $insert::VALUES_MERGE);
             $statement = $sql->prepareStatementForSqlObject($insert);
             $results = $statement->execute();
-            $db2->getDriver()
-                ->getConnection()
-                ->disconnect();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $logger = new Logger();
             $writer = new Writer\Stream('/srv/www/htdocs/error_log');
             $logger->addWriter($writer);
