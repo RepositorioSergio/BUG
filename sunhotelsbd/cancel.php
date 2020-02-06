@@ -55,7 +55,7 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
     <CancelBooking xmlns="http://xml.sunhotels.net/15/">
       <userName>testagent</userName>
       <password>785623</password>
-      <bookingID>SH9230299</bookingID>
+      <bookingID>SH9631900</bookingID>
       <language>en</language>
     </CancelBooking>
   </soap:Body>

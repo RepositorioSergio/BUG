@@ -85,9 +85,9 @@ curl_close($ch);
 
 echo $response;
 
-/* echo "<xmp>";
+echo "<xmp>";
 echo $response;
-echo "</xmp>"; */
+echo "</xmp>";
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
 $config = [

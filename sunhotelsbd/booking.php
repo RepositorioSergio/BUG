@@ -58,16 +58,16 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
       <currency>USD</currency>
       <language>en</language>
       <email>alexis.sanchez@gmail.com</email>
-      <checkInDate>2019-12-12</checkInDate>
-      <checkOutDate>2019-12-14</checkOutDate>
-      <roomId>23040486</roomId>
+      <checkInDate>2020-06-12</checkInDate>
+      <checkOutDate>2020-06-17</checkOutDate>
+      <roomId>14656827</roomId>
       <rooms>1</rooms>
       <adults>2</adults>
       <children>0</children>
       <infant>0</infant>
-      <yourRef>jk78iop</yourRef>
+      <yourRef>jk12aah</yourRef>
       <specialrequest></specialrequest>
-      <mealId>3</mealId>
+      <mealId>1</mealId>
       <adultGuest1FirstName>Alexis</adultGuest1FirstName>
       <adultGuest1LastName>Sanchez</adultGuest1LastName>
       <adultGuest2FirstName>Martina</adultGuest2FirstName>
@@ -122,10 +122,10 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
       <creditCardExpMonth></creditCardExpMonth>
       <customerEmail>alexis.sanchez@gmail.com</customerEmail>
       <invoiceRef></invoiceRef>
-      <customerCountry>gb</customerCountry>
+      <customerCountry>es</customerCountry>
       <b2c>0</b2c>
       <commissionAmountInHotelCurrency></commissionAmountInHotelCurrency>
-      <preBookCode>7b4736d6-5b61-4eac-bf25-28da56033031</preBookCode>
+      <preBookCode>cd52830d-7062-4660-9e03-32f871aaf011</preBookCode>
     </BookV2>
   </soap:Body>
 </soap:Envelope>';

@@ -55,18 +55,18 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
       <password>785623</password>
       <currency>USD</currency>
       <language>en</language>
-      <checkInDate>2019-12-12</checkInDate>
-      <checkOutDate>2019-12-14</checkOutDate>
+      <checkInDate>2020-06-12</checkInDate>
+      <checkOutDate>2020-06-17</checkOutDate>
       <rooms>1</rooms>
       <adults>2</adults>
       <children>0</children>
       <childrenAges></childrenAges>
       <infant>0</infant>
-      <mealId>3</mealId>
-      <customerCountry>gb</customerCountry>
+      <mealId>1</mealId>
+      <customerCountry>es</customerCountry>
       <b2c>0</b2c>
-      <searchPrice>492</searchPrice>
-      <roomId>23040486</roomId>
+      <searchPrice>1644</searchPrice>
+      <roomId>14656827</roomId>
       <hotelId></hotelId>
       <roomtypeId></roomtypeId>
       <blockSuperDeal></blockSuperDeal>

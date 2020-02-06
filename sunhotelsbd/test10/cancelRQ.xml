@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <CancelBooking xmlns="http://xml.sunhotels.net/15/">
+      <userName>testagent</userName>
+      <password>785623</password>
+      <bookingID>SH9631900</bookingID>
+      <language>en</language>
+    </CancelBooking>
+  </soap:Body>
+</soap:Envelope>

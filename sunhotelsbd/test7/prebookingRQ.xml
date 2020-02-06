@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <PreBookV2 xmlns="http://xml.sunhotels.net/15/">
+      <userName>testagent</userName>
+      <password>785623</password>
+      <currency>USD</currency>
+      <language>en</language>
+      <checkInDate>2020-06-12</checkInDate>
+      <checkOutDate>2020-06-14</checkOutDate>
+      <rooms>1</rooms>
+      <adults>3</adults>
+      <children>0</children>
+      <childrenAges></childrenAges>
+      <infant>0</infant>
+      <mealId>1</mealId>
+      <customerCountry>es</customerCountry>
+      <b2c>0</b2c>
+      <searchPrice>330</searchPrice>
+      <roomId>34417294</roomId>
+      <hotelId></hotelId>
+      <roomtypeId></roomtypeId>
+      <blockSuperDeal></blockSuperDeal>
+      <showPriceBreakdown>true</showPriceBreakdown>
+    </PreBookV2>
+  </soap:Body>
+</soap:Envelope>

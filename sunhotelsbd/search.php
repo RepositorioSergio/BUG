@@ -47,7 +47,7 @@ date_default_timezone_set('UTC');
 $date = new DateTime();
 $date = $date->format("Y-m-d H:i:s");
 
-$url = "http://xml.sunhotels.net/15/PostGet/NonStaticXMLAPI.asmx/SearchV2?userName=testagent&password=785623&language=en&currencies=USD&checkInDate=2019-12-12&checkOutDate=2019-12-14&numberOfRooms=1&destination=&destinationID=695&hotelIDs=&resortIDs=&accommodationTypes=&numberOfAdults=2&numberOfChildren=0&childrenAges=&infant=0&sortBy=&sortOrder=&exactDestinationMatch=&blockSuperdeal=&showTransfer=&mealIds=&showCoordinates=&showReviews=&referencePointLatitude=&referencePointLongitude=&maxDistanceFromReferencePoint=&minStarRating=&maxStarRating=&featureIds=&minPrice=&maxPrice=&themeIds=&excludeSharedRooms=&excludeSharedFacilities=&prioritizedHotelIds=&totalRoomsInBatch=&paymentMethodId=&CustomerCountry=gb&B2C=";
+$url = "http://xml.sunhotels.net/15/PostGet/NonStaticXMLAPI.asmx/SearchV2?userName=testagent&password=785623&language=en&currencies=USD&checkInDate=2020-06-12&checkOutDate=2020-06-17&numberOfRooms=1&destination=&destinationID=148&hotelIDs=&resortIDs=&accommodationTypes=&numberOfAdults=2&numberOfChildren=0&childrenAges=&infant=0&sortBy=&sortOrder=&exactDestinationMatch=&blockSuperdeal=&showTransfer=&mealIds=&showCoordinates=&showReviews=&referencePointLatitude=&referencePointLongitude=&maxDistanceFromReferencePoint=&minStarRating=&maxStarRating=&featureIds=&minPrice=&maxPrice=&themeIds=&excludeSharedRooms=&excludeSharedFacilities=&prioritizedHotelIds=&totalRoomsInBatch=&paymentMethodId=&CustomerCountry=es&B2C=";
 
 $headers = array(
     'Accept-Encoding: gzip,deflate',
@@ -214,6 +214,7 @@ if ($hotel->length > 0) {
                                         } else {
                                             $text = "";
                                         }
+                                        echo "ROOM: " . $roomid;
                                     }
                                 }
                                 $isSuperDeal = $room->item($jAux)->getElementsByTagName("isSuperDeal");
