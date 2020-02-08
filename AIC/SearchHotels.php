@@ -12,15 +12,18 @@ use Zend\Log\Writer;
 use Zend\Filter\AbstractFilter;
 use Zend\I18n\Translator\Translator;
 $translator = new Translator();
+if (file_exists("src/App/language/" . $lang . ".mo")) {
+    $translator->addTranslationFile("gettext", "src/App/language/" . $lang . ".mo");
+}
 $filter = new \Zend\I18n\Filter\NumberFormat($NumberFormat, 2);
 unset($tmp);
 $sfilter = array();
 $bonotel = false;
-$db2 = new \Zend\Db\Adapter\Adapter($config);
 $sql = "select city_xml32, latitude, longitude from cities where id=" . $destination;
-$statement2 = $db2->createStatement($sql);
-$statement2->prepare();
-$row_settings = $statement2->execute();
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $city_xml32 = $row_settings["city_xml32"];
@@ -29,100 +32,77 @@ if ($row_settings->valid()) {
 } else {
     $city_xml32 = 0;
 }
-$db2->getDriver()
-    ->getConnection()
-    ->disconnect();
+error_log("\r\n city_xml32: $city_xml32 \r\n", 3, "/srv/www/htdocs/error_log");
 if ((int) $nationality > 0) {
-    $db2 = new \Zend\Db\Adapter\Adapter($config);
     $sql = "select iso_code_2 from countries where id=" . (int) $nationality;
-    $statement2 = $db2->createStatement($sql);
-    $statement2->prepare();
-    $row_settings = $statement2->execute();
+    $statement = $db->createStatement($sql);
+    $statement->prepare();
+    $row_settings = $statement->execute();
+    $row_settings->buffer();
     if ($row_settings->valid()) {
         $row_settings = $row_settings->current();
         $sourceMarket = $row_settings["iso_code_2"];
     } else {
         $sourceMarket = "";
     }
-    $db2->getDriver()
-        ->getConnection()
-        ->disconnect();
 } else {
-    $db2 = new \Zend\Db\Adapter\Adapter($config);
     $sql = "select value from settings where name='AICTravelDefaultNationalityCountryCode' and affiliate_id=$affiliate_id_aic";
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
+    $row_settings->buffer();
     if ($row_settings->valid()) {
         $row_settings = $row_settings->current();
         $sourceMarket = $row_settings['value'];
     }
-    $db->getDriver()
-        ->getConnection()
-        ->disconnect();
 }
 $sql = "select value from settings where name='AICTravellogin' and affiliate_id=$affiliate_id_aic";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $AICTravellogin = $row_settings['value'];
 }
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
-// error_log("\r\n PASSOU LOGIN \r\n", 3, "/srv/www/htdocs/error_log");
 $sql = "select value from settings where name='AICTravelpassword' and affiliate_id=$affiliate_id_aic";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $AICTravelpassword = base64_decode($row_settings['value']);
 }
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
-// error_log("\r\n PASSOU PASSWORD \r\n", 3, "/srv/www/htdocs/error_log");
 $sql = "select value from settings where name='AICTravelMarkup' and affiliate_id=$affiliate_id_aic";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $AICTravelMarkup = (double) $row_settings['value'];
 } else {
     $AICTravelMarkup = 0;
 }
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
-// error_log("\r\n PASSOU MARKUP \r\n", 3, "/srv/www/htdocs/error_log");
 $sql = "select value from settings where name='AICTravelServiceURL' and affiliate_id=$affiliate_id_aic";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $AICTravelServiceURL = $row_settings['value'];
 }
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
-// error_log("\r\n COMECOU2 AIC TRAVELURL \r\n", 3, "/srv/www/htdocs/error_log");
 $sql = "select value from settings where name='AICTravelCompany' and affiliate_id=$affiliate_id_aic";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $AICTravelCompany = $row_settings['value'];
 }
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
-// error_log("\r\n COMECOU2 AIC TRAVELCOMPANY \r\n", 3, "/srv/www/htdocs/error_log");
 $date = new Datetime();
 $timestamp = $date->format('U');
 $city_xml32 = "rom";
@@ -175,8 +155,7 @@ if ($AICTravelServiceURL != "" and $AICTravellogin != "" and $AICTravelpassword 
     // die();
     $endTime = microtime();
     try {
-        $db2 = new \Zend\Db\Adapter\Adapter($config);
-        $sql = new Sql($db2);
+        $sql = new Sql($db);
         $insert = $sql->insert();
         $insert->into('log_aic');
         $insert->values(array(
@@ -189,9 +168,6 @@ if ($AICTravelServiceURL != "" and $AICTravellogin != "" and $AICTravelpassword 
         ), $insert::VALUES_MERGE);
         $statement = $sql->prepareStatementForSqlObject($insert);
         $results = $statement->execute();
-        $db2->getDriver()
-            ->getConnection()
-            ->disconnect();
     } catch (Exception $e) {
         $logger = new Logger();
         $writer = new Writer\Stream('/srv/www/htdocs/error_log');
@@ -222,140 +198,197 @@ if ($AICTravelServiceURL != "" and $AICTravellogin != "" and $AICTravelpassword 
             $hotel = $hotelsVector->item(0)->getElementsByTagName('hotel');
             if ($hotel->length > 0) {
                 for ($i = 0; $i < $hotel->length; $i ++) {
-                    $code = $hotel->item(0)->getAttribute('code');
-                    $sfilter[] = " sid=$code ";
-                    $name = $hotel->item(0)->getAttribute('name');
-                    $stars = $hotel->item(0)->getAttribute('stars');
+                    $code = $hotel->item($i)->getAttribute('code');
+                    $shid = $code;
+                    $sfilter[] = " sid='$code' ";
+                    $name = $hotel->item($i)->getAttribute('name');
+                    $stars = $hotel->item($i)->getAttribute('stars');
                     $location = $hotel->item(0)->getAttribute('location');
                     $agreement = $hotel->item($i)->getElementsByTagName('agreement');
                     if ($agreement->length > 0) {
-                        $id = $agreement->item(0)->getAttribute('id');
-                        $available = $agreement->item(0)->getAttribute('available');
-                        $c_type = $agreement->item(0)->getAttribute('c_type');
-                        $room_basis = $agreement->item(0)->getAttribute('room_basis');
-                        $meal_basis = $agreement->item(0)->getAttribute('meal_basis');
-                        $currency = $agreement->item(0)->getAttribute('currency');
-                        $deadline = $agreement->item(0)->getAttribute('deadline');
-                        $total = $agreement->item(0)->getAttribute('total');
-                        $is_dynamic = $agreement->item(0)->getAttribute('is_dynamic');
-                        $room_type = $agreement->item(0)->getAttribute('room_type');
-                        $room = $agreement->item(0)->getElementsByTagName('room');
-                        if ($room->length > 0) {
-                            for ($Auxk = 0; $Auxk < $room->length; $Auxk ++) {
-                                $type = $room->item($Auxk)->getAttribute('type');
-                                $required = $room->item($Auxk)->getAttribute('required');
-                                $occupancy = $room->item($Auxk)->getAttribute('occupancy');
-                                $extrabed = $room->item($Auxk)->getAttribute('extrabed');
-                                $age = $room->item($Auxk)->getAttribute('age');
-                                $occupancyChild = $room->item($Auxk)->getAttribute('occupancyChild');
-                                $price = $room->item(0)->getElementsByTagName('price');
-                                if ($price->length > 0) {
-                                    for ($Auxkk = 0; $Auxkk < $price->length; $Auxkk ++) {
-                                        $fromprice = $price->item($Auxkk)->getAttribute('from');
-                                        $toprice = $price->item($Auxkk)->getAttribute('to');
-                                        $roomprice = $price->item(0)->getElementsByTagName('roomprice');
-                                        $nettroom = $roomprice->item(0)->getAttribute('nett');
-                                        $extrabedprice = $price->item(0)->getElementsByTagName('extrabedprice');
-                                        if ($extrabedprice->length > 0) {
-                                            $nettextrabed = $extrabedprice->item(0)->getAttribute('nett');
-                                        } else {
-                                            $extrabedprice = "";
+                        for ($iAux=0; $iAux < $agreement->length; $iAux++) { 
+                            $remarkcode = "";
+                            $id = $agreement->item($iAux)->getAttribute('id');
+                            $available = $agreement->item($iAux)->getAttribute('available');
+                            $c_type = $agreement->item($iAux)->getAttribute('c_type');
+                            $room_basis = $agreement->item($iAux)->getAttribute('room_basis');
+                            $meal_basis = $agreement->item($iAux)->getAttribute('meal_basis');
+                            $currency = $agreement->item($iAux)->getAttribute('currency');
+                            $deadline = $agreement->item($iAux)->getAttribute('deadline');
+                            $total = $agreement->item($iAux)->getAttribute('total');
+                            $is_dynamic = $agreement->item($iAux)->getAttribute('is_dynamic');
+                            $room_type = $agreement->item($iAux)->getAttribute('room_type');
+
+                            //policies
+                            $policies = $agreement->item($iAux)->getElementsByTagName('policies');
+                            if ($policies->length > 0) {
+                                $policy = $policies->item(0)->getElementsByTagName('policy');
+                                if ($policy->length > 0) {
+                                    $percentage = $policy->item(0)->getAttribute('percentage');
+                                    $from2 = $policy->item(0)->getAttribute('from');
+                                }
+                            }
+
+                            //remarks
+                            $remarks = $agreement->item($iAux)->getElementsByTagName('remarks');
+                            if ($remarks->length > 0) {
+                                $remark = $remarks->item(0)->getElementsByTagName('remark');
+                                if ($remark->length > 0) {
+                                    $remarkcode = $remark->item(0)->getAttribute('code');
+                                    $remarktext = $remark->item(0)->getAttribute('text');
+                                }
+                            }
+
+                            //deadline
+                            $deadline2 = $agreement->item($iAux)->getElementsByTagName('deadline');
+                            if ($deadline2->length > 0) {
+                                $value = $deadline2->item(0)->getAttribute('value');
+                                $date = $deadline2->item(0)->getAttribute('date');
+                            }
+
+                            $room = $agreement->item($iAux)->getElementsByTagName('room');
+                            if ($room->length > 0) {
+                                for ($Auxk = 0; $Auxk < $room->length; $Auxk ++) {
+                                    $type = $room->item($Auxk)->getAttribute('type');
+                                    $required = $room->item($Auxk)->getAttribute('required');
+                                    $occupancy = $room->item($Auxk)->getAttribute('occupancy');
+                                    $extrabed = $room->item($Auxk)->getAttribute('extrabed');
+                                    $age = $room->item($Auxk)->getAttribute('age');
+                                    $occupancyChild = $room->item($Auxk)->getAttribute('occupancyChild');
+                                    $price = $room->item(0)->getElementsByTagName('price');
+                                    if ($price->length > 0) {
+                                        for ($Auxkk = 0; $Auxkk < $price->length; $Auxkk ++) {
+                                            $fromprice = $price->item($Auxkk)->getAttribute('from');
+                                            $toprice = $price->item($Auxkk)->getAttribute('to');
+                                            $roomprice = $price->item(0)->getElementsByTagName('roomprice');
+                                            $nettroom = $roomprice->item(0)->getAttribute('nett');
+                                            $extrabedprice = $price->item(0)->getElementsByTagName('extrabedprice');
+                                            if ($extrabedprice->length > 0) {
+                                                $nettextrabed = $extrabedprice->item(0)->getAttribute('nett');
+                                            } else {
+                                                $nettextrabed = "";
+                                            }
                                         }
+                                    }
+                                    for ($zRooms = 0; $zRooms < count($selectedAdults); $zRooms ++) {
+                                        // if ($selectedAdults[$zRooms] == $stdAdults) {
+                                        // Chidlren ??
+                                        // if ($selectedChildren[$zRooms] == $children) {
+                                        if (is_array($tmp[$code])) {
+                                            $baseCounterDetails = count($tmp[$code]['details'][$zRooms]);
+                                        } else {
+                                            $baseCounterDetails = 0;
+                                        }
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['name'] = $name;
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['shid'] = $code;
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['hotelid'] = $code;
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['roomid'] = $id;
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['status'] = 1;
+                                        // cancellationType nao existe
+                                        // $tmp[$code]['details'][$zRooms][$baseCounterDetails]['cancellationType'] = $c_type;
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['quoteid'] = md5(uniqid($session_id, true)) . "-" . $index . "-32";
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room'] = $room_type;
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room_type'] = "zz";
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['availabilityid'] = $numbersearch;
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['adults'] = $occupancy;
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['children'] = $occupancyChild;
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nett'] = $nettroom;
+                                        if ($AICTravelMarkup != 0) {
+                                            $total = $total + (($total * $AICTravelMarkup) / 100);
+                                        }
+                                        // Geo target markup
+                                        if ($internalmarkup != 0) {
+                                            $total = $total + (($total * $internalmarkup) / 100);
+                                        }
+                                        // Agent markup
+                                        if ($agent_markup != 0) {
+                                            $total = $total + (($total * $agent_markup) / 100);
+                                        }
+                                        // Fallback Markup
+                                        if ($AICTravelMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
+                                            $total = $total + (($total * $HotelsMarkupFallback) / 100);
+                                        }
+                                        // Agent discount
+                                        if ($agent_discount != 0) {
+                                            $total = $total - (($total * $agent_discount) / 100);
+                                        }
+                                        if ($scurrency != "" and $currency != $scurrency) {
+                                            $total = $CurrencyConverter->convert($total, $currency, $scurrency);
+                                        }
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['total'] = (double) $total;
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['special'] = false;
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = "";
+                                        try {
+                                            $sql = "select mapped from board_mapping where description='" . addslashes($room_basis) . "'";
+                                            $statement = $db->createStatement($sql);
+                                            $statement->prepare();
+                                            $row_board_mapping = $statement->execute();
+                                            $row_board_mapping->buffer();
+                                            if ($row_board_mapping->valid()) {
+                                                $row_board_mapping = $row_board_mapping->current();
+                                                $room_basis = $row_board_mapping["mapped"];
+                                            }
+                                        } catch (\Exception $e) {
+                                            $logger = new Logger();
+                                            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+                                            $logger->addWriter($writer);
+                                            $logger->info($e->getMessage());
+                                        }
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['meal'] = $translator->translate($room_basis);
+                                        $pricebreakdown = array();
+                                        $pricebreakdownCount = 0;
+                                        $amount = $total / $noOfNights;
+                                        for ($rZZ = 0; $rZZ < $noOfNights; $rZZ ++) {
+                                            $pricebreakdown[$pricebreakdownCount]['date'] = strftime("%d %b %Y", mktime(0, 0, 0, date("m", $from), date("d", $from) + $rZZ, date("y", $from)));
+                                            $pricebreakdown[$pricebreakdownCount]['price'] = $filter->filter($amount);
+                                            $pricebreakdown[$pricebreakdownCount]['priceplain'] = $amount;
+                                            $pricebreakdownCount = $pricebreakdownCount + 1;
+                                        }
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['pricebreakdown'] = $pricebreakdown;
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['scurrency'] = $currency;
+                                        $after = date('Y-m-d', strtotime($from2));
+                                        if ($remarkcode == "NONREFUNDABLE") {
+                                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nonrefundable'] = true;
+                                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy'] = $translator->translate("This is a non refundable booking");
+                                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy_details'] = $translator->translate("This is a non refundable booking");
+                                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy_deadline'] = strftime("%a, %e %b %Y", time());
+                                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = time();
+                                        } else {
+                                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nonrefundable'] = false;
+                                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails][$baseCounterDetails]['cancelpolicy'] = "If you cancel booking after " . $after . " pay " . $percentage . "% of total.";
+                                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails][$baseCounterDetails]['cancelpolicy_deadline'] = $deadline;
+                                            $tmp[$shid]['details'][$zRooms][$baseCounterDetails][$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = $deadline;
+                                        }
+                                        $vhb = 1;
                                     }
                                 }
                             }
                         }
                     }
                 }
-                for ($zRooms = 0; $zRooms < count($selectedAdults); $zRooms ++) {
-                    // if ($selectedAdults[$zRooms] == $stdAdults) {
-                    // Chidlren ??
-                    // if ($selectedChildren[$zRooms] == $children) {
-                    if (is_array($tmp[$code])) {
-                        $baseCounterDetails = count($tmp[$code]['details'][$zRooms]);
-                    } else {
-                        $baseCounterDetails = 0;
-                    }
-                    $tmp[$code]['details'][$zRooms][$baseCounterDetails]['name'] = $name;
-                    $tmp[$code]['details'][$zRooms][$baseCounterDetails]['shid'] = $code;
-                    $tmp[$code]['details'][$zRooms][$baseCounterDetails]['status'] = 1;
-                    // cancellationType nao existe
-                    // $tmp[$code]['details'][$zRooms][$baseCounterDetails]['cancellationType'] = $c_type;
-                    $tmp[$code]['details'][$zRooms][$baseCounterDetails]['quoteid'] = md5(uniqid($session_id, true)) . "-" . $index . "-32";
-                    $tmp[$code]['details'][$zRooms][$baseCounterDetails]['room'] = $room_type;
-                    $tmp[$code]['details'][$zRooms][$baseCounterDetails]['room_type'] = "zz";
-                    $tmp[$code]['details'][$zRooms][$baseCounterDetails]['adults'] = $occupancy;
-                    $tmp[$code]['details'][$zRooms][$baseCounterDetails]['children'] = $occupancyChild;
-                    $tmp[$code]['details'][$zRooms][$baseCounterDetails]['total'] = (double) $total;
-                    $tmp[$code]['details'][$zRooms][$baseCounterDetails]['nett'] = $nettroom;
-                    $tmp[$code]['details'][$zRooms][$baseCounterDetails]['special'] = false;
-                    $tmp[$code]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = "";
-                    $tmp[$code]['details'][$zRooms][$baseCounterDetails]['meal'] = $translator->translate($room_basis);
-                    $pricebreakdown = array();
-                    $pricebreakdownCount = 0;
-                    $Gross = $total / $numbernights;
-                    for ($rZZ = 0; $rZZ < $numbernights; $rZZ ++) {
-                        $pricebreakdown[$pricebreakdownCount]['date'] = strftime("%d %b %Y", mktime(0, 0, 0, date("m", $from), date("d", $from) + $rZZ, date("y", $from)));
-                        $amount = $numbernights * $nettroom;
-                        if ($AICTravelMarkup != 0) {
-                            $amount = $amount + (($amount * $AICTravelMarkup) / 100);
-                        }
-                        // Geo target markup
-                        if ($internalmarkup != 0) {
-                            $amount = $amount + (($amount * $internalmarkup) / 100);
-                        }
-                        // Agent markup
-                        if ($agent_markup != 0) {
-                            $amount = $amount + (($amount * $agent_markup) / 100);
-                        }
-                        // Fallback Markup
-                        if ($AICTravelMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
-                            $amount = $amount + (($amount * $HotelsMarkupFallback) / 100);
-                        }
-                        // Agent discount
-                        if ($agent_discount != 0) {
-                            $amount = $amount - (($amount * $agent_discount) / 100);
-                        }
-                        if ($scurrency != "" and $currency != $scurrency) {
-                            $amount = $CurrencyConverter->convert($amount, $currency, $scurrency);
-                        }
-                        $pricebreakdown[$pricebreakdownCount]['price'] = $filter->filter($amount);
-                        $pricebreakdown[$pricebreakdownCount]['priceplain'] = $amount;
-                        $pricebreakdownCount = $pricebreakdownCount + 1;
-                    }
-                    $tmp[$code]['details'][$zRooms][$baseCounterDetails]['pricebreakdown'] = $pricebreakdown;
-                    $tmp[$code]['details'][$zRooms][$baseCounterDetails]['scurrency'] = $currency;
-                    // policyDescription nao existe
-                    // $tmp[$code]['details'][$zRooms][$baseCounterDetails]['cancelpolicy'] = $policyDescription;
-                    $vhb = 1;
-                    // }
-                    // }
-                }
             }
         }
     }
 }
-// Paulo
-// Tudo para baixo esta bem - nao alterar
+
 if ($vhb == 1) {
     $sfilter = implode(' or ', $sfilter);
     try {
-        $db2 = new \Zend\Db\Adapter\Adapter($config);
         $sql = "select hid, sid from xmlhotels_maic where " . $sfilter;
         // error_log("\r\n $sql \r\n", 3, "/srv/www/htdocs/error_log");
-        $statement2 = $db2->createStatement($sql);
-        $statement2->prepare();
-        $result2 = $statement2->execute();
-        if ($result2 instanceof ResultInterface && $result2->isQueryResult()) {
-            $resultSet2 = new ResultSet();
-            $resultSet2->initialize($result2);
-            foreach ($resultSet2 as $row2) {
-                // $sidfilter[] = "id=" . $row2->hid;
-                $sidfilter[] = $row2->hid;
-                if (is_array($hotels_array[$row2->hid])) {
+        $statement = $db->createStatement($sql);
+        $statement->prepare();
+        $result = $statement->execute();
+        $result->buffer();
+        if ($result instanceof ResultInterface && $result->isQueryResult()) {
+            $resultSet = new ResultSet();
+            $resultSet->initialize($result);
+            foreach ($resultSet as $row) {
+                $sidfilter[] = $row->hid;
+                if (is_array($hotels_array[$row->hid])) {
                     // Append to original details
-                    $tmph = $hotels_array[$row2->hid]['details'];
-                    $tmps = $tmp[$row2->sid]['details'];
+                    $tmph = $hotels_array[$row->hid]['details'];
+                    $tmps = $tmp[$row->sid]['details'];
                     foreach ($tmph as $key => $value) {
                         $last = count($tmph[$key]);
                         foreach ($tmps[$key] as $keyd => $valued) {
@@ -363,15 +396,12 @@ if ($vhb == 1) {
                             $last ++;
                         }
                     }
-                    $hotels_array[$row2->hid]['details'] = $tmph;
+                    $hotels_array[$row->hid]['details'] = $tmph;
                 } else {
-                    $hotels_array[$row2->hid] = $tmp[$row2->sid];
+                    $hotels_array[$row->hid] = $tmp[$row->sid];
                 }
             }
         }
-        $db2->getDriver()
-            ->getConnection()
-            ->disconnect();
     } catch (Exception $e) {
         $logger = new Logger();
         $writer = new Writer\Stream('/srv/www/htdocs/error_log');
@@ -384,8 +414,7 @@ if ($vhb == 1) {
         $supplier = 32;
         // error_log("\r\n QUERY $query \r\n", 3, "/srv/www/htdocs/error_log");
         try {
-            $db2 = new \Zend\Db\Adapter\Adapter($config);
-            $sql = new Sql($db2);
+            $sql = new Sql($db);
             $delete = $sql->delete();
             $delete->from('quote_session_aic');
             $delete->where(array(
@@ -393,7 +422,7 @@ if ($vhb == 1) {
             ));
             $statement = $sql->prepareStatementForSqlObject($delete);
             $results = $statement->execute();
-            $sql = new Sql($db2);
+            $sql = new Sql($db);
             $insert = $sql->insert();
             $insert->into('quote_session_aic');
             $insert->values(array(
@@ -405,9 +434,6 @@ if ($vhb == 1) {
             ), $insert::VALUES_MERGE);
             $statement = $sql->prepareStatementForSqlObject($insert);
             $results = $statement->execute();
-            $db2->getDriver()
-                ->getConnection()
-                ->disconnect();
         } catch (Exception $e) {
             $logger = new Logger();
             $writer = new Writer\Stream('/srv/www/htdocs/error_log');
