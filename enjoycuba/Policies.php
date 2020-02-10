@@ -12,22 +12,24 @@ $translator = new Translator();
 $valid = 0;
 $hid = 0;
 $shid = 0;
-$total = 0;
+$db = new \Zend\Db\Adapter\Adapter($config);
 try {
-    $db = new \Zend\Db\Adapter\Adapter($config);
-    $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_travco where session_id='$session_id'";
+    $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_enjoycuba where session_id='$session_id'";
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
-} catch (Exception $e) {
+} catch (\Exception $e) {
     $logger = new Logger();
     $writer = new Writer\Stream('/srv/www/htdocs/error_log');
     $logger->addWriter($writer);
     $logger->info($e->getMessage());
 }
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $data = unserialize(base64_decode($row_settings["data"]));
+    $xmlrequest = $row_settings["xmlrequest"];
+    $xmlresult = $row_settings["xmlresult"];
     $searchsettings = unserialize(base64_decode($row_settings["searchsettings"]));
     $lang = $searchsettings['lang'];
     $currency = $searchsettings['currency'];
@@ -39,90 +41,15 @@ if ($row_settings->valid()) {
     $index = $searchsettings['index'];
     $ipaddress = $searchsettings['ipaddress'];
     $nationality = $searchsettings['nationality'];
-    error_log("\r\n nationality  $nationality \r\n", 3, "/srv/www/htdocs/error_log");
     $residency = $searchsettings['residency'];
-    $room_type = $searchsettings['room'];
-    $adt = $searchsettings['adults'];
-    $chd = $searchsettings['children'];
+    $rooms = $searchsettings['rooms'];
+    $adt = $searchsettings['adt'];
+    $chd = $searchsettings['chd'];
     $children_ages = $searchsettings['children_ages'];
 } else {
     $response['error'] = "Unable to handle request #2";
     return false;
 }
-error_log("\r\n COMECA ENABLE \r\n", 3, "/srv/www/htdocs/error_log");
-$sql = "select value from settings where name='enabletravco' and affiliate_id=$affiliate_id" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $affiliate_id_travco = $affiliate_id;
-} else {
-    $affiliate_id_travco = 0;
-}
-error_log("\r\n PASSOU ENABLE \r\n", 3, "/srv/www/htdocs/error_log");
-$sql = "select value from settings where name='JacTravelClientName' and affiliate_id=$affiliate_id_travco" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $JacTravelClientName = $row_settings['value'];
-}
-
-$sql = "select value from settings where name='TravcoAgentCode' and affiliate_id=$affiliate_id_travco" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $TravcoAgentCode = $row_settings['value'];
-}
-error_log("\r\n TravcoAgentCode $TravcoAgentCode \r\n", 3, "/srv/www/htdocs/error_log");
-$sql = "select value from settings where name='TravcoAgentPassword' and affiliate_id=$affiliate_id_travco" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $TravcoAgentPassword = base64_decode($row_settings['value']);
-}
-
-$sql = "select value from settings where name='TravcoMarkup' and affiliate_id=$affiliate_id_travco" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $TravcoMarkup = (double) $row_settings['value'];
-} else {
-    $TravcoMarkup = 0;
-}
-error_log("\r\n TravcoMarkup $TravcoMarkup \r\n", 3, "/srv/www/htdocs/error_log");
-$sql = "select value from settings where name='TravcoServiceURL' and affiliate_id=$affiliate_id_travco" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $TravcoServiceURL = $row_settings['value'];
-}
-error_log("\r\n TravcoServiceURL $TravcoServiceURL \r\n", 3, "/srv/www/htdocs/error_log");
-$sql = "select value from settings where name='Travcob2cMarkup' and affiliate_id=$affiliate_id_travco" . $branch_filter;
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $Travcob2cMarkup = $row_settings['value'];
-}
-
 $breakdown = array();
 for ($w = 0; $w < count($quoteid); $w ++) {
     $outputArray = array();
@@ -146,19 +73,19 @@ for ($w = 0; $w < count($quoteid); $w ++) {
         array_push($breakdown, $outputArray);
     }
 }
-
+$fromGTA = DateTime::createFromFormat("d-m-Y", $from);
+$toGTA = DateTime::createFromFormat("d-m-Y", $to);
+$nights = $fromGTA->diff($toGTA);
+$nights = $nights->format('%a');
+$fromGTA = $fromGTA->getTimestamp();
+$toGTA = $toGTA->getTimestamp();
 $c = 0;
 $response = array();
 $roombreakdown = array();
 foreach ($breakdown as $k => $v) {
     foreach ($v as $key => $value) {
-
         if ($shid == 0) {
             $shid = $value['shid'];
-            $code = $value['HotelId'];
-            $scode = $value['shid'];
-            $hotel_code = $value['shid'];
-            // error_log("\r\n" . print_r($value, true) . "\r\n", 3, "/srv/www/htdocs/error_log");
         } else {
             if ($shid != $value['shid']) {
                 // We can't book two rooms from two suppliers
@@ -167,24 +94,21 @@ foreach ($breakdown as $k => $v) {
             }
         }
         $item = array();
+        $cancelation_string = $value['cancelpolicy'];
         $cancelation_deadline = 0;
         $cancelation_details = "";
-        
         //
-        // Policies
+        // EOF
         //
-        $item['code'] = $value['shid'];
-        $item['name'] = $value['name'];
-        $item['total'] = $value['total'];
-        $item['nett'] = $value['nett'];
-        $item['ADULT_PRICE'] = $value['ADULT_PRICE'];
-        $item['CHILD_PRICE'] = $value['CHILD_PRICE'];
+        $item['cancelpolicy'] = $cancelation_string;
+        $item['cancelpolicy_deadline'] = strftime("%a, %e %b %Y", $cancelation_deadline);
+        $item['cancelpolicy_deadlinetimestamp'] = $cancelation_deadline;
+        $item['cancelpolicy_details'] = $cancelation_details;
+        // EOF Policies
+        // EOF Check prices & availability
         $total = $total + $value['total'];
         $tot = $value['total'];
         $item['room'] = $value['room'];
-        $item['RoomTypeCode'] = $value['RoomTypeCode'];
-        $item['RoomDescription'] = $value['RoomDescription'];
-        $item['RateCode'] = $value['RateCode'];
         $item['meal'] = $value['meal'];
         $item['total'] = $value['total'];
         $item['totalplain'] = number_format($tot, 2, '.', '');
@@ -194,49 +118,39 @@ foreach ($breakdown as $k => $v) {
         $item['adults'] = $selectedAdults[$c];
         $item['children'] = $selectedChildren[$c];
         $item['children_ages'] = json_decode(json_encode($selectedChildrenAges[$c]), false);
-        $item['maxpersons'] = $value['maxpersons'];
-        /*$item['cancelpolicy'] = str_replace("<p><br /></p>", "", $value['cancelpolicy']);
-        
-         * $item['cancelpolicy_deadline'] = strftime("%d-%m-%Y", $cancelation_deadline);
-         * $item['cancelpolicy_deadlinetimestamp'] = $cancelation_deadline;
-         * $item['cancelpolicy_details'] = $cancelation_details;
-         */
         array_push($roombreakdown, $item);
     }
     $c ++;
 }
-$db = new \Zend\Db\Adapter\Adapter($config);
 $hotel = array();
-$sql = "select sid from xmlhotels_mtravco where sid='" . $shid . "' and hid=" . $hid;
+$sql = "select sid from xmlhotels_menjoycuba where sid='" . $shid . "' and hid=" . $hid;
 $statement = $db->createStatement($sql);
 try {
     $statement->prepare();
-} catch (Exception $e) {
+} catch (\Exception $e) {
     $logger = new Logger();
     $writer = new Writer\Stream('/srv/www/htdocs/error_log');
     $logger->addWriter($writer);
     $logger->info($e->getMessage());
 }
 $row_hotel = $statement->execute();
+$row_hotel->buffer();
 if (! $row_hotel->valid()) {
     $response['error'] = "Unable to handle request #5";
     return false;
 }
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
-$db = new \Zend\Db\Adapter\Adapter($config);
 $sql = "select description as name, stars, hotel_info, address_1, address_2, address_3, address_4, latitude, longitude, city, city_name, seo, zipcode, country from xmlhotels where id=" . $hid;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 try {
     $row_hotel = $statement->execute();
-} catch (Exception $e) {
+} catch (\Exception $e) {
     $logger = new Logger();
     $writer = new Writer\Stream('/srv/www/htdocs/error_log');
     $logger->addWriter($writer);
     $logger->info($e->getMessage());
 }
+$row_hotel->buffer();
 if ($row_hotel->valid()) {
     $row_hotel = $row_hotel->current();
     if ($starsArray[$row_hotel['stars']]['stars']) {
@@ -244,42 +158,36 @@ if ($row_hotel->valid()) {
     } else {
         $row_hotel['stars'] = 0;
     }
-    $db2 = new \Zend\Db\Adapter\Adapter($config);
     $sql = "select name from countries where id=" . (int) $row_hotel['country'];
-    $statement2 = $db2->createStatement($sql);
+    $statement2 = $db->createStatement($sql);
     $statement2->prepare();
     try {
         $row_country = $statement2->execute();
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
         $logger = new Logger();
         $writer = new Writer\Stream('/srv/www/htdocs/error_log');
         $logger->addWriter($writer);
         $logger->info($e->getMessage());
     }
+    $row_country->buffer();
     if ($row_country->valid()) {
         $row_country = $row_country->current();
         $row_hotel['country_name'] = $row_country['name'];
     } else {
         $row_hotel['country_name'] = "";
     }
-    $db2->getDriver()
-        ->getConnection()
-        ->disconnect();
     $hotel = $row_hotel;
 } else {
     $response['error'] = "Unable to handle request #6";
     return false;
 }
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
 $images = array();
 try {
-    $db = new \Zend\Db\Adapter\Adapter($config);
     $sql = "select url, description from xmlhotels_images where hotel_id=" . $hid . " order by sortorder";
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $result = $statement->execute();
+    $result->buffer();
     if ($result instanceof ResultInterface && $result->isQueryResult()) {
         $resultSet = new ResultSet();
         $resultSet->initialize($result);
@@ -290,20 +198,20 @@ try {
             array_push($images, $item);
         }
     }
-    $db->getDriver()
-        ->getConnection()
-        ->disconnect();
-} catch (Exception $e) {
+} catch (\Exception $e) {
     $logger = new Logger();
     $writer = new Writer\Stream('/srv/www/htdocs/error_log');
     $logger->addWriter($writer);
     $logger->info($e->getMessage());
 }
+$db->getDriver()
+    ->getConnection()
+    ->disconnect();
 $response['hotel'] = $hotel;
 $response['hotel']['images'] = $images;
 $response['breakdown'] = $roombreakdown;
 $response['total'] = $filter->filter($total);
 $response['totalplain'] = number_format($total, 2, '.', '');
 $response['searchsettings'] = $searchsettings;
-$response['code'] = $vector['code'];
+error_log("\r\nEOF Policies EnjoyCuba\r\n", 3, "/srv/www/htdocs/error_log");
 ?>
