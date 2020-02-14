@@ -1,0 +1,11 @@
+<soapenv:Envelope xmlns:soapenv = "http://schemas.xmlsoap.org/soap/envelope/" xmlns = "http://www.juniper.es/webservice/2007/">
+<soapenv:Header/>
+<soapenv:Body>
+    <ReadBooking>
+        <ReadRQ Version = "1.1" Language = "en">
+            <Login Password="Dkf94j512#" Email="waleed.medhat@wingsholding.com"/>
+            <ReadRequest ReservationLocator = "NV655K"/>
+        </ReadRQ>
+    </ReadBooking>
+</soapenv:Body>
+</soapenv:Envelope>

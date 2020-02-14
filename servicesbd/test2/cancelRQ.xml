@@ -1,0 +1,14 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://www.juniper.es/webservice/2007/">
+<soapenv:Header/>
+<soapenv:Body>
+   <CancelBooking>
+      <CancelRQ Version="1.1" Language="en">
+             <Login Password="Dkf94j512#" Email="waleed.medhat@wingsholding.com"/>
+         <CancelRequest ReservationLocator="NV655K"/>
+         <AdvancedOptions>
+            <ShowBreakdownPrice>true</ShowBreakdownPrice>
+         </AdvancedOptions>
+      </CancelRQ>
+   </CancelBooking>
+</soapenv:Body>
+</soapenv:Envelope>

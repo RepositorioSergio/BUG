@@ -1,4 +1,5 @@
 <?php
+error_log("\r\nMulti Policies INFINITAS \r\n", 3, "/srv/www/htdocs/error_log");
 use Zend\Db\Adapter\Adapter;
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\ResultSet\ResultSet;
@@ -12,10 +13,14 @@ $translator = new Translator();
 $valid = 0;
 $hid = 0;
 $shid = 0;
-$total = 0;
+if ($details == "hoteldetails") {
+    // Detail level
+    $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_infinitastravel where session_id='" . $session_id . "-" . $index . "'";
+} else {
+    $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_infinitastravel where session_id='$session_id'";
+}
 $dbInfinitas = new \Zend\Db\Adapter\Adapter($config);
 try {
-    $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_infinitastravel where session_id='$session_id'";
     $statement = $dbInfinitas->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
@@ -55,9 +60,9 @@ $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
-    $affiliate_id_getaroom = $affiliate_id;
+    $affiliate_id_infinitas = $affiliate_id;
 } else {
-    $affiliate_id_getaroom = 0;
+    $affiliate_id_infinitas = 0;
 }
 if ((int) $nationality > 0) {
     $sql = "select iso_code_2 from countries where id=" . (int) $nationality;
@@ -72,7 +77,7 @@ if ((int) $nationality > 0) {
         $sourceMarket = "";
     }
 } else {
-    $sql = "select value from settings where name='infinitasDefaultNationalityCountryCode' and affiliate_id=$affiliate_id_getaroom";
+    $sql = "select value from settings where name='infinitasDefaultNationalityCountryCode' and affiliate_id=$affiliate_id_infinitas" . $branch_filter;
     $statement = $dbInfinitas->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
@@ -82,7 +87,7 @@ if ((int) $nationality > 0) {
         $sourceMarket = $row_settings['value'];
     }
 }
-$sql = "select value from settings where name='infinitasID' and affiliate_id=$affiliate_id_getaroom";
+$sql = "select value from settings where name='infinitasID' and affiliate_id=$affiliate_id_infinitas" . $branch_filter;
 $statement = $dbInfinitas->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
@@ -91,7 +96,7 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $infinitasID = $row_settings['value'];
 }
-$sql = "select value from settings where name='infinitasPassword' and affiliate_id=$affiliate_id_getaroom";
+$sql = "select value from settings where name='infinitasPassword' and affiliate_id=$affiliate_id_infinitas" . $branch_filter;
 $statement = $dbInfinitas->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
@@ -100,7 +105,7 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $infinitasPassword = base64_decode($row_settings['value']);
 }
-$sql = "select value from settings where name='infinitasMarkup' and affiliate_id=$affiliate_id_getaroom";
+$sql = "select value from settings where name='infinitasMarkup' and affiliate_id=$affiliate_id_infinitas" . $branch_filter;
 $statement = $dbInfinitas->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
@@ -111,7 +116,7 @@ if ($row_settings->valid()) {
 } else {
     $infinitasMarkup = 0;
 }
-$sql = "select value from settings where name='infinitasServiceURL' and affiliate_id=$affiliate_id_getaroom";
+$sql = "select value from settings where name='infinitasServiceURL' and affiliate_id=$affiliate_id_infinitas" . $branch_filter;
 $statement = $dbInfinitas->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
@@ -120,7 +125,7 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $infinitasServiceURL = $row_settings['value'];
 }
-$sql = "select value from settings where name='infinitasPartnerID' and affiliate_id=$affiliate_id_getaroom";
+$sql = "select value from settings where name='infinitasPartnerID' and affiliate_id=$affiliate_id_infinitas" . $branch_filter;
 $statement = $dbInfinitas->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
@@ -129,47 +134,37 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $infinitasPartnerID = $row_settings['value'];
 }
-$breakdown = array();
-for ($w = 0; $w < count($quoteid); $w ++) {
-    $outputArray = array();
-    $arrIt = new RecursiveIteratorIterator(new RecursiveArrayIterator($data));
-    foreach ($arrIt as $sub) {
-        $subArray = $arrIt->getSubIterator();
-        if (isset($quoteid[$w])) {
-            if (isset($subArray['quoteid'])) {
-                if ($subArray['quoteid'] === $quoteid[$w]) {
-                    $outputArray[] = iterator_to_array($subArray);
-                    $hid = $arrIt->getSubIterator($arrIt->getDepth() - 4)
-                        ->key();
-                }
+$outputArray = array();
+$arrIt = new RecursiveIteratorIterator(new RecursiveArrayIterator($data));
+foreach ($arrIt as $sub) {
+    $subArray = $arrIt->getSubIterator();
+    if (isset($quoteid[$nroom])) {
+        if (isset($subArray['quoteid'])) {
+            if ($subArray['quoteid'] === $quoteid[$nroom]) {
+                $outputArray[] = iterator_to_array($subArray);
+                $hid = $arrIt->getSubIterator($arrIt->getDepth() - 4)
+                    ->key();
             }
         }
     }
-    if (! is_array($outputArray)) {
-        $response['error'] = "Unable to handle request #3";
-        return false;
-    } else {
-        array_push($breakdown, $outputArray);
-    }
+}
+$breakdownTmp = array();
+if (! is_array($outputArray)) {
+    $response['error'] = "Unable to handle request #3";
+    return false;
+} else {
+    array_push($breakdownTmp, $outputArray);
 }
 $fromHotelsPRO = DateTime::createFromFormat("d-m-Y", $from);
 $toHotelsPro = DateTime::createFromFormat("d-m-Y", $to);
 $nights = $fromHotelsPRO->diff($toHotelsPro);
 $nights = $nights->format('%a');
-$c = 0;
+$c = $nroom;
 $response = array();
-$roombreakdown = array();
-foreach ($breakdown as $k => $v) {
+$roombreakdown2 = array();
+foreach ($breakdownTmp as $k => $v) {
     foreach ($v as $key => $value) {
-        if ($shid == 0) {
-            $shid = $value['shid'];
-        } else {
-            if ($shid != $value['shid']) {
-                // We can't book two rooms from two suppliers
-                $response['error'] = "Unable to handle request #4";
-                return false;
-            }
-        }
+        $shid = $value['shid'];
         $item = array();
         // Policies
         $total = $total + $value['total'];
@@ -178,6 +173,7 @@ foreach ($breakdown as $k => $v) {
         $item['meal'] = $value['meal'];
         $item['total'] = $value['total'];
         $item['totalplain'] = number_format($tot, 2, '.', '');
+        $item['subtotal'] = $filter->filter(floatval($value['total']));
         $avg = $tot / $nights;
         $item['avgnight'] = $filter->filter($avg);
         $item['avgplain'] = number_format($avg, 2, '.', '');
@@ -191,11 +187,13 @@ foreach ($breakdown as $k => $v) {
         $item['cancelpolicy_details'] = $cancelation_details;
         $item['cancelpolicy'] = $cancelation_details;
         array_push($roombreakdown, $item);
+        array_push($roombreakdown2, $item);
     }
     $c ++;
 }
 $hotel = array();
 $sql = "select sid from xmlhotels_minfinitas where sid='" . $shid . "' and hid=" . $hid;
+error_log("\r\n SQL $sql \r\n", 3, "/srv/www/htdocs/error_log");
 $statement = $dbInfinitas->createStatement($sql);
 try {
     $statement->prepare();
@@ -278,11 +276,42 @@ try {
 }
 $response['hotel'] = $hotel;
 $response['hotel']['images'] = $images;
-$response['breakdown'] = $roombreakdown;
+$response['breakdown'] = $roombreakdown2;
 $response['total'] = $filter->filter($total);
 $response['totalplain'] = number_format($total, 2, '.', '');
 $response['searchsettings'] = $searchsettings;
-$response['code'] = $vector['code'];
+// Store Session
+$sql = new Sql($dbInfinitas);
+$sql = "delete from quote_session_hotel_multipolicies where session_id='" . $session_id . "' and sindex=$sindex";
+try {
+    $statement = $db->createStatement($sql);
+    $statement->prepare();
+    $results = $statement->execute();
+} catch (\Exception $e) {
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($e->getMessage());
+}
+$sql = new Sql($dbInfinitas);
+$insert = $sql->insert();
+$insert->into('quote_session_hotel_multipolicies');
+$insert->values(array(
+    'session_id' => $session_id,
+    'sindex' => $sindex,
+    'data' => base64_encode(serialize($response)),
+    'searchsettings' => base64_encode(serialize($searchsettings))
+), $insert::VALUES_MERGE);
+try {
+    $statement = $sql->prepareStatementForSqlObject($insert);
+    $results = $statement->execute();
+} catch (\Exception $e) {
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($e->getMessage());
+}
+$response['breakdown'] = $roombreakdown;
 $dbInfinitas->getDriver()
     ->getConnection()
     ->disconnect();

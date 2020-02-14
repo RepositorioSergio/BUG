@@ -1,0 +1,68 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.juniper.es/webservice/2007/">
+<soapenv:Header/>
+<soapenv:Body>
+    <ServiceBooking xmlns="http://www.juniper.es/webservice/2007/">
+        <ServiceBookingRQ Version="1.1" Language="en">
+            <Login Password="Dkf94j512#" Email="waleed.medhat@wingsholding.com"/>
+            <Paxes>
+                <Pax IdPax="1">
+                    <Name>Holder Name A</Name>
+                    <Surname>Holder Surname A</Surname>
+                    <Age>30</Age>
+                    <Email>holdername@mydomain.com</Email>
+                    <PhoneNumbers>
+                        <PhoneNumber Type = "GEN">+34 617884410</PhoneNumber>
+                    </PhoneNumbers>
+                </Pax>
+                <Pax IdPax="2">
+                    <Name>Holder Name B</Name>
+                    <Surname>Holder Surname B</Surname>
+                    <Age>28</Age>
+                </Pax>
+                <Pax IdPax="3">
+                    <Name>Holder Name C</Name>
+                    <Surname>Holder Surname C</Surname>
+                    <Age>5</Age>
+                </Pax>
+                <Pax IdPax="4">
+                    <Name>Holder Name D</Name>
+                    <Surname>Holder Surname D</Surname>
+                    <Age>15</Age>
+                </Pax>
+            </Paxes>
+            <Holder>
+                <RelPax IdPax="1"/>
+            </Holder>
+            <ExternalBookingReference>AAAA2</ExternalBookingReference>
+            <Comments>
+                <Comment Type="RES">Booking comment</Comment>
+            </Comments>
+            <Elements>
+                <ServiceElement>
+                    <BookingCode>rlz4q4kO3v6EHgRI+6neMiFqakcP/P7XfaJODB4wDdU1RR19n7NZCZu6Q7+r4mYpfCJud4oRPeq2yRlWohLD67E1FpVVpFL4TsvXIfXdtl5d012kmjr+QKd+ThlyqWbNiyCueiHkYt8RW7aoQDYJI4Sqb1uD0NE4C9/I/9iJGDNx2d2qg7wQJUIPm/Hm4hihu0quOQ2LcnlkpFizjhI7JrWC0sEyujQHkDmb2bILyiHp4pYuTTGMEdWrQXgYUceKbmlZL5g65yvJbQmfJUe6JSCwt9x5AMVFW+oSK3vO0Ns=</BookingCode>
+                    <RelPaxesDist>
+                        <RelPaxDist>
+                            <RelPaxes>
+                                <RelPax IdPax="1"/>
+                                <RelPax IdPax="2"/>
+                                <RelPax IdPax="3"/>
+                                <RelPax IdPax="4"/>
+                            </RelPaxes>
+                        </RelPaxDist>
+                    </RelPaxesDist>
+                    <ServiceBookingInfo>
+                        <MeetingPointInfo Code="" MeetingTime="2020-04-08T00:00:00">
+                            <Name>MEETING POINT NAME</Name>
+                            <Address></Address>
+                            <PostalCode></PostalCode>
+                        </MeetingPointInfo>
+                    </ServiceBookingInfo>
+                </ServiceElement>
+            </Elements>
+            <AdvancedOptions>
+                <ShowBreakdownPrice>true</ShowBreakdownPrice>
+            </AdvancedOptions>
+        </ServiceBookingRQ>
+    </ServiceBooking>
+</soapenv:Body>
+</soapenv:Envelope>

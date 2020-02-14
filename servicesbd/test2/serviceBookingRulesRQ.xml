@@ -1,0 +1,17 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.juniper.es/webservice/2007/">
+<soapenv:Header/>
+<soapenv:Body>
+    <ServiceBookingRules xmlns="http://www.juniper.es/webservice/2007/">
+        <ServiceBookingRulesRQ Version="1.1" Language="en">
+            <Login Password="Dkf94j512#" Email="waleed.medhat@wingsholding.com"/>
+            <ServiceBookingRuleRequest>
+                <ServiceRuleOption RatePlanCode="/bFyf0Mia38YuvTiH/2eBfB6NpD/0n6R1pdpNJ6oXkinqqFuwdNxTtNVSpS7VmQGr8gnQe5f6LU/IdBJFBqsntDDwJCAkuK26SwNOpjz2i1HPUPOmiJVZYj4iDe6ie0106WDUZPMuY8nncABzmllSlS6bxxo+6I4UyK32KeykkN1iueHlJrefdH4hYA/TRDZ"/>
+            </ServiceBookingRuleRequest>
+            <AdvancedOptions>
+                <ShowBreakdownPrice>true</ShowBreakdownPrice>
+            </AdvancedOptions>
+        </ServiceBookingRulesRQ>
+    </ServiceBookingRules>
+    <ns:ServiceBookingRules/>
+</soapenv:Body>
+</soapenv:Envelope>

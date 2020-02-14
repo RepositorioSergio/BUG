@@ -1,0 +1,52 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.juniper.es/webservice/2007/">
+<soapenv:Header/>
+<soapenv:Body>
+    <ServiceBooking xmlns="http://www.juniper.es/webservice/2007/">
+        <ServiceBookingRQ Version="1.1" Language="en">
+            <Login Password="Dkf94j512#" Email="waleed.medhat@wingsholding.com"/>
+            <Paxes>
+                <Pax IdPax="1">
+                    <Name>Holder Name A</Name>
+                    <Surname>Holder Surname A</Surname>
+                    <Age>30</Age>
+                </Pax>
+                <Pax IdPax="2">
+                    <Name>Holder Name B</Name>
+                    <Surname>Holder Surname B</Surname>
+                    <Age>32</Age>
+                </Pax>
+            </Paxes>
+            <Holder>
+                <RelPax IdPax="1"/>
+            </Holder>
+            <ExternalBookingReference>AAAA1</ExternalBookingReference>
+            <Comments>
+                <Comment Type="RES">Booking comment</Comment>
+            </Comments>
+            <Elements>
+                <ServiceElement>
+                    <BookingCode>rlz4q4kO3v6EHgRI+6neMuyBUeY4I5BLtoNO/pto78+U8F0ZuS73d8TmtKq9+c02BjnDcSVZGj+/XQB6X0rFfCFCCY9qO52wYwIxwBeIFt2hLt/TlJ+XUpGMSrxQncWxSadIj4J7B73Ko51m+V4aNikwRp3hFwv9j5+tfy37edea9Qp/ouIg6C0OdVyRsEwvlLW776nb+d9UMxN+Pzy6//7C6EZm4XPYgYUwwkSs61VTUvhOdXveOc6XBVS44EL8sLspiHCn9HZk9Qndnk/aW+oQpaphaVcV3DV0TpJAHLg=</BookingCode>
+                    <RelPaxesDist>
+                        <RelPaxDist>
+                            <RelPaxes>
+                                <RelPax IdPax="1"/>
+                                <RelPax IdPax="2"/>
+                            </RelPaxes>
+                        </RelPaxDist>
+                    </RelPaxesDist>
+                    <ServiceBookingInfo>
+                        <MeetingPointInfo Code="000" MeetingTime="2020-04-03T00:00:00">
+                            <Name></Name>
+                            <Address></Address>
+                            <PostalCode></PostalCode>
+                        </MeetingPointInfo>
+                    </ServiceBookingInfo>
+                </ServiceElement>
+            </Elements>
+            <AdvancedOptions>
+                <ShowBreakdownPrice>true</ShowBreakdownPrice>
+            </AdvancedOptions>
+        </ServiceBookingRQ>
+    </ServiceBooking>
+</soapenv:Body>
+</soapenv:Envelope>
