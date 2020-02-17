@@ -11,11 +11,16 @@ use Zend\Http\Request;
 $translator = new Translator();
 $valid = 0;
 $hid = 0;
+$sindex = $index;
 $shid = 0;
-$total = 0;
 $dbPalladium = new \Zend\Db\Adapter\Adapter($config);
-try {
+if ($details == "hoteldetails") {
+    // Detail level
+    $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_palladium where session_id='" . $session_id . "-" . $index . "'";
+} else {
     $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_palladium where session_id='$session_id'";
+}
+try {
     $statement = $dbPalladium->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
@@ -88,28 +93,26 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $PalladiumHotelGroupserviceurl = $row_settings['value'];
 }
-$breakdown = array();
-for ($w = 0; $w < count($quoteid); $w ++) {
-    $outputArray = array();
-    $arrIt = new RecursiveIteratorIterator(new RecursiveArrayIterator($data));
-    foreach ($arrIt as $sub) {
-        $subArray = $arrIt->getSubIterator();
-        if (isset($quoteid[$w])) {
-            if (isset($subArray['quoteid'])) {
-                if ($subArray['quoteid'] === $quoteid[$w]) {
-                    $outputArray[] = iterator_to_array($subArray);
-                    $hid = $arrIt->getSubIterator($arrIt->getDepth() - 4)
-                        ->key();
-                }
+$outputArray = array();
+$arrIt = new RecursiveIteratorIterator(new RecursiveArrayIterator($data));
+foreach ($arrIt as $sub) {
+    $subArray = $arrIt->getSubIterator();
+    if (isset($quoteid[$nroom])) {
+        if (isset($subArray['quoteid'])) {
+            if ($subArray['quoteid'] === $quoteid[$nroom]) {
+                $outputArray[] = iterator_to_array($subArray);
+                $hid = $arrIt->getSubIterator($arrIt->getDepth() - 4)
+                    ->key();
             }
         }
     }
-    if (! is_array($outputArray)) {
-        $response['error'] = "Unable to handle request #3";
-        return false;
-    } else {
-        array_push($breakdown, $outputArray);
-    }
+}
+$breakdownTmp = array();
+if (! is_array($outputArray)) {
+    $response['error'] = "Unable to handle request #3";
+    return false;
+} else {
+    array_push($breakdownTmp, $outputArray);
 }
 $fromPalladium = DateTime::createFromFormat("d-m-Y", $from);
 $toPalladium = DateTime::createFromFormat("d-m-Y", $to);
@@ -117,24 +120,16 @@ $nights = $fromPalladium->diff($toPalladium);
 $nights = $nights->format('%a');
 $fromPalladium = $fromPalladium->getTimestamp();
 $toPalladium = $toPalladium->getTimestamp();
-$c = 0;
+$c = $nroom;
 $response = array();
-$roombreakdown = array();
-foreach ($breakdown as $k => $v) {
+$roombreakdown2 = array();
+foreach ($breakdownTmp as $k => $v) {
     foreach ($v as $key => $value) {
-        if ($shid == 0) {
-            $shid = $value['shid'];
-            $scode = $value['shid'];
-            $RoomTypeCode = $value['RoomTypeCode'];
-            $RatePlanCode = $value['RatePlanCode'];
-            $RoomType = $value['RoomType'];
-        } else {
-            if ($shid != $value['shid']) {
-                // We can't book two rooms from two suppliers
-                $response['error'] = "Unable to handle request #4";
-                return false;
-            }
-        }
+        $shid = $value['shid'];
+        $scode = $value['shid'];
+        $RoomTypeCode = $value['RoomTypeCode'];
+        $RatePlanCode = $value['RatePlanCode'];
+        $RoomType = $value['RoomType'];
         $uniqid = md5(uniqid(rand(), true));
         $xml = '<?xml version="1.0" encoding="UTF-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:clo="http://www.cloudhospitality.com" xmlns:ns="http://www.opentravel.org/OTA/2003/05"><soap:Header/><soap:Body><clo:CreateReservation><ns:CreateReservationRequest PrimaryLangID="?" ResStatus="quote"><ns:POS><ns:Source><ns:RequestorID ID="' . $PalladiumHotelGroupusername . '" Type="13"/><ns:BookingChannel Type="2"/></ns:Source></ns:POS><ns:HotelReservations><ns:HotelReservation><ns:UniqueID ID="' . $uniqid . '" Type=""/><ns:RoomStays>';
         $rCount = 1;
@@ -213,6 +208,7 @@ foreach ($breakdown as $k => $v) {
         $item['cancelpolicy'] = $value['cancelpolicy'];
         $item['cancelpolicy_deadlinetimestamp'] = $value['cancelpolicy_deadline'];
         $item['cancelpolicy_deadline'] = strftime("%a, %d %B %Y", $value['cancelpolicy_deadline']);
+        array_push($roombreakdown2, $item);
         array_push($roombreakdown, $item);
     }
     $c ++;
@@ -301,10 +297,42 @@ try {
 }
 $response['hotel'] = $hotel;
 $response['hotel']['images'] = $images;
-$response['breakdown'] = $roombreakdown;
+$response['breakdown'] = $roombreakdown2;
 $response['total'] = $filter->filter($total);
 $response['totalplain'] = number_format($total, 2, '.', '');
 $response['searchsettings'] = $searchsettings;
+// Store Session
+$sql = new Sql($dbPalladium);
+$sql = "delete from quote_session_hotel_multipolicies where session_id='" . $session_id . "' and sindex=$sindex";
+try {
+    $statement = $db->createStatement($sql);
+    $statement->prepare();
+    $results = $statement->execute();
+} catch (\Exception $e) {
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($e->getMessage());
+}
+$sql = new Sql($dbPalladium);
+$insert = $sql->insert();
+$insert->into('quote_session_hotel_multipolicies');
+$insert->values(array(
+    'session_id' => $session_id,
+    'sindex' => $sindex,
+    'data' => base64_encode(serialize($response)),
+    'searchsettings' => base64_encode(serialize($searchsettings))
+), $insert::VALUES_MERGE);
+try {
+    $statement = $sql->prepareStatementForSqlObject($insert);
+    $results = $statement->execute();
+} catch (\Exception $e) {
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($e->getMessage());
+}
+$response['breakdown'] = $roombreakdown;
 $dbPalladium->getDriver()
     ->getConnection()
     ->disconnect();

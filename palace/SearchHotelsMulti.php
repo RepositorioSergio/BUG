@@ -140,6 +140,7 @@ if ($totalHotelsPalace > 0) {
         $departure_date = strftime("%Y-%m-%d", $to);
         $nCPalace = 0;
         $channelsParallelPalace = array();
+        $channelsParallelPalaceRoom = array();
         $channelsParallelPalaceRoomDescription = array();
         $channelsParallelPalaceBedDescription = array();
         $channelsParallelPalaceRoomType = array();
@@ -163,65 +164,72 @@ if ($totalHotelsPalace > 0) {
                     $statement2->prepare();
                     $row_palace_rooms = $statement2->execute();
                     $row_palace_rooms->buffer();
+                    $valid = true;
                     if ($row_palace_rooms->valid()) {
                         $row_palace_rooms = $row_palace_rooms->current();
-                        $valid = true;
-                        if (($selectedAdults[0] + $selectedChildren[0]) > $row_palace_rooms['maxpax']) {
-                            $valid = false;
-                        }
-                        if ($selectedAdults[0] > $row_palace_rooms['maxadults']) {
-                            $valid = false;
-                        }
-                        if ($selectedChildren[0] > $row_palace_rooms['maxchild']) {
-                            $valid = false;
-                        }
-                        if ($selectedChildren[0] > 0) {
-                            if ($row_palace_rooms['allowchildren'] == "NO") {
-                                $valid = false;
-                            }
-                        }
+                        $max_pax = $row_palace_rooms['maxpax'];
+                        $max_adults = $row_palace_rooms['maxadults'];
+                        $max_child = $row_palace_rooms['maxchild'];
+                        $allowchildren = $row_palace_rooms['allowchildren'];
                     } else {
                         $valid = false;
                     }
-                    if ($valid == true) {
-                        $raw = '<?xml version="1.0" encoding="UTF-8"?><SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://localhost/pr_xmlschemas/hotel/01-03-2006/availability.xsd" xmlns:ns2="http://localhost/pr_xmlschemas/hotel/01-03-2006/availabilityRequest.xsd" xmlns:ns3="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd" xmlns:ns4="http://localhost/xmlschemas/enterpriseservice/16-07-2009/"><SOAP-ENV:Body><ns4:GetAvailability><ns2:availabilityRequest><ns2:data><ns1:hotel>' . $hotelcodes[$wHotels] . '</ns1:hotel><ns1:room_type>' . $row['roomtype'] . '</ns1:room_type><ns1:bed_type>' . $row['bed'] . '</ns1:bed_type><ns1:arrival_date>' . $arrival_date . '</ns1:arrival_date><ns1:departure_date>' . $departure_date . '</ns1:departure_date>
-          <ns1:adultos>' . $selectedAdults[0] . '</ns1:adultos>
-          <ns1:menores>' . $selectedChildren[0] . '</ns1:menores>
+                    for ($r = 0; $r < $rooms; $r ++) {
+                        if (($selectedAdults[$r] + $selectedChildren[$r]) > $max_pax) {
+                            $valid = false;
+                        }
+                        if ($selectedAdults[$r] > $max_adults) {
+                            $valid = false;
+                        }
+                        if ($selectedChildren[$r] > $max_child) {
+                            $valid = false;
+                        }
+                        if ($selectedChildren[$r] > 0) {
+                            if ($allowchildren == "NO") {
+                                $valid = false;
+                            }
+                        }
+                        if ($valid == true) {
+                            $raw = '<?xml version="1.0" encoding="UTF-8"?><SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://localhost/pr_xmlschemas/hotel/01-03-2006/availability.xsd" xmlns:ns2="http://localhost/pr_xmlschemas/hotel/01-03-2006/availabilityRequest.xsd" xmlns:ns3="http://localhost/pr_xmlschemas/hotel/01-03-2006/authInfo.xsd" xmlns:ns4="http://localhost/xmlschemas/enterpriseservice/16-07-2009/"><SOAP-ENV:Body><ns4:GetAvailability><ns2:availabilityRequest><ns2:data><ns1:hotel>' . $hotelcodes[$wHotels] . '</ns1:hotel><ns1:room_type>' . $row['roomtype'] . '</ns1:room_type><ns1:bed_type>' . $row['bed'] . '</ns1:bed_type><ns1:arrival_date>' . $arrival_date . '</ns1:arrival_date><ns1:departure_date>' . $departure_date . '</ns1:departure_date>
+          <ns1:adultos>' . $selectedAdults[$r] . '</ns1:adultos>
+          <ns1:menores>' . $selectedChildren[$r] . '</ns1:menores>
           <ns1:baby>0</ns1:baby>
           <ns1:child>0</ns1:child>
           <ns1:kid>0</ns1:kid><ns1:rate_plan></ns1:rate_plan><ns1:group_code></ns1:group_code><ns1:promotion_code></ns1:promotion_code><ns1:idioma></ns1:idioma><ns1:agency_cd>' . $palaceresortsAgencyCode . '</ns1:agency_cd></ns2:data><ns2:Tag></ns2:Tag><ns2:AuthInfo><ns3:Recnum>0</ns3:Recnum><ns3:Ent_User>' . $palaceresortslogin . '</ns3:Ent_User><ns3:Ent_Pass>' . $palaceresortspassword . '</ns3:Ent_Pass><ns3:Ent_Term>' . $palaceresortsSecurityCode . '</ns3:Ent_Term></ns2:AuthInfo></ns2:availabilityRequest></ns4:GetAvailability></SOAP-ENV:Body></SOAP-ENV:Envelope>';
-                        // if ($agent_id == 701 and $hotelcodes[$wHotels] == "BP") {
-                        // error_log("\r\nParallel Palace Request: $raw\r\n", 3, "/srv/www/htdocs/error_log");
-                        // }
-                        $headers = array(
-                            "Content-type: text/xml",
-                            "Cache-Control: no-cache",
-                            "Pragma: no-cache",
-                            "Host: api.palaceresorts.com",
-                            "Content-length: " . strlen($raw)
-                        );
-                        $ch = curl_init();
-                        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
-                        curl_setopt($ch, CURLOPT_URL, $palaceresortswebserviceurl);
-                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                        curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
-                        curl_setopt($ch, CURLOPT_VERBOSE, false);
-                        curl_setopt($ch, CURLOPT_POST, true);
-                        curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
-                        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-                        curl_multi_add_handle($multiParallelPalace, $ch);
-                        $channelsParallelPalace[$nCPalace] = $ch;
-                        $channelsParallelPalaceRoomType[$nCPalace] = $row['roomtype'];
-                        $channelsParallelPalaceBedType[$nCPalace] = $row['bed'];
-                        $channelsParallelPalaceRoomDescription[$nCPalace] = $row['description'];
-                        if ($row['bed'] == 'K') {
-                            $channelsParallelPalaceBedDescription[$nCPalace] = $translator->translate("1 King Bed");
-                        } elseif ($row['bed'] == 'D') {
-                            $channelsParallelPalaceBedDescription[$nCPalace] = $translator->translate("2 Double Beds");
-                        } else {
-                            $channelsParallelPalaceBedDescription[$nCPalace] = "";
+                            // if ($agent_id == 701 and $hotelcodes[$wHotels] == "BP") {
+                            // error_log("\r\nParallel Palace Request: $raw\r\n", 3, "/srv/www/htdocs/error_log");
+                            // }
+                            $headers = array(
+                                "Content-type: text/xml",
+                                "Cache-Control: no-cache",
+                                "Pragma: no-cache",
+                                "Host: api.palaceresorts.com",
+                                "Content-length: " . strlen($raw)
+                            );
+                            $ch = curl_init();
+                            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+                            curl_setopt($ch, CURLOPT_URL, $palaceresortswebserviceurl);
+                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                            curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
+                            curl_setopt($ch, CURLOPT_VERBOSE, false);
+                            curl_setopt($ch, CURLOPT_POST, true);
+                            curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+                            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                            curl_multi_add_handle($multiParallelPalace, $ch);
+                            $channelsParallelPalace[$nCPalace] = $ch;
+                            $channelsParallelPalaceRoom[$nCPalace] = $r;
+                            $channelsParallelPalaceRoomType[$nCPalace] = $row['roomtype'];
+                            $channelsParallelPalaceBedType[$nCPalace] = $row['bed'];
+                            $channelsParallelPalaceRoomDescription[$nCPalace] = $row['description'];
+                            if ($row['bed'] == 'K') {
+                                $channelsParallelPalaceBedDescription[$nCPalace] = $translator->translate("1 King Bed");
+                            } elseif ($row['bed'] == 'D') {
+                                $channelsParallelPalaceBedDescription[$nCPalace] = $translator->translate("2 Double Beds");
+                            } else {
+                                $channelsParallelPalaceBedDescription[$nCPalace] = "";
+                            }
+                            $nCPalace ++;
                         }
-                        $nCPalace ++;
                     }
                 }
             }
@@ -247,8 +255,8 @@ if ($totalHotelsPalace > 0) {
             $bed = $channelsParallelPalaceBedDescription[$kchannel];
             $roomtype = $channelsParallelPalaceRoomType[$kchannel];
             $bedtype = $channelsParallelPalaceBedType[$kchannel];
+            $zRooms = $channelsParallelPalaceRoom[$kchannel];
             curl_multi_remove_handle($multiParallelPalace, $channel);
-            //error_log("\r\nParallel Return Response - $response\r\n", 3, "/srv/www/htdocs/error_log");
             try {
                 $sql = new Sql($db);
                 $insert = $sql->insert();
@@ -256,7 +264,7 @@ if ($totalHotelsPalace > 0) {
                 $insert->values(array(
                     'datetime_created' => time(),
                     'filename' => 'SearchHotels.php',
-                    'errorline' => 0,
+                    'errorline' => $zRooms,
                     'errormessage' => $raw,
                     'sqlcontext' => $response,
                     'errcontext' => ''
@@ -402,8 +410,6 @@ if ($totalHotelsPalace > 0) {
                                         $TotalAmount = $CurrencyConverter->convert($TotalAmount, $Currency, $scurrency);
                                     }
                                 }
-                                $zRooms = 0;
-                                // for ($zRooms = 0; $zRooms < count($selectedAdults); $zRooms ++) {
                                 if (is_array($tmp[$shid])) {
                                     $baseCounterDetails = count($tmp[$shid]['details'][$zRooms]);
                                 } else {
@@ -537,5 +543,4 @@ if ($totalHotelsPalace > 0) {
         }
     }
 }
-// error_log("\r\nEOF Palace\r\n", 3, "/srv/www/htdocs/error_log");
 ?>
