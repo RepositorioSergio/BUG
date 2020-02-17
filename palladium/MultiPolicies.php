@@ -133,20 +133,19 @@ foreach ($breakdownTmp as $k => $v) {
         $uniqid = md5(uniqid(rand(), true));
         $xml = '<?xml version="1.0" encoding="UTF-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:clo="http://www.cloudhospitality.com" xmlns:ns="http://www.opentravel.org/OTA/2003/05"><soap:Header/><soap:Body><clo:CreateReservation><ns:CreateReservationRequest PrimaryLangID="?" ResStatus="quote"><ns:POS><ns:Source><ns:RequestorID ID="' . $PalladiumHotelGroupusername . '" Type="13"/><ns:BookingChannel Type="2"/></ns:Source></ns:POS><ns:HotelReservations><ns:HotelReservation><ns:UniqueID ID="' . $uniqid . '" Type=""/><ns:RoomStays>';
         $rCount = 1;
-        for ($r = 0; $r < count($selectedAdults); $r ++) {
-            $xml .= '<ns:RoomStay RoomStayCandidateRPH="' . $rCount . '"><ns:RoomTypes><ns:RoomType RoomTypeCode="' . $RoomTypeCode . '" RoomType="' . $RoomType . '" NumberOfUnits="1"></ns:RoomType></ns:RoomTypes><ns:RatePlans><ns:RatePlan RatePlanCode="' . $RatePlanCode . '"></ns:RatePlan></ns:RatePlans><ns:GuestCounts>';
-            $xml .= '<ns:GuestCount AgeQualifyingCode="10" Age="30" Count="' . $selectedAdults[$r] . '"/>';
-            for ($z = 0; $z < $selectedChildren[$r]; $z ++) {
-                if ($selectedChildrenAges[$r][$z] <= 2) {
-                    $xml .= '<ns:GuestCount Count="1" AgeQualifyingCode="7" Age="' . $selectedChildrenAges[$r][$z] . '"/>';
-                } else {
-                    $xml .= '<ns:GuestCount Count="1" AgeQualifyingCode="8" Age="' . $selectedChildrenAges[$r][$z] . '"/>';
-                }
+        $xml .= '<ns:RoomStay RoomStayCandidateRPH="' . $rCount . '"><ns:RoomTypes><ns:RoomType RoomTypeCode="' . $RoomTypeCode . '" RoomType="' . $RoomType . '" NumberOfUnits="1"></ns:RoomType></ns:RoomTypes><ns:RatePlans><ns:RatePlan RatePlanCode="' . $RatePlanCode . '"></ns:RatePlan></ns:RatePlans><ns:GuestCounts>';
+        $xml .= '<ns:GuestCount AgeQualifyingCode="10" Age="30" Count="' . $adt . '"/>';
+        for ($z = 0; $z < $chd; $z ++) {
+            if ($children_ages[$z] <= 2) {
+                $xml .= '<ns:GuestCount Count="1" AgeQualifyingCode="7" Age="' . $children_ages[$z] . '"/>';
+            } else {
+                $xml .= '<ns:GuestCount Count="1" AgeQualifyingCode="8" Age="' . $children_ages[$z] . '"/>';
             }
-            $xml .= '</ns:GuestCounts><ns:TimeSpan Start="' . strftime("%Y-%m-%d", $fromPalladium) . '" End="' . strftime("%Y-%m-%d", $toPalladium) . '"/><ns:BasicPropertyInfo HotelCode="' . $shid . '" AreaID="" /></ns:RoomStay>';
-            $rCount ++;
         }
+        $xml .= '</ns:GuestCounts><ns:TimeSpan Start="' . strftime("%Y-%m-%d", $fromPalladium) . '" End="' . strftime("%Y-%m-%d", $toPalladium) . '"/><ns:BasicPropertyInfo HotelCode="' . $shid . '" AreaID="" /></ns:RoomStay>';
+
         $xml .= '</ns:RoomStays><ns:ResGuests><ns:ResGuest><ns:Profiles><ns:ProfileInfo><ns:Profile><ns:Customer><ns:PersonName><ns:GivenName>?</ns:GivenName><ns:Surname>?</ns:Surname></ns:PersonName></ns:Customer></ns:Profile></ns:ProfileInfo></ns:Profiles></ns:ResGuest></ns:ResGuests><ns:ResGlobalInfo><ns:HotelReservationIDs><ns:HotelReservationID ResID_Type="8" ResID_Value="0"/></ns:HotelReservationIDs></ns:ResGlobalInfo></ns:HotelReservation></ns:HotelReservations></ns:CreateReservationRequest></clo:CreateReservation></soap:Body></soap:Envelope>';
+        error_log("\r\n RAW - $xml\r\n", 3, "/srv/www/htdocs/error_log");
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $PalladiumHotelGroupserviceurl);
         curl_setopt($ch, CURLOPT_HEADER, false);
@@ -166,6 +165,8 @@ foreach ($breakdownTmp as $k => $v) {
         $error = curl_error($ch);
         $headers = curl_getinfo($ch);
         curl_close($ch);
+        error_log("\r\nResponse MULI - $xmlresult \r\n", 3, "/srv/www/htdocs/error_log");
+        error_log("\r\nResponse URL - $PalladiumHotelGroupserviceurl \r\n", 3, "/srv/www/htdocs/error_log");
         try {
             $sql = new Sql($dbPalladium);
             $insert = $sql->insert();

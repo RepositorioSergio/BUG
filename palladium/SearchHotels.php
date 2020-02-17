@@ -362,7 +362,7 @@ if ($city_xml15 != "") {
                     $pricebreakdownCount = 0;
                     for ($rZZ = 0; $rZZ < $noOfNights; $rZZ ++) {
                         $pricebreakdown[$pricebreakdownCount]['date'] = strftime("%d %b %Y", mktime(0, 0, 0, date("m", $from), date("d", $from) + $rZZ, date("y", $from)));
-                        $amount = $noOfNights * $AmountAfterTax;
+                        $amount = $AmountAfterTax / $noOfNights;
                         if ($PalladiumHotelGroupmarkup != 0) {
                             $amount = $amount + (($amount * $PalladiumHotelGroupmarkup) / 100);
                         }
