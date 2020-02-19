@@ -13,9 +13,15 @@ $valid = 0;
 $hid = 0;
 $newnet = 0;
 $shid = 0;
+$sindex = $index;
+if ($details == "hoteldetails") {
+    // Detail level
+    $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_riu where session_id='" . $session_id . "-" . $index . "'";
+} else {
+    $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_riu where session_id='$session_id'";
+}
 $db = new \Zend\Db\Adapter\Adapter($config);
 try {
-    $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_riu where session_id='$session_id'";
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
@@ -117,28 +123,27 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $sourceMarket = $row_settings['value'];
 }
-$breakdown = array();
-for ($w = 0; $w < count($quoteid); $w ++) {
-    $outputArray = array();
-    $arrIt = new RecursiveIteratorIterator(new RecursiveArrayIterator($data));
-    foreach ($arrIt as $sub) {
-        $subArray = $arrIt->getSubIterator();
-        if (isset($quoteid[$w])) {
-            if (isset($subArray['quoteid'])) {
-                if ($subArray['quoteid'] === $quoteid[$w]) {
-                    $outputArray[] = iterator_to_array($subArray);
-                    $hid = $arrIt->getSubIterator($arrIt->getDepth() - 4)
-                        ->key();
-                }
+
+$outputArray = array();
+$arrIt = new RecursiveIteratorIterator(new RecursiveArrayIterator($data));
+foreach ($arrIt as $sub) {
+    $subArray = $arrIt->getSubIterator();
+    if (isset($quoteid[$nroom])) {
+        if (isset($subArray['quoteid'])) {
+            if ($subArray['quoteid'] === $quoteid[$nroom]) {
+                $outputArray[] = iterator_to_array($subArray);
+                $hid = $arrIt->getSubIterator($arrIt->getDepth() - 4)
+                    ->key();
             }
         }
     }
-    if (! is_array($outputArray)) {
-        $response['error'] = "Unable to handle request #3";
-        return false;
-    } else {
-        array_push($breakdown, $outputArray);
-    }
+}
+$breakdownTmp = array();
+if (! is_array($outputArray)) {
+    $response['error'] = "Unable to handle request #3";
+    return false;
+} else {
+    array_push($breakdownTmp, $outputArray);
 }
 $fromRIU = DateTime::createFromFormat("d-m-Y", $from);
 $toRIU = DateTime::createFromFormat("d-m-Y", $to);
@@ -146,21 +151,12 @@ $nights = $fromRIU->diff($toRIU);
 $nights = $nights->format('%R%a');
 $fromRIU = $fromRIU->getTimestamp();
 $toRIU = $toRIU->getTimestamp();
-$c = 0;
+$c = $nroom;
 $response = array();
-$roombreakdown = array();
-foreach ($breakdown as $k => $v) {
+$roombreakdown2 = array();
+foreach ($breakdownTmp as $k => $v) {
     foreach ($v as $key => $value) {
-        if ($shid == 0) {
-            $shid = $value['shid'];
-            $sourcemarket = $value['sourcemarket'];
-        } else {
-            if ($shid != $value['shid']) {
-                // We can't book two rooms from two suppliers
-                $response['error'] = "Unable to handle request #4";
-                return false;
-            }
-        }
+        $shid = $value['shid'];
         $item = array();
         $cancelation_string = "";
         $cancelation_deadline = 0;
@@ -187,6 +183,7 @@ foreach ($breakdown as $k => $v) {
             $raw .= '<Ages xsi:nil="true" />';
         }
         $raw .= '<ChildCount>' . $children . '</ChildCount><InfantsCount>0</InfantsCount><RoomTypeCode>' . $RoomTypeCode . '</RoomTypeCode></RoomStayCandidateRule></RoomConfig></RoomList><RoomsCount xmlns="http://dtos.enginexml.rumbonet.riu.com">' . $rooms . '</RoomsCount><StayDateStart xmlns="http://dtos.enginexml.rumbonet.riu.com">' . strftime("%Y%m%d", $fromRIU) . '</StayDateStart><StayDateEnd xmlns="http://dtos.enginexml.rumbonet.riu.com">' . strftime("%Y%m%d", $toRIU) . '</StayDateEnd></in0></HotelBookingRule></soap:Body></soap:Envelope>';
+        
         $client = new Client();
         $client->setOptions(array(
             'timeout' => 100,
@@ -216,7 +213,7 @@ foreach ($breakdown as $k => $v) {
             $logger->info($client->getUri());
             $logger->info($response2->getStatusCode() . " - " . $response2->getReasonPhrase());
             $failed = true;
-        }
+        } 
         try {
             $sql = new Sql($db);
             $insert = $sql->insert();
@@ -237,7 +234,6 @@ foreach ($breakdown as $k => $v) {
             $logger->addWriter($writer);
             $logger->info($e->getMessage());
         }
-        // error_log("\r\nRiu Policies:\r\n$response2\r\n", 3, "/srv/www/htdocs/error_log");
         $CPdays = "";
         $CPreleaseDays = "";
         $vector = array();
@@ -670,6 +666,7 @@ foreach ($breakdown as $k => $v) {
         $item['meal'] = $value['meal'];
         $item['total'] = $filter->filter($tot);
         $item['totalplain'] = number_format($tot, 2, '.', '');
+        $item['subtotal'] = $filter->filter(floatval($tot));
         $avg = $tot / $nights;
         $item['avgnight'] = $filter->filter($avg);
         $item['avgplain'] = number_format($avg, 2, '.', '');
@@ -681,6 +678,7 @@ foreach ($breakdown as $k => $v) {
         $item['cancelpolicy_deadlinetimestamp'] = $cancelation_deadline;
         $item['cancelpolicy_details'] = $cancelation_details;
         array_push($roombreakdown, $item);
+        array_push($roombreakdown2, $item);
     }
     $c ++;
 }
@@ -771,9 +769,41 @@ $db->getDriver()
     ->disconnect();
 $response['hotel'] = $hotel;
 $response['hotel']['images'] = $images;
-$response['breakdown'] = $roombreakdown;
+$response['breakdown'] = $roombreakdown2;
 $response['total'] = $filter->filter($total);
 $response['totalplain'] = number_format($total, 2, '.', '');
 $response['searchsettings'] = $searchsettings;
 $response['newnet'] = $newnet;
+// Store Session
+$sql = new Sql($db);
+$sql = "delete from quote_session_hotel_multipolicies where session_id='" . $session_id . "' and sindex=$sindex";
+try {
+    $statement = $db->createStatement($sql);
+    $statement->prepare();
+    $results = $statement->execute();
+} catch (\Exception $e) {
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($e->getMessage());
+}
+$sql = new Sql($db);
+$insert = $sql->insert();
+$insert->into('quote_session_hotel_multipolicies');
+$insert->values(array(
+    'session_id' => $session_id,
+    'sindex' => $sindex,
+    'data' => base64_encode(serialize($response)),
+    'searchsettings' => base64_encode(serialize($searchsettings))
+), $insert::VALUES_MERGE);
+try {
+    $statement = $sql->prepareStatementForSqlObject($insert);
+    $results = $statement->execute();
+} catch (\Exception $e) {
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($e->getMessage());
+}
+$response['breakdown'] = $roombreakdown;
 ?>
