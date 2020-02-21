@@ -13,15 +13,18 @@ use Zend\Filter\AbstractFilter;
 use Zend\I18n\Translator\Translator;
 error_log("\r\nSpecial Tours - Start\r\n", 3, "/srv/www/htdocs/error_log");
 $translator = new Translator();
+if (file_exists("src/App/language/" . $lang . ".mo")) {
+    $translator->addTranslationFile("gettext", "src/App/language/" . $lang . ".mo");
+}
 $filter = new \Zend\I18n\Filter\NumberFormat($NumberFormat, 2);
 unset($tmp);
 $sfilter = array();
 $specialtours = false;
-$db2 = new \Zend\Db\Adapter\Adapter($config);
 $sql = "select city_xml33, latitude, longitude from cities where id=" . $destination;
-$statement2 = $db2->createStatement($sql);
-$statement2->prepare();
-$row_settings = $statement2->execute();
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $city_xml33 = $row_settings["city_xml33"];
@@ -30,88 +33,67 @@ if ($row_settings->valid()) {
 } else {
     $city_xml33 = 0;
 }
-$db2->getDriver()
-    ->getConnection()
-    ->disconnect();
 if ((int) $nationality > 0) {
-    $db2 = new \Zend\Db\Adapter\Adapter($config);
     $sql = "select iso_code_2 from countries where id=" . (int) $nationality;
-    $statement2 = $db2->createStatement($sql);
-    $statement2->prepare();
-    $row_settings = $statement2->execute();
+    $statement = $db->createStatement($sql);
+    $statement->prepare();
+    $row_settings = $statement->execute();
+    $row_settings->buffer();
     if ($row_settings->valid()) {
         $row_settings = $row_settings->current();
         $sourceMarket = $row_settings["iso_code_2"];
     } else {
         $sourceMarket = "";
     }
-    $db2->getDriver()
-        ->getConnection()
-        ->disconnect();
 } else {
-    $db2 = new \Zend\Db\Adapter\Adapter($config);
     $sql = "select value from settings where name='SpecialToursDefaultNationalityCountryCode' and affiliate_id=$affiliate_id_specialtours";
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
+    $row_settings->buffer();
     if ($row_settings->valid()) {
         $row_settings = $row_settings->current();
         $sourceMarket = $row_settings['value'];
     }
-    $db->getDriver()
-        ->getConnection()
-        ->disconnect();
 }
 $sql = "select value from settings where name='SpecialTourslogin' and affiliate_id=$affiliate_id_specialtours";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $SpecialTourslogin = $row_settings['value'];
 }
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
 $sql = "select value from settings where name='SpecialTourspassword' and affiliate_id=$affiliate_id_specialtours";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $SpecialTourspassword = base64_decode($row_settings['value']);
 }
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
 $sql = "select value from settings where name='SpecialToursMarkup' and affiliate_id=$affiliate_id_specialtours";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $SpecialToursMarkup = (double) $row_settings['value'];
 } else {
     $SpecialToursMarkup = 0;
 }
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
 $sql = "select value from settings where name='SpecialToursServiceURL' and affiliate_id=$affiliate_id_specialtours";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
+$row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $SpecialToursServiceURL = $row_settings['value'];
 }
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
-
-$dateStart = new DateTime(strftime("%Y-%m-%d", $from));
-$dateEnd = new DateTime(strftime("%Y-%m-%d", $to));
-$noOfNights = $dateStart->diff($dateEnd)->format('%d');
 
 $dateCheckin = new DateTime(strftime("%d-%m-%Y", $from));
 $dayCheckin = $dateCheckin->format('d');
@@ -182,14 +164,9 @@ if ($SpecialToursServiceURL != "" and $SpecialTourslogin != "" and $SpecialTours
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $response = curl_exec($ch);
     curl_close($ch);
-    // Descomentar para ver o resultado do provider
-    // Nao esquecer de alterar o session id para testar por causa de cache
-    // echo $response;
-    // die();
     $endTime = microtime();
     try {
-        $db2 = new \Zend\Db\Adapter\Adapter($config);
-        $sql = new Sql($db2);
+        $sql = new Sql($db);
         $insert = $sql->insert();
         $insert->into('log_specialtours');
         $insert->values(array(
@@ -202,24 +179,14 @@ if ($SpecialToursServiceURL != "" and $SpecialTourslogin != "" and $SpecialTours
         ), $insert::VALUES_MERGE);
         $statement = $sql->prepareStatementForSqlObject($insert);
         $results = $statement->execute();
-        $db2->getDriver()
-            ->getConnection()
-            ->disconnect();
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
         $logger = new Logger();
         $writer = new Writer\Stream('/srv/www/htdocs/error_log');
         $logger->addWriter($writer);
         $logger->info($e->getMessage());
     }
     $array = json_decode($response, true);
-    // Descomentar para ver o vector
-    // Nao esquecer de alterar o session id para testar por causa de cache
-    // Echo para ver o array completro
-    // echo "<xmp>";
-    // var_dump($array);
-    // echo "</xmp>";
-    // die();
-    error_log("\r\n" . print_r($array, true) . "\r\n", 3, "/srv/www/htdocs/error_log");
+    error_log("\r\nResponse Special Tours STB : " . print_r($array, true) . "\r\n", 3, "/srv/www/htdocs/error_log");
     $inputDoc = new DOMDocument();
     $inputDoc->loadXML($response);
     $node = $inputDoc->getElementsByTagName("Alloc");
@@ -321,96 +288,103 @@ if ($SpecialToursServiceURL != "" and $SpecialTourslogin != "" and $SpecialTours
         } else {
             $Remarks = "";
         }
-        
-        for ($zRooms = 0; $zRooms < count($selectedAdults); $zRooms ++) {
-            // if (($selectedAdults[$zRooms] <= $adults and $selectedChildren[$zRooms] <= $children) or ($selectedAdults[$zRooms] <= $adults and (($selectedAdults[$zRooms] + $selectedChildren[$zRooms]) <= ($adults + $children)))) {
-            if (is_array($tmp[$shid]['details'][$zRooms])) {
-                $baseCounterDetails = count($tmp[$shid]['details'][$zRooms]);
-            } else {
-                $baseCounterDetails = 0;
-            }
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['scode'] = $HoID;
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room'] = $RST . '' . $RoomDescr;
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['shid'] = $shid;
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['quoteid'] = md5(uniqid($session_id, true)) . "-" . $index . "-33";
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['status'] = 1;
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nettotal'] = $Pr;
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['code'] = $HoID;
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['price'] = $Pr;
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['currency'] = $currency;
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['adults'] = $selectedAdults[$zRooms];
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['children'] = $selectedChildren[$zRooms];
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['RoomDescr'] = $RoomDescr;
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['recommended'] = false;
-            // $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nonrefundable'] = $nonrefundable;
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['scurrency'] = $currency;
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['total'] = $TotalEUR;
-            $tmp[$code]['details'][$zRooms][$baseCounterDetails]['special'] = false;
-            $tmp[$code]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = "";
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['meal'] = $translator->translate($BFK);
-            // $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['boardtype'] = $meal_type;
-            // $t = $meal_type;
-            $pricebreakdown = array();
-            $pricebreakdownCount = 0;
-            for ($rZZ = 0; $rZZ < $noOfNights; $rZZ ++) {
-                $pricebreakdown[$pricebreakdownCount]['date'] = strftime("%d %b %Y", mktime(0, 0, 0, date("m", $from), date("d", $from) + $rZZ, date("y", $from)));
-                $amount = $noOfNights * $TotalEUR;
-                if ($SpecialToursMarkup != 0) {
-                    $amount = $amount + (($amount * $SpecialToursMarkup) / 100);
-                }
-                // Geo target markup
-                if ($internalmarkup != 0) {
-                    $amount = $amount + (($amount * $internalmarkup) / 100);
-                }
-                // Agent markup
-                if ($agent_markup != 0) {
-                    $amount = $amount + (($amount * $agent_markup) / 100);
-                }
-                // Fallback Markup
-                if ($SpecialToursMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
-                    $amount = $amount + (($amount * $HotelsMarkupFallback) / 100);
-                }
-                // Agent discount
-                if ($agent_discount != 0) {
-                    $amount = $amount - (($amount * $agent_discount) / 100);
-                }
-                if ($scurrency != "" and $currency != $scurrency) {
-                    $amount = $CurrencyConverter->convert($amount, $currency, $scurrency);
-                }
-                $pricebreakdown[$pricebreakdownCount]['price'] = $filter->filter($amount);
-                $pricebreakdown[$pricebreakdownCount]['priceplain'] = $amount;
-                $pricebreakdownCount = $pricebreakdownCount + 1;
-            }
-            
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['currency'] = $currency;
-            $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['pricebreakdown'] = $pricebreakdown;
-            // }
+        $zRooms = 0;
+        if (is_array($tmp[$shid]['details'][$zRooms])) {
+            $baseCounterDetails = count($tmp[$shid]['details'][$zRooms]);
+        } else {
+            $baseCounterDetails = 0;
         }
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['scode'] = $HoID;
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room'] = $RST . '' . $RoomDescr;
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['shid'] = $shid;
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['quoteid'] = md5(uniqid($session_id, true)) . "-" . $index . "-33";
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['status'] = 1;
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nettotal'] = $TotalEUR;
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['code'] = $HoID;
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['price'] = $TotalEUR;
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['currency'] = $currency;
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['adults'] = $selectedAdults[$zRooms];
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['children'] = $selectedChildren[$zRooms];
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['RoomDescr'] = $RoomDescr;
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['recommended'] = false;
+        // $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nonrefundable'] = $nonrefundable;
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['scurrency'] = $currency;
+        if ($SpecialToursMarkup != 0) {
+            $TotalEUR = $TotalEUR + (($TotalEUR * $SpecialToursMarkup) / 100);
+        }
+        // Geo target markup
+        if ($internalmarkup != 0) {
+            $TotalEUR = $TotalEUR + (($TotalEUR * $internalmarkup) / 100);
+        }
+        // Agent markup
+        if ($agent_markup != 0) {
+            $TotalEUR = $TotalEUR + (($TotalEUR * $agent_markup) / 100);
+        }
+        // Fallback Markup
+        if ($SpecialToursMarkup == 0 and $internalmarkup == 0 and $agent_markup == 0) {
+            $TotalEUR = $TotalEUR + (($TotalEUR * $HotelsMarkupFallback) / 100);
+        }
+        // Agent discount
+        if ($agent_discount != 0) {
+            $TotalEUR = $TotalEUR - (($TotalEUR * $agent_discount) / 100);
+        }
+        if ($scurrency != "" and $currency != $scurrency) {
+            $TotalEUR = $CurrencyConverter->convert($TotalEUR, $currency, $scurrency);
+        }
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['total'] = $TotalEUR;
+        $tmp[$code]['details'][$zRooms][$baseCounterDetails]['special'] = false;
+        $tmp[$code]['details'][$zRooms][$baseCounterDetails]['specialdescription'] = "";
+        if ($BFK == "") {
+            $BFK = "Room Only";
+        }
+        try {
+            $sql = "select mapped from board_mapping where description='" . addslashes($BFK) . "'";
+            $statement = $db->createStatement($sql);
+            $statement->prepare();
+            $row_board_mapping = $statement->execute();
+            $row_board_mapping->buffer();
+            if ($row_board_mapping->valid()) {
+                $row_board_mapping = $row_board_mapping->current();
+                $BFK = $row_board_mapping["mapped"];
+            }
+        } catch (\Exception $e) {
+            $logger = new Logger();
+            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+            $logger->addWriter($writer);
+            $logger->info($e->getMessage());
+        }
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['meal'] = $translator->translate($BFK);
+        $pricebreakdown = array();
+        $pricebreakdownCount = 0;
+        $amount = $TotalEUR / $noOfNights;
+        for ($rZZ = 0; $rZZ < $noOfNights; $rZZ ++) {
+            $pricebreakdown[$pricebreakdownCount]['date'] = strftime("%d %b %Y", mktime(0, 0, 0, date("m", $from), date("d", $from) + $rZZ, date("y", $from)));
+            $pricebreakdown[$pricebreakdownCount]['price'] = $filter->filter($amount);
+            $pricebreakdown[$pricebreakdownCount]['priceplain'] = $amount;
+            $pricebreakdownCount = $pricebreakdownCount + 1;
+        }
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['currency'] = $currency;
+        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['pricebreakdown'] = $pricebreakdown;
         $sfilter[] = " sid='$shid' ";
         $specialtours = true;
     }
-    // echo "<xmp>";
-    // var_dump($sfilter);
-    // echo "</xmp>";
     if ($specialtours == true) {
         $sfilter = implode(' or ', $sfilter);
         try {
-            $db2 = new \Zend\Db\Adapter\Adapter($config);
             $sql = "select hid, sid from xmlhotels_mspecialtours where " . $sfilter;
-            error_log("\r\n $sql \r\n", 3, "/srv/www/htdocs/error_log");
-            $statement2 = $db2->createStatement($sql);
-            $statement2->prepare();
-            $result2 = $statement2->execute();
-            if ($result2 instanceof ResultInterface && $result2->isQueryResult()) {
-                $resultSet2 = new ResultSet();
-                $resultSet2->initialize($result2);
-                foreach ($resultSet2 as $row2) {
-                    // $sidfilter[] = "id=" . $row2->hid;
-                    $sidfilter[] = $row2->hid;
-                    if (is_array($hotels_array[$row2->hid])) {
+            $statement = $db->createStatement($sql);
+            $statement->prepare();
+            $result = $statement->execute();
+            $result->buffer();
+            if ($result instanceof ResultInterface && $result->isQueryResult()) {
+                $resultSet = new ResultSet();
+                $resultSet->initialize($result);
+                foreach ($resultSet as $row) {
+                    $sidfilter[] = $row->hid;
+                    if (is_array($hotels_array[$row->hid])) {
                         // Append to original details
-                        $tmph = $hotels_array[$row2->hid]['details'];
-                        $tmps = $tmp[$row2->sid]['details'];
+                        $tmph = $hotels_array[$row->hid]['details'];
+                        $tmps = $tmp[$row->sid]['details'];
                         foreach ($tmph as $key => $value) {
                             $last = count($tmph[$key]);
                             foreach ($tmps[$key] as $keyd => $valued) {
@@ -418,16 +392,13 @@ if ($SpecialToursServiceURL != "" and $SpecialTourslogin != "" and $SpecialTours
                                 $last ++;
                             }
                         }
-                        $hotels_array[$row2->hid]['details'] = $tmph;
+                        $hotels_array[$row->hid]['details'] = $tmph;
                     } else {
-                        $hotels_array[$row2->hid] = $tmp[$row2->sid];
+                        $hotels_array[$row->hid] = $tmp[$row->sid];
                     }
                 }
             }
-            $db2->getDriver()
-                ->getConnection()
-                ->disconnect();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $logger = new Logger();
             $writer = new Writer\Stream('/srv/www/htdocs/error_log');
             $logger->addWriter($writer);
@@ -439,8 +410,7 @@ if ($SpecialToursServiceURL != "" and $SpecialTourslogin != "" and $SpecialTours
             error_log("\r\n $query \r\n", 3, "/srv/www/htdocs/error_log");
             $supplier = 33;
             // Store Session
-            $db2 = new \Zend\Db\Adapter\Adapter($config);
-            $sql = new Sql($db2);
+            $sql = new Sql($db);
             $delete = $sql->delete();
             $delete->from('quote_session_specialtours');
             $delete->where(array(
@@ -455,7 +425,7 @@ if ($SpecialToursServiceURL != "" and $SpecialTourslogin != "" and $SpecialTours
                 $logger->addWriter($writer);
                 $logger->info($e->getMessage());
             }
-            $sql = new Sql($db2);
+            $sql = new Sql($db);
             $insert = $sql->insert();
             $insert->into('quote_session_specialtours');
             $insert->values(array(
@@ -474,9 +444,6 @@ if ($SpecialToursServiceURL != "" and $SpecialTourslogin != "" and $SpecialTours
                 $logger->addWriter($writer);
                 $logger->info($e->getMessage());
             }
-            $db2->getDriver()
-                ->getConnection()
-                ->disconnect();
         }
     }
 }
