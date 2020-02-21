@@ -12,9 +12,14 @@ $translator = new Translator();
 $valid = 0;
 $hid = 0;
 $shid = 0;
-$total = 0;
+$sindex = $index;
 $db = new \Zend\Db\Adapter\Adapter($config);
-$sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_omnibees where session_id='$session_id'";
+if ($details == "hoteldetails") {
+    // Detail level
+    $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_omnibees where session_id='" . $session_id . "-" . $index . "'";
+} else {
+    $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_omnibees where session_id='$session_id'";
+}
 try {
     $statement = $db->createStatement($sql);
     $statement->prepare();
@@ -59,53 +64,35 @@ if ($row_settings->valid()) {
 } else {
     $affiliate_id_omnibees = 0;
 }
-$breakdown = array();
-for ($w = 0; $w < count($quoteid); $w ++) {
-    $outputArray = array();
-    $arrIt = new RecursiveIteratorIterator(new RecursiveArrayIterator($data));
-    foreach ($arrIt as $sub) {
-        $subArray = $arrIt->getSubIterator();
-        if (isset($quoteid[$w])) {
-            if (isset($subArray['quoteid'])) {
-                if ($subArray['quoteid'] === $quoteid[$w]) {
-                    $outputArray[] = iterator_to_array($subArray);
-                    $hid = $arrIt->getSubIterator($arrIt->getDepth() - 4)
-                        ->key();
-                }
+$outputArray = array();
+$arrIt = new RecursiveIteratorIterator(new RecursiveArrayIterator($data));
+foreach ($arrIt as $sub) {
+    $subArray = $arrIt->getSubIterator();
+    if (isset($quoteid[$nroom])) {
+        if (isset($subArray['quoteid'])) {
+            if ($subArray['quoteid'] === $quoteid[$nroom]) {
+                $outputArray[] = iterator_to_array($subArray);
+                $hid = $arrIt->getSubIterator($arrIt->getDepth() - 4)
+                    ->key();
             }
         }
-    }
-    if (! is_array($outputArray)) {
-        $response['error'] = "Unable to handle request #3";
-        return false;
-    } else {
-        array_push($breakdown, $outputArray);
     }
 }
-/*
- * $fromHotelsPRO = DateTime::createFromFormat("d-m-Y", $from);
- * $toHotelsPro = DateTime::createFromFormat("d-m-Y", $to);
- * $nights = $fromHotelsPRO->diff($toHotelsPro);
- * $nights = $nights->format('%a');
- */
-
-$c = 0;
+$breakdownTmp = array();
+if (! is_array($outputArray)) {
+    $response['error'] = "Unable to handle request #3";
+    return false;
+} else {
+    array_push($breakdownTmp, $outputArray);
+}
+$c = $nroom;
 $response = array();
-$roombreakdown = array();
-foreach ($breakdown as $k => $v) {
+$roombreakdown2 = array();
+foreach ($breakdownTmp as $k => $v) {
     foreach ($v as $key => $value) {
-        if ($shid == 0) {
-            $shid = $value['shid'];
-            $scode = $value['shid'];
-            $hotel_code = $value['shid'];
-            // error_log("\r\n" . print_r($value, true) . "\r\n", 3, "/srv/www/htdocs/error_log");
-        } else {
-            if ($shid != $value['shid']) {
-                // We can't book two rooms from two suppliers
-                $response['error'] = "Unable to handle request #4";
-                return false;
-            }
-        }
+        $shid = $value['shid'];
+        $scode = $value['shid'];
+        $hotel_code = $value['shid'];
         $item = array();
         $cancelation_deadline = 0;
         $cancelation_details = "";
@@ -127,6 +114,7 @@ foreach ($breakdown as $k => $v) {
         $item['meal'] = $value['meal'];
         $item['total'] = $value['total'];
         $item['totalplain'] = number_format($tot, 2, '.', '');
+        $item['subtotal'] = $filter->filter(floatval($tot));
         $avg = $tot / $nights;
         $item['avgnight'] = $filter->filter($avg);
         $item['avgplain'] = number_format($avg, 2, '.', '');
@@ -145,6 +133,7 @@ foreach ($breakdown as $k => $v) {
         $item['cancelpolicy_deadline'] = strftime("%a, %e %b %Y", $cancelation_deadline);
         $item['cancelpolicy_deadlinetimestamp'] = $cancelation_deadline;
         array_push($roombreakdown, $item);
+        array_push($roombreakdown2, $item);
     }
     $c ++;
 }
@@ -235,8 +224,40 @@ $db->getDriver()
     ->disconnect();
 $response['hotel'] = $hotel;
 $response['hotel']['images'] = $images;
-$response['breakdown'] = $roombreakdown;
+$response['breakdown'] = $roombreakdown2;
 $response['total'] = $filter->filter($total);
 $response['totalplain'] = number_format($total, 2, '.', '');
 $response['searchsettings'] = $searchsettings;
+// Store Session
+$sql = new Sql($db);
+$sql = "delete from quote_session_hotel_multipolicies where session_id='" . $session_id . "' and sindex=$sindex";
+try {
+    $statement = $db->createStatement($sql);
+    $statement->prepare();
+    $results = $statement->execute();
+} catch (\Exception $e) {
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($e->getMessage());
+}
+$sql = new Sql($db);
+$insert = $sql->insert();
+$insert->into('quote_session_hotel_multipolicies');
+$insert->values(array(
+    'session_id' => $session_id,
+    'sindex' => $sindex,
+    'data' => base64_encode(serialize($response)),
+    'searchsettings' => base64_encode(serialize($searchsettings))
+), $insert::VALUES_MERGE);
+try {
+    $statement = $sql->prepareStatementForSqlObject($insert);
+    $results = $statement->execute();
+} catch (\Exception $e) {
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($e->getMessage());
+}
+$response['breakdown'] = $roombreakdown;
 ?>
