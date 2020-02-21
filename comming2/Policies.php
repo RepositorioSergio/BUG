@@ -50,6 +50,7 @@ if ($row_settings->valid()) {
     return false;
 }
 $affiliate_id = 0;
+$branch_filter = "";
 $sql = "select value from settings where name='enablecoming2' and affiliate_id=$affiliate_id" . $branch_filter;
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -136,10 +137,6 @@ $toHotelsPro = DateTime::createFromFormat("d-m-Y", $to);
 $nights = $fromHotelsPRO->diff($toHotelsPro);
 $nights = $nights->format('%a');
 
-/*
- * $fromHotelsPRO = $fromHotelsPRO->getTimestamp();
- * $toHotelsPro = $toHotelsPro->getTimestamp();
- */
 $c = 0;
 $response = array();
 $roombreakdown = array();
@@ -157,9 +154,154 @@ foreach ($breakdown as $k => $v) {
                 return false;
             }
         }
+        $roomid = $value['roomid'];
+        $adults = $value['adults'];
+        $children = $value['children'];
+
+        $from2 = strtotime($from);
         $item = array();
         $cancelation_deadline = 0;
         $cancelation_details = "";
+
+        $raw = '{
+            "Rooms": [
+                {
+                    "Id": ' . $roomid . ',
+                    "Paxes": [';
+                    for ($w = 0; $w < $adults; $w ++) {
+                        if ($w > 0) {
+                            $raw .= ',';
+                        }
+                        $raw .= '{ "PaxType": "Adult", "Age": 30, "GivenName": "", "SurName": "" }';
+                    }
+                    for ($w = 0; $w < $children; $w ++) {
+                        $raw .= ',{ "PaxType": "Child", "Age": ' . $children_ages[$w] . ', "GivenName": "", "SurName": "" }';
+                    }
+        $raw .= ']
+                }
+            ]
+        }';
+
+        $passuser = "$coming2login:$coming2password";
+        $auth = base64_encode($passuser);
+        $headers = array(
+            "Content-Type: application/json",
+            "Accept: application/json",
+            "Authorization: Basic " . $auth,
+            "Content-length: " . strlen($raw)
+        );
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+        curl_setopt($ch, CURLOPT_URL, $coming2ServiceURL . 'Booking/Check');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $response2 = curl_exec($ch);
+        curl_close($ch);
+        try {
+            $sql = new Sql($db);
+            $insert = $sql->insert();
+            $insert->into('log_coming2');
+            $insert->values(array(
+                'datetime_created' => time(),
+                'filename' => 'Policies.php',
+                'errorline' => "",
+                'errormessage' => $coming2ServiceURL,
+                'sqlcontext' => $response2,
+                'errcontext' => ''
+            ), $insert::VALUES_MERGE);
+            $statement = $sql->prepareStatementForSqlObject($insert);
+            $results = $statement->execute();
+        } catch (\Exception $e) {
+            $logger = new Logger();
+            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+            $logger->addWriter($writer);
+            $logger->info($e->getMessage());
+        }
+        $response2 = json_decode($response2, true);
+        // Results
+        $HotelCode = $response2['HotelCode'];
+        $HotelName = $response2['HotelName'];
+        $Language = $response2['Language'];
+        $Market = $response2['Market'];
+        $Customer = $response2['Customer'];
+        $FromDate = $response2['FromDate'];
+        $ToDate = $response2['ToDate'];
+        $ConfirmationId = $response2['ConfirmationId'];
+        $BookingReference = $response2['BookingReference'];
+        $Rooms = $response2['Rooms'];
+        for ($jAux3 = 0; $jAux3 < count($Rooms); $jAux3 ++) {
+            $Id = $Rooms[$jAux3]['Id'];
+            $CodeRooms = $Rooms[$jAux3]['Code'];
+            $NameRooms = $Rooms[$jAux3]['Name'];
+            $MealPlanCode = $Rooms[$jAux3]['MealPlanCode'];
+            $MealPlanName = $Rooms[$jAux3]['MealPlanName'];
+            $Status = $Rooms[$jAux3]['Status'];
+            $Adults = $Rooms[$jAux3]['Adults'];
+            $Childs = $Rooms[$jAux3]['Childs'];
+            $Enfants = $Rooms[$jAux3]['Enfants'];
+            $RateCode = $Rooms[$jAux3]['RateCode'];
+            $RateName = $Rooms[$jAux3]['RateName'];
+            $NonRefundable = $Rooms[$jAux3]['NonRefundable'];
+            $Package = $Rooms[$jAux3]['Package'];
+            $Senior = $Rooms[$jAux3]['Senior'];
+            $Residents = $Rooms[$jAux3]['Residents'];
+            $Remarks = $Rooms[$jAux3]['Remarks'];
+            $Price = $Rooms[$jAux3]['Price'];
+            if (count($Price) > 0) {
+                $CurrencyCode = $Price['CurrencyCode'];
+                $Amount = $Price['Amount'];
+                $Commission = $Price['Commission'];
+                $Binding = $Price['Binding'];
+            } else {
+                $CurrencyCode = "";
+                $Amount = "";
+                $Commission = "";
+                $Binding = "";
+            }
+            $Paxes = $Rooms[$jAux3]['Paxes'];
+            for ($j=0; $j < count($Paxes); $j++) { 
+                $PaxType = $Paxes[$j]['PaxType'];
+                $Age = $Paxes[$j]['Age'];
+                $GivenName = $Paxes[$j]['GivenName'];
+                $SurName = $Paxes[$j]['SurName'];
+            }
+            $currency = $CurrencyCode;
+            $CancelPolicy = "";
+            $cancelation_deadline = 0;
+            $CancelPenalties = $Rooms[$jAux3]['CancelPenalties'];
+            for ($iAux4 = 0; $iAux4 < count($CancelPenalties); $iAux4 ++) {
+                if ($iAux4 > 0) {
+                    $CancelPolicy .= "<br/>";
+                }
+                $HoursBefore = $CancelPenalties[$iAux4]['HoursBefore'];
+                $Description = $CancelPenalties[$iAux4]['Description'];
+                $Penalty = $CancelPenalties[$iAux4]['Penalty'];
+                if (count($Penalty) > 0) {
+                    $PenaltyType = $Penalty['PenaltyType'];
+                    $CurrencyCode2 = $Penalty['CurrencyCode'];
+                    $Value = $Penalty['Value'];
+                    $IsNetPrice = $Penalty['IsNetPrice'];
+                } else {
+                    $PenaltyType = "";
+                    $CurrencyCode2 = "";
+                    $Value = "";
+                    $IsNetPrice = "";
+                }
+                $offset = ($HoursBefore + 24) / 24;
+                if ($cancelation_deadline == 0) {
+                    $cancelation_deadline = mktime(0, 0, 0, date("m", $from2), date("d", $from2) + $offset, date("y", $from2));
+                } else {
+                    if ($cancelation_deadline > mktime(0, 0, 0, date("m", $from2), date("d", $from2) + $offset, date("y", $from2))) {
+                        $cancelation_deadline = mktime(0, 0, 0, date("m", $from2), date("d", $from2) + $offset, date("y", $from2));
+                    }
+                }
+                $CancelPolicy .= $translator->translate("Pay") . " " . $CurrencyCode2 . " " . $Value . " " . $translator->translate("if cancelled on or after") . " " . strftime("%d %b %Y", mktime(0, 0, 0, date("m", $from2), date("d", $from2) + $offset, date("y", $from2)));
+            }
+        }
         //
         // Policies
         //
@@ -170,9 +312,7 @@ foreach ($breakdown as $k => $v) {
         $total = $total + $value['total'];
         $tot = $value['total'];
         $item['room'] = $value['room'];
-        $item['RoomTypeCode'] = $value['room_type'];
-        $item['RoomType'] = $value['room_type'];
-        $item['RoomDescription'] = $value['room_description'];
+        $item['room_code'] = $value['room_code'];
         $item['meal'] = $value['meal'];
         $item['total'] = $value['total'];
         $item['totalplain'] = number_format($tot, 2, '.', '');
@@ -182,14 +322,16 @@ foreach ($breakdown as $k => $v) {
         $item['adults'] = $selectedAdults[$c];
         $item['children'] = $selectedChildren[$c];
         $item['children_ages'] = json_decode(json_encode($selectedChildrenAges[$c]), false);
-        error_log("\r\nComing2 - TODO - Booking/Check - Not Required but recommended\r\n", 3, "/srv/www/htdocs/error_log");
-        error_log("\r\nhttp://services.bedbank.coming2.com/hotel-api/doc/#api-Booking-BookingCheck\r\n", 3, "/srv/www/htdocs/error_log");
-        $cancelation_deadline = $value['cancelation_deadline'];
-        $cancelation_details = $value['cancelpolicy'];
-        $item['cancelpolicy_deadline'] = strftime("%a, %d %B %Y", $cancelation_deadline);
-        $item['cancelpolicy_deadlinetimestamp'] = $cancelation_deadline;
-        $item['cancelpolicy'] = $cancelation_details;
-        $item['cancelpolicy_details'] = $cancelation_details;
+
+        if ($NonRefundable == "true") {
+            $item['nonrefundable'] = true;
+            $item['cancelpolicy'] = $translator->translate("This is a non refundable booking.") . "<br/>" . $CancelPolicy;
+            $item['cancelpolicy_deadline'] = strftime("%a, %d %B %Y", $cancelation_deadline);
+        } else {
+            $item['nonrefundable'] = false;
+            $item['cancelpolicy'] = $CancelPolicy;
+            $item['cancelpolicy_deadline'] = strftime("%a, %d %B %Y", $cancelation_deadline);
+        }
         array_push($roombreakdown, $item);
     }
     $c ++;
