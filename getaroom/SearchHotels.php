@@ -394,6 +394,7 @@ if ($GetaroomServiceURL != "" and $GetaroomAuth != "" and $GetaroomAPIKey != "")
         }
         $lowest_averageDP = $display_pricing->item(0)->getElementsByTagName('lowest-average');
         if ($lowest_averageDP->length > 0) {
+            $reference_amountDP = $lowest_averageDP->item(0)->getAttribute('reference-amount');
             $lowest_averageDP = $lowest_averageDP->item(0)->nodeValue;
         } else {
             $lowest_averageDP = "";
@@ -416,6 +417,7 @@ if ($GetaroomServiceURL != "" and $GetaroomAuth != "" and $GetaroomAPIKey != "")
                 }
                 $rateNR = $nightly_rate->item($K)->getElementsByTagName('rate');
                 if ($rateNR->length > 0) {
+                    $reference_amountNR = $rateNR->item(0)->getAttribute('reference-amount');
                     $rateNR = $rateNR->item(0)->nodeValue;
                 } else {
                     $rateNR = "";
@@ -443,12 +445,14 @@ if ($GetaroomServiceURL != "" and $GetaroomAuth != "" and $GetaroomAPIKey != "")
         }
         $taxesBP = $booking_pricing->item(0)->getElementsByTagName('taxes');
         if ($taxesBP->length > 0) {
+            $reference_amountBP = $taxesBP->item(0)->getAttribute('reference-amount');
             $taxesBP = $taxesBP->item(0)->nodeValue;
         } else {
             $taxesBP = "";
         }
         $feesBP = $booking_pricing->item(0)->getElementsByTagName('fees');
         if ($feesBP->length > 0) {
+            $allow_markupBP = $feesBP->item(0)->getAttribute('allow-markup');
             $feesBP = $feesBP->item(0)->nodeValue;
         } else {
             $feesBP = "";
@@ -485,6 +489,7 @@ if ($GetaroomServiceURL != "" and $GetaroomAuth != "" and $GetaroomAPIKey != "")
         }
         $lowest_averageBP = $booking_pricing->item(0)->getElementsByTagName('lowest-average');
         if ($lowest_averageBP->length > 0) {
+            $reference_amountBP = $lowest_averageBP->item(0)->getAttribute('reference-amount');
             $lowest_averageBP = $lowest_averageBP->item(0)->nodeValue;
         } else {
             $lowest_averageBP = "";
@@ -507,6 +512,7 @@ if ($GetaroomServiceURL != "" and $GetaroomAuth != "" and $GetaroomAPIKey != "")
                 }
                 $rateNRB = $nightly_rate->item($K)->getElementsByTagName('rate');
                 if ($rateNRB->length > 0) {
+                    $reference_amountNRB = $rateNRB->item(0)->getAttribute('reference-amount');
                     $rateNRB = $rateNRB->item(0)->nodeValue;
                 } else {
                     $rateNRB = "";
@@ -591,6 +597,12 @@ if ($GetaroomServiceURL != "" and $GetaroomAuth != "" and $GetaroomAPIKey != "")
             $landing_url = $landing_url->item(0)->nodeValue;
         } else {
             $landing_url = "";
+        }
+        $ratetoken = $node->item($rAUX)->getElementsByTagName('rate-token');
+        if ($ratetoken->length > 0) {
+            $ratetoken = $ratetoken->item(0)->nodeValue;
+        } else {
+            $ratetoken = "";
         }
 
         $count = 0;

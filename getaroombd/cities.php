@@ -87,9 +87,6 @@ if ($row_settings->valid()) {
 echo $return;
 echo $GetaroomAuth;
 echo $return;
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.getaroom.php');
 $config = [
@@ -450,58 +447,58 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                   $result->buffer();
                   $customers = array();
                   if ($result->valid()) {
-                  $data = $result->current();
-                  $id = $data['idrt'];
-                  if (strlen($id) > 0) {
-                  $sql = new Sql($db);
-                  $data = array(
-                  'datetime_created' => time(),
-                  'datetime_updated' => 1,
-                  'idrt' => $idrt,
-                  'name' => $ennamert,
-                  'description' => $endescriptionrt,
-                  'id_content' => $id
-                  );
-                  $where['idrt = ?'] = $idrt;
-                  $update = $sql->update('roomtypes', $data, $where);
-                  $db->getDriver()
-                  ->getConnection()
-                  ->disconnect();
+                        $data = $result->current();
+                        $id = $data['idrt'];
+                        if (strlen($id) > 0) {
+                            $sql = new Sql($db);
+                            $data = array(
+                                'datetime_created' => time(),
+                                'datetime_updated' => 1,
+                                'idrt' => $idrt,
+                                'name' => $ennamert,
+                                'description' => $endescriptionrt,
+                                'id_content' => $id
+                            );
+                            $where['idrt = ?'] = $idrt;
+                            $update = $sql->update('roomtypes', $data, $where);
+                            $db->getDriver()
+                            ->getConnection()
+                            ->disconnect();
+                        } else {
+                            $sql = new Sql($db);
+                            $insert = $sql->insert();
+                            $insert->into('roomtypes');
+                            $insert->values(array(
+                                'datetime_created' => time(),
+                                'datetime_updated' => 0,
+                                'idrt' => $idrt,
+                                'name' => $ennamert,
+                                'description' => $endescriptionrt,
+                                'id_content' => $id
+                            ), $insert::VALUES_MERGE);
+                            $statement = $sql->prepareStatementForSqlObject($insert);
+                            $results = $statement->execute();
+                            $db->getDriver()
+                            ->getConnection()
+                            ->disconnect();
+                        }
                   } else {
-                  $sql = new Sql($db);
-                  $insert = $sql->insert();
-                  $insert->into('roomtypes');
-                  $insert->values(array(
-                  'datetime_created' => time(),
-                  'datetime_updated' => 0,
-                  'idrt' => $idrt,
-                  'name' => $ennamert,
-                  'description' => $endescriptionrt,
-                  'id_content' => $id
-                  ), $insert::VALUES_MERGE);
-                  $statement = $sql->prepareStatementForSqlObject($insert);
-                  $results = $statement->execute();
-                  $db->getDriver()
-                  ->getConnection()
-                  ->disconnect();
-                  }
-                  } else {
-                  $sql = new Sql($db);
-                  $insert = $sql->insert();
-                  $insert->into('roomtypes');
-                  $insert->values(array(
-                  'datetime_created' => time(),
-                  'datetime_updated' => 0,
-                  'idrt' => $idrt,
-                  'name' => $ennamert,
-                  'description' => $endescriptionrt,
-                  'id_content' => $id
-                  ), $insert::VALUES_MERGE);
-                  $statement = $sql->prepareStatementForSqlObject($insert);
-                  $results = $statement->execute();
-                  $db->getDriver()
-                  ->getConnection()
-                  ->disconnect();
+                    $sql = new Sql($db);
+                    $insert = $sql->insert();
+                    $insert->into('roomtypes');
+                    $insert->values(array(
+                        'datetime_created' => time(),
+                        'datetime_updated' => 0,
+                        'idrt' => $idrt,
+                        'name' => $ennamert,
+                        'description' => $endescriptionrt,
+                        'id_content' => $id
+                    ), $insert::VALUES_MERGE);
+                    $statement = $sql->prepareStatementForSqlObject($insert);
+                    $results = $statement->execute();
+                    $db->getDriver()
+                    ->getConnection()
+                    ->disconnect();
                   }
                 } catch (\Exception $e) {
                     echo $return;

@@ -97,9 +97,6 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $GetaroomAuth = $row_settings['value'];
 }
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
     
 $config = new \Zend\Config\Config(include '../config/autoload/global.didatravel.php');
 $config = [
