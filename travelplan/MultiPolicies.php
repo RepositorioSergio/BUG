@@ -1,4 +1,5 @@
 <?php
+error_log("\r\nMulti Policies TRAVELPLAN \r\n", 3, "/srv/www/htdocs/error_log");
 use Zend\Db\Adapter\Adapter;
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\ResultSet\ResultSet;
@@ -6,13 +7,26 @@ use Zend\Db\Sql\Sql;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
 use Zend\I18n\Translator\Translator;
+use Zend\Http\Client;
+use Zend\Http\Request;
 $translator = new Translator();
 $valid = 0;
 $hid = 0;
 $shid = 0;
+$salestaxes = 0;
+$salestaxesfees = 0;
+$baserate = 0;
+$affiliate_id_expedia = 0;
+$occupancies = "";
+$sindex = $index;
 $db = new \Zend\Db\Adapter\Adapter($config);
-try {
+if ($details == "hoteldetails") {
+    // Detail level
+    $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_travelplan where session_id='" . $session_id . "-" . $index . "'";
+} else {
     $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_travelplan where session_id='$session_id'";
+}
+try {
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
@@ -26,8 +40,6 @@ $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $data = unserialize(base64_decode($row_settings["data"]));
-    $xmlrequest = $row_settings["xmlrequest"];
-    $xmlresult = $row_settings["xmlresult"];
     $searchsettings = unserialize(base64_decode($row_settings["searchsettings"]));
     $lang = $searchsettings['lang'];
     $currency = $searchsettings['currency'];
@@ -40,14 +52,30 @@ if ($row_settings->valid()) {
     $ipaddress = $searchsettings['ipaddress'];
     $nationality = $searchsettings['nationality'];
     $residency = $searchsettings['residency'];
-    $rooms = $searchsettings['rooms'];
-    $adt = $searchsettings['adt'];
-    $chd = $searchsettings['chd'];
+    $room_type = $searchsettings['room'];
+    $adt = $searchsettings['adults'];
+    $chd = $searchsettings['children'];
     $children_ages = $searchsettings['children_ages'];
+    if ($details == "hoteldetails") {
+        $selectedAdults = array();
+        $selectedAdults[$nroom] = $adt;
+        // Children + Ages
+        $selectedChildrenAges = array();
+        $selectedChildren = array();
+        $selectedChildren[$nroom] = $chd;
+        if ($chd > 0) {
+            $children_ages = explode(",", $children_ages);
+            for ($w = 0; $w < count($children_ages); $w ++) {
+                $selectedChildrenAges[$nroom][$w] = $children_ages[$w];
+            }
+        }
+    }
 } else {
     $response['error'] = "Unable to handle request #2";
     return false;
 }
+$affiliate_id = 0;
+$branch_filter = '';
 $sql = "select value from settings where name='enabletravelplan' and affiliate_id=$affiliate_id" . $branch_filter;
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -190,50 +218,41 @@ if ($row_settings->valid()) {
     $TravelPlanConnectionString = $row_settings['value'];
 }
 
-$breakdown = array();
-for ($w = 0; $w < count($quoteid); $w ++) {
-    $outputArray = array();
-    $arrIt = new RecursiveIteratorIterator(new RecursiveArrayIterator($data));
-    foreach ($arrIt as $sub) {
-        $subArray = $arrIt->getSubIterator();
-        if (isset($quoteid[$w])) {
-            if (isset($subArray['quoteid'])) {
-                if ($subArray['quoteid'] === $quoteid[$w]) {
-                    $outputArray[] = iterator_to_array($subArray);
-                    $hid = $arrIt->getSubIterator($arrIt->getDepth() - 4)
-                        ->key();
-                }
+$outputArray = array();
+$arrIt = new RecursiveIteratorIterator(new RecursiveArrayIterator($data));
+foreach ($arrIt as $sub) {
+    $subArray = $arrIt->getSubIterator();
+    if (isset($quoteid[$nroom])) {
+        if (isset($subArray['quoteid'])) {
+            if ($subArray['quoteid'] === $quoteid[$nroom]) {
+                $outputArray[] = iterator_to_array($subArray);
+                $hid = $arrIt->getSubIterator($arrIt->getDepth() - 4)
+                    ->key();
             }
         }
-    }
-    if (! is_array($outputArray)) {
-        $response['error'] = "Unable to handle request #3";
-        return false;
-    } else {
-        array_push($breakdown, $outputArray);
     }
 }
-$fromHotelbeds = DateTime::createFromFormat("d-m-Y", $from);
-$toHotelbeds = DateTime::createFromFormat("d-m-Y", $to);
-$nights = $fromHotelbeds->diff($toHotelbeds);
-$nights = $nights->format('%R%a');
-$fromHotelbeds = $fromHotelbeds->getTimestamp();
-$toHotelbeds = $toHotelbeds->getTimestamp();
-$c = 0;
+$breakdownTmp = array();
+if (! is_array($outputArray)) {
+    $response['error'] = "Unable to handle request #3";
+    return false;
+} else {
+    array_push($breakdownTmp, $outputArray);
+}
+
+$fromHotelsPRO = DateTime::createFromFormat("d-m-Y", $from);
+$toHotelsPro = DateTime::createFromFormat("d-m-Y", $to);
+$nights = $fromHotelsPRO->diff($toHotelsPro);
+$nights = $nights->format('%a');
+$c = $nroom;
 $response = array();
-$roombreakdown = array();
-foreach ($breakdown as $k => $v) {
+$roombreakdown2 = array();
+foreach ($breakdownTmp as $k => $v) {
     foreach ($v as $key => $value) {
-        if ($shid == 0) {
-            $shid = $value['shid'];
-        } else {
-            if ($shid != $value['shid']) {
-                // We can't book two rooms from two suppliers
-                $response['error'] = "Unable to handle request #4";
-                return false;
-            }
-        }
-        // Check pricing & availability
+        $shid = $value['shid'];
+        $code = $value['hotelid'];
+        $scode = $value['shid'];
+        $HotelId = $value['hotelid'];
         $x50_0 = $value['x50_0'];
         $x50_1 = $value['x50_1'];
         $x50_2 = $value['x50_2'];
@@ -241,8 +260,7 @@ foreach ($breakdown as $k => $v) {
         $RatePlanCode = $value['RatePlanCode'];
         $Token = $value['Token'];
         $Total = $value['total'];
-        $adults = $value['adults'];
-        $children = $value['children'];
+        $province = $x50_0 . '' . $x50_1;
         
         $from_date = date('Y-m-d', strtotime($from));
         $to_date = date('Y-m-d', strtotime($to));
@@ -273,12 +291,12 @@ foreach ($breakdown as $k => $v) {
                                          <ns0:TPA_Extensions>
                                             <ns0:ProviderTokens>';
                                             $TokenCode = 1;
-                                            for ($y = 0; $y < $adults; $y ++) {
+                                            for ($y = 0; $y < $adt; $y ++) {
                                                 $xml = $xml . '<ns0:Token TokenCode="' . $TokenCode . '" TokenName="PaxId"/>';
                                                 $TokenCode = $TokenCode + 1;
                                             }
                                             if ($chd > 0) {
-                                                for ($o = 0; $o < $children; $o ++) {
+                                                for ($o = 0; $o < $chd; $o ++) {
                                                     $xml = $xml . '<ns0:Token TokenCode="' . $TokenCode . '" TokenName="PaxId"/>';
                                                     $TokenCode = $TokenCode + 1;
                                                 }
@@ -289,24 +307,24 @@ foreach ($breakdown as $k => $v) {
                                       </ns0:Rate>
                                    </ns0:Rates>
                                    <ns0:GuestCounts>';
-                                   for ($z = 0; $z < $adults; $z ++) {
-                                    $xml = $xml . '<ns0:GuestCount Count="1" Age="30"/>';
+                                   for ($z = 0; $z < $adt; $z ++) {
+                                        $xml = $xml . '<ns0:GuestCount Count="1" Age="30"/>';
                                     }
                                     if ($chd > 0) {
-                                        for ($o = 0; $o < $children; $o ++) {
-                                            $xml = $xml . '<ns0:GuestCount Count="1" Age="' . $children_ages[$k][$o] . '"/>';
+                                        for ($o = 0; $o < $chd; $o ++) {
+                                            $xml = $xml . '<ns0:GuestCount Count="1" Age="' . $children_ages[$o] . '"/>';
                                         }
                                     }
                             $xml .= '</ns0:GuestCounts>
                                 </ns0:RoomRate>
                              </ns0:RoomRates>
                              <ns0:TimeSpan Start="' . $from_date . '" End="' . $to_date . '"/>
-                             <ns0:BasicPropertyInfo HotelCode="' . $shid . '"/>
+                             <ns0:BasicPropertyInfo HotelCode="' . $HotelId . '"/>
                           </ns0:RoomStay>
                        </ns0:RoomStays>
                        <ns0:ResGuests>';
                        $TokenCode2 = 1;
-                       for ($r=0; $r < $adults; $r++) { 
+                       for ($r=0; $r < $adt; $r++) { 
                            $xml .= '<ns0:ResGuest Age="30">
                            <ns0:Profiles>
                                <ns0:ProfileInfo>
@@ -326,8 +344,8 @@ foreach ($breakdown as $k => $v) {
                                </ns0:ResGuest>';
                             $TokenCode2 = $TokenCode2 + 1;
                        }
-                       if ($children > 0) {
-                            for ($z=0; $z < $children; $z++) { 
+                       if ($chd > 0) {
+                            for ($z=0; $z < $chd; $z++) { 
                                 $xml .= '<ns0:ResGuest Age="' . $children_ages[$z] . '">
                                 <ns0:Profiles>
                                     <ns0:ProfileInfo>
@@ -348,7 +366,7 @@ foreach ($breakdown as $k => $v) {
                                     $TokenCode2 = $TokenCode2 + 1;
                             }
                        }                       
-                        $xml .= '</ns0:ResGuests> 
+                        $xml .= '</ns0:ResGuests>      
                             <ns0:TPA_Extensions>
                                 <ns0:Providers>
                                     <ns0:Provider Provider="GSI">
@@ -362,7 +380,7 @@ foreach ($breakdown as $k => $v) {
                                         </ns0:Credentials>
                                         <ns0:ProviderAreas>
                                         <ns0:Area TypeCode="Country" AreaCode="' . $x50_0 . '"/>
-                                        <ns0:Area TypeCode="Province" AreaCode="' . $x50_1 . '"/>
+                                        <ns0:Area TypeCode="Province" AreaCode="' . $province . '"/>
                                         </ns0:ProviderAreas>
                                     </ns0:Provider>
                                 </ns0:Providers>
@@ -376,7 +394,7 @@ foreach ($breakdown as $k => $v) {
                     </ns0:OTA_HotelResRQ>
                 </soapenv:Body>
                 </soapenv:Envelope>';
-                error_log("\r\n RAW - $xml\r\n", 3, "/srv/www/htdocs/error_log");
+                error_log("\r\n RAW - $xml \r\n", 3, "/srv/www/htdocs/error_log");
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $TravelPlanserviceURL);
         curl_setopt($ch, CURLOPT_HEADER, false);
@@ -397,8 +415,8 @@ foreach ($breakdown as $k => $v) {
         $parse = curl_exec($ch);
         $error = curl_error($ch);
         $headers = curl_getinfo($ch);
-        error_log("\r\n RESPONSE - $parse\r\n", 3, "/srv/www/htdocs/error_log");
         $inputDoc = new DOMDocument();
+        error_log("\r\nResponse - $parse\r\n", 3, "/srv/www/htdocs/error_log");
         $tmp = gzdecode($parse);
         if ($tmp != "") {
             $parse = $tmp;
@@ -449,22 +467,23 @@ foreach ($breakdown as $k => $v) {
                 }
             }
         }
-        
+        //
+        // EOF Policies
+        //
         // EOF Check prices & availability
-        $item = array();
+        //
+        $item['code'] = $value['shid'];
+        $item['name'] = $value['name'];
+        $item['total'] = $value['total'];
+        $item['nett'] = $value['nett'];
         $total = $total + $value['total'];
+        $tot = $value['total'];
         $item['room'] = $value['room'];
+        $item['RoomTypeCode'] = $value['room_type'];
+        $item['RoomType'] = $value['room_type'];
+        $item['RoomDescription'] = $value['room_description'];
         $item['meal'] = $value['meal'];
-        if ($tax > 0) {
-            $tot = $value['total'] - floatval($tax);
-            $item['subtotal'] = $filter->filter(floatval($tot));
-            $item['tax'] = $filter->filter(floatval($tax));
-        } else {
-            $item['tax'] = "";
-            $tot = $value['total'];
-            $item['subtotal'] = $filter->filter(floatval($tot));
-        }
-        $item['total'] = $filter->filter($tot);
+        $item['total'] = $value['total'];
         $item['totalplain'] = number_format($tot, 2, '.', '');
         $avg = $tot / $nights;
         $item['avgnight'] = $filter->filter($avg);
@@ -472,9 +491,8 @@ foreach ($breakdown as $k => $v) {
         $item['adults'] = $selectedAdults[$c];
         $item['children'] = $selectedChildren[$c];
         $item['children_ages'] = json_decode(json_encode($selectedChildrenAges[$c]), false);
-        // Get Cancellation Policies
-        // TODO
-        // EOF Policies
+        
+
         if ($NonRefundable == "true") {
             $item['nonrefundable'] = true;
             $item['cancelpolicy'] = $translator->translate("This is a non refundable booking"). "<br/>" . $CancelPolicies;
@@ -487,29 +505,32 @@ foreach ($breakdown as $k => $v) {
             $item['cancelpolicy_details'] = $CancelPolicies;
             $item['cancelpolicy_deadline'] = date('D, d M Y', strtotime($End));
         }
-
+        
         array_push($roombreakdown, $item);
+        array_push($roombreakdown2, $item);
     }
     $c ++;
 }
+$hotel = array();
+$sql = "select sid from xmlhotels_mglobalia where sid='" . $shid . "' and hid=" . $hid;
+// error_log("\r\n$sql\r\n", 3, "/srv/www/htdocs/error_log");
+$statement = $db->createStatement($sql);
 try {
-    $hotel = array();
-    $sql = "select sid from xmlhotels_mglobalia where sid=" . $shid . " and hid=" . $hid;
-    $statement = $db->createStatement($sql);
     $statement->prepare();
-    $row_hotel = $statement->execute();
-    $row_hotel->buffer();
-    if (! $row_hotel->valid()) {
-        $response['error'] = "Unable to handle request #5";
-        return false;
-    }
 } catch (\Exception $e) {
     $logger = new Logger();
     $writer = new Writer\Stream('/srv/www/htdocs/error_log');
     $logger->addWriter($writer);
     $logger->info($e->getMessage());
 }
+$row_hotel = $statement->execute();
+$row_hotel->buffer();
+if (! $row_hotel->valid()) {
+    $response['error'] = "Unable to handle request #5";
+    return false;
+}
 $sql = "select description as name, stars, hotel_info, address_1, address_2, address_3, address_4, latitude, longitude, city, city_name, seo, zipcode, country from xmlhotels where id=" . $hid;
+// error_log("\r\n$sql\r\n", 3, "/srv/www/htdocs/error_log");
 $statement = $db->createStatement($sql);
 $statement->prepare();
 try {
@@ -574,13 +595,57 @@ try {
     $logger->addWriter($writer);
     $logger->info($e->getMessage());
 }
+// error_log("\r\n" . print_r($responseContent, true) . "\r\n", 3, "/srv/www/htdocs/error_log");
+$hotel['checkin'] = $responseContent[$shid]['checkin'];
+$hotel['fees'] = $responseContent[$shid]['fees'];
 $response['hotel'] = $hotel;
 $response['hotel']['images'] = $images;
-$response['breakdown'] = $roombreakdown;
+$response['breakdown'] = $roombreakdown2;
 $response['total'] = $filter->filter($total);
 $response['totalplain'] = number_format($total, 2, '.', '');
+$response['sales_taxes'] = $filter->filter($salestaxes);
+$response['sales_taxesplain'] = number_format($salestaxes, 2, '.', '');
+$response['taxes'] = $filter->filter($salestaxesfees);
+$response['taxesplain'] = number_format($salestaxesfees, 2, '.', '');
+$response['base_rate'] = $filter->filter($baserate);
+$response['base_rateplain'] = number_format($baserate, 2, '.', '');
+$response['occupancies'] = json_encode($occupancies);
 $response['searchsettings'] = $searchsettings;
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
+$response['ean'] = 1;
+$response['eanbookhref'] = $href;
+//
+// Store Session
+//
+$sql = new Sql($db);
+$sql = "delete from quote_session_hotel_multipolicies where session_id='" . $session_id . "' and sindex=$sindex";
+try {
+    $statement = $db->createStatement($sql);
+    $statement->prepare();
+    $results = $statement->execute();
+} catch (\Exception $e) {
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($e->getMessage());
+}
+$sql = new Sql($db);
+$insert = $sql->insert();
+$insert->into('quote_session_hotel_multipolicies');
+$insert->values(array(
+    'session_id' => $session_id,
+    'sindex' => $sindex,
+    'data' => base64_encode(serialize($response)),
+    'searchsettings' => base64_encode(serialize($searchsettings))
+), $insert::VALUES_MERGE);
+try {
+    $statement = $sql->prepareStatementForSqlObject($insert);
+    $results = $statement->execute();
+} catch (\Exception $e) {
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($e->getMessage());
+}
+$response['breakdown'] = $roombreakdown;
+error_log("\r\n TRAVELPLAN Policies Multi - EOF\r\n", 3, "/srv/www/htdocs/error_log");
 ?>
