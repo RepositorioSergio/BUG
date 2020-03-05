@@ -1,0 +1,62 @@
+{
+    "pos": {
+      "source": [
+        {
+          "requestorID": {
+            "id": "2113855"
+          }
+        }
+      ]
+    },
+    "originDestinationInformation": [
+      {
+        "departureDateTime": {
+          "value": "20200610"
+        },
+        "originLocation": {
+          "locationCode": "LIM"
+        },
+        "destinationLocation": {
+          "locationCode": "MIA"
+        }
+      },
+      {
+        "departureDateTime": {
+          "value": "20200620"
+        },
+        "originLocation": {
+          "locationCode": "MIA"
+        },
+        "destinationLocation": {
+          "locationCode": "LIM"
+        }
+      }
+    ],
+    "travelerInfoSummary": {
+      "airTravelerAvail": [
+        {
+          "airTraveler": {
+            "passengerTypeQuantity": {
+              "code": "ADT",
+              "quantity": 1
+            }
+          }
+        }
+      ]
+    },
+    "travelPreferences": [
+      {
+        "vendorPref": [
+          {
+            "code": "LA",
+            "allianceAllowedInd": true
+          }
+        ],
+        "cabinPref": [
+          {
+            "cabin": "Y"
+          }
+        ]
+      }
+    ]
+  }

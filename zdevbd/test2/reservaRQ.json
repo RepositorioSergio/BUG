@@ -1,0 +1,256 @@
+{
+  "pos": {
+    "source": [
+      {
+        "requestorID": {
+          "id": "2113855",
+          "messagePassword": "eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAAAKtWyiwuVrJSSs4vLknMTSxS0lHKTCxRsjI0tTA2NjE0NDbRUUqtKIAImBiZm4IESotTi_ISc1NB-nIyk7MT81KS8vOzlWoBUTmexU4AAAA.gGlXQgxflJc1ddz7dBAoEutAWogyQwwS0VfjQx-I_fE"
+        },
+        "pseudoCityCode": "FLL6C2102",
+        "erspuserID": "100",
+        "terminalID": "192.168.56.1"
+      }
+    ]
+  },
+  "airItinerary": {
+    "originDestinationOptions": {
+      "originDestinationOption": [
+        {
+          "flightSegment": [
+            {
+              "departureAirport": {
+                "locationCode": "LIM",
+                "codeContext": "Lima, Lima, Perú (LIM)"
+              },
+              "arrivalAirport": {
+                "locationCode": "CUZ",
+                "codeContext": "Aeropuerto Velazco Astete, Cusco, Perú (CUZ)"
+              },
+              "departureDateTime": "2020-06-10T04:30:00.000-0500",
+              "arrivalDateTime": "2020-06-10T05:51:00.000-0500",
+              "operatingAirline": {
+                "code": "",
+                "companyShortName": "LATAM AIRLINES PERU"
+              },
+              "marketingAirline": {
+                "code": "LA",
+                "companyShortName": "LATAM Airlines"
+              },
+              "connectionType": "S",
+              "flightNumber": "2025",
+              "equipment": [
+                {
+                  "airEquipType": "320"
+                }
+              ],
+              "stopLocation": [],
+              "bookingClassAvails": [
+                {
+                  "bookingClassAvail": [
+                    {
+                      "resBookDesigCode": "V"
+                    }
+                  ],
+                  "cabinType": "M"
+                }
+              ],
+              "tpaextensions": {
+                "any": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?>\n<segmentDetails><elapsedTime>0121</elapsedTime><fareProductDetail fareBasis=\"V00SL5ZV\" fareType=\"RP\" passengerType=\"ADT\"/></segmentDetails>"
+                ]
+              },
+              "resBookDesigCode": "",
+              "marriageGrp": "",
+              "fareBasisCode": "V00SL5ZV",
+              "rph": ""
+            },
+            {
+              "connectionType": "F",
+              "tpaextensions": {
+                "any": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?>\n<flightDetails><elapsedTime>0121</elapsedTime><brandedFare brandID=\"SL\"/><baggageInformationList><baggageInformation pieces=\"0\"/></baggageInformationList><handBaggage description=\"\" pieces=\"1\"/><connectionLocationList><connectionLocation codeContext=\"Lima, Lima, Perú (LIM)\" locationCode=\"LIM\" minChangeTime=\"81\"/></connectionLocationList></flightDetails>"
+                  ]
+                }
+            }
+          ],
+          "refNumber": 0,
+          "rph": "01"
+        },
+        {
+          "flightSegment": [
+          {
+              "departureAirport": {
+                "locationCode": "CUZ",
+                "codeContext": "Aeropuerto Velazco Astete, Cusco, Perú (CUZ)"
+              },
+              "arrivalAirport": {
+                "locationCode": "LIM",
+                "codeContext": "Lima, Lima, Perú (LIM)"
+              },
+              "departureDateTime": "2020-06-20T06:26:00.000-0500",
+              "arrivalDateTime": "2020-06-20T07:50:00.000-0500",
+              "operatingAirline": {
+                "code": "",
+                "companyShortName": "LATAM AIRLINES PERU"
+              },
+              "marketingAirline": {
+                "code": "LA",
+                "companyShortName": "LATAM Airlines"
+              },
+              "connectionType": "S",
+              "flightNumber": "2024",
+              "equipment": [
+                {
+                  "airEquipType": "319"
+                }
+              ],
+              "stopLocation": [],
+              "bookingClassAvails": [
+                {
+                  "bookingClassAvail": [
+                    {
+                      "resBookDesigCode": "V"
+                    }
+                  ],
+                  "cabinType": "M"
+                }
+              ],
+              "tpaextensions": {
+                "any": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?>\n<segmentDetails><elapsedTime>0124</elapsedTime><fareProductDetail fareBasis=\"V00SL5ZV\" fareType=\"RP\" passengerType=\"ADT\"/></segmentDetails>"
+                ]
+              },
+              "resBookDesigCode": "",
+              "marriageGrp": "",
+              "fareBasisCode": "V00SL5ZV",
+              "rph": ""
+            }, 
+            {
+              "connectionType": "F",
+              "tpaextensions": {
+                "any": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?>\n<flightDetails><elapsedTime>0124</elapsedTime><brandedFare brandID=\"SL\"/><baggageInformationList><baggageInformation pieces=\"0\"/></baggageInformationList><handBaggage description=\"\" pieces=\"1\"/><connectionLocationList><connectionLocation codeContext=\"Aeropuerto Velazco Astete, Cusco, Perú (CUZ)\" locationCode=\"CUZ\" minChangeTime=\"84\"/></connectionLocationList></flightDetails>"
+                ]
+              }
+            }
+          ],
+          "refNumber": 1,
+          "rph": "11"
+        }
+      ]
+    }
+  },
+  "priceInfo": {
+    "itinTotalFare": [
+      {
+        "baseFare": {
+          "amount": "202.00"
+        },
+        "taxes": {
+          "amount": "52.14"
+        },
+        "totalFare": {
+          "amount": "254.14"
+        },
+        "fees": {
+          "fee": []
+        },
+        "discounts": {
+          "discount": []
+        },
+        "fareBaggageAllowance": [
+          {
+            "unitOfMeasure": "1"
+          },
+          {
+            "unitOfMeasure": "1"
+          }
+        ],
+        "remark": []
+      }
+    ],
+    "ptcfareBreakdowns": {
+      "ptcfareBreakdown": [
+        {
+          "passengerTypeQuantity": {
+            "code": "ADT"
+          },
+          "passengerFare": [
+            {
+              "baseFare": {
+                "amount": "202.00"
+              },
+              "taxes": {
+                "amount": "52.14"
+              },
+              "totalFare": {
+                "amount": "254.14"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "pricingSource": "PUBLISHED",
+    "priceRequestInformation": {
+      "fareQualifier": "DOMESTIC"
+    },
+    "validatingAirlineCode": "LA",
+    "fareInfos": {
+      "fareInfo": [
+        {
+          "fareInfo": [
+            {
+              "fareType": "SL"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "travelerInfo": {
+    "airTraveler": [
+      {
+        "personName": {
+          "givenName": ["TEST"],
+          "surname": "TEST"
+        },
+        "gender": "M",
+        "document": [
+          {
+            "docID": "662435433",
+            "docType": "NI",
+            "birthCountry": "PE",
+            "birthDate": 874126800000
+          }
+        ],
+        "passengerTypeCode": "ADT"
+      }
+    ]
+  },
+  "fulfillment": {
+    "paymentDetails": {
+      "paymentDetail": [
+        {
+          "paymentType": 103,
+          "paymentAmount": [
+            {
+              "amount": "254.14"
+            }
+          ]
+        }
+      ]
+    },
+    "name": {
+      "givenName": ["TEST"],
+      "surname": "TEST"
+    }
+  },
+  "target": "http://localhost:5000/payment/result?id=eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAAAKtWyiwuVrJSSs4vLknMTSxS0lHKTCxRsjI0tTA2NjE0NDbRUUqtKIAImBiZm4IESotTi_ISc1NB-nIyk7MT81KS8vOzlWoBUTmexU4AAAA.gGlXQgxflJc1ddz7dBAoEutAWogyQwwS0VfjQx-I_fE",
+  "primaryLangID": "es",
+  "tpaextensions": {
+    "any": [
+      "<?xml version=\"1.0\" encoding=\"UTF-16\"?>\n<additionalInfo><contactInformation phoneNumber=\"13213132\" locationCode=\"PE\" countryAccessCode=\"51\" email=\"zdev@costamar.com\" /><splitPayment totalPaid=\"400.00\" milesUsed=\"2000\" /></additionalInfo>"
+    ]
+  }
+}
