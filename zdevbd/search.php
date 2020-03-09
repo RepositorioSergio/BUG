@@ -231,65 +231,68 @@ if (count($pricedItinerary) > 0) {
               }
             }
           }
-          if (count($anyArray) > 0) {
-            $tam = count($anyArray);
-      
-            echo $return;
-            echo "ANY2 " . $anyArray[$tam - 1];
-            echo $return;
-            $xml = $anyArray[$tam - 1];
-
-            $inputDoc = new DOMDocument();
-            $inputDoc->loadXML($xml);
-            $flightDetails = $inputDoc->getElementsByTagName("flightDetails");
-            echo $return;
-            echo "ENTROU " . $flightDetails->length;
-            echo $return;
-            $elapsedTime = $flightDetails->item(0)->getElementsByTagName("elapsedTime");
-            if ($elapsedTime->length > 0) {
-                $elapsedTime = $elapsedTime->item(0)->nodeValue;
-            } else {
-                $elapsedTime = "";
-            }
-            echo $return;
-            echo "elapsedTime:" . $elapsedTime;
-            echo $return;
-            $brandedFare = $flightDetails->item(0)->getElementsByTagName("brandedFare");
-            if ($brandedFare ->length > 0) {
-              $brandName = $brandedFare->item(0)->getAttribute('brandName');
-              $brandID = $brandedFare->item(0)->getAttribute('brandID');
-            } else {
-              $brandName = "";
-              $brandID = "";
-            }
-            echo $return;
-            echo "ID:" . $brandID;
-            echo $return;
-            $baggageInformationList = $flightDetails->item(0)->getElementsByTagName("baggageInformationList");
-            if ($baggageInformationList->length > 0) {
-              $baggageInformation = $baggageInformationList->item(0)->getElementsByTagName("baggageInformation");
-              if ($baggageInformation->length > 0) {
-                $pieces = $brandedFare->item(0)->getAttribute('pieces');
-              } else {
-                $pieces = "";
-              }
-            }
-            $connectionLocationList = $flightDetails->item(0)->getElementsByTagName("connectionLocationList");
-            if ($connectionLocationList->length > 0) {
-              $connectionLocation = $connectionLocationList->item(0)->getElementsByTagName("connectionLocation");
-              if ($connectionLocation->length > 0) {
-                $minChangeTime = $connectionLocation->item(0)->getAttribute('minChangeTime');
-                $locationCode = $connectionLocation->item(0)->getAttribute('locationCode');
-                $codeContext = $connectionLocation->item(0)->getAttribute('codeContext');
-              } else {
-                $minChangeTime = "";
-                $locationCode = "";
-                $codeContext = "";
-              }
-            }   
-          }
         }
       }
+    }
+    if (count($anyArray) > 0) {
+      $tam = count($anyArray);
+
+      echo $return;
+      echo "ANY2 " . $anyArray[$tam - 1];
+      echo $return;
+      $xml = $anyArray[$tam - 1];
+      $response2 = preg_replace('/(<\?xml[^?]+?)utf-16/i', '$1utf-8', $xml);
+      echo $return;
+      echo "RESPONSE " . $response2;
+      echo $return;
+      $inputDoc = new DOMDocument();
+      $inputDoc->loadXML($response2);
+      $flightDetails = $inputDoc->getElementsByTagName("flightDetails");
+      echo $return;
+      echo "TAM:" . $flightDetails->length;
+      echo $return;
+      $elapsedTime = $flightDetails->item(0)->getElementsByTagName("elapsedTime");
+      if ($elapsedTime->length > 0) {
+          $elapsedTime = $elapsedTime->item(0)->nodeValue;
+      } else {
+          $elapsedTime = "";
+      }
+      echo $return;
+      echo "elapsedTime:" . $elapsedTime;
+      echo $return;
+      $brandedFare = $flightDetails->item(0)->getElementsByTagName("brandedFare");
+      if ($brandedFare ->length > 0) {
+        $brandName = $brandedFare->item(0)->getAttribute('brandName');
+        $brandID = $brandedFare->item(0)->getAttribute('brandID');
+      } else {
+        $brandName = "";
+        $brandID = "";
+      }
+      echo $return;
+      echo "ID:" . $brandID;
+      echo $return;
+      $baggageInformationList = $flightDetails->item(0)->getElementsByTagName("baggageInformationList");
+      if ($baggageInformationList->length > 0) {
+        $baggageInformation = $baggageInformationList->item(0)->getElementsByTagName("baggageInformation");
+        if ($baggageInformation->length > 0) {
+          $pieces = $baggageInformation->item(0)->getAttribute('pieces');
+        } else {
+          $pieces = "";
+        }
+      }
+      $connectionLocationList = $flightDetails->item(0)->getElementsByTagName("connectionLocationList");
+      if ($connectionLocationList->length > 0) {
+        $connectionLocation = $connectionLocationList->item(0)->getElementsByTagName("connectionLocation");
+        if ($connectionLocation->length > 0) {
+          $minChangeTime = $connectionLocation->item(0)->getAttribute('minChangeTime');
+          $locationCode = $connectionLocation->item(0)->getAttribute('locationCode');
+          $codeContext = $connectionLocation->item(0)->getAttribute('codeContext');
+        } else {
+          $minChangeTime = "";
+          $locationCode = "";
+          $codeContext = "";
+        }
+      }   
     }
 
     //airItineraryPricingInfo
