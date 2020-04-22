@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU ACTIVE IDS<br/>";
+echo "COMECOU PRODUCT BOOKING<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -28,10 +28,6 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
-// Start
-$affiliate_id = 0;
-$branch_filter = "";
-
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
@@ -45,13 +41,12 @@ $config = [
 $signature = "";
 $word = "";
 date_default_timezone_set('UTC');
-//$date = date("Y-m-d H:i:s");
 $date = new DateTime();
 $date = $date->format("Y-m-d H:i:s");
 $accessKey = "709cc0c1189a46cca41796193c4f19af";
 $secretKey = "7a846c68ec6b4a7ba964d3856307a54f";
-$method = "GET";
-$path = "/activity.json/active-ids";
+$method = "POST";
+$path = "/booking.json/product-booking-search";
 
 $word = $date . "" . $accessKey . "" . $method . "" . $path;
 
@@ -60,6 +55,22 @@ $signature = base64_encode($signature);
 
 
 $url = "https://api.bokun.io";
+
+$raw = '{
+  "confirmationCode": "ABC2234-456",
+  "textFilter": "TEST",
+  "creationDateRange": {
+    "from": "2020-06-01",
+    "to": "2020-06-10"
+  },
+  "startDateRange": {
+    "from": "2020-07-01",
+    "to": "2020-07-19"
+  },
+  "productIds": [123,345],
+  "page": 1,
+  "pageSize": 100
+}';
 
 $client = new Client();
 $client->setOptions(array(
@@ -75,9 +86,9 @@ $client->setHeaders(array(
     'Content-Type: application/json;charset=UTF-8',
     'Content-Length: ' . strlen($raw)
 ));
-$client->setUri($url . '/activity.json/active-ids');
-$client->setMethod('GET');
-//$client->setRawBody($raw);
+$client->setUri($url . '/booking.json/product-booking-search');
+$client->setMethod('POST');
+$client->setRawBody($raw);
 $response = $client->send();
 if ($response->isSuccess()) {
     $response = $response->getBody();
@@ -91,13 +102,13 @@ if ($response->isSuccess()) {
     echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
     echo $return;
     die();
-} 
+}
 
 echo $return;
 echo $response;
 echo $return;
-
 $response = json_decode($response, true);
+
 die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
@@ -109,37 +120,12 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$actIds = 0;
-
-$suppliers = $response['suppliers'];
-for ($k = 0; $k < count($suppliers); $k ++) {
-    $supplierId = $suppliers[$k]['supplierId'];
-
-    $activityIds = $suppliers[$k]['activityIds'];
-    for ($i=0; $i < count($activityIds); $i++) { 
-        $actIds = $activityIds[$i];
-
-        try {
-            $sql = new Sql($db);
-            $insert = $sql->insert();
-            $insert->into('activityIds');
-            $insert->values(array(
-                'datetime_created' => time(),
-                'datetime_updated' => 0,
-                'activityId' => $actIds,
-                'supplierId' => $supplierId
-            ), $insert::VALUES_MERGE);
-            $statement = $sql->prepareStatementForSqlObject($insert);
-            $results = $statement->execute();
-            $db->getDriver()
-                ->getConnection()
-                ->disconnect(); 
-
-        } catch (\Exception $e) {
-            echo $return;
-            echo "ERROR 1: " . $e;
-            echo $return;
-        }
+if (count($response) > 0) {
+    for ($i=0; $i < count($response); $i++) { 
+        $tookInMillis = $response[$i]['tookInMillis'];
+        $totalHits = $response[$i]['totalHits'];
+        $query = $response[$i]['query'];
+        $results = $response[$i]['results'];
     }
 }
 

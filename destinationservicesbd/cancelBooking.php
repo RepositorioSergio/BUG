@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU ACTIVE IDS<br/>";
+echo "COMECOU CANCEL BOOKING <br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -45,13 +45,12 @@ $config = [
 $signature = "";
 $word = "";
 date_default_timezone_set('UTC');
-//$date = date("Y-m-d H:i:s");
 $date = new DateTime();
 $date = $date->format("Y-m-d H:i:s");
 $accessKey = "709cc0c1189a46cca41796193c4f19af";
 $secretKey = "7a846c68ec6b4a7ba964d3856307a54f";
-$method = "GET";
-$path = "/activity.json/active-ids";
+$method = "POST";
+$path = "/booking.json/cancel-booking/DS-8509143";
 
 $word = $date . "" . $accessKey . "" . $method . "" . $path;
 
@@ -60,6 +59,11 @@ $signature = base64_encode($signature);
 
 
 $url = "https://api.bokun.io";
+
+$raw = '{
+    "note": "We had to cancel this due to weather.",
+    "notify": true
+  }';
 
 $client = new Client();
 $client->setOptions(array(
@@ -75,9 +79,9 @@ $client->setHeaders(array(
     'Content-Type: application/json;charset=UTF-8',
     'Content-Length: ' . strlen($raw)
 ));
-$client->setUri($url . '/activity.json/active-ids');
-$client->setMethod('GET');
-//$client->setRawBody($raw);
+$client->setUri($url . '/booking.json/cancel-booking/DS-8509143');
+$client->setMethod('POST');
+$client->setRawBody($raw);
 $response = $client->send();
 if ($response->isSuccess()) {
     $response = $response->getBody();
@@ -91,14 +95,13 @@ if ($response->isSuccess()) {
     echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
     echo $return;
     die();
-} 
+}
 
 echo $return;
 echo $response;
 echo $return;
-
 $response = json_decode($response, true);
-die();
+
 $config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
     'driver' => $config->db->driver,
@@ -109,39 +112,7 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$actIds = 0;
-
-$suppliers = $response['suppliers'];
-for ($k = 0; $k < count($suppliers); $k ++) {
-    $supplierId = $suppliers[$k]['supplierId'];
-
-    $activityIds = $suppliers[$k]['activityIds'];
-    for ($i=0; $i < count($activityIds); $i++) { 
-        $actIds = $activityIds[$i];
-
-        try {
-            $sql = new Sql($db);
-            $insert = $sql->insert();
-            $insert->into('activityIds');
-            $insert->values(array(
-                'datetime_created' => time(),
-                'datetime_updated' => 0,
-                'activityId' => $actIds,
-                'supplierId' => $supplierId
-            ), $insert::VALUES_MERGE);
-            $statement = $sql->prepareStatementForSqlObject($insert);
-            $results = $statement->execute();
-            $db->getDriver()
-                ->getConnection()
-                ->disconnect(); 
-
-        } catch (\Exception $e) {
-            echo $return;
-            echo "ERROR 1: " . $e;
-            echo $return;
-        }
-    }
-}
+$message = $response['message'];
 
 // EOF
 $db->getDriver()

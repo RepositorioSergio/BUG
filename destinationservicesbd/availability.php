@@ -51,7 +51,7 @@ $date = $date->format("Y-m-d H:i:s");
 $accessKey = "709cc0c1189a46cca41796193c4f19af";
 $secretKey = "7a846c68ec6b4a7ba964d3856307a54f";
 $method = "GET";
-$path = "/activity.json/22777/availabilities?currency=USD&start=2019-12-25&end=2019-12-31";
+$path = "/activity.json/38092/availabilities?currency=USD&start=2020-06-01&end=2020-12-31";
 
 $word = $date . "" . $accessKey . "" . $method . "" . $path;
 
@@ -75,7 +75,7 @@ $client->setHeaders(array(
     'Content-Type: application/json;charset=UTF-8',
     'Content-Length: ' . strlen($raw)
 ));
-$client->setUri($url . '/activity.json/22777/availabilities?currency=USD&start=2019-12-25&end=2019-12-31');
+$client->setUri($url . '/activity.json/38092/availabilities?currency=USD&start=2020-06-01&end=2020-12-31');
 $client->setMethod('GET');
 //$client->setRawBody($raw);
 $response = $client->send();

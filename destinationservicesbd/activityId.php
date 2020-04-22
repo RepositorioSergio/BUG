@@ -51,13 +51,19 @@ $date = $date->format("Y-m-d H:i:s");
 $accessKey = "709cc0c1189a46cca41796193c4f19af";
 $secretKey = "7a846c68ec6b4a7ba964d3856307a54f";
 $method = "GET";
-$path = "/activity.json/22777";
+$path = "/activity.json/38092";
 
 $word = $date . "" . $accessKey . "" . $method . "" . $path;
 
 $signature = hash_hmac("sha1", $word, $secretKey,true);
 $signature = base64_encode($signature);
 
+echo $return;
+echo $date;
+echo $return;
+echo $return;
+echo $signature;
+echo $return;
 
 $url = "https://api.bokun.io";
 
@@ -75,7 +81,7 @@ $client->setHeaders(array(
     'Content-Type: application/json;charset=UTF-8',
     'Content-Length: ' . strlen($raw)
 ));
-$client->setUri($url . '/activity.json/22777');
+$client->setUri($url . '/activity.json/38092');
 $client->setMethod('GET');
 //$client->setRawBody($raw);
 $response = $client->send();
@@ -92,9 +98,11 @@ if ($response->isSuccess()) {
     echo $return;
     die();
 } 
-
+echo $return;
+echo $response;
+echo $return;
 $response = json_decode($response, true);
- 
+die(); 
 $config = new \Zend\Config\Config(include '../config/autoload/global.destinationservices.php');
 $config = [
     'driver' => $config->db->driver,
