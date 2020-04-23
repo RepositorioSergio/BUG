@@ -1,0 +1,96 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.juniper.es/webservice/2007/">
+<soapenv:Header/>
+<soapenv:Body>
+   <TransferBooking xmlns="http://www.juniper.es/webservice/2007/">
+      <TransferBookingRQ Version="1.1" Language="en">
+         <Login Password="xA2d@a1X" Email="paulo@corp.bug-software.com"/>
+         <Paxes>
+            <Pax IdPax="1">
+                <Name>Josue</Name>
+                <Surname>García Perez</Surname>
+                <Email>josue@mydomain.com</Email>
+                <PhoneNumbers>
+                    <PhoneNumber Type="GEN">+34 617884410</PhoneNumber>
+                </PhoneNumbers>
+                <BornDate>1977-05-18</BornDate>
+                <Age>42</Age>
+                <Document Type="DNI">24516757Y</Document>
+                <Address>Calle Aragón 232</Address>
+                <City>Palma de Mallorca</City>
+                <Country>Spain</Country>
+                <PostalCode>00000</PostalCode>
+                <Nationality>ES</Nationality>
+            </Pax>
+            <Pax IdPax="2">
+                <Name>María</Name>
+                <Surname>Martínez López</Surname>
+                <Email>maria@mydomain.com</Email>
+                <PhoneNumbers>
+                    <PhoneNumber Type="GEN">+34 615007414</PhoneNumber>
+                </PhoneNumbers>
+                <BornDate>1979-09-18</BornDate>
+                <Age>39</Age>
+                <Document Type="DNI">24519759Z</Document>
+                <Nationality>ES</Nationality>
+            </Pax>
+         </Paxes>
+         <Holder>
+            <RelPax IdPax="1"/>
+         </Holder>
+         <Elements>
+            <TransferElement>
+               <BookingCode>/nV50gUcfbZueTEQ6G+mlP4sn52j6d/jgCmpw2KmXPRZdmxBHziRqqZfRbpstEar6jMinaw7Tsch3VDf+sluSuF81nS60XKvM5XtFt78vj3SbdIUbU/7Uar19qvzv36eXirgrJR2H+d2owO+SDr/47Bxyi4jNIUHQJZuE5CDyWaJUBi+RAUyTKsd24Ys+nI5gYdw+jxw8Jj9WkJx2HE4RFsy5DbtAg0nTkBSLxrPPu6rQvKhMOscb0hnFrYvi+LXZCw29rB4QxhxQGmakOWte6RSWjYQKaok2WA6bAnr0qnABegkzHIQsAFW5D1bTFjbXH8mFE+3ddVNuYhYIzIG038ZpgeYotCmTlb7DtTeSXxgaBymQMfRtjU9+spF/86Hh6IrrSsD0OJgv1z4UCP1d+A+uWDUrDFTwqFuiqzBmwmg6B+ZW/ZCyw4YiJ6Yc0fmXCmd8nNu4LbINx9qMUucj3Q3BsYAq9PbD3uWZaTbXufU6pUA1T5ZBPnP07k9zusK/jgRyLNrm4kgkV1f3+p2UwkItxheMkwsxyuPWzw/YyZq5mzUO3kfTPXyhtS8/vwS</BookingCode>
+                <RelPaxesDist>
+                    <RelPaxDist>
+                        <RelPaxes>
+                            <RelPax IdPax="1"/>
+                            <RelPax IdPax="2"/>
+                        </RelPaxes>
+                    </RelPaxDist>
+                </RelPaxesDist>
+               <TransfersBookingInfo>
+                  <TransferBookingInfo Route="In">
+                     <Origin Type="ARP">
+                        <MeetingPointInfo Code="000" MeetingTime="2020-03-31T15:50:22.7840319+02:00">
+                           <Name></Name>
+                           <Address></Address>
+                           <PostalCode></PostalCode>
+                        </MeetingPointInfo>
+                        <FlightInfo Airport="" FlightNumber="XX1234" FlightTime="2020-03-31T15:50:22.7840319+02:00"/>
+                     </Origin>
+                     <Destination Type="ALO">
+                        <MeetingPointInfo Code="000" MeetingTime="2020-03-31T15:50:22.7840319+02:00">
+                           <Name>MEETING POINT NAME</Name>
+                           <Address></Address>
+                           <PostalCode></PostalCode>
+                        </MeetingPointInfo>
+                     </Destination>
+                  </TransferBookingInfo>
+                  <TransferBookingInfo Route="Out">
+                     <Origin Type="ALO">
+                        <MeetingPointInfo Code="000" MeetingTime="2020-03-31T15:50:22.7840319+02:00">
+                           <Name>MEETING POINT NAME</Name>
+                           <Address></Address>
+                           <PostalCode></PostalCode>
+                        </MeetingPointInfo>
+                     </Origin>
+                     <Destination Type="ARP">
+                        <MeetingPointInfo Code="000" MeetingTime="2020-03-31T15:50:22.7840319+02:00">
+                           <Name></Name>
+                           <Address></Address>
+                           <PostalCode></PostalCode>
+                        </MeetingPointInfo>
+                        <FlightInfo Airport="" FlightNumber="XX1234" FlightTime="2020-03-31T15:50:22.7840319+02:00"/>
+                     </Destination>
+                  </TransferBookingInfo>
+               </TransfersBookingInfo>
+            </TransferElement>
+         </Elements>
+         <AdvancedOptions>
+            <UseCurrency>USD</UseCurrency>
+            <ShowBreakdownPrice>true</ShowBreakdownPrice>
+         </AdvancedOptions>
+      </TransferBookingRQ>
+   </TransferBooking>
+</soapenv:Body>
+</soapenv:Envelope>

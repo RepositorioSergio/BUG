@@ -1,0 +1,18 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://www.juniper.es/webservice/2007/">
+<soapenv:Header/>
+<soapenv:Body>
+    <TransferBookingRules>
+      <TransferBookingRulesRQ Version="1.1" Language="en">
+          <Login Password="xA2d@a1X" Email="paulo@corp.bug-software.com"/>
+          <TransferBookingRuleRequest>
+            <TransferRuleOption RatePlanCode="A90MYYVchoK6rhubXbS0WALgBOD+94+SMwznjVEbqlPZz1kNPnbYCGIauc5DiHJt2GuviGg5DMyD8WU7CprXwt3LXs+DOVMFcwbrluh2VNG8r4xlsj7cTPgih9P4x34JgYBYvc9nyVmIUrWEngFGS6H8at1Ppo3ZRA3lZe6fTl3a0LYGCir1EFi43ERlbYomF4BgFT9TDPVXP27Puf2KkQ=="/>
+          </TransferBookingRuleRequest>
+          <AdvancedOptions>
+            <UseCurrency>USD</UseCurrency>
+            <ShowBreakdownPrice>true</ShowBreakdownPrice>
+            <ShowCompleteInfo>true</ShowCompleteInfo>
+          </AdvancedOptions>
+      </TransferBookingRulesRQ>
+    </TransferBookingRules>
+</soapenv:Body>
+</soapenv:Envelope>

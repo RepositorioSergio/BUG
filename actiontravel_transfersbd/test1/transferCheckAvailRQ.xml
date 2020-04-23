@@ -1,0 +1,16 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://www.juniper.es/webservice/2007/">
+<soapenv:Header/>
+<soapenv:Body>
+   <TransferCheckAvail>
+      <TransferCheckAvailRQ Version="1.1" Language="en">
+         <Login Password="xA2d@a1X" Email="paulo@corp.bug-software.com"/>
+         <TransferCheckAvailRequest>
+            <TransferCheckOption RatePlanCode="jSUneet7StNtvDqRaq8LmCj/TgXxuO6vC8TAYJSHaOGFIrQEtrF4e2m0QM+KTtz5RAPZuR4TPhEvJq570QMZ6drBO0JuYmzyxEzmK4OumVmPbdyr5ydMou6++1gLvxdSVCHlei37wZ/f6wg6OyU4WnqOe0BWddwkeG+fI0CUSiIhelrXPvzdIGZM/Pdoi8CXRgXdf5tfyxdmrjsUyq9NpQ=="/>
+         </TransferCheckAvailRequest>
+         <AdvancedOptions>
+            <ShowBreakdownPrice>true</ShowBreakdownPrice>
+         </AdvancedOptions>
+      </TransferCheckAvailRQ>
+   </TransferCheckAvail>
+</soapenv:Body>
+</soapenv:Envelope>

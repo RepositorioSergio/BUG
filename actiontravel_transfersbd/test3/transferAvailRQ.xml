@@ -1,0 +1,36 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+<soapenv:Header/>
+<soapenv:Body>
+   <TransferAvail xmlns="http://www.juniper.es/webservice/2007/">
+      <TransferAvailRQ Version="1.1" Language="en">
+         <Login Password="xA2d@a1X" Email="paulo@corp.bug-software.com"/>
+         <Paxes>
+            <Pax IdPax="1">
+               <Age>30</Age>
+            </Pax>
+            <Pax IdPax="2">
+               <Age>30</Age>
+            </Pax>
+         </Paxes>
+         <TransferRequest>
+            <SearchSegmentsTransfers>
+               <SearchSegmenTransfers Start="2020-08-17" Hour="10:00:00" End="2020-08-24" HourEnd="12:00:00" OriginZone="40233" DestinationZone="15011" Route="InOut" />
+            </SearchSegmentsTransfers>
+            <RelPaxesDist>
+               <RelPaxDist>
+                  <RelPaxes>
+                     <RelPax IdPax="1"/>
+                     <RelPax IdPax="2"/>
+                  </RelPaxes>
+               </RelPaxDist>
+            </RelPaxesDist>
+         </TransferRequest>
+         <AdvancedOptions>
+            <ShowBreakdownPrice>true</ShowBreakdownPrice>
+            <ShowCancellationPolicies>true</ShowCancellationPolicies>
+            <ShowCompleteInfo>true</ShowCompleteInfo>
+         </AdvancedOptions>
+      </TransferAvailRQ>
+   </TransferAvail>
+</soapenv:Body>
+</soapenv:Envelope>

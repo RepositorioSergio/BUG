@@ -1,0 +1,16 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://www.juniper.es/webservice/2007/">
+<soapenv:Header/>
+<soapenv:Body>
+   <TransferCheckAvail>
+      <TransferCheckAvailRQ Version="1.1" Language="en">
+         <Login Password="xA2d@a1X" Email="paulo@corp.bug-software.com"/>
+         <TransferCheckAvailRequest>
+            <TransferCheckOption RatePlanCode="AxqgIvnsoMiJdBzhqSMRSKKr2uoXdSchQVLEyAB3XjDZ7d4OXzeTc2HryuHWjRcrWL+zVLehZDBShVtWZQDPL4boFEW2h5zdk3g8/X+bdRDCUICKDeQ4veW2Am8Pw9Mk0d2WcMDA9J5MOXUKqE2qcqODyGvWDhNg8jukrOQFaNfy0wJkkeU7wvvqUdWHNRKnP8Y3Bpyu3tG5d7WX3YEq1IZtFg5tv14GLYUxwJxLksNDNV1b4UP3+NESTocM/9AlI32CgrjZ/jq+1v7yC/hWXFRvhD604pgo9Yqz1+8TO8b7xLnNz3oEknvZJWkiCQgbdownHqOUYubEZ3ug+WxdcJeQ8M82Kon+gQ6BjOgGFjXm7rWMHik8NKGwJZVOkjwOxBQDMayOE4INkuUjHcvVWw=="/>
+         </TransferCheckAvailRequest>
+         <AdvancedOptions>
+            <ShowBreakdownPrice>true</ShowBreakdownPrice>
+         </AdvancedOptions>
+      </TransferCheckAvailRQ>
+   </TransferCheckAvail>
+</soapenv:Body>
+</soapenv:Envelope>

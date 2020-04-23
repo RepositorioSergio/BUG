@@ -1,0 +1,79 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.juniper.es/webservice/2007/">
+<soapenv:Header/>
+<soapenv:Body>
+   <TransferBooking xmlns="http://www.juniper.es/webservice/2007/">
+      <TransferBookingRQ Version="1.1" Language="en">
+         <Login Password="xA2d@a1X" Email="paulo@corp.bug-software.com"/>
+         <Paxes>
+            <Pax IdPax="1">
+                <Name>Jose</Name>
+                <Surname>García Perez</Surname>
+                <Email>jose@mydomain.com</Email>
+                <PhoneNumbers>
+                    <PhoneNumber Type="GEN">+34 617884410</PhoneNumber>
+                </PhoneNumbers>
+                <BornDate>1977-05-18</BornDate>
+                <Age>42</Age>
+                <Document Type="DNI">24516757Y</Document>
+                <Address>Calle Aragón 232</Address>
+                <City>Palma de Mallorca</City>
+                <Country>Spain</Country>
+                <PostalCode>00000</PostalCode>
+                <Nationality>ES</Nationality>
+            </Pax>
+            <Pax IdPax="2">
+                <Name>María</Name>
+                <Surname>Martínez López</Surname>
+                <Email>maria@mydomain.com</Email>
+                <PhoneNumbers>
+                    <PhoneNumber Type="GEN">+34 615007414</PhoneNumber>
+                </PhoneNumbers>
+                <BornDate>1979-09-18</BornDate>
+                <Age>39</Age>
+                <Document Type="DNI">24519757Z</Document>
+                <Nationality>ES</Nationality>
+            </Pax>
+         </Paxes>
+         <Holder>
+            <RelPax IdPax="1"/>
+         </Holder>
+         <Elements>
+            <TransferElement>
+               <BookingCode>EFFQRl+FkItzaHCSPodpBUSsS66s79ffW64CuWsTRaNgDSnRjad2StGqXyuhmvouXKWq6k1EfL0eLxGxo3z0NuhkUz4drOnJGl1gYBqzutz3KfzkNFGAEqrsZOqTxsVP+YxigwwZYLwElPzZOhfrRJINATk5Meu+d+xNvTyEpxtoiN4KkC5B6v/stTet4g+/KsNtaJ8uhY73swRC7z/ZzHPMd2DbAMNnYfTnW1wEgINSbS9QiEvVm3eSkfYCNP1KDeIeAzQtO/sDnvm+3UF+JsrZTaZwoD2u053XITuVbQ+OLj92XD6Ma5ZSGhQrSk4e</BookingCode>
+                <RelPaxesDist>
+                    <RelPaxDist>
+                        <RelPaxes>
+                            <RelPax IdPax="1"/>
+                            <RelPax IdPax="2"/>
+                        </RelPaxes>
+                    </RelPaxDist>
+                </RelPaxesDist>
+               <TransfersBookingInfo>
+                  <TransferBookingInfo>
+                     <Origin Type="ALO">
+                        <MeetingPointInfo Code="000" MeetingTime="2020-03-31T12:53:01.7273364+02:00">
+                           <Name>MEETING POINT NAME</Name>
+                           <Address></Address>
+                           <PostalCode></PostalCode>
+                        </MeetingPointInfo>
+                     </Origin>
+                     <Destination Type="ARP">
+                        <MeetingPointInfo Code="000" MeetingTime="2020-03-31T12:53:01.7273364+02:00">
+                           <Name></Name>
+                           <Address></Address>
+                           <PostalCode></PostalCode>
+                        </MeetingPointInfo>
+                        <FlightInfo Airport="PMI" FlightNumber="XX1234" FlightTime="2020-03-31T12:53:01.7273364+02:00"/>
+                     </Destination>
+                  </TransferBookingInfo>
+               </TransfersBookingInfo>
+            </TransferElement>
+         </Elements>
+         <AdvancedOptions>
+            <UseCurrency>USD</UseCurrency>
+            <ShowBreakdownPrice>true</ShowBreakdownPrice>
+         </AdvancedOptions>
+      </TransferBookingRQ>
+   </TransferBooking>
+</soapenv:Body>
+</soapenv:Envelope>
