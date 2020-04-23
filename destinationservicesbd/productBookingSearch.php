@@ -125,7 +125,167 @@ if (count($response) > 0) {
         $tookInMillis = $response[$i]['tookInMillis'];
         $totalHits = $response[$i]['totalHits'];
         $query = $response[$i]['query'];
+        $confirmationCode = $query['confirmationCode'];
+        $bookingRole = $query['bookingRole'];
+        $excludeComboBookings = $query['excludeComboBookings'];
+        $noteQuery = $query['noteQuery'];
+        $page = $query['page'];
+        $pageSize = $query['pageSize'];
+        $productExternalId = $query['productExternalId'];
+        $productTitle = $query['productTitle'];
+        $productType = $query['productType'];
+        $textFilter = $query['textFilter'];
+        $bookedExtrasIds = $query['bookedExtrasIds'];
+        if (count($bookedExtrasIds) > 0) {
+            $bookedExtrasId = "";
+            for ($iAux=0; $iAux < count($bookedExtrasIds); $iAux++) { 
+                $bookedExtrasId = $bookedExtrasIds[$iAux];
+            }
+        }
+        $bookingStatuses = $query['bookingStatuses'];
+        if (count($bookingStatuses) > 0) {
+            $bookingStatus = "";
+            for ($iAux=0; $iAux < count($bookingStatuses); $iAux++) { 
+                $bookingStatus = $bookingStatuses[$iAux];
+            }
+        }
+        $creationDateRange = $query['creationDateRange'];
+        $from = $creationDateRange['from'];
+        $to = $creationDateRange['to'];
+        $includeLower = $creationDateRange['includeLower'];
+        $includeUpper = $creationDateRange['includeUpper'];
+        $fields = $query['fields'];
+        $productIds = $query['productIds'];
+        if (count($productIds) > 0) {
+            $productId = "";
+            for ($iAux=0; $iAux < count($productIds); $iAux++) { 
+                $productId = $productIds[$iAux];
+            }
+        }
+        $sortFields = $query['sortFields'];
+        if (count($sortFields) > 0) {
+            for ($iAux2=0; $iAux2 < count($sortFields); $iAux2++) { 
+                $name = $sortFields[$iAux2]['name'];
+                $order = $sortFields[$iAux2]['order'];
+            }
+        }
+        $startDateRange = $query['startDateRange'];
+        $startDateRangefrom = $startDateRange['from'];
+        $startDateRangeto = $startDateRange['to'];
+        $startDateRangeincludeLower = $startDateRange['includeLower'];
+        $startDateRangeincludeUpper = $startDateRange['includeUpper'];
+        //results
         $results = $response[$i]['results'];
+        if (count($results) > 0) {
+            for ($iAux3=0; $iAux3 < count($results); $iAux3++) { 
+                $id = $results[$iAux3]['id'];
+                $confirmationCode = $results[$iAux3]['confirmationCode'];
+                $affiliateCommission = $results[$iAux3]['affiliateCommission'];
+                $agentCommission = $results[$iAux3]['agentCommission'];
+                $boxBooking = $results[$iAux3]['boxBooking'];
+                $cancelNote = $results[$iAux3]['cancelNote'];
+                $cancellationDate = $results[$iAux3]['cancellationDate'];
+                $cancelledBy = $results[$iAux3]['cancelledBy'];
+                $contactDetailsHidden = $results[$iAux3]['contactDetailsHidden'];
+                $contactDetailsHiddenUntil = $results[$iAux3]['contactDetailsHiddenUntil'];
+                $creationDate = $results[$iAux3]['creationDate'];
+                $currency = $results[$iAux3]['currency'];
+                $discountAmount = $results[$iAux3]['discountAmount'];
+                $discountPercentage = $results[$iAux3]['discountPercentage'];
+                $startDate = $results[$iAux3]['startDate'];
+                $endDate = $results[$iAux3]['endDate'];
+                $externalBookingReference = $results[$iAux3]['externalBookingReference'];
+                $paidAmount = $results[$iAux3]['paidAmount'];
+                $paidType = $results[$iAux3]['paidType'];
+                $parentBookingId = $results[$iAux3]['parentBookingId'];
+                $prepaid = $results[$iAux3]['prepaid'];
+                $productCategory = $results[$iAux3]['productCategory'];
+                $productConfirmationCode = $results[$iAux3]['productConfirmationCode'];
+                $productExternalId = $results[$iAux3]['productExternalId'];
+                $productType = $results[$iAux3]['productType'];
+                $resellerPaidType = $results[$iAux3]['resellerPaidType'];
+                $resold = $results[$iAux3]['resold'];
+                $sellerCommission = $results[$iAux3]['sellerCommission'];
+                $status = $results[$iAux3]['status'];
+                $totalPrice = $results[$iAux3]['totalPrice'];
+                $unconfirmedPayments = $results[$iAux3]['unconfirmedPayments'];
+                //agent
+                $agent = $results[$iAux3]['agent'];
+                $agentid = $agent['id'];
+                $agentcontractId = $agent['contractId'];
+                $agentcontractType = $agent['contractType'];
+                $agenttitle = $agent['title'];
+                $agentUser = $results[$iAux3]['agentUser'];
+                $agentUserid = $agentUser['id'];
+                $agentUsername = $agentUser['name'];
+                $assignedResources = $results[$iAux3]['assignedResources'];
+                if (count($assignedResources) > 0) {
+                    for ($iAux4=0; $iAux4 < count($assignedResources); $iAux4++) { 
+                        $id = $assignedResources[$iAux4]['id'];
+                        $title = $assignedResources[$iAux4]['title'];
+                        $type = $assignedResources[$iAux4]['type'];
+                    }
+                }
+                $boxProduct = $results[$iAux3]['boxProduct'];
+                $boxProductid = $boxProduct['id'];
+                $boxProductprice = $boxProduct['price'];
+                $boxProducttitle = $boxProduct['title'];
+                $flags = $boxProduct['flags'];
+                if (count($flags) > 0) {
+                    $flag = "";
+                    for ($jAux=0; $jAux < count($flags); $jAux++) { 
+                        $flag = $flags[$jAux];
+                    }
+                }
+                $boxSupplier = $results[$iAux3]['boxSupplier'];
+                $boxSupplierid = $boxSupplier['id'];
+                $boxSupplierprice = $boxSupplier['price'];
+                $boxSuppliertitle = $boxSupplier['title'];
+                $flags = $boxSupplier['flags'];
+                if (count($flags) > 0) {
+                    $flag = "";
+                    for ($jAux=0; $jAux < count($flags); $jAux++) { 
+                        $flag = $flags[$jAux];
+                    }
+                }
+                $channel = $results[$iAux3]['channel'];
+                $channelid = $channel['id'];
+                $channelprice = $channel['price'];
+                $channeltitle = $channel['title'];
+                $flags = $channel['flags'];
+                if (count($flags) > 0) {
+                    $flag = "";
+                    for ($jAux=0; $jAux < count($flags); $jAux++) { 
+                        $flag = $flags[$jAux];
+                    }
+                }
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+                $id = $results[$iAux3]['id'];
+            }
+        }
     }
 }
 
