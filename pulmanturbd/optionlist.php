@@ -57,84 +57,61 @@ $client->setHeaders(array(
     "Content-length: ".strlen($raw)
 ));
 
+$username = 'CONCTMM';
+$password = 'u73ecKBu73ecKB!';
+
 $url = "https://stage.services.rccl.com/Reservation_FITWeb/sca/OptionList";
 
-$raw ='<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ol="http://services.rccl.com/Interfaces/OptionList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha">
-<soapenv:Header/>
-<soap:Body>
-<ol:getOptionList>
-<OTA_CruiseSpecialServiceAvailRQ Target="Production" MaxResponses="50" MoreIndicator="true" Version="2.0" SequenceNmbr="1" TimeStamp="2008-11-05T19:15:56.692+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
-<POS>
-    <Source ISOCurrency="USD" TerminalID="12502LDJW6">
-        <RequestorID ID="313917" Type="5" ID_Context="AGENCY1"/>
-        <BookingChannel Type="7">
-            <CompanyName CompanyShortName="PULLMANTUR"/>
-        </BookingChannel>
-    </Source>
-    <Source ISOCurrency="USD" TerminalID="12502LDJW6">
-        <RequestorID ID="313917" Type="5" ID_Context="AGENCY2"/>
-        <BookingChannel Type="7">
-            <CompanyName CompanyShortName="PULLMANTUR"/>
-        </BookingChannel>
-    </Source>
-    <Source ISOCurrency="USD" TerminalID="12502LDJW6">
-        <RequestorID ID="313917" Type="5" ID_Context="AGENT1"/>
-        <BookingChannel Type="7">
-            <CompanyName CompanyShortName="PULLMANTUR"/>
-        </BookingChannel>
-    </Source>
-</POS>
-<SailingInfo>
-    <SelectedSailing Start="2019-10-02">
-        <CruiseLine ShipCode="MO"/>
-    </SelectedSailing>
-    <SelectedCategory BerthedCategoryCode="JT"/>
-</SailingInfo>
-</OTA_CruiseSpecialServiceAvailRQ>
-</ol:getOptionList>
-</soap:Body>
+$raw ='<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <ol:getOptionList xmlns="http://www.opentravel.org/OTA/2003/05/alpha" xmlns:ol="http://services.rccl.com/Interfaces/OptionList">
+            <OTA_CruiseSpecialServiceAvailRQ SequenceNmbr="1" Version="1">
+                <POS>
+                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                        <RequestorID ID="279796" ID_Context="AGENCY1" Type="5"/>
+                        <BookingChannel Type="7">
+                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                        </BookingChannel>
+                    </Source>
+                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                        <RequestorID ID="279796" ID_Context="AGENCY2" Type="5"/>
+                        <BookingChannel Type="7">
+                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                        </BookingChannel>
+                    </Source>
+                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                        <RequestorID ID="279796" ID_Context="AGENT1" Type="5"/>
+                        <BookingChannel Type="7">
+                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                        </BookingChannel>
+                    </Source>
+                </POS>
+                <SailingInfo>
+                    <SelectedSailing Start="2020-08-02">
+                        <CruiseLine ShipCode="MO"/>
+                    </SelectedSailing>
+                    <SelectedCategory BerthedCategoryCode="JT"/>
+                </SailingInfo>
+            </OTA_CruiseSpecialServiceAvailRQ>
+        </ol:getOptionList>
+    </soap:Body>
 </soap:Envelope>';
 
-/* $client->setUri($url);
-$client->setMethod('POST');
-$client->setRawBody($raw);
-$response = $client->send();
-if ($response->isSuccess()) {
-$response = $response->getBody();
-} else {
-$logger = new Logger();
-$writer = new Writer\Stream('/srv/www/htdocs/error_log');
-$logger->addWriter($writer);
-$logger->info($client->getUri());
-$logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
-echo $return;
-echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
-echo $return;
-die();
-} */
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_HEADER, false);
+curl_setopt($ch, CURLOPT_VERBOSE, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
-curl_setopt($ch, CURLOPT_VERBOSE, 1);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_ENCODING, 'gzip');
 $response = curl_exec($ch);
 $error = curl_error($ch);
 $headers = curl_getinfo($ch);
-if ($response === false) {
-    echo $return;
-    echo "ERRO: " . $error;
-    echo $return;
-} else {
-    echo $return;
-    echo "Operation completed without any errors";
-    echo $return;
-}
 curl_close($ch);
 
 echo "<br/>RESPONSE";

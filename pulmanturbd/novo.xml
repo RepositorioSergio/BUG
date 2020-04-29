@@ -1,0 +1,127 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sail="http://services.rccl.com/Interfaces/SailingList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sail:getSailingList>
+         <alp:OTA_CruiseSailAvailRQ EchoToken="" MessageUUID="" TimeStamp="" Target="Production" Version="1" TransactionIdentifier="" SequenceNmbr="1" TransactionStatusCode="" PrimaryLangID="" AltLangID="" RetransmissionIndicator="" MoreIndicator="true" MoreDataEchoToken="" MaxResponses="50">
+            <alp:POS>
+               <!--1 to 10 repetitions:-->
+               <alp:Source AgentSine="" PseudoCityCode="" ISOCountry="" ISOCurrency="USD" AgentDutyCode="" AirlineVendorID="" AirportCode="" FirstDepartPoint="" ERSP_UserID="" TerminalID="">
+                  <!--Optional:-->
+                  <alp:RequestorID URL="" Type="5" Instance="" ID="279796" ID_Context="AGENCY1" MessagePassword="">
+                     <!--Optional:-->
+                     <alp:CompanyName CompanyShortName="PULLMANTUR" TravelSector="" Code="" CodeContext="" Division="" Department=""></alp:CompanyName>
+                  </alp:RequestorID>
+                  <!--Optional:-->
+                  <alp:Position Latitude="" Longitude="" Altitude="" AltitudeUnitOfMeasureCode=""/>
+                  <!--Optional:-->
+                  <alp:BookingChannel Type="7" Primary="">
+                     <!--Optional:-->
+                     <alp:CompanyName CompanyShortName="PULLMANTUR" TravelSector="" Code="" CodeContext="" Division="" Department=""></alp:CompanyName>
+                  </alp:BookingChannel>
+               </alp:Source>
+            </alp:POS>
+            <!--0 to 9 repetitions:-->
+            <alp:Guest GuestRefNumber="" Age="" Nationality="" GuestOccupation="" BirthDate="" Gender="" LoyaltyMembershipID="" LoyalLevel="" MiddleNameFlag="" RedressNumber="" KnownTravelerNumber="" Code="" ProfileType="">
+               <!--Optional:-->
+               <alp:GuestName ShareSynchInd="" ShareMarketInd="" NameType="">
+                  <!--0 to 3 repetitions:-->
+                  <alp:NamePrefix></alp:NamePrefix>
+                  <!--0 to 5 repetitions:-->
+                  <alp:GivenName></alp:GivenName>
+                  <!--0 to 3 repetitions:-->
+                  <alp:MiddleName></alp:MiddleName>
+                  <!--Optional:-->
+                  <alp:SurnamePrefix></alp:SurnamePrefix>
+                  <alp:Surname></alp:Surname>
+                  <!--0 to 3 repetitions:-->
+                  <alp:NameSuffix></alp:NameSuffix>
+                  <!--0 to 5 repetitions:-->
+                  <alp:NameTitle></alp:NameTitle>
+               </alp:GuestName>
+               <!--0 to 2 repetitions:-->
+               <alp:GuestTransportation Mode="29" Status="36">
+                  <!--Optional:-->
+                  <alp:GuestCity LocationCode="" CodeContext="IATA"></alp:GuestCity>
+                  <!--Optional:-->
+                  <alp:GatewayCity LocationCode="" CodeContext="IATA"></alp:GatewayCity>
+                  <!--Optional:-->
+                  <alp:ProviderInfo>
+                     <!--Optional:-->
+                     <alp:Provider></alp:Provider>
+                     <!--Optional:-->
+                     <alp:NonRefundableIndicator></alp:NonRefundableIndicator>
+                  </alp:ProviderInfo>
+               </alp:GuestTransportation>
+               <!--Optional:-->
+               <alp:Address FormattedInd="false" ShareSynchInd="" ShareMarketInd="" Type="" DefaultInd="false" UseType="" RPH="">
+                  <!--Optional:-->
+                  <alp:StreetNmbr PO_Box="" StreetNmbrSuffix="" StreetDirection="" RuralRouteNmbr=""></alp:StreetNmbr>
+                  <!--0 to 2 repetitions:-->
+                  <alp:BldgRoom BldgNameIndicator=""></alp:BldgRoom>
+                  <!--0 to 5 repetitions:-->
+                  <alp:AddressLine></alp:AddressLine>
+                  <!--Optional:-->
+                  <alp:CityName></alp:CityName>
+                  <!--Optional:-->
+                  <alp:PostalCode></alp:PostalCode>
+                  <!--Optional:-->
+                  <alp:County></alp:County>
+                  <!--Optional:-->
+                  <alp:StateProv StateCode=""></alp:StateProv>
+                  <!--Optional:-->
+                  <alp:CountryName Code=""></alp:CountryName>
+               </alp:Address>
+               <!--0 to 5 repetitions:-->
+               <alp:FareQualifiers FareRestriction=""/>
+               <!--0 to 5 repetitions:-->
+               <alp:SelectedOffers PromotionCode="" PromotionVendorCode=""/>
+            </alp:Guest>
+            <!--Optional:-->
+            <alp:GuestCounts GroupIndicator="">
+               <!--1 to 9 repetitions:-->
+               <alp:GuestCount Age="20" Code="" CodeContext="" URI="" Quantity="1"/>
+            </alp:GuestCounts>
+            <alp:SailingDateRange Start="2020-08-08" Duration="" End="2020-08-15" MinDuration="P6N" MaxDuration="P8N" ListOfDurations="">
+               <!--You have a CHOICE of the next 2 items at this level-->
+               <alp:DateWindowRange WindowBefore="" WindowAfter="" CrossDateAllowedIndicator=""></alp:DateWindowRange>
+               <!--Optional:-->
+               <alp:StartDateWindow EarliestDate="" LatestDate="" DOW=""/>
+               <!--Optional:-->
+               <alp:EndDateWindow EarliestDate="" LatestDate="" DOW=""/>
+            </alp:SailingDateRange>
+            <!--Optional:-->
+            <alp:CruiseLinePrefs>
+               <!--1 to 99 repetitions:-->
+               <alp:CruiseLinePref VendorCode="Z" VendorName="" ShipCode="" ShipName="" VendorCodeContext="">
+                  <!--Optional:-->
+                  <alp:InclusivePackageOption CruisePackageCode="" InclusiveIndicator="" Start="" Duration="" End=""/>
+                  <!--Optional:-->
+                  <alp:SearchQualifiers BerthedCategoryCode="" PricedCategoryCode="" CabinNumber="" HeldIndicator="" FareCode="" GroupCode="" MaxOccupancy="" CategoryLocation="" LoyaltyMembershipID="" LoyalLevel="" SortOrderCode="">
+                     <!--Optional:-->
+                     <alp:ReservationID URL="" Type="" Instance="" ID="" ID_Context="">
+                        <!--Optional:-->
+                        <alp:CompanyName CompanyShortName="" TravelSector="" Code="" CodeContext="" Division="" Department=""></alp:CompanyName>
+                     </alp:ReservationID>
+                     <!--Optional:-->
+                     <alp:Residency StateProvCode="" CountryCode=""/>
+                     <!--Optional:-->
+                     <alp:PriceRange MinRate="" MaxRate="" FixedRate="" RateTimeUnit="" CurrencyCode="" DecimalPlaces=""/>
+                     <!--0 to 5 repetitions:-->
+                     <alp:Status Status=""/>
+                     <!--Optional:-->
+                     <alp:Dining Sitting=""/>
+                     <!--Optional:-->
+                     <alp:Port PortCode="" PortName="" PortCountryCode="" DockIndicator="" ShorexIndicator="" EmbarkIndicator="" DisembarkIndicator=""/>
+                  </alp:SearchQualifiers>
+               </alp:CruiseLinePref>
+            </alp:CruiseLinePrefs>
+            <!--0 to 5 repetitions:-->
+            <alp:RegionPref RegionCode="" RegionName="" SubRegionCode="" SubRegionName=""/>
+            <!--Optional:-->
+            <alp:TPA_Extensions>
+               <!--You may enter ANY elements at this point-->
+            </alp:TPA_Extensions>
+         </alp:OTA_CruiseSailAvailRQ>
+      </sail:getSailingList>
+   </soapenv:Body>
+</soapenv:Envelope>

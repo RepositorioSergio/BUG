@@ -57,70 +57,56 @@ $client->setHeaders(array(
     "Content-length: ".strlen($raw)
 ));
 
-$url = "https://stage.services.rccl.com/";
+$username = 'CONCTMM';
+$password = 'u73ecKBu73ecKB!';
 
-$raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-<soap:Body>
-<m0:RCL_CruiseLoginRQ TimeStamp="2009-02-14T09:09:09" Target="Test" Version="2.0" SequenceNmbr="1"
-TransactionStatusCode="Start" RetransmissionIndicator="0" >
-<m0:POS>
-<m0:Source ISOCurrency="USD" TerminalID="TERM123">
-<m0:RequestorID Type="5" ID="111111” />
-<m0:BookingChannel Type="7" />
-</m0:Source>
-<m0:Source ISOCurrency="USD" TerminalID="TERM123">
-<m0:RequestorID Type="5" ID="111111” />
-<m0:BookingChannel Type="7" />
-</m0:Source>
-<m0:Source ISOCurrency="USD" TerminalID="TERM123">
-<m0:RequestorID Type="5" ID="156781” />
-<m0:BookingChannel Type="7" />
-</m0:Source>
-</m0:POS>
-</m0:RCL_CruiseLoginRQ>
-</soap:Body>
-</soap:Envelope>';
+$url = "https://stage.services.rccl.com/Reservation_FITWeb/sca/Login";
 
-/* $client->setUri($url);
-$client->setMethod('POST');
-$client->setRawBody($raw);
-$response = $client->send();
-if ($response->isSuccess()) {
-$response = $response->getBody();
-} else {
-$logger = new Logger();
-$writer = new Writer\Stream('/srv/www/htdocs/error_log');
-$logger->addWriter($writer);
-$logger->info($client->getUri());
-$logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
-echo $return;
-echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
-echo $return;
-die();
-} */
+$raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:log="http://services.rccl.com/Interfaces/Login" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
+<soapenv:Header/>
+<soapenv:Body>
+   <log:login>
+      <alp:RCL_CruiseLoginRQ Target="Test" Version="1.0" SequenceNmbr="1" TransactionStatusCode="Start" PrimaryLangID="en" RetransmissionIndicator="0">
+         <alp:POS>
+            <!--1 to 10 repetitions:-->
+            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <alp:RequestorID ID="279796" ID_Context="AGENCY1" Type="5"/>
+                <alp:BookingChannel Type="7">
+                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                </alp:BookingChannel>
+            </alp:Source>
+            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <alp:RequestorID ID="279796" ID_Context="AGENCY2" Type="5"/>
+                <alp:BookingChannel Type="7">
+                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                </alp:BookingChannel>
+            </alp:Source>
+            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <alp:RequestorID ID="279796" ID_Context="AGENT1" Type="5"/>
+                <alp:BookingChannel Type="7">
+                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                </alp:BookingChannel>
+            </alp:Source>
+         </alp:POS>
+      </alp:RCL_CruiseLoginRQ>
+   </log:login>
+</soapenv:Body>
+</soapenv:Envelope>';
+
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_HEADER, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_VERBOSE, false);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
-curl_setopt($ch, CURLOPT_VERBOSE, 1);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_ENCODING, 'gzip');
 $response = curl_exec($ch);
 $error = curl_error($ch);
 $headers = curl_getinfo($ch);
-if ($response === false) {
-    echo $return;
-    echo "ERRO: " . $error;
-    echo $return;
-} else {
-    echo $return;
-    echo "Operation completed without any errors";
-    echo $return;
-}
 curl_close($ch);
 
 echo "<br/>RESPONSE";

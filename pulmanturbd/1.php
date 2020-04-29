@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU CATEGORY LIST<br/>";
+echo "COMECOU CRUISE SAIL AVAIL<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -57,91 +57,64 @@ $client->setHeaders(array(
     "Content-length: ".strlen($raw)
 ));
 
-$url = "https://stage.services.rccl.com/Reservation_FITWeb/sca/CategoryList";
+$username = 'CONCTMM';
+$password = 'u73ecKBu73ecKB!';
 
-$raw ='<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://services.rccl.com/Interfaces/CategoryList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha">
+$url = "https://stage.services.rccl.com/Reservation_FITWeb/sca/SailingList";
+
+$raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sail="http://services.rccl.com/Interfaces/SailingList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
 <soapenv:Header/>
 <soapenv:Body>
-   <cat:getCategoryList>
-      <OTA_CruiseCategoryAvailRQ Target="Production" MaxResponses="50" MoreIndicator="true" Version="2.0" SequenceNmbr="1" TimeStamp="2008-11-05T19:15:56.692+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
-         <POS>
-            <Source ISOCurrency="USD" TerminalID="12502LDJW6">
-               <RequestorID ID="313917" Type="5" ID_Context="AGENCY1"/>
-               <BookingChannel Type="7">
-                  <CompanyName CompanyShortName="PULLMANTUR"/>
-               </BookingChannel>
-            </Source>
-            <Source ISOCurrency="USD" TerminalID="12502LDJW6">
-               <RequestorID ID="313917" Type="5" ID_Context="AGENCY2"/>
-               <BookingChannel Type="7">
-                  <CompanyName CompanyShortName="PULLMANTUR"/>
-               </BookingChannel>
-            </Source>
-            <Source ISOCurrency="USD" TerminalID="12502LDJW6">
-            <RequestorID ID="313917" Type="5" ID_Context="AGENT1"/>
-                  <BookingChannel Type="7">
-                     <CompanyName CompanyShortName="PULLMANTUR"/>
-                  </BookingChannel>
-               </Source>
-            </POS>
-             <Guest >
-               <GuestTransportation Mode="29" Status="36"/>
-            </Guest>
-            <GuestCounts>
-               <GuestCount Age="20" Quantity="1"/>        
-            </GuestCounts>
-            <SailingInfo>
-               <SelectedSailing Start="2019-10-20">
-                  <CruiseLine ShipCode="HR"/>
-               </SelectedSailing>
-            </SailingInfo>
-            <SelectedFare FareCode="BESTRATE"/>
-         </OTA_CruiseCategoryAvailRQ>
-      </cat:getCategoryList>
-   </soapenv:Body>
+   <sail:getSailingList>
+      <alp:OTA_CruiseSailAvailRQ TimeStamp="2008-07-17T12:44:44.866-04:00" Target="Test" Version="1.0" SequenceNmbr="1" PrimaryLangID="en" RetransmissionIndicator="false" MoreIndicator="true" MaxResponses="50">
+         <alp:POS>
+            <!--1 to 10 repetitions:-->
+            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <alp:RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+                <alp:BookingChannel Type="7">
+                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                </alp:BookingChannel>
+            </alp:Source>
+            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <alp:RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+                <alp:BookingChannel Type="7">
+                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                </alp:BookingChannel>
+            </alp:Source>
+            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <alp:RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+                <alp:BookingChannel Type="7">
+                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                </alp:BookingChannel>
+            </alp:Source>
+         </alp:POS>
+         <!--Optional:-->
+         <alp:GuestCounts>
+            <alp:GuestCount Quantity="1"/>
+            <alp:GuestCount Quantity="1"/>
+        </alp:GuestCounts>
+        <alp:SailingDateRange Start="2020-08-08" End="2020-08-15" MinDuration="P6N" MaxDuration="P8N"/>
+      </alp:OTA_CruiseSailAvailRQ>
+   </sail:getSailingList>
+</soapenv:Body>
 </soapenv:Envelope>';
 
-/* $client->setUri($url);
-$client->setMethod('POST');
-$client->setRawBody($raw);
-$response = $client->send();
-if ($response->isSuccess()) {
-$response = $response->getBody();
-} else {
-$logger = new Logger();
-$writer = new Writer\Stream('/srv/www/htdocs/error_log');
-$logger->addWriter($writer);
-$logger->info($client->getUri());
-$logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
-echo $return;
-echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
-echo $return;
-die();
-} */
 
+echo $raw;
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_HEADER, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_VERBOSE, false);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
-curl_setopt($ch, CURLOPT_VERBOSE, 1);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_ENCODING, 'gzip');
 $response = curl_exec($ch);
 $error = curl_error($ch);
 $headers = curl_getinfo($ch);
-if ($response === false) {
-    echo $return;
-    echo "ERRO: " . $error;
-    echo $return;
-} else {
-    echo $return;
-    echo "Operation completed without any errors";
-    echo $return;
-}
 curl_close($ch);
 
 echo "<br/>RESPONSE";
