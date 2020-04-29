@@ -166,8 +166,6 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
         $headers = curl_getinfo($ch);
         curl_close($ch);
 
-        //$response = iconv('UTF-8', 'ASCII//TRANSLIT', $response);
-
         echo "<xmp>";
         echo $response;
         echo "</xmp>";

@@ -41,9 +41,6 @@ if ($row_settings->valid()) {
 } else {
     $affiliate_id_mundocruceros = 0;
 }
-echo $return;
-echo "AFFIL: " . $affiliate_id_mundocruceros;
-echo $return;
 $sql = "select value from settings where name='mundocrucerosusername' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -53,9 +50,6 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $mundocrucerosusername = $row_settings['value'];
 }
-echo $return;
-echo "USER: " . $mundocrucerosusername;
-echo $return;
 $sql = "select value from settings where name='mundocrucerospassword' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -65,9 +59,6 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $mundocrucerospassword = base64_decode($row_settings['value']);
 }
-echo $return;
-echo $mundocrucerospassword;
-echo $return;
 $sql = "select value from settings where name='mundocrucerosServiceURL' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -77,9 +68,6 @@ if ($result->valid()) {
     $row = $result->current();
     $mundocrucerosServiceURL = $row['value'];
 }
-echo $return;
-echo $mundocrucerosServiceURL;
-echo $return;
 $sql = "select value from settings where name='mundocrucerosSID' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -89,9 +77,6 @@ if ($result->valid()) {
     $row = $result->current();
     $mundocrucerosSID = $row['value'];
 }
-echo $return;
-echo $mundocrucerosSID;
-echo $return;
 $sql = "select value from settings where name='mundocrucerosWebsite' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -101,12 +86,7 @@ if ($result->valid()) {
     $row = $result->current();
     $mundocrucerosWebsite = $row['value'];
 }
-echo $return;
-echo $mundocrucerosWebsite;
-echo $return;
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
+
 $raw = 'xml=<?xml version="1.0"?>
 <request>
     <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
@@ -134,6 +114,9 @@ $error = curl_error($ch);
 $headers = curl_getinfo($ch);
 curl_close($ch);
 
+echo "<xmp>";
+echo $response;
+echo "</xmp>";
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.mundocruceros.php');
 $config = [
@@ -152,8 +135,8 @@ $node = $results->item(0)->getElementsByTagName("region");
 for ($i=0; $i < $node->length; $i++) { 
     $id = $node->item($i)->getAttribute("id");
     $name = $node->item($i)->getAttribute("name");
-    echo $name;
-    try {
+    
+    /* try {
         $sql = new Sql($db);
         $select = $sql->select();
         $select->from('cruzeiros_regioes');
@@ -216,7 +199,7 @@ for ($i=0; $i < $node->length; $i++) {
         echo $return;
         echo "Error: " . $e;
         echo $return;
-    }
+    } */
 
 }
 

@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<response method="getbasket" sessionkey="EFB28E55_643Cp4907-9DBB-6DDB8C9C9BFC" success="Y">
+  <errors>
+  </errors>
+  <request>
+    <auth password="kg02gy05" username="mundocru" />
+    <method action="getbasket" sessionkey="EFB28E55_643Cp4907-9DBB-6DDB8C9C9BFC" status="Test" />
+  </request>
+  <results>
+    <basketitem addedtime="1588085119" basketcode="WK3Q2C" currency="USD" enginename="Princess Cruises" itemkey="813135982" paymentoption="online" price="0.00" scurrency="" searchno="0" sprice="" startdate="2020-08-08 23:59:59" type="cruise">
+      <cardcharges>
+        <cardcharge cardname="American Express" cardtype="AMX" chargetype="none" chargevalue="0.00" />
+        <cardcharge cardname="MasterCard Credit Card" cardtype="MSC" chargetype="percentage" chargevalue="0.00" />
+        <cardcharge cardname="Diners Club" cardtype="DIN" chargetype="none" chargevalue="0.00" />
+        <cardcharge cardname="Visa Credit Card" cardtype="VIS" chargetype="none" chargevalue="0.00" />
+      </cardcharges>
+      <deposits duedate="2020-08-05" price="0" />
+      <item adults="2" airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" children="0" codetocruiseid="1570517" copyandmedia="" cruisebalcony="1368.00" cruisebalconypricecode="" cruiseid="253417" cruiseinside="1258.00" cruiseinsidepricecode="" cruiseoutside="0" cruiseoutsidepricecode="" cruisesuite="1958.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-13" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" infants="0" localpricing="Y" marketid="22" name="Japan Islands" ncf="100.00" nettprice="1258.00" nights="5" nofly="N" nofuelsupplement="" ownerid="system" price="1258.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultno="184_15.0" resultweight="0" returndate="2020-08-13" returnuk="N" roundtrip="Y" saildate="2020-08-08" sailnights="5" scurrency="USD" seadays="2" searchdetail="" senior="0" soldout="0" special="no" specialsgroup="" sprice="1258" startdate="2020-08-08" startprice="629.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="8048" whatsincluded="" zoneid="">
+        <cruisebalconyprices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1368" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1368" />
+        </cruisebalconyprices>
+        <cruiseinsideprices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1258" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1258" />
+        </cruiseinsideprices>
+        <cruisesuiteprices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1958" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1958" />
+        </cruisesuiteprices>
+        <grade>
+          <cabin></cabin>
+          <rate></rate>
+        </grade>
+        <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+        <ports>
+          <port id="442" name="Taipei" />
+          <port id="4532" name="Yatsushiro" />
+          <port id="1903" name="Busan, South Korea" />
+          <port id="442" name="Taipei" />
+        </ports>
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1258" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1258" />
+        </prices>
+        <regions>
+          <region name="Asia &amp; Indian Ocean" regionid="5" />
+        </regions>
+        <sessiondetail></sessiondetail>
+        <ship code="MJ" id="3788" imagecaption="Majestic Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111476.jpg" name="Majestic Princess" niceurl="princess-cruises/majestic-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111476.jpg" />
+        <uniqueportids>442</uniqueportids>
+        <uniqueportids>1903</uniqueportids>
+        <uniqueportids>4532</uniqueportids>
+        <uniqueportnames>Taipei</uniqueportnames>
+        <uniqueportnames>Busan, South Korea</uniqueportnames>
+        <uniqueportnames>Yatsushiro</uniqueportnames>
+        <upropdata></upropdata>
+      </item>
+      <itemdetail adults="2" airport="" airportname="" children="0" codetocruiseid="1570517" cruiseid="253417" currency="USD" departuk="N" description="" enddate="2020-08-13" engine="Princess" hascruiseonly="Y" hasflights="N" hidden="N" iata="" infants="0" name="Japan Islands" nettprice="1258.00" nights="5" nofly="N" nofuelsupplement="" ownerid="system" paymentoption="online" price="1258.00" priority="999" resultno="184_15.0" returndate="2020-08-13" saildate="2020-08-08" sailnights="5" special="no" startdate="2020-08-08" stoplive="0" type="cruise" voyagecode="8048" zoneid="">
+        <cabin deckcode="" />
+        <grade iata="">
+          <cabintype></cabintype>
+          <prices></prices>
+          <rate></rate>
+        </grade>
+        <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+        <ports>
+          <port id="442" name="Taipei" />
+          <port id="4532" name="Yatsushiro" />
+          <port id="1903" name="Busan, South Korea" />
+          <port id="442" name="Taipei" />
+        </ports>
+        <regions>
+          <region name="Asia &amp; Indian Ocean" regionid="5" />
+        </regions>
+        <ship code="MJ" id="3788" imagecaption="Majestic Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111476.jpg" name="Majestic Princess" niceurl="princess-cruises/majestic-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111476.jpg" />
+      </itemdetail>
+      <prices>
+      </prices>
+      <reservation>
+        <itemdetail>
+          <bookedsectors></bookedsectors>
+        </itemdetail>
+      </reservation>
+      <searchdetail addins="1" adults="2" allowalldates="" children="0" classificationid="" codetocruiseid="" cruiseandflyuk="" cruiseonly="" cruiseonlynouk="" cruisepax="" cruisetype="" cruiseversion="3" ctcownerid="" defaulthomecity="SCL" departuk="" enddate="2020-08-15" endportid="" flycruise="" forceallocations="" groupid="" homecity="" includesenior="" infants="0" language="en" lineid="20" lowestavailablefare="0" maxchildage="11" maxinfantage="1" maxresults="" military="" nights="" nofly="" nxcacher="" nxfromquote="" parentsid="" parentsite="chilegsa.site.traveltek.net" pastpassenger="" port="" portid="" pricerange="" processed="1" promocode="" regionid="" resultkey="default" searchcreatedat="2020-04-28 15:33:43" searchedon="81.20.75.153" searchno="0" shipid="" shipimages="Y" sid="28111" sidtype="cruises" sitename="chilegsa.site.traveltek.net" source="local" startdate="2020-08-08" startport="" startportid="" supplierpromocode="" systemgroup="" tailormadeid="" totalresults="20" type="cruise" voyagecode="" withprices="Y" withpricesonly="">
+        <childages></childages>
+        <enginemappings>
+          <cruise>
+          </cruise>
+        </enginemappings>
+        <marketid>22</marketid>
+        <resultcounts CruiseSearch="20" />
+        <timings CruiseSearch="3.784406" />
+        <workertimes CruiseSearch="" />
+      </searchdetail>
+    </basketitem>
+  </results>
+</response>

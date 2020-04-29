@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<response basketkey="813135982" method="addtobasket" results="" sessionkey="EFB28E55_643Cp4907-9DBB-6DDB8C9C9BFC" success="Y">
+  <errors>
+  </errors>
+  <request>
+    <auth password="kg02gy05" username="mundocru" />
+    <method action="addtobasket" resultkey="default" resultno="302_15.0" sessionkey="EFB28E55_643Cp4907-9DBB-6DDB8C9C9BFC" status="Test" type="cruise" />
+  </request>
+</response>

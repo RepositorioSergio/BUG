@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<request>
+  <auth password="kg02gy05" username="mundocru" />
+  <method action="getdetail" type="cruise" resultno="302_18.0" sessionkey="61DD81F2-4068r4CDF-910C-2649D2E760E1" status="Live" resultkey="default">
+    <gradelist>
+        <grade gradeno="184:14" cabinresult="" />
+    </gradelist>
+  </method>
+</request>

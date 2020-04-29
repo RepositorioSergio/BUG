@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<response method="getbasket" sessionkey="61DD81F2-4068r4CDF-910C-2649D2E760E1" success="Y">
+  <errors>
+  </errors>
+  <request>
+    <auth password="kg02gy05" username="mundocru" />
+    <method action="getbasket" sessionkey="61DD81F2-4068r4CDF-910C-2649D2E760E1" status="Live" />
+  </request>
+  <results>
+    <basketitem addedtime="1588091356" basketcode="4SM4LJ" currency="USD" enginename="Princess Cruises" itemkey="813155495" paymentoption="online" price="0.00" scurrency="" searchno="0" sprice="" startdate="2020-08-09 23:59:59" type="cruise">
+      <cardcharges>
+        <cardcharge cardname="Diners Club" cardtype="DIN" chargetype="none" chargevalue="0.00" />
+        <cardcharge cardname="Visa Credit Card" cardtype="VIS" chargetype="none" chargevalue="0.00" />
+        <cardcharge cardname="MasterCard Credit Card" cardtype="MSC" chargetype="percentage" chargevalue="0.00" />
+        <cardcharge cardname="American Express" cardtype="AMX" chargetype="none" chargevalue="0.00" />
+      </cardcharges>
+      <deposits duedate="2020-08-06" price="0" />
+      <item adults="2" airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" children="0" codetocruiseid="1403466" copyandmedia="" cruisebalcony="2774.28" cruisebalconypricecode="" cruiseid="223676" cruiseinside="1874.28" cruiseinsidepricecode="" cruiseoutside="2042.28" cruiseoutsidepricecode="" cruisesuite="3574.28" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-16" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" infants="0" localpricing="Y" marketid="22" name="Inside Passage (Roundtrip Seattle)" ncf="238.14" nettprice="1874.28" nights="7" nofly="N" nofuelsupplement="" ownerid="system" price="1874.28" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultno="184_18.0" resultweight="0" returndate="2020-08-16" returnuk="N" roundtrip="Y" saildate="2020-08-09" sailnights="7" scurrency="USD" seadays="2" searchdetail="" senior="0" soldout="0" special="no" specialsgroup="" sprice="1874.28" startdate="2020-08-09" startprice="937.14" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="E023" whatsincluded="" zoneid="">
+        <cruisebalconyprices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2774.28" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2774.28" />
+        </cruisebalconyprices>
+        <cruiseinsideprices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1874.28" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1874.28" />
+        </cruiseinsideprices>
+        <cruiseoutsideprices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2042.28" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2042.28" />
+        </cruiseoutsideprices>
+        <cruisesuiteprices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3574.28" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3574.28" />
+        </cruisesuiteprices>
+        <grade>
+          <cabin></cabin>
+          <rate></rate>
+        </grade>
+        <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+        <ports>
+          <port id="435" name="Seattle" />
+          <port id="551" name="Ketchikan" />
+          <port id="4924" name="Endicott Arm" />
+          <port id="400" name="Juneau" />
+          <port id="439" name="Skagway" />
+          <port id="446" name="Victoria, British Colombia" />
+          <port id="435" name="Seattle" />
+        </ports>
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1874.28" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1874.28" />
+        </prices>
+        <regions>
+          <region name="Alaska" regionid="13" />
+        </regions>
+        <sessiondetail></sessiondetail>
+        <ship code="EP" id="367" imagecaption="Emerald Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111082.jpg" name="Emerald Princess" niceurl="princess-cruises/emerald-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111082.jpg" />
+        <uniqueportids>400</uniqueportids>
+        <uniqueportids>435</uniqueportids>
+        <uniqueportids>551</uniqueportids>
+        <uniqueportids>4924</uniqueportids>
+        <uniqueportids>446</uniqueportids>
+        <uniqueportids>439</uniqueportids>
+        <uniqueportnames>Juneau</uniqueportnames>
+        <uniqueportnames>Seattle</uniqueportnames>
+        <uniqueportnames>Ketchikan</uniqueportnames>
+        <uniqueportnames>Endicott Arm</uniqueportnames>
+        <uniqueportnames>Victoria, British Colombia</uniqueportnames>
+        <uniqueportnames>Skagway</uniqueportnames>
+        <upropdata></upropdata>
+      </item>
+      <itemdetail adults="2" airport="" airportname="" children="0" codetocruiseid="1403466" cruiseid="223676" currency="USD" departuk="N" description="" enddate="2020-08-16" engine="Princess" hascruiseonly="Y" hasflights="N" hidden="N" iata="" infants="0" name="Inside Passage (Roundtrip Seattle)" nettprice="1874.28" nights="7" nofly="N" nofuelsupplement="" ownerid="system" paymentoption="online" price="1874.28" priority="999" resultno="184_18.0" returndate="2020-08-16" saildate="2020-08-09" sailnights="7" special="no" startdate="2020-08-09" stoplive="0" type="cruise" voyagecode="E023" zoneid="">
+        <cabin deckcode="" />
+        <grade iata="">
+          <cabintype></cabintype>
+          <prices></prices>
+          <rate></rate>
+        </grade>
+        <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+        <ports>
+          <port id="435" name="Seattle" />
+          <port id="551" name="Ketchikan" />
+          <port id="4924" name="Endicott Arm" />
+          <port id="400" name="Juneau" />
+          <port id="439" name="Skagway" />
+          <port id="446" name="Victoria, British Colombia" />
+          <port id="435" name="Seattle" />
+        </ports>
+        <regions>
+          <region name="Alaska" regionid="13" />
+        </regions>
+        <ship code="EP" id="367" imagecaption="Emerald Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111082.jpg" name="Emerald Princess" niceurl="princess-cruises/emerald-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111082.jpg" />
+      </itemdetail>
+      <prices>
+      </prices>
+      <reservation>
+        <itemdetail>
+          <bookedsectors></bookedsectors>
+        </itemdetail>
+      </reservation>
+      <searchdetail addins="1" adults="2" allowalldates="" children="0" classificationid="" codetocruiseid="" cruiseandflyuk="" cruiseonly="" cruiseonlynouk="" cruisepax="" cruisetype="" cruiseversion="3" ctcownerid="" defaulthomecity="SCL" departuk="" enddate="2020-08-15" endportid="" flycruise="" forceallocations="" groupid="" homecity="" includesenior="" infants="0" language="en" lineid="20" lowestavailablefare="0" maxchildage="11" maxinfantage="1" maxresults="" military="" nights="" nofly="" nxcacher="" nxfromquote="" parentsid="" parentsite="chilegsa.site.traveltek.net" pastpassenger="" port="" portid="" pricerange="" processed="1" promocode="" regionid="" resultkey="default" searchcreatedat="2020-04-28 17:17:23" searchedon="81.20.75.153" searchno="0" shipid="" shipimages="Y" sid="28111" sidtype="cruises" sitename="chilegsa.site.traveltek.net" source="local" startdate="2020-08-08" startport="" startportid="" supplierpromocode="" systemgroup="" tailormadeid="" totalresults="20" type="cruise" voyagecode="" withprices="Y" withpricesonly="">
+        <childages></childages>
+        <enginemappings>
+          <cruise>
+          </cruise>
+        </enginemappings>
+        <marketid>22</marketid>
+        <resultcounts CruiseSearch="20" />
+        <timings CruiseSearch="1.649237" />
+        <workertimes CruiseSearch="" />
+      </searchdetail>
+    </basketitem>
+  </results>
+</response>

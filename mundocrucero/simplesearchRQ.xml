@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<request>
+  <auth username="mundocru" password="kg02gy05" />
+  <method action="simplesearch" type="cruise" sessionkey="EFB28E55_643Cp4907-9DBB-6DDB8C9C9BFC" userid="3035567" sitename="chilegsa.site.traveltek.net" currency="USD" status="Test">
+    <searchdetail type="cruise" startdate="2020-08-08" enddate="2020-08-15" lineid="20" adults="2" children="0" sid="28111" resultkey="default">
+    </searchdetail>
+  </method>
+</request>

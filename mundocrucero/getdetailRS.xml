@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<response method="getdetail" sessionkey="EFB28E55_643Cp4907-9DBB-6DDB8C9C9BFC" success="Y">
+  <errors>
+  </errors>
+  <request>
+    <auth password="kg02gy05" username="mundocru" />
+    <method action="getdetail" resultkey="default" resultno="302_15.0" sessionkey="EFB28E55_643Cp4907-9DBB-6DDB8C9C9BFC" status="Test" type="cruise">
+      <gradelist>
+        <grade cabinresult="" gradeno="184:13" />
+      </gradelist>
+    </method>
+  </request>
+  <results>
+    <cruise airport="" airportname="" codetocruiseid="1570517" cruiseid="253417" currency="USD" departuk="N" description="" enddate="2020-08-13" engine="Princess" hascruiseonly="Y" hasflights="N" hidden="N" iata="" name="Japan Islands" nettprice="1258.00" nights="5" nofly="N" nofuelsupplement="" ownerid="system" paymentoption="online" price="1258.00" priority="999" resultno="184_15.0" returndate="2020-08-13" saildate="2020-08-08" sailnights="5" special="no" startdate="2020-08-08" stoplive="0" type="cruise" voyagecode="8048" zoneid="">
+      <cabin deckcode="" />
+      <grade iata="" />
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="442" name="Taipei" />
+        <port id="4532" name="Yatsushiro" />
+        <port id="1903" name="Busan, South Korea" />
+        <port id="442" name="Taipei" />
+      </ports>
+      <regions>
+        <region name="Asia &amp; Indian Ocean" regionid="5" />
+      </regions>
+      <ship code="MJ" id="3788" imagecaption="Majestic Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111476.jpg" name="Majestic Princess" niceurl="princess-cruises/majestic-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111476.jpg" />
+    </cruise>
+  </results>
+</response>

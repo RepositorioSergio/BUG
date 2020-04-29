@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU CREATE SEARCH<br/>";
+echo "COMECOU RATE CODES<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -87,52 +87,23 @@ if ($result->valid()) {
     $mundocrucerosWebsite = $row['value'];
 }
 
-
-$raw2 = 'xml=<?xml version="1.0"?>
-<request>
-    <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-    <method action="createsession" sitename="' . $mundocrucerosWebsite . '" currency="GBP" status="Test" />
-</request>';
-
-$ch2 = curl_init();
-curl_setopt($ch2, CURLOPT_URL, $mundocrucerosServiceURL );
-curl_setopt($ch2, CURLOPT_HEADER, false);
-curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch2, CURLOPT_VERBOSE, 0);
-curl_setopt($ch2, CURLOPT_POST, true);
-curl_setopt($ch2, CURLOPT_POSTFIELDS, $raw2);
-curl_setopt($ch2, CURLOPT_CONNECTTIMEOUT, 65000);
-curl_setopt($ch2, CURLOPT_HTTPHEADER, array(
-    "Content-type: application/x-www-form-urlencoded",
-    "Accept-Encoding: gzip, deflate",
-    "Content-length: " . strlen($raw2)
-));
-curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
-$response2 = curl_exec($ch2);
-$error2 = curl_error($ch2);
-$headers2 = curl_getinfo($ch2);
-curl_close($ch2);
-
-$inputDoc2 = new DOMDocument();
-$inputDoc2->loadXML($response2);
-$node = $inputDoc2->getElementsByTagName("response");
-$sessionkey = $node->item(0)->getAttribute("sessionkey");
-
+$sessionkey = 'EFB28E55_643Cp4907-9DBB-6DDB8C9C9BFC';
+$resultno = '302_15.0';
 
 $raw = 'xml=<?xml version="1.0"?>
 <request>
-  <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-  <method action="performsearch" sessionkey="' . $sessionkey . '" resultkey="default" />
+    <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
+    <method action="getratecodes" sessionkey="' . $sessionkey . '" resultno="' . $resultno . '" status="Test" />
 </request>';
+
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $mundocrucerosServiceURL );
 curl_setopt($ch, CURLOPT_HEADER, false);
+curl_setopt($ch, CURLOPT_VERBOSE, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_VERBOSE, 1);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
-curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate");
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     "Content-type: application/x-www-form-urlencoded",
@@ -149,7 +120,6 @@ echo "<xmp>";
 echo $response;
 echo "</xmp>";
 
-
 $config = new \Zend\Config\Config(include '../config/autoload/global.mundocruceros.php');
 $config = [
     'driver' => $config->db->driver,
@@ -162,78 +132,74 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $inputDoc = new DOMDocument();
 $inputDoc->loadXML($response);
-$results = $inputDoc->getElementsByTagName("results");
-$node = $results->item(0)->getElementsByTagName("region");
-/* for ($i=0; $i < $node->length; $i++) { 
-    $id = $node->item($i)->getAttribute("id");
-    $name = $node->item($i)->getAttribute("name");
-    echo $name;
-    try {
-        $sql = new Sql($db);
-        $select = $sql->select();
-        $select->from('cruzeiros_regioes');
-        $select->where(array(
-        'id' => $id
-        ));
-        $statement = $sql->prepareStatementForSqlObject($select);
-        $result = $statement->execute();
-        $result->buffer();
-        $customers = array();
-        if ($result->valid()) {
-            $data = $result->current();
-            $id = (int)$data['id'];
-            if ($id > 0) {
-                $sql = new Sql($db);
-                $data = array(
-                    'id' => $id,
-                    'datetime_created' => time(),
-                    'datetime_updated' => 1,
-                    'name' => $name
-                );
-                $where['id = ?'] = $id;
-                $update = $sql->update('cruzeiros_regioes', $data, $where);
-                $db->getDriver()
-                ->getConnection()
-                ->disconnect();
-            } else {
-                $sql = new Sql($db);
-                $insert = $sql->insert();
-                $insert->into('cruzeiros_regioes');
-                $insert->values(array(
-                    'id' => $id,
-                    'datetime_created' => time(),
-                    'datetime_updated' => 0,
-                    'name' => $name
-                ), $insert::VALUES_MERGE);
-                $statement = $sql->prepareStatementForSqlObject($insert);
-                $results = $statement->execute();
-                $db->getDriver()
-                ->getConnection()
-                ->disconnect();
-            }
-        } else {
-            $sql = new Sql($db);
-            $insert = $sql->insert();
-            $insert->into('cruzeiros_regioes');
-            $insert->values(array(
-                'id' => $id,
-                'datetime_created' => time(),
-                'datetime_updated' => 0,
-                'name' => $name
-            ), $insert::VALUES_MERGE);
-            $statement = $sql->prepareStatementForSqlObject($insert);
-            $results = $statement->execute();
-            $db->getDriver()
-            ->getConnection()
-            ->disconnect();
-       }
-    } catch (\Exception $e) {
-        echo $return;
-        echo "Error: " . $e;
-        echo $return;
+$response = $inputDoc->getElementsByTagName("response");
+$sessionkey = $response->item(0)->getAttribute("sessionkey");
+$success = $response->item(0)->getAttribute("success");
+if ($success == 'Y') {
+    $request = $response->item(0)->getElementsByTagName("request");
+    if ($request->length > 0) {
+        $method = $request->item(0)->getElementsByTagName("method");
+        if ($method->length > 0) {
+            $resultno = $method->item(0)->getAttribute("resultno");
+            $sessionkey = $method->item(0)->getAttribute("sessionkey");
+        }
     }
+    $results = $response->item(0)->getElementsByTagName("results");
+    if ($results->length > 0) {
+        $farecodes = $results->item(0)->getElementsByTagName("farecodes");
+        if ($farecodes->length > 0) {
+            for ($i=0; $i < $farecodes->length; $i++) { 
+                $airavail = $farecodes->item($i)->getAttribute("airavail");
+                $code = $farecodes->item($i)->getAttribute("code");
+                $faretype = $farecodes->item($i)->getAttribute("faretype");
+                $insuranceavail = $farecodes->item($i)->getAttribute("insuranceavail");
+                $misccharges = $farecodes->item($i)->getAttribute("misccharges");
+                $name = $farecodes->item($i)->getAttribute("name");
+                $nett = $farecodes->item($i)->getAttribute("nett");
+                $nonrefundable = $farecodes->item($i)->getAttribute("nonrefundable");
+                $pastpassenger = $farecodes->item($i)->getAttribute("pastpassenger");
+                $portcharges = $farecodes->item($i)->getAttribute("portcharges");
 
-} */
+                $insuranceopts = $farecodes->item($i)->getElementsByTagName("insuranceopts");
+                if ($insuranceopts->length > 0) {
+                    $insuranceopts_name = $insuranceopts->item(0)->getAttribute("name");
+                    $insuranceopts_type = $insuranceopts->item(0)->getAttribute("type");
+                }
+
+                try {
+                    $sql = new Sql($db);
+                    $insert = $sql->insert();
+                    $insert->into('ratecodes');
+                    $insert->values(array(
+                        'datetime_created' => time(),
+                        'datetime_updated' => 0,
+                        'code' => $code,
+                        'name' => $name,
+                        'airavail' => $airavail,
+                        'faretype' => $faretype,
+                        'insuranceavail' => $insuranceavail,
+                        'misccharges' => $misccharges,
+                        'nett' => $nett,
+                        'nonrefundable' => $nonrefundable,
+                        'pastpassenger' => $pastpassenger,
+                        'portcharges' => $portcharges,
+                        'insuranceopts_name' => $insuranceopts_name,
+                        'insuranceopts_type' => $insuranceopts_type
+                    ), $insert::VALUES_MERGE);
+                    $statement = $sql->prepareStatementForSqlObject($insert);
+                    $results = $statement->execute();
+                    $db->getDriver()
+                    ->getConnection()
+                    ->disconnect();
+                } catch (\Exception $e) {
+                    echo $return;
+                    echo "Error: " . $e;
+                    echo $return;
+                }
+            }
+        }
+    }
+}
 
 // EOF
 $db->getDriver()

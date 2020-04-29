@@ -1,0 +1,1215 @@
+<?xml version="1.0"?>
+<response method="simplesearch" sessionkey="61DD81F2-4068r4CDF-910C-2649D2E760E1" success="Y">
+  <errors>
+  </errors>
+  <request>
+    <auth password="kg02gy05" username="mundocru" />
+    <method action="simplesearch" currency="USD" sessionkey="61DD81F2-4068r4CDF-910C-2649D2E760E1" sitename="chilegsa.site.traveltek.net" status="Live" type="cruise" userid="3035567">
+      <searchdetail adults="2" children="0" enddate="2020-08-15" lineid="20" resultkey="default" sid="28111" startdate="2020-08-08" type="cruise" />
+    </method>
+  </request>
+  <results>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1570517" copyandmedia="" cruisebalcony="1368.00" cruisebalconypricecode="" cruiseid="253417" cruiseinside="1258.00" cruiseinsidepricecode="" cruiseoutside="0" cruiseoutsidepricecode="" cruisesuite="1958.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-13" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Japan Islands" ncf="100.00" nettprice="1258.00" nights="5" nofly="N" nofuelsupplement="" ownerid="system" price="1258.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_1.0" resultweight="0" returndate="2020-08-13" returnuk="N" roundtrip="Y" saildate="2020-08-08" sailnights="5" scurrency="USD" seadays="2" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="1258" startdate="2020-08-08" startprice="629.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="8048" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1368" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1368" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1258" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1258" />
+      </cruiseinsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1958" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1958" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="442" name="Taipei" />
+        <port id="4532" name="Yatsushiro" />
+        <port id="1903" name="Busan, South Korea" />
+        <port id="442" name="Taipei" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1258" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1258" />
+      </prices>
+      <regions>
+        <region name="Asia &amp; Indian Ocean" regionid="5" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="MJ" id="3788" imagecaption="Majestic Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111476.jpg" name="Majestic Princess" niceurl="princess-cruises/majestic-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111476.jpg" />
+      <uniqueportids>442</uniqueportids>
+      <uniqueportids>4532</uniqueportids>
+      <uniqueportids>1903</uniqueportids>
+      <uniqueportnames>Taipei</uniqueportnames>
+      <uniqueportnames>Yatsushiro</uniqueportnames>
+      <uniqueportnames>Busan, South Korea</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1403466" copyandmedia="" cruisebalcony="2774.28" cruisebalconypricecode="" cruiseid="223676" cruiseinside="1874.28" cruiseinsidepricecode="" cruiseoutside="2042.28" cruiseoutsidepricecode="" cruisesuite="3574.28" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-16" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Inside Passage (Roundtrip Seattle)" ncf="238.14" nettprice="1874.28" nights="7" nofly="N" nofuelsupplement="" ownerid="system" price="1874.28" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_18.0" resultweight="0" returndate="2020-08-16" returnuk="N" roundtrip="Y" saildate="2020-08-09" sailnights="7" scurrency="USD" seadays="2" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="1874.28" startdate="2020-08-09" startprice="937.14" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="E023" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2774.28" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2774.28" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1874.28" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1874.28" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2042.28" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2042.28" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3574.28" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3574.28" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="435" name="Seattle" />
+        <port id="551" name="Ketchikan" />
+        <port id="4924" name="Endicott Arm" />
+        <port id="400" name="Juneau" />
+        <port id="439" name="Skagway" />
+        <port id="446" name="Victoria, British Colombia" />
+        <port id="435" name="Seattle" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1874.28" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1874.28" />
+      </prices>
+      <regions>
+        <region name="Alaska" regionid="13" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="EP" id="367" imagecaption="Emerald Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111082.jpg" name="Emerald Princess" niceurl="princess-cruises/emerald-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111082.jpg" />
+      <uniqueportids>400</uniqueportids>
+      <uniqueportids>435</uniqueportids>
+      <uniqueportids>551</uniqueportids>
+      <uniqueportids>4924</uniqueportids>
+      <uniqueportids>446</uniqueportids>
+      <uniqueportids>439</uniqueportids>
+      <uniqueportnames>Juneau</uniqueportnames>
+      <uniqueportnames>Seattle</uniqueportnames>
+      <uniqueportnames>Ketchikan</uniqueportnames>
+      <uniqueportnames>Endicott Arm</uniqueportnames>
+      <uniqueportnames>Victoria, British Colombia</uniqueportnames>
+      <uniqueportnames>Skagway</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1401010" copyandmedia="" cruisebalcony="2784.28" cruisebalconypricecode="" cruiseid="222562" cruiseinside="1884.28" cruiseinsidepricecode="" cruiseoutside="2284.28" cruiseoutsidepricecode="" cruisesuite="3884.28" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-22" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Roundtrip from Seattle" ncf="243.14" nettprice="1884.28" nights="7" nofly="N" nofuelsupplement="" ownerid="system" price="1884.28" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_8.0" resultweight="0" returndate="2020-08-22" returnuk="N" roundtrip="Y" saildate="2020-08-15" sailnights="7" scurrency="USD" seadays="1" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="1884.28" startdate="2020-08-15" startprice="942.14" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="R026" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2784.28" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2784.28" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1884.28" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1884.28" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2284.28" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2284.28" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3884.28" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3884.28" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="435" name="Seattle" />
+        <port id="400" name="Juneau" />
+        <port id="439" name="Skagway" />
+        <port id="4924" name="Endicott Arm" />
+        <port id="551" name="Ketchikan" />
+        <port id="446" name="Victoria, British Colombia" />
+        <port id="435" name="Seattle" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1884.28" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1884.28" />
+      </prices>
+      <regions>
+        <region name="Alaska" regionid="13" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="RU" id="416" imagecaption="Ruby Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111847.jpg" name="Ruby Princess" niceurl="princess-cruises/ruby-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111847.jpg" />
+      <uniqueportids>439</uniqueportids>
+      <uniqueportids>446</uniqueportids>
+      <uniqueportids>551</uniqueportids>
+      <uniqueportids>4924</uniqueportids>
+      <uniqueportids>435</uniqueportids>
+      <uniqueportids>400</uniqueportids>
+      <uniqueportnames>Skagway</uniqueportnames>
+      <uniqueportnames>Victoria, British Colombia</uniqueportnames>
+      <uniqueportnames>Ketchikan</uniqueportnames>
+      <uniqueportnames>Endicott Arm</uniqueportnames>
+      <uniqueportnames>Seattle</uniqueportnames>
+      <uniqueportnames>Juneau</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1403581" copyandmedia="" cruisebalcony="2908.00" cruisebalconypricecode="" cruiseid="223720" cruiseinside="1988.00" cruiseinsidepricecode="" cruiseoutside="2198.00" cruiseoutsidepricecode="" cruisesuite="3728.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-23" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Japan Kumano Fireworks" ncf="105.00" nettprice="1988.00" nights="8" nofly="N" nofuelsupplement="" ownerid="system" price="1988.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_6.0" resultweight="0" returndate="2020-08-23" returnuk="N" roundtrip="Y" saildate="2020-08-15" sailnights="8" scurrency="USD" seadays="3" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="1988" startdate="2020-08-15" startprice="994.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="M029" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2908" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2908" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1988" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1988" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2198" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2198" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3728" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3728" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="602" name="Tokyo (Yokohama)" />
+        <port id="3817" name="Wakayama" />
+        <port id="5589" name="Kumano, Japan " />
+        <port id="5059" name="Kochi, Japan" />
+        <port id="1903" name="Busan, South Korea" />
+        <port id="199" name="Nagasaki" />
+        <port id="489" name="Kagoshima" />
+        <port id="602" name="Tokyo (Yokohama)" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1988" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1988" />
+      </prices>
+      <regions>
+        <region name="Asia &amp; Indian Ocean" regionid="5" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="DI" id="119" imagecaption="Diamond Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111011.jpg" name="Diamond Princess" niceurl="princess-cruises/diamond-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111011.jpg" />
+      <uniqueportids>199</uniqueportids>
+      <uniqueportids>3817</uniqueportids>
+      <uniqueportids>5059</uniqueportids>
+      <uniqueportids>5589</uniqueportids>
+      <uniqueportids>1903</uniqueportids>
+      <uniqueportids>602</uniqueportids>
+      <uniqueportids>489</uniqueportids>
+      <uniqueportnames>Nagasaki</uniqueportnames>
+      <uniqueportnames>Wakayama</uniqueportnames>
+      <uniqueportnames>Kochi, Japan</uniqueportnames>
+      <uniqueportnames>Kumano, Japan </uniqueportnames>
+      <uniqueportnames>Busan, South Korea</uniqueportnames>
+      <uniqueportnames>Tokyo (Yokohama)</uniqueportnames>
+      <uniqueportnames>Kagoshima</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1403336" copyandmedia="" cruisebalcony="2888.00" cruisebalconypricecode="" cruiseid="223662" cruiseinside="1988.00" cruiseinsidepricecode="" cruiseoutside="2388.00" cruiseoutsidepricecode="" cruisesuite="3788.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-15" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Inside Passage (with Glacier Bay National Park)" ncf="245.00" nettprice="1988.00" nights="7" nofly="N" nofuelsupplement="" ownerid="system" price="1988.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_16.0" resultweight="0" returndate="2020-08-15" returnuk="N" roundtrip="Y" saildate="2020-08-08" sailnights="7" scurrency="USD" seadays="2" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="1988" startdate="2020-08-08" startprice="994.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="R025" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2888" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2888" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1988" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1988" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2388" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2388" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3788" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3788" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="435" name="Seattle" />
+        <port id="400" name="Juneau" />
+        <port id="439" name="Skagway" />
+        <port id="551" name="Ketchikan" />
+        <port id="446" name="Victoria, British Colombia" />
+        <port id="435" name="Seattle" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1988" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1988" />
+      </prices>
+      <regions>
+        <region name="Alaska" regionid="13" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="RU" id="416" imagecaption="Ruby Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111847.jpg" name="Ruby Princess" niceurl="princess-cruises/ruby-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111847.jpg" />
+      <uniqueportids>439</uniqueportids>
+      <uniqueportids>446</uniqueportids>
+      <uniqueportids>551</uniqueportids>
+      <uniqueportids>435</uniqueportids>
+      <uniqueportids>400</uniqueportids>
+      <uniqueportnames>Skagway</uniqueportnames>
+      <uniqueportnames>Victoria, British Colombia</uniqueportnames>
+      <uniqueportnames>Ketchikan</uniqueportnames>
+      <uniqueportnames>Seattle</uniqueportnames>
+      <uniqueportnames>Juneau</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1400712" copyandmedia="" cruisebalcony="3206.86" cruisebalconypricecode="" cruiseid="222659" cruiseinside="2006.86" cruiseinsidepricecode="" cruiseoutside="2114.86" cruiseoutsidepricecode="" cruisesuite="4306.86" cruisesuitepricecode="" currency="USD" departuk="Y" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-22" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Norwegian Fjords" ncf="104.43" nettprice="2006.86" nights="7" nofly="Y" nofuelsupplement="" ownerid="system" price="2006.86" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_3.0" resultweight="0" returndate="2020-08-22" returnuk="Y" roundtrip="Y" saildate="2020-08-15" sailnights="7" scurrency="USD" seadays="2" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="2006.86" startdate="2020-08-15" startprice="1003.43" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="3025" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3206.86" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3206.86" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2006.86" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2006.86" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2114.86" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2114.86" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4306.86" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4306.86" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="295" name="Southampton" />
+        <port id="310" name="Stavanger, Norway" />
+        <port id="221" name="Olden" />
+        <port id="292" name="Skjolden" />
+        <port id="562" name="Bergen, Norway" />
+        <port id="295" name="Southampton" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2006.86" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2006.86" />
+      </prices>
+      <regions>
+        <region name="Scandinavia" regionid="9" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="KP" id="269" imagecaption="Crown Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582110949.jpg" name="Crown Princess" niceurl="princess-cruises/crown-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582110949.jpg" />
+      <uniqueportids>221</uniqueportids>
+      <uniqueportids>292</uniqueportids>
+      <uniqueportids>295</uniqueportids>
+      <uniqueportids>562</uniqueportids>
+      <uniqueportids>310</uniqueportids>
+      <uniqueportnames>Olden</uniqueportnames>
+      <uniqueportnames>Skjolden</uniqueportnames>
+      <uniqueportnames>Southampton</uniqueportnames>
+      <uniqueportnames>Bergen, Norway</uniqueportnames>
+      <uniqueportnames>Stavanger, Norway</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1400595" copyandmedia="" cruisebalcony="2548.00" cruisebalconypricecode="" cruiseid="222606" cruiseinside="2008.00" cruiseinsidepricecode="" cruiseoutside="2808.00" cruiseoutsidepricecode="" cruisesuite="3608.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-22" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Mediterranean" ncf="105.00" nettprice="2008.00" nights="7" nofly="N" nofuelsupplement="" ownerid="system" price="2008.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_5.0" resultweight="0" returndate="2020-08-22" returnuk="N" roundtrip="N" saildate="2020-08-15" sailnights="7" scurrency="USD" seadays="2" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="2008" startdate="2020-08-15" startprice="1004.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="N049" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2548" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2548" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2008" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2008" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2808" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2808" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3608" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3608" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="1" name="Barcelona" />
+        <port id="109" name="Gibraltar" />
+        <port id="191" name="Marseille" />
+        <port id="108" name="Genoa" />
+        <port id="174" name="Livorno" />
+        <port id="270" name="Rome (Civitavecchia)" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2008" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2008" />
+      </prices>
+      <regions>
+        <region name="Europe" regionid="4" />
+        <region name="Mediterranean" regionid="7" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="EX" id="4964" imagecaption="Enchanted Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111188.jpg" name="Enchanted Princess" niceurl="princess-cruises/enchanted-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111188.jpg" />
+      <uniqueportids>174</uniqueportids>
+      <uniqueportids>270</uniqueportids>
+      <uniqueportids>1</uniqueportids>
+      <uniqueportids>108</uniqueportids>
+      <uniqueportids>109</uniqueportids>
+      <uniqueportids>191</uniqueportids>
+      <uniqueportnames>Livorno</uniqueportnames>
+      <uniqueportnames>Rome (Civitavecchia)</uniqueportnames>
+      <uniqueportnames>Barcelona</uniqueportnames>
+      <uniqueportnames>Genoa</uniqueportnames>
+      <uniqueportnames>Gibraltar</uniqueportnames>
+      <uniqueportnames>Marseille</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1400572" copyandmedia="" cruisebalcony="2358.00" cruisebalconypricecode="" cruiseid="222595" cruiseinside="2158.00" cruiseinsidepricecode="" cruiseoutside="0" cruiseoutsidepricecode="" cruisesuite="3798.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-15" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Mediterranean &amp; Adriatic" ncf="100.00" nettprice="2158.00" nights="7" nofly="N" nofuelsupplement="" ownerid="system" price="2158.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_14.0" resultweight="0" returndate="2020-08-15" returnuk="N" roundtrip="N" saildate="2020-08-08" sailnights="7" scurrency="USD" seadays="2" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="2158" startdate="2020-08-08" startprice="1079.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="N048" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2358" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2358" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2158" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2158" />
+      </cruiseinsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3798" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3798" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="23" name="Athens (Piraeus)" />
+        <port id="596" name="Santorini Island" />
+        <port id="559" name="Kotor" />
+        <port id="512" name="Messina" />
+        <port id="424" name="Provence" />
+        <port id="1" name="Barcelona" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2158" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2158" />
+      </prices>
+      <regions>
+        <region name="Europe" regionid="4" />
+        <region name="Mediterranean" regionid="7" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="EX" id="4964" imagecaption="Enchanted Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111188.jpg" name="Enchanted Princess" niceurl="princess-cruises/enchanted-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111188.jpg" />
+      <uniqueportids>1</uniqueportids>
+      <uniqueportids>23</uniqueportids>
+      <uniqueportids>596</uniqueportids>
+      <uniqueportids>559</uniqueportids>
+      <uniqueportids>424</uniqueportids>
+      <uniqueportids>512</uniqueportids>
+      <uniqueportnames>Barcelona</uniqueportnames>
+      <uniqueportnames>Athens (Piraeus)</uniqueportnames>
+      <uniqueportnames>Santorini Island</uniqueportnames>
+      <uniqueportnames>Kotor</uniqueportnames>
+      <uniqueportnames>Provence</uniqueportnames>
+      <uniqueportnames>Messina</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1620762" copyandmedia="" cruisebalcony="2918.00" cruisebalconypricecode="" cruiseid="262388" cruiseinside="2198.00" cruiseinsidepricecode="" cruiseoutside="2318.00" cruiseoutsidepricecode="" cruisesuite="3568.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-25" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Northern Explorer" ncf="250.00" nettprice="2198.00" nights="15" nofly="N" nofuelsupplement="" ownerid="system" price="2198.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_15.0" resultweight="0" returndate="2020-08-25" returnuk="N" roundtrip="N" saildate="2020-08-10" sailnights="15" scurrency="USD" seadays="9" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="2198" startdate="2020-08-10" startprice="1099.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="H023D" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2918" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2918" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2198" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2198" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2318" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2318" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3568" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3568" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="102" name="Fremantle" />
+        <port id="2045" name="Kuri Bay" />
+        <port id="939" name="Broome" />
+        <port id="81" name="Darwin, Australia" />
+        <port id="350" name="Yorkeys Knob" />
+        <port id="1484" name="Alotau" />
+        <port id="44" name="Brisbane" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2198" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2198" />
+      </prices>
+      <regions>
+        <region name="Australasia" regionid="14" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="SA" id="114" imagecaption="Sapphire Princess " imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111891.jpg" name="Sapphire Princess" niceurl="princess-cruises/sapphire-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111891.jpg" />
+      <uniqueportids>2045</uniqueportids>
+      <uniqueportids>102</uniqueportids>
+      <uniqueportids>939</uniqueportids>
+      <uniqueportids>1484</uniqueportids>
+      <uniqueportids>44</uniqueportids>
+      <uniqueportids>81</uniqueportids>
+      <uniqueportids>350</uniqueportids>
+      <uniqueportnames>Kuri Bay</uniqueportnames>
+      <uniqueportnames>Fremantle</uniqueportnames>
+      <uniqueportnames>Broome</uniqueportnames>
+      <uniqueportnames>Alotau</uniqueportnames>
+      <uniqueportnames>Brisbane</uniqueportnames>
+      <uniqueportnames>Darwin, Australia</uniqueportnames>
+      <uniqueportnames>Yorkeys Knob</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1406434" copyandmedia="" cruisebalcony="3634.00" cruisebalconypricecode="" cruiseid="224255" cruiseinside="2678.00" cruiseinsidepricecode="" cruiseoutside="2778.00" cruiseoutsidepricecode="" cruisesuite="5012.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-24" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Fire &amp; Ice Explorer" ncf="340.00" nettprice="2678.00" nights="16" nofly="N" nofuelsupplement="" ownerid="system" price="2678.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_17.0" resultweight="0" returndate="2020-08-24" returnuk="Y" roundtrip="N" saildate="2020-08-08" sailnights="16" scurrency="USD" seadays="8" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="2678" startdate="2020-08-08" startprice="1339.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="2013" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3634" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3634" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2678" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2678" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2778" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2778" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5012" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5012" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="207" name="New York" />
+        <port id="121" name="Halifax" />
+        <port id="259" name="Qaqortoq" />
+        <port id="578" name="Nanortalik" />
+        <port id="7" name="Akureyri" />
+        <port id="983" name="Seydhisfjordur" />
+        <port id="3333" name="South Queensferry" />
+        <port id="523" name="Newcastle, UK" />
+        <port id="295" name="Southampton" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2678" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2678" />
+      </prices>
+      <regions>
+        <region name="North America" regionid="8" />
+        <region name="United Kingdom" regionid="16" />
+        <region name="Polar Regions" regionid="18" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="IP" id="116" imagecaption="Island Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111411.jpg" name="Island Princess" niceurl="princess-cruises/island-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111411.jpg" />
+      <uniqueportids>295</uniqueportids>
+      <uniqueportids>207</uniqueportids>
+      <uniqueportids>523</uniqueportids>
+      <uniqueportids>3333</uniqueportids>
+      <uniqueportids>983</uniqueportids>
+      <uniqueportids>578</uniqueportids>
+      <uniqueportids>121</uniqueportids>
+      <uniqueportids>7</uniqueportids>
+      <uniqueportids>259</uniqueportids>
+      <uniqueportnames>Southampton</uniqueportnames>
+      <uniqueportnames>New York</uniqueportnames>
+      <uniqueportnames>Newcastle, UK</uniqueportnames>
+      <uniqueportnames>South Queensferry</uniqueportnames>
+      <uniqueportnames>Seydhisfjordur</uniqueportnames>
+      <uniqueportnames>Nanortalik</uniqueportnames>
+      <uniqueportnames>Halifax</uniqueportnames>
+      <uniqueportnames>Akureyri</uniqueportnames>
+      <uniqueportnames>Qaqortoq</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1620755" copyandmedia="" cruisebalcony="3548.00" cruisebalconypricecode="" cruiseid="262383" cruiseinside="2688.00" cruiseinsidepricecode="" cruiseoutside="2828.00" cruiseoutsidepricecode="" cruisesuite="4248.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-27" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Northern Explorer" ncf="325.00" nettprice="2688.00" nights="17" nofly="N" nofuelsupplement="" ownerid="system" price="2688.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_2.0" resultweight="0" returndate="2020-08-27" returnuk="N" roundtrip="N" saildate="2020-08-10" sailnights="17" scurrency="USD" seadays="10" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="2688" startdate="2020-08-10" startprice="1344.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="H023N" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3548" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3548" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2688" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2688" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2828" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2828" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4248" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4248" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="102" name="Fremantle" />
+        <port id="2045" name="Kuri Bay" />
+        <port id="939" name="Broome" />
+        <port id="81" name="Darwin, Australia" />
+        <port id="350" name="Yorkeys Knob" />
+        <port id="1484" name="Alotau" />
+        <port id="44" name="Brisbane" />
+        <port id="3328" name="Sydney, Australia" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2688" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2688" />
+      </prices>
+      <regions>
+        <region name="Australasia" regionid="14" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="SA" id="114" imagecaption="Sapphire Princess " imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111891.jpg" name="Sapphire Princess" niceurl="princess-cruises/sapphire-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111891.jpg" />
+      <uniqueportids>2045</uniqueportids>
+      <uniqueportids>102</uniqueportids>
+      <uniqueportids>939</uniqueportids>
+      <uniqueportids>44</uniqueportids>
+      <uniqueportids>1484</uniqueportids>
+      <uniqueportids>3328</uniqueportids>
+      <uniqueportids>81</uniqueportids>
+      <uniqueportids>350</uniqueportids>
+      <uniqueportnames>Kuri Bay</uniqueportnames>
+      <uniqueportnames>Fremantle</uniqueportnames>
+      <uniqueportnames>Broome</uniqueportnames>
+      <uniqueportnames>Brisbane</uniqueportnames>
+      <uniqueportnames>Alotau</uniqueportnames>
+      <uniqueportnames>Sydney, Australia</uniqueportnames>
+      <uniqueportnames>Darwin, Australia</uniqueportnames>
+      <uniqueportnames>Yorkeys Knob</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1453055" copyandmedia="" cruisebalcony="3678.06" cruisebalconypricecode="" cruiseid="235869" cruiseinside="3238.06" cruiseinsidepricecode="" cruiseoutside="0" cruiseoutsidepricecode="" cruisesuite="5742.06" cruisesuitepricecode="" currency="USD" departuk="Y" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-20" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="British Isles (with Liverpool)" ncf="220.03" nettprice="3238.06" nights="12" nofly="Y" nofuelsupplement="" ownerid="system" price="3238.06" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_0.0" resultweight="0" returndate="2020-08-20" returnuk="Y" roundtrip="Y" saildate="2020-08-08" sailnights="12" scurrency="USD" seadays="1" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="3238.06" startdate="2020-08-08" startprice="1619.03" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="G026" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3678.06" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3678.06" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3238.06" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3238.06" />
+      </cruiseinsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5742.06" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5742.06" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="295" name="Southampton" />
+        <port id="2082" name="Guernsey, UK" />
+        <port id="74" name="Cork, Ireland" />
+        <port id="86" name="Dublin" />
+        <port id="503" name="Liverpool" />
+        <port id="454" name="Belfast" />
+        <port id="386" name="Greenock (Glasgow)" />
+        <port id="485" name="Invergordon" />
+        <port id="3333" name="South Queensferry" />
+        <port id="168" name="Le Havre" />
+        <port id="295" name="Southampton" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3238.06" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3238.06" />
+      </prices>
+      <regions>
+        <region name="United Kingdom" regionid="16" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="GP" id="109" imagecaption="Regal Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111645.jpg" name="Regal Princess" niceurl="princess-cruises/regal-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111645.jpg" />
+      <uniqueportids>454</uniqueportids>
+      <uniqueportids>3333</uniqueportids>
+      <uniqueportids>386</uniqueportids>
+      <uniqueportids>74</uniqueportids>
+      <uniqueportids>168</uniqueportids>
+      <uniqueportids>295</uniqueportids>
+      <uniqueportids>86</uniqueportids>
+      <uniqueportids>2082</uniqueportids>
+      <uniqueportids>503</uniqueportids>
+      <uniqueportids>485</uniqueportids>
+      <uniqueportnames>Belfast</uniqueportnames>
+      <uniqueportnames>South Queensferry</uniqueportnames>
+      <uniqueportnames>Greenock (Glasgow)</uniqueportnames>
+      <uniqueportnames>Cork, Ireland</uniqueportnames>
+      <uniqueportnames>Le Havre</uniqueportnames>
+      <uniqueportnames>Southampton</uniqueportnames>
+      <uniqueportnames>Dublin</uniqueportnames>
+      <uniqueportnames>Guernsey, UK</uniqueportnames>
+      <uniqueportnames>Liverpool</uniqueportnames>
+      <uniqueportnames>Invergordon</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1617205" copyandmedia="" cruisebalcony="3648.00" cruisebalconypricecode="" cruiseid="261438" cruiseinside="3408.00" cruiseinsidepricecode="" cruiseoutside="0" cruiseoutsidepricecode="" cruisesuite="4408.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-24" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Scandinavia &amp; Russia (from Copenhagen)" ncf="205.00" nettprice="3408.00" nights="11" nofly="N" nofuelsupplement="" ownerid="system" price="3408.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_4.0" resultweight="0" returndate="2020-08-24" returnuk="N" roundtrip="Y" saildate="2020-08-13" sailnights="11" scurrency="USD" seadays="3" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="3408" startdate="2020-08-13" startprice="1704.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="Y027" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3648" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3648" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3408" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3408" />
+      </cruiseinsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4408" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4408" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="71" name="Copenhagen, Denmark" />
+        <port id="224" name="Oslo" />
+        <port id="344" name="Warnemunde" />
+        <port id="646" name="Tallinn, Estonia" />
+        <port id="640" name="St Petersburg, Russia" />
+        <port id="126" name="Helsinki, Finland" />
+        <port id="218" name="Nynashamn" />
+        <port id="71" name="Copenhagen, Denmark" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3408" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3408" />
+      </prices>
+      <regions>
+        <region name="Scandinavia" regionid="9" />
+        <region name="Baltic" regionid="20" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="YP" id="4711" imagecaption="Sky Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582112051.jpg" name="Sky Princess" niceurl="princess-cruises/sky-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582112051.jpg" />
+      <uniqueportids>640</uniqueportids>
+      <uniqueportids>344</uniqueportids>
+      <uniqueportids>71</uniqueportids>
+      <uniqueportids>126</uniqueportids>
+      <uniqueportids>218</uniqueportids>
+      <uniqueportids>224</uniqueportids>
+      <uniqueportids>646</uniqueportids>
+      <uniqueportnames>St Petersburg, Russia</uniqueportnames>
+      <uniqueportnames>Warnemunde</uniqueportnames>
+      <uniqueportnames>Copenhagen, Denmark</uniqueportnames>
+      <uniqueportnames>Helsinki, Finland</uniqueportnames>
+      <uniqueportnames>Nynashamn</uniqueportnames>
+      <uniqueportnames>Oslo</uniqueportnames>
+      <uniqueportnames>Tallinn, Estonia</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1495957" copyandmedia="" cruisebalcony="4846.00" cruisebalconypricecode="" cruiseid="240014" cruiseinside="3778.00" cruiseinsidepricecode="" cruiseoutside="5378.00" cruiseoutsidepricecode="" cruisesuite="6978.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-29" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Western Mediterranean &amp; Aegean Medley" ncf="160.00" nettprice="3778.00" nights="14" nofly="N" nofuelsupplement="" ownerid="system" price="3778.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_12.0" resultweight="0" returndate="2020-08-29" returnuk="N" roundtrip="N" saildate="2020-08-15" sailnights="14" scurrency="USD" seadays="3" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="3778" startdate="2020-08-15" startprice="1889.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="N049A" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4846" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4846" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3778" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3778" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5378" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5378" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="6978" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="6978" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="1" name="Barcelona" />
+        <port id="109" name="Gibraltar" />
+        <port id="191" name="Marseille" />
+        <port id="108" name="Genoa" />
+        <port id="174" name="Livorno" />
+        <port id="270" name="Rome (Civitavecchia)" />
+        <port id="201" name="Naples" />
+        <port id="559" name="Kotor" />
+        <port id="73" name="Corfu" />
+        <port id="1154" name="Chania, Crete" />
+        <port id="412" name="Mykonos" />
+        <port id="23" name="Athens (Piraeus)" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3778" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3778" />
+      </prices>
+      <regions>
+        <region name="Europe" regionid="4" />
+        <region name="Mediterranean" regionid="7" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="EX" id="4964" imagecaption="Enchanted Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111188.jpg" name="Enchanted Princess" niceurl="princess-cruises/enchanted-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111188.jpg" />
+      <uniqueportids>191</uniqueportids>
+      <uniqueportids>109</uniqueportids>
+      <uniqueportids>1154</uniqueportids>
+      <uniqueportids>108</uniqueportids>
+      <uniqueportids>201</uniqueportids>
+      <uniqueportids>23</uniqueportids>
+      <uniqueportids>1</uniqueportids>
+      <uniqueportids>270</uniqueportids>
+      <uniqueportids>73</uniqueportids>
+      <uniqueportids>559</uniqueportids>
+      <uniqueportids>174</uniqueportids>
+      <uniqueportids>412</uniqueportids>
+      <uniqueportnames>Marseille</uniqueportnames>
+      <uniqueportnames>Gibraltar</uniqueportnames>
+      <uniqueportnames>Chania, Crete</uniqueportnames>
+      <uniqueportnames>Genoa</uniqueportnames>
+      <uniqueportnames>Naples</uniqueportnames>
+      <uniqueportnames>Athens (Piraeus)</uniqueportnames>
+      <uniqueportnames>Barcelona</uniqueportnames>
+      <uniqueportnames>Rome (Civitavecchia)</uniqueportnames>
+      <uniqueportnames>Corfu</uniqueportnames>
+      <uniqueportnames>Kotor</uniqueportnames>
+      <uniqueportnames>Livorno</uniqueportnames>
+      <uniqueportnames>Mykonos</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1400584" copyandmedia="" cruisebalcony="4666.00" cruisebalconypricecode="" cruiseid="222600" cruiseinside="3918.00" cruiseinsidepricecode="" cruiseoutside="5178.00" cruiseoutsidepricecode="" cruisesuite="7178.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-22" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Western Mediterranean &amp; Adriatic Medley" ncf="160.00" nettprice="3918.00" nights="14" nofly="N" nofuelsupplement="" ownerid="system" price="3918.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_11.0" resultweight="0" returndate="2020-08-22" returnuk="N" roundtrip="N" saildate="2020-08-08" sailnights="14" scurrency="USD" seadays="4" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="3918" startdate="2020-08-08" startprice="1959.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="N048A" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4666" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4666" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3918" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3918" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5178" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5178" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="7178" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="7178" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="23" name="Athens (Piraeus)" />
+        <port id="596" name="Santorini Island" />
+        <port id="559" name="Kotor" />
+        <port id="512" name="Messina" />
+        <port id="201" name="Naples" />
+        <port id="1" name="Barcelona" />
+        <port id="109" name="Gibraltar" />
+        <port id="191" name="Marseille" />
+        <port id="108" name="Genoa" />
+        <port id="174" name="Livorno" />
+        <port id="270" name="Rome (Civitavecchia)" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3918" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3918" />
+      </prices>
+      <regions>
+        <region name="Europe" regionid="4" />
+        <region name="Mediterranean" regionid="7" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="EX" id="4964" imagecaption="Enchanted Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111188.jpg" name="Enchanted Princess" niceurl="princess-cruises/enchanted-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111188.jpg" />
+      <uniqueportids>108</uniqueportids>
+      <uniqueportids>191</uniqueportids>
+      <uniqueportids>109</uniqueportids>
+      <uniqueportids>559</uniqueportids>
+      <uniqueportids>512</uniqueportids>
+      <uniqueportids>596</uniqueportids>
+      <uniqueportids>174</uniqueportids>
+      <uniqueportids>201</uniqueportids>
+      <uniqueportids>23</uniqueportids>
+      <uniqueportids>1</uniqueportids>
+      <uniqueportids>270</uniqueportids>
+      <uniqueportnames>Genoa</uniqueportnames>
+      <uniqueportnames>Marseille</uniqueportnames>
+      <uniqueportnames>Gibraltar</uniqueportnames>
+      <uniqueportnames>Kotor</uniqueportnames>
+      <uniqueportnames>Messina</uniqueportnames>
+      <uniqueportnames>Santorini Island</uniqueportnames>
+      <uniqueportnames>Livorno</uniqueportnames>
+      <uniqueportnames>Naples</uniqueportnames>
+      <uniqueportnames>Athens (Piraeus)</uniqueportnames>
+      <uniqueportnames>Barcelona</uniqueportnames>
+      <uniqueportnames>Rome (Civitavecchia)</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1401150" copyandmedia="" cruisebalcony="4482.00" cruisebalconypricecode="" cruiseid="222794" cruiseinside="3978.00" cruiseinsidepricecode="" cruiseoutside="0" cruiseoutsidepricecode="" cruisesuite="5178.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-19" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Scandinavia &amp; Russia (from St. Petersburg)" ncf="190.00" nettprice="3978.00" nights="10" nofly="N" nofuelsupplement="" ownerid="system" price="3978.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_10.0" resultweight="0" returndate="2020-08-19" returnuk="N" roundtrip="Y" saildate="2020-08-09" sailnights="10" scurrency="USD" seadays="3" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="3978" startdate="2020-08-09" startprice="1989.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="Y026B" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4482" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4482" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3978" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3978" />
+      </cruiseinsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5178" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5178" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="640" name="St Petersburg, Russia" />
+        <port id="126" name="Helsinki, Finland" />
+        <port id="311" name="Stockholm, Sweden" />
+        <port id="71" name="Copenhagen, Denmark" />
+        <port id="224" name="Oslo" />
+        <port id="344" name="Warnemunde" />
+        <port id="646" name="Tallinn, Estonia" />
+        <port id="640" name="St Petersburg, Russia" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3978" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3978" />
+      </prices>
+      <regions>
+        <region name="Scandinavia" regionid="9" />
+        <region name="Baltic" regionid="20" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="YP" id="4711" imagecaption="Sky Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582112051.jpg" name="Sky Princess" niceurl="princess-cruises/sky-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582112051.jpg" />
+      <uniqueportids>646</uniqueportids>
+      <uniqueportids>224</uniqueportids>
+      <uniqueportids>311</uniqueportids>
+      <uniqueportids>126</uniqueportids>
+      <uniqueportids>71</uniqueportids>
+      <uniqueportids>344</uniqueportids>
+      <uniqueportids>640</uniqueportids>
+      <uniqueportnames>Tallinn, Estonia</uniqueportnames>
+      <uniqueportnames>Oslo</uniqueportnames>
+      <uniqueportnames>Stockholm, Sweden</uniqueportnames>
+      <uniqueportnames>Helsinki, Finland</uniqueportnames>
+      <uniqueportnames>Copenhagen, Denmark</uniqueportnames>
+      <uniqueportnames>Warnemunde</uniqueportnames>
+      <uniqueportnames>St Petersburg, Russia</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1620759" copyandmedia="" cruisebalcony="0" cruisebalconypricecode="" cruiseid="262386" cruiseinside="4328.00" cruiseinsidepricecode="" cruiseoutside="4588.00" cruiseoutsidepricecode="" cruisesuite="0" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-09-07" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Round Australia" ncf="485.00" nettprice="4328.00" nights="28" nofly="N" nofuelsupplement="" ownerid="system" price="4328.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_19.0" resultweight="0" returndate="2020-09-07" returnuk="N" roundtrip="Y" saildate="2020-08-10" sailnights="28" scurrency="USD" seadays="14" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="4328" startdate="2020-08-10" startprice="2164.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="H023C" whatsincluded="" zoneid="">
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4328" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4328" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4588" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4588" />
+      </cruiseoutsideprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="102" name="Fremantle" />
+        <port id="2045" name="Kuri Bay" />
+        <port id="939" name="Broome" />
+        <port id="81" name="Darwin, Australia" />
+        <port id="350" name="Yorkeys Knob" />
+        <port id="1484" name="Alotau" />
+        <port id="44" name="Brisbane" />
+        <port id="3328" name="Sydney, Australia" />
+        <port id="129" name="Hobart" />
+        <port id="1136" name="Port Arthur, Tasmania" />
+        <port id="2043" name="Kangaroo Island" />
+        <port id="5" name="Adelaide" />
+        <port id="8" name="Albany, Australia" />
+        <port id="5954" name="Margaret River, Australia" />
+        <port id="102" name="Fremantle" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4328" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4328" />
+      </prices>
+      <regions>
+        <region name="Australasia" regionid="14" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="SA" id="114" imagecaption="Sapphire Princess " imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111891.jpg" name="Sapphire Princess" niceurl="princess-cruises/sapphire-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111891.jpg" />
+      <uniqueportids>102</uniqueportids>
+      <uniqueportids>5</uniqueportids>
+      <uniqueportids>939</uniqueportids>
+      <uniqueportids>2045</uniqueportids>
+      <uniqueportids>1484</uniqueportids>
+      <uniqueportids>5954</uniqueportids>
+      <uniqueportids>44</uniqueportids>
+      <uniqueportids>1136</uniqueportids>
+      <uniqueportids>2043</uniqueportids>
+      <uniqueportids>129</uniqueportids>
+      <uniqueportids>8</uniqueportids>
+      <uniqueportids>3328</uniqueportids>
+      <uniqueportids>81</uniqueportids>
+      <uniqueportids>350</uniqueportids>
+      <uniqueportnames>Fremantle</uniqueportnames>
+      <uniqueportnames>Adelaide</uniqueportnames>
+      <uniqueportnames>Broome</uniqueportnames>
+      <uniqueportnames>Kuri Bay</uniqueportnames>
+      <uniqueportnames>Alotau</uniqueportnames>
+      <uniqueportnames>Margaret River, Australia</uniqueportnames>
+      <uniqueportnames>Brisbane</uniqueportnames>
+      <uniqueportnames>Port Arthur, Tasmania</uniqueportnames>
+      <uniqueportnames>Kangaroo Island</uniqueportnames>
+      <uniqueportnames>Hobart</uniqueportnames>
+      <uniqueportnames>Albany, Australia</uniqueportnames>
+      <uniqueportnames>Sydney, Australia</uniqueportnames>
+      <uniqueportnames>Darwin, Australia</uniqueportnames>
+      <uniqueportnames>Yorkeys Knob</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1403579" copyandmedia="" cruisebalcony="6526.08" cruisebalconypricecode="" cruiseid="223718" cruiseinside="4350.08" cruiseinsidepricecode="" cruiseoutside="5846.08" cruiseoutsidepricecode="" cruisesuite="8430.08" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-09-01" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Grand Japan Kumano Fireworks" ncf="239.04" nettprice="4350.08" nights="17" nofly="N" nofuelsupplement="" ownerid="system" price="4350.08" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_9.0" resultweight="0" returndate="2020-09-01" returnuk="N" roundtrip="Y" saildate="2020-08-15" sailnights="17" scurrency="USD" seadays="5" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="4350.08" startdate="2020-08-15" startprice="2175.04" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="M029A" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="6526.08" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="6526.08" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4350.08" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4350.08" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5846.08" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5846.08" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="8430.08" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="8430.08" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="602" name="Tokyo (Yokohama)" />
+        <port id="3817" name="Wakayama" />
+        <port id="5589" name="Kumano, Japan " />
+        <port id="5059" name="Kochi, Japan" />
+        <port id="1903" name="Busan, South Korea" />
+        <port id="199" name="Nagasaki" />
+        <port id="489" name="Kagoshima" />
+        <port id="602" name="Tokyo (Yokohama)" />
+        <port id="1903" name="Busan, South Korea" />
+        <port id="4416" name="Sakaiminato" />
+        <port id="5591" name="Tsuruga, Japan" />
+        <port id="4764" name="Kanazawa" />
+        <port id="3901" name="Niigata" />
+        <port id="5996" name="Sakata" />
+        <port id="602" name="Tokyo (Yokohama)" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4350.08" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4350.08" />
+      </prices>
+      <regions>
+        <region name="Asia &amp; Indian Ocean" regionid="5" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="DI" id="119" imagecaption="Diamond Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111011.jpg" name="Diamond Princess" niceurl="princess-cruises/diamond-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111011.jpg" />
+      <uniqueportids>3901</uniqueportids>
+      <uniqueportids>5589</uniqueportids>
+      <uniqueportids>5059</uniqueportids>
+      <uniqueportids>3817</uniqueportids>
+      <uniqueportids>199</uniqueportids>
+      <uniqueportids>4764</uniqueportids>
+      <uniqueportids>489</uniqueportids>
+      <uniqueportids>602</uniqueportids>
+      <uniqueportids>1903</uniqueportids>
+      <uniqueportids>4416</uniqueportids>
+      <uniqueportids>5591</uniqueportids>
+      <uniqueportids>5996</uniqueportids>
+      <uniqueportnames>Niigata</uniqueportnames>
+      <uniqueportnames>Kumano, Japan </uniqueportnames>
+      <uniqueportnames>Kochi, Japan</uniqueportnames>
+      <uniqueportnames>Wakayama</uniqueportnames>
+      <uniqueportnames>Nagasaki</uniqueportnames>
+      <uniqueportnames>Kanazawa</uniqueportnames>
+      <uniqueportnames>Kagoshima</uniqueportnames>
+      <uniqueportnames>Tokyo (Yokohama)</uniqueportnames>
+      <uniqueportnames>Busan, South Korea</uniqueportnames>
+      <uniqueportnames>Sakaiminato</uniqueportnames>
+      <uniqueportnames>Tsuruga, Japan</uniqueportnames>
+      <uniqueportnames>Sakata</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1400605" copyandmedia="" cruisebalcony="6874.00" cruisebalconypricecode="" cruiseid="222613" cruiseinside="5458.00" cruiseinsidepricecode="" cruiseoutside="0" cruiseoutsidepricecode="" cruisesuite="9818.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-09-05" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Mediterranean Collection" ncf="230.00" nettprice="5458.00" nights="21" nofly="N" nofuelsupplement="" ownerid="system" price="5458.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_7.0" resultweight="0" returndate="2020-09-05" returnuk="N" roundtrip="Y" saildate="2020-08-15" sailnights="21" scurrency="USD" seadays="5" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="5458" startdate="2020-08-15" startprice="2729.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="N049B" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="6874" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="6874" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5458" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5458" />
+      </cruiseinsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="9818" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="9818" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="1" name="Barcelona" />
+        <port id="109" name="Gibraltar" />
+        <port id="191" name="Marseille" />
+        <port id="108" name="Genoa" />
+        <port id="174" name="Livorno" />
+        <port id="270" name="Rome (Civitavecchia)" />
+        <port id="201" name="Naples" />
+        <port id="559" name="Kotor" />
+        <port id="73" name="Corfu" />
+        <port id="1154" name="Chania, Crete" />
+        <port id="412" name="Mykonos" />
+        <port id="23" name="Athens (Piraeus)" />
+        <port id="596" name="Santorini Island" />
+        <port id="559" name="Kotor" />
+        <port id="512" name="Messina" />
+        <port id="424" name="Provence" />
+        <port id="1" name="Barcelona" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5458" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5458" />
+      </prices>
+      <regions>
+        <region name="Europe" regionid="4" />
+        <region name="Mediterranean" regionid="7" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="EX" id="4964" imagecaption="Enchanted Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111188.jpg" name="Enchanted Princess" niceurl="princess-cruises/enchanted-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111188.jpg" />
+      <uniqueportids>596</uniqueportids>
+      <uniqueportids>174</uniqueportids>
+      <uniqueportids>412</uniqueportids>
+      <uniqueportids>512</uniqueportids>
+      <uniqueportids>559</uniqueportids>
+      <uniqueportids>1</uniqueportids>
+      <uniqueportids>270</uniqueportids>
+      <uniqueportids>73</uniqueportids>
+      <uniqueportids>201</uniqueportids>
+      <uniqueportids>23</uniqueportids>
+      <uniqueportids>108</uniqueportids>
+      <uniqueportids>1154</uniqueportids>
+      <uniqueportids>424</uniqueportids>
+      <uniqueportids>191</uniqueportids>
+      <uniqueportids>109</uniqueportids>
+      <uniqueportnames>Santorini Island</uniqueportnames>
+      <uniqueportnames>Livorno</uniqueportnames>
+      <uniqueportnames>Mykonos</uniqueportnames>
+      <uniqueportnames>Messina</uniqueportnames>
+      <uniqueportnames>Kotor</uniqueportnames>
+      <uniqueportnames>Barcelona</uniqueportnames>
+      <uniqueportnames>Rome (Civitavecchia)</uniqueportnames>
+      <uniqueportnames>Corfu</uniqueportnames>
+      <uniqueportnames>Naples</uniqueportnames>
+      <uniqueportnames>Athens (Piraeus)</uniqueportnames>
+      <uniqueportnames>Genoa</uniqueportnames>
+      <uniqueportnames>Chania, Crete</uniqueportnames>
+      <uniqueportnames>Provence</uniqueportnames>
+      <uniqueportnames>Marseille</uniqueportnames>
+      <uniqueportnames>Gibraltar</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1558988" copyandmedia="" cruisebalcony="7124.00" cruisebalconypricecode="" cruiseid="250441" cruiseinside="5838.00" cruiseinsidepricecode="" cruiseoutside="0" cruiseoutsidepricecode="" cruisesuite="10698.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2020-08-29" engine="Princess" enginesource="live" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Mediterranean Collection" ncf="220.00" nettprice="5838.00" nights="21" nofly="N" nofuelsupplement="" ownerid="system" price="5838.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_13.0" resultweight="0" returndate="2020-08-29" returnuk="N" roundtrip="Y" saildate="2020-08-08" sailnights="21" scurrency="USD" seadays="5" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="5838" startdate="2020-08-08" startprice="2919.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="N048B" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="7124" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="7124" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5838" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5838" />
+      </cruiseinsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="10698" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="10698" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="23" name="Athens (Piraeus)" />
+        <port id="596" name="Santorini Island" />
+        <port id="559" name="Kotor" />
+        <port id="512" name="Messina" />
+        <port id="201" name="Naples" />
+        <port id="1" name="Barcelona" />
+        <port id="109" name="Gibraltar" />
+        <port id="191" name="Marseille" />
+        <port id="108" name="Genoa" />
+        <port id="174" name="Livorno" />
+        <port id="270" name="Rome (Civitavecchia)" />
+        <port id="201" name="Naples" />
+        <port id="559" name="Kotor" />
+        <port id="73" name="Corfu" />
+        <port id="1154" name="Chania, Crete" />
+        <port id="412" name="Mykonos" />
+        <port id="23" name="Athens (Piraeus)" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5838" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5838" />
+      </prices>
+      <regions>
+        <region name="Europe" regionid="4" />
+        <region name="Mediterranean" regionid="7" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="EX" id="4964" imagecaption="Enchanted Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111188.jpg" name="Enchanted Princess" niceurl="princess-cruises/enchanted-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111188.jpg" />
+      <uniqueportids>108</uniqueportids>
+      <uniqueportids>1154</uniqueportids>
+      <uniqueportids>109</uniqueportids>
+      <uniqueportids>191</uniqueportids>
+      <uniqueportids>559</uniqueportids>
+      <uniqueportids>512</uniqueportids>
+      <uniqueportids>412</uniqueportids>
+      <uniqueportids>596</uniqueportids>
+      <uniqueportids>174</uniqueportids>
+      <uniqueportids>23</uniqueportids>
+      <uniqueportids>201</uniqueportids>
+      <uniqueportids>73</uniqueportids>
+      <uniqueportids>270</uniqueportids>
+      <uniqueportids>1</uniqueportids>
+      <uniqueportnames>Genoa</uniqueportnames>
+      <uniqueportnames>Chania, Crete</uniqueportnames>
+      <uniqueportnames>Gibraltar</uniqueportnames>
+      <uniqueportnames>Marseille</uniqueportnames>
+      <uniqueportnames>Kotor</uniqueportnames>
+      <uniqueportnames>Messina</uniqueportnames>
+      <uniqueportnames>Mykonos</uniqueportnames>
+      <uniqueportnames>Santorini Island</uniqueportnames>
+      <uniqueportnames>Livorno</uniqueportnames>
+      <uniqueportnames>Athens (Piraeus)</uniqueportnames>
+      <uniqueportnames>Naples</uniqueportnames>
+      <uniqueportnames>Corfu</uniqueportnames>
+      <uniqueportnames>Rome (Civitavecchia)</uniqueportnames>
+      <uniqueportnames>Barcelona</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+  </results>
+</response>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<response method="book" sessionkey="61DD81F2-4068r4CDF-910C-2649D2E760E1" success="Y">
+  <errors>
+  </errors>
+  <request>
+    <auth password="kg02gy05" username="mundocru" />
+    <method action="book" sessionkey="61DD81F2-4068r4CDF-910C-2649D2E760E1" status="Live">
+      <allocation>
+        <bedconfig basketcode="813155495" bedconfig="QN" />
+        <requests basketcode="813155495" request="TEST BOOKING ONLY" />
+      </allocation>
+      <contact address1="37 Hawbank Road" address2="College Milton" city="East Kilbride" country="GB" county="Glasgow" email="richard@traveltek.net" firstname="TESTX" lastname="TRAVELTEK" postcode="G74 5EG" telephone="01355 246111" title="MISS" />
+      <creditcard></creditcard>
+      <deposits paydepositonly="N" />
+      <passengers>
+        <passenger dob="1973-07-24" firstname="TESTX" lastname="TRAVELTEK" nationality="GB" passport="26347891107" paxno="1" paxtype="adult" title="MISS" travelling="" />
+        <passenger dob="1973-07-24" firstname="TEST" lastname="TRAVELTEKX" nationality="GB" passport="26347891214" paxno="2" paxtype="adult" title="MR" travelling="" />
+      </passengers>
+    </method>
+  </request>
+  <results>
+    <book reservation="PCH-10543632" status="On-Request">
+      <bookingdetails address1="37 Hawbank Road" address2="College Milton" address3="" address4="" address5="" affiliate="" altphone="" balancepaymentdate="0000-00-00" bookingforbranchid="0" bookingforteamid="0" bookingforuserid="" branchcategory1id="" branchcategory2id="" branchcategory3id="" branchid="" city="East Kilbride" country="GB" county="Glasgow" currency="USD" datebooked="2020-04-28 18:14:10" departdate="2020-08-09" depositbooking="N" depositduedate="2020-04-28" deposittotal="0.000" email="richard@traveltek.net" enquiryid="0" firstname="TESTX" gender="" id="10543632" internalref="" ipaddress="62.73.167.203" language="en" lastname="TRAVELTEK" lowdeposit="" lowdepositamount="" lowdepositduedate="" loyaltypoints="" loyaltyprogramid="0" middlename="" mobile="" offersbyemail="" ownerid="chilegsa.site.traveltek.net" passengermobile="01355 246111" paypal="N" portfolioid="0" postcode="G74 5EG" promocode="" returndate="2020-08-16" session="61DD81F2-4068r4CDF-910C-2649D2E760E1" teamid="" telephone="01355 246111" title="Miss" toppercurrency="" topperexchangerate="" totalcommission="0.000" totalprice="0.000">
+        <billing></billing>
+        <items>
+          <item airportcode="" bedconfig="" bosuppliercode="" cabinbedtype="" cabincode="" cabindesc="" cabinextra="" cabinid="" cabinlocation="" cabinname="" cabinno="" cabinposition="" codetocruiseid="1403466" cruisename="Inside Passage (Roundtrip Seattle)" deckid="" deckname="" diningseating="" diningsmoking="" diningwith="" enddate="2020-08-16" engine="Princess" finalpaymentdate="" grossexchangerate="" groupallocationid="" ibossuppliercodeid="" ibossupplierid="" lineid="20" linename="Princess Cruises" modified="0" ncf="" nettexchangerate="" nights="7" obccurrency="" onboardcredit="" optionexpirydate="" originalnettdue="" ownstockid="" price="0.000" pricecode="" request="" reservation="" returndate="2020-08-16" saildate="2020-08-09" sailnights="7" shipid="367" shipname="Emerald Princess" startdate="2020-08-09" status="Failed" suppliername="" tablesize="0" type="cruise" voyagecode="E023">
+          </item>
+        </items>
+        <passengers>
+          <passenger age="47" bookingid="10543632" cancelled="0" country="GB" dob="1973-07-24" emergencyemail="" emergencyname="" emergencyphone="" firstname="TESTX" gender="" insuranceassistancecompany="" insurancecompany="" insurancepolicynumber="" insurancetelnumber="" lastname="TRAVELTEK" mealoption="" middlename="" nokaddress1="" nokaddress2="" nokaddress3="" nokaddress4="" nokname="" nokphone="" nokrelationship="" ownerid="chilegsa.site.traveltek.net" passportauthority="" passportexpiry="" passportplaceofissue="" passportstart="" paxno="1" paxtype="adult" placeofbirth="" redress="" specialservices="" title="Miss" travelling="" />
+          <passenger age="47" bookingid="10543632" cancelled="0" companionid="12618329" country="GB" dob="1973-07-24" emergencyemail="" emergencyname="" emergencyphone="" firstname="TEST" gender="" insuranceassistancecompany="" insurancecompany="" insurancepolicynumber="" insurancetelnumber="" lastname="TRAVELTEKX" mealoption="" middlename="" nokaddress1="" nokaddress2="" nokaddress3="" nokaddress4="" nokname="" nokphone="" nokrelationship="" ownerid="chilegsa.site.traveltek.net" passportauthority="" passportexpiry="" passportplaceofissue="" passportstart="" paxno="2" paxtype="adult" placeofbirth="" redress="" specialservices="" title="Mr" travelling="" />
+        </passengers>
+      </bookingdetails>
+    </book>
+  </results>
+</response>

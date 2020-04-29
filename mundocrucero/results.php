@@ -41,9 +41,6 @@ if ($row_settings->valid()) {
 } else {
     $affiliate_id_mundocruceros = 0;
 }
-echo $return;
-echo "AFFIL: " . $affiliate_id_mundocruceros;
-echo $return;
 $sql = "select value from settings where name='mundocrucerosusername' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -53,9 +50,6 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $mundocrucerosusername = $row_settings['value'];
 }
-echo $return;
-echo "USER: " . $mundocrucerosusername;
-echo $return;
 $sql = "select value from settings where name='mundocrucerospassword' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -65,9 +59,6 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $mundocrucerospassword = base64_decode($row_settings['value']);
 }
-echo $return;
-echo $mundocrucerospassword;
-echo $return;
 $sql = "select value from settings where name='mundocrucerosServiceURL' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -77,9 +68,6 @@ if ($result->valid()) {
     $row = $result->current();
     $mundocrucerosServiceURL = $row['value'];
 }
-echo $return;
-echo $mundocrucerosServiceURL;
-echo $return;
 $sql = "select value from settings where name='mundocrucerosSID' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -89,9 +77,6 @@ if ($result->valid()) {
     $row = $result->current();
     $mundocrucerosSID = $row['value'];
 }
-echo $return;
-echo $mundocrucerosSID;
-echo $return;
 $sql = "select value from settings where name='mundocrucerosWebsite' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -101,12 +86,6 @@ if ($result->valid()) {
     $row = $result->current();
     $mundocrucerosWebsite = $row['value'];
 }
-echo $return;
-echo $mundocrucerosWebsite;
-echo $return;
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
 
 
 $raw2 = 'xml=<?xml version="1.0"?>
@@ -118,11 +97,10 @@ $raw2 = 'xml=<?xml version="1.0"?>
 $ch2 = curl_init();
 curl_setopt($ch2, CURLOPT_URL, $mundocrucerosServiceURL );
 curl_setopt($ch2, CURLOPT_HEADER, false);
+curl_setopt($ch2, CURLOPT_VERBOSE, 0);
+curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch2, CURLOPT_POST, true);
 curl_setopt($ch2, CURLOPT_POSTFIELDS, $raw2);
-curl_setopt($ch2, CURLOPT_VERBOSE, 0);
-curl_setopt($ch2, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch2, CURLOPT_CONNECTTIMEOUT, 65000);
 curl_setopt($ch2, CURLOPT_HTTPHEADER, array(
     "Content-type: application/x-www-form-urlencoded",
@@ -144,18 +122,17 @@ $sessionkey = $node->item(0)->getAttribute("sessionkey");
 $raw = 'xml=<?xml version="1.0"?>
 <request>
   <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-  <method action="getresults" sessionkey="B1E454D7_00D0s42AB-BD06-B1605B99A442" resultkey="default" type="cruise" />
+  <method action="getresults" sessionkey="' . $sessionkey . '" resultkey="default" type="cruise" />
 </request>';
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $mundocrucerosServiceURL );
 curl_setopt($ch, CURLOPT_HEADER, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_VERBOSE, 1);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
-curl_setopt($ch, CURLOPT_VERBOSE, 1);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate");
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     "Content-type: application/x-www-form-urlencoded",
@@ -171,7 +148,6 @@ curl_close($ch);
 echo "<xmp>";
 echo $response;
 echo "</xmp>";
-
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.mundocruceros.php');
 $config = [

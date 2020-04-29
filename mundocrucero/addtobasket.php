@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU CREATE SEARCH<br/>";
+echo "COMECOU ADD TO BASKET<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -87,48 +87,23 @@ if ($result->valid()) {
     $mundocrucerosWebsite = $row['value'];
 }
 
-
-$raw2 = 'xml=<?xml version="1.0"?>
-<request>
-    <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-    <method action="createsession" sitename="' . $mundocrucerosWebsite . '" currency="GBP" status="Test" />
-</request>';
-
-$ch2 = curl_init();
-curl_setopt($ch2, CURLOPT_URL, $mundocrucerosServiceURL );
-curl_setopt($ch2, CURLOPT_HEADER, false);
-curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch2, CURLOPT_VERBOSE, 0);
-curl_setopt($ch2, CURLOPT_POST, true);
-curl_setopt($ch2, CURLOPT_POSTFIELDS, $raw2);
-curl_setopt($ch2, CURLOPT_CONNECTTIMEOUT, 65000);
-curl_setopt($ch2, CURLOPT_HTTPHEADER, array(
-    "Content-type: application/x-www-form-urlencoded",
-    "Accept-Encoding: gzip, deflate",
-    "Content-length: " . strlen($raw2)
-));
-curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
-$response2 = curl_exec($ch2);
-$error2 = curl_error($ch2);
-$headers2 = curl_getinfo($ch2);
-curl_close($ch2);
-
-$inputDoc2 = new DOMDocument();
-$inputDoc2->loadXML($response2);
-$node = $inputDoc2->getElementsByTagName("response");
-$sessionkey = $node->item(0)->getAttribute("sessionkey");
-
+$sessionkey = '61DD81F2-4068r4CDF-910C-2649D2E760E1';
+$resultno = '302_18.0';
 
 $raw = 'xml=<?xml version="1.0"?>
 <request>
-  <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-  <method action="performsearch" sessionkey="' . $sessionkey . '" resultkey="default" />
+  <auth password="' . $mundocrucerospassword . '" username="' . $mundocrucerosusername . '" />
+  <method action="addtobasket" type="cruise" resultno="' . $resultno . '" sessionkey="' . $sessionkey . '" status="Live" resultkey="default" />
 </request>';
 
+echo "<xmp>";
+echo $raw;
+echo "</xmp>";
+
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $mundocrucerosServiceURL );
-curl_setopt($ch, CURLOPT_HEADER, false);
+curl_setopt($ch, CURLOPT_URL, $mundocrucerosServiceURL);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_HEADER, false);
 curl_setopt($ch, CURLOPT_VERBOSE, 1);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
@@ -162,78 +137,21 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $inputDoc = new DOMDocument();
 $inputDoc->loadXML($response);
-$results = $inputDoc->getElementsByTagName("results");
-$node = $results->item(0)->getElementsByTagName("region");
-/* for ($i=0; $i < $node->length; $i++) { 
-    $id = $node->item($i)->getAttribute("id");
-    $name = $node->item($i)->getAttribute("name");
-    echo $name;
-    try {
-        $sql = new Sql($db);
-        $select = $sql->select();
-        $select->from('cruzeiros_regioes');
-        $select->where(array(
-        'id' => $id
-        ));
-        $statement = $sql->prepareStatementForSqlObject($select);
-        $result = $statement->execute();
-        $result->buffer();
-        $customers = array();
-        if ($result->valid()) {
-            $data = $result->current();
-            $id = (int)$data['id'];
-            if ($id > 0) {
-                $sql = new Sql($db);
-                $data = array(
-                    'id' => $id,
-                    'datetime_created' => time(),
-                    'datetime_updated' => 1,
-                    'name' => $name
-                );
-                $where['id = ?'] = $id;
-                $update = $sql->update('cruzeiros_regioes', $data, $where);
-                $db->getDriver()
-                ->getConnection()
-                ->disconnect();
-            } else {
-                $sql = new Sql($db);
-                $insert = $sql->insert();
-                $insert->into('cruzeiros_regioes');
-                $insert->values(array(
-                    'id' => $id,
-                    'datetime_created' => time(),
-                    'datetime_updated' => 0,
-                    'name' => $name
-                ), $insert::VALUES_MERGE);
-                $statement = $sql->prepareStatementForSqlObject($insert);
-                $results = $statement->execute();
-                $db->getDriver()
-                ->getConnection()
-                ->disconnect();
-            }
-        } else {
-            $sql = new Sql($db);
-            $insert = $sql->insert();
-            $insert->into('cruzeiros_regioes');
-            $insert->values(array(
-                'id' => $id,
-                'datetime_created' => time(),
-                'datetime_updated' => 0,
-                'name' => $name
-            ), $insert::VALUES_MERGE);
-            $statement = $sql->prepareStatementForSqlObject($insert);
-            $results = $statement->execute();
-            $db->getDriver()
-            ->getConnection()
-            ->disconnect();
-       }
-    } catch (\Exception $e) {
-        echo $return;
-        echo "Error: " . $e;
-        echo $return;
+$response = $inputDoc->getElementsByTagName("response");
+$success = $response->item(0)->getAttribute("success");
+if ($success == 'Y') {
+    $basketkey = $response->item(0)->getAttribute("basketkey");
+    $sessionkey = $response->item(0)->getAttribute("sessionkey");
+    $request = $response->item(0)->getElementsByTagName("request");
+    if ($request->length > 0) {
+        $method = $request->item(0)->getElementsByTagName("method");
+        if ($method->length > 0) {
+            $resultno = $method->item(0)->getAttribute("resultno");
+            $sessionkey = $method->item(0)->getAttribute("sessionkey");
+            $type = $method->item(0)->getAttribute("type");
+        }
     }
-
-} */
+}
 
 // EOF
 $db->getDriver()

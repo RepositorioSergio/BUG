@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU CREATE SEARCH<br/>";
+echo "COMECOU CABINS<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -87,48 +87,24 @@ if ($result->valid()) {
     $mundocrucerosWebsite = $row['value'];
 }
 
-
-$raw2 = 'xml=<?xml version="1.0"?>
-<request>
-    <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-    <method action="createsession" sitename="' . $mundocrucerosWebsite . '" currency="GBP" status="Test" />
-</request>';
-
-$ch2 = curl_init();
-curl_setopt($ch2, CURLOPT_URL, $mundocrucerosServiceURL );
-curl_setopt($ch2, CURLOPT_HEADER, false);
-curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch2, CURLOPT_VERBOSE, 0);
-curl_setopt($ch2, CURLOPT_POST, true);
-curl_setopt($ch2, CURLOPT_POSTFIELDS, $raw2);
-curl_setopt($ch2, CURLOPT_CONNECTTIMEOUT, 65000);
-curl_setopt($ch2, CURLOPT_HTTPHEADER, array(
-    "Content-type: application/x-www-form-urlencoded",
-    "Accept-Encoding: gzip, deflate",
-    "Content-length: " . strlen($raw2)
-));
-curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
-$response2 = curl_exec($ch2);
-$error2 = curl_error($ch2);
-$headers2 = curl_getinfo($ch2);
-curl_close($ch2);
-
-$inputDoc2 = new DOMDocument();
-$inputDoc2->loadXML($response2);
-$node = $inputDoc2->getElementsByTagName("response");
-$sessionkey = $node->item(0)->getAttribute("sessionkey");
-
+$sessionkey = '61DD81F2-4068r4CDF-910C-2649D2E760E1';
+$resultno = '302_18.0';
+$gradeno = '184:14';
 
 $raw = 'xml=<?xml version="1.0"?>
 <request>
-  <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-  <method action="performsearch" sessionkey="' . $sessionkey . '" resultkey="default" />
+    <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
+    <method action="getcabins" sessionkey="' . $sessionkey . '" resultno="' . $resultno . '" gradeno="' . $gradeno . '" status="Live" />
 </request>';
 
+echo "<xmp>";
+echo $raw;
+echo "</xmp>";
+
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $mundocrucerosServiceURL );
-curl_setopt($ch, CURLOPT_HEADER, false);
+curl_setopt($ch, CURLOPT_URL, $mundocrucerosServiceURL);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_HEADER, false);
 curl_setopt($ch, CURLOPT_VERBOSE, 1);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
@@ -162,78 +138,74 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $inputDoc = new DOMDocument();
 $inputDoc->loadXML($response);
-$results = $inputDoc->getElementsByTagName("results");
-$node = $results->item(0)->getElementsByTagName("region");
-/* for ($i=0; $i < $node->length; $i++) { 
-    $id = $node->item($i)->getAttribute("id");
-    $name = $node->item($i)->getAttribute("name");
-    echo $name;
-    try {
-        $sql = new Sql($db);
-        $select = $sql->select();
-        $select->from('cruzeiros_regioes');
-        $select->where(array(
-        'id' => $id
-        ));
-        $statement = $sql->prepareStatementForSqlObject($select);
-        $result = $statement->execute();
-        $result->buffer();
-        $customers = array();
-        if ($result->valid()) {
-            $data = $result->current();
-            $id = (int)$data['id'];
-            if ($id > 0) {
-                $sql = new Sql($db);
-                $data = array(
-                    'id' => $id,
-                    'datetime_created' => time(),
-                    'datetime_updated' => 1,
-                    'name' => $name
-                );
-                $where['id = ?'] = $id;
-                $update = $sql->update('cruzeiros_regioes', $data, $where);
-                $db->getDriver()
-                ->getConnection()
-                ->disconnect();
-            } else {
-                $sql = new Sql($db);
-                $insert = $sql->insert();
-                $insert->into('cruzeiros_regioes');
-                $insert->values(array(
-                    'id' => $id,
-                    'datetime_created' => time(),
-                    'datetime_updated' => 0,
-                    'name' => $name
-                ), $insert::VALUES_MERGE);
-                $statement = $sql->prepareStatementForSqlObject($insert);
-                $results = $statement->execute();
-                $db->getDriver()
-                ->getConnection()
-                ->disconnect();
-            }
-        } else {
-            $sql = new Sql($db);
-            $insert = $sql->insert();
-            $insert->into('cruzeiros_regioes');
-            $insert->values(array(
-                'id' => $id,
-                'datetime_created' => time(),
-                'datetime_updated' => 0,
-                'name' => $name
-            ), $insert::VALUES_MERGE);
-            $statement = $sql->prepareStatementForSqlObject($insert);
-            $results = $statement->execute();
-            $db->getDriver()
-            ->getConnection()
-            ->disconnect();
-       }
-    } catch (\Exception $e) {
-        echo $return;
-        echo "Error: " . $e;
-        echo $return;
+$response = $inputDoc->getElementsByTagName("response");
+$sessionkey = $response->item(0)->getAttribute("sessionkey");
+$success = $response->item(0)->getAttribute("success");
+if ($success == 'Y') {
+    $request = $response->item(0)->getElementsByTagName("request");
+    if ($request->length > 0) {
+        $method = $request->item(0)->getElementsByTagName("method");
+        if ($method->length > 0) {
+            $gradeno = $method->item(0)->getAttribute("gradeno");
+            $resultno = $method->item(0)->getAttribute("resultno");
+            $sessionkey = $method->item(0)->getAttribute("sessionkey");
+        }
     }
+    $results = $response->item(0)->getElementsByTagName("results");
+    if ($results->length > 0) {
+        $cabin = $results->item(0)->getElementsByTagName("cabin");
+        if ($cabin->length > 0) {
+            for ($i=0; $i < $cabin->length; $i++) { 
+                $bathdescription = $cabin->item($i)->getAttribute("bathdescription");
+                $bedcode = $cabin->item($i)->getAttribute("bedcode");
+                $beddescription = $cabin->item($i)->getAttribute("beddescription");
+                $cabingrade = $cabin->item($i)->getAttribute("cabingrade");
+                $cabinid = $cabin->item($i)->getAttribute("cabinid");
+                $cabinno = $cabin->item($i)->getAttribute("cabinno");
+                $deckcode = $cabin->item($i)->getAttribute("deckcode");
+                $deckname = $cabin->item($i)->getAttribute("deckname");
+                $farecode = $cabin->item($i)->getAttribute("farecode");
+                $guaranteed = $cabin->item($i)->getAttribute("guaranteed");
+                $location = $cabin->item($i)->getAttribute("location");
+                $maxguests = $cabin->item($i)->getAttribute("maxguests");
+                $minguests = $cabin->item($i)->getAttribute("minguests");
+                $modified = $cabin->item($i)->getAttribute("modified");
+                $resultno = $cabin->item($i)->getAttribute("resultno");
+                $shipside = $cabin->item($i)->getAttribute("shipside");
+                $x1 = $cabin->item($i)->getAttribute("x1");
+                $x2 = $cabin->item($i)->getAttribute("x2");
+                $y1 = $cabin->item($i)->getAttribute("y1");
+                $y2 = $cabin->item($i)->getAttribute("y2");
 
-} */
+                $deck = $cabin->item($i)->getElementsByTagName("deck");
+                if ($deck->length > 0) {
+                    $id = $deck->item(0)->getAttribute("id");
+                    $name = $deck->item(0)->getAttribute("name");
+                    $imageid = $deck->item(0)->getAttribute("imageid");
+                    $imageurl = $deck->item(0)->getAttribute("imageurl");
+                    $sortorder = $deck->item(0)->getAttribute("sortorder");
+                }
+                $bedconfig = $cabin->item($i)->getElementsByTagName("bedconfig");
+                if ($bedconfig->length > 0) {
+                    for ($iAux=0; $iAux < $bedconfig->length; $iAux++) { 
+                        $code = $bedconfig->item($iAux)->getAttribute("code");
+                        $description = $bedconfig->item($iAux)->getAttribute("description");
+                    }
+                }
+            }
+        }
+        $essential = $results->item(0)->getElementsByTagName("essential");
+        if ($essential->length > 0) {
+            $errataitem = $essential->item(0)->getElementsByTagName("errataitem");
+            if ($errataitem->length > 0) {
+                for ($j=0; $j < $errataitem->length; $j++) { 
+                    $type = $errataitem->item($j)->getAttribute("type");
+                    $value = $errataitem->item($j)->getAttribute("value");
+                }
+            }
+        }
+    }
+}
 
 // EOF
 $db->getDriver()

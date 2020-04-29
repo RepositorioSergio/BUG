@@ -41,9 +41,6 @@ if ($row_settings->valid()) {
 } else {
     $affiliate_id_mundocruceros = 0;
 }
-echo $return;
-echo "AFFIL: " . $affiliate_id_mundocruceros;
-echo $return;
 $sql = "select value from settings where name='mundocrucerosusername' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -53,9 +50,6 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $mundocrucerosusername = $row_settings['value'];
 }
-echo $return;
-echo "USER: " . $mundocrucerosusername;
-echo $return;
 $sql = "select value from settings where name='mundocrucerospassword' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -65,9 +59,6 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $mundocrucerospassword = base64_decode($row_settings['value']);
 }
-echo $return;
-echo $mundocrucerospassword;
-echo $return;
 $sql = "select value from settings where name='mundocrucerosServiceURL' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -77,9 +68,6 @@ if ($result->valid()) {
     $row = $result->current();
     $mundocrucerosServiceURL = $row['value'];
 }
-echo $return;
-echo $mundocrucerosServiceURL;
-echo $return;
 $sql = "select value from settings where name='mundocrucerosServiceURLBook' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -89,9 +77,6 @@ if ($result->valid()) {
     $row = $result->current();
     $mundocrucerosServiceURLBook = $row['value'];
 }
-echo $return;
-echo $mundocrucerosServiceURLBook;
-echo $return;
 $sql = "select value from settings where name='mundocrucerosSID' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -101,9 +86,6 @@ if ($result->valid()) {
     $row = $result->current();
     $mundocrucerosSID = $row['value'];
 }
-echo $return;
-echo $mundocrucerosSID;
-echo $return;
 $sql = "select value from settings where name='mundocrucerosWebsite' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -113,75 +95,43 @@ if ($result->valid()) {
     $row = $result->current();
     $mundocrucerosWebsite = $row['value'];
 }
-echo $return;
-echo $mundocrucerosWebsite;
-echo $return;
-$db->getDriver()
-    ->getConnection()
-    ->disconnect();
 
-
-$raw2 = 'xml=<?xml version="1.0"?>
-<request>
-    <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-    <method action="createsession" sitename="' . $mundocrucerosWebsite . '" currency="GBP" status="Test" />
-</request>';
-
-$ch2 = curl_init();
-curl_setopt($ch2, CURLOPT_URL, $mundocrucerosServiceURL );
-curl_setopt($ch2, CURLOPT_HEADER, false);
-curl_setopt($ch2, CURLOPT_POST, true);
-curl_setopt($ch2, CURLOPT_POSTFIELDS, $raw2);
-curl_setopt($ch2, CURLOPT_VERBOSE, 0);
-curl_setopt($ch2, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch2, CURLOPT_CONNECTTIMEOUT, 65000);
-curl_setopt($ch2, CURLOPT_HTTPHEADER, array(
-    "Content-type: application/x-www-form-urlencoded",
-    "Accept-Encoding: gzip, deflate",
-    "Content-length: " . strlen($raw2)
-));
-curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
-$response2 = curl_exec($ch2);
-$error2 = curl_error($ch2);
-$headers2 = curl_getinfo($ch2);
-curl_close($ch2);
-
-$inputDoc2 = new DOMDocument();
-$inputDoc2->loadXML($response2);
-$node = $inputDoc2->getElementsByTagName("response");
-$sessionkey = $node->item(0)->getAttribute("sessionkey");
-
+$sessionkey = '61DD81F2-4068r4CDF-910C-2649D2E760E1';
+$basketcode = '813155495';
+$bedconfig = 'QN';
+$tablesize = '';
+$seating = '';
 
 $raw = 'xml=<?xml version="1.0"?>
 <request>
     <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-    <method action="book" sessionkey="' . $sessionkey . '">
+    <method action="book" sessionkey="' . $sessionkey . '" status="Live">
     <contact address1="37 Hawbank Road" address2="College Milton" city="East Kilbride" country="GB" county="Glasgow" email="richard@traveltek.net" firstname="TESTX" lastname="TRAVELTEK" postcode="G74 5EG" telephone="01355 246111" title="MISS" />
     <passengers>
-        <passenger dob="1973-07-24" title="MISS" firstname="TESTX" lastname="TRAVELTEK" paxno="1" paxtype="adult" travelling="" />
-        <passenger dob="1973-07-24" title="MR" firstname="TEST" lastname="TRAVELTEKX" paxno="2" paxtype="adult" travelling="">
-            <rewards>
-                <reward basketcode="28456692" value="222222222" airlinecode="QF" />
-            </rewards>
+        <passenger dob="1973-07-24" title="MISS" firstname="TESTX" lastname="TRAVELTEK" paxno="1" paxtype="adult" nationality="GB" passport="26347891107" travelling="" />
+        <passenger dob="1973-07-24" title="MR" firstname="TEST" lastname="TRAVELTEKX" paxno="2" paxtype="adult" nationality="GB" passport="26347891214" travelling="">
         </passenger>            
     </passengers>
     <allocation>
-        <requests basketcode="28456692" request="TEST BOOKING ONLY" />
+        <requests basketcode="' . $basketcode . '" request="TEST BOOKING ONLY" />
+        <bedconfig basketcode="' . $basketcode . '" bedconfig="' . $bedconfig . '"/>
     </allocation>
-    <deposits paydepositonly="Y" />
+    <deposits paydepositonly="N" />
 </method>
 </request>';
 
+echo "<xmp>";
+echo $raw;
+echo "</xmp>";
+
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $mundocrucerosServiceURLBook );
+curl_setopt($ch, CURLOPT_URL, $mundocrucerosServiceURLBook);
 curl_setopt($ch, CURLOPT_HEADER, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_VERBOSE, 1);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
-curl_setopt($ch, CURLOPT_VERBOSE, 1);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate");
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     "Content-type: application/x-www-form-urlencoded",
@@ -213,76 +163,196 @@ $inputDoc = new DOMDocument();
 $inputDoc->loadXML($response);
 $results = $inputDoc->getElementsByTagName("results");
 $node = $results->item(0)->getElementsByTagName("region");
-/* for ($i=0; $i < $node->length; $i++) { 
-    $id = $node->item($i)->getAttribute("id");
-    $name = $node->item($i)->getAttribute("name");
-    echo $name;
-    try {
-        $sql = new Sql($db);
-        $select = $sql->select();
-        $select->from('cruzeiros_regioes');
-        $select->where(array(
-        'id' => $id
-        ));
-        $statement = $sql->prepareStatementForSqlObject($select);
-        $result = $statement->execute();
-        $result->buffer();
-        $customers = array();
-        if ($result->valid()) {
-            $data = $result->current();
-            $id = (int)$data['id'];
-            if ($id > 0) {
-                $sql = new Sql($db);
-                $data = array(
-                    'id' => $id,
-                    'datetime_created' => time(),
-                    'datetime_updated' => 1,
-                    'name' => $name
-                );
-                $where['id = ?'] = $id;
-                $update = $sql->update('cruzeiros_regioes', $data, $where);
-                $db->getDriver()
-                ->getConnection()
-                ->disconnect();
-            } else {
-                $sql = new Sql($db);
-                $insert = $sql->insert();
-                $insert->into('cruzeiros_regioes');
-                $insert->values(array(
-                    'id' => $id,
-                    'datetime_created' => time(),
-                    'datetime_updated' => 0,
-                    'name' => $name
-                ), $insert::VALUES_MERGE);
-                $statement = $sql->prepareStatementForSqlObject($insert);
-                $results = $statement->execute();
-                $db->getDriver()
-                ->getConnection()
-                ->disconnect();
-            }
-        } else {
-            $sql = new Sql($db);
-            $insert = $sql->insert();
-            $insert->into('cruzeiros_regioes');
-            $insert->values(array(
-                'id' => $id,
-                'datetime_created' => time(),
-                'datetime_updated' => 0,
-                'name' => $name
-            ), $insert::VALUES_MERGE);
-            $statement = $sql->prepareStatementForSqlObject($insert);
-            $results = $statement->execute();
-            $db->getDriver()
-            ->getConnection()
-            ->disconnect();
-       }
-    } catch (\Exception $e) {
-        echo $return;
-        echo "Error: " . $e;
-        echo $return;
+$inputDoc = new DOMDocument();
+$inputDoc->loadXML($response);
+$response = $inputDoc->getElementsByTagName("response");
+$sessionkey = $response->item(0)->getAttribute("sessionkey");
+$success = $response->item(0)->getAttribute("success");
+if ($success == 'Y') {
+    $request = $response->item(0)->getElementsByTagName("request");
+    if ($request->length > 0) {
+        $method = $request->item(0)->getElementsByTagName("method");
+        if ($method->length > 0) {
+            $sessionkey = $method->item(0)->getAttribute("sessionkey");
+        }
     }
+    $results = $response->item(0)->getElementsByTagName("results");
+    if ($results->length > 0) {
+        $book = $results->item(0)->getElementsByTagName("book");
+        if ($book->length > 0) {
+            $reservation = $book->item(0)->getAttribute("reservation");
+            $status = $book->item(0)->getAttribute("status");
+            $bookingdetails = $book->item(0)->getElementsByTagName("bookingdetails");
+            if ($bookingdetails->length > 0) {
+                $address1 = $bookingdetails->item(0)->getAttribute("address1");
+                $address2 = $bookingdetails->item(0)->getAttribute("address2");
+                $address3 = $bookingdetails->item(0)->getAttribute("address3");
+                $address4 = $bookingdetails->item(0)->getAttribute("address4");
+                $address5 = $bookingdetails->item(0)->getAttribute("address5");
+                $affiliate = $bookingdetails->item(0)->getAttribute("affiliate");
+                $altphone = $bookingdetails->item(0)->getAttribute("altphone");
+                $balancepaymentdate = $bookingdetails->item(0)->getAttribute("balancepaymentdate");
+                $bookingforbranchid = $bookingdetails->item(0)->getAttribute("bookingforbranchid");
+                $bookingforteamid = $bookingdetails->item(0)->getAttribute("bookingforteamid");
+                $bookingforuserid = $bookingdetails->item(0)->getAttribute("bookingforuserid");
+                $branchcategory1id = $bookingdetails->item(0)->getAttribute("branchcategory1id");
+                $branchcategory2id = $bookingdetails->item(0)->getAttribute("branchcategory2id");
+                $branchcategory3id = $bookingdetails->item(0)->getAttribute("branchcategory3id");
+                $branchid = $bookingdetails->item(0)->getAttribute("branchid");
+                $city = $bookingdetails->item(0)->getAttribute("city");
+                $country = $bookingdetails->item(0)->getAttribute("country");
+                $county = $bookingdetails->item(0)->getAttribute("county");
+                $currency = $bookingdetails->item(0)->getAttribute("currency");
+                $datebooked = $bookingdetails->item(0)->getAttribute("datebooked");
+                $departdate = $bookingdetails->item(0)->getAttribute("departdate");
+                $depositbooking = $bookingdetails->item(0)->getAttribute("depositbooking");
+                $depositduedate = $bookingdetails->item(0)->getAttribute("depositduedate");
+                $deposittotal = $bookingdetails->item(0)->getAttribute("deposittotal");
+                $email = $bookingdetails->item(0)->getAttribute("email");
+                $enquiryid = $bookingdetails->item(0)->getAttribute("enquiryid");
+                $firstname = $bookingdetails->item(0)->getAttribute("firstname");
+                $gender = $bookingdetails->item(0)->getAttribute("gender");
+                $id = $bookingdetails->item(0)->getAttribute("id");
+                $internalref = $bookingdetails->item(0)->getAttribute("internalref");
+                $ipaddress = $bookingdetails->item(0)->getAttribute("ipaddress");
+                $language = $bookingdetails->item(0)->getAttribute("language");
+                $lastname = $bookingdetails->item(0)->getAttribute("lastname");
+                $lowdeposit = $bookingdetails->item(0)->getAttribute("lowdeposit");
+                $lowdepositamount = $bookingdetails->item(0)->getAttribute("lowdepositamount");
+                $lowdepositduedate = $bookingdetails->item(0)->getAttribute("lowdepositduedate");
+                $loyaltypoints = $bookingdetails->item(0)->getAttribute("loyaltypoints");
+                $loyaltyprogramid = $bookingdetails->item(0)->getAttribute("loyaltyprogramid");
+                $middlename = $bookingdetails->item(0)->getAttribute("middlename");
+                $mobile = $bookingdetails->item(0)->getAttribute("mobile");
+                $offersbyemail = $bookingdetails->item(0)->getAttribute("offersbyemail");
+                $ownerid = $bookingdetails->item(0)->getAttribute("ownerid");
+                $passengermobile = $bookingdetails->item(0)->getAttribute("passengermobile");
+                $paypal = $bookingdetails->item(0)->getAttribute("paypal");
+                $portfolioid = $bookingdetails->item(0)->getAttribute("portfolioid");
+                $postcode = $bookingdetails->item(0)->getAttribute("postcode");
+                $promocode = $bookingdetails->item(0)->getAttribute("promocode");
+                $returndate = $bookingdetails->item(0)->getAttribute("returndate");
+                $session = $bookingdetails->item(0)->getAttribute("session");
+                $teamid = $bookingdetails->item(0)->getAttribute("teamid");
+                $telephone = $bookingdetails->item(0)->getAttribute("telephone");
+                $title = $bookingdetails->item(0)->getAttribute("title");
+                $toppercurrency = $bookingdetails->item(0)->getAttribute("toppercurrency");
+                $topperexchangerate = $bookingdetails->item(0)->getAttribute("topperexchangerate");
+                $totalcommission = $bookingdetails->item(0)->getAttribute("totalcommission");
+                $totalprice = $bookingdetails->item(0)->getAttribute("totalprice");
 
-} */
+                $items = $bookingdetails->item(0)->getElementsByTagName("items");
+                if ($items->length > 0) {
+                    $item = $items->item(0)->getElementsByTagName("item");
+                    if ($item->length > 0) {
+                        $codetocruiseid = $item->item(0)->getAttribute("codetocruiseid");
+                        $airportcode = $item->item(0)->getAttribute("airportcode");
+                        $bedconfig = $item->item(0)->getAttribute("bedconfig");
+                        $bosuppliercode = $item->item(0)->getAttribute("bosuppliercode");
+                        $cabinbedtype = $item->item(0)->getAttribute("cabinbedtype");
+                        $cabincode = $item->item(0)->getAttribute("cabincode");
+                        $cabindesc = $item->item(0)->getAttribute("cabindesc");
+                        $cabinextra = $item->item(0)->getAttribute("cabinextra");
+                        $cabinid = $item->item(0)->getAttribute("cabinid");
+                        $cabinlocation = $item->item(0)->getAttribute("cabinlocation");
+                        $cabinname = $item->item(0)->getAttribute("cabinname");
+                        $cabinno = $item->item(0)->getAttribute("cabinno");
+                        $cabinposition = $item->item(0)->getAttribute("cabinposition");
+                        $cruisename = $item->item(0)->getAttribute("cruisename");
+                        $deckid = $item->item(0)->getAttribute("deckid");
+                        $deckname = $item->item(0)->getAttribute("deckname");
+                        $diningseating = $item->item(0)->getAttribute("diningseating");
+                        $diningsmoking = $item->item(0)->getAttribute("diningsmoking");
+                        $diningwith = $item->item(0)->getAttribute("diningwith");
+                        $enddate = $item->item(0)->getAttribute("enddate");
+                        $engine = $item->item(0)->getAttribute("engine");
+                        $finalpaymentdate = $item->item(0)->getAttribute("finalpaymentdate");
+                        $grossexchangerate = $item->item(0)->getAttribute("grossexchangerate");
+                        $groupallocationid = $item->item(0)->getAttribute("groupallocationid");
+                        $ibossuppliercodeid = $item->item(0)->getAttribute("ibossuppliercodeid");
+                        $ibossupplierid = $item->item(0)->getAttribute("ibossupplierid");
+                        $lineid = $item->item(0)->getAttribute("lineid");
+                        $linename = $item->item(0)->getAttribute("linename");
+                        $modified = $item->item(0)->getAttribute("modified");
+                        $ncf = $item->item(0)->getAttribute("ncf");
+                        $nettexchangerate = $item->item(0)->getAttribute("nettexchangerate");
+                        $nights = $item->item(0)->getAttribute("nights");
+                        $obccurrency = $item->item(0)->getAttribute("obccurrency");
+                        $onboardcredit = $item->item(0)->getAttribute("onboardcredit");
+                        $optionexpirydate = $item->item(0)->getAttribute("optionexpirydate");
+                        $originalnettdue = $item->item(0)->getAttribute("originalnettdue");
+                        $ownstockid = $item->item(0)->getAttribute("ownstockid");
+                        $price = $item->item(0)->getAttribute("price");
+                        $pricecode = $item->item(0)->getAttribute("pricecode");
+                        $request = $item->item(0)->getAttribute("request");
+                        $reservation = $item->item(0)->getAttribute("reservation");
+                        $returndate = $item->item(0)->getAttribute("returndate");
+                        $saildate = $item->item(0)->getAttribute("saildate");
+                        $sailnights = $item->item(0)->getAttribute("sailnights");
+                        $shipid = $item->item(0)->getAttribute("shipid");
+                        $shipname = $item->item(0)->getAttribute("shipname");
+                        $startdate = $item->item(0)->getAttribute("startdate");
+                        $status = $item->item(0)->getAttribute("status");
+                        $suppliername = $item->item(0)->getAttribute("suppliername");
+                        $tablesize = $item->item(0)->getAttribute("tablesize");
+                        $type = $item->item(0)->getAttribute("type");
+                        $voyagecode = $item->item(0)->getAttribute("voyagecode");
+
+                        $rewards = $item->item(0)->getElementsByTagName("rewards");
+                        if ($rewards->length > 0) {
+                            $passengerid = $rewards->item(0)->getAttribute("passengerid");
+                            $value = $rewards->item(0)->getAttribute("value");
+                        }
+                    }
+                }
+                $passengers = $bookingdetails->item(0)->getElementsByTagName("passengers");
+                if ($passengers->length > 0) {
+                    $passenger = $passengers->item(0)->getElementsByTagName("passenger");
+                    if ($passenger->length > 0) {
+                        for ($x=0; $x < $passenger->length; $x++) { 
+                            $age = $passenger->item($x)->getAttribute("age");
+                            $bookingid = $passenger->item($x)->getAttribute("bookingid");
+                            $cancelled = $passenger->item($x)->getAttribute("cancelled");
+                            $country = $passenger->item($x)->getAttribute("country");
+                            $dob = $passenger->item($x)->getAttribute("dob");
+                            $emergencyemail = $passenger->item($x)->getAttribute("emergencyemail");
+                            $emergencyname = $passenger->item($x)->getAttribute("emergencyname");
+                            $emergencyphone = $passenger->item($x)->getAttribute("emergencyphone");
+                            $firstname = $passenger->item($x)->getAttribute("firstname");
+                            $gender = $passenger->item($x)->getAttribute("gender");
+                            $insuranceassistancecompany = $passenger->item($x)->getAttribute("insuranceassistancecompany");
+                            $insurancecompany = $passenger->item($x)->getAttribute("insurancecompany");
+                            $insurancepolicynumber = $passenger->item($x)->getAttribute("insurancepolicynumber");
+                            $insurancetelnumber = $passenger->item($x)->getAttribute("insurancetelnumber");
+                            $lastname = $passenger->item($x)->getAttribute("lastname");
+                            $mealoption = $passenger->item($x)->getAttribute("mealoption");
+                            $middlename = $passenger->item($x)->getAttribute("middlename");
+                            $nokaddress1 = $passenger->item($x)->getAttribute("nokaddress1");
+                            $nokaddress2 = $passenger->item($x)->getAttribute("nokaddress2");
+                            $nokaddress3 = $passenger->item($x)->getAttribute("nokaddress3");
+                            $nokaddress4 = $passenger->item($x)->getAttribute("nokaddress4");
+                            $nokname = $passenger->item($x)->getAttribute("nokname");
+                            $nokphone = $passenger->item($x)->getAttribute("nokphone");
+                            $nokrelationship = $passenger->item($x)->getAttribute("nokrelationship");
+                            $ownerid = $passenger->item($x)->getAttribute("ownerid");
+                            $passportauthority = $passenger->item($x)->getAttribute("passportauthority");
+                            $passportexpiry = $passenger->item($x)->getAttribute("passportexpiry");
+                            $passportplaceofissue = $passenger->item($x)->getAttribute("passportplaceofissue");
+                            $passportstart = $passenger->item($x)->getAttribute("passportstart");
+                            $paxno = $passenger->item($x)->getAttribute("paxno");
+                            $paxtype = $passenger->item($x)->getAttribute("paxtype");
+                            $placeofbirth = $passenger->item($x)->getAttribute("placeofbirth");
+                            $redress = $passenger->item($x)->getAttribute("redress");
+                            $specialservices = $passenger->item($x)->getAttribute("specialservices");
+                            $title = $passenger->item($x)->getAttribute("title");
+                            $travelling = $passenger->item($x)->getAttribute("travelling");
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 // EOF
 $db->getDriver()
