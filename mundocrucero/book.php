@@ -96,9 +96,9 @@ if ($result->valid()) {
     $mundocrucerosWebsite = $row['value'];
 }
 
-$sessionkey = '61DD81F2-4068r4CDF-910C-2649D2E760E1';
-$basketcode = '813155495';
-$bedconfig = 'QN';
+$sessionkey = '0DE96AB9~F7F1i4C40-A6B9-3DB46BA547AA';
+$basketcode = '813487215';
+$bedconfig = 'T2';
 $tablesize = '';
 $seating = '';
 
@@ -106,14 +106,14 @@ $raw = 'xml=<?xml version="1.0"?>
 <request>
     <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
     <method action="book" sessionkey="' . $sessionkey . '" status="Live">
-    <contact address1="37 Hawbank Road" address2="College Milton" city="East Kilbride" country="GB" county="Glasgow" email="richard@traveltek.net" firstname="TESTX" lastname="TRAVELTEK" postcode="G74 5EG" telephone="01355 246111" title="MISS" />
+    <contact address1="37 Hawbank Road" address2="College Milton" city="East Kilbride" country="GB" county="Glasgow" email="richard@traveltek.net" firstname="Mary" lastname="Smith" postcode="G74 5EG" telephone="01355 246111" title="MISS" />
     <passengers>
-        <passenger dob="1973-07-24" title="MISS" firstname="TESTX" lastname="TRAVELTEK" paxno="1" paxtype="adult" nationality="GB" passport="26347891107" travelling="" />
-        <passenger dob="1973-07-24" title="MR" firstname="TEST" lastname="TRAVELTEKX" paxno="2" paxtype="adult" nationality="GB" passport="26347891214" travelling="">
+        <passenger dob="1973-07-24" title="MISS" firstname="Mary" lastname="Smith" paxno="1" paxtype="adult" nationality="GB" passport="26347891107" travelling="" />
+        <passenger dob="1973-07-24" title="MR" firstname="Richard" lastname="Smith" paxno="2" paxtype="adult" nationality="GB" passport="26347891214" travelling="">
         </passenger>            
     </passengers>
     <allocation>
-        <requests basketcode="' . $basketcode . '" request="TEST BOOKING ONLY" />
+        <requests basketcode="' . $basketcode . '" request="BOOKING ONLY" />
         <bedconfig basketcode="' . $basketcode . '" bedconfig="' . $bedconfig . '"/>
     </allocation>
     <deposits paydepositonly="N" />
