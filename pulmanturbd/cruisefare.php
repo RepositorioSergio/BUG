@@ -57,23 +57,40 @@ $client->setHeaders(array(
     "Content-length: ".strlen($raw)
 ));
 
-$url = "https://stage.services.rccl.com/";
+$url = "https://stage.services.rccl.com/Reservation_FITWeb/sca/FareList";
 
 $raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
 <soap:Body>
     <m:getFareList xmlns:m="http://services.rccl.com/Interfaces/FareList">
         <OTA_CruiseFareAvailRQ MaxResponses="150" RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-12-18T12:46:25.861-05:00" TransactionIdentifier="106597" Version="1.0" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
-            <Guest Age="55">
+            <POS>
+                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                    <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+                    <BookingChannel Type="7">
+                        <CompanyName CompanyShortName="PULLMANTUR"/>
+                    </BookingChannel>
+                </Source>
+                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                    <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+                    <BookingChannel Type="7">
+                        <CompanyName CompanyShortName="PULLMANTUR"/>
+                    </BookingChannel>
+                </Source>
+                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                    <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+                    <BookingChannel Type="7">
+                        <CompanyName CompanyShortName="PULLMANTUR"/>
+                    </BookingChannel>
+                </Source>
+            </POS>
+            <Guest>
                 <GuestTransportation Mode="29" Status="36">
-                <GatewayCity LocationCode="C/O”/>
+                    <GatewayCity LocationCode="BCN"/>
                 </GuestTransportation>
-                <Address>
-                <StateProv StateCode="FL"/>
-                </Address>
             </Guest>
-            <Guest Age="35">
+            <Guest>
                 <GuestTransportation Mode="29" Status="36">
-                <GatewayCity LocationCode="C/O”/>
+                    <GatewayCity LocationCode="BCN"/>
                 </GuestTransportation>
             </Guest>
             <GuestCounts>
@@ -81,39 +98,19 @@ $raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
                 <GuestCount Quantity="1"/>
             </GuestCounts>
             <SailingInfo>
-                <SelectedSailing Start="2014-01-05">
-                    <CruiseLine ShipCode="AL"/>
+                <SelectedSailing Start="2020-08-08">
+                    <CruiseLine ShipCode="SO"/>
                 </SelectedSailing>
-                <InclusivePackageOption CruisePackageCode=" AL07E088"/>
+                <InclusivePackageOption CruisePackageCode="SOPD0745"/>
             </SailingInfo>
-            <SearchQualifiers BerthedCategoryCode="D1"/>
-            <TPA_Extensions>
-                <TPA_FareQualifiers>
-                    <TPA_FareType TPA_FareCode="A0004352"/>
-                </TPA_FareQualifiers>
-            </TPA_Extensions>
+            <SearchQualifiers>
+                <Status Status="36"/>
+            </SearchQualifiers>
         </OTA_CruiseFareAvailRQ>
     </m:getFareList>
 </soap:Body>
 </soap:Envelope>';
 
-/* $client->setUri($url);
-$client->setMethod('POST');
-$client->setRawBody($raw);
-$response = $client->send();
-if ($response->isSuccess()) {
-$response = $response->getBody();
-} else {
-$logger = new Logger();
-$writer = new Writer\Stream('/srv/www/htdocs/error_log');
-$logger->addWriter($writer);
-$logger->info($client->getUri());
-$logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
-echo $return;
-echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
-echo $return;
-die();
-} */
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_HEADER, false);
@@ -128,18 +125,8 @@ curl_setopt($ch, CURLOPT_ENCODING, 'gzip');
 $response = curl_exec($ch);
 $error = curl_error($ch);
 $headers = curl_getinfo($ch);
-if ($response === false) {
-    echo $return;
-    echo "ERRO: " . $error;
-    echo $return;
-} else {
-    echo $return;
-    echo "Operation completed without any errors";
-    echo $return;
-}
 curl_close($ch);
 
-echo "<br/>RESPONSE";
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';

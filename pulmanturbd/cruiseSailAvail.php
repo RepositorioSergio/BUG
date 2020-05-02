@@ -174,6 +174,36 @@ if ($OTA_CruiseSailAvailRS->length > 0) {
                     $CruisePackageCode = $InclusivePackageOption->item(0)->getAttribute("CruisePackageCode");
                     $InclusiveIndicator = $InclusivePackageOption->item(0)->getAttribute("InclusiveIndicator");
                 }
+
+                try {
+                    $sql = new Sql($db);
+                    $insert = $sql->insert();
+                    $insert->into('cruisesailavail');
+                    $insert->values(array(
+                        'datetime_created' => time(),
+                        'datetime_updated' => 0,
+                        'listofsailingdescriptioncode' => $ListOfSailingDescriptionCode,
+                        'duration' => $Duration,
+                        'portsofcallquantity' => $PortsOfCallQuantity,
+                        'start' => $Start,
+                        'status' => $Status,
+                        'shipcode' => $ShipCode,
+                        'vendorcode' => $VendorCode,
+                        'regioncode' => $RegionCode,
+                        'subregioncode' => $SubRegionCode,
+                        'cruisepackagecode' => $CruisePackageCode,
+                        'inclusiveindicator' => $InclusiveIndicator
+                    ), $insert::VALUES_MERGE);
+                    $statement = $sql->prepareStatementForSqlObject($insert);
+                    $results = $statement->execute();
+                    $db->getDriver()
+                        ->getConnection()
+                        ->disconnect();
+                } catch (\Exception $e) {
+                    echo $return;
+                    echo "ERRO 1: " . $e;
+                    echo $return;
+                }
             }
         }
     }

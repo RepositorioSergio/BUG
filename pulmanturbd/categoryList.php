@@ -96,7 +96,7 @@ $raw ='<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="ht
             </GuestCounts>
             <SailingInfo>
                <SelectedSailing Start="2020-08-08">
-                  <CruiseLine ShipCode="MO"/>
+                  <CruiseLine ShipCode="SO"/>
                </SelectedSailing>
             </SailingInfo>
             <SelectedFare FareCode="BESTRATE"/>
@@ -109,11 +109,10 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_HEADER, false);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_VERBOSE, 1);
+curl_setopt($ch, CURLOPT_VERBOSE, false);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
+curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_ENCODING, 'gzip');
@@ -122,11 +121,10 @@ $error = curl_error($ch);
 $headers = curl_getinfo($ch);
 curl_close($ch);
 
-echo "<br/>RESPONSE";
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
-die();
+
 $config = new \Zend\Config\Config(include '../config/autoload/global.pulmantur.php');
 $config = [
     'driver' => $config->db->driver,
@@ -147,7 +145,7 @@ if ($getCategoryListResponse->length > 0) {
    if ($OTA_CruiseCategoryAvailRS->length > 0) {
       $SailingInfo = $OTA_CruiseCategoryAvailRS->item(0)->getElementsByTagName("SailingInfo");
       if ($SailingInfo->length > 0) {
-         $SelectedSailing = $SailingOption->item(0)->getElementsByTagName("SelectedSailing");
+         $SelectedSailing = $SailingInfo->item(0)->getElementsByTagName("SelectedSailing");
          if ($SelectedSailing->length > 0) {
             $ListOfSailingDescriptionCode = $SelectedSailing->item(0)->getAttribute("ListOfSailingDescriptionCode");
             $Duration = $SelectedSailing->item(0)->getAttribute("Duration");
@@ -163,12 +161,44 @@ if ($getCategoryListResponse->length > 0) {
                $SubRegionCode = $Region->item(0)->getAttribute("SubRegionCode");
             }
          }
-         $InclusivePackageOption = $SailingOption->item($i)->getElementsByTagName("InclusivePackageOption");
+         $InclusivePackageOption = $SailingInfo->item(0)->getElementsByTagName("InclusivePackageOption");
          if ($InclusivePackageOption->length > 0) {
             $CruisePackageCode = $InclusivePackageOption->item(0)->getAttribute("CruisePackageCode");
             $InclusiveIndicator = $InclusivePackageOption->item(0)->getAttribute("InclusiveIndicator");
          }
       }
+
+      echo $return;
+      echo $RegionCode;
+      echo $return;
+
+      try {
+         $sql = new Sql($db);
+         $insert = $sql->insert();
+         $insert->into('categorylist');
+         $insert->values(array(
+             'datetime_created' => time(),
+             'datetime_updated' => 0,
+             'listofsailingdescriptioncode' => $ListOfSailingDescriptionCode,
+             'duration' => $Duration,
+             'shipcode' => $ShipCode,
+             'vendorcode' => $VendorCode,
+             'regioncode' => $RegionCode,
+             'subregioncode' => $SubRegionCode,
+             'cruisepackagecode' => $CruisePackageCode,
+             'inclusiveindicator' => $InclusiveIndicator
+         ), $insert::VALUES_MERGE);
+         $statement = $sql->prepareStatementForSqlObject($insert);
+         $results = $statement->execute();
+         $db->getDriver()
+             ->getConnection()
+             ->disconnect();
+     } catch (\Exception $e) {
+         echo $return;
+         echo "ERRO 1: " . $e;
+         echo $return;
+     }
+
       $FareOption = $OTA_CruiseCategoryAvailRS->item(0)->getElementsByTagName("FareOption");
       if ($FareOption->length > 0) {
          $CategoryOptions = $FareOption->item(0)->getElementsByTagName("CategoryOptions");
@@ -208,18 +238,62 @@ if ($getCategoryListResponse->length > 0) {
                         $PriceBreakDowns = $PriceInfo->item(0)->getElementsByTagName("PriceBreakDowns");
                         if ($PriceBreakDowns->length > 0) {
                            $Occupancy = $PriceBreakDowns->item(0)->getAttribute("Occupancy");
-                           $Status = $PriceBreakDowns->item(0)->getAttribute("Status");
+                           $PriceBreakDownsStatus = $PriceBreakDowns->item(0)->getAttribute("Status");
                            $PriceBreakDown = $PriceBreakDowns->item(0)->getElementsByTagName("PriceBreakDown");
                            if ($PriceBreakDown->length > 0) {
                               $AgeQualifyingCode = $PriceBreakDown->item(0)->getAttribute("AgeQualifyingCode");
-                              $Amount = $PriceBreakDown->item(0)->getAttribute("Amount");
+                              $PriceBreakDownAmount = $PriceBreakDown->item(0)->getAttribute("Amount");
                               $NCCFAmount = $PriceBreakDown->item(0)->getAttribute("NCCFAmount");
-                              $NetAmount = $PriceBreakDown->item(0)->getAttribute("NetAmount");
+                              $PriceBreakDownNetAmount = $PriceBreakDown->item(0)->getAttribute("NetAmount");
                               $RPH = $PriceBreakDown->item(0)->getAttribute("RPH");
                            }
                         }
                      }
                   }
+
+                  try {
+                     $sql = new Sql($db);
+                     $insert = $sql->insert();
+                     $insert->into('categorylist_categoryoptions');
+                     $insert->values(array(
+                         'datetime_created' => time(),
+                         'datetime_updated' => 0,
+                         'availablegroupallocationqty' => $AvailableGroupAllocationQty,
+                         'availableregularcabins' => $AvailableRegularCabins,
+                         'categorylocation' => $CategoryLocation,
+                         'groupcode' => $GroupCode,
+                         'listofcategoryqualifiercodes' => $ListOfCategoryQualifierCodes,
+                         'pricedcategorycode' => $PricedCategoryCode,
+                         'status' => $Status,
+                         'amount' => $Amount,
+                         'netamount' => $NetAmount,
+                         'appliedpromotionsquantity' => $AppliedPromotionsQuantity,
+                         'nonrefundabletype' => $NonRefundableType,
+                         'priceid' => $PriceId,
+                         'priceidtype' => $PriceIdType,
+                         'promotionclass' => $PromotionClass,
+                         'promotiondescription' => $PromotionDescription,
+                         'promotiontypes' => $PromotionTypes,
+                         'farecode' => $FareCode,
+                         'pricedescription' => $PriceDescription,
+                         'occupancy' => $Occupancy,
+                         'pricebreakdownsstatus' => $PriceBreakDownsStatus,
+                         'agequalifyingcode' => $AgeQualifyingCode,
+                         'pricebreakdownamount' => $PriceBreakDownAmount,
+                         'nccfamount' => $NCCFAmount,
+                         'pricebreakdownnetamount' => $PriceBreakDownNetAmount,
+                         'rph' => $RPH
+                     ), $insert::VALUES_MERGE);
+                     $statement = $sql->prepareStatementForSqlObject($insert);
+                     $results = $statement->execute();
+                     $db->getDriver()
+                         ->getConnection()
+                         ->disconnect();
+                 } catch (\Exception $e) {
+                     echo $return;
+                     echo "ERRO 2: " . $e;
+                     echo $return;
+                 }
                }
             }
          }
@@ -230,6 +304,26 @@ if ($getCategoryListResponse->length > 0) {
          if ($Tax->length > 0) {
             for ($j=0; $j < $Tax->length; $j++) { 
                $Amount = $Tax->item($j)->getAttribute("Amount");
+
+               try {
+                  $sql = new Sql($db);
+                  $insert = $sql->insert();
+                  $insert->into('categorylist_taxes');
+                  $insert->values(array(
+                      'datetime_created' => time(),
+                      'datetime_updated' => 0,
+                      'amount' => $Amount
+                  ), $insert::VALUES_MERGE);
+                  $statement = $sql->prepareStatementForSqlObject($insert);
+                  $results = $statement->execute();
+                  $db->getDriver()
+                      ->getConnection()
+                      ->disconnect();
+              } catch (\Exception $e) {
+                  echo $return;
+                  echo "ERRO 3: " . $e;
+                  echo $return;
+              }
             }
          }
       }
@@ -242,6 +336,27 @@ if ($getCategoryListResponse->length > 0) {
             if ($Tax->length > 0) {
                for ($j=0; $j < $Tax->length; $j++) { 
                   $Amount = $Tax->item($j)->getAttribute("Amount");
+
+                  try {
+                     $sql = new Sql($db);
+                     $insert = $sql->insert();
+                     $insert->into('categorylist_fees');
+                     $insert->values(array(
+                         'datetime_created' => time(),
+                         'datetime_updated' => 0,
+                         'amount' => $Amount,
+                         'taxinclusive' => $TaxInclusive
+                     ), $insert::VALUES_MERGE);
+                     $statement = $sql->prepareStatementForSqlObject($insert);
+                     $results = $statement->execute();
+                     $db->getDriver()
+                         ->getConnection()
+                         ->disconnect();
+                 } catch (\Exception $e) {
+                     echo $return;
+                     echo "ERRO 4: " . $e;
+                     echo $return;
+                 }
                }
             }
          }
@@ -255,6 +370,27 @@ if ($getCategoryListResponse->length > 0) {
          } else {
             $Text = "";
          }
+
+         try {
+            $sql = new Sql($db);
+            $insert = $sql->insert();
+            $insert->into('categorylist_information');
+            $insert->values(array(
+                'datetime_created' => time(),
+                'datetime_updated' => 0,
+                'name' => $Name,
+                'text' => $Text
+            ), $insert::VALUES_MERGE);
+            $statement = $sql->prepareStatementForSqlObject($insert);
+            $results = $statement->execute();
+            $db->getDriver()
+                ->getConnection()
+                ->disconnect();
+        } catch (\Exception $e) {
+            echo $return;
+            echo "ERRO 5: " . $e;
+            echo $return;
+        }
       }
    }
 }
