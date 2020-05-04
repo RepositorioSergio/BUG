@@ -1,0 +1,2830 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Catalogue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.exchangefortravel.org/xft/current">
+	<Vendor Licence="IM067100025" Code="ALSACE CROISIER" />
+	<Style>
+		<Language Code="en" />
+	</Style>
+	<Brand>
+		<Code Role="Reference" Value="MERIND" />
+	</Brand>
+	<Entities>
+		<Entity xsi:type="TypeUnifiedType">
+			<Types>
+				<Type Code="Accomodation" ID="TY_Accomodation">
+					<Description Role="Name">
+						<Text><![CDATA[Accomodation]]></Text>
+					</Description>
+				</Type>
+				<Type Code="Product" ID="TY_Product">
+					<Description Role="Name">
+						<Text><![CDATA[Product]]></Text>
+					</Description>
+				</Type>
+				<Type Code="Equipement" ID="TY_Equipement">
+					<Description Role="Name">
+						<Text><![CDATA[Equipement]]></Text>
+					</Description>
+				</Type>
+			</Types>
+		</Entity>
+		<Entity xsi:type="KeywordType">
+			<Keywords>
+				<Keyword ID="KW_EQUI_RESTAURANT" Code="Restaurant" Name="EQUI_RESTAURANT" Category="Equipment" Family=""><![CDATA[Restaurants]]></Keyword>
+				<Keyword ID="KW_EQUI_ESP_PUBLIC" Code="MeetingRoom" Name="EQUI_ESP_PUBLIC" Category="Equipment" Family=""><![CDATA[Public Spaces]]></Keyword>
+				<Keyword ID="KW_EQUI_DIVERTISS" Code="Entertainment" Name="EQUI_DIVERTISS" Category="Equipment" Family=""><![CDATA[Entertainment]]></Keyword>
+				<Keyword ID="KW_EQUI_SPORT_LOIS" Code="Sport" Name="EQUI_SPORT_LOIS" Category="Equipment" Family=""><![CDATA[Sports and Activity]]></Keyword>
+				<Keyword ID="KW_BATO_ANNEE_CONS" Code="" Name="BATO_ANNEE_CONS" Category="Infrastructure" Family="BATO_CARACTERIS"><![CDATA[Year Built]]></Keyword>
+				<Keyword ID="KW_BATO_ANNEE_RENO" Code="" Name="BATO_ANNEE_RENO" Category="Infrastructure" Family="BATO_CARACTERIS"><![CDATA[Year Renovated]]></Keyword>
+				<Keyword ID="KW_BATO_PAX_NOMBRE" Code="" Name="BATO_PAX_NOMBRE" Category="Infrastructure" Family="BATO_CARACTERIS"><![CDATA[Guest capacity]]></Keyword>
+				<Keyword ID="KW_BATO_CAPA_TOTAL" Code="" Name="BATO_CAPA_TOTAL" Category="Infrastructure" Family="BATO_CARACTERIS"><![CDATA[Number of cabins]]></Keyword>
+				<Keyword ID="KW_BATO_LARGEUR" Code="" Name="BATO_LARGEUR" Category="Infrastructure" Family="BATO_CARACTERIS"><![CDATA[Width]]></Keyword>
+				<Keyword ID="KW_BATO_LONGUEUR" Code="" Name="BATO_LONGUEUR" Category="Infrastructure" Family="BATO_CARACTERIS"><![CDATA[Length]]></Keyword>
+				<Keyword ID="KW_BATO_MARIN_NOMB" Code="" Name="BATO_MARIN_NOMB" Category="Infrastructure" Family="BATO_CARACTERIS"><![CDATA[Number of crew members]]></Keyword>
+				<Keyword ID="KW_BATO_NB_DECK_CAB" Code="" Name="BATO_NB_DECK_CAB" Category="Infrastructure" Family="BATO_CARACTERIS"><![CDATA[Number of decks]]></Keyword>
+				<Keyword ID="KW_COMO_ASCENSEURS" Code="Lift" Name="COMO_ASCENSEURS" Category="Equipment" Family="BATO_COMMODITE"><![CDATA[Elevators]]></Keyword>
+				<Keyword ID="KW_COMO_CABINES_EX" Code="" Name="COMO_CABINES_EX" Category="Equipment" Family="BATO_COMMODITE"><![CDATA[Cabins outside]]></Keyword>
+				<Keyword ID="KW_COMO_CABINES_HA" Code="" Name="COMO_CABINES_HA" Category="Equipment" Family="BATO_COMMODITE"><![CDATA[PRM cabins]]></Keyword>
+				<Keyword ID="KW_COMO_JACUZZI" Code="" Name="COMO_JACUZZI" Category="Equipment" Family="BATO_COMMODITE"><![CDATA[Jacuzzi]]></Keyword>
+				<Keyword ID="KW_FL_MER_ADRIATIQUE" Code="" Name="FL_MER_ADRIATIQUE" Category="Location" Family="FLEUVE"><![CDATA[Adriatic Sea]]></Keyword>
+				<Keyword ID="KW_FL_MER_CORSE" Code="" Name="FL_MER_CORSE" Category="Location" Family="FLEUVE"><![CDATA[Mediterranean Sea]]></Keyword>
+				<Keyword ID="KW_FL_MER_MEDITERRANEE" Code="" Name="FL_MER_MEDITERRANEE" Category="Location" Family="FLEUVE"><![CDATA[Mediterranean Sea]]></Keyword>
+				<Keyword ID="KW_EQUI_SERVICES" Code="" Name="EQUI_SERVICES" Category="Equipment" Family=""><![CDATA[Services]]></Keyword>
+				<Keyword ID="KW_COMO_PISCINE_EX" Code="SwimmingPool" Name="COMO_PISCINE_EX" Category="Equipment" Family="BATO_COMMODITE"><![CDATA[Outdoor Pool]]></Keyword>
+				<Keyword ID="KW_COMO_SALON_BEAU" Code="BeautyCentre" Name="COMO_SALON_BEAU" Category="Equipment" Family="BATO_COMMODITE"><![CDATA[Beauty salon]]></Keyword>
+				<Keyword ID="KW_COMO_SPA" Code="Spa" Name="COMO_SPA" Category="Equipment" Family="BATO_COMMODITE"><![CDATA[Spa]]></Keyword>
+				<Keyword ID="KW_COMO_SUITES" Code="Suite" Name="COMO_SUITES" Category="Equipment" Family="BATO_COMMODITE"><![CDATA[Suites]]></Keyword>
+				<Keyword ID="KW_FL_MER ROUGE" Code="" Name="FL_MER ROUGE" Category="Location" Family="FLEUVE"><![CDATA[Red Sea]]></Keyword>
+				<Keyword ID="KW_FL_SAINT_LAURENT" Code="" Name="FL_SAINT_LAURENT" Category="Location" Family="FLEUVE"><![CDATA[Saint Lawrence]]></Keyword>
+				<Keyword ID="KW_FL_MER_ATLANTIQUE" Code="" Name="FL_MER_ATLANTIQUE" Category="Location" Family="FLEUVE"><![CDATA[Atlantic Ocean]]></Keyword>
+				<Keyword ID="KW_FL_MER_LAQUEDIVES" Code="" Name="FL_MER_LAQUEDIVES" Category="Location" Family="FLEUVE"><![CDATA[Laccadive Sea]]></Keyword>
+				<Keyword ID="KW_FL_MER_ARABIE" Code="" Name="FL_MER_ARABIE" Category="Location" Family="FLEUVE"><![CDATA[Arabian Sea]]></Keyword>
+				<Keyword ID="KW_FL_MER_ANDAMAN" Code="" Name="FL_MER_ANDAMAN" Category="Location" Family="FLEUVE"><![CDATA[Andaman Sea]]></Keyword>
+				<Keyword ID="KW_FL_DETROIT_MALACCA" Code="" Name="FL_DETROIT_MALACCA" Category="Location" Family="FLEUVE"><![CDATA[Straits of Malacca]]></Keyword>
+				<Keyword ID="KW_FL_GOLFE_BENGALE" Code="" Name="FL_GOLFE_BENGALE" Category="Location" Family="FLEUVE"><![CDATA[Bay of Bengal]]></Keyword>
+				<Keyword ID="KW_FL_GOLFE_PERSIQUE" Code="" Name="FL_GOLFE_PERSIQUE" Category="Location" Family="FLEUVE"><![CDATA[Persian Gulf]]></Keyword>
+				<Keyword ID="KW_FL_GOLFE_OMAN" Code="" Name="FL_GOLFE_OMAN" Category="Location" Family="FLEUVE"><![CDATA[Gulf of Oman]]></Keyword>
+				<Keyword ID="KW_FL_MER_CARAIBES" Code="" Name="FL_MER_CARAIBES" Category="Location" Family="FLEUVE"><![CDATA[Caribbean Sea]]></Keyword>
+				<Keyword ID="KW_FL_LOIRE" Code="" Name="FL_LOIRE" Category="Location" Family="FLEUVE"><![CDATA[Loire]]></Keyword>
+			</Keywords>
+		</Entity>
+	</Entities>
+	<Ships>
+		<Ship>
+			<Brands>
+				<Brand Role="Reference" Value="MERIND" />
+			</Brands>
+			<Codes>
+				<Code Role="Reference" Value="BDA" />
+				<Code Role="Reference" Owner="External" Value="40" />
+				<Code Role="Reference" Owner="Internal" Value="BDA" />
+			</Codes>
+			<Begin Value="2007-05-01" />
+			<End Value="2020-01-04" />
+			<Rating Category="HighStanding" Value="5 anchors" />
+			<Decks Quantity="5">
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="55" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Sales">
+							<Codes>
+								<Code Role="Type" Key="MARKETINGCABINE" />
+							</Codes>
+							<Title><![CDATA[23 cabins]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/dc1f4440-5475-4399-b01a-35f5e5d901d1/5/cabine-double-pont-inferieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+							</Media>
+							<Text><![CDATA[<ul>
+	<li>23 double cabins</li>
+</ul>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/c8184e65-0b8d-479b-ab13-48cf7ad0e5c3/-croisieurope]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/e7a93f29-fef0-43dd-b312-179b6cf2f4b7/-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[LOWER DECK]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins>
+						<Cabin Ref="BELLE DE L ADRIATIQUE_GLS_PIH" />
+					</Cabins>
+				</Deck>
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="50" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[RESTAURANT]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/e447b690-6096-4d25-a6fc-03137c7ee019/restaurant02-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_RESTAURANT" />
+							</Keywords>
+							<Text><![CDATA[<p>Located on the main deck, the restaurant is where all meals are served during your cruise. The atmosphere is casual but elegant.</p>]]></Text>
+						</Description>
+						<Description Role="Sales">
+							<Codes>
+								<Code Role="Type" Key="MARKETINGCABINE" />
+							</Codes>
+							<Title><![CDATA[25 cabins]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/1b910975-c731-4954-a236-74c4d07873ef/5/cabine-double-pont-principal-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<ul>
+	<li>25 double cabins</li>
+</ul>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/effad27d-99fb-4f20-a4f2-a0f1f5213126/-croisieurope]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/e9062510-943f-4797-95c0-b90885ddefe1/-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[MAIN DECK]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins>
+						<Cabin Ref="BELLE DE L ADRIATIQUE_2CUO_PPH" />
+						<Cabin Ref="BELLE DE L ADRIATIQUE_GLS_PPH" />
+					</Cabins>
+				</Deck>
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="30" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[RECEPTION DESK]]></Title>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_ESP_PUBLIC" />
+							</Keywords>
+							<Text><![CDATA[<p>Perfect place to meet up with friends before excursions or to ask any information you may need to the staff. The Gift Shop is also located here, you&#39;ll find a wide assortment of souvenirs, CroisiEurope products and post cards.</p>]]></Text>
+						</Description>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[LOUNGE BAR WITH DANCEFLOOR]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/eef898b0-2571-41ac-b085-8e9cb0124134/5/salon-bar04-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_ESP_PUBLIC" />
+							</Keywords>
+							<Text><![CDATA[<p>The tastefully decorated lounge, is located at the front of the ship and offers panoramic views. Cocktails and games, dancing, and other forms of entertainment all happen here.</p>]]></Text>
+						</Description>
+						<Description Role="Sales">
+							<Codes>
+								<Code Role="Type" Key="MARKETINGCABINE" />
+							</Codes>
+							<Title><![CDATA[22 cabins]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/b53ab21d-0269-4a9d-9a9f-0b4d63ce09d9/5/cabine-double-pont-des-embarcations-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+							</Media>
+							<Text><![CDATA[<ul>
+	<li>22 double cabins</li>
+</ul>
+
+<p><!--[if !supportLineBreakNewLine]--><br />
+<!--[endif]--></p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/202f73f1-9d19-4918-80d0-f8589e681e86/-croisieurope]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/f96b116e-cc8b-47e4-bea8-a671f0ecd2f9/mediterranean-sea-belle-de-ladriatique-boarding-deck-plan-vel-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[EMBARKATION DECK]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins>
+						<Cabin Ref="BELLE DE L ADRIATIQUE_GLS_PE" />
+						<Cabin Ref="BELLE DE L ADRIATIQUE_2CUO_PE" />
+					</Cabins>
+				</Deck>
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="20" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[PIANORAMABAR]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/e50de5e6-302d-46d5-a171-70205cf9a835/pianorama-bar-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_DIVERTISS" />
+							</Keywords>
+							<Text><![CDATA[<p>Unwind in this pleasurable place with a cocktail in hand while listening to the piano. And maybe we will get the pleasure to listen to your talent&hellip;</p>]]></Text>
+						</Description>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[TERRACE]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/d6cee5aa-5a91-4ba9-9cdc-cb6d4fad5f82/5/naples-mer-mediterranee-bateau-navigation-croisieurope]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_ESP_PUBLIC" />
+							</Keywords>
+							<Text><![CDATA[<p>Located at the back of the ship, you can easily meet up with friends and relax while enjoying the view.</p>]]></Text>
+						</Description>
+						<Description Role="Sales">
+							<Codes>
+								<Code Role="Type" Key="MARKETINGCABINE" />
+							</Codes>
+							<Title><![CDATA[29 cabins]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/424e9df3-058d-4903-bc23-f21db32e694b/5/cabine-double-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<ul>
+	<li>1 single cabin</li>
+	<li>1 cabin for people with reduced mobility</li>
+	<li>27 double cabins</li>
+</ul>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/585969a0-de05-4df4-bf47-4e6ca6a6b8c4/-croisieurope]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/0a64bf63-c6eb-49f1-bc0c-c8574ce3bfd3/-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[UPPER DECK]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins>
+						<Cabin Ref="BELLE DE L ADRIATIQUE_GLS_PS" />
+						<Cabin Ref="BELLE DE L ADRIATIQUE_SGLCU_PS" />
+						<Cabin Ref="BELLE DE L ADRIATIQUE_1CUO_PS" />
+						<Cabin Ref="BELLE DE L ADRIATIQUE_HA_PS" />
+					</Cabins>
+				</Deck>
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="09" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[FITNESS]]></Title>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_SPORT_LOIS" />
+							</Keywords>
+							<Text><![CDATA[<p>Start your day by joining us for a morning fitness class on the sun deck.</p>]]></Text>
+						</Description>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[JACUZZI]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/a5c6fcca-73e5-4439-b57b-ed10a3fcb29c/5/pont-soleil-jacuzzi-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_DIVERTISS" />
+							</Keywords>
+							<Text><![CDATA[<p>Rest and relax in the Jacuzzi while enjoying the beautiful landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[BAR]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/984078c7-1ff9-4c87-9468-799d3c8fb6fd/5/pont-soleil02-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_ESP_PUBLIC" />
+							</Keywords>
+							<Text><![CDATA[<p>Why not enjoy a cocktail at our bar? A good place to spend time socializing indoors with friends or family.</p>]]></Text>
+						</Description>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[SUN DECK]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/7f28201e-7cc0-4539-a4de-dcc4169280cf/5/pont-soleil-jacuzzis-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_ESP_PUBLIC" />
+							</Keywords>
+							<Text><![CDATA[<p>Take advantage of the sun deck to relax! It is equipped with chairs and deckchairs, allowing you to cool off while enjoying a panoramic view of the magnificent landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/c9a5dc5f-3bd0-47f0-8cac-e8ddf0143c04/-croisieurope]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/3728ef4a-50e0-4a0d-a905-bc1f3859e1dd/-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[SUN DECK]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins />
+				</Deck>
+			</Decks>
+			<Cabins>
+				<Cabin ID="BELLE DE L ADRIATIQUE_2CUO_PE">
+					<Codes>
+						<Code Role="Reference" Key="2CUO_PE" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="10" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/9fea6405-b69f-47bc-937d-ecbd3fe09209/cabine-double-pont-principal-detail-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<p>Cabin equipped with two beds (with optional twin-bed configuration), private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. Located on the reception deck, it offers a panoramic view of the landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/53a3b247-cebd-458d-94ff-414933a6b61d/6/cabine-plus-petite-pont-des-embarcations-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Reception deck 2 beds]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DE L ADRIATIQUE_GLS_PE">
+					<Codes>
+						<Code Role="Reference" Key="GLS_PE" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="11" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/1b910975-c731-4954-a236-74c4d07873ef/cabine-double-pont-principal-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<p>Comfortable cabin equipped with two beds that can be separated, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. Located on the reception deck, it offers a panoramic view of the landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/b53ab21d-0269-4a9d-9a9f-0b4d63ce09d9/6/cabine-double-pont-des-embarcations-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Reception deck 2 adjustable twin beds]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DE L ADRIATIQUE_GLS_PIH">
+					<Codes>
+						<Code Role="Reference" Key="GLS_PIH" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="11" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/1b910975-c731-4954-a236-74c4d07873ef/cabine-double-pont-principal-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<p>Comfortable cabin equipped with two beds that can be separated, portholes, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. It is located on the lower deck.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/dc1f4440-5475-4399-b01a-35f5e5d901d1/6/cabine-double-pont-inferieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Lower deck 2 adjustable twin beds - portholes]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DE L ADRIATIQUE_GLS_PPH">
+					<Codes>
+						<Code Role="Reference" Key="GLS_PPH" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="11" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/1b910975-c731-4954-a236-74c4d07873ef/cabine-double-pont-principal-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<p>Comfortable cabin equipped with two beds that can be separated, portholes, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. It is located on the main deck.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/1b910975-c731-4954-a236-74c4d07873ef/6/cabine-double-pont-principal-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/3ae1ce04-ba3a-49a9-b6b6-b48f8f7e7df2/6/cabine-3d-ms-la-belle-de-l-adriatique-cotes-mediterraneennes-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Main deck 2 adjustable twin beds - portholes]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DE L ADRIATIQUE_2CUO_PPH">
+					<Codes>
+						<Code Role="Reference" Key="2CUO_PPH" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="10" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/1b910975-c731-4954-a236-74c4d07873ef/cabine-double-pont-principal-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<p>Cabin equipped with two beds, portholes, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. It is located on the main deck.</p>]]></Text>
+						</Description>
+						<Description Role="Media" />
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Main deck 2 beds - portholes]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DE L ADRIATIQUE_1CUO_PS">
+					<Codes>
+						<Code Role="Reference" Key="1CUO_PS" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="12" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/424e9df3-058d-4903-bc23-f21db32e694b/cabine-double-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<p>Cabin equipped with one double bed, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. Located on the upper deck, it offers a panoramic view of the landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media" />
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Upper Deck 1 double bed]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DE L ADRIATIQUE_SGLCU_PS">
+					<Codes>
+						<Code Role="Reference" Key="SGLCU_PS" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="1" />
+					<Dimension Topic="Surface" Value="8" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Text><![CDATA[<p>Cabin equipped with one single bed, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. Located on the upper deck, it offers a panoramic view of the landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/710596c9-9849-4c03-bd81-8c3c55316bb7/6/cabine-single-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Upper deck 1 single bed]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DE L ADRIATIQUE_GLS_PS">
+					<Codes>
+						<Code Role="Reference" Key="GLS_PS" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="11" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/424e9df3-058d-4903-bc23-f21db32e694b/cabine-double-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<p>Comfortable cabin equipped with two beds that can be separated, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. Located on the upper deck, it offers a panoramic view of the landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/424e9df3-058d-4903-bc23-f21db32e694b/6/cabine-double-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Upper deck 2 adjustable twin beds]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DE L ADRIATIQUE_HA_PS">
+					<Codes>
+						<Code Role="Reference" Key="HA_PS" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="11" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/424e9df3-058d-4903-bc23-f21db32e694b/cabine-double-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<p>Comfortable cabin adapted for passengers with reduced mobility and equipped with one king size bed, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. Located on the upper deck, it offers a panoramic view of the landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/7857bb54-451c-4730-8797-8e6e12e8d21e/6/cabine-pmr-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Upper Deck 1 double bed - disabled person]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+			</Cabins>
+			<Descriptions>
+				<Description Role="Media">
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/74bd50a1-ade5-42fb-a585-260fb49f1c0b/5/salon-bar-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/c31a7dff-647c-4aab-85ed-465ce8d24104/5/salon-bar02-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+					</Media>
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/6b0f32a0-a958-4423-9a53-25fb4614f7f8/5/cabine-double01-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/710596c9-9849-4c03-bd81-8c3c55316bb7/5/cabine-single-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/1b910975-c731-4954-a236-74c4d07873ef/5/cabine-double-pont-principal-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/e50de5e6-302d-46d5-a171-70205cf9a835/5/pianorama-bar-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/da769a64-c0cc-4c37-8739-d50e6e05784a/5/restaurant01-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+					</Media>
+				</Description>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="NOMBATEAU" />
+					</Codes>
+					<Text><![CDATA[MV La Belle de l'Adriatique]]></Text>
+				</Description>
+				<Description Role="Introduction">
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFBATEAU" />
+					</Codes>
+					<Text><![CDATA[<p>The <strong>MV La Belle de l&#39;Adriatique</strong> sails along maritime coasts : Croatia, Greek islands, Montenegro and Albania.</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Accomodation" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="COMMODITES" />
+					</Codes>
+					<Title><![CDATA[EQUIPMENTS]]></Title>
+					<Text><![CDATA[<ul>
+	<li>TV</li>
+	<li>Telephone (for internal calls only)</li>
+	<li>Bathroom with shower and toilet</li>
+	<li>Towels</li>
+	<li>Safe</li>
+	<li>Independent air-conditioning</li>
+	<li>Electricity 220V</li>
+	<li>Wi-Fi</li>
+</ul>
+
+<p><em>Please note that there is no laundry service on board the ship.</em></p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Accomodation" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="LEGENDE" />
+					</Codes>
+					<Title><![CDATA[DESCRIPTION_MARKETING]]></Title>
+					<Text><![CDATA[<p><strong>The Undeniable European Leader in the Cruise Industry:</strong><br />
+- More than 40 years of experience, more than 50 ships: CroisiEurope is the European frontrunner of river cruises<br />
+- A wide variety of choices: The French canals, European rivers, ocean tours, and exotic destinations (Africa, Russia, and Asia) with small-scale, hi-tech ships accommodating 16 to 200 passengers<br />
+- Exclusive destinations include: The Loire, Guadalquivir, and Tisza Rivers&mdash;as well as &ldquo;Paris by Night&rdquo; on the Seine, or Lake Kariba...<br />
+- Themed cruises: Gastronomic, music, hiking, biking and family<br />
+- Warm, international ambiance with La French Touch. Our motto: Highest quality at the best price.</p>
+
+<p><strong>CroisiEurope&rsquo;s Highlights:</strong><br />
+- Drinks included with onboard meals and at bar (depending on the cruise)<br />
+- Free Wi-Fi<br />
+- Copious, first-rate buffet breakfasts and fine French dining<br />
+- Individual visits excursions or reduced all-included package prices; headsets included (depending on the cruise)<br />
+- Specially themed evenings: traditional entertainment; gala dinner.</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERBATEAU" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/e7d4d208-2066-4560-a063-3080b5840b86/13/ms-belle-de-ladriatique-mer-mediterranee-croisieurope-slider02]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/01ed0c75-c19a-4d25-9986-8fcde6c650e1/13/ms-belle-de-ladriatique-mer-mediterranee-croisieurope-slider03-zvardon]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/9768fb62-f39d-486d-b1f5-dc494938a17b/13/ms-belle-de-ladriatique-mer-mediterranee-malte-profil15-croisieurope-luke-urban]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/dea4d60c-7841-48e4-a28a-0c1feef52f6e/13/ms-belle-de-ladriatique-mer-mediterranee-malte-profil14-croisieurope-luke-urban]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/c7952503-d98b-43e3-9b08-ef21274ab407/13/ms-belle-de-ladriatique-mer-mediterranee-malte-profil16-croisieurope-luke-urban]]></URL>
+					</Media>
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/e7d4d208-2066-4560-a063-3080b5840b86/12/ms-belle-de-ladriatique-mer-mediterranee-croisieurope-slider02]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/e0064f4e-90ce-49e9-a4c2-577ccad22be2/13/ms-belle-de-ladriatique-mer-mediterranee-croisieurope-slider01-zvardon]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Image Slider</p>]]></Text>
+				</Description>
+			</Descriptions>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-02T10:24" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_BATO_ANNEE_CONS">
+					<Code Value="2007" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_ANNEE_RENO">
+					<Code Value="2017" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_PAX_NOMBRE">
+					<Code Value="197" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_CAPA_TOTAL">
+					<Code Value="99" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_LARGEUR">
+					<Code Value="11.9" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_LONGUEUR">
+					<Code Value="103.5" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_MARIN_NOMB">
+					<Code Value="48" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_NB_DECK_CAB">
+					<Code Value="4" />
+				</Keyword>
+				<Keyword Ref="KW_COMO_ASCENSEURS" />
+				<Keyword Ref="KW_COMO_CABINES_EX" />
+				<Keyword Ref="KW_COMO_CABINES_HA" />
+				<Keyword Ref="KW_COMO_JACUZZI" />
+				<Keyword Ref="KW_FL_MER_ADRIATIQUE" />
+				<Keyword Ref="KW_FL_MER_CORSE" />
+				<Keyword Ref="KW_FL_MER_MEDITERRANEE" />
+			</Keywords>
+		</Ship>
+		<Ship>
+			<Brands>
+				<Brand Role="Reference" Value="MERIND" />
+			</Brands>
+			<Codes>
+				<Code Role="Reference" Value="BDA_V1" />
+				<Code Role="Reference" Owner="External" Value="40" />
+				<Code Role="Reference" Owner="Internal" Value="BDA" />
+			</Codes>
+			<Begin Value="2020-01-05" />
+			<Rating Category="HighStanding" Value="5 anchors" />
+			<Decks Quantity="5">
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="55" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Sales">
+							<Codes>
+								<Code Role="Type" Key="MARKETINGCABINE" />
+							</Codes>
+							<Title><![CDATA[23 cabins]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/dc1f4440-5475-4399-b01a-35f5e5d901d1/5/cabine-double-pont-inferieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+							</Media>
+							<Text><![CDATA[<ul>
+	<li>23 double cabins</li>
+</ul>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/c8184e65-0b8d-479b-ab13-48cf7ad0e5c3/-croisieurope]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/e7a93f29-fef0-43dd-b312-179b6cf2f4b7/-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[LOWER DECK]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins>
+						<Cabin Ref="BELLE DE L ADRIATIQUE_GLS_PIH" />
+					</Cabins>
+				</Deck>
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="50" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[RESTAURANT]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/e447b690-6096-4d25-a6fc-03137c7ee019/restaurant02-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_RESTAURANT" />
+							</Keywords>
+							<Text><![CDATA[<p>Located on the main deck, the restaurant is where all meals are served during your cruise. It seats all guests at tables which vary in size with a panoramic view. The atmosphere is casual but elegant.</p>]]></Text>
+						</Description>
+						<Description Role="Sales">
+							<Codes>
+								<Code Role="Type" Key="MARKETINGCABINE" />
+							</Codes>
+							<Title><![CDATA[25 cabins]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/1b910975-c731-4954-a236-74c4d07873ef/5/cabine-double-pont-principal-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<ul>
+	<li>25 double cabins</li>
+</ul>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/effad27d-99fb-4f20-a4f2-a0f1f5213126/-croisieurope]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/e9062510-943f-4797-95c0-b90885ddefe1/-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[MAIN DECK]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins>
+						<Cabin Ref="BELLE DE L ADRIATIQUE_2CUO_PPH" />
+						<Cabin Ref="BELLE DE L ADRIATIQUE_GLS_PPH" />
+					</Cabins>
+				</Deck>
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="30" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[RECEPTION DESK]]></Title>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_ESP_PUBLIC" />
+							</Keywords>
+							<Text><![CDATA[<p>Perfect place to meet up with friends before excursions or to ask any information you may need to the staff. The Gift Shop is also located here, you&#39;ll find a wide assortment of souvenirs, CroisiEurope products and post cards.</p>]]></Text>
+						</Description>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[LOUNGE BAR WITH DANCEFLOOR]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/eef898b0-2571-41ac-b085-8e9cb0124134/5/salon-bar04-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_ESP_PUBLIC" />
+							</Keywords>
+							<Text><![CDATA[<p>The tastefully decorated lounge, is located at the front of the ship and offers panoramic views. Cocktails and games, dancing, and other forms of entertainment all happen here.</p>]]></Text>
+						</Description>
+						<Description Role="Sales">
+							<Codes>
+								<Code Role="Type" Key="MARKETINGCABINE" />
+							</Codes>
+							<Title><![CDATA[22 cabins]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/b53ab21d-0269-4a9d-9a9f-0b4d63ce09d9/5/cabine-double-pont-des-embarcations-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+							</Media>
+							<Text><![CDATA[<ul>
+	<li>22 double cabins</li>
+</ul>
+
+<p><!--[if !supportLineBreakNewLine]--><br />
+<!--[endif]--></p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/202f73f1-9d19-4918-80d0-f8589e681e86/-croisieurope]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/f96b116e-cc8b-47e4-bea8-a671f0ecd2f9/mediterranean-sea-belle-de-ladriatique-boarding-deck-plan-vel-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[EMBARKATION DECK]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins>
+						<Cabin Ref="BELLE DE L ADRIATIQUE_GLS_PE" />
+						<Cabin Ref="BELLE DE L ADRIATIQUE_2CUO_PE" />
+					</Cabins>
+				</Deck>
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="20" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[PIANORAMABAR]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/e50de5e6-302d-46d5-a171-70205cf9a835/pianorama-bar-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_DIVERTISS" />
+							</Keywords>
+							<Text><![CDATA[<p>Unwind in this pleasurable place with a cocktail in hand while listening to the piano. And maybe we will get the pleasure to listen to your talent&hellip;</p>]]></Text>
+						</Description>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[TERRACE]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/d6cee5aa-5a91-4ba9-9cdc-cb6d4fad5f82/5/naples-mer-mediterranee-bateau-navigation-croisieurope]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_ESP_PUBLIC" />
+							</Keywords>
+							<Text><![CDATA[<p>Located at the back of the ship, you can easily meet up with friends and relax while enjoying the view.</p>]]></Text>
+						</Description>
+						<Description Role="Sales">
+							<Codes>
+								<Code Role="Type" Key="MARKETINGCABINE" />
+							</Codes>
+							<Title><![CDATA[29 cabins]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/424e9df3-058d-4903-bc23-f21db32e694b/5/cabine-double-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<ul>
+	<li>1 single cabin</li>
+	<li>1 cabin for people with reduced mobility</li>
+	<li>27 double cabins</li>
+</ul>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/585969a0-de05-4df4-bf47-4e6ca6a6b8c4/-croisieurope]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/0a64bf63-c6eb-49f1-bc0c-c8574ce3bfd3/-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[UPPER DECK]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins>
+						<Cabin Ref="BELLE DE L ADRIATIQUE_GLS_PS" />
+						<Cabin Ref="BELLE DE L ADRIATIQUE_SGLCU_PS" />
+						<Cabin Ref="BELLE DE L ADRIATIQUE_1CUO_PS" />
+						<Cabin Ref="BELLE DE L ADRIATIQUE_HA_PS" />
+					</Cabins>
+				</Deck>
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="09" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[FITNESS]]></Title>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_SPORT_LOIS" />
+							</Keywords>
+							<Text><![CDATA[<p>Start your day by joining us for a morning fitness class on the sun deck.</p>]]></Text>
+						</Description>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[JACUZZI]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/a5c6fcca-73e5-4439-b57b-ed10a3fcb29c/5/pont-soleil-jacuzzi-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_DIVERTISS" />
+							</Keywords>
+							<Text><![CDATA[<p>Rest and relax in the Jacuzzi while enjoying the beautiful landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[BAR]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/984078c7-1ff9-4c87-9468-799d3c8fb6fd/5/pont-soleil02-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_ESP_PUBLIC" />
+							</Keywords>
+							<Text><![CDATA[<p>Why not enjoy a cocktail at our bar? A good place to spend time socializing indoors with friends or family.</p>]]></Text>
+						</Description>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[SUN DECK]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/7f28201e-7cc0-4539-a4de-dcc4169280cf/5/pont-soleil-jacuzzis-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_ESP_PUBLIC" />
+							</Keywords>
+							<Text><![CDATA[<p>Take advantage of the sun deck to relax! It is equipped with chairs and deckchairs, allowing you to cool off while enjoying a panoramic view of the magnificent landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/c9a5dc5f-3bd0-47f0-8cac-e8ddf0143c04/-croisieurope]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/3728ef4a-50e0-4a0d-a905-bc1f3859e1dd/-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[SUN DECK]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins />
+				</Deck>
+			</Decks>
+			<Cabins>
+				<Cabin ID="BELLE DE L ADRIATIQUE_2CUO_PE">
+					<Codes>
+						<Code Role="Reference" Key="2CUO_PE" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="10" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/9fea6405-b69f-47bc-937d-ecbd3fe09209/cabine-double-pont-principal-detail-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<p>Cabin equipped with two beds (with optional twin-bed configuration), private bathroom with shower and bath products,satellite TV, safe, hairdryer and radio. Located on the reception deck, it offers a panoramic view of the landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/53a3b247-cebd-458d-94ff-414933a6b61d/6/cabine-plus-petite-pont-des-embarcations-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Reception deck 2 beds]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DE L ADRIATIQUE_GLS_PE">
+					<Codes>
+						<Code Role="Reference" Key="GLS_PE" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="11" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/1b910975-c731-4954-a236-74c4d07873ef/cabine-double-pont-principal-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<p>Comfortable cabin equipped with two beds that can be separated, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio.Located on the reception deck, it offers a panoramic view of the landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/b53ab21d-0269-4a9d-9a9f-0b4d63ce09d9/6/cabine-double-pont-des-embarcations-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Reception deck 2 adjustable twin beds]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DE L ADRIATIQUE_GLS_PIH">
+					<Codes>
+						<Code Role="Reference" Key="GLS_PIH" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="11" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/1b910975-c731-4954-a236-74c4d07873ef/cabine-double-pont-principal-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<p>Comfortable cabin equipped with two beds that can be separated, portholes, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. It is located on the lower deck.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/dc1f4440-5475-4399-b01a-35f5e5d901d1/6/cabine-double-pont-inferieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Lower deck 2 adjustable twin beds - portholes]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DE L ADRIATIQUE_GLS_PPH">
+					<Codes>
+						<Code Role="Reference" Key="GLS_PPH" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="11" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/1b910975-c731-4954-a236-74c4d07873ef/cabine-double-pont-principal-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<p>Comfortable cabin equipped with two beds that can be separated, portholes, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. It is located on the main deck.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/1b910975-c731-4954-a236-74c4d07873ef/6/cabine-double-pont-principal-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/3ae1ce04-ba3a-49a9-b6b6-b48f8f7e7df2/6/cabine-3d-ms-la-belle-de-l-adriatique-cotes-mediterraneennes-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Main deck 2 adjustable twin beds - portholes]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DE L ADRIATIQUE_2CUO_PPH">
+					<Codes>
+						<Code Role="Reference" Key="2CUO_PPH" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="10" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/1b910975-c731-4954-a236-74c4d07873ef/cabine-double-pont-principal-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<p>Cabin equipped with two beds, portholes, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. It is located on the main deck.</p>]]></Text>
+						</Description>
+						<Description Role="Media" />
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Main deck 2 beds - portholes]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DE L ADRIATIQUE_1CUO_PS">
+					<Codes>
+						<Code Role="Reference" Key="1CUO_PS" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="10" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/424e9df3-058d-4903-bc23-f21db32e694b/cabine-double-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<p>Cabin equipped with one double bed, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. Located on the upper deck, it offers a panoramic view of the landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media" />
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Upper Deck 1 double bed]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DE L ADRIATIQUE_SGLCU_PS">
+					<Codes>
+						<Code Role="Reference" Key="SGLCU_PS" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="1" />
+					<Dimension Topic="Surface" Value="8" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Text><![CDATA[<p>Cabin equipped with one single bed, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. Located on the upper deck, it offers a panoramic view of the landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/710596c9-9849-4c03-bd81-8c3c55316bb7/6/cabine-single-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Upper deck 1 single bed]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DE L ADRIATIQUE_GLS_PS">
+					<Codes>
+						<Code Role="Reference" Key="GLS_PS" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="11" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/424e9df3-058d-4903-bc23-f21db32e694b/cabine-double-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<p>Spacious and comfortable cabin equipped with two beds that can be separated, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. Located on the upper deck, it offers a panoramic view of the landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/424e9df3-058d-4903-bc23-f21db32e694b/6/cabine-double-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Upper deck 2 adjustable twin beds]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DE L ADRIATIQUE_HA_PS">
+					<Codes>
+						<Code Role="Reference" Key="HA_PS" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="11" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/424e9df3-058d-4903-bc23-f21db32e694b/cabine-double-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+							</Media>
+							<Text><![CDATA[<p>Comfortable cabin adapted for passengers with reduced mobility and equipped with one king size bed, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. Located on the upper deck, it offers a panoramic view of the landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/7857bb54-451c-4730-8797-8e6e12e8d21e/6/cabine-pmr-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Upper Deck 1 double bed - disabled person]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+			</Cabins>
+			<Descriptions>
+				<Description Role="Media">
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/1b910975-c731-4954-a236-74c4d07873ef/5/cabine-double-pont-principal-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/e50de5e6-302d-46d5-a171-70205cf9a835/5/pianorama-bar-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/da769a64-c0cc-4c37-8739-d50e6e05784a/5/restaurant01-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/74bd50a1-ade5-42fb-a585-260fb49f1c0b/5/salon-bar-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/c31a7dff-647c-4aab-85ed-465ce8d24104/5/salon-bar02-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-croisieurope]]></URL>
+					</Media>
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/6b0f32a0-a958-4423-9a53-25fb4614f7f8/5/cabine-double01-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/710596c9-9849-4c03-bd81-8c3c55316bb7/5/cabine-single-pont-superieur-ms-belle-de-ladriatique-mer-mediterranee-croisieurope-muamer-mujevic]]></URL>
+					</Media>
+				</Description>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="NOMBATEAU" />
+					</Codes>
+					<Text><![CDATA[MV La Belle de l'Adriatique]]></Text>
+				</Description>
+				<Description Role="Introduction">
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFBATEAU" />
+					</Codes>
+					<Text><![CDATA[<p>The <strong>MV La Belle de l&#39;Adriatique</strong> sails along maritime coasts : Croatia, Greek islands, Montenegro and Albania.</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Accomodation" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="COMMODITES" />
+					</Codes>
+					<Title><![CDATA[EQUIPMENTS]]></Title>
+					<Text><![CDATA[<ul>
+	<li>TV</li>
+	<li>Telephone (for internal calls only)</li>
+	<li>Bathroom with shower and toilet</li>
+	<li>Towels</li>
+	<li>Safe</li>
+	<li>Independent air-conditioning</li>
+	<li>Electricity 220V</li>
+	<li>Wi-Fi</li>
+</ul>
+
+<p><em>Please note that there is no laundry service on board the ship.</em></p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Accomodation" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="LEGENDE" />
+					</Codes>
+					<Title><![CDATA[DESCRIPTION_MARKETING]]></Title>
+					<Text><![CDATA[<p><strong>The Undeniable European Leader in the Cruise Industry:</strong><br />
+- More than 40 years of experience, more than 50 ships: CroisiEurope is the European frontrunner of river cruises<br />
+- A wide variety of choices: The French canals, European rivers, ocean tours, and exotic destinations (Africa, Russia, and Asia) with small-scale, hi-tech ships accommodating 16 to 200 passengers<br />
+- Exclusive destinations include: The Loire, Guadalquivir, and Tisza Rivers&mdash;as well as &ldquo;Paris by Night&rdquo; on the Seine, or Lake Kariba...<br />
+- Themed cruises: Gastronomic, music, hiking, biking and family<br />
+- Warm, international ambiance with La French Touch. Our motto: Highest quality at the best price.</p>
+
+<p><strong>CroisiEurope&rsquo;s Highlights:</strong><br />
+- Drinks included with onboard meals and at bar (depending on the cruise)<br />
+- Free Wi-Fi<br />
+- Copious, first-rate buffet breakfasts and fine French dining<br />
+- Individual visits excursions or reduced all-included package prices; headsets included (depending on the cruise)<br />
+- Specially themed evenings: traditional entertainment; gala dinner.</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERBATEAU" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/e7d4d208-2066-4560-a063-3080b5840b86/13/ms-belle-de-ladriatique-mer-mediterranee-croisieurope-slider02]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/01ed0c75-c19a-4d25-9986-8fcde6c650e1/13/ms-belle-de-ladriatique-mer-mediterranee-croisieurope-slider03-zvardon]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/9768fb62-f39d-486d-b1f5-dc494938a17b/13/ms-belle-de-ladriatique-mer-mediterranee-malte-profil15-croisieurope-luke-urban]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/dea4d60c-7841-48e4-a28a-0c1feef52f6e/13/ms-belle-de-ladriatique-mer-mediterranee-malte-profil14-croisieurope-luke-urban]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/c7952503-d98b-43e3-9b08-ef21274ab407/13/ms-belle-de-ladriatique-mer-mediterranee-malte-profil16-croisieurope-luke-urban]]></URL>
+					</Media>
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/e7d4d208-2066-4560-a063-3080b5840b86/12/ms-belle-de-ladriatique-mer-mediterranee-croisieurope-slider02]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/e0064f4e-90ce-49e9-a4c2-577ccad22be2/13/ms-belle-de-ladriatique-mer-mediterranee-croisieurope-slider01-zvardon]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Image Slider</p>]]></Text>
+				</Description>
+			</Descriptions>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-06-06T22:41" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_BATO_ANNEE_CONS">
+					<Code Value="2007" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_ANNEE_RENO">
+					<Code Value="2017" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_PAX_NOMBRE">
+					<Code Value="197" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_CAPA_TOTAL">
+					<Code Value="99" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_LARGEUR">
+					<Code Value="11.9" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_LONGUEUR">
+					<Code Value="103.5" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_MARIN_NOMB">
+					<Code Value="48" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_NB_DECK_CAB">
+					<Code Value="4" />
+				</Keyword>
+				<Keyword Ref="KW_COMO_ASCENSEURS" />
+				<Keyword Ref="KW_COMO_CABINES_EX" />
+				<Keyword Ref="KW_COMO_CABINES_HA" />
+				<Keyword Ref="KW_COMO_JACUZZI" />
+				<Keyword Ref="KW_FL_MER_ADRIATIQUE" />
+				<Keyword Ref="KW_FL_MER_CORSE" />
+				<Keyword Ref="KW_FL_MER_MEDITERRANEE" />
+			</Keywords>
+		</Ship>
+		<Ship>
+			<Brands>
+				<Brand Role="Reference" Value="MERIND" />
+			</Brands>
+			<Codes>
+				<Code Role="Reference" Value="BDO" />
+				<Code Role="Reference" Owner="External" Value="42" />
+				<Code Role="Reference" Owner="Internal" Value="BDO" />
+			</Codes>
+			<Begin Value="2019-10-01" />
+			<Rating Category="HighStanding" Value="5 anchors" />
+			<Decks Quantity="5">
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="50" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[RESTAURANT]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/1df282fc-6fda-4936-9085-6cfa332ec27d/5/restaurant02-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_RESTAURANT" />
+							</Keywords>
+							<Text><![CDATA[<p>The restaurant serves contemporary, international cuisine in a warm and elegant atmosphere. Whilst breakfast and lunch are served buffet style, dinner will be on plate service basis.</p>]]></Text>
+						</Description>
+						<Description Role="Sales">
+							<Codes>
+								<Code Role="Type" Key="MARKETINGCABINE" />
+							</Codes>
+							<Title><![CDATA[11 cabins]]></Title>
+							<Text><![CDATA[<ul>
+	<li>10 Horizon cabins - 17 m&sup2;</li>
+	<li>1 Horizon cabin&nbsp;with reduced mobility - 17 m&sup2;</li>
+</ul>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/63a73d54-4122-4438-9d22-f990da607fd9/ocean-ship-la-belle-des-ocens-croisieurope-deck3]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/5d394cba-9f24-468d-a8a3-6f924bef7faf/ocean-ship-la-belle-des-ocens-croisieurope-deck3-plan-vel]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[DECK 3]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins>
+						<Cabin Ref="BELLE DES OCEANS_CAT1H_HA" />
+						<Cabin Ref="BELLE DES OCEANS_CAT1H" />
+					</Cabins>
+				</Deck>
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="40" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[EXPLORER LOUNGE AND BAR]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/94bf74ac-90c6-4620-b667-10ce5cac576b/5/reception02-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_ESP_PUBLIC" />
+							</Keywords>
+							<Text><![CDATA[<p>Enjoy panoramic views of the landscapes in the Explorer Lounge where all conferences and any planned presentation on the program take place. During cocktail hours and after dinner, musicians will perform for your entertainment.</p>]]></Text>
+						</Description>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[RECEPTION DESK]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/1c263945-aee8-41e4-94af-bd414af6eae6/5/salon-bar-lounge02-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_ESP_PUBLIC" />
+							</Keywords>
+							<Text><![CDATA[<p>Perfect place to meet up with friends before excursions or to ask any information you may need to the staff.&nbsp;</p>]]></Text>
+						</Description>
+						<Description Role="Sales">
+							<Codes>
+								<Code Role="Type" Key="MARKETINGCABINE" />
+							</Codes>
+							<Title><![CDATA[24 cabins]]></Title>
+							<Text><![CDATA[<ul>
+	<li>24&nbsp;Horizon cabins - 17 m&sup2;</li>
+</ul>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/3605e1f2-da60-45ce-805e-c019d0a8b60e/ocean-ship-la-belle-des-ocens-croisieurope-deck4]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/edfcd988-c9df-4e26-a016-e7f8eb87257f/ocean-ship-la-belle-des-ocens-croisieurope-deck4-plan-vel]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[DECK 4]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins>
+						<Cabin Ref="BELLE DES OCEANS_CAT2H" />
+					</Cabins>
+				</Deck>
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="30" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[SWIMMING POOL]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/50076c7e-b5d9-4483-b09a-30e3ce9855e0/5/piscine-la-belle-des-oceans-thailande-malaisie-croisieurope]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_ESP_PUBLIC" />
+							</Keywords>
+							<Text><![CDATA[<p>On warm climate cruises, outdoor life on board revolves around the Pool Deck located aft of the ship. People socialize and lounge at the Pool Bar and around the very refreshing swimming pool, perfect for cooling off in warm weather. Its relaxing atmosphere will also be ideal in cooler weather.</p>]]></Text>
+						</Description>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[GRILL RESTAURANT]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/81eda3a0-a2ff-439b-8dfa-a6a9ba5e7e58/5/piscine04-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_SPORT_LOIS" />
+							</Keywords>
+							<Text><![CDATA[<p>Located around the swimming pool, this restaurant offers an alternative to the other onboard catering areas. An adjoining terrace on deck 6 welcomes you to admire the magnificent landscapes.&nbsp;</p>]]></Text>
+						</Description>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[DISCOVERER LOUNGE BAR]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/051d7f06-fd16-4295-ab8e-64e82d831183/5/bar-day02-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_RESTAURANT" />
+							</Keywords>
+							<Text><![CDATA[<p>The Discoverer Lounge offers unlimited tea and coffee aboard your&nbsp;ship. This comfortable seating area with plenty of natural light is an ideal place to relax and reflect on the day&rsquo;s activities and future excursions to come.</p>]]></Text>
+						</Description>
+						<Description Role="Sales">
+							<Codes>
+								<Code Role="Type" Key="MARKETINGCABINE" />
+							</Codes>
+							<Title><![CDATA[16 cabins]]></Title>
+							<Text><![CDATA[<ul>
+	<li>16 Horizon cabins - 17 m&sup2;</li>
+</ul>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/58987954-1137-4368-afa3-6940b997add9/ocean-ship-la-belle-des-ocens-croisieurope-deck5]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/23a6bae3-312a-4689-a831-3d5571dc9907/ocean-ship-la-belle-des-ocens-croisieurope-deck5-plan-vel]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[DECK 5]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins>
+						<Cabin Ref="BELLE DES OCEANS_CAT3H" />
+					</Cabins>
+				</Deck>
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="20" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Sales">
+							<Codes>
+								<Code Role="Type" Key="MARKETINGCABINE" />
+							</Codes>
+							<Title><![CDATA[13 cabins]]></Title>
+							<Text><![CDATA[<ul>
+	<li>4 Panorama suites - 25 m&sup2;</li>
+	<li>8 Riviera suites - 26 m&sup2;</li>
+	<li>1 Ocean suite - 38 m&sup2;</li>
+</ul>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/b115e6e8-db6f-4c35-a6a9-6df1a1532b3f/ocean-ship-la-belle-des-ocens-croisieurope-deck6]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/27b64ccb-fa58-403b-856a-23636a2159b2/ocean-ship-la-belle-des-ocens-croisieurope-deck6-plan-vel]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[DECK 6]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins>
+						<Cabin Ref="BELLE DES OCEANS_CAT5R" />
+						<Cabin Ref="BELLE DES OCEANS_CAT4P" />
+						<Cabin Ref="BELLE DES OCEANS_CAT6OF" />
+						<Cabin Ref="BELLE DES OCEANS_CAT5RF" />
+					</Cabins>
+				</Deck>
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="09" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[SUN DECK]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/463dbac3-3266-4f5d-bf1b-89abce87409a/5/piscine03-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_ESP_PUBLIC" />
+							</Keywords>
+							<Text><![CDATA[<p>Take advantage of the sun deck to relax and enjoy the views of the landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[FITNESS CENTER]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/9dc981cf-a637-4f68-aba2-7603832867e4/5/espace-fitness03-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_SPORT_LOIS" />
+							</Keywords>
+							<Text><![CDATA[<p>The Belle des Oc&eacute;ans is equipped with a fitness room that is open daily.</p>]]></Text>
+						</Description>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[BEAUTY SALON]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/56900cd3-7f7b-4206-b3d2-7a93b96ea974/5/espace-beaute02-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_SERVICES" />
+							</Keywords>
+							<Text><![CDATA[<p>Maintain your fresh look throughout your cruise thanks to the services proposed in the Beauty salon: manicure, pedicure and massages. Appointments for these services may be made onboard the ship.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/ec883576-3b62-4de6-b9b3-334cf732c0db/ocean-ship-la-belle-des-ocens-croisieurope-deck7]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/0c19e3bc-044d-4036-a26e-98d1196689e5/ocean-ship-la-belle-des-ocens-croisieurope-deck7-plan-vel]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[DECK 7]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins />
+				</Deck>
+			</Decks>
+			<Cabins>
+				<Cabin ID="BELLE DES OCEANS_CAT1H">
+					<Codes>
+						<Code Role="Reference" Key="CAT1H" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="17" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Text><![CDATA[<p>Spacious and comfortable cabin equipped with two single beds or one double bed, storage spaces, seating area with armchairs, marbled bathroom with walk-in shower, dressing room with personal safe, desk, flat screen TV, fridge, hairdryer and telephone. Enjoy the passing scenery through two porthole windows.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/309c4a9a-d6b5-47a6-9ed1-af02e1ffb7ac/6/suite01-horizon-pont3-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[HORIZON CABINS (DECK 3)]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DES OCEANS_CAT1H_HA">
+					<Codes>
+						<Code Role="Reference" Key="CAT1H_HA" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="0" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Text><![CDATA[<p>.</p>]]></Text>
+						</Description>
+						<Description Role="Media" />
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[HORIZON SUITE (DECK 3) - DISABLED PERSON]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DES OCEANS_CAT2H">
+					<Codes>
+						<Code Role="Reference" Key="CAT2H" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="17" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Text><![CDATA[<p>Spacious and comfortable cabin equipped with two single beds or one double bed, storage spaces, marbled bathroom with walk-in shower, dressing room with personal safe, desk, flat screen TV, fridge, hairdryer and telephone. Capture passing ocean scenes through your panoramic window while relaxing in the armchairs of the seating area.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/a86c3345-1fb8-4ba2-bc10-6d54e546d7c3/6/suite01-horizon-pont4-5-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[HORIZON CABIN (DECK 4)]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DES OCEANS_CAT3H">
+					<Codes>
+						<Code Role="Reference" Key="CAT3H" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="17" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Text><![CDATA[<p>Spacious and comfortable cabin equipped with two single beds or one double bed, storage spaces, marbled bathroom with walk-in shower, dressing room with personal safe, desk, flat screen TV, fridge, hairdryer and telephone. Capture passing ocean scenes through your panoramic window while relaxing in the armchairs of the seating area.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/699b1484-3026-4065-8c67-52286db2ca35/6/suite02-horizon-pont4-5-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[HORIZON CABIN (DECK 5)]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DES OCEANS_CAT6OF">
+					<Codes>
+						<Code Role="Reference" Key="CAT6OF" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="3" />
+					<Dimension Topic="Surface" Value="38" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Text><![CDATA[<p>Spacious and comfortable suite equipped with two single beds or one double bed, storage spaces, marbled bathroom with walk-in shower, dressing room with personal safe, living room with sitting area including a sofa bed for one child (up to 10 years old), desk, flat screen TV, fridge, espresso machine, hairdryer and telephone. Complete with a private balcony with wooden parquet, patio furniture and floor-to-ceiling glass door. Capture passing ocean scenes through your large panoramic window while relaxing in the armchairs of the seating area.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/3db34176-b0f0-4565-9cd0-9a73200449b5/6/suite02-riviera-pont6-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[OCEAN SUITE WITH 1 SPARE BED (DECK 6)]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DES OCEANS_CAT4P">
+					<Codes>
+						<Code Role="Reference" Key="CAT4P" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="25" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Text><![CDATA[<p>Spacious and comfortable suite equipped with two single beds or one double bed, storage spaces, marbled bathroom with walk-in shower, dressing room with personal safe, desk, flat screen TV, fridge, hairdryer and telephone. Capture passing ocean scenes through your large panoramic window while relaxing in the armchairs of the seating area.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/b16d7dca-63bd-48f8-a554-352c672c09b8/6/suite01-panorama-pont6-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[PANORAMA SUITE (DECK 6)]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DES OCEANS_CAT5RF">
+					<Codes>
+						<Code Role="Reference" Key="CAT5RF" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="3" />
+					<Dimension Topic="Surface" Value="26" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Text><![CDATA[<p>Spacious and comfortable suite equipped with two single beds or one double bed, storage spaces, marbled bathroom with walk-in shower, dressing room with personal safe, seating area with sofas including a sofa bed for one child (up to 10 years old), desk, flat screen TV, fridge, hairdryer and telephone. Complete with a private balcony with wooden parquet, patio furniture and floor-to-ceiling glass door. Capture passing ocean scenes through your large panoramic window while relaxing in the armchairs of the seating area.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/3db34176-b0f0-4565-9cd0-9a73200449b5/6/suite02-riviera-pont6-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[RIVIERA SUITE WITH 1 SPARE BED (DECK 6)]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="BELLE DES OCEANS_CAT5R">
+					<Codes>
+						<Code Role="Reference" Key="CAT5R" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="26" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Text><![CDATA[<p>Spacious and comfortable suite equipped with two single beds or one double bed, storage spaces, marbled bathroom with walk-in shower, dressing room with personal safe, seating area with sofas, desk, flat screen TV, fridge, hairdryer and telephone. Complete with a private balcony with wooden parquet, patio furniture and floor-to-ceiling glass door. Capture passing ocean scenes through your large panoramic window while relaxing in the armchairs of the seating area.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/3db34176-b0f0-4565-9cd0-9a73200449b5/6/suite02-riviera-pont6-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[RIVIERA SUITE (DECK 6)]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+			</Cabins>
+			<Descriptions>
+				<Description Role="Media">
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/76230a5b-c481-4567-bf64-4ea057f90314/5/suite02-panorama-pont6-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/9dc981cf-a637-4f68-aba2-7603832867e4/5/espace-fitness03-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/1df282fc-6fda-4936-9085-6cfa332ec27d/5/restaurant02-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/94bf74ac-90c6-4620-b667-10ce5cac576b/5/reception02-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/426ec56e-2868-4076-8f13-d9ddd50b851b/5/piscine05-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/051d7f06-fd16-4295-ab8e-64e82d831183/5/bar-day02-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/a86c3345-1fb8-4ba2-bc10-6d54e546d7c3/5/suite01-horizon-pont4-5-la-belle-des-oceans-thailande-malaisie-croisieurope-david-hancock-david-hancock]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/50076c7e-b5d9-4483-b09a-30e3ce9855e0/5/piscine-la-belle-des-oceans-thailande-malaisie-croisieurope]]></URL>
+					</Media>
+				</Description>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="NOMBATEAU" />
+					</Codes>
+					<Text><![CDATA[MV La Belle des Océans]]></Text>
+				</Description>
+				<Description Role="Introduction">
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFBATEAU" />
+					</Codes>
+					<Text><![CDATA[<p>The MV La Belle des Oc&eacute;ans is the second maritime vessel of the CroisiEurope fleet and will sail from Singapore to Quebec during a series of repositioning cruises before reaching its final destination along the Saint Lawrence River.</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Accomodation" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="COMMODITES" />
+					</Codes>
+					<Title><![CDATA[EQUIPMENTS]]></Title>
+					<Text><![CDATA[<ul>
+	<li>Storage draws</li>
+	<li>Marbled bathroom with walk-in shower</li>
+	<li>Fitted wardrobe with personal safe</li>
+	<li>Writing desk</li>
+	<li>Flat-screen TV</li>
+	<li>Refrigerator</li>
+	<li>Hair dryer</li>
+	<li>Radio alarm clock with iPod docking station</li>
+	<li>Phone</li>
+	<li>110-volts outlets only</li>
+	<li>Unlimited standard WiFi</li>
+	<li>Independent air-conditioning</li>
+	<li>Telephone (for internal calls only)</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Accomodation" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="LEGENDE" />
+					</Codes>
+					<Title><![CDATA[DESCRIPTION_MARKETING]]></Title>
+					<Text><![CDATA[<p><strong>The Undeniable European Leader in the Cruise Industry:</strong><br />
+- More than 40 years of experience, more than 50 ships: CroisiEurope is the European frontrunner of river cruises<br />
+- A wide variety of choices: The French canals, European rivers, ocean tours, and exotic destinations (Africa, Russia, and Asia) with small-scale, hi-tech ships accommodating 16 to 200 passengers<br />
+- Exclusive destinations include: The Loire, Guadalquivir, and Tisza Rivers&mdash;as well as &ldquo;Paris by Night&rdquo; on the Seine, or Lake Kariba...<br />
+- Themed cruises: Gastronomic, music, hiking, biking and family<br />
+- Warm, international ambiance with La French Touch. Our motto: Highest quality at the best price.</p>
+
+<p><strong>CroisiEurope&rsquo;s Highlights:</strong><br />
+- Drinks included with onboard meals and at bar (depending on the cruise)<br />
+- Free Wi-Fi<br />
+- Copious, first-rate buffet breakfasts and fine French dining<br />
+- Individual visits excursions or reduced all-included package prices; headsets included (depending on the cruise)<br />
+- Specially themed evenings: traditional entertainment; gala dinner.</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERBATEAU" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/a02adcb3-5a12-4923-9d4b-c18c6958732b/13/la-belle-des-oceans03-thailande-malaisie-croisieurope-marcel-belanger]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/6e83ce68-8664-48ec-a10d-e2e43c7d308a/13/la-belle-des-oceans01-thailande-malaisie-croisieurope-marcel-belanger]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/3dc9a35e-5e00-4047-b25b-0293e0eed130/13/ms-belle-des-oceans-croisieurope-slider-actu-0519]]></URL>
+					</Media>
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/05d2cb8f-11a7-41e3-8d48-7b6d60f9be06/12/la-belle-des-oceans07-thailande-malaisie-croisieurope-berauer]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/ed45177a-6956-47ea-9027-de3f745e0b56/13/la-belle-des-oceans06-thailande-malaisie-croisieurope-marcel-belanger]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Image slider&nbsp;</p>]]></Text>
+				</Description>
+			</Descriptions>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2020-03-03T11:25" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_BATO_ANNEE_CONS">
+					<Code Value="1990" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_ANNEE_RENO">
+					<Code Value="2014" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_PAX_NOMBRE">
+					<Code Value="128" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_CAPA_TOTAL">
+					<Code Value="64" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_LARGEUR">
+					<Code Value="15" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_LONGUEUR">
+					<Code Value="103" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_NB_DECK_CAB">
+					<Code Value="7" />
+				</Keyword>
+				<Keyword Ref="KW_COMO_CABINES_EX" />
+				<Keyword Ref="KW_COMO_PISCINE_EX" />
+				<Keyword Ref="KW_COMO_SALON_BEAU" />
+				<Keyword Ref="KW_COMO_SPA" />
+				<Keyword Ref="KW_COMO_SUITES" />
+				<Keyword Ref="KW_FL_MER ROUGE" />
+				<Keyword Ref="KW_FL_SAINT_LAURENT" />
+				<Keyword Ref="KW_FL_MER_MEDITERRANEE" />
+				<Keyword Ref="KW_FL_MER_ATLANTIQUE" />
+				<Keyword Ref="KW_FL_MER_LAQUEDIVES" />
+				<Keyword Ref="KW_FL_MER_ARABIE" />
+				<Keyword Ref="KW_FL_MER_ANDAMAN" />
+				<Keyword Ref="KW_FL_DETROIT_MALACCA" />
+				<Keyword Ref="KW_FL_GOLFE_BENGALE" />
+				<Keyword Ref="KW_FL_GOLFE_PERSIQUE" />
+				<Keyword Ref="KW_FL_GOLFE_OMAN" />
+				<Keyword Ref="KW_FL_MER_CARAIBES" />
+			</Keywords>
+		</Ship>
+		<Ship>
+			<Brands>
+				<Brand Role="Reference" Value="MERIND" />
+			</Brands>
+			<Codes>
+				<Code Role="Reference" Value="LOI" />
+				<Code Role="Reference" Owner="External" Value="29" />
+				<Code Role="Reference" Owner="Internal" Value="LOI" />
+			</Codes>
+			<Begin Value="2015-04-01" />
+			<Rating Category="HighStanding" Value="5 anchors" />
+			<Decks Quantity="3">
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="50" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[RESTAURANT]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/0800e8b1-f404-49fa-a70e-ad25fb85b81b/5/restaurant02-ms-loire-princesse-loire-croisieurope-haubtmann]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_RESTAURANT" />
+							</Keywords>
+							<Text><![CDATA[<p>Located on the main deck, the restaurant is where all meals are served during your cruise. It seats all guests at tables which vary in size with a panoramic view. The atmosphere is casual but elegant.</p>]]></Text>
+						</Description>
+						<Description Role="Sales">
+							<Codes>
+								<Code Role="Type" Key="MARKETINGCABINE" />
+							</Codes>
+							<Title><![CDATA[18 cabins]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/ab29d9d5-74a5-4bb3-8e66-9d6092e5ae1d/5/cabine03-deux-lits-separes-pont-principal-ms-loire-princesse-loire-croisieurope-daniel-beldent]]></URL>
+							</Media>
+							<Text><![CDATA[<ul>
+	<li>18 double cabins</li>
+</ul>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/0f8f2fb3-ba43-4e17-9d2f-0fd71b5f022b/-croisieurope]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/2854ba95-7021-4696-b9a8-2e1693737958/-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[MAIN DECK]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins>
+						<Cabin Ref="LOIRE PRINCESSE_GLS_PP" />
+					</Cabins>
+				</Deck>
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="20" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[LOUNGE BAR WITH DANCEFLOOR]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/cbdfebe4-8641-4186-9448-81de4ad97b7d/5/salon-bar01-ms-loire-princesse-loire-croisieurope-haubtmann]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_DIVERTISS" />
+							</Keywords>
+							<Text><![CDATA[<p>The lounge tastefully decorated, is located at the front of the ship and offers panoramic views. Cocktails and games, dancing, and other forms of entertainment all happen here.</p>]]></Text>
+						</Description>
+						<Description Role="Sales">
+							<Codes>
+								<Code Role="Type" Key="MARKETINGCABINE" />
+							</Codes>
+							<Title><![CDATA[30 cabins]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/f0f21279-a06b-4197-865b-5819c8573e95/5/cabine02-deux-lits-separes-pont-superieur-ms-loire-princesse-loire-croisieurope-daniel-beldent]]></URL>
+							</Media>
+							<Text><![CDATA[<ul>
+	<li>25 double cabins</li>
+	<li>4 double cabins with king size beds</li>
+	<li>1 cabin for people with reduced mobility</li>
+</ul>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/9ec4cff6-7b6c-4bcc-a66d-7e2592625a94/-croisieurope]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/cfae0b38-18af-4b76-b6cf-b33907fc2558/-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[UPPER DECK]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins>
+						<Cabin Ref="LOIRE PRINCESSE_GLS_PS" />
+						<Cabin Ref="LOIRE PRINCESSE_HA_PS" />
+						<Cabin Ref="LOIRE PRINCESSE_1GL_PS" />
+					</Cabins>
+				</Deck>
+				<Deck>
+					<Codes>
+						<Code Role="Reference" Owner="External" Value="09" />
+					</Codes>
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[FITNESS]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/d82cdb12-40cb-4e40-ae58-ba9ed5b715e6/5/ambiance-bateau-gym-pont-soleil-croisieurope]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_SPORT_LOIS" />
+							</Keywords>
+							<Text><![CDATA[<p>Start your day by joining us for a morning fitness class on the sun deck.</p>]]></Text>
+						</Description>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Equipement" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFAMENAGEMENT" />
+							</Codes>
+							<Title><![CDATA[SUN DECK]]></Title>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/a2126d81-dfec-4b9b-9899-88926e7ab8c9/5/ambiance-bateau-pont-soleil-croisieurope]]></URL>
+							</Media>
+							<Keywords>
+								<Keyword Ref="KW_EQUI_ESP_PUBLIC" />
+							</Keywords>
+							<Text><![CDATA[<p>Take advantage of the sun deck to relax! It is equipped with chairs and deckchairs, allowing you to cool off while enjoying a panoramic view of the magnificent landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/0e25b695-6d9d-4c8c-a1bf-c835148c1b8c/-croisieurope]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/0e93c0b9-3882-4d60-8387-6badcb11a4bd/-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Text><![CDATA[SUN DECK]]></Text>
+							<Codes>
+								<Code Role="Type" Key="NOMPONT" />
+							</Codes>
+						</Description>
+					</Descriptions>
+					<Cabins />
+				</Deck>
+			</Decks>
+			<Cabins>
+				<Cabin ID="LOIRE PRINCESSE_GLS_PP">
+					<Codes>
+						<Code Role="Reference" Key="GLS_PP" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="13" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Text><![CDATA[<p>Spacious and comfortable cabin equipped with two beds that can be separated, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. Located on the main deck, it offers a panoramic view of the landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/a5c245c3-a75a-454e-9e6f-eef3917c8f8e/6/cabine-deux-lits-separes-pont-principal-ms-loire-princesse-loire-croisieurope-daniel-beldent]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Main deck 2 adjustable twin beds]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="LOIRE PRINCESSE_1GL_PS">
+					<Codes>
+						<Code Role="Reference" Key="1GL_PS" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="12" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Text><![CDATA[<p>Spacious and comfortable cabin equipped with private balcony, one double bed, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. Located on the upper deck, its panoramic window offers a great view of the landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/74b2be39-766c-4a49-ada7-8e9fbe44d58b/6/cabine-grand-lit-pont-superieur-ms-loire-princesse-loire-croisieurope-daniel-beldent]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Upper Deck 1 double bed]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="LOIRE PRINCESSE_GLS_PS">
+					<Codes>
+						<Code Role="Reference" Key="GLS_PS" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="13" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Text><![CDATA[<p>Spacious and comfortable cabin equipped with private balcony, two beds that can be separated, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. Located on the upper deck, its panoramic window offers a great view of the landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/eaeecaf0-d3dc-4b83-b4c1-db8c4e3d9576/6/cabine-deux-lits-separes-pont-superieur-ms-loire-princesse-loire-croisieurope-daniel-beldent]]></URL>
+							</Media>
+							<Media Role="Image">
+								<URL><![CDATA[https://images.croisieurope.com/media/0623b65a-f47d-456c-94b4-16466cf78d55/6/cabine-3d-ms-loire-princesse-loire-croisieurope]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Upper deck 2 adjustable twin beds]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+				<Cabin ID="LOIRE PRINCESSE_HA_PS">
+					<Codes>
+						<Code Role="Reference" Key="HA_PS" />
+					</Codes>
+					<Occupancy Unit="Person" Min="1" Max="2" />
+					<Dimension Topic="Surface" Value="12" />
+					<Descriptions>
+						<Description Role="Body">
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Title><![CDATA[Cabins description]]></Title>
+							<Text><![CDATA[<p>Spacious and comfortable cabin adapted for passengers with reduced mobility and equipped with private balcony, one double bed, private bathroom with shower and bath products, satellite TV, safe, hairdryer and radio. Located on the upper deck, its panoramic window offers a great view of the landscapes.</p>]]></Text>
+						</Description>
+						<Description Role="Media">
+							<Media Role="Vignette">
+								<URL><![CDATA[https://images.croisieurope.com/media/3d8c4f78-b8d5-44da-9099-d2f301e918dd/6/cabine03-pmr-pont-superieur-ms-loire-princesse-loire-croisieurope-daniel-beldent]]></URL>
+							</Media>
+						</Description>
+						<Description Role="Title">
+							<Codes>
+								<Code Role="Type" Key="DESCRIPTIFCABINE" />
+							</Codes>
+							<Types>
+								<Type Ref="TY_Accomodation" />
+							</Types>
+							<Text><![CDATA[Upper Deck 1 double bed - disabled person]]></Text>
+						</Description>
+					</Descriptions>
+				</Cabin>
+			</Cabins>
+			<Descriptions>
+				<Description Role="Media">
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/638eeffb-a7f9-49a1-b658-065b874bf15c/5/accueil-ms-loire-princesse-loire-croisieurope-haubtmann]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/3915c751-4c69-43f6-9330-9d7959c80b35/5/restaurant01-ms-loire-princesse-loire-croisieurope-haubtmann]]></URL>
+					</Media>
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/369aa000-a34c-4d96-9e45-7af3740a6e61/5/cabine02-ms-loire-princesse-loire-croisieurope-haubtmann]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/cbdfebe4-8641-4186-9448-81de4ad97b7d/5/salon-bar01-ms-loire-princesse-loire-croisieurope-haubtmann]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/52a18559-67bf-4259-98c8-5e3e4ab7862c/5/salon-bar02-ms-loire-princesse-loire-croisieurope-haubtmann]]></URL>
+					</Media>
+				</Description>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="NOMBATEAU" />
+					</Codes>
+					<Text><![CDATA[MS Loire Princesse]]></Text>
+				</Description>
+				<Description Role="Introduction">
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFBATEAU" />
+					</Codes>
+					<Text><![CDATA[<p>The MS Loire Princesse cruises on the Loire River between Saint-Nazaire and Angers.</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Accomodation" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="COMMODITES" />
+					</Codes>
+					<Title><![CDATA[EQUIPMENTS]]></Title>
+					<Text><![CDATA[<ul>
+	<li>TV</li>
+	<li>Telephone (for internal calls only)</li>
+	<li>Bathroom with shower and toilet</li>
+	<li>Towels</li>
+	<li>Safe</li>
+	<li>Independent air-conditioning</li>
+	<li>Electricity 220V</li>
+	<li>Wi-Fi</li>
+</ul>
+
+<p><em>Please note that there is no laundry service on board the ship.</em></p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Accomodation" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="LEGENDE" />
+					</Codes>
+					<Title><![CDATA[DESCRIPTION_MARKETING]]></Title>
+					<Text><![CDATA[<p><strong>The Undeniable European Leader in the Cruise Industry:</strong><br />
+- More than 40 years of experience, more than 50 ships: CroisiEurope is the European frontrunner of river cruises<br />
+- A wide variety of choices: The French canals, European rivers, ocean tours, and exotic destinations (Africa, Russia, and Asia) with small-scale, hi-tech ships accommodating 16 to 200 passengers<br />
+- Exclusive destinations include: The Loire, Guadalquivir, and Tisza Rivers&mdash;as well as &ldquo;Paris by Night&rdquo; on the Seine, or Lake Kariba...<br />
+- Themed cruises: Gastronomic, music, hiking, biking and family<br />
+- Warm, international ambiance with La French Touch. Our motto: Highest quality at the best price.</p>
+
+<p><strong>CroisiEurope&rsquo;s Highlights:</strong><br />
+- Drinks included with onboard meals and at bar (depending on the cruise)<br />
+- Free Wi-Fi<br />
+- Copious, first-rate buffet breakfasts and fine French dining<br />
+- Individual visits excursions or reduced all-included package prices; headsets included (depending on the cruise)<br />
+- Specially themed evenings: traditional entertainment; gala dinner.</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERBATEAU" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/49eed0dd-bf2e-42b9-9b12-80de5acff7b0/13/ms-loire-princesse-loire-croisieurope-slider01-alain-bron]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/e0e48875-eab6-4996-a336-449290f65071/13/ms-loire-princesse-loire-croisieurope-slider02-christina-guan]]></URL>
+					</Media>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/5f055f0b-1fa3-4cd4-b008-3812815bd904/13/ms-loire-princesse-loire-croisieurope-slider03-gregory-gerault]]></URL>
+					</Media>
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/5f055f0b-1fa3-4cd4-b008-3812815bd904/12/ms-loire-princesse-loire-croisieurope-slider03-gregory-gerault]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Image Slider</p>]]></Text>
+				</Description>
+			</Descriptions>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-06-06T22:41" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_BATO_ANNEE_CONS">
+					<Code Value="2015" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_PAX_NOMBRE">
+					<Code Value="96" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_CAPA_TOTAL">
+					<Code Value="48" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_LARGEUR">
+					<Code Value="11" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_LONGUEUR">
+					<Code Value="80" />
+				</Keyword>
+				<Keyword Ref="KW_BATO_NB_DECK_CAB">
+					<Code Value="2" />
+				</Keyword>
+				<Keyword Ref="KW_COMO_CABINES_EX" />
+				<Keyword Ref="KW_COMO_CABINES_HA" />
+				<Keyword Ref="KW_FL_LOIRE" />
+			</Keywords>
+		</Ship>
+	</Ships>
+</Catalogue>

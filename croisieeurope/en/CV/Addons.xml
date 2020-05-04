@@ -1,0 +1,2054 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Catalogue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.exchangefortravel.org/xft/current">
+	<Vendor Licence="IM067100025" Code="ALSACE CROISIER" />
+	<Style>
+		<Language Code="en" />
+	</Style>
+	<Brand>
+		<Code Role="Reference" Value="CV" />
+	</Brand>
+	<Entities>
+		<Entity xsi:type="RatingType">
+			<Ratings>
+				<Rating ID="_RTG_ST_1" Value="1" DeliveredBy="StandardisationBody" Unit="Star" />
+				<Rating ID="_RTG_ST_2" Value="2" DeliveredBy="StandardisationBody" Unit="Star" />
+				<Rating ID="_RTG_ST_3" Value="3" DeliveredBy="StandardisationBody" Unit="Star" />
+				<Rating ID="_RTG_ST_4" Value="4" DeliveredBy="StandardisationBody" Unit="Star" />
+				<Rating ID="_RTG_ST_5" Value="5" DeliveredBy="StandardisationBody" Unit="Star" />
+				<Rating ID="_RTG_ST_6" Value="6" DeliveredBy="StandardisationBody" Unit="Star" />
+				<Rating ID="_RTG_ST_7" Value="7" DeliveredBy="StandardisationBody" Unit="Star" />
+			</Ratings>
+		</Entity>
+		<Entity xsi:type="KeywordType">
+			<Keywords>
+				<Keyword ID="KW_EXC_CLASSIQUE" Code="" Name="EXC_CLASSIQUE" Category="GroupType" Family=""><![CDATA[Classic]]></Keyword>
+				<Keyword ID="KW_FL_NIL" Code="" Name="FL_NIL" Category="Location" Family=""><![CDATA[Nile]]></Keyword>
+				<Keyword ID="KW_FL_KARIBA" Code="" Name="FL_KARIBA" Category="Location" Family=""><![CDATA[Lake Kariba]]></Keyword>
+			</Keywords>
+		</Entity>
+		<Entity xsi:type="MealPlanType">
+			<MealPlans>
+				<MealPlan Code="SP" ID="SP">
+					<Code Value="according to program" Role="Reference" />
+				</MealPlan>
+				<MealPlan Code="PDJ" ID="PDJ">
+					<Code Value="breakfast" Role="Reference" />
+				</MealPlan>
+				<MealPlan Code="DP" ID="DP">
+					<Code Value="half board" Role="Reference" />
+				</MealPlan>
+				<MealPlan Code="PC" ID="PC">
+					<Code Value="full board" Role="Reference" />
+				</MealPlan>
+				<MealPlan Code="ALL" ID="ALL">
+					<Code Value="all inclusive" Role="Reference" />
+				</MealPlan>
+				<MealPlan Code="PR" ID="PR">
+					<Code Value="according to program" Role="Reference" />
+				</MealPlan>
+				<MealPlan Code="BRU" ID="BRU">
+					<Code Value="brunch" Role="Reference" />
+				</MealPlan>
+				<MealPlan Code="LG" ID="LG">
+					<Code Value="accommodations only" Role="Reference" />
+				</MealPlan>
+			</MealPlans>
+		</Entity>
+		<Entity xsi:type="TypeUnifiedType">
+			<Types>
+				<Type Code="Activity" ID="TY_Activity">
+					<Description Role="Name">
+						<Text><![CDATA[Activity]]></Text>
+					</Description>
+				</Type>
+				<Type Code="Product" ID="TY_Product">
+					<Description Role="Name">
+						<Text><![CDATA[Product]]></Text>
+					</Description>
+				</Type>
+			</Types>
+		</Entity>
+		<Entity xsi:type="CityType">
+			<Locations>
+				<City ID="IATA_2NI"><![CDATA[EXCURSIONS EGYPTE]]><Country Ref="CNTY_EG" /><Point /><Code Owner="IATA" Value="2NI" /></City>
+				<City ID="IATA_2AF"><![CDATA[EXCURSIONS AFRIQUE]]><Country Ref="CNTY_ZA" /><Point /><Code Owner="IATA" Value="2AF" /></City>
+				<City ID="IATA_JNB"><![CDATA[JOHANNESBOURG]]><Country Ref="CNTY_ZA" /><Point Latitude="-26.14" Longitude="-28.2417" /><Code Owner="IATA" Value="JNB" /></City>
+				<City ID="IATA_CPT"><![CDATA[CAPE TOWN]]><Country Ref="CNTY_ZA" /><Point Latitude="-33.9633" Longitude="-18.6017" /><Code Owner="IATA" Value="CPT" /></City>
+				<City ID="IATA_1IM"><![CDATA[IMPALILA ISLAND]]><Country Ref="CNTY_NA" /><Point /><Code Owner="IATA" Value="1IM" /></City>
+				<City ID="IATA_VFA"><![CDATA[VICTORIA FALLS]]><Country Ref="CNTY_ZW" /><Point Latitude="-18.0917" Longitude="-25.84" /><Code Owner="IATA" Value="VFA" /></City>
+			</Locations>
+		</Entity>
+		<Entity xsi:type="CountryType">
+			<Countries>
+				<Country ID="CNTY_EG">
+					<Code Owner="IATA" Value="EG" />
+					<Description Role="Name"><![CDATA[EGYPTE]]></Description>
+				</Country>
+				<Country ID="CNTY_ZA">
+					<Code Owner="IATA" Value="ZA" />
+					<Description Role="Name"><![CDATA[SOUTH AFRICA]]></Description>
+				</Country>
+				<Country ID="CNTY_NA">
+					<Code Owner="IATA" Value="NA" />
+					<Description Role="Name"><![CDATA[NAMIBIE]]></Description>
+				</Country>
+			</Countries>
+		</Entity>
+	</Entities>
+	<Segments>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="EXC_ABOUC" />
+				<Code Role="Type" Value="X" Key="Miscellaneous"><![CDATA[EXCURSION CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_2NI" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:00" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_EXC_CLASSIQUE" />
+				<Keyword Ref="KW_FL_NIL" />
+			</Keywords>
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Abu Simbel]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/9f5a2dc1-c9b8-43a3-b6af-eb62b632fc31/3/egypte-louxor-temple-abou-simbel-dan-breckwoldt-shutterstock]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Abu Simbel</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Text><![CDATA[<p>We&rsquo;ll leave for the Abu Simbel archaeological site in the morning. Discovering these amazing rock temples is one of the highlights of a trip to Egypt. Located about 140 miles (230 km and three hours driving time) southwest of Aswan, the complex is in the heart of the desert, at the border with Sudan, and is the most impressive imprint left by Ramesses II. Through an extraordinary effort, the complex was relocated in its entirety in 1968 in order to escape the waters during the creation of the dam and Lake Nasser. The twin temples were carved out of the original mountainside and serve as a lasting monument to the pharaoh and his queen, Nefertari. We&rsquo;ll have lunch in Abu Simbel and return to the ship in the afternoon before our ship begins to cruise once again.</p>
+
+<p><strong>PLEASE NOTE </strong></p>
+
+<ul>
+	<li>The order of the visits can change.</li>
+	<li>Times are approximate.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFCOURT" />
+					</Codes>
+					<Title><![CDATA[Short description]]></Title>
+					<Text><![CDATA[<p>We&rsquo;ll leave for the Abu Simbel archaeological site in the morning. Discovering these amazing rock temples is one of the highlights of a trip to Egypt. Located about 140 miles (230 km and three hours driving time) southwest of Aswan, the complex is in the heart of the desert, at the border with Sudan, and is the most impressive imprint left by Ramesses II. Through an extraordinary effort, the complex was relocated in its entirety in 1968 in order to escape the waters during the creation of the dam and Lake Nasser. The twin temples were carved out of the original mountainside and serve as a lasting monument to the pharaoh and his queen, Nefertari. We&rsquo;ll have lunch in Abu Simbel and return to the ship in the afternoon before our ship begins to cruise once again.</p>
+
+<p><strong>PLEASE NOTE </strong></p>
+
+<ul>
+	<li>The order of the visits can change.</li>
+	<li>Times are approximate.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERADDON" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/9f5a2dc1-c9b8-43a3-b6af-eb62b632fc31/13/egypte-louxor-temple-abou-simbel-dan-breckwoldt-shutterstock]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Image slider</p>]]></Text>
+				</Description>
+				<Description Role="Media">
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/9f5a2dc1-c9b8-43a3-b6af-eb62b632fc31/5/egypte-louxor-temple-abou-simbel-dan-breckwoldt-shutterstock]]></URL>
+					</Media>
+				</Description>
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="EXC_KARNAK" />
+				<Code Role="Type" Value="X" Key="Miscellaneous"><![CDATA[EXCURSION CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_2NI" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:03" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_EXC_CLASSIQUE" />
+				<Keyword Ref="KW_FL_NIL" />
+			</Keywords>
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Sound and Light show at the Karnak Temple Complex]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/476c36fe-4c06-4819-ab8c-91f5a333acde/3/egypte-nil-temple-karnak05-croisieurope]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Sound and Light show at the Karnak Temple Complex</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Text><![CDATA[<p>Discover the history of Egypt with this spectacular Sound and Light show at the Philae Temple dedicated to the goddess Isis. After the building of the Aswan Dam, the temple complex was partially submerged. In 1960, each building was moved from its original location on Philae Island, to its new location on Agilkia Island in the middle of a lake. Enjoy this memorable and breathtaking show.</p>
+
+<p><strong>PLEASE NOTE </strong></p>
+
+<ul>
+	<li>The order of the visits can change.</li>
+	<li>Times are approximate.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFCOURT" />
+					</Codes>
+					<Title><![CDATA[Short description]]></Title>
+					<Text><![CDATA[<p>Discover the history of Egypt with this spectacular Sound and Light show at the Philae Temple dedicated to the goddess Isis. After the building of the Aswan Dam, the temple complex was partially submerged. In 1960, each building was moved from its original location on Philae Island, to its new location on Agilkia Island in the middle of a lake. Enjoy this memorable and breathtaking show.</p>
+
+<p><strong>PLEASE NOTE </strong></p>
+
+<ul>
+	<li>The order of the visits can change.</li>
+	<li>Times are approximate.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERADDON" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/95726257-50c2-4450-ac9e-3a334b7a8115/13/egypte-nil-temple-karnak03-croisieurope]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Image slider&nbsp;</p>]]></Text>
+				</Description>
+				<Description Role="Media">
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/476c36fe-4c06-4819-ab8c-91f5a333acde/5/egypte-nil-temple-karnak05-croisieurope]]></URL>
+					</Media>
+				</Description>
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="EXC_HELVOL" />
+				<Code Role="Type" Value="X" Key="Miscellaneous"><![CDATA[EXCURSION CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="00:12" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_2AF" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:03" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_EXC_CLASSIQUE" />
+				<Keyword Ref="KW_FL_KARIBA" />
+			</Keywords>
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Soar over Victoria Falls in a helicopter (optional excursion)]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/2b3378f2-03e8-4c00-89a8-2ff2c3c32d98/3/afrique-du-sud-zambeze-chutes-victoria-survol-helicoptere-croisieurope]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Soar over Victoria Falls in a helicopter (optional excursion)</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Text><![CDATA[<p>Soar over Victoria Falls in a helicopter for spectacular views over this true wonder of nature known as the &quot;Smoke That Thunders&quot;. You&#39;ll also get to see from above where the Zambezi River plunges over the cliff to become the widest waterfall in the world, as well as the city of Victoria Falls and the surrounding nature.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>The flight lasts for about 12 minutes.</li>
+	<li>Times are approximate and the order of the visits can change.&nbsp;</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFCOURT" />
+					</Codes>
+					<Title><![CDATA[Short description]]></Title>
+					<Text><![CDATA[<p>Soar over Victoria Falls in a helicopter for spectacular views over this true wonder of nature known as the &quot;Smoke That Thunders&quot;. You&#39;ll also get to see from above where the Zambezi River plunges over the cliff to become the widest waterfall in the world, as well as the city of Victoria Falls and the surrounding nature.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>The flight lasts for about 12 minutes.</li>
+	<li>Times are approximate and the order of the visits can change.&nbsp;</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERADDON" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/dc5f8988-2d63-45a5-a6b8-9d98b9c12667/13/afrique-zambeze-chutes-victoria-croisieurope-slider-11a-lc-shutterstock]]></URL>
+					</Media>
+					<Text><![CDATA[<p>.</p>]]></Text>
+				</Description>
+				<Description Role="Media">
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/2b3378f2-03e8-4c00-89a8-2ff2c3c32d98/5/afrique-du-sud-zambeze-chutes-victoria-survol-helicoptere-croisieurope]]></URL>
+					</Media>
+				</Description>
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentInsuranceType" Is="Assurance">
+			<Codes>
+				<Code Role="Product" Value="EUROP_002" />
+				<Code Role="Type" Value=""><![CDATA[]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Night" Value="0" />
+				<Duration Unit="Day" Value="0" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="T" />
+			</Histories>
+			<Keywords />
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Optional travel insurance: Cancellation-Baggage damage-Holiday curtailment-Private civil liability abroad]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Media Role="Document">
+						<URL><![CDATA[https://images.croisieurope.com/media/846493f1-caa8-4888-9252-daa63717f4bc/europ-assistance-notice-assurance-en-anglais-2016-contrat-58224398]]></URL>
+					</Media>
+					<Text><![CDATA[<p><strong>OPTIONAL INSURANCE: CANCELLATION - CURTAILMENT OF STAY - LUGGAGE - PUBLIC LIABILITY.</strong></p>
+
+<p>The cost of the trip / Insurance premium: 3.8% of the cost of the trip</p>
+
+<p><strong>PLEASE NOTE:</strong> Insurance for cancellation, luggage, curtailment of stay and public liability is not included in our prices..<br />
+It is for that reason that we strongly advise you to take out the optional insurance policy cover provided by Europ Assistance.<br />
+A leaflet detailing all of Europ Assistance&rsquo;s terms and conditions will be issued with every insurance application. The leaflet is also available on request.</p>]]></Text>
+				</Description>
+				<Description Role="Media">
+					<Media Role="Document">
+						<URL><![CDATA[https://images.croisieurope.com/media/846493f1-caa8-4888-9252-daa63717f4bc/europ-assistance-notice-assurance-en-anglais-2016-contrat-58224398]]></URL>
+					</Media>
+				</Description>
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="FORF_AFR3" />
+				<Code Role="Type" Value="7" Key="Miscellaneous"><![CDATA[FORFAIT LIE CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns">
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Included"><![CDATA[JOURNEE PARC CHOBE - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_CHOBE" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="2" /></Codes><Durations><Duration Value="08:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Included"><![CDATA[SAFARI NAUTIQUE ZAMBEZE - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_ZAMBEZ" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="2" Rank="Base" Index="3" /></Codes><Durations><Duration Value="02:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Included"><![CDATA[JOURNEE JOHANNESBURG - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_JOHANN" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="1" /></Codes><Durations><Duration Value="04:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Included"><![CDATA[IMPALILA ISLAND - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_IMPALI" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="3" /></Codes><Durations><Duration Value="02:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+				</Segments>
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_JNB" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:10" />
+			</Histories>
+			<Keywords />
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Johannesburg and stay at the lodge: land and water safaris and Impalila Island]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Text><![CDATA[<p>Johannesburg and stay at the lodge: land and water safaris and Impalila Island</p>]]></Text>
+				</Description>
+				<Description Role="Media" />
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="FORF_AFR12" />
+				<Code Role="Type" Value="7" Key="Miscellaneous"><![CDATA[FORFAIT LIE CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns">
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Optional"><![CDATA[ROBBEN ISLAND ET GROOT CONSTANTIA - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_ROBBEN" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="3" /></Codes><Durations><Duration Value="06:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Optional"><![CDATA[JOURNEE JOHANNESBURG - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_JOHANN" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="5" /></Codes><Durations><Duration Value="04:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Optional"><![CDATA[LE CAP - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_LECAP" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="2" /></Codes><Durations><Duration Value="04:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Optional"><![CDATA[LE CAP DE BONNE ESPERANCE - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_CAPESP" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="4" /></Codes><Durations><Duration Value="08:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Optional"><![CDATA[IMPALILA ISLAND - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_IMPALI" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="8" /></Codes><Durations><Duration Value="02:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Optional"><![CDATA[JOURNEE PARC CHOBE - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_CHOBE" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="7" /></Codes><Durations><Duration Value="08:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Optional"><![CDATA[SAFARI NAUTIQUE ZAMBEZE - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_ZAMBEZ" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="2" Rank="Base" Index="8" /></Codes><Durations><Duration Value="02:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+				</Segments>
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_CPT" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:10" />
+			</Histories>
+			<Keywords />
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Extended stay in Cape Town, stays in Johannesburg and the lodge: land and water safaris and Impalila Island]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Text><![CDATA[<p>Extended stay in Cape Town, stays in Johannesburg and the lodge: land and water safaris and Impalila Island</p>]]></Text>
+				</Description>
+				<Description Role="Media" />
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="FORF_AFR14" />
+				<Code Role="Type" Value="7" Key="Miscellaneous"><![CDATA[FORFAIT LIE CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns">
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Optional"><![CDATA[JOURNEE PARC CHOBE - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_CHOBE" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="2" /></Codes><Durations><Duration Value="08:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Optional"><![CDATA[IMPALILA ISLAND - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_IMPALI" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="3" /></Codes><Durations><Duration Value="02:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Optional"><![CDATA[SAFARI NAUTIQUE ZAMBEZE - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_ZAMBEZ" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="2" Rank="Base" Index="3" /></Codes><Durations><Duration Value="02:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+				</Segments>
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_1IM" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:10" />
+			</Histories>
+			<Keywords />
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Stay at the lodge: land and water safaris and Impalila Island]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Text><![CDATA[<p>Stay at the lodge: land and water safaris and Impalila Island</p>]]></Text>
+				</Description>
+				<Description Role="Media" />
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="EXC_JOHANN" />
+				<Code Role="Type" Value="X" Key="Miscellaneous"><![CDATA[EXCURSION CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="04:00" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_2AF" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:03" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_EXC_CLASSIQUE" />
+				<Keyword Ref="KW_FL_KARIBA" />
+			</Keywords>
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Johannesburg]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/3b08a4a3-47b7-4b97-af74-c26f878397f9/3/johannesburg-thissatan-kotirat-thissatan-kotirat]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Johannesburg</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Text><![CDATA[<p>We&rsquo;ll visit the Apartheid Museum which opened in 2001. It is famous the world over for being the first museum centering on South African history in the 20th century, and more particularly on Apartheid. Afterwards, we&rsquo;ll set off for a panoramic tour of the city. In addition to being South Africa&rsquo;s financial capital, Johannesburg is also the city of superlatives. It is indeed the richest town in Africa, with the tallest buildings and widest social discrepancies, but is also infused with one of the best atmospheres you&rsquo;ll ever come across.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFCOURT" />
+					</Codes>
+					<Title><![CDATA[Short description]]></Title>
+					<Text><![CDATA[<p>We&rsquo;ll visit the Apartheid Museum which opened in 2001. It is famous the world over for being the first museum centering on South African history in the 20th century, and more particularly on Apartheid. Afterwards, we&rsquo;ll set off for a panoramic tour of the city. In addition to being South Africa&rsquo;s financial capital, Johannesburg is also the city of superlatives. It is indeed the richest town in Africa, with the tallest buildings and widest social discrepancies, but is also infused with one of the best atmospheres you&rsquo;ll ever come across.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERADDON" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/36b682b1-2958-4315-8539-acd27a0858fc/13/afrique-du-sud-zambeze-johannesburg-greg-da-silva]]></URL>
+					</Media>
+					<Text><![CDATA[<p>.</p>]]></Text>
+				</Description>
+				<Description Role="Media">
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/3b08a4a3-47b7-4b97-af74-c26f878397f9/5/johannesburg-thissatan-kotirat-thissatan-kotirat]]></URL>
+					</Media>
+				</Description>
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="EXC_CHOBE" />
+				<Code Role="Type" Value="X" Key="Miscellaneous"><![CDATA[EXCURSION CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="08:00" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_2AF" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:02" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_EXC_CLASSIQUE" />
+				<Keyword Ref="KW_FL_KARIBA" />
+			</Keywords>
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Full-day land and water safaris in Chobe National Park]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/cbc1b8d5-d731-4ffd-8176-775631306c79/3/afrique-du-sud-botswana-4x4-eric-vancleynenbreugel]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Full-day land and water safaris in Chobe National Park</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Text><![CDATA[<p>Join us for a full-day&#39;s adventure exploring Chob&eacute; National Park. We&#39;ll journey out on a safari in Jeeps through what is known as the most biologically diverse national park in Botswana. Stretching over 11,000 km&sup2; (4,500 sq mi), it is home to more than 250 different animal species and over 1/4 of the total elephant population in Africa. Enjoy lunch in our &quot;floating restaurant&quot; in the middle of the river where the views of the surrounding nature and wildlife are unparalleled. Afterwards, we&rsquo;ll board small private boats for a water safari on Chob&eacute; River all the way to Sedudu Island and its marshes. For several months each year, the island is submerged by floods, making it an ideal location to witness touching scenes of wildlife at the very heart of the Chobe National Park.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.&nbsp;</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFCOURT" />
+					</Codes>
+					<Title><![CDATA[Short description]]></Title>
+					<Text><![CDATA[<p>Join us for a full-day&#39;s adventure exploring Chob&eacute; National Park. We&#39;ll journey out on a safari in Jeeps through what is known as the most biologically diverse national park in Botswana. Stretching over 11,000 km&sup2; (4,500 sq mi), it is home to more than 250 different animal species and over 1/4 of the total elephant population in Africa. Enjoy lunch in our &quot;floating restaurant&quot; in the middle of the river where the views of the surrounding nature and wildlife are unparalleled. Afterwards, we&rsquo;ll board small private boats for a water safari on Chob&eacute; River all the way to Sedudu Island and its marshes. For several months each year, the island is submerged by floods, making it an ideal location to witness touching scenes of wildlife at the very heart of the Chobe National Park.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.&nbsp;</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERADDON" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/30e78b03-d6c3-4d36-8b29-48c398956e49/13/afrique-du-sud-chobe-riviere-elephants-croisieurope]]></URL>
+					</Media>
+					<Text><![CDATA[<p>.</p>]]></Text>
+				</Description>
+				<Description Role="Media">
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/cbc1b8d5-d731-4ffd-8176-775631306c79/5/afrique-du-sud-botswana-4x4-eric-vancleynenbreugel]]></URL>
+					</Media>
+				</Description>
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="EXC_IMPALI" />
+				<Code Role="Type" Value="X" Key="Miscellaneous"><![CDATA[EXCURSION CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="02:00" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_2AF" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:03" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_EXC_CLASSIQUE" />
+				<Keyword Ref="KW_FL_KARIBA" />
+			</Keywords>
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Impalila Island]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/de0632db-4622-44aa-81e0-9423189a05bf/3/afrique-du-sud-parc-national-chobe-population-enfants-eric-vancleynenbreugel]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Impalila Island</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Text><![CDATA[<p>Impalila Island is a small Namibian island on the Caprivi Strip protruding into the northern territory of Botswana, Southern territory of Zambia and Western territory of Zimbabwe and surrounded by the Chobe River. Our walk will be guided by locals who were born and raised on this very island. They will lead you to a village whose inhabitants will give you a first-hand account of their daily lives, jobs and how the different villages of the island come together. You will also get a chance to visit a school and the surrounding bush (provided conditions are met - unavailable during weekends and school vacations). This school is where your guides have studied themselves, and is still very much active with over 400 pupils who will be glad to share moments of exchange with us along with their teachers. Guests are welcome to support the students by bringing supplies such as pens and notebooks.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFCOURT" />
+					</Codes>
+					<Title><![CDATA[Short description]]></Title>
+					<Text><![CDATA[<p>Impalila Island is a small Namibian island on the Caprivi Strip protruding into the northern territory of Botswana, Southern territory of Zambia and Western territory of Zimbabwe and surrounded by the Chobe River. Our walk will be guided by locals who were born and raised on this very island. They will lead you to a village whose inhabitants will give you a first-hand account of their daily lives, jobs and how the different villages of the island come together. You will also get a chance to visit a school and the surrounding bush (provided conditions are met - unavailable during weekends and school vacations). This school is where your guides have studied themselves, and is still very much active with over 400 pupils who will be glad to share moments of exchange with us along with their teachers. Guests are welcome to support the students by bringing supplies such as pens and notebooks.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERADDON" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/4c9a6926-4af7-4203-8e0e-aa40f5bc2a46/13/afrique-chobe04-croisieurope]]></URL>
+					</Media>
+					<Text><![CDATA[<p>.</p>]]></Text>
+				</Description>
+				<Description Role="Media">
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/de0632db-4622-44aa-81e0-9423189a05bf/5/afrique-du-sud-parc-national-chobe-population-enfants-eric-vancleynenbreugel]]></URL>
+					</Media>
+				</Description>
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="EXC_ZAMBEZ" />
+				<Code Role="Type" Value="X" Key="Miscellaneous"><![CDATA[EXCURSION CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="02:00" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_2AF" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:10" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_EXC_CLASSIQUE" />
+				<Keyword Ref="KW_FL_KARIBA" />
+			</Keywords>
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Water safari on the Zambezi River]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/f01fe135-eb56-4a95-82b9-3d2ffa1c291f/3/afrique-du-sud-parc-national-chobe-hippopotame-eric-vancleynenbreugel]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Water safari on the Zambezi River</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Text><![CDATA[<p>The Zambezi is a legendary 2,574-km-long river which rises in Zambia and flows through Angola, Namibia, Zimbabwe and Mozambique where it crosses the country to empty into the Indian Ocean. We&#39;ll board small private boats for our safari along the banks of the Zambezi that surround your lodge. Albeit wide and powerful, this river is home to a vast semi-aquatic wildlife such as hippos and crocodiles.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.&nbsp;</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFCOURT" />
+					</Codes>
+					<Title><![CDATA[Short description]]></Title>
+					<Text><![CDATA[<p>The Zambezi is a legendary 2,574-km-long river which rises in Zambia and flows through Angola, Namibia, Zimbabwe and Mozambique where it crosses the country to empty into the Indian Ocean. We&#39;ll board small private boats for our safari along the banks of the Zambezi that surround your lodge. Albeit wide and powerful, this river is home to a vast semi-aquatic wildlife such as hippos and crocodiles.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.&nbsp;</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERADDON" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/5df95bd0-6073-425b-8d84-02f191ae1a06/13/afrique-namibie-crocodile-charles-estour]]></URL>
+					</Media>
+					<Text><![CDATA[<p>.</p>]]></Text>
+				</Description>
+				<Description Role="Media">
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/f01fe135-eb56-4a95-82b9-3d2ffa1c291f/5/afrique-du-sud-parc-national-chobe-hippopotame-eric-vancleynenbreugel]]></URL>
+					</Media>
+				</Description>
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="EXC_VOLKAR" />
+				<Code Role="Type" Value="X" Key="Miscellaneous"><![CDATA[EXCURSION CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="02:00" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_2AF" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:10" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_EXC_CLASSIQUE" />
+				<Keyword Ref="KW_FL_KARIBA" />
+			</Keywords>
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Fly to Lake Kariba on board small private planes]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/e97dc981-74b4-476e-8479-5a60ef40d96e/3/afrique-australe-lac-kariba03-alexandre-sattler]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Fly to Lake Kariba on board small private planes</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Text><![CDATA[<p>We&#39;ve specially booked small private planes to access Lake Kariba, Zimbabwe where you&#39;ll be boarding the African Dream. Each flight lasts for about 1 hour and 40 minutes and is a true opportunity to admire stunning panoramas over the lake and its numerous islets as well as the changing landscapes of the wilderness from above.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFCOURT" />
+					</Codes>
+					<Title><![CDATA[Short description]]></Title>
+					<Text><![CDATA[<p>We&#39;ve specially booked small private planes to access Lake Kariba, Zimbabwe where you&#39;ll be boarding the African Dream. Each flight lasts for about 1 hour and 40 minutes and is a true opportunity to admire stunning panoramas over the lake and its numerous islets as well as the changing landscapes of the wilderness from above.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERADDON" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/2968e246-b5b6-451d-b2b9-d12d4b49e0e4/13/afrique-australe-lac-kariba02-alexandre-sattler]]></URL>
+					</Media>
+					<Text><![CDATA[<p>.</p>]]></Text>
+				</Description>
+				<Description Role="Media">
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/e97dc981-74b4-476e-8479-5a60ef40d96e/5/afrique-australe-lac-kariba03-alexandre-sattler]]></URL>
+					</Media>
+				</Description>
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="EXC_GACHE" />
+				<Code Role="Type" Value="X" Key="Miscellaneous"><![CDATA[EXCURSION CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="02:00" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_2AF" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:03" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_EXC_CLASSIQUE" />
+				<Keyword Ref="KW_FL_KARIBA" />
+			</Keywords>
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Water safari on the Gache-Gache River]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/4ab5d1a8-cf0e-4591-8cd9-6fff78fb5917/3/afrique-lac-kariba-safari04-croisieurope]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Water safari on the Gache-Gache River</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Text><![CDATA[<p>We&rsquo;ll set out on small private boats to discover the Gache Gache River and its unique wildlife. Gliding along its meanders, large bends and small, unspoiled inlets, you&rsquo;ll be amazed by the magical atmosphere all around. Our safari will allow you to discover the numerous bird species that live on the banks of Lake Kariba, among which the legendary African Sea Eagle, the majestic Yellow-billed Stork, or the Black Heron with its interesting hunting method.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFCOURT" />
+					</Codes>
+					<Title><![CDATA[Short description]]></Title>
+					<Text><![CDATA[<p>We&rsquo;ll set out on small private boats to discover the Gache Gache River and its unique wildlife. Gliding along its meanders, large bends and small, unspoiled inlets, you&rsquo;ll be amazed by the magical atmosphere all around. Our safari will allow you to discover the numerous bird species that live on the banks of Lake Kariba, among which the legendary African Sea Eagle, the majestic Yellow-billed Stork, or the Black Heron with its interesting hunting method.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERADDON" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/68a27f12-ab9f-465d-b939-9c97e521b7c8/13/afrique-chobe03-croisieurope]]></URL>
+					</Media>
+					<Text><![CDATA[<p>.</p>]]></Text>
+				</Description>
+				<Description Role="Media">
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/4ab5d1a8-cf0e-4591-8cd9-6fff78fb5917/5/afrique-lac-kariba-safari04-croisieurope]]></URL>
+					</Media>
+				</Description>
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="EXC_MATUSA" />
+				<Code Role="Type" Value="X" Key="Miscellaneous"><![CDATA[EXCURSION CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="03:00" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_2AF" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:05" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_EXC_CLASSIQUE" />
+				<Keyword Ref="KW_FL_KARIBA" />
+			</Keywords>
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Land and water safari in Matusadona National Park]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/e1d97e42-a9f8-49c3-b7cb-d9a54c915ffd/3/afrique-zimbabwe-matusadona-safari09-croisieurope]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Land and water safari in Matusadona National Park</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Text><![CDATA[<p>We&rsquo;ll journey out on a safari to discover the area around Matusadona National Park. Bordered by the Sanyati and Ume Rivers, this 1,400km&sup2;/540 sq mi-large untouched area is home to numerous animal species such as elephants, hippos, crocodiles, buffalos as well as thousands of birds. We might be lucky enough to cross paths with a big cat or two! The history of the park is closely linked with that of the lake: during the construction of the dam, the rising floodwaters affected the native wildlife although the damage was mitigated by Operation Noah, an initiative which saved the lives of over 6,000 animals. This rescue operation allowed for large mammals, big cats, impalas and more to be moved to Matusadona where hunting is strictly prohibited.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.&nbsp;</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFCOURT" />
+					</Codes>
+					<Title><![CDATA[Short description]]></Title>
+					<Text><![CDATA[<p>We&rsquo;ll journey out on a safari to discover the area around Matusadona National Park. Bordered by the Sanyati and Ume Rivers, this 1,400km&sup2;/540 sq mi-large untouched area is home to numerous animal species such as elephants, hippos, crocodiles, buffalos as well as thousands of birds. We might be lucky enough to cross paths with a big cat or two! The history of the park is closely linked with that of the lake: during the construction of the dam, the rising floodwaters affected the native wildlife although the damage was mitigated by Operation Noah, an initiative which saved the lives of over 6,000 animals. This rescue operation allowed for large mammals, big cats, impalas and more to be moved to Matusadona where hunting is strictly prohibited.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.&nbsp;</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERADDON" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/28a3f033-5d4c-4c0f-898d-4a4f4d793c58/13/afrique-zimbabwe-matusadona-safari-croisieurope]]></URL>
+					</Media>
+					<Text><![CDATA[<p>.</p>]]></Text>
+				</Description>
+				<Description Role="Media">
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/e1d97e42-a9f8-49c3-b7cb-d9a54c915ffd/5/afrique-zimbabwe-matusadona-safari09-croisieurope]]></URL>
+					</Media>
+				</Description>
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="EXC_DAMWAL" />
+				<Code Role="Type" Value="X" Key="Miscellaneous"><![CDATA[EXCURSION CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="00:15" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_2AF" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:02" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_EXC_CLASSIQUE" />
+				<Keyword Ref="KW_FL_KARIBA" />
+			</Keywords>
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Visit Lake Kariba's "Dam Wall"]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/bfb57cde-7c89-4fe9-8b46-36c40ed2be68/3/afrique-zambie-barrage-de-kariba01-croisieurope]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Visit Lake Kariba&#39;s &quot;Dam Wall&quot;</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Text><![CDATA[<p>We&rsquo;ll set out to discover the gigantic Kariba Dam which was created in 1955 to form Lake Kariba. Today, the dam serves as a source of electric power for 70% of Zimbabwe. You&rsquo;ll get to discover the story and legends surrounding the creation of the lake, including the tale of NyamiNyami, the river god. Reaching over 140mi/200km in length and spanning a distance of approximately 25mi/40km at its widest point, the lake flooded flatlands, hills and forests alike, creating unique and emblematic landscapes where drowned trees reach skywards from the depths of the reflecting water.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.&nbsp;</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFCOURT" />
+					</Codes>
+					<Title><![CDATA[Short description]]></Title>
+					<Text><![CDATA[<p>We&rsquo;ll set out to discover the gigantic Kariba Dam which was created in 1955 to form Lake Kariba. Today, the dam serves as a source of electric power for 70% of Zimbabwe. You&rsquo;ll get to discover the story and legends surrounding the creation of the lake, including the tale of NyamiNyami, the river god. Reaching over 140mi/200km in length and spanning a distance of approximately 25mi/40km at its widest point, the lake flooded flatlands, hills and forests alike, creating unique and emblematic landscapes where drowned trees reach skywards from the depths of the reflecting water.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.&nbsp;</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERADDON" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/cceb5689-2207-4059-804b-65caff6eeea3/13/afrique-lac-kariba-safari-elephants-croisieurope]]></URL>
+					</Media>
+					<Text><![CDATA[<p>.</p>]]></Text>
+				</Description>
+				<Description Role="Media">
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/bfb57cde-7c89-4fe9-8b46-36c40ed2be68/5/afrique-zambie-barrage-de-kariba01-croisieurope]]></URL>
+					</Media>
+				</Description>
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="EXC_CHUVIC" />
+				<Code Role="Type" Value="X" Key="Miscellaneous"><![CDATA[EXCURSION CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="02:00" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_2AF" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:02" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_EXC_CLASSIQUE" />
+				<Keyword Ref="KW_FL_KARIBA" />
+			</Keywords>
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Tour on foot of Victoria Falls]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/0d5e0b9b-6b42-4bfc-b05c-955997e82096/3/afrique-zambeze-chutes-victoria-slider-excursions-fleuves-du-monde-pipop-boosarakunwadi]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Tour on foot of Victoria Falls</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Text><![CDATA[<p>Victoria Falls were discovered by David Livingstone in 1855 and named in honor of Queen Victoria of Britain, but the indigenous Tonga name--&quot;The Smoke That Thunders&quot;--continues in common usage and suits the falls well: we&rsquo;ll leave for a guided tour on foot along a path from where the views are among the most exceptional in the world, namely where the Zambezi River plunges over the cliff to become the widest waterfall in the world. The changing viewpoints and the grandeur of this natural spectacle will unfold as we walk along.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.&nbsp;</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFCOURT" />
+					</Codes>
+					<Title><![CDATA[Short description]]></Title>
+					<Text><![CDATA[<p>Victoria Falls were discovered by David Livingstone in 1855 and named in honor of Queen Victoria of Britain, but the indigenous Tonga name--&quot;The Smoke That Thunders&quot;--continues in common usage and suits the falls well: we&rsquo;ll leave for a guided tour on foot along a path from where the views are among the most exceptional in the world, namely where the Zambezi River plunges over the cliff to become the widest waterfall in the world. The changing viewpoints and the grandeur of this natural spectacle will unfold as we walk along.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.&nbsp;</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERADDON" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/308f49a9-7f4b-4078-bb44-0334db1d71a5/13/afrique-du-sud-chobe-chutes-victoria-croisieurope]]></URL>
+					</Media>
+					<Text><![CDATA[<p>.</p>]]></Text>
+				</Description>
+				<Description Role="Media">
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/0d5e0b9b-6b42-4bfc-b05c-955997e82096/5/afrique-zambeze-chutes-victoria-slider-excursions-fleuves-du-monde-pipop-boosarakunwadi]]></URL>
+					</Media>
+				</Description>
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="EXC_LECAP" />
+				<Code Role="Type" Value="X" Key="Miscellaneous"><![CDATA[EXCURSION CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="04:00" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_2AF" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:04" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_EXC_CLASSIQUE" />
+				<Keyword Ref="KW_FL_KARIBA" />
+			</Keywords>
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Cape Town]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/a0a23df7-2900-423e-a779-97d4ccff15af/3/afrique-du-sud-zambeze-cap-de-bonne-esperance-croisieurope]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Cape Town</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Text><![CDATA[<p>We&rsquo;ll leave for a panoramic tour of the city. Cape Town is a meticulously preserved city with modern towers in the center, cobblestone roads and a bounty of historical monuments in Edwardian and Victorian architecture. We&#39;ll visit the Castle of Good Hope, the 1905 Cape Town City Hall and more before taking the Table Mountain Cableway to soak up the 360-degree views of Table Bay and the nearby peaks of the surrounding mountains (depending on suitable weather conditions).<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFCOURT" />
+					</Codes>
+					<Title><![CDATA[Short description]]></Title>
+					<Text><![CDATA[<p>We&rsquo;ll leave for a panoramic tour of the city. Cape Town is a meticulously preserved city with modern towers in the center, cobblestone roads and a bounty of historical monuments in Edwardian and Victorian architecture. We&#39;ll visit the Castle of Good Hope, the 1905 Cape Town City Hall and more before taking the Table Mountain Cableway to soak up the 360-degree views of Table Bay and the nearby peaks of the surrounding mountains (depending on suitable weather conditions).<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERADDON" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/eb170039-dd64-4ce8-80c7-334b63bf01f5/13/afrique-du-sud-le-cap04-alexandre-sattler]]></URL>
+					</Media>
+					<Text><![CDATA[<p>.</p>]]></Text>
+				</Description>
+				<Description Role="Media">
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/a0a23df7-2900-423e-a779-97d4ccff15af/5/afrique-du-sud-zambeze-cap-de-bonne-esperance-croisieurope]]></URL>
+					</Media>
+				</Description>
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="EXC_CAPESP" />
+				<Code Role="Type" Value="X" Key="Miscellaneous"><![CDATA[EXCURSION CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="08:00" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_2AF" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:01" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_EXC_CLASSIQUE" />
+				<Keyword Ref="KW_FL_KARIBA" />
+			</Keywords>
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[The Cape of Good Hope]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/9eb430d6-225d-4100-9a22-2e92949ef91b/3/afrique-du-sud-le-cap-peninsule-plage-manchots-alexandre-sattler]]></URL>
+					</Media>
+					<Text><![CDATA[<p>The Cape of Good Hope</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Text><![CDATA[<p>We&rsquo;ll set out for the legendary Cape of Good Hope riding along Chapman&rsquo;s Peak Drive, a panoramic road located on the Atlantic coast of the southwestern tip of South Africa. Listed as a national monument, this is one of the most spectacular routes of the country. The Cape of Good Hope was discovered by Portuguese explorers in 1488 and became a nature reserve in 1938 due to its extraordinarily diverse and unique fauna and flora. We&#39;ll take the famous Flying Dutchman funicular to the summit to relish panoramic views of the beautiful valleys, bays and beaches dotted all over this narrow stretch of land. After lunch, we&#39;ll set out to discover the penguin colony near Simon&#39;s Town: settled on the soft white sand between the large granite boulders or going for a dip in the turquoise blue seas, these little crowd-pleasers will surely catch your attention!<br />
+<br />
+<strong>PLEASE NOTE </strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.&nbsp;</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFCOURT" />
+					</Codes>
+					<Title><![CDATA[Short description]]></Title>
+					<Text><![CDATA[<p>We&rsquo;ll set out for the legendary Cape of Good Hope riding along Chapman&rsquo;s Peak Drive, a panoramic road located on the Atlantic coast of the southwestern tip of South Africa. Listed as a national monument, this is one of the most spectacular routes of the country. The Cape of Good Hope was discovered by Portuguese explorers in 1488 and became a nature reserve in 1938 due to its extraordinarily diverse and unique fauna and flora. We&#39;ll take the famous Flying Dutchman funicular to the summit to relish panoramic views of the beautiful valleys, bays and beaches dotted all over this narrow stretch of land. After lunch, we&#39;ll set out to discover the penguin colony near Simon&#39;s Town: settled on the soft white sand between the large granite boulders or going for a dip in the turquoise blue seas, these little crowd-pleasers will surely catch your attention!<br />
+<br />
+<strong>PLEASE NOTE </strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.&nbsp;</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERADDON" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/a0a23df7-2900-423e-a779-97d4ccff15af/13/afrique-du-sud-zambeze-cap-de-bonne-esperance-croisieurope]]></URL>
+					</Media>
+					<Text><![CDATA[<p>.</p>]]></Text>
+				</Description>
+				<Description Role="Media">
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/9eb430d6-225d-4100-9a22-2e92949ef91b/5/afrique-du-sud-le-cap-peninsule-plage-manchots-alexandre-sattler]]></URL>
+					</Media>
+				</Description>
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="EXC_ROBBEN" />
+				<Code Role="Type" Value="X" Key="Miscellaneous"><![CDATA[EXCURSION CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="06:00" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_2AF" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:07" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_EXC_CLASSIQUE" />
+				<Keyword Ref="KW_FL_KARIBA" />
+			</Keywords>
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Full-day's excursion to discover Robben Island and the Groot Constantia wine estate]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/498448e8-0208-44be-a794-10ca2210a198/3/afrique-du-sud-zambeze-robben-island-croisieurope]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Full-day&#39;s excursion to discover Robben Island and the Groot Constantia wine estate</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Text><![CDATA[<p>We&#39;ll leave for our visit of a South African National Heritage Site as well as a UNESCO World Heritage Site: Robben Island. Used for the isolation of political prisoners during Apartheid, this infamous island was where three former inmates served time before becoming President of South Africa, including Nelson Mandela. The prison closed in 1996. We&#39;ll have a guided tour of the island and its cells given by one of its former prisoners before returning to Cape Town for lunch on the waterfront.<br />
+<br />
+Afterwards, we&rsquo;ll visit the Groot Constantia wine estate, the oldest in South Africa. In 1685, the grounds of the estate were granted to Simon ven der Stel, the Governor of the Cape of Good Hope. The estate became famous in the 19th century for its expensive dessert wine which was sold to many enthusiasts throughout Europe, including Charles Baudelaire. Legend has it that Napoleon even used to order 30 bottles a month during his exile on Saint Helena island! We&rsquo;ll visit the cellar followed by a tasting.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFCOURT" />
+					</Codes>
+					<Title><![CDATA[Short description]]></Title>
+					<Text><![CDATA[<p>We&#39;ll leave for our visit of a South African National Heritage Site as well as a UNESCO World Heritage Site: Robben Island. Used for the isolation of political prisoners during Apartheid, this infamous island was where three former inmates served time before becoming President of South Africa, including Nelson Mandela. The prison closed in 1996. We&#39;ll have a guided tour of the island and its cells given by one of its former prisoners before returning to Cape Town for lunch on the waterfront.<br />
+<br />
+Afterwards, we&rsquo;ll visit the Groot Constantia wine estate, the oldest in South Africa. In 1685, the grounds of the estate were granted to Simon ven der Stel, the Governor of the Cape of Good Hope. The estate became famous in the 19th century for its expensive dessert wine which was sold to many enthusiasts throughout Europe, including Charles Baudelaire. Legend has it that Napoleon even used to order 30 bottles a month during his exile on Saint Helena island! We&rsquo;ll visit the cellar followed by a tasting.<br />
+<br />
+<strong>PLEASE NOTE</strong></p>
+
+<ul>
+	<li>Times are approximate and the order of the visits can change.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Product" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="SLIDERADDON" />
+					</Codes>
+					<Title><![CDATA[Image slider]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/54c680c6-a5f3-4050-ba6a-ce7895458aec/13/afrique-robben-island-geoff-sperring-geoff-sperring]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Image slider&nbsp;</p>]]></Text>
+				</Description>
+				<Description Role="Media">
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/498448e8-0208-44be-a794-10ca2210a198/5/afrique-du-sud-zambeze-robben-island-croisieurope]]></URL>
+					</Media>
+				</Description>
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentInsuranceType" Is="Assurance">
+			<Codes>
+				<Code Role="Product" Value="EUROP_003" />
+				<Code Role="Type" Value=""><![CDATA[]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Night" Value="0" />
+				<Duration Unit="Day" Value="0" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="T" />
+			</Histories>
+			<Keywords />
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Optional travel insurance: Cancellation-Baggage damage-Holiday curtailment-Private civil liability abroad]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Media Role="Document">
+						<URL><![CDATA[https://images.croisieurope.com/media/af255f96-2807-4df8-b72d-972f7afd35bd/europ-assistance_assurance-voyage_20402150_ch-croisieurope]]></URL>
+					</Media>
+					<Media Role="Document">
+						<URL><![CDATA[https://images.croisieurope.com/media/846493f1-caa8-4888-9252-daa63717f4bc/europ-assistance-notice-assurance-en-anglais-2016-contrat-58224398]]></URL>
+					</Media>
+					<Text><![CDATA[<p><strong>OPTIONAL INSURANCE: CANCELLATION - CURTAILMENT OF STAY - LUGGAGE - PUBLIC LIABILITY.</strong></p>
+
+<p>The cost of the trip / Insurance premium: 3.8% of the cost of the trip</p>
+
+<p><strong>PLEASE NOTE:</strong> Insurance for cancellation, luggage, curtailment of stay and public liability is not included in our prices..<br />
+It is for that reason that we strongly advise you to take out the optional insurance policy cover provided by Europ Assistance.<br />
+A leaflet detailing all of Europ Assistance&rsquo;s terms and conditions will be issued with every insurance application. The leaflet is also available on request.</p>]]></Text>
+				</Description>
+				<Description Role="Media" />
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="FORF_AFR15" />
+				<Code Role="Type" Value="7" Key="Miscellaneous"><![CDATA[FORFAIT LIE CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns">
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Included"><![CDATA[JOURNEE JOHANNESBURG - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_JOHANN" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="1" /></Codes><Durations><Duration Value="04:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Included"><![CDATA[JOURNEE PARC CHOBE - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_CHOBE" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="2" /></Codes><Durations><Duration Value="08:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Included"><![CDATA[IMPALILA ISLAND - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_IMPALI" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="3" /></Codes><Durations><Duration Value="02:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Included"><![CDATA[SAFARI NAUTIQUE ZAMBEZE - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_ZAMBEZ" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="2" Rank="Base" Index="3" /></Codes><Durations><Duration Value="02:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+				</Segments>
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_JNB" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:10" />
+			</Histories>
+			<Keywords />
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Johannesburg and stay at the lodge: land and water safaris and Impalila Island]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Text><![CDATA[<p>Johannesburg and stay at the lodge: land and water safaris and Impalila Island</p>]]></Text>
+				</Description>
+				<Description Role="Media" />
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="FORF_AFR16" />
+				<Code Role="Type" Value="7" Key="Miscellaneous"><![CDATA[FORFAIT LIE CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns">
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Optional"><![CDATA[ROBBEN ISLAND ET GROOT CONSTANTIA - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_ROBBEN" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="3" /></Codes><Durations><Duration Value="06:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Optional"><![CDATA[JOURNEE PARC CHOBE - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_CHOBE" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="7" /></Codes><Durations><Duration Value="08:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Optional"><![CDATA[IMPALILA ISLAND - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_IMPALI" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="8" /></Codes><Durations><Duration Value="02:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Optional"><![CDATA[SAFARI NAUTIQUE ZAMBEZE - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_ZAMBEZ" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="2" Rank="Base" Index="8" /></Codes><Durations><Duration Value="02:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Optional"><![CDATA[JOURNEE JOHANNESBURG - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_JOHANN" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="5" /></Codes><Durations><Duration Value="04:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Optional"><![CDATA[LE CAP - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_LECAP" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="2" /></Codes><Durations><Duration Value="04:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+					<Segment xsi:type="SegmentMiscellaneousType" Apply="Optional"><![CDATA[LE CAP DE BONNE ESPERANCE - EXCURSION INCLUS]]><Codes><Code Role="Product" Value="EXC_CAPESP" /><Code Role="Type" Value="X" /><Code Name="Confort" Value="1" /><Code Role="Keyword" Value="" /><Code Role="Sort" Value="1" Rank="Base" Index="4" /></Codes><Durations><Duration Value="08:00" Unit="Hour" /><Duration Value="1" Unit="Day" /></Durations></Segment>
+				</Segments>
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_CPT" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:10" />
+			</Histories>
+			<Keywords />
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Extended stay in Cape Town, stays in Johannesburg and the lodge: land and water safaris and Impalila Island]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Text><![CDATA[<p>Extended stay in Cape Town, stays in Johannesburg and the lodge: land and water safaris and Impalila Island</p>]]></Text>
+				</Description>
+				<Description Role="Media" />
+			</Descriptions>
+		</Segment>
+		<Segment xsi:type="SegmentMiscellaneousType" Is="Divers">
+			<Codes>
+				<Code Role="Product" Value="EXC_CAIRE2" />
+				<Code Role="Type" Value="X" Key="Miscellaneous"><![CDATA[EXCURSION CV]]></Code>
+			</Codes>
+			<Brands>
+				<Brand Role="Reference" Value="CV" />
+			</Brands>
+			<Durations>
+				<Duration Unit="Hour" Value="" />
+			</Durations>
+			<Segments>
+				<Segments What="AddOns" />
+				<Segments What="Details">
+					<Segment xsi:type="SegmentStayType">
+						<At>
+							<Location>
+								<City Ref="IATA_2NI" />
+							</Location>
+						</At>
+					</Segment>
+				</Segments>
+			</Segments>
+			<Histories>
+				<History Purpose="Issue" Rank="Last" When="2019-12-16T14:01" />
+			</Histories>
+			<Keywords>
+				<Keyword Ref="KW_EXC_CLASSIQUE" />
+				<Keyword Ref="KW_FL_NIL" />
+			</Keywords>
+			<Descriptions>
+				<Description Role="Title">
+					<Codes>
+						<Code Role="Type" Key="TITREADDON" />
+					</Codes>
+					<Text><![CDATA[Sound and Light show at the pyramids]]></Text>
+				</Description>
+				<Description Role="SubTitle">
+					<Codes>
+						<Code Role="Type" Key="SOUSTITREADDON" />
+					</Codes>
+					<Title><![CDATA[Title]]></Title>
+					<Media Role="Image">
+						<URL><![CDATA[https://images.croisieurope.com/media/a45aab8b-8063-4cfc-acc2-9a9bce4bd3bf/5/egypte-nil-pyramides-gizeh-guenter-albers-shutterstock]]></URL>
+					</Media>
+					<Text><![CDATA[<p>Sound and Light show at the pyramids</p>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIF" />
+					</Codes>
+					<Title><![CDATA[Long description]]></Title>
+					<Text><![CDATA[<p>Enjoy this astonishing show in the middle of the desert displayed on the facades of one the Seven Wonders of the Ancient World and the mysterious Great Sphinx. Learn all about the Egyptian civilization through 7,000 years of history recounted through this show.</p>
+
+<p><strong>PLEASE NOTE </strong></p>
+
+<ul>
+	<li>The order of the visits can change.</li>
+	<li>Times are approximate.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Body">
+					<Types>
+						<Type Ref="TY_Activity" />
+					</Types>
+					<Codes>
+						<Code Role="Type" Key="DESCRIPTIFCOURT" />
+					</Codes>
+					<Title><![CDATA[Short description]]></Title>
+					<Text><![CDATA[<p>Enjoy this astonishing show in the middle of the desert displayed on the facades of one the Seven Wonders of the Ancient World and the mysterious Great Sphinx. Learn all about the Egyptian civilization through 7,000 years of history recounted through this show.</p>
+
+<p><strong>PLEASE NOTE </strong></p>
+
+<ul>
+	<li>The order of the visits can change.</li>
+	<li>Times are approximate.</li>
+</ul>]]></Text>
+				</Description>
+				<Description Role="Media">
+					<Media Role="Vignette">
+						<URL><![CDATA[https://images.croisieurope.com/media/a45aab8b-8063-4cfc-acc2-9a9bce4bd3bf/5/egypte-nil-pyramides-gizeh-guenter-albers-shutterstock]]></URL>
+					</Media>
+				</Description>
+			</Descriptions>
+		</Segment>
+	</Segments>
+</Catalogue>
