@@ -91,12 +91,12 @@ $raw ='<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="ht
                <GuestTransportation Mode="29" Status="36"/>
             </Guest>
             <GuestCounts>
-               <GuestCount Age="20" Quantity="1"/> 
-               <GuestCount Age="20" Quantity="1"/>        
+               <GuestCount Age="35" Quantity="1"/> 
+               <GuestCount Age="32" Quantity="1"/>        
             </GuestCounts>
             <SailingInfo>
-               <SelectedSailing Start="2020-08-08">
-                  <CruiseLine ShipCode="SO"/>
+               <SelectedSailing Start="2020-08-15">
+                  <CruiseLine VendorCode="PUL" ShipCode="SO"/>
                </SelectedSailing>
             </SailingInfo>
             <SelectedFare FareCode="BESTRATE"/>
@@ -124,7 +124,7 @@ curl_close($ch);
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
-
+die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.pulmantur.php');
 $config = [
     'driver' => $config->db->driver,

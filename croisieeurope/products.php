@@ -469,7 +469,7 @@ if ($Catalogue->length > 0) {
                             if ($Segment2->length > 0) {
                                 $segments = "";
                                 $Apply = $Segment2->item(0)->getAttribute("Apply");
-                                $segments = $Segment2->item(0)->nodeValue;
+                                $segments3 = $Segment2->item(0)->nodeValue;
                                 $At = $Segment2->item(0)->getElementsByTagName("At");
                                 if ($At->length > 0) {
                                     $Location = $At->item(0)->getElementsByTagName("Location");
@@ -480,6 +480,30 @@ if ($Catalogue->length > 0) {
                                         }
                                     }
                                 }
+
+                                try {
+                                    $sql = new Sql($db);
+                                    $insert = $sql->insert();
+                                    $insert->into('products_catalogue_segments_segments');
+                                    $insert->values(array(
+                                        'datetime_created' => time(),
+                                        'datetime_updated' => 0,
+                                        'what' => $What,
+                                        'ref' => $Ref,
+                                        'apply' => $Apply,
+                                        'segment' => $segments3
+                                    ), $insert::VALUES_MERGE);
+                                    $statement = $sql->prepareStatementForSqlObject($insert);
+                                    $results = $statement->execute();
+                                    $db->getDriver()
+                                    ->getConnection()
+                                    ->disconnect();
+                                } catch (\Exception $e) {
+                                    echo $return;
+                                    echo "Error 5: " . $e;
+                                    echo $return;
+                                }
+
                                 $Rooms = $Segment2->item(0)->getElementsByTagName("Rooms");
                                 if ($Rooms->length > 0) {
                                     $Room = $Rooms->item(0)->getElementsByTagName("Room");
@@ -544,9 +568,9 @@ if ($Catalogue->length > 0) {
                                 if ($Durations->length > 0) {
                                     $Duration = $Durations->item(0)->getElementsByTagName("Duration");
                                     if ($Duration->length > 0) {
-                                        for ($jAux5=0; $jAux5 < $Durations->length; $jAux5++) { 
-                                            $Value = $Durations->item($jAux5)->getAttribute("Value");
-                                            $Unit = $Durations->item($jAux5)->getAttribute("Unit");
+                                        for ($jAux5=0; $jAux5 < $Duration->length; $jAux5++) { 
+                                            $Value = $Duration->item($jAux5)->getAttribute("Value");
+                                            $Unit = $Duration->item($jAux5)->getAttribute("Unit");
 
                                             try {
                                                 $sql = new Sql($db);
@@ -571,29 +595,6 @@ if ($Catalogue->length > 0) {
                                         }
                                     }
                                 }
-                            }
-
-                            try {
-                                $sql = new Sql($db);
-                                $insert = $sql->insert();
-                                $insert->into('products_catalogue_segments_segments');
-                                $insert->values(array(
-                                    'datetime_created' => time(),
-                                    'datetime_updated' => 0,
-                                    'what' => $What,
-                                    'ref' => $Ref,
-                                    'apply' => $Apply,
-                                    'segment' => $segments
-                                ), $insert::VALUES_MERGE);
-                                $statement = $sql->prepareStatementForSqlObject($insert);
-                                $results = $statement->execute();
-                                $db->getDriver()
-                                ->getConnection()
-                                ->disconnect();
-                            } catch (\Exception $e) {
-                                echo $return;
-                                echo "Error 5: " . $e;
-                                echo $return;
                             }
                         }
                     }
@@ -634,7 +635,9 @@ if ($Catalogue->length > 0) {
                     $Description = $Descriptions->item(0)->getElementsByTagName("Description");
                     if ($Description->length > 0) {
                         for ($jAux3=0; $jAux3 < $Description->length; $jAux3++) { 
+                            $Group = $Description->item($jAux3)->getAttribute("Group");
                             $Role = $Description->item($jAux3)->getAttribute("Role");
+                            $Index = $Description->item($jAux3)->getAttribute("Index");
                             $Title = $Description->item($jAux3)->getElementsByTagName("Title");
                             if ($Title->length > 0) {
                                 $Title = $Title->item(0)->nodeValue;
@@ -704,6 +707,8 @@ if ($Catalogue->length > 0) {
                                 $insert->values(array(
                                     'datetime_created' => time(),
                                     'datetime_updated' => 0,
+                                    'group' => $Group,
+                                    'index' => $Index,
                                     'role' => $Role,
                                     'title' => $Title,
                                     'text' => $Text,

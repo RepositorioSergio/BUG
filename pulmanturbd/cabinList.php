@@ -103,7 +103,7 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                 <GuestCount Age="32" Quantity="1"/>
             </GuestCounts>
             <SailingInfo>
-                <SelectedSailing Start="2020-08-08">
+                <SelectedSailing Start="2020-08-15">
                     <CruiseLine ShipCode="SO" VendorCode="PUL"/>
                     <!--Optional:-->
                     <Region RegionCode="PMARA" SubRegionCode="PDC"/>
@@ -114,10 +114,10 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                 </SelectedSailing>
                 <InclusivePackageOption CruisePackageCode="SOPD0745"/>
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                <SelectedCategory BerthedCategoryCode="JT" PricedCategoryCode="JT" WaitlistIndicator="false">
+                <SelectedCategory BerthedCategoryCode="RS" PricedCategoryCode="RS" WaitlistIndicator="false">
                 </SelectedCategory>
             </SailingInfo>
-            <SearchQualifiers BerthedCategoryCode="JT" FareCode="C4443395" GroupCode="25" CategoryLocation="Deluxe">
+            <SearchQualifiers BerthedCategoryCode="RS" FareCode="C4443395" GroupCode="1" CategoryLocation="Deluxe">
                 <Status Status="36"/>
             </SearchQualifiers>
             <SelectedFare GroupCode="25"/>
@@ -145,7 +145,7 @@ curl_close($ch);
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
-
+die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.pulmantur.php');
 $config = [
     'driver' => $config->db->driver,

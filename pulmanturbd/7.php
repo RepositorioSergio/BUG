@@ -57,7 +57,9 @@ $client->setHeaders(array(
     "Content-length: ".strlen($raw)
 ));
 
-$raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:book="http://services.rccl.com/Interfaces/BookingPrice" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
+$url = "https://stage.services.rccl.com/Interfaces/BookingPrice";
+
+$raw ='<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:book="http://services.rccl.com/Interfaces/BookingPrice" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
 <soapenv:Header/>
 <soapenv:Body>
   <book:getBookingPrice>
@@ -87,25 +89,30 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
           <CruiseLine ShipCode="SO"/>
         </SelectedSailing>
         <InclusivePackageOption CruisePackageCode="SOPD0745"/>
-        <SelectedCategory BerthedCategoryCode="RS" FareCode="BESTRATE" PricedCategoryCode="RS">
+        <SelectedCategory BerthedCategoryCode="RS" PricedCategoryCode="RS">
           <SelectedCabin CabinNumber="1010" Status="48"/>
         </SelectedCategory>
       </SailingInfo>
       <ReservationInfo>
         <GuestDetails>
           <GuestDetail>
+            <!--0 to 9 repetitions:-->
+            <SelectedFareCode FareCode="BESTRATE" GroupCode="1"/>
             <ContactInfo Age="35"/>
             <GuestTransportation Mode="29" Status="36">
               <GatewayCity LocationCode="C/O"/>
             </GuestTransportation>
             <SelectedDining Sitting="M"/>
+            <SelectedInsurance InsuranceCode="TISP" SelectedOptionIndicator="true"/>
           </GuestDetail>
           <GuestDetail>
+            <SelectedFareCode FareCode="BESTRATE" GroupCode="1"/>
             <ContactInfo Age="32"/>
             <GuestTransportation Mode="29" Status="36">
               <GatewayCity LocationCode="C/O"/>
             </GuestTransportation>
             <SelectedDining Sitting="M"/>
+            <SelectedInsurance InsuranceCode="TISP"/>
           </GuestDetail>
         </GuestDetails>
       </ReservationInfo>
@@ -113,6 +120,147 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
   </book:getBookingPrice>
 </soapenv:Body>
 </soapenv:Envelope>';
+
+$raw2 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:book="http://services.rccl.com/Interfaces/BookingPrice" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
+<soapenv:Header/>
+<soapenv:Body>
+   <book:getBookingPrice>
+      <alp:OTA_CruisePriceBookingRQ TimeStamp="2008-07-17T12:44:44.866-04:00" Target="Test" Version="1.0" SequenceNmbr="1" PrimaryLangID="en" RetransmissionIndicator="false" MoreIndicator="true" MaxResponses="50">
+         <alp:POS>
+            <!--1 to 10 repetitions:-->
+            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <alp:RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+                <alp:BookingChannel Type="7">
+                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                </alp:BookingChannel>
+            </alp:Source>
+            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <alp:RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+                <alp:BookingChannel Type="7">
+                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                </alp:BookingChannel>
+            </alp:Source>
+            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <alp:RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+                <alp:BookingChannel Type="7">
+                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                </alp:BookingChannel>
+            </alp:Source>
+         </alp:POS>
+         <!--Optional:-->
+         <alp:GuestCounts>
+            <!--1 to 9 repetitions:-->
+            <alp:GuestCount Age="35" Quantity="1"/>
+            <alp:GuestCount Age="32" Quantity="1"/>
+         </alp:GuestCounts>
+         <alp:SailingInfo>
+            <!--Optional:-->
+            <alp:SelectedSailing Start="2020-08-15">
+               <alp:CruiseLine ShipCode="SO"/>
+            </alp:SelectedSailing>
+            <!--Optional:-->
+            <alp:InclusivePackageOption CruisePackageCode="SOPD0745" InclusiveIndicator="false"/>
+            <!--Optional:-->
+            <alp:Currency CurrencyCode="USD" DecimalPlaces="2"/>
+            <!--0 to 2 repetitions:-->
+            <alp:SelectedCategory BerthedCategoryCode="RS" PricedCategoryCode="RS">
+               <!--0 to 3 repetitions:-->
+               <alp:SelectedCabin Status="48" CabinNumber="1010"/>
+            </alp:SelectedCategory>
+         </alp:SailingInfo>
+         <alp:ReservationInfo>
+            <alp:GuestDetails>
+               <!--1 to 9 repetitions:-->
+               <alp:GuestDetail>
+                  <!--0 to 9 repetitions:-->
+                  <alp:SelectedFareCode FareCode="BESTRATE"/>
+                  <!--0 to 3 repetitions:-->
+                  <alp:ContactInfo Age="35"/>
+                  <!--0 to 2 repetitions:-->
+                  <alp:SelectedDining Sitting="M"/>
+                  <!--0 to 9 repetitions:-->
+                  <alp:SelectedInsurance InsuranceCode="TISP"/>
+               </alp:GuestDetail>
+               <alp:GuestDetail>
+                  <!--0 to 9 repetitions:-->
+                  <alp:SelectedFareCode FareCode="BESTRATE"/>
+                  <!--0 to 3 repetitions:-->
+                  <alp:ContactInfo Age="32"/>
+                  <!--0 to 2 repetitions:-->
+                  <alp:SelectedDining Sitting="M"/>
+                  <!--0 to 9 repetitions:-->
+                  <alp:SelectedInsurance InsuranceCode="TISP"/>
+               </alp:GuestDetail>
+            </alp:GuestDetails>
+         </alp:ReservationInfo>
+      </alp:OTA_CruisePriceBookingRQ>
+   </book:getBookingPrice>
+</soapenv:Body>
+</soapenv:Envelope>';
+
+
+$raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:book="http://services.rccl.com/Interfaces/BookingPrice" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <book:getBookingPrice>
+      <OTA_CruisePriceBookingRQ Version="1.0" SequenceNmbr="1" TimeStamp="2008-12-30T18:30:42.720+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+        <POS>
+          <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+          <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+          <BookingChannel Type="7">
+            <CompanyName CompanyShortName="PULLMANTUR"/>
+          </BookingChannel>
+          </Source>
+          <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+          <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+          <BookingChannel Type="7">
+            <CompanyName CompanyShortName="PULLMANTUR"/>
+          </BookingChannel>
+          </Source>
+          <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+          <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+          <BookingChannel Type="7">
+            <CompanyName CompanyShortName="PULLMANTUR"/>
+          </BookingChannel>
+          </Source>
+        </POS>
+        <SailingInfo>
+          <SelectedSailing Start="2020-08-08">
+            <CruiseLine ShipCode="SO"/>
+          </SelectedSailing>
+          <InclusivePackageOption CruisePackageCode="SOPD0745"/>
+          <SelectedCategory BerthedCategoryCode="JT" FareCode="C4443395" PricedCategoryCode="JT">
+            <SelectedCabin CabinNumber="1550" Status="36"/>
+          </SelectedCategory>
+        </SailingInfo>
+        <ReservationInfo>
+          <GuestDetails>
+            <GuestDetail>
+              <ContactInfo Age="35"/>
+              <GuestTransportation Mode="29" Status="36">
+                <GatewayCity LocationCode="C/O"/>
+              </GuestTransportation>
+              <SelectedDining Sitting="M"/>
+              <SelectedInsurance InsuranceCode="TISP" SelectedOptionIndicator="true"/>
+            </GuestDetail>
+            <GuestDetail>
+              <ContactInfo Age="32"/>
+              <GuestTransportation Mode="29" Status="36">
+                <GatewayCity LocationCode="C/O"/>
+              </GuestTransportation>
+              <SelectedDining Sitting="M"/>
+              <SelectedInsurance InsuranceCode="TISP"/>
+            </GuestDetail>
+          </GuestDetails>
+        </ReservationInfo>
+      </OTA_CruisePriceBookingRQ>
+    </book:getBookingPrice>
+  </soapenv:Body>
+</soapenv:Envelope>';
+
+echo $return;
+echo $raw;
+echo $return;
 
 $url = 'https://stage.services.rccl.com/Reservation_FITWeb/sca/BookingPrice';
 

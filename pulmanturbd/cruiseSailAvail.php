@@ -119,7 +119,7 @@ echo "<br/>RESPONSE";
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
-
+die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.pulmantur.php');
 $config = [
     'driver' => $config->db->driver,

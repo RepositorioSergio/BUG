@@ -88,10 +88,10 @@ $raw ='<?xml version="1.0" encoding="UTF-8"?>
                     </Source>
                 </POS>
                 <SailingInfo>
-                    <SelectedSailing Start="2020-08-08">
+                    <SelectedSailing Start="2020-08-15">
                         <CruiseLine ShipCode="SO"/>
                     </SelectedSailing>
-                    <SelectedCategory BerthedCategoryCode="JT"/>
+                    <SelectedCategory BerthedCategoryCode="RS"/>
                 </SailingInfo>
             </OTA_CruiseSpecialServiceAvailRQ>
         </ol:getOptionList>

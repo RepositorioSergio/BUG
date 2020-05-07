@@ -39,7 +39,7 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$filename = 'en/CE/Products.xml';
+$filename = 'en/CE/ProductsAvailable.xml';
 $response = file_get_contents($filename);
 
 echo "<xmp>";
@@ -467,137 +467,148 @@ if ($Catalogue->length > 0) {
                             $What = $Segments2->item($jAux)->getAttribute("What");
                             $Segment2 = $Segments2->item($jAux)->getElementsByTagName("Segment");
                             if ($Segment2->length > 0) {
-                                $segments = "";
-                                $Apply = $Segment2->item(0)->getAttribute("Apply");
-                                $segments = $Segment2->item(0)->nodeValue;
-                                $At = $Segment2->item(0)->getElementsByTagName("At");
-                                if ($At->length > 0) {
-                                    $Location = $At->item(0)->getElementsByTagName("Location");
-                                    if ($Location->length > 0) {
-                                        $City = $Location->item(0)->getElementsByTagName("City");
-                                        if ($City->length > 0) {
-                                            $Ref = $City->item(0)->getAttribute("Ref");
+                                for ($jAux6=0; $jAux6 < $Segment2->length; $jAux6++) { 
+                                    $segments3 = "";
+                                    $Apply = $Segment2->item($jAux6)->getAttribute("Apply");
+                                    $segments3 = $Segment2->item(0)->nodeValue;
+                                    echo $return;
+                                    echo "segments3: " . $segments3;
+                                    echo $return;
+                                    $At = $Segment2->item($jAux6)->getElementsByTagName("At");
+                                    if ($At->length > 0) {
+                                        $Location = $At->item(0)->getElementsByTagName("Location");
+                                        if ($Location->length > 0) {
+                                            $City = $Location->item(0)->getElementsByTagName("City");
+                                            if ($City->length > 0) {
+                                                $Ref = $City->item(0)->getAttribute("Ref");
+                                            }
                                         }
                                     }
-                                }
-                                $Rooms = $Segment2->item(0)->getElementsByTagName("Rooms");
-                                if ($Rooms->length > 0) {
-                                    $Room = $Rooms->item(0)->getElementsByTagName("Room");
-                                    if ($Room->length > 0) {
-                                        for ($jAux6=0; $jAux6 < $Room->length; $jAux6++) { 
-                                            $Code = $Room->item(0)->getAttribute("Code");
+                                    $MealPlan = $Segment2->item($jAux6)->getElementsByTagName("MealPlan");
+                                    if ($MealPlan->length > 0) {
+                                        $MealPlanRef = $MealPlan->item(0)->getAttribute("Ref");
+                                    }
 
-                                            try {
-                                                $sql = new Sql($db);
-                                                $insert = $sql->insert();
-                                                $insert->into('productsavailable_catalogue_segments_segments_rooms');
-                                                $insert->values(array(
-                                                    'datetime_created' => time(),
-                                                    'datetime_updated' => 0,
-                                                    'code' => $Code,
-                                                ), $insert::VALUES_MERGE);
-                                                $statement = $sql->prepareStatementForSqlObject($insert);
-                                                $results = $statement->execute();
-                                                $db->getDriver()
-                                                ->getConnection()
-                                                ->disconnect();
-                                            } catch (\Exception $e) {
-                                                echo $return;
-                                                echo "Error 15: " . $e;
-                                                echo $return;
+                                    try {
+                                        $sql = new Sql($db);
+                                        $insert = $sql->insert();
+                                        $insert->into('productsavailable_catalogue_segments_segments');
+                                        $insert->values(array(
+                                            'datetime_created' => time(),
+                                            'datetime_updated' => 0,
+                                            'what' => $What,
+                                            'apply' => $Apply,
+                                            'segment' => $segments3,
+                                            'ref' => $Ref,
+                                            'mealplanref' => $MealPlanRef
+                                        ), $insert::VALUES_MERGE);
+                                        $statement = $sql->prepareStatementForSqlObject($insert);
+                                        $results = $statement->execute();
+                                        $db->getDriver()
+                                        ->getConnection()
+                                        ->disconnect();
+                                    } catch (\Exception $e) {
+                                        echo $return;
+                                        echo "Error 5: " . $e;
+                                        echo $return;
+                                    }
+
+                                    $Codes = $Segment2->item($jAux6)->getElementsByTagName("Codes");
+                                    if ($Codes->length > 0) {
+                                        $Code = $Codes->item(0)->getElementsByTagName("Code");
+                                        if ($Code->length > 0) {
+                                            for ($jAux4=0; $jAux4 < $Code->length; $jAux4++) { 
+                                                $Role = $Code->item($jAux4)->getAttribute("Role");
+                                                $Value = $Code->item($jAux4)->getAttribute("Value");
+
+                                                try {
+                                                    $sql = new Sql($db);
+                                                    $insert = $sql->insert();
+                                                    $insert->into('productsavailable_catalogue_segments_segments_codes');
+                                                    $insert->values(array(
+                                                        'datetime_created' => time(),
+                                                        'datetime_updated' => 0,
+                                                        'role' => $Role,
+                                                        'value' => $Value
+                                                    ), $insert::VALUES_MERGE);
+                                                    $statement = $sql->prepareStatementForSqlObject($insert);
+                                                    $results = $statement->execute();
+                                                    $db->getDriver()
+                                                    ->getConnection()
+                                                    ->disconnect();
+                                                } catch (\Exception $e) {
+                                                    echo $return;
+                                                    echo "Error 13: " . $e;
+                                                    echo $return;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    $Durations = $Segment2->item($jAux6)->getElementsByTagName("Durations");
+                                    if ($Durations->length > 0) {
+                                        $Duration = $Durations->item(0)->getElementsByTagName("Duration");
+                                        if ($Duration->length > 0) {
+                                            for ($jAux5=0; $jAux5 < $Duration->length; $jAux5++) { 
+                                                $Value = $Duration->item($jAux5)->getAttribute("Value");
+                                                $Unit = $Duration->item($jAux5)->getAttribute("Unit");
+
+                                                try {
+                                                    $sql = new Sql($db);
+                                                    $insert = $sql->insert();
+                                                    $insert->into('productsavailable_catalogue_segments_segments_durations');
+                                                    $insert->values(array(
+                                                        'datetime_created' => time(),
+                                                        'datetime_updated' => 0,
+                                                        'value' => $Value,
+                                                        'unit' => $Unit
+                                                    ), $insert::VALUES_MERGE);
+                                                    $statement = $sql->prepareStatementForSqlObject($insert);
+                                                    $results = $statement->execute();
+                                                    $db->getDriver()
+                                                    ->getConnection()
+                                                    ->disconnect();
+                                                } catch (\Exception $e) {
+                                                    echo $return;
+                                                    echo "Error 14: " . $e;
+                                                    echo $return;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    $Rooms = $Segment2->item($jAux6)->getElementsByTagName("Rooms");
+                                    if ($Rooms->length > 0) {
+                                        $Room = $Rooms->item(0)->getElementsByTagName("Room");
+                                        if ($Room->length > 0) {
+                                            for ($jAux6=0; $jAux6 < $Room->length; $jAux6++) { 
+                                                $Code = $Room->item($jAux6)->getAttribute("Code");
+
+                                                try {
+                                                    $sql = new Sql($db);
+                                                    $insert = $sql->insert();
+                                                    $insert->into('productsavailable_catalogue_segments_segments_rooms');
+                                                    $insert->values(array(
+                                                        'datetime_created' => time(),
+                                                        'datetime_updated' => 0,
+                                                        'code' => $Code,
+                                                    ), $insert::VALUES_MERGE);
+                                                    $statement = $sql->prepareStatementForSqlObject($insert);
+                                                    $results = $statement->execute();
+                                                    $db->getDriver()
+                                                    ->getConnection()
+                                                    ->disconnect();
+                                                } catch (\Exception $e) {
+                                                    echo $return;
+                                                    echo "Error 15: " . $e;
+                                                    echo $return;
+                                                }
                                             }
                                         }
                                     }
                                 }
-                                $Codes = $Segment2->item(0)->getElementsByTagName("Codes");
-                                if ($Codes->length > 0) {
-                                    $Code = $Codes->item(0)->getElementsByTagName("Code");
-                                    if ($Code->length > 0) {
-                                        for ($jAux4=0; $jAux4 < $Code->length; $jAux4++) { 
-                                            $Role = $Code->item($jAux4)->getAttribute("Role");
-                                            $Value = $Code->item($jAux4)->getAttribute("Value");
-
-                                            try {
-                                                $sql = new Sql($db);
-                                                $insert = $sql->insert();
-                                                $insert->into('productsavailable_catalogue_segments_segments_codes');
-                                                $insert->values(array(
-                                                    'datetime_created' => time(),
-                                                    'datetime_updated' => 0,
-                                                    'role' => $Role,
-                                                    'value' => $Value
-                                                ), $insert::VALUES_MERGE);
-                                                $statement = $sql->prepareStatementForSqlObject($insert);
-                                                $results = $statement->execute();
-                                                $db->getDriver()
-                                                ->getConnection()
-                                                ->disconnect();
-                                            } catch (\Exception $e) {
-                                                echo $return;
-                                                echo "Error 13: " . $e;
-                                                echo $return;
-                                            }
-                                        }
-                                    }
-                                }
-                                $Durations = $Segment2->item(0)->getElementsByTagName("Durations");
-                                if ($Durations->length > 0) {
-                                    $Duration = $Durations->item(0)->getElementsByTagName("Duration");
-                                    if ($Duration->length > 0) {
-                                        for ($jAux5=0; $jAux5 < $Durations->length; $jAux5++) { 
-                                            $Value = $Durations->item($jAux5)->getAttribute("Value");
-                                            $Unit = $Durations->item($jAux5)->getAttribute("Unit");
-
-                                            try {
-                                                $sql = new Sql($db);
-                                                $insert = $sql->insert();
-                                                $insert->into('productsavailable_catalogue_segments_segments_durations');
-                                                $insert->values(array(
-                                                    'datetime_created' => time(),
-                                                    'datetime_updated' => 0,
-                                                    'value' => $Value,
-                                                    'unit' => $Unit
-                                                ), $insert::VALUES_MERGE);
-                                                $statement = $sql->prepareStatementForSqlObject($insert);
-                                                $results = $statement->execute();
-                                                $db->getDriver()
-                                                ->getConnection()
-                                                ->disconnect();
-                                            } catch (\Exception $e) {
-                                                echo $return;
-                                                echo "Error 14: " . $e;
-                                                echo $return;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            try {
-                                $sql = new Sql($db);
-                                $insert = $sql->insert();
-                                $insert->into('productsavailable_catalogue_segments_segments');
-                                $insert->values(array(
-                                    'datetime_created' => time(),
-                                    'datetime_updated' => 0,
-                                    'what' => $What,
-                                    'ref' => $Ref,
-                                    'apply' => $Apply,
-                                    'segment' => $segments
-                                ), $insert::VALUES_MERGE);
-                                $statement = $sql->prepareStatementForSqlObject($insert);
-                                $results = $statement->execute();
-                                $db->getDriver()
-                                ->getConnection()
-                                ->disconnect();
-                            } catch (\Exception $e) {
-                                echo $return;
-                                echo "Error 5: " . $e;
-                                echo $return;
                             }
                         }
                     }
-                }
+                } 
                 // Keywords 
                 $Keywords = $Segment->item($j)->getElementsByTagName("Keywords");
                 if ($Keywords->length > 0) {
@@ -605,6 +616,9 @@ if ($Catalogue->length > 0) {
                     if ($Keyword->length > 0) {
                         for ($jAux2=0; $jAux2 < $Keyword->length; $jAux2++) { 
                             $Ref = $Keyword->item($jAux2)->getAttribute("Ref");
+                            echo $return;
+                            echo "Ref: " . $Ref;
+                            echo $return;
 
                             try {
                                 $sql = new Sql($db);
@@ -634,13 +648,18 @@ if ($Catalogue->length > 0) {
                     $Description = $Descriptions->item(0)->getElementsByTagName("Description");
                     if ($Description->length > 0) {
                         for ($jAux3=0; $jAux3 < $Description->length; $jAux3++) { 
+                            $Group = $Description->item($jAux3)->getAttribute("Group");
                             $Role = $Description->item($jAux3)->getAttribute("Role");
+                            $Index = $Description->item($jAux3)->getAttribute("Index");
                             $Title = $Description->item($jAux3)->getElementsByTagName("Title");
                             if ($Title->length > 0) {
                                 $Title = $Title->item(0)->nodeValue;
                             } else {
                                 $Title = "";
                             }
+                            echo $return;
+                            echo "Title: " . $Title;
+                            echo $return;
                             $Text = $Description->item($jAux3)->getElementsByTagName("Text");
                             if ($Text->length > 0) {
                                 $Text = $Text->item(0)->nodeValue;
@@ -704,6 +723,8 @@ if ($Catalogue->length > 0) {
                                 $insert->values(array(
                                     'datetime_created' => time(),
                                     'datetime_updated' => 0,
+                                    'group' => $Group,
+                                    'index' => $Index,
                                     'role' => $Role,
                                     'title' => $Title,
                                     'text' => $Text,

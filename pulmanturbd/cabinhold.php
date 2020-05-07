@@ -69,19 +69,19 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
       <hol:holdCabin>
       <OTA_CruiseCabinHoldRQ Version="1.0" SequenceNmbr="1" TimeStamp="2008-12-30T18:30:42.720+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
          <POS>
-            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+            <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
                <RequestorID ID="279796" ID_Context="AGENCY1" Type="5"/>
                <BookingChannel Type="7">
                   <CompanyName CompanyShortName="PULLMANTUR"/>
                </BookingChannel>
             </Source>
-            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+            <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
                <RequestorID ID="279796" ID_Context="AGENCY2" Type="5"/>
                <BookingChannel Type="7">
                   <CompanyName CompanyShortName="PULLMANTUR"/>
                </BookingChannel>
             </Source>
-            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+            <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
                <RequestorID ID="279796" ID_Context="AGENT1" Type="5"/>
                <BookingChannel Type="7">
                   <CompanyName CompanyShortName="PULLMANTUR"/>
@@ -91,16 +91,16 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
          <GuestCounts>
             <GuestCount Quantity="2"/>
          </GuestCounts>
-         <SelectedSailing Start="2020-08-08" ShipCode="SO" VendorCode="PUL">
-            <SelectedFare GroupCode="25"/>
-            <SelectedCategory BerthedCategoryCode="JT" PricedCategoryCode="JT">
+         <SelectedSailing Start="2020-08-15" ShipCode="SO" VendorCode="PUL">
+            <SelectedFare FareCode="BESTRATE" GroupCode="1"/>
+            <SelectedCategory BerthedCategoryCode="RS" PricedCategoryCode="RS">
                 <!--Optional:-->
                 <CabinAttributes>
                     <!--1 to 99 repetitions:-->
-                    <CabinAttribute CabinAttributeCode="86"/>
+                    <CabinAttribute CabinAttributeCode="99"/>
                 </CabinAttributes>
                 <!--1 to 4 repetitions:-->
-               <SelectedCabin CabinNumber="1550" MaxOccupancy="2"/>
+               <SelectedCabin CabinNumber="1010" MaxOccupancy="4"/>
             </SelectedCategory>
             <InclusivePackageOption CruisePackageCode="SOPD0745" InclusiveIndicator="false"/>
          </SelectedSailing>
@@ -108,12 +108,14 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
          <Guest LoyaltyMembershipID="8888888"/>
          <Guest LoyaltyMembershipID="7777777"/>
          <!--Optional:-->
-        <alp:SearchQualifiers BerthedCategoryCode="JT" PricedCategoryCode="JT" CabinNumber="1550" GroupCode="25" MaxOccupancy="2" DeckNumber="10" DeckName="CUBIERTA 10">
+            <alp:Currency CurrencyCode="USD" DecimalPlaces="2"/>
+         <!--Optional:-->
+        <SearchQualifiers BerthedCategoryCode="RS" PricedCategoryCode="RS" CabinNumber="1010" GroupCode="1" MaxOccupancy="4" DeckNumber="10" DeckName="CUBIERTA 10">
             <!--0 to 5 repetitions:-->
-            <alp:Status Status="36"/>
+            <Status Status="36"/>
             <!--Optional:-->
-            <alp:Dining Sitting="M"/>
-        </alp:SearchQualifiers>
+            <Dining Sitting="2"/>
+        </SearchQualifiers>
       </OTA_CruiseCabinHoldRQ>
       </hol:holdCabin>
    </soapenv:Body>
@@ -135,7 +137,6 @@ $error = curl_error($ch);
 $headers = curl_getinfo($ch);
 curl_close($ch);
 
-echo "<br/>RESPONSE";
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
@@ -154,45 +155,47 @@ $inputDoc = new DOMDocument();
 $inputDoc->loadXML($response);
 $Envelope = $inputDoc->getElementsByTagName("Envelope");
 $Body = $Envelope->item(0)->getElementsByTagName("Body");
-$getOptionListResponse = $Body->item(0)->getElementsByTagName("getOptionListResponse");
-$OTA_CruiseSpecialServiceAvailRS = $getOptionListResponse->item(0)->getElementsByTagName("OTA_CruiseSpecialServiceAvailRS");
-$SpecialServices = $OTA_CruiseSpecialServiceAvailRS->item(0)->getElementsByTagName("SpecialServices");
-$node = $SpecialServices->item(0)->getElementsByTagName("SpecialService");
-for ($i=0; $i < $node->length; $i++) { 
-    $Code = $node->item($i)->getAttribute("Code");
-    $Description = $node->item($i)->getAttribute("Description");
-    $AssociationType = $node->item($i)->getAttribute("AssociationType");
-
-    $PriceInfo = $node->item($i)->getElementsByTagName("PriceInfo");
-    if ($PriceInfo->length > 0) {
-        $ChargeTypeCode = $PriceInfo->item(0)->getAttribute("ChargeTypeCode");
-        $Amount = $PriceInfo->item(0)->getAttribute("Amount");
-    }
-
-    try {
-        $sql = new Sql($db);
-        $insert = $sql->insert();
-        $insert->into('optionList');
-        $insert->values(array(
-            'datetime_created' => time(),
-            'datetime_updated' => 0,
-            'Code' => $Code,
-            'Description' => $Description,
-            'AssociationType' => $AssociationType,
-            'ChargeTypeCode' => $ChargeTypeCode,
-            'Amount' => $Amount
-        ), $insert::VALUES_MERGE);
-        $statement = $sql->prepareStatementForSqlObject($insert);
-        $results = $statement->execute();
-        $db->getDriver()
-            ->getConnection()
-            ->disconnect();
-    } catch (\Exception $e) {
-        echo $return;
-        echo "ERRO: " . $e;
-        echo $return;
+$holdCabinResponse = $Body->item(0)->getElementsByTagName("holdCabinResponse");
+if ($holdCabinResponse->length > 0) {
+    $OTA_CruiseCabinHoldRS = $holdCabinResponse->item(0)->getElementsByTagName("OTA_CruiseCabinHoldRS");
+    if ($OTA_CruiseCabinHoldRS->length > 0) {
+        $SelectedSailing = $OTA_CruiseCabinHoldRS->item(0)->getElementsByTagName("SelectedSailing");
+        if ($SelectedSailing->length > 0) {
+            $SelectedCabin = $SelectedSailing->item(0)->getElementsByTagName("SelectedCabin");
+            if ($SelectedCabin->length > 0) {
+                $CabinNumber = $SelectedCabin->item(0)->getAttribute("CabinNumber");
+                $HeldIndicator = $SelectedCabin->item(0)->getAttribute("HeldIndicator");
+                $ReleaseDateTime = $SelectedCabin->item(0)->getAttribute("ReleaseDateTime");
+                $Status = $SelectedCabin->item(0)->getAttribute("Status");
+                $CabinFilters = $SelectedCabin->item(0)->getElementsByTagName("CabinFilters");
+                if ($CabinFilters->length > 0) {
+                    $CabinFilter = $CabinFilters->item(0)->getElementsByTagName("CabinFilter");
+                    if ($CabinFilter->length > 0) {
+                        for ($i=0; $i < $CabinFilter->length; $i++) { 
+                            $CabinFilterCode = $CabinFilter->item($i)->getAttribute("CabinFilterCode");
+                        }
+                    }
+                }
+            }
+            $Insurance = $SelectedSailing->item(0)->getElementsByTagName("Insurance");
+            if ($Insurance->length > 0) {
+                $InsuranceCode = $Insurance->item(0)->getAttribute("InsuranceCode");
+                $InsuranceStatus = $Insurance->item(0)->getAttribute("Status");
+            }
+            $Information = $SelectedSailing->item(0)->getElementsByTagName("Information");
+            if ($Information->length > 0) {
+                $Name = $Information->item(0)->getAttribute("Name");
+                $Text = $Information->item(0)->getElementsByTagName("Text");
+                if ($Text->length > 0) {
+                    $Text = $Text->item(0)->nodeValue;
+                } else {
+                    $Text = "";
+                }
+            }
+        }
     }
 }
+
 
 // EOF
 $db->getDriver()
