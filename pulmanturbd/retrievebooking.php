@@ -62,111 +62,71 @@ $password = 'u73ecKBu73ecKB!';
 
 $url = 'https://stage.services.rccl.com/Reservation_FITWeb/sca/ConfirmBooking';
 
-$raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:conf="http://services.rccl.com/Interfaces/ConfirmBooking" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
-<soap:Body>
-    <conf:confirmBooking>
-    <OTA_CruiseBookRQ TransactionActionCode="Commit" Version="1.0" SequenceNmbr="1" TimeStamp="2008-12-30T18:30:42.720+05:30" RetransmissionIndicator="false" Target="Test" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
-    <POS>
-        <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-            <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
-            <BookingChannel Type="7">
-            <CompanyName CompanyShortName="PULLMANTUR"/>
-            </BookingChannel>
-        </Source>
-        <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-            <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
-            <BookingChannel Type="7">
-            <CompanyName CompanyShortName="PULLMANTUR"/>
-            </BookingChannel>
-        </Source>
-        <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-            <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
-            <BookingChannel Type="7">
-            <CompanyName CompanyShortName="PULLMANTUR"/>
-            </BookingChannel>
-        </Source>
-    </POS>
-    <AgentInfo Contact="CMOTEST" ContactID="CMOtest_MI"/>
-    <SailingInfo>
-        <SelectedSailing Start="2020-09-13">
-            <CruiseLine ShipCode="HR"/>
-        </SelectedSailing>
-        <InclusivePackageOption CruisePackageCode="HRPT0734"/>
-        <SelectedCategory PricedCategoryCode="GS" BerthedCategoryCode="GS" FareCode="BESTRATE" DeckNumber="10" DeckName="CUBIERTA 10">
-            <!--Optional:-->
-            <alp:CabinAttributes>
-                <!--1 to 99 repetitions:-->
-                <alp:CabinAttribute CabinAttributeCode="99"/>
-            </alp:CabinAttributes>
-            <SelectedCabin Status="39" CabinNumber="1068" MaxOccupancy="4"/>
-        </SelectedCategory>
-    </SailingInfo>
-    <ReservationInfo>
-        <ReservationID LastModifyDateTime="2020-05-08T17:33:07.000Z" ID="0000000" Type="14"/>
-        <GuestDetails>
-            <GuestDetail>
-                <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="30" ContactType="CNT">
-                <PersonName>
-                    <GivenName>David</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    <NameTitle>MR</NameTitle>
-                </PersonName>
-                </ContactInfo>
-                <ContactInfo ContactType="ALT">
-                    <PersonName>
-                    <GivenName>David</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    </PersonName>
-                    <Address>
-                    <AddressLine>MAhonia 2</AddressLine>
-                    <CityName>Madrid</CityName>
-                    <PostalCode>28043</PostalCode>
-                    <CountryName Code="ES"/>
-                    </Address>
-                    <Email>davizch2004@gmail.com</Email>
-                </ContactInfo>
-                <ContactInfo ContactType="EMG">
-                    <PersonName>
-                    <GivenName>David</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    </PersonName>
-                    <Telephone PhoneNumber=" "/>
-                </ContactInfo>
-                <GuestTransportation Status="36" Mode="29">
-                    <GatewayCity LocationCode="C/O"/>
-                </GuestTransportation>
-                <SelectedDining Status="36" Sitting="M"/>
-                <CruiseDocument DocumentLanguage="ES"/>
-            </GuestDetail>
-            <GuestDetail>
-                <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="5" ContactType="CNT">
-                    <PersonName>
-                        <GivenName>Javier</GivenName>
-                        <Surname>Sanchez PEREZ</Surname>
-                        <NameTitle>MR</NameTitle>
-                    </PersonName>
-                </ContactInfo>
-                <ContactInfo ContactType="EMG">
-                    <PersonName>
-                        <GivenName>David</GivenName>
-                        <Surname>Sanchez LLorente</Surname>
-                    </PersonName>
-                    <Telephone PhoneNumber=""/>
-                </ContactInfo>
-                <GuestTransportation Status="36" Mode="29">
-                <GatewayCity LocationCode="C/O"/>
-                </GuestTransportation>
-                <SelectedDining Status="36" Sitting="M" Language="ES"/>
-                <CruiseDocument DocumentLanguage="ES"/>
-            </GuestDetail>
-        </GuestDetails>
-    </ReservationInfo>
-    </OTA_CruiseBookRQ>
-    </conf:confirmBooking>
-</soap:Body>
-</soap:Envelope>';
+$raw ='<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ret="http://services.rccl.com/Interfaces/RetrieveBooking" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
+<soapenv:Header/>
+<soapenv:Body>
+   <ret:retrieveBooking>
+   <OTA_ReadRQ TimeStamp="2013-09-03T18:35:46.317Z" Version="1.0" SequenceNmbr="1" RetransmissionIndicator="false" TransactionActionCode="RetrievePrice" Target="Test" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+        <POS>
+            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+                <BookingChannel Type="7">
+                    <CompanyName CompanyShortName="PULLMANTUR"/>
+                </BookingChannel>
+            </Source>
+            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+                <BookingChannel Type="7">
+                    <CompanyName CompanyShortName="PULLMANTUR"/>
+                </BookingChannel>
+            </Source>
+            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+                <BookingChannel Type="7">
+                    <CompanyName CompanyShortName="PULLMANTUR"/>
+                </BookingChannel>
+            </Source>
+        </POS>
+        <UniqueID ID="0" Type="14"/>
+   </OTA_ReadRQ>
+   </ret:retrieveBooking>
+   </soapenv:Body>
+</soapenv:Envelope>';
+
+$raw2 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ret="http://services.rccl.com/Interfaces/RetrieveBooking" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
+<soapenv:Header/>
+<soapenv:Body>
+   <ret:retrieveBooking>
+      <alp:OTA_ReadRQ EchoToken="?" MessageUUID="?" TimeStamp="?" Target="Production" Version="?" TransactionIdentifier="?" SequenceNmbr="?" TransactionStatusCode="?" PrimaryLangID="?" AltLangID="?" RetransmissionIndicator="?" ReqRespVersion="?" ReservationType="?" ReturnListIndicator="?" MoreIndicator="?" MoreDataEchoToken="?" MaxResponses="?" TransactionActionCode="?">
+         <!--Optional:-->
+         <alp:POS>
+            <!--1 to 10 repetitions:-->
+            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <alp:RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+                <alp:BookingChannel Type="7">
+                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                </alp:BookingChannel>
+            </alp:Source>
+            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <alp:RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+                <alp:BookingChannel Type="7">
+                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                </alp:BookingChannel>
+            </alp:Source>
+            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <alp:RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+                <alp:BookingChannel Type="7">
+                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                </alp:BookingChannel>
+            </alp:Source>
+         </alp:POS>
+         <!--Optional:-->
+         <alp:UniqueID Type="14" ID="0">
+         </alp:UniqueID>
+      </alp:OTA_ReadRQ>
+   </ret:retrieveBooking>
+</soapenv:Body>
+</soapenv:Envelope>';
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -174,7 +134,7 @@ curl_setopt($ch, CURLOPT_HEADER, false);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_VERBOSE, false);
 curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $raw2);
 curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

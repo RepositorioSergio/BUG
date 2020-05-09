@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:hol="http://services.rccl.com/Interfaces/HoldCabin" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <hol:holdCabin>
+      <OTA_CruiseCabinHoldRQ Version="1.0" Target="Test" SequenceNmbr="1" TimeStamp="2008-12-30T18:30:42.720+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+         <POS>
+            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+               <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+               <BookingChannel Type="7">
+                  <CompanyName CompanyShortName="PULLMANTUR"/>
+               </BookingChannel>
+            </Source>
+            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+               <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+               <BookingChannel Type="7">
+                  <CompanyName CompanyShortName="PULLMANTUR"/>
+               </BookingChannel>
+            </Source>
+            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+               <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+               <BookingChannel Type="7">
+                  <CompanyName CompanyShortName="PULLMANTUR"/>
+               </BookingChannel>
+            </Source>
+         </POS>
+         <GuestCounts>
+            <GuestCount Age="30" Quantity="1"/>
+            <GuestCount Age="10" Quantity="1"/>
+            <GuestCount Age="1" Quantity="1"/>
+         </GuestCounts>
+         <SelectedSailing Start="2020-08-15" ShipCode="MO" VendorCode="PUL">
+            <SelectedFare FareCode="BESTRATE" GroupCode="24"/>
+            <SelectedCategory BerthedCategoryCode="FA" PricedCategoryCode="FA">
+                <!--Optional:-->
+                <CabinAttributes>
+                    <!--1 to 99 repetitions:-->
+                    <CabinAttribute CabinAttributeCode="99"/>
+                </CabinAttributes>
+                <!--1 to 4 repetitions:-->
+               <SelectedCabin CabinNumber="9532" MaxOccupancy="4"/>
+            </SelectedCategory>
+            <InclusivePackageOption CruisePackageCode="MOPB0750" InclusiveIndicator="false"/>
+         </SelectedSailing>
+         <!--0 to 9 repetitions:-->
+         <Guest LoyaltyMembershipID="8888891"/>
+        <Guest LoyaltyMembershipID="7777780"/>
+        <Guest LoyaltyMembershipID="0000001"/>
+         <!--Optional:-->
+            <alp:Currency CurrencyCode="USD" DecimalPlaces="2"/>
+         <!--Optional:-->
+        <SearchQualifiers BerthedCategoryCode="FA" PricedCategoryCode="FA" CabinNumber="9532" GroupCode="24" MaxOccupancy="3" DeckNumber="9" DeckName="CUBIERTA 9">
+            <!--0 to 5 repetitions:-->
+            <Status Status="36"/>
+            <!--Optional:-->
+            <Dining Sitting="M"/>
+        </SearchQualifiers>
+      </OTA_CruiseCabinHoldRQ>
+      </hol:holdCabin>
+   </soapenv:Body>
+</soapenv:Envelope>

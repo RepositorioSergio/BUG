@@ -66,7 +66,7 @@ $raw ='<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="ht
 <soapenv:Header/>
 <soapenv:Body>
    <cat:getCategoryList>
-      <OTA_CruiseCategoryAvailRQ Target="Production" MaxResponses="50" MoreIndicator="true" Version="2.0" SequenceNmbr="1" TimeStamp="2008-11-05T19:15:56.692+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+      <OTA_CruiseCategoryAvailRQ Target="Test" MaxResponses="50" MoreIndicator="true" Version="2.0" SequenceNmbr="1" TimeStamp="2008-11-05T19:15:56.692+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
          <POS>
             <Source ISOCurrency="USD" TerminalID="12502LDJW6">
                <RequestorID ID="313917" Type="5" ID_Context="AGENCY1"/>
@@ -81,23 +81,33 @@ $raw ='<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="ht
                </BookingChannel>
             </Source>
             <Source ISOCurrency="USD" TerminalID="12502LDJW6">
-               <RequestorID ID="313917" Type="5" ID_Context="AGENT1"/>
-                  <BookingChannel Type="7">
-                     <CompanyName CompanyShortName="PULLMANTUR"/>
-                  </BookingChannel>
-               </Source>
-            </POS>
-             <Guest >
+            <RequestorID ID="313917" Type="5" ID_Context="AGENT1"/>
+               <BookingChannel Type="7">
+                  <CompanyName CompanyShortName="PULLMANTUR"/>
+               </BookingChannel>
+            </Source>
+         </POS>
+             <Guest>
                <GuestTransportation Mode="29" Status="36"/>
             </Guest>
             <GuestCounts>
-               <GuestCount Age="35" Quantity="1"/> 
-               <GuestCount Age="32" Quantity="1"/>        
+               <GuestCount Age="30" Quantity="1"/>
+               <GuestCount Age="5" Quantity="1"/>         
             </GuestCounts>
             <SailingInfo>
-               <SelectedSailing Start="2020-08-15">
-                  <CruiseLine VendorCode="PUL" ShipCode="SO"/>
+               <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-09-13" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                  <CruiseLine VendorCode="PUL" ShipCode="HR"/>
+                  <!--Optional:-->
+                  <Region RegionCode="PISGR" SubRegionCode="PGR"/>
+                  <!--Optional:-->
+                  <DeparturePort LocationCode="ATH"/>
+                  <!--Optional:-->
+                  <ArrivalPort LocationCode="ATH"/>
                </SelectedSailing>
+               <!--Optional:-->
+               <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
+               <!--Optional:-->
+               <Currency CurrencyCode="USD" DecimalPlaces="2"/>
             </SailingInfo>
             <SelectedFare FareCode="BESTRATE"/>
          </OTA_CruiseCategoryAvailRQ>

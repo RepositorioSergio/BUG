@@ -67,54 +67,55 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
    <soapenv:Header/>
    <soapenv:Body>
       <hol:holdCabin>
-      <OTA_CruiseCabinHoldRQ Version="1.0" SequenceNmbr="1" TimeStamp="2008-12-30T18:30:42.720+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+      <OTA_CruiseCabinHoldRQ Version="1.0" Target="Test" SequenceNmbr="1" TimeStamp="2008-12-30T18:30:42.720+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
          <POS>
-            <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
-               <RequestorID ID="279796" ID_Context="AGENCY1" Type="5"/>
+            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+               <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
                <BookingChannel Type="7">
                   <CompanyName CompanyShortName="PULLMANTUR"/>
                </BookingChannel>
             </Source>
-            <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
-               <RequestorID ID="279796" ID_Context="AGENCY2" Type="5"/>
+            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+               <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
                <BookingChannel Type="7">
                   <CompanyName CompanyShortName="PULLMANTUR"/>
                </BookingChannel>
             </Source>
-            <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
-               <RequestorID ID="279796" ID_Context="AGENT1" Type="5"/>
+            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+               <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
                <BookingChannel Type="7">
                   <CompanyName CompanyShortName="PULLMANTUR"/>
                </BookingChannel>
             </Source>
          </POS>
          <GuestCounts>
-            <GuestCount Quantity="2"/>
+            <GuestCount Age="30" Quantity="1"/>
+            <GuestCount Age="5" Quantity="1"/>
          </GuestCounts>
-         <SelectedSailing Start="2020-08-15" ShipCode="SO" VendorCode="PUL">
-            <SelectedFare FareCode="BESTRATE" GroupCode="1"/>
-            <SelectedCategory BerthedCategoryCode="RS" PricedCategoryCode="RS">
+         <SelectedSailing Start="2020-09-13" ShipCode="HR" VendorCode="PUL">
+            <SelectedFare FareCode="BESTRATE" GroupCode="24"/>
+            <SelectedCategory BerthedCategoryCode="GS" PricedCategoryCode="GS">
                 <!--Optional:-->
                 <CabinAttributes>
                     <!--1 to 99 repetitions:-->
                     <CabinAttribute CabinAttributeCode="99"/>
                 </CabinAttributes>
                 <!--1 to 4 repetitions:-->
-               <SelectedCabin CabinNumber="1010" MaxOccupancy="4"/>
+               <SelectedCabin CabinNumber="1068" MaxOccupancy="4"/>
             </SelectedCategory>
-            <InclusivePackageOption CruisePackageCode="SOPD0745" InclusiveIndicator="false"/>
+            <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
          </SelectedSailing>
          <!--0 to 9 repetitions:-->
-         <Guest LoyaltyMembershipID="8888888"/>
-         <Guest LoyaltyMembershipID="7777777"/>
+         <Guest LoyaltyMembershipID="8888889"/>
+         <Guest LoyaltyMembershipID="7777778"/>
          <!--Optional:-->
             <alp:Currency CurrencyCode="USD" DecimalPlaces="2"/>
          <!--Optional:-->
-        <SearchQualifiers BerthedCategoryCode="RS" PricedCategoryCode="RS" CabinNumber="1010" GroupCode="1" MaxOccupancy="4" DeckNumber="10" DeckName="CUBIERTA 10">
+        <SearchQualifiers BerthedCategoryCode="GS" PricedCategoryCode="GS" CabinNumber="1068" GroupCode="24" MaxOccupancy="4" DeckNumber="10" DeckName="CUBIERTA 10">
             <!--0 to 5 repetitions:-->
             <Status Status="36"/>
             <!--Optional:-->
-            <Dining Sitting="2"/>
+            <Dining Sitting="M"/>
         </SearchQualifiers>
       </OTA_CruiseCabinHoldRQ>
       </hol:holdCabin>

@@ -1,0 +1,83 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:conf="http://services.rccl.com/Interfaces/ConfirmBooking" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
+<soap:Body>
+    <conf:confirmBooking>
+    <OTA_CruiseBookRQ TransactionActionCode="Commit" Version="1.0" SequenceNmbr="1" TimeStamp="2008-12-30T18:30:42.720+05:30" RetransmissionIndicator="false" Target="Test" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+    <POS>
+        <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+            <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+            <BookingChannel Type="7">
+                <CompanyName CompanyShortName="PULLMANTUR"/>
+            </BookingChannel>
+        </Source>
+        <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+            <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+            <BookingChannel Type="7">
+                <CompanyName CompanyShortName="PULLMANTUR"/>
+            </BookingChannel>
+        </Source>
+        <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+            <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+            <BookingChannel Type="7">
+                <CompanyName CompanyShortName="PULLMANTUR"/>
+            </BookingChannel>
+        </Source>
+    </POS>
+    <AgentInfo Contact="CMOTEST" ContactID="CMOtest_MI"/>
+    <SailingInfo>
+        <SelectedSailing Duration="P7N" Start="2020-08-08">
+            <CruiseLine ShipCode="MO"/>
+        </SelectedSailing>
+        <InclusivePackageOption CruisePackageCode="MOPB0751"/>
+        <SelectedCategory PricedCategoryCode="ST" BerthedCategoryCode="ST" FareCode="BESTRATE" DeckNumber="10" DeckName="CUBIERTA 10">
+            <!--Optional:-->
+            <alp:CabinAttributes>
+                <!--1 to 99 repetitions:-->
+                <alp:CabinAttribute CabinAttributeCode="15"/>
+            </alp:CabinAttributes>
+            <SelectedCabin Status="39" CabinNumber="1520" MaxOccupancy="4"/>
+        </SelectedCategory>
+    </SailingInfo>
+    <ReservationInfo>
+        <ReservationID  ID="0000000" LastModifyDateTime="2020-05-08T10:10:11.447-05:00" StatusCode="42" Type="14"/>
+        <GuestDetails>
+            <GuestDetail>
+                <SelectedFareCode FareCode="BESTRATE"/>
+                <ContactInfo Nationality="ES" Age="30" ContactType="CNT">
+                <PersonName>
+                    <GivenName>David</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
+                    <NameTitle>MR</NameTitle>
+                </PersonName>
+                </ContactInfo>
+                <ContactInfo ContactType="ALT">
+                    <PersonName>
+                    <GivenName>David</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
+                    </PersonName>
+                    <Address>
+                    <AddressLine>MAhonia 2</AddressLine>
+                    <CityName>Madrid</CityName>
+                    <PostalCode>28043</PostalCode>
+                    <CountryName Code="ES"/>
+                    </Address>
+                    <Email>davizch2004@gmail.com</Email>
+                </ContactInfo>
+                <ContactInfo ContactType="EMG">
+                    <PersonName>
+                    <GivenName>David</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
+                    </PersonName>
+                    <Telephone PhoneNumber=" "/>
+                </ContactInfo>
+                <GuestTransportation Status="36" Mode="29">
+                    <GatewayCity LocationCode="C/O"/>
+                </GuestTransportation>
+                <SelectedDining Status="36" Sitting="M"/>
+                <CruiseDocument DocumentLanguage="ES"/>
+            </GuestDetail>
+        </GuestDetails>
+    </ReservationInfo>
+    </OTA_CruiseBookRQ>
+    </conf:confirmBooking>
+</soap:Body>
+</soap:Envelope>

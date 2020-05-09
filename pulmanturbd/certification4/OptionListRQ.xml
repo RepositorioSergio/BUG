@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <ol:getOptionList xmlns="http://www.opentravel.org/OTA/2003/05/alpha" xmlns:ol="http://services.rccl.com/Interfaces/OptionList">
+            <OTA_CruiseSpecialServiceAvailRQ SequenceNmbr="1" Version="1.0" Target="Test">
+                <POS>
+                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                        <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+                        <BookingChannel Type="7">
+                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                        </BookingChannel>
+                    </Source>
+                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                        <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+                        <BookingChannel Type="7">
+                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                        </BookingChannel>
+                    </Source>
+                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                        <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+                        <BookingChannel Type="7">
+                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                        </BookingChannel>
+                    </Source>
+                </POS>
+                <SailingInfo>
+                    <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-08-15" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                        <CruiseLine ShipCode="MO" VendorCode="PUL"/>
+                        <!--Optional:-->
+                        <Region RegionCode="PBLCS" SubRegionCode="PBC"/>
+                        <!--Optional:-->
+                        <DeparturePort LocationCode="HEL"/>
+                        <!--Optional:-->
+                        <ArrivalPort LocationCode="RLG"/>
+                    </SelectedSailing>
+                    <!--Optional:-->
+                    <InclusivePackageOption CruisePackageCode="MOPB0750" InclusiveIndicator="false"/>
+                    <!--Optional:-->
+                    <Currency CurrencyCode="USD" DecimalPlaces="2"/>
+                    <SelectedCategory BerthedCategoryCode="GT"/>
+                </SailingInfo>
+            </OTA_CruiseSpecialServiceAvailRQ>
+        </ol:getOptionList>
+    </soap:Body>
+</soap:Envelope>

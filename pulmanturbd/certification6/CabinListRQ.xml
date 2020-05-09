@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cab="http://services.rccl.com/Interfaces/CabinList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cab:getCabinList>
+        <OTA_CruiseCabinAvailRQ MaxResponses="50" MoreDataEchoToken="01" Target="Test" RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-11-25T10:08:12.204-05:00" TransactionIdentifier="106597" Version="1.0" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+            <POS>
+                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                    <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+                    <BookingChannel Type="7">
+                        <CompanyName CompanyShortName="PULLMANTUR"/>
+                    </BookingChannel>
+                </Source>
+                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                    <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+                    <BookingChannel Type="7">
+                        <CompanyName CompanyShortName="PULLMANTUR"/>
+                    </BookingChannel>
+                </Source>
+                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                    <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+                    <BookingChannel Type="7">
+                        <CompanyName CompanyShortName="PULLMANTUR"/>
+                    </BookingChannel>
+                </Source>
+            </POS>
+            <Guest Age="30">
+                <GuestTransportation Mode="29" Status="36">
+                    <GatewayCity CodeContext="IATA" LocationCode="BCN"/>
+                </GuestTransportation>
+            </Guest>
+            <Guest Age="10">
+                <GuestTransportation Mode="29" Status="36">
+                    <GatewayCity CodeContext="IATA" LocationCode="BCN"/>
+                </GuestTransportation>
+            </Guest>
+            <Guest Age="1">
+                <GuestTransportation Mode="29" Status="36">
+                    <GatewayCity CodeContext="IATA" LocationCode="BCN"/>
+                </GuestTransportation>
+            </Guest>
+            <GuestCounts>
+                <GuestCount Age="30" Quantity="1"/>
+                <GuestCount Age="28" Quantity="1"/>
+                <GuestCount Age="10" Quantity="1"/>
+                <GuestCount Age="4" Quantity="1"/>
+            </GuestCounts>
+            <SailingInfo>
+                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-08-09" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                    <CruiseLine ShipCode="HR" VendorCode="PUL"/>
+                    <!--Optional:-->
+                    <Region RegionCode="PISGR" SubRegionCode="PGR"/>
+                    <!--Optional:-->
+                    <DeparturePort LocationCode="ATH"/>
+                    <!--Optional:-->
+                    <ArrivalPort LocationCode="ATH"/>
+                </SelectedSailing>
+                <InclusivePackageOption CruisePackageCode="HRPT0734"/>
+                <Currency CurrencyCode="USD" DecimalPlaces="2"/>
+                <SelectedCategory BerthedCategoryCode="FD" PricedCategoryCode="FD" WaitlistIndicator="false">
+                </SelectedCategory>
+            </SailingInfo>
+            <SearchQualifiers BerthedCategoryCode="FD" FareCode="C4443395" GroupCode="25" CategoryLocation="Deluxe">
+                <Status Status="36"/>
+            </SearchQualifiers>
+            <SelectedFare GroupCode="25"/>
+        </OTA_CruiseCabinAvailRQ>
+    </cab:getCabinList>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -61,51 +61,55 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
 <soapenv:Header/>
 <soapenv:Body>
   <book:getBookingPrice>
-    <OTA_CruisePriceBookingRQ Version="1.0" SequenceNmbr="1" TimeStamp="2008-12-30T18:30:42.720+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+    <OTA_CruisePriceBookingRQ Version="1.0" SequenceNmbr="1" Target="Test" TimeStamp="2008-12-30T18:30:42.720+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
       <POS>
         <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-        <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
-        <BookingChannel Type="7">
-          <CompanyName CompanyShortName="PULLMANTUR"/>
-        </BookingChannel>
+            <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+            <BookingChannel Type="7">
+            <CompanyName CompanyShortName="PULLMANTUR"/>
+            </BookingChannel>
         </Source>
         <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-        <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
-        <BookingChannel Type="7">
-          <CompanyName CompanyShortName="PULLMANTUR"/>
-        </BookingChannel>
+            <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+            <BookingChannel Type="7">
+            <CompanyName CompanyShortName="PULLMANTUR"/>
+            </BookingChannel>
         </Source>
         <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-        <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
-        <BookingChannel Type="7">
-          <CompanyName CompanyShortName="PULLMANTUR"/>
-        </BookingChannel>
+            <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+            <BookingChannel Type="7">
+            <CompanyName CompanyShortName="PULLMANTUR"/>
+            </BookingChannel>
         </Source>
       </POS>
       <SailingInfo>
-        <SelectedSailing Start="2020-08-15">
-          <CruiseLine ShipCode="SO"/>
+        <SelectedSailing Start="2020-09-13">
+          <CruiseLine ShipCode="HR" VendorCode="PUL"/>
         </SelectedSailing>
-        <InclusivePackageOption CruisePackageCode="SOPD0745"/>
-        <SelectedCategory BerthedCategoryCode="RS" FareCode="BESTRATE" PricedCategoryCode="RS">
-          <SelectedCabin CabinNumber="1010" Status="48"/>
+        <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
+        <SelectedCategory BerthedCategoryCode="GS" FareCode="BESTRATE" PricedCategoryCode="GS">
+          <SelectedCabin CabinNumber="1068" Status="36"/>
         </SelectedCategory>
       </SailingInfo>
       <ReservationInfo>
         <GuestDetails>
           <GuestDetail>
-            <ContactInfo Age="35"/>
+            <ContactInfo Age="30"/>
             <GuestTransportation Mode="29" Status="36">
               <GatewayCity LocationCode="C/O"/>
             </GuestTransportation>
             <SelectedDining Sitting="M"/>
+            <!--0 to 9 repetitions:-->
+            <alp:SelectedInsurance InsuranceCode="TIIR" Status="41"/>
           </GuestDetail>
           <GuestDetail>
-            <ContactInfo Age="32"/>
+            <ContactInfo Age="5"/>
             <GuestTransportation Mode="29" Status="36">
               <GatewayCity LocationCode="C/O"/>
             </GuestTransportation>
             <SelectedDining Sitting="M"/>
+            <!--0 to 9 repetitions:-->
+            <alp:SelectedInsurance InsuranceCode="TIIR" Status="41"/>
           </GuestDetail>
         </GuestDetails>
       </ReservationInfo>
@@ -118,10 +122,6 @@ $url = 'https://stage.services.rccl.com/Reservation_FITWeb/sca/BookingPrice';
 
 $username = 'CONCTMM';
 $password = 'u73ecKBu73ecKB!';
-
-echo $username . ":" . $password;
-
-echo $url;
 
 
 $ch = curl_init();

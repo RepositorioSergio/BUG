@@ -66,32 +66,42 @@ $raw ='<?xml version="1.0" encoding="UTF-8"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
     <soap:Body>
         <ol:getOptionList xmlns="http://www.opentravel.org/OTA/2003/05/alpha" xmlns:ol="http://services.rccl.com/Interfaces/OptionList">
-            <OTA_CruiseSpecialServiceAvailRQ SequenceNmbr="1" Version="1">
+            <OTA_CruiseSpecialServiceAvailRQ SequenceNmbr="1" Version="1.0" Target="Test">
                 <POS>
                     <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                        <RequestorID ID="279796" ID_Context="AGENCY1" Type="5"/>
+                        <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
                         <BookingChannel Type="7">
                             <CompanyName CompanyShortName="PULLMANTUR"/>
                         </BookingChannel>
                     </Source>
                     <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                        <RequestorID ID="279796" ID_Context="AGENCY2" Type="5"/>
+                        <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
                         <BookingChannel Type="7">
                             <CompanyName CompanyShortName="PULLMANTUR"/>
                         </BookingChannel>
                     </Source>
                     <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                        <RequestorID ID="279796" ID_Context="AGENT1" Type="5"/>
+                        <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
                         <BookingChannel Type="7">
                             <CompanyName CompanyShortName="PULLMANTUR"/>
                         </BookingChannel>
                     </Source>
                 </POS>
                 <SailingInfo>
-                    <SelectedSailing Start="2020-08-15">
-                        <CruiseLine ShipCode="SO"/>
+                    <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-09-13" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                        <CruiseLine ShipCode="HR" VendorCode="PUL"/>
+                        <!--Optional:-->
+                        <Region RegionCode="PISGR" SubRegionCode="PGR"/>
+                        <!--Optional:-->
+                        <DeparturePort LocationCode="ATH"/>
+                        <!--Optional:-->
+                        <ArrivalPort LocationCode="ATH"/>
                     </SelectedSailing>
-                    <SelectedCategory BerthedCategoryCode="RS"/>
+                    <!--Optional:-->
+                    <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
+                    <!--Optional:-->
+                    <Currency CurrencyCode="USD" DecimalPlaces="2"/>
+                    <SelectedCategory BerthedCategoryCode="GS"/>
                 </SailingInfo>
             </OTA_CruiseSpecialServiceAvailRQ>
         </ol:getOptionList>
@@ -114,11 +124,10 @@ $error = curl_error($ch);
 $headers = curl_getinfo($ch);
 curl_close($ch);
 
-echo "<br/>RESPONSE";
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
-
+die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.pulmantur.php');
 $config = [
     'driver' => $config->db->driver,

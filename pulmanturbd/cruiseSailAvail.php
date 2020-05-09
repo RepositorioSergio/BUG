@@ -90,10 +90,10 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
          </alp:POS>
          <!--Optional:-->
          <alp:GuestCounts>
-            <alp:GuestCount Quantity="1"/>
-            <alp:GuestCount Quantity="1"/>
+            <alp:GuestCount Age="30" Quantity="1"/>
+            <alp:GuestCount Age="5" Quantity="1"/>
         </alp:GuestCounts>
-        <alp:SailingDateRange Start="2020-08-08" End="2020-08-15" MinDuration="P6N" MaxDuration="P8N"/>
+        <alp:SailingDateRange Start="2020-09-08" End="2020-09-15" MinDuration="P6N" MaxDuration="P8N"/>
       </alp:OTA_CruiseSailAvailRQ>
    </sail:getSailingList>
 </soapenv:Body>
@@ -115,7 +115,6 @@ $error = curl_error($ch);
 $headers = curl_getinfo($ch);
 curl_close($ch);
 
-echo "<br/>RESPONSE";
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';

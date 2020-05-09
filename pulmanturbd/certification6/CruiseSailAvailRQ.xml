@@ -1,0 +1,38 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sail="http://services.rccl.com/Interfaces/SailingList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
+<soapenv:Header/>
+<soapenv:Body>
+   <sail:getSailingList>
+      <alp:OTA_CruiseSailAvailRQ TimeStamp="2008-07-17T12:44:44.866-04:00" Target="Test" Version="1.0" SequenceNmbr="1" PrimaryLangID="en" RetransmissionIndicator="false" MoreIndicator="true" MaxResponses="50">
+         <alp:POS>
+            <!--1 to 10 repetitions:-->
+            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <alp:RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+                <alp:BookingChannel Type="7">
+                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                </alp:BookingChannel>
+            </alp:Source>
+            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <alp:RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+                <alp:BookingChannel Type="7">
+                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                </alp:BookingChannel>
+            </alp:Source>
+            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <alp:RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+                <alp:BookingChannel Type="7">
+                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                </alp:BookingChannel>
+            </alp:Source>
+         </alp:POS>
+         <!--Optional:-->
+         <alp:GuestCounts>
+            <alp:GuestCount Age="30" Quantity="1"/>
+            <alp:GuestCount Age="28" Quantity="1"/>
+            <alp:GuestCount Age="10" Quantity="1"/>
+            <alp:GuestCount Age="4" Quantity="1"/>
+        </alp:GuestCounts>
+        <alp:SailingDateRange Start="2020-08-08" End="2020-08-15" MinDuration="P6N" MaxDuration="P8N"/>
+      </alp:OTA_CruiseSailAvailRQ>
+   </sail:getSailingList>
+</soapenv:Body>
+</soapenv:Envelope>

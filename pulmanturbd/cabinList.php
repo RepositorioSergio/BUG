@@ -67,60 +67,60 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
    <soapenv:Header/>
    <soapenv:Body>
       <cab:getCabinList>
-        <OTA_CruiseCabinAvailRQ MaxResponses="50" MoreDataEchoToken="01" RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-11-25T10:08:12.204-05:00" TransactionIdentifier="106597" Version="1.0" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+        <OTA_CruiseCabinAvailRQ MaxResponses="50" MoreDataEchoToken="01" Target="Test" RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-11-25T10:08:12.204-05:00" TransactionIdentifier="106597" Version="1.0" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
             <POS>
-                <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
-                    <RequestorID ID="279796" ID_Context="AGENCY1" Type="5"/>
+                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                    <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
                     <BookingChannel Type="7">
                         <CompanyName CompanyShortName="PULLMANTUR"/>
                     </BookingChannel>
                 </Source>
-                <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
-                    <RequestorID ID="279796" ID_Context="AGENCY2" Type="5"/>
+                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                    <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
                     <BookingChannel Type="7">
                         <CompanyName CompanyShortName="PULLMANTUR"/>
                     </BookingChannel>
                 </Source>
-                <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
-                    <RequestorID ID="279796" ID_Context="AGENT1" Type="5"/>
+                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                    <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
                     <BookingChannel Type="7">
                         <CompanyName CompanyShortName="PULLMANTUR"/>
                     </BookingChannel>
                 </Source>
             </POS>
-            <Guest Age="35">
+            <Guest Age="30">
                 <GuestTransportation Mode="29" Status="36">
                     <GatewayCity CodeContext="IATA" LocationCode="BCN"/>
                 </GuestTransportation>
             </Guest>
-            <Guest Age="32">
+            <Guest Age="5">
                 <GuestTransportation Mode="29" Status="36">
                     <GatewayCity CodeContext="IATA" LocationCode="BCN"/>
                 </GuestTransportation>
             </Guest>
             <GuestCounts>
-                <GuestCount Age="35" Quantity="1"/>
-                <GuestCount Age="32" Quantity="1"/>
+                <GuestCount Age="30" Quantity="1"/>
+                <GuestCount Age="5" Quantity="1"/>
             </GuestCounts>
             <SailingInfo>
-                <SelectedSailing Start="2020-08-15">
-                    <CruiseLine ShipCode="SO" VendorCode="PUL"/>
+                <SelectedSailing Start="2020-09-13">
+                    <CruiseLine ShipCode="HR" VendorCode="PUL"/>
                     <!--Optional:-->
-                    <Region RegionCode="PMARA" SubRegionCode="PDC"/>
+                    <Region RegionCode="PISGR" SubRegionCode="PGR"/>
                     <!--Optional:-->
-                    <DeparturePort LocationCode="BCN" CodeContext="IATA"></DeparturePort>
+                    <DeparturePort LocationCode="ATH"/>
                     <!--Optional:-->
-                    <ArrivalPort LocationCode="BCN" CodeContext="IATA"></ArrivalPort>
+                    <ArrivalPort LocationCode="ATH"/>
                 </SelectedSailing>
-                <InclusivePackageOption CruisePackageCode="SOPD0745"/>
+                <InclusivePackageOption CruisePackageCode="HRPT0734"/>
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                <SelectedCategory BerthedCategoryCode="RS" PricedCategoryCode="RS" WaitlistIndicator="false">
+                <SelectedCategory BerthedCategoryCode="GS" PricedCategoryCode="GS" WaitlistIndicator="false">
                 </SelectedCategory>
             </SailingInfo>
-            <SearchQualifiers BerthedCategoryCode="RS" FareCode="C4443395" GroupCode="1" CategoryLocation="Deluxe">
+            <SearchQualifiers BerthedCategoryCode="GS" FareCode="C4443395" GroupCode="24" CategoryLocation="Deluxe">
                 <Status Status="36"/>
             </SearchQualifiers>
-            <SelectedFare GroupCode="25"/>
+            <SelectedFare GroupCode="24"/>
         </OTA_CruiseCabinAvailRQ>
     </cab:getCabinList>
    </soapenv:Body>
