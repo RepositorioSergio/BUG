@@ -1,0 +1,1479 @@
+<?xml version="1.0"?>
+<response method="simplesearch" sessionkey="0DE96AB9~F7F1i4C40-A6B9-3DB46BA547AA" success="Y">
+  <errors>
+  </errors>
+  <request>
+    <auth password="kg02gy05" username="mundocru" />
+    <method action="simplesearch" currency="USD" sessionkey="0DE96AB9~F7F1i4C40-A6B9-3DB46BA547AA" sitename="chilegsa.site.traveltek.net" status="Live" type="cruise" userid="3035567">
+      <searchdetail adults="2" children="0" enddate="2021-03-27" lineid="20" resultkey="default" sid="28111" startdate="2021-03-20" type="cruise" />
+    </method>
+  </request>
+  <results>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1494649" copyandmedia="" cruisebalcony="0" cruisebalconypricecode="" cruiseid="239687" cruiseinside="0" cruiseinsidepricecode="" cruiseoutside="0" cruiseoutsidepricecode="" cruisesuite="0" cruisesuitepricecode="" currency="USD" departuk="N" description="" domesticdeparture="0" enddate="2021-04-15" engine="Princess" enginesource="" groupids="" hascruiseonly="U" hasflights="U" hidden="N" iata="" localpricing="Y" marketid="22" name="Panama Canal &amp; Pacific Coast" ncf="0.00" nettprice="0.00" nights="21" nofly="N" nofuelsupplement="" ownerid="system" price="0.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="N" resultkey="default" resultno="302_7.0" resultweight="0" returndate="2021-04-15" returnuk="N" roundtrip="N" saildate="2021-03-25" sailnights="21" scurrency="USD" seadays="10" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="0" startdate="2021-03-25" startprice="0.00" stoplive="0" systemgroup="" taxes="" type="cruise" voyagecode="E108A" whatsincluded="" zoneid="">
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="378" name="Fort Lauderdale" />
+        <port id="3481" name="Cartagena, Colombia" />
+        <port id="103" name="Fuerte Amador" />
+        <port id="258" name="Puntarenas, Costa Rica" />
+        <port id="275" name="San Juan del Sur" />
+        <port id="896" name="Huatulco, Mexico" />
+        <port id="426" name="Puerto Vallarta" />
+        <port id="178" name="Los Angeles" />
+        <port id="274" name="San Francisco, California" />
+        <port id="571" name="Astoria,Oregon" />
+        <port id="446" name="Victoria, British Colombia" />
+        <port id="445" name="Vancouver" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="0" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="0" />
+      </prices>
+      <regions>
+        <region name="Central America" regionid="3" />
+        <region name="North America" regionid="8" />
+        <region name="Panama Canal" regionid="31" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="EP" id="367" imagecaption="Emerald Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111082.jpg" name="Emerald Princess" niceurl="princess-cruises/emerald-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111082.jpg" />
+      <uniqueportids>103</uniqueportids>
+      <uniqueportids>3481</uniqueportids>
+      <uniqueportids>274</uniqueportids>
+      <uniqueportids>446</uniqueportids>
+      <uniqueportids>426</uniqueportids>
+      <uniqueportids>378</uniqueportids>
+      <uniqueportids>258</uniqueportids>
+      <uniqueportids>275</uniqueportids>
+      <uniqueportids>445</uniqueportids>
+      <uniqueportids>178</uniqueportids>
+      <uniqueportids>896</uniqueportids>
+      <uniqueportids>571</uniqueportids>
+      <uniqueportnames>Fuerte Amador</uniqueportnames>
+      <uniqueportnames>Cartagena, Colombia</uniqueportnames>
+      <uniqueportnames>San Francisco, California</uniqueportnames>
+      <uniqueportnames>Victoria, British Colombia</uniqueportnames>
+      <uniqueportnames>Puerto Vallarta</uniqueportnames>
+      <uniqueportnames>Fort Lauderdale</uniqueportnames>
+      <uniqueportnames>Puntarenas, Costa Rica</uniqueportnames>
+      <uniqueportnames>San Juan del Sur</uniqueportnames>
+      <uniqueportnames>Vancouver</uniqueportnames>
+      <uniqueportnames>Los Angeles</uniqueportnames>
+      <uniqueportnames>Huatulco, Mexico</uniqueportnames>
+      <uniqueportnames>Astoria,Oregon</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1454625" copyandmedia="" cruisebalcony="978.00" cruisebalconypricecode="" cruiseid="236463" cruiseinside="778.00" cruiseinsidepricecode="" cruiseoutside="858.00" cruiseoutsidepricecode="" cruisesuite="1138.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-03-28" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Australia Getaway" ncf="90.00" nettprice="778.00" nights="3" nofly="N" nofuelsupplement="" ownerid="system" price="778.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_23.0" resultweight="0" returndate="2021-03-28" returnuk="N" roundtrip="N" saildate="2021-03-25" sailnights="3" scurrency="USD" seadays="1" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="778" startdate="2021-03-25" startprice="389.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="H111" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="978" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="978" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="778" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="778" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="858" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="858" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1138" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1138" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="511" name="Melbourne" />
+        <port id="91" name="Eden" />
+        <port id="3328" name="Sydney, Australia" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="778" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="778" />
+      </prices>
+      <regions>
+        <region name="Australasia" regionid="14" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="SA" id="114" imagecaption="Sapphire Princess " imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111891.jpg" name="Sapphire Princess" niceurl="princess-cruises/sapphire-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111891.jpg" />
+      <uniqueportids>91</uniqueportids>
+      <uniqueportids>3328</uniqueportids>
+      <uniqueportids>511</uniqueportids>
+      <uniqueportnames>Eden</uniqueportnames>
+      <uniqueportnames>Sydney, Australia</uniqueportnames>
+      <uniqueportnames>Melbourne</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1454623" copyandmedia="" cruisebalcony="2066.28" cruisebalconypricecode="" cruiseid="236461" cruiseinside="1526.28" cruiseinsidepricecode="" cruiseoutside="1626.28" cruiseoutsidepricecode="" cruisesuite="2466.28" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-03-25" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Roundtrip Melbourne" ncf="134.14" nettprice="1526.28" nights="5" nofly="N" nofuelsupplement="" ownerid="system" price="1526.28" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_12.0" resultweight="0" returndate="2021-03-25" returnuk="N" roundtrip="Y" saildate="2021-03-20" sailnights="5" scurrency="USD" seadays="2" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="1526.28" startdate="2021-03-20" startprice="763.14" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="H110" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2066.28" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2066.28" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1526.28" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1526.28" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1626.28" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1626.28" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2466.28" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2466.28" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="511" name="Melbourne" />
+        <port id="1136" name="Port Arthur, Tasmania" />
+        <port id="129" name="Hobart" />
+        <port id="511" name="Melbourne" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1526.28" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1526.28" />
+      </prices>
+      <regions>
+        <region name="Australasia" regionid="14" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="SA" id="114" imagecaption="Sapphire Princess " imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111891.jpg" name="Sapphire Princess" niceurl="princess-cruises/sapphire-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111891.jpg" />
+      <uniqueportids>511</uniqueportids>
+      <uniqueportids>129</uniqueportids>
+      <uniqueportids>1136</uniqueportids>
+      <uniqueportnames>Melbourne</uniqueportnames>
+      <uniqueportnames>Hobart</uniqueportnames>
+      <uniqueportnames>Port Arthur, Tasmania</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1494579" copyandmedia="" cruisebalcony="2290.00" cruisebalconypricecode="" cruiseid="239617" cruiseinside="1738.00" cruiseinsidepricecode="" cruiseoutside="0" cruiseoutsidepricecode="" cruisesuite="3198.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-03-27" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Eastern Caribbean" ncf="140.00" nettprice="1738.00" nights="7" nofly="N" nofuelsupplement="" ownerid="system" price="1738.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_3.0" resultweight="0" returndate="2021-03-27" returnuk="N" roundtrip="Y" saildate="2021-03-20" sailnights="7" scurrency="USD" seadays="3" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="1738" startdate="2021-03-20" startprice="869.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="N113" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2290" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2290" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1738" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1738" />
+      </cruiseinsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3198" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3198" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="378" name="Fort Lauderdale" />
+        <port id="249" name="Princess Cays" />
+        <port id="3737" name="St. Thomas (US Virgin Islands)" />
+        <port id="2996" name="St Maarten, French Antilles" />
+        <port id="378" name="Fort Lauderdale" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1738" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1738" />
+      </prices>
+      <regions>
+        <region name="Caribbean" regionid="2" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="EX" id="4964" imagecaption="Enchanted Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111188.jpg" name="Enchanted Princess" niceurl="princess-cruises/enchanted-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111188.jpg" />
+      <uniqueportids>3737</uniqueportids>
+      <uniqueportids>249</uniqueportids>
+      <uniqueportids>2996</uniqueportids>
+      <uniqueportids>378</uniqueportids>
+      <uniqueportnames>St. Thomas (US Virgin Islands)</uniqueportnames>
+      <uniqueportnames>Princess Cays</uniqueportnames>
+      <uniqueportnames>St Maarten, French Antilles</uniqueportnames>
+      <uniqueportnames>Fort Lauderdale</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1494481" copyandmedia="" cruisebalcony="2441.22" cruisebalconypricecode="" cruiseid="239488" cruiseinside="1801.22" cruiseinsidepricecode="" cruiseoutside="1951.22" cruiseoutsidepricecode="" cruisesuite="2901.22" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-03-28" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Western Caribbean" ncf="181.61" nettprice="1801.22" nights="7" nofly="N" nofuelsupplement="" ownerid="system" price="1801.22" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_10.0" resultweight="0" returndate="2021-03-28" returnuk="N" roundtrip="Y" saildate="2021-03-21" sailnights="7" scurrency="USD" seadays="2" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="1801.22" startdate="2021-03-21" startprice="900.61" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="B113" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2441.22" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2441.22" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1801.22" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1801.22" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1951.22" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1951.22" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2901.22" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2901.22" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="378" name="Fort Lauderdale" />
+        <port id="249" name="Princess Cays" />
+        <port id="3706" name="Falmouth,Jamaica" />
+        <port id="116" name="Grand Cayman" />
+        <port id="77" name="Cozumel" />
+        <port id="378" name="Fort Lauderdale" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1801.22" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1801.22" />
+      </prices>
+      <regions>
+        <region name="Caribbean" regionid="2" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="CB" id="117" imagecaption="Caribbean Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582110810.jpg" name="Caribbean Princess" niceurl="princess-cruises/caribbean-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582110810.jpg" />
+      <uniqueportids>3706</uniqueportids>
+      <uniqueportids>378</uniqueportids>
+      <uniqueportids>249</uniqueportids>
+      <uniqueportids>116</uniqueportids>
+      <uniqueportids>77</uniqueportids>
+      <uniqueportnames>Falmouth,Jamaica</uniqueportnames>
+      <uniqueportnames>Fort Lauderdale</uniqueportnames>
+      <uniqueportnames>Princess Cays</uniqueportnames>
+      <uniqueportnames>Grand Cayman</uniqueportnames>
+      <uniqueportnames>Cozumel</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1494584" copyandmedia="" cruisebalcony="2472.00" cruisebalconypricecode="" cruiseid="239619" cruiseinside="1838.00" cruiseinsidepricecode="" cruiseoutside="0" cruiseoutsidepricecode="" cruisesuite="3218.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-04-03" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Western Caribbean" ncf="150.00" nettprice="1838.00" nights="7" nofly="N" nofuelsupplement="" ownerid="system" price="1838.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_17.0" resultweight="0" returndate="2021-04-03" returnuk="N" roundtrip="Y" saildate="2021-03-27" sailnights="7" scurrency="USD" seadays="2" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="1838" startdate="2021-03-27" startprice="919.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="N114" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2472" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2472" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1838" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1838" />
+      </cruiseinsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3218" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3218" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="378" name="Fort Lauderdale" />
+        <port id="507" name="Mahahual" />
+        <port id="37" name="Belize" />
+        <port id="1332" name="Roatan, Bay Islands" />
+        <port id="77" name="Cozumel" />
+        <port id="378" name="Fort Lauderdale" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1838" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1838" />
+      </prices>
+      <regions>
+        <region name="Caribbean" regionid="2" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="EX" id="4964" imagecaption="Enchanted Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111188.jpg" name="Enchanted Princess" niceurl="princess-cruises/enchanted-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111188.jpg" />
+      <uniqueportids>378</uniqueportids>
+      <uniqueportids>77</uniqueportids>
+      <uniqueportids>1332</uniqueportids>
+      <uniqueportids>507</uniqueportids>
+      <uniqueportids>37</uniqueportids>
+      <uniqueportnames>Fort Lauderdale</uniqueportnames>
+      <uniqueportnames>Cozumel</uniqueportnames>
+      <uniqueportnames>Roatan, Bay Islands</uniqueportnames>
+      <uniqueportnames>Mahahual</uniqueportnames>
+      <uniqueportnames>Belize</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1494302" copyandmedia="" cruisebalcony="1968.00" cruisebalconypricecode="" cruiseid="239511" cruiseinside="1868.00" cruiseinsidepricecode="" cruiseoutside="0" cruiseoutsidepricecode="" cruisesuite="3128.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-04-03" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Classic California Coast" ncf="195.00" nettprice="1868.00" nights="7" nofly="N" nofuelsupplement="" ownerid="system" price="1868.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_19.0" resultweight="0" returndate="2021-04-03" returnuk="N" roundtrip="Y" saildate="2021-03-27" sailnights="7" scurrency="USD" seadays="2" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="1868" startdate="2021-03-27" startprice="934.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="1115" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1968" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1968" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1868" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1868" />
+      </cruiseinsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3128" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3128" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="178" name="Los Angeles" />
+        <port id="274" name="San Francisco, California" />
+        <port id="621" name="Monterey" />
+        <port id="430" name="San Diego, California" />
+        <port id="376" name="Ensenada" />
+        <port id="178" name="Los Angeles" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1868" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1868" />
+      </prices>
+      <regions>
+        <region name="North America" regionid="8" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="RP" id="115" imagecaption="Royal Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111717.jpg" name="Royal Princess" niceurl="princess-cruises/royal-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111717.jpg" />
+      <uniqueportids>376</uniqueportids>
+      <uniqueportids>178</uniqueportids>
+      <uniqueportids>621</uniqueportids>
+      <uniqueportids>274</uniqueportids>
+      <uniqueportids>430</uniqueportids>
+      <uniqueportnames>Ensenada</uniqueportnames>
+      <uniqueportnames>Los Angeles</uniqueportnames>
+      <uniqueportnames>Monterey</uniqueportnames>
+      <uniqueportnames>San Francisco, California</uniqueportnames>
+      <uniqueportnames>San Diego, California</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1494294" copyandmedia="" cruisebalcony="2112.04" cruisebalconypricecode="" cruiseid="180542" cruiseinside="1942.04" cruiseinsidepricecode="" cruiseoutside="0" cruiseoutsidepricecode="" cruisesuite="2902.04" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-03-27" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Mexican Riviera" ncf="132.02" nettprice="1942.04" nights="7" nofly="N" nofuelsupplement="" ownerid="system" price="1942.04" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_4.0" resultweight="0" returndate="2021-03-27" returnuk="N" roundtrip="Y" saildate="2021-03-20" sailnights="7" scurrency="USD" seadays="3" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="1942.04" startdate="2021-03-20" startprice="971.02" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="1114" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2112.04" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2112.04" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1942.04" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1942.04" />
+      </cruiseinsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2902.04" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2902.04" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="178" name="Los Angeles" />
+        <port id="426" name="Puerto Vallarta" />
+        <port id="409" name="Mazatl&#225;n" />
+        <port id="359" name="Cabo San Lucas" />
+        <port id="178" name="Los Angeles" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1942.04" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1942.04" />
+      </prices>
+      <regions>
+        <region name="Mexico" regionid="26" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="RP" id="115" imagecaption="Royal Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111717.jpg" name="Royal Princess" niceurl="princess-cruises/royal-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111717.jpg" />
+      <uniqueportids>178</uniqueportids>
+      <uniqueportids>426</uniqueportids>
+      <uniqueportids>359</uniqueportids>
+      <uniqueportids>409</uniqueportids>
+      <uniqueportnames>Los Angeles</uniqueportnames>
+      <uniqueportnames>Puerto Vallarta</uniqueportnames>
+      <uniqueportnames>Cabo San Lucas</uniqueportnames>
+      <uniqueportnames>Mazatl&#225;n</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1454670" copyandmedia="" cruisebalcony="4018.00" cruisebalconypricecode="" cruiseid="236491" cruiseinside="2418.00" cruiseinsidepricecode="" cruiseoutside="2918.00" cruiseoutsidepricecode="" cruisesuite="5318.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-03-31" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Queensland" ncf="210.00" nettprice="2418.00" nights="10" nofly="N" nofuelsupplement="" ownerid="system" price="2418.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_8.0" resultweight="0" returndate="2021-03-31" returnuk="N" roundtrip="Y" saildate="2021-03-21" sailnights="10" scurrency="USD" seadays="4" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="2418" startdate="2021-03-21" startprice="1209.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="C108" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4018" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4018" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2418" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2418" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2918" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2918" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5318" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5318" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="3328" name="Sydney, Australia" />
+        <port id="460" name="Airlie Beach" />
+        <port id="50" name="Cairns" />
+        <port id="534" name="Port Douglas" />
+        <port id="601" name="Willis Island" />
+        <port id="44" name="Brisbane" />
+        <port id="3328" name="Sydney, Australia" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2418" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2418" />
+      </prices>
+      <regions>
+        <region name="Australasia" regionid="14" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="CP" id="179" imagecaption="Sea Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111983.jpg" name="Sea Princess" niceurl="princess-cruises/sea-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111983.jpg" />
+      <uniqueportids>460</uniqueportids>
+      <uniqueportids>44</uniqueportids>
+      <uniqueportids>3328</uniqueportids>
+      <uniqueportids>601</uniqueportids>
+      <uniqueportids>534</uniqueportids>
+      <uniqueportids>50</uniqueportids>
+      <uniqueportnames>Airlie Beach</uniqueportnames>
+      <uniqueportnames>Brisbane</uniqueportnames>
+      <uniqueportnames>Sydney, Australia</uniqueportnames>
+      <uniqueportnames>Willis Island</uniqueportnames>
+      <uniqueportnames>Port Douglas</uniqueportnames>
+      <uniqueportnames>Cairns</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1494706" copyandmedia="" cruisebalcony="3488.00" cruisebalconypricecode="" cruiseid="239708" cruiseinside="2588.00" cruiseinsidepricecode="" cruiseoutside="3688.00" cruiseoutsidepricecode="" cruisesuite="4588.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-03-30" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Southern Caribbean Medley" ncf="145.00" nettprice="2588.00" nights="10" nofly="N" nofuelsupplement="" ownerid="system" price="2588.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_16.0" resultweight="0" returndate="2021-03-30" returnuk="N" roundtrip="Y" saildate="2021-03-20" sailnights="10" scurrency="USD" seadays="3" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="2588" startdate="2021-03-20" startprice="1294.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="Y110" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3488" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3488" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2588" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2588" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3688" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3688" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4588" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4588" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="378" name="Fort Lauderdale" />
+        <port id="5539" name="Amber Cove, Dominican Republic" />
+        <port id="3737" name="St. Thomas (US Virgin Islands)" />
+        <port id="84" name="Dominica" />
+        <port id="872" name="St Georges, Grenada" />
+        <port id="39" name="Bonaire" />
+        <port id="79" name="Curacao" />
+        <port id="378" name="Fort Lauderdale" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2588" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2588" />
+      </prices>
+      <regions>
+        <region name="Caribbean" regionid="2" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="YP" id="4711" imagecaption="Sky Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582112051.jpg" name="Sky Princess" niceurl="princess-cruises/sky-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582112051.jpg" />
+      <uniqueportids>3737</uniqueportids>
+      <uniqueportids>79</uniqueportids>
+      <uniqueportids>872</uniqueportids>
+      <uniqueportids>84</uniqueportids>
+      <uniqueportids>378</uniqueportids>
+      <uniqueportids>39</uniqueportids>
+      <uniqueportids>5539</uniqueportids>
+      <uniqueportnames>St. Thomas (US Virgin Islands)</uniqueportnames>
+      <uniqueportnames>Curacao</uniqueportnames>
+      <uniqueportnames>St Georges, Grenada</uniqueportnames>
+      <uniqueportnames>Dominica</uniqueportnames>
+      <uniqueportnames>Fort Lauderdale</uniqueportnames>
+      <uniqueportnames>Bonaire</uniqueportnames>
+      <uniqueportnames>Amber Cove, Dominican Republic</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1496239" copyandmedia="" cruisebalcony="4416.00" cruisebalconypricecode="" cruiseid="240070" cruiseinside="2718.00" cruiseinsidepricecode="" cruiseoutside="3000.00" cruiseoutsidepricecode="" cruisesuite="5298.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-04-04" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Thailand &amp; Sri Lanka" ncf="120.00" nettprice="2718.00" nights="12" nofly="N" nofuelsupplement="" ownerid="system" price="2718.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_0.0" resultweight="0" returndate="2021-04-04" returnuk="N" roundtrip="N" saildate="2021-03-23" sailnights="12" scurrency="USD" seadays="6" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="2718" startdate="2021-03-23" startprice="1359.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="A110B" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4416" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4416" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2718" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2718" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3000" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3000" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5298" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5298" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="5403" name="Singapore" />
+        <port id="241" name="Port Klang" />
+        <port id="165" name="Langkawi" />
+        <port id="235" name="Phuket" />
+        <port id="68" name="Colombo, Sri Lanka" />
+        <port id="5275" name="Mina Qabos, UAE" />
+        <port id="85" name="Dubai" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2718" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2718" />
+      </prices>
+      <regions>
+        <region name="Asia &amp; Indian Ocean" regionid="5" />
+        <region name="Dubai &amp; Emirates	" regionid="23" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="AP" id="110" imagecaption="Grand Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111360.jpg" name="Grand Princess" niceurl="princess-cruises/grand-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111360.jpg" />
+      <uniqueportids>85</uniqueportids>
+      <uniqueportids>241</uniqueportids>
+      <uniqueportids>235</uniqueportids>
+      <uniqueportids>5403</uniqueportids>
+      <uniqueportids>165</uniqueportids>
+      <uniqueportids>68</uniqueportids>
+      <uniqueportids>5275</uniqueportids>
+      <uniqueportnames>Dubai</uniqueportnames>
+      <uniqueportnames>Port Klang</uniqueportnames>
+      <uniqueportnames>Phuket</uniqueportnames>
+      <uniqueportnames>Singapore</uniqueportnames>
+      <uniqueportnames>Langkawi</uniqueportnames>
+      <uniqueportnames>Colombo, Sri Lanka</uniqueportnames>
+      <uniqueportnames>Mina Qabos, UAE</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1455209" copyandmedia="" cruisebalcony="4338.00" cruisebalconypricecode="" cruiseid="236626" cruiseinside="2858.00" cruiseinsidepricecode="" cruiseoutside="3358.00" cruiseoutsidepricecode="" cruisesuite="6598.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-04-04" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Perth to Singapore" ncf="210.00" nettprice="2858.00" nights="12" nofly="N" nofuelsupplement="" ownerid="system" price="2858.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_6.0" resultweight="0" returndate="2021-04-04" returnuk="N" roundtrip="N" saildate="2021-03-23" sailnights="12" scurrency="USD" seadays="6" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="2858" startdate="2021-03-23" startprice="1429.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="S109" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4338" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4338" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2858" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2858" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3358" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3358" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="6598" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="6598" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="102" name="Fremantle" />
+        <port id="1354" name="Benoa/Bali" />
+        <port id="241" name="Port Klang" />
+        <port id="231" name="Penang" />
+        <port id="165" name="Langkawi" />
+        <port id="235" name="Phuket" />
+        <port id="5403" name="Singapore" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2858" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2858" />
+      </prices>
+      <regions>
+        <region name="Asia &amp; Indian Ocean" regionid="5" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="SP" id="112" imagecaption="Sun Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582112161.jpg" name="Sun Princess" niceurl="princess-cruises/sun-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582112161.jpg" />
+      <uniqueportids>231</uniqueportids>
+      <uniqueportids>102</uniqueportids>
+      <uniqueportids>165</uniqueportids>
+      <uniqueportids>241</uniqueportids>
+      <uniqueportids>235</uniqueportids>
+      <uniqueportids>1354</uniqueportids>
+      <uniqueportids>5403</uniqueportids>
+      <uniqueportnames>Penang</uniqueportnames>
+      <uniqueportnames>Fremantle</uniqueportnames>
+      <uniqueportnames>Langkawi</uniqueportnames>
+      <uniqueportnames>Port Klang</uniqueportnames>
+      <uniqueportnames>Phuket</uniqueportnames>
+      <uniqueportnames>Benoa/Bali</uniqueportnames>
+      <uniqueportnames>Singapore</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1454628" copyandmedia="" cruisebalcony="3484.00" cruisebalconypricecode="" cruiseid="236467" cruiseinside="2896.00" cruiseinsidepricecode="" cruiseoutside="0" cruiseoutsidepricecode="" cruisesuite="4394.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-04-09" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Round-trip Sydney " ncf="245.00" nettprice="2896.00" nights="13" nofly="N" nofuelsupplement="" ownerid="system" price="2896.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_18.0" resultweight="0" returndate="2021-04-09" returnuk="N" roundtrip="Y" saildate="2021-03-27" sailnights="13" scurrency="USD" seadays="6" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="2896" startdate="2021-03-27" startprice="1448.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="G109" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3484" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3484" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2896" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2896" />
+      </cruiseinsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4394" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4394" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="3328" name="Sydney, Australia" />
+        <port id="506" name="Fiordland National Park" />
+        <port id="88" name="Dunedin, New Zealand" />
+        <port id="63" name="Christchurch" />
+        <port id="345" name="Wellington" />
+        <port id="318" name="Tauranga" />
+        <port id="24" name="Auckland" />
+        <port id="3328" name="Sydney, Australia" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2896" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="2896" />
+      </prices>
+      <regions>
+        <region name="Pacific" regionid="15" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="GP" id="109" imagecaption="Regal Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111645.jpg" name="Regal Princess" niceurl="princess-cruises/regal-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111645.jpg" />
+      <uniqueportids>345</uniqueportids>
+      <uniqueportids>63</uniqueportids>
+      <uniqueportids>3328</uniqueportids>
+      <uniqueportids>24</uniqueportids>
+      <uniqueportids>318</uniqueportids>
+      <uniqueportids>506</uniqueportids>
+      <uniqueportids>88</uniqueportids>
+      <uniqueportnames>Wellington</uniqueportnames>
+      <uniqueportnames>Christchurch</uniqueportnames>
+      <uniqueportnames>Sydney, Australia</uniqueportnames>
+      <uniqueportnames>Auckland</uniqueportnames>
+      <uniqueportnames>Tauranga</uniqueportnames>
+      <uniqueportnames>Fiordland National Park</uniqueportnames>
+      <uniqueportnames>Dunedin, New Zealand</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1616421" copyandmedia="" cruisebalcony="5569.00" cruisebalconypricecode="" cruiseid="261363" cruiseinside="3209.00" cruiseinsidepricecode="" cruiseoutside="3511.00" cruiseoutsidepricecode="" cruisesuite="7409.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-04-10" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Circle Caribbean" ncf="165.50" nettprice="3209.00" nights="14" nofly="N" nofuelsupplement="" ownerid="system" price="3209.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_24.0" resultweight="0" returndate="2021-04-10" returnuk="N" roundtrip="Y" saildate="2021-03-27" sailnights="14" scurrency="USD" seadays="5" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="3209" startdate="2021-03-27" startprice="1604.50" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="3109" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5569" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5569" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3209" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3209" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3511" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3511" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="7409" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="7409" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="378" name="Fort Lauderdale" />
+        <port id="3737" name="St. Thomas (US Virgin Islands)" />
+        <port id="306" name="St. Kitts" />
+        <port id="192" name="Martinique" />
+        <port id="817" name="St Vincent, Grenadines" />
+        <port id="4696" name="Bridgetown" />
+        <port id="328" name="Trinidad" />
+        <port id="39" name="Bonaire" />
+        <port id="21" name="Oranjestad, Aruba" />
+        <port id="378" name="Fort Lauderdale" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3209" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3209" />
+      </prices>
+      <regions>
+        <region name="Caribbean" regionid="2" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="KP" id="269" imagecaption="Crown Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582110949.jpg" name="Crown Princess" niceurl="princess-cruises/crown-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582110949.jpg" />
+      <uniqueportids>378</uniqueportids>
+      <uniqueportids>817</uniqueportids>
+      <uniqueportids>192</uniqueportids>
+      <uniqueportids>4696</uniqueportids>
+      <uniqueportids>39</uniqueportids>
+      <uniqueportids>21</uniqueportids>
+      <uniqueportids>328</uniqueportids>
+      <uniqueportids>3737</uniqueportids>
+      <uniqueportids>306</uniqueportids>
+      <uniqueportnames>Fort Lauderdale</uniqueportnames>
+      <uniqueportnames>St Vincent, Grenadines</uniqueportnames>
+      <uniqueportnames>Martinique</uniqueportnames>
+      <uniqueportnames>Bridgetown</uniqueportnames>
+      <uniqueportnames>Bonaire</uniqueportnames>
+      <uniqueportnames>Oranjestad, Aruba</uniqueportnames>
+      <uniqueportnames>Trinidad</uniqueportnames>
+      <uniqueportnames>St. Thomas (US Virgin Islands)</uniqueportnames>
+      <uniqueportnames>St. Kitts</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1598486" copyandmedia="" cruisebalcony="4778.00" cruisebalconypricecode="" cruiseid="258580" cruiseinside="3278.00" cruiseinsidepricecode="" cruiseoutside="3478.00" cruiseoutsidepricecode="" cruisesuite="6078.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-04-02" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Shikoku Spring Flowers Roundtrip from Tokyo (Yokoh" ncf="100.00" nettprice="3278.00" nights="9" nofly="N" nofuelsupplement="" ownerid="system" price="3278.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_22.0" resultweight="0" returndate="2021-04-02" returnuk="N" roundtrip="N" saildate="2021-03-24" sailnights="9" scurrency="USD" seadays="2" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="3278" startdate="2021-03-24" startprice="1639.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="M111" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4778" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4778" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3278" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3278" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3478" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3478" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="6078" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="6078" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="5590" name="Tokushima, Japan " />
+        <port id="6053" name="Toba, Japan" />
+        <port id="5059" name="Kochi, Japan" />
+        <port id="4419" name="Matsuyama" />
+        <port id="1903" name="Busan, South Korea" />
+        <port id="5585" name="Sasebo, Japan" />
+        <port id="1143" name="Shimizu" />
+        <port id="602" name="Tokyo (Yokohama)" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3278" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3278" />
+      </prices>
+      <regions>
+        <region name="China" regionid="24" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="DI" id="119" imagecaption="Diamond Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111011.jpg" name="Diamond Princess" niceurl="princess-cruises/diamond-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111011.jpg" />
+      <uniqueportids>602</uniqueportids>
+      <uniqueportids>1143</uniqueportids>
+      <uniqueportids>5590</uniqueportids>
+      <uniqueportids>5059</uniqueportids>
+      <uniqueportids>5585</uniqueportids>
+      <uniqueportids>4419</uniqueportids>
+      <uniqueportids>6053</uniqueportids>
+      <uniqueportids>1903</uniqueportids>
+      <uniqueportnames>Tokyo (Yokohama)</uniqueportnames>
+      <uniqueportnames>Shimizu</uniqueportnames>
+      <uniqueportnames>Tokushima, Japan </uniqueportnames>
+      <uniqueportnames>Kochi, Japan</uniqueportnames>
+      <uniqueportnames>Sasebo, Japan</uniqueportnames>
+      <uniqueportnames>Matsuyama</uniqueportnames>
+      <uniqueportnames>Toba, Japan</uniqueportnames>
+      <uniqueportnames>Busan, South Korea</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1494482" copyandmedia="" cruisebalcony="4684.32" cruisebalconypricecode="" cruiseid="239484" cruiseinside="3404.32" cruiseinsidepricecode="" cruiseoutside="3694.32" cruiseoutsidepricecode="" cruisesuite="5684.32" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-04-04" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Caribbean East/West Adventurer" ncf="303.16" nettprice="3404.32" nights="14" nofly="N" nofuelsupplement="" ownerid="system" price="3404.32" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_14.0" resultweight="0" returndate="2021-04-04" returnuk="N" roundtrip="Y" saildate="2021-03-21" sailnights="14" scurrency="USD" seadays="5" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="3404.32" startdate="2021-03-21" startprice="1702.16" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="B113A" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4684.32" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4684.32" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3404.32" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3404.32" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3694.32" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3694.32" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5684.32" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5684.32" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="378" name="Fort Lauderdale" />
+        <port id="249" name="Princess Cays" />
+        <port id="3706" name="Falmouth,Jamaica" />
+        <port id="116" name="Grand Cayman" />
+        <port id="77" name="Cozumel" />
+        <port id="378" name="Fort Lauderdale" />
+        <port id="249" name="Princess Cays" />
+        <port id="3737" name="St. Thomas (US Virgin Islands)" />
+        <port id="2996" name="St Maarten, French Antilles" />
+        <port id="378" name="Fort Lauderdale" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3404.32" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3404.32" />
+      </prices>
+      <regions>
+        <region name="Caribbean" regionid="2" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="CB" id="117" imagecaption="Caribbean Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582110810.jpg" name="Caribbean Princess" niceurl="princess-cruises/caribbean-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582110810.jpg" />
+      <uniqueportids>116</uniqueportids>
+      <uniqueportids>3737</uniqueportids>
+      <uniqueportids>249</uniqueportids>
+      <uniqueportids>2996</uniqueportids>
+      <uniqueportids>3706</uniqueportids>
+      <uniqueportids>378</uniqueportids>
+      <uniqueportids>77</uniqueportids>
+      <uniqueportnames>Grand Cayman</uniqueportnames>
+      <uniqueportnames>St. Thomas (US Virgin Islands)</uniqueportnames>
+      <uniqueportnames>Princess Cays</uniqueportnames>
+      <uniqueportnames>St Maarten, French Antilles</uniqueportnames>
+      <uniqueportnames>Falmouth,Jamaica</uniqueportnames>
+      <uniqueportnames>Fort Lauderdale</uniqueportnames>
+      <uniqueportnames>Cozumel</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1494581" copyandmedia="" cruisebalcony="4692.00" cruisebalconypricecode="" cruiseid="239618" cruiseinside="3488.00" cruiseinsidepricecode="" cruiseoutside="4988.00" cruiseoutsidepricecode="" cruisesuite="6348.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-04-03" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Caribbean East/West Adventurer" ncf="255.00" nettprice="3488.00" nights="14" nofly="N" nofuelsupplement="" ownerid="system" price="3488.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_13.0" resultweight="0" returndate="2021-04-03" returnuk="N" roundtrip="Y" saildate="2021-03-20" sailnights="14" scurrency="USD" seadays="5" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="3488" startdate="2021-03-20" startprice="1744.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="N113A" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4692" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4692" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3488" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3488" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4988" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4988" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="6348" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="6348" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="378" name="Fort Lauderdale" />
+        <port id="249" name="Princess Cays" />
+        <port id="3737" name="St. Thomas (US Virgin Islands)" />
+        <port id="2996" name="St Maarten, French Antilles" />
+        <port id="378" name="Fort Lauderdale" />
+        <port id="507" name="Mahahual" />
+        <port id="37" name="Belize" />
+        <port id="1332" name="Roatan, Bay Islands" />
+        <port id="77" name="Cozumel" />
+        <port id="378" name="Fort Lauderdale" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="3488" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="3488" />
+      </prices>
+      <regions>
+        <region name="Caribbean" regionid="2" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="EX" id="4964" imagecaption="Enchanted Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111188.jpg" name="Enchanted Princess" niceurl="princess-cruises/enchanted-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111188.jpg" />
+      <uniqueportids>1332</uniqueportids>
+      <uniqueportids>249</uniqueportids>
+      <uniqueportids>3737</uniqueportids>
+      <uniqueportids>378</uniqueportids>
+      <uniqueportids>37</uniqueportids>
+      <uniqueportids>507</uniqueportids>
+      <uniqueportids>2996</uniqueportids>
+      <uniqueportids>77</uniqueportids>
+      <uniqueportnames>Roatan, Bay Islands</uniqueportnames>
+      <uniqueportnames>Princess Cays</uniqueportnames>
+      <uniqueportnames>St. Thomas (US Virgin Islands)</uniqueportnames>
+      <uniqueportnames>Fort Lauderdale</uniqueportnames>
+      <uniqueportnames>Belize</uniqueportnames>
+      <uniqueportnames>Mahahual</uniqueportnames>
+      <uniqueportnames>St Maarten, French Antilles</uniqueportnames>
+      <uniqueportnames>Cozumel</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1494648" copyandmedia="" cruisebalcony="6342.66" cruisebalconypricecode="" cruiseid="239686" cruiseinside="4142.66" cruiseinsidepricecode="" cruiseoutside="4522.66" cruiseoutsidepricecode="" cruisesuite="0" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-04-09" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Panama Canal - Ocean to Ocean" ncf="372.33" nettprice="4142.66" nights="15" nofly="N" nofuelsupplement="" ownerid="system" price="4142.66" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_15.0" resultweight="0" returndate="2021-04-09" returnuk="N" roundtrip="N" saildate="2021-03-25" sailnights="15" scurrency="USD" seadays="8" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="4142.66" startdate="2021-03-25" startprice="2071.33" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="E108" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="6342.66" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="6342.66" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4142.66" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4142.66" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4522.66" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4522.66" />
+      </cruiseoutsideprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="378" name="Fort Lauderdale" />
+        <port id="3481" name="Cartagena, Colombia" />
+        <port id="103" name="Fuerte Amador" />
+        <port id="258" name="Puntarenas, Costa Rica" />
+        <port id="275" name="San Juan del Sur" />
+        <port id="896" name="Huatulco, Mexico" />
+        <port id="426" name="Puerto Vallarta" />
+        <port id="178" name="Los Angeles" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="4142.66" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="4142.66" />
+      </prices>
+      <regions>
+        <region name="Central America" regionid="3" />
+        <region name="Panama Canal" regionid="31" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="EP" id="367" imagecaption="Emerald Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111082.jpg" name="Emerald Princess" niceurl="princess-cruises/emerald-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111082.jpg" />
+      <uniqueportids>275</uniqueportids>
+      <uniqueportids>178</uniqueportids>
+      <uniqueportids>258</uniqueportids>
+      <uniqueportids>378</uniqueportids>
+      <uniqueportids>426</uniqueportids>
+      <uniqueportids>103</uniqueportids>
+      <uniqueportids>3481</uniqueportids>
+      <uniqueportids>896</uniqueportids>
+      <uniqueportnames>San Juan del Sur</uniqueportnames>
+      <uniqueportnames>Los Angeles</uniqueportnames>
+      <uniqueportnames>Puntarenas, Costa Rica</uniqueportnames>
+      <uniqueportnames>Fort Lauderdale</uniqueportnames>
+      <uniqueportnames>Puerto Vallarta</uniqueportnames>
+      <uniqueportnames>Fuerte Amador</uniqueportnames>
+      <uniqueportnames>Cartagena, Colombia</uniqueportnames>
+      <uniqueportnames>Huatulco, Mexico</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1494709" copyandmedia="" cruisebalcony="7039.00" cruisebalconypricecode="" cruiseid="239710" cruiseinside="5099.00" cruiseinsidepricecode="" cruiseoutside="0" cruiseoutsidepricecode="" cruisesuite="9039.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-04-09" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Caribbean Explorer" ncf="270.50" nettprice="5099.00" nights="20" nofly="N" nofuelsupplement="" ownerid="system" price="5099.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_2.0" resultweight="0" returndate="2021-04-09" returnuk="N" roundtrip="Y" saildate="2021-03-20" sailnights="20" scurrency="USD" seadays="6" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="5099" startdate="2021-03-20" startprice="2549.50" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="Y110A" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="7039" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="7039" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5099" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5099" />
+      </cruiseinsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="9039" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="9039" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="378" name="Fort Lauderdale" />
+        <port id="5539" name="Amber Cove, Dominican Republic" />
+        <port id="3737" name="St. Thomas (US Virgin Islands)" />
+        <port id="84" name="Dominica" />
+        <port id="872" name="St Georges, Grenada" />
+        <port id="39" name="Bonaire" />
+        <port id="79" name="Curacao" />
+        <port id="378" name="Fort Lauderdale" />
+        <port id="249" name="Princess Cays" />
+        <port id="3737" name="St. Thomas (US Virgin Islands)" />
+        <port id="18" name="St John's, Antigua" />
+        <port id="307" name="St. Lucia" />
+        <port id="4696" name="Bridgetown" />
+        <port id="306" name="St. Kitts" />
+        <port id="378" name="Fort Lauderdale" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5099" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5099" />
+      </prices>
+      <regions>
+        <region name="Caribbean" regionid="2" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="YP" id="4711" imagecaption="Sky Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582112051.jpg" name="Sky Princess" niceurl="princess-cruises/sky-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582112051.jpg" />
+      <uniqueportids>39</uniqueportids>
+      <uniqueportids>5539</uniqueportids>
+      <uniqueportids>4696</uniqueportids>
+      <uniqueportids>307</uniqueportids>
+      <uniqueportids>306</uniqueportids>
+      <uniqueportids>249</uniqueportids>
+      <uniqueportids>3737</uniqueportids>
+      <uniqueportids>872</uniqueportids>
+      <uniqueportids>79</uniqueportids>
+      <uniqueportids>84</uniqueportids>
+      <uniqueportids>18</uniqueportids>
+      <uniqueportids>378</uniqueportids>
+      <uniqueportnames>Bonaire</uniqueportnames>
+      <uniqueportnames>Amber Cove, Dominican Republic</uniqueportnames>
+      <uniqueportnames>Bridgetown</uniqueportnames>
+      <uniqueportnames>St. Lucia</uniqueportnames>
+      <uniqueportnames>St. Kitts</uniqueportnames>
+      <uniqueportnames>Princess Cays</uniqueportnames>
+      <uniqueportnames>St. Thomas (US Virgin Islands)</uniqueportnames>
+      <uniqueportnames>St Georges, Grenada</uniqueportnames>
+      <uniqueportnames>Curacao</uniqueportnames>
+      <uniqueportnames>Dominica</uniqueportnames>
+      <uniqueportnames>St John's, Antigua</uniqueportnames>
+      <uniqueportnames>Fort Lauderdale</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1454626" copyandmedia="" cruisebalcony="7947.82" cruisebalconypricecode="" cruiseid="236465" cruiseinside="5187.82" cruiseinsidepricecode="" cruiseoutside="5535.82" cruiseoutsidepricecode="" cruisesuite="0" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-04-14" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Melbourne to Perth(Fremantle)" ncf="431.91" nettprice="5187.82" nights="20" nofly="N" nofuelsupplement="" ownerid="system" price="5187.82" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_5.0" resultweight="0" returndate="2021-04-14" returnuk="N" roundtrip="N" saildate="2021-03-25" sailnights="20" scurrency="USD" seadays="11" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="5187.82" startdate="2021-03-25" startprice="2593.91" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="H111A" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="7947.82" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="7947.82" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5187.82" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5187.82" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5535.82" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5535.82" />
+      </cruiseoutsideprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="511" name="Melbourne" />
+        <port id="91" name="Eden" />
+        <port id="3328" name="Sydney, Australia" />
+        <port id="44" name="Brisbane" />
+        <port id="350" name="Yorkeys Knob" />
+        <port id="1484" name="Alotau" />
+        <port id="81" name="Darwin, Australia" />
+        <port id="939" name="Broome" />
+        <port id="1119" name="Geraldton, Western Australia" />
+        <port id="102" name="Fremantle" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5187.82" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5187.82" />
+      </prices>
+      <regions>
+        <region name="Australasia" regionid="14" />
+        <region name="Pacific" regionid="15" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="SA" id="114" imagecaption="Sapphire Princess " imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111891.jpg" name="Sapphire Princess" niceurl="princess-cruises/sapphire-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111891.jpg" />
+      <uniqueportids>3328</uniqueportids>
+      <uniqueportids>91</uniqueportids>
+      <uniqueportids>939</uniqueportids>
+      <uniqueportids>1119</uniqueportids>
+      <uniqueportids>81</uniqueportids>
+      <uniqueportids>350</uniqueportids>
+      <uniqueportids>1484</uniqueportids>
+      <uniqueportids>44</uniqueportids>
+      <uniqueportids>511</uniqueportids>
+      <uniqueportids>102</uniqueportids>
+      <uniqueportnames>Sydney, Australia</uniqueportnames>
+      <uniqueportnames>Eden</uniqueportnames>
+      <uniqueportnames>Broome</uniqueportnames>
+      <uniqueportnames>Geraldton, Western Australia</uniqueportnames>
+      <uniqueportnames>Darwin, Australia</uniqueportnames>
+      <uniqueportnames>Yorkeys Knob</uniqueportnames>
+      <uniqueportnames>Alotau</uniqueportnames>
+      <uniqueportnames>Brisbane</uniqueportnames>
+      <uniqueportnames>Melbourne</uniqueportnames>
+      <uniqueportnames>Fremantle</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1599950" copyandmedia="" cruisebalcony="7464.00" cruisebalconypricecode="" cruiseid="259023" cruiseinside="5384.00" cruiseinsidepricecode="" cruiseoutside="5884.00" cruiseoutsidepricecode="" cruisesuite="8564.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-04-14" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Panama Canal - Ocean to Ocean" ncf="483.00" nettprice="5384.00" nights="20" nofly="N" nofuelsupplement="" ownerid="system" price="5384.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_9.0" resultweight="0" returndate="2021-04-14" returnuk="N" roundtrip="N" saildate="2021-03-25" sailnights="20" scurrency="USD" seadays="10" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="5384" startdate="2021-03-25" startprice="2692.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="E108A" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="7464" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="7464" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5384" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5384" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5884" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5884" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="8564" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="8564" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="378" name="Fort Lauderdale" />
+        <port id="3481" name="Cartagena, Colombia" />
+        <port id="103" name="Fuerte Amador" />
+        <port id="258" name="Puntarenas, Costa Rica" />
+        <port id="275" name="San Juan del Sur" />
+        <port id="896" name="Huatulco, Mexico" />
+        <port id="426" name="Puerto Vallarta" />
+        <port id="178" name="Los Angeles" />
+        <port id="274" name="San Francisco, California" />
+        <port id="446" name="Victoria, British Colombia" />
+        <port id="445" name="Vancouver" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5384" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5384" />
+      </prices>
+      <regions>
+        <region name="South America" regionid="10" />
+        <region name="Pacific" regionid="15" />
+        <region name="Mexico" regionid="26" />
+        <region name="Panama Canal" regionid="31" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="EP" id="367" imagecaption="Emerald Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111082.jpg" name="Emerald Princess" niceurl="princess-cruises/emerald-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111082.jpg" />
+      <uniqueportids>896</uniqueportids>
+      <uniqueportids>103</uniqueportids>
+      <uniqueportids>3481</uniqueportids>
+      <uniqueportids>426</uniqueportids>
+      <uniqueportids>446</uniqueportids>
+      <uniqueportids>274</uniqueportids>
+      <uniqueportids>378</uniqueportids>
+      <uniqueportids>258</uniqueportids>
+      <uniqueportids>275</uniqueportids>
+      <uniqueportids>445</uniqueportids>
+      <uniqueportids>178</uniqueportids>
+      <uniqueportnames>Huatulco, Mexico</uniqueportnames>
+      <uniqueportnames>Fuerte Amador</uniqueportnames>
+      <uniqueportnames>Cartagena, Colombia</uniqueportnames>
+      <uniqueportnames>Puerto Vallarta</uniqueportnames>
+      <uniqueportnames>Victoria, British Colombia</uniqueportnames>
+      <uniqueportnames>San Francisco, California</uniqueportnames>
+      <uniqueportnames>Fort Lauderdale</uniqueportnames>
+      <uniqueportnames>Puntarenas, Costa Rica</uniqueportnames>
+      <uniqueportnames>San Juan del Sur</uniqueportnames>
+      <uniqueportnames>Vancouver</uniqueportnames>
+      <uniqueportnames>Los Angeles</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1496238" copyandmedia="" cruisebalcony="8468.00" cruisebalconypricecode="" cruiseid="240069" cruiseinside="5528.00" cruiseinsidepricecode="" cruiseoutside="5660.00" cruiseoutsidepricecode="" cruisesuite="10268.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-04-20" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Mediterranean &amp; Southeast Asia" ncf="485.00" nettprice="5528.00" nights="28" nofly="N" nofuelsupplement="" ownerid="system" price="5528.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_11.0" resultweight="0" returndate="2021-04-20" returnuk="N" roundtrip="N" saildate="2021-03-23" sailnights="28" scurrency="USD" seadays="16" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="5528" startdate="2021-03-23" startprice="2764.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="A110" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="8468" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="8468" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5528" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5528" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5660" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5660" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="10268" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="10268" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="5403" name="Singapore" />
+        <port id="241" name="Port Klang" />
+        <port id="165" name="Langkawi" />
+        <port id="235" name="Phuket" />
+        <port id="68" name="Colombo, Sri Lanka" />
+        <port id="5275" name="Mina Qabos, UAE" />
+        <port id="85" name="Dubai" />
+        <port id="20" name="Aqaba" />
+        <port id="23" name="Athens (Piraeus)" />
+        <port id="5286" name="Malta (La Valletta)" />
+        <port id="512" name="Messina" />
+        <port id="201" name="Naples" />
+        <port id="270" name="Rome (Civitavecchia)" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="5528" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="5528" />
+      </prices>
+      <regions>
+        <region name="Europe" regionid="4" />
+        <region name="Asia &amp; Indian Ocean" regionid="5" />
+        <region name="Mediterranean" regionid="7" />
+        <region name="Egypt &amp; Red Sea" regionid="25" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="AP" id="110" imagecaption="Grand Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111360.jpg" name="Grand Princess" niceurl="princess-cruises/grand-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111360.jpg" />
+      <uniqueportids>5403</uniqueportids>
+      <uniqueportids>20</uniqueportids>
+      <uniqueportids>201</uniqueportids>
+      <uniqueportids>512</uniqueportids>
+      <uniqueportids>5275</uniqueportids>
+      <uniqueportids>68</uniqueportids>
+      <uniqueportids>270</uniqueportids>
+      <uniqueportids>5286</uniqueportids>
+      <uniqueportids>165</uniqueportids>
+      <uniqueportids>241</uniqueportids>
+      <uniqueportids>235</uniqueportids>
+      <uniqueportids>23</uniqueportids>
+      <uniqueportids>85</uniqueportids>
+      <uniqueportnames>Singapore</uniqueportnames>
+      <uniqueportnames>Aqaba</uniqueportnames>
+      <uniqueportnames>Naples</uniqueportnames>
+      <uniqueportnames>Messina</uniqueportnames>
+      <uniqueportnames>Mina Qabos, UAE</uniqueportnames>
+      <uniqueportnames>Colombo, Sri Lanka</uniqueportnames>
+      <uniqueportnames>Rome (Civitavecchia)</uniqueportnames>
+      <uniqueportnames>Malta (La Valletta)</uniqueportnames>
+      <uniqueportnames>Langkawi</uniqueportnames>
+      <uniqueportnames>Port Klang</uniqueportnames>
+      <uniqueportnames>Phuket</uniqueportnames>
+      <uniqueportnames>Athens (Piraeus)</uniqueportnames>
+      <uniqueportnames>Dubai</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1599239" copyandmedia="" cruisebalcony="9518.00" cruisebalconypricecode="" cruiseid="258775" cruiseinside="6418.00" cruiseinsidepricecode="" cruiseoutside="6818.00" cruiseoutsidepricecode="" cruisesuite="11918.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-04-11" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Shikoku Explorer Spring" ncf="230.00" nettprice="6418.00" nights="18" nofly="N" nofuelsupplement="" ownerid="system" price="6418.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_21.0" resultweight="0" returndate="2021-04-11" returnuk="N" roundtrip="Y" saildate="2021-03-24" sailnights="18" scurrency="USD" seadays="4" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="6418" startdate="2021-03-24" startprice="3209.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="M111A" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="9518" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="9518" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="6418" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="6418" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="6818" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="6818" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="11918" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="11918" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="602" name="Tokyo (Yokohama)" />
+        <port id="6053" name="Toba, Japan" />
+        <port id="5059" name="Kochi, Japan" />
+        <port id="4419" name="Matsuyama" />
+        <port id="1903" name="Busan, South Korea" />
+        <port id="5585" name="Sasebo, Japan" />
+        <port id="1143" name="Shimizu" />
+        <port id="602" name="Tokyo (Yokohama)" />
+        <port id="1143" name="Shimizu" />
+        <port id="223" name="Osaka" />
+        <port id="5059" name="Kochi, Japan" />
+        <port id="528" name="Hiroshima" />
+        <port id="1903" name="Busan, South Korea" />
+        <port id="489" name="Kagoshima" />
+        <port id="602" name="Tokyo (Yokohama)" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="6418" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="6418" />
+      </prices>
+      <regions>
+        <region name="Asia &amp; Indian Ocean" regionid="5" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="DI" id="119" imagecaption="Diamond Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111011.jpg" name="Diamond Princess" niceurl="princess-cruises/diamond-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111011.jpg" />
+      <uniqueportids>5059</uniqueportids>
+      <uniqueportids>528</uniqueportids>
+      <uniqueportids>4419</uniqueportids>
+      <uniqueportids>5585</uniqueportids>
+      <uniqueportids>489</uniqueportids>
+      <uniqueportids>1143</uniqueportids>
+      <uniqueportids>602</uniqueportids>
+      <uniqueportids>1903</uniqueportids>
+      <uniqueportids>6053</uniqueportids>
+      <uniqueportids>223</uniqueportids>
+      <uniqueportnames>Kochi, Japan</uniqueportnames>
+      <uniqueportnames>Hiroshima</uniqueportnames>
+      <uniqueportnames>Matsuyama</uniqueportnames>
+      <uniqueportnames>Sasebo, Japan</uniqueportnames>
+      <uniqueportnames>Kagoshima</uniqueportnames>
+      <uniqueportnames>Shimizu</uniqueportnames>
+      <uniqueportnames>Tokyo (Yokohama)</uniqueportnames>
+      <uniqueportnames>Busan, South Korea</uniqueportnames>
+      <uniqueportnames>Toba, Japan</uniqueportnames>
+      <uniqueportnames>Osaka</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1494314" copyandmedia="" cruisebalcony="13738.00" cruisebalconypricecode="" cruiseid="239518" cruiseinside="6798.00" cruiseinsidepricecode="" cruiseoutside="7278.00" cruiseoutsidepricecode="" cruisesuite="19538.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-04-23" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Hawaii, Tahiti &amp; Samoa" ncf="220.00" nettprice="6798.00" nights="28" nofly="N" nofuelsupplement="" ownerid="system" price="6798.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_1.0" resultweight="0" returndate="2021-04-23" returnuk="N" roundtrip="Y" saildate="2021-03-26" sailnights="28" scurrency="USD" seadays="19" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="6798" startdate="2021-03-26" startprice="3399.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="9108" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="13738" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="13738" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="6798" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="6798" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="7278" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="7278" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="19538" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="19538" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="178" name="Los Angeles" />
+        <port id="128" name="Hilo" />
+        <port id="134" name="Honolulu" />
+        <port id="2009" name="Maui (Lahaina), Hawaii" />
+        <port id="225" name="Pago Pago" />
+        <port id="19" name="Apia" />
+        <port id="40" name="Bora Bora" />
+        <port id="229" name="Papeete" />
+        <port id="92" name="Moorea" />
+        <port id="178" name="Los Angeles" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="6798" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="6798" />
+      </prices>
+      <regions>
+        <region name="Hawaii" regionid="6" />
+        <region name="Pacific" regionid="15" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="TP" id="113" imagecaption="Star Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582112090.jpg" name="Star Princess" niceurl="princess-cruises/star-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582112090.jpg" />
+      <uniqueportids>2009</uniqueportids>
+      <uniqueportids>128</uniqueportids>
+      <uniqueportids>178</uniqueportids>
+      <uniqueportids>19</uniqueportids>
+      <uniqueportids>92</uniqueportids>
+      <uniqueportids>225</uniqueportids>
+      <uniqueportids>134</uniqueportids>
+      <uniqueportids>40</uniqueportids>
+      <uniqueportids>229</uniqueportids>
+      <uniqueportnames>Maui (Lahaina), Hawaii</uniqueportnames>
+      <uniqueportnames>Hilo</uniqueportnames>
+      <uniqueportnames>Los Angeles</uniqueportnames>
+      <uniqueportnames>Apia</uniqueportnames>
+      <uniqueportnames>Moorea</uniqueportnames>
+      <uniqueportnames>Pago Pago</uniqueportnames>
+      <uniqueportnames>Honolulu</uniqueportnames>
+      <uniqueportnames>Bora Bora</uniqueportnames>
+      <uniqueportnames>Papeete</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+    <cruise airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" codetocruiseid="1495716" copyandmedia="" cruisebalcony="12868.00" cruisebalconypricecode="" cruiseid="239940" cruiseinside="8128.00" cruiseinsidepricecode="" cruiseoutside="8332.00" cruiseoutsidepricecode="" cruisesuite="15468.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-04-30" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" localpricing="Y" marketid="22" name="Singapore to London" ncf="585.00" nettprice="8128.00" nights="38" nofly="N" nofuelsupplement="" ownerid="system" price="8128.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultkey="default" resultno="302_20.0" resultweight="0" returndate="2021-04-30" returnuk="Y" roundtrip="N" saildate="2021-03-23" sailnights="38" scurrency="USD" seadays="19" searchdetail="" searchno="0" senior="0" soldout="0" special="no" specialsgroup="" sprice="8128" startdate="2021-03-23" startprice="4064.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="A110A" whatsincluded="" zoneid="">
+      <cruisebalconyprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="12868" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="12868" />
+      </cruisebalconyprices>
+      <cruiseinsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="8128" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="8128" />
+      </cruiseinsideprices>
+      <cruiseoutsideprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="8332" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="8332" />
+      </cruiseoutsideprices>
+      <cruisesuiteprices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="15468" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="15468" />
+      </cruisesuiteprices>
+      <grade>
+        <cabin></cabin>
+        <rate></rate>
+      </grade>
+      <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+      <ports>
+        <port id="5403" name="Singapore" />
+        <port id="241" name="Port Klang" />
+        <port id="165" name="Langkawi" />
+        <port id="235" name="Phuket" />
+        <port id="68" name="Colombo, Sri Lanka" />
+        <port id="5275" name="Mina Qabos, UAE" />
+        <port id="85" name="Dubai" />
+        <port id="20" name="Aqaba" />
+        <port id="23" name="Athens (Piraeus)" />
+        <port id="5286" name="Malta (La Valletta)" />
+        <port id="512" name="Messina" />
+        <port id="201" name="Naples" />
+        <port id="270" name="Rome (Civitavecchia)" />
+        <port id="174" name="Livorno" />
+        <port id="517" name="Monte Carlo" />
+        <port id="1" name="Barcelona" />
+        <port id="109" name="Gibraltar" />
+        <port id="173" name="Lisbon" />
+        <port id="168" name="Le Havre" />
+        <port id="295" name="Southampton" />
+      </ports>
+      <prices>
+        <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="8128" />
+        <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="8128" />
+      </prices>
+      <regions>
+        <region name="Europe" regionid="4" />
+        <region name="Mediterranean" regionid="7" />
+        <region name="Dubai &amp; Emirates	" regionid="23" />
+        <region name="Egypt &amp; Red Sea" regionid="25" />
+      </regions>
+      <sessiondetail></sessiondetail>
+      <ship code="AP" id="110" imagecaption="Grand Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111360.jpg" name="Grand Princess" niceurl="princess-cruises/grand-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111360.jpg" />
+      <uniqueportids>295</uniqueportids>
+      <uniqueportids>5286</uniqueportids>
+      <uniqueportids>168</uniqueportids>
+      <uniqueportids>174</uniqueportids>
+      <uniqueportids>165</uniqueportids>
+      <uniqueportids>68</uniqueportids>
+      <uniqueportids>270</uniqueportids>
+      <uniqueportids>173</uniqueportids>
+      <uniqueportids>517</uniqueportids>
+      <uniqueportids>5275</uniqueportids>
+      <uniqueportids>201</uniqueportids>
+      <uniqueportids>512</uniqueportids>
+      <uniqueportids>1</uniqueportids>
+      <uniqueportids>20</uniqueportids>
+      <uniqueportids>5403</uniqueportids>
+      <uniqueportids>109</uniqueportids>
+      <uniqueportids>23</uniqueportids>
+      <uniqueportids>85</uniqueportids>
+      <uniqueportids>241</uniqueportids>
+      <uniqueportids>235</uniqueportids>
+      <uniqueportnames>Southampton</uniqueportnames>
+      <uniqueportnames>Malta (La Valletta)</uniqueportnames>
+      <uniqueportnames>Le Havre</uniqueportnames>
+      <uniqueportnames>Livorno</uniqueportnames>
+      <uniqueportnames>Langkawi</uniqueportnames>
+      <uniqueportnames>Colombo, Sri Lanka</uniqueportnames>
+      <uniqueportnames>Rome (Civitavecchia)</uniqueportnames>
+      <uniqueportnames>Lisbon</uniqueportnames>
+      <uniqueportnames>Monte Carlo</uniqueportnames>
+      <uniqueportnames>Mina Qabos, UAE</uniqueportnames>
+      <uniqueportnames>Naples</uniqueportnames>
+      <uniqueportnames>Messina</uniqueportnames>
+      <uniqueportnames>Barcelona</uniqueportnames>
+      <uniqueportnames>Aqaba</uniqueportnames>
+      <uniqueportnames>Singapore</uniqueportnames>
+      <uniqueportnames>Gibraltar</uniqueportnames>
+      <uniqueportnames>Athens (Piraeus)</uniqueportnames>
+      <uniqueportnames>Dubai</uniqueportnames>
+      <uniqueportnames>Port Klang</uniqueportnames>
+      <uniqueportnames>Phuket</uniqueportnames>
+      <upropdata></upropdata>
+    </cruise>
+  </results>
+</response>

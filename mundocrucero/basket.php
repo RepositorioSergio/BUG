@@ -87,12 +87,12 @@ if ($result->valid()) {
     $mundocrucerosWebsite = $row['value'];
 }
 
-$sessionkey = '0DE96AB9~F7F1i4C40-A6B9-3DB46BA547AA';
+$sessionkey = '73B05D95-87DDp4FD7-90B0-8C0DED0DF5DA';
 
 $raw = 'xml=<?xml version="1.0"?>
 <request>
   <auth password="' . $mundocrucerospassword . '" username="' . $mundocrucerosusername . '" />
-  <method action="getbasket" sessionkey="' . $sessionkey . '" status="Live" />
+  <method action="getbasket" sessionkey="' . $sessionkey . '" status="Test" />
 </request>';
 
 echo "<xmp>";

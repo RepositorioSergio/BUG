@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<response method="getbasket" sessionkey="0DE96AB9~F7F1i4C40-A6B9-3DB46BA547AA" success="Y">
+  <errors>
+  </errors>
+  <request>
+    <auth password="kg02gy05" username="mundocru" />
+    <method action="getbasket" sessionkey="0DE96AB9~F7F1i4C40-A6B9-3DB46BA547AA" status="Live" />
+  </request>
+  <results>
+    <basketitem addedtime="1588233544" basketcode="BY8GXG" currency="USD" enginename="Princess Cruises" itemkey="813480073" paymentoption="online" price="0.00" scurrency="" searchno="0" sprice="" startdate="2021-03-25 23:59:59" type="cruise">
+      <cardcharges>
+        <cardcharge cardname="Diners Club" cardtype="DIN" chargetype="none" chargevalue="0.00" />
+        <cardcharge cardname="MasterCard Credit Card" cardtype="MSC" chargetype="percentage" chargevalue="0.00" />
+        <cardcharge cardname="Visa Credit Card" cardtype="VIS" chargetype="none" chargevalue="0.00" />
+        <cardcharge cardname="American Express" cardtype="AMX" chargetype="none" chargevalue="0.00" />
+      </cardcharges>
+      <deposits duedate="2021-03-22" price="0" />
+      <item adults="2" airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" children="0" codetocruiseid="1454625" copyandmedia="" cruisebalcony="978.00" cruisebalconypricecode="" cruiseid="236463" cruiseinside="778.00" cruiseinsidepricecode="" cruiseoutside="858.00" cruiseoutsidepricecode="" cruisesuite="1138.00" cruisesuitepricecode="" currency="USD" departuk="N" description="" displaycruiseonly="1" domesticdeparture="0" enddate="2021-03-28" engine="Princess" enginesource="" groupids="" hascruiseonly="Y" hasflights="N" hidden="N" iata="" infants="0" localpricing="Y" marketid="22" name="Australia Getaway" ncf="90.00" nettprice="778.00" nights="3" nofly="N" nofuelsupplement="" ownerid="system" price="778.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="Y" resultno="184_23.0" resultweight="0" returndate="2021-03-28" returnuk="N" roundtrip="N" saildate="2021-03-25" sailnights="3" scurrency="USD" seadays="1" searchdetail="" senior="0" soldout="0" special="no" specialsgroup="" sprice="778" startdate="2021-03-25" startprice="389.00" stoplive="0" systemgroup="" taxes="0.00" type="cruise" voyagecode="H111" whatsincluded="" zoneid="">
+        <cruisebalconyprices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="978" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="978" />
+        </cruisebalconyprices>
+        <cruiseinsideprices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="778" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="778" />
+        </cruiseinsideprices>
+        <cruiseoutsideprices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="858" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="858" />
+        </cruiseoutsideprices>
+        <cruisesuiteprices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1138" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1138" />
+        </cruisesuiteprices>
+        <grade>
+          <cabin></cabin>
+          <rate></rate>
+        </grade>
+        <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+        <ports>
+          <port id="511" name="Melbourne" />
+          <port id="91" name="Eden" />
+          <port id="3328" name="Sydney, Australia" />
+        </ports>
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="778" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="778" />
+        </prices>
+        <regions>
+          <region name="Australasia" regionid="14" />
+        </regions>
+        <sessiondetail></sessiondetail>
+        <ship code="SA" id="114" imagecaption="Sapphire Princess " imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111891.jpg" name="Sapphire Princess" niceurl="princess-cruises/sapphire-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111891.jpg" />
+        <uniqueportids>91</uniqueportids>
+        <uniqueportids>3328</uniqueportids>
+        <uniqueportids>511</uniqueportids>
+        <uniqueportnames>Eden</uniqueportnames>
+        <uniqueportnames>Sydney, Australia</uniqueportnames>
+        <uniqueportnames>Melbourne</uniqueportnames>
+        <upropdata></upropdata>
+      </item>
+      <itemdetail adults="2" airport="" airportname="" children="0" codetocruiseid="1454625" cruiseid="236463" currency="USD" departuk="N" description="" enddate="2021-03-28" engine="Princess" hascruiseonly="Y" hasflights="N" hidden="N" iata="" infants="0" name="Australia Getaway" nettprice="778.00" nights="3" nofly="N" nofuelsupplement="" ownerid="system" paymentoption="online" price="778.00" priority="999" resultno="184_23.0" returndate="2021-03-28" saildate="2021-03-25" sailnights="3" special="no" startdate="2021-03-25" stoplive="0" type="cruise" voyagecode="H111" zoneid="">
+        <cabin deckcode="" />
+        <grade iata="">
+          <cabintype></cabintype>
+          <prices></prices>
+          <rate></rate>
+        </grade>
+        <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+        <ports>
+          <port id="511" name="Melbourne" />
+          <port id="91" name="Eden" />
+          <port id="3328" name="Sydney, Australia" />
+        </ports>
+        <regions>
+          <region name="Australasia" regionid="14" />
+        </regions>
+        <ship code="SA" id="114" imagecaption="Sapphire Princess " imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111891.jpg" name="Sapphire Princess" niceurl="princess-cruises/sapphire-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111891.jpg" />
+      </itemdetail>
+      <prices>
+      </prices>
+      <reservation>
+        <itemdetail>
+          <bookedsectors></bookedsectors>
+        </itemdetail>
+      </reservation>
+      <searchdetail addins="1" adults="2" allowalldates="" children="0" classificationid="" codetocruiseid="" cruiseandflyuk="" cruiseonly="" cruiseonlynouk="" cruisepax="" cruisetype="" cruiseversion="3" ctcownerid="" defaulthomecity="SCL" departuk="" enddate="2021-03-27" endportid="" flycruise="" forceallocations="" groupid="" homecity="" includesenior="" infants="0" language="en" lineid="20" lowestavailablefare="0" maxchildage="11" maxinfantage="1" maxresults="" military="" nights="" nofly="" nxcacher="" nxfromquote="" parentsid="" parentsite="chilegsa.site.traveltek.net" pastpassenger="" port="" portid="" pricerange="" processed="1" promocode="" regionid="" resultkey="default" searchcreatedat="2020-04-30 08:48:21" searchedon="81.20.75.152" searchno="0" shipid="" shipimages="Y" sid="28111" sidtype="cruises" sitename="chilegsa.site.traveltek.net" source="local" startdate="2021-03-20" startport="" startportid="" supplierpromocode="" systemgroup="" tailormadeid="" totalresults="25" type="cruise" voyagecode="" withprices="Y" withpricesonly="">
+        <childages></childages>
+        <enginemappings>
+          <cruise>
+          </cruise>
+        </enginemappings>
+        <marketid>22</marketid>
+        <resultcounts CruiseSearch="25" />
+        <timings CruiseSearch="3.01954" />
+        <workertimes CruiseSearch="" />
+      </searchdetail>
+    </basketitem>
+  </results>
+</response>

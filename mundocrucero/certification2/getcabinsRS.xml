@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<response method="getcabins" sessionkey="0DE96AB9~F7F1i4C40-A6B9-3DB46BA547AA" success="Y">
+  <errors>
+  </errors>
+  <request>
+    <auth password="kg02gy05" username="mundocru" />
+    <method action="getcabins" gradeno="184:19" resultno="302_23.0" sessionkey="0DE96AB9~F7F1i4C40-A6B9-3DB46BA547AA" status="Live" />
+  </request>
+  <results>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="105" cabinno="B415" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:19_1" shipside="" x1="406" x2="483" y1="1645" y2="1674">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="93" imageid="24067" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344876915.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="105" cabinno="B408" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:19_0" shipside="" x1="133" x2="211" y1="1614" y2="1642">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="93" imageid="24067" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344876915.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="" bedcode="" cabingrade="BA" cabinid="105" cabinno="GUAR" farecode="KIW" guaranteed="Y" location="TO BE ASSIGNED/TO BE ASSIGNED/Oceanview" minguests="1" resultno="184:19_2" />
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="105" cabinno="B401" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:19_3" shipside="" x1="405" x2="483" y1="1549" y2="1578">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="93" imageid="24067" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344876915.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <essential>
+      <errataitem type="header" value="RESTRICTED" />
+      <errataitem type="body" value="REST OF WORLD PRINCESS SAVERS - NRD" />
+      <errataitem type="body" value="This promotion has a non-refundable deposit" />
+      <errataitem type="body" value="" />
+      <errataitem type="body" value="************** IMPORTANT INFORMATION REGARDING THIS BOOKING ****************** The deposit for the fare you have selected is 100% non-refundable and          non-transferable. Upon payment, no portion of the deposit is refundable for anyreason." />
+      <errataitem type="body" value="                                                                                                                                               Please be advised this special promotion is not combinable with select         discounts nor is it combinable" />
+      <errataitem type="body" value=" with Princess eZAir discounts.                                                                                                 See the Booking Confirmation and Travel Summary for complete                   Terms &amp;amp;amp; Conditions." />
+      <errataitem type="body" value="BM BN CA CN HK ID JP KR MO MX MY PR SG TW UN US VN XX" />
+    </essential>
+  </results>
+</response>

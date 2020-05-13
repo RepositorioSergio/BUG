@@ -77,6 +77,15 @@ if ($result->valid()) {
     $row = $result->current();
     $mundocrucerosServiceURLBook = $row['value'];
 }
+$sql = "select value from settings where name='mundocrucerosServiceURLBook' and affiliate_id=$affiliate_id_mundocruceros";
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$result = $statement->execute();
+$result->buffer();
+if ($result->valid()) {
+    $row = $result->current();
+    $mundocrucerosServiceURLBook = $row['value'];
+}
 $sql = "select value from settings where name='mundocrucerosSID' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -96,21 +105,20 @@ if ($result->valid()) {
     $mundocrucerosWebsite = $row['value'];
 }
 
-$sessionkey = '0DE96AB9~F7F1i4C40-A6B9-3DB46BA547AA';
-$basketcode = '813487215';
-$bedconfig = 'T2';
+$sessionkey = '73B05D95-87DDp4FD7-90B0-8C0DED0DF5DA';
+$basketcode = '7SRSCC';
+$bedconfig = 'QN';
 $tablesize = '';
 $seating = '';
 
 $raw = 'xml=<?xml version="1.0"?>
 <request>
     <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-    <method action="book" sessionkey="' . $sessionkey . '" status="Live">
+    <method action="book" sessionkey="' . $sessionkey . '" status="Test">
     <contact address1="37 Hawbank Road" address2="College Milton" city="East Kilbride" country="GB" county="Glasgow" email="richard@traveltek.net" firstname="Mary" lastname="Smith" postcode="G74 5EG" telephone="01355 246111" title="MISS" />
     <passengers>
         <passenger dob="1973-07-24" title="MISS" firstname="Mary" lastname="Smith" paxno="1" paxtype="adult" nationality="GB" passport="26347891107" travelling="" />
-        <passenger dob="1973-07-24" title="MR" firstname="Richard" lastname="Smith" paxno="2" paxtype="adult" nationality="GB" passport="26347891214" travelling="">
-        </passenger>            
+        <passenger dob="1973-07-24" title="MR" firstname="Richard" lastname="Smith" paxno="2" paxtype="adult" nationality="GB" passport="26347891214" travelling=""/>         
     </passengers>
     <allocation>
         <requests basketcode="' . $basketcode . '" request="BOOKING ONLY" />
@@ -118,6 +126,29 @@ $raw = 'xml=<?xml version="1.0"?>
     </allocation>
     <deposits paydepositonly="N" />
 </method>
+</request>';
+
+$raw2 = 'xml=<?xml version="1.0"?>
+<request>
+        <auth password="' . $mundocrucerospassword . '" username="' . $mundocrucerosusername . '" />
+        <method action="book" sessionkey="' . $sessionkey . '" status="Test">
+        <allocation>
+            <requests basketcode="' . $basketcode . '" request="TEST BOOKING ONLY" />
+        </allocation>
+        <contact address1="37 Hawbank Road" address2="College Milton" city="East Kilbride" country="GB" county="Glasgow" email="noreply@traveltek.net" firstname="Mary" lastname="Smith" postcode="G74 5EG" telephone="01355 246111" title="MISS" />
+        <creditcard address1="Hawbank" cardno="4444444444444444" cardtype="VIS" city="Glasgow" country="UK" county="Glasgow" cvv="000" expirymonth="01" expiryyear="2022" firstname="Richard" lastname="Smith" nameoncard="Richard Smith" postcode="G74 5EG" startmonth="01" startyear="2012" title="Mr" />
+        <deposits paydepositonly="Y" />
+        <passengers>
+            <passenger dob="1973-07-24" title="MISS" firstname="Mary" lastname="Smith" paxno="1" paxtype="adult" nationality="GB" passport="26347891107" travelling="" />
+            <passenger dob="1973-07-24" title="MR" firstname="Richard" lastname="Smith" paxno="2" paxtype="adult" nationality="GB" passport="26347891214" travelling=""/>  
+        </passengers>
+        <paymentschedule cardtype="VIS" lowdeposit="Y" token="abcd1234" totaldeposit="9952">
+            <schedule>
+                <item amount="9000" completed="Y" duedate="2021-02-01" type="lowdeposit" />
+                <item amount="9952" completed="Y" duedate="2021-03-01" type="deposit" />
+            </schedule>
+        </paymentschedule>
+        </method>
 </request>';
 
 echo "<xmp>";
@@ -128,7 +159,7 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $mundocrucerosServiceURLBook);
 curl_setopt($ch, CURLOPT_HEADER, false);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_VERBOSE, 1);
+curl_setopt($ch, CURLOPT_VERBOSE, false);
 curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
 curl_setopt($ch, CURLOPT_ENCODING, "gzip, deflate");

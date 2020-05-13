@@ -122,7 +122,7 @@ $sessionkey = $node->item(0)->getAttribute("sessionkey");
 $raw = 'xml=<?xml version="1.0"?>
 <request>
   <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-  <method action="simplesearch" type="cruise" sessionkey="' . $sessionkey . '" userid="3035567" sitename="' . $mundocrucerosWebsite . '" currency="USD" status="Live">
+  <method action="simplesearch" type="cruise" sessionkey="' . $sessionkey . '" userid="3035567" sitename="' . $mundocrucerosWebsite . '" currency="USD" status="Test">
     <searchdetail type="cruise" startdate="2021-03-20" enddate="2021-03-27" lineid="20" adults="2" children="0" sid="' . $mundocrucerosSID . '" resultkey="default">
     </searchdetail>
   </method>

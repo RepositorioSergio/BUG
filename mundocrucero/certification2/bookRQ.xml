@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<request>
+    <auth username="mundocru" password="kg02gy05" />
+    <method action="book" sessionkey="0DE96AB9~F7F1i4C40-A6B9-3DB46BA547AA" status="Live">
+    <contact address1="37 Hawbank Road" address2="College Milton" city="East Kilbride" country="GB" county="Glasgow" email="richard@traveltek.net" firstname="TESTX" lastname="TRAVELTEK" postcode="G74 5EG" telephone="01355 246111" title="MISS" />
+    <passengers>
+        <passenger dob="1973-07-24" title="MISS" firstname="TESTX" lastname="TRAVELTEK" paxno="1" paxtype="adult" nationality="GB" passport="26347891107" travelling="" />
+        <passenger dob="1973-07-24" title="MR" firstname="TEST" lastname="TRAVELTEKX" paxno="2" paxtype="adult" nationality="GB" passport="26347891214" travelling="">
+        </passenger>            
+    </passengers>
+    <allocation>
+        <requests basketcode="813480073" request="TEST BOOKING ONLY" />
+        <bedconfig basketcode="813480073" bedconfig="QN"/>
+    </allocation>
+    <deposits paydepositonly="N" />
+</method>

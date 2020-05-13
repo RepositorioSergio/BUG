@@ -1,0 +1,1228 @@
+<?xml version="1.0"?>
+<response method="getcabingrades" sessionkey="0DE96AB9~F7F1i4C40-A6B9-3DB46BA547AA" success="Y">
+  <errors>
+  </errors>
+  <request>
+    <auth password="kg02gy05" username="mundocru" />
+    <method action="getcabingrades" resultno="302_23.0" sessionkey="0DE96AB9~F7F1i4C40-A6B9-3DB46BA547AA" status="Live" />
+  </request>
+  <results>
+    <grades>
+      <grade cabincode="BA" cabinid="105" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:19" grossprice="715.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="1070" oldgrossprice="1070" pastguestind="N" price="1070.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="1070" taxes="180" type="cruiseonly" wasprice="1070.00">
+        <cabintype cabincode="BA" cabincode2="" cabintype="balcony" caption="" colourcode="FFF200" deckid="93" description="The spacious approximately 237-square-foot Balcony stateroom is appointed with fine amenities and outstanding views from an approximately 46-square-foot private balcony. Some staterooms also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Balcony stateroom:
+
+Balcony with patio furniture.
+Twin beds that convert to a queen-size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="105" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563776754.jpg" isdefault="N" name="Balcony Two Lower Beds" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563776754.jpg" sortweight="40" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>middle</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1070" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="715.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>11</sdecks>
+      </grade>
+      <grade cabincode="BB" cabinid="106" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:11" grossprice="677.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="1032" oldgrossprice="1032" pastguestind="N" price="1032.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="1032" taxes="180" type="cruiseonly" wasprice="1032.00">
+        <cabintype cabincode="BB" cabincode2="" cabintype="balcony" caption="" colourcode="CC8B96" deckid="93" description="The spacious approximately 237-square-foot Balcony stateroom is appointed with fine amenities and outstanding views from an approximately 46-square-foot private balcony. Some staterooms also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Balcony stateroom:
+
+Balcony with patio furniture.
+Twin beds that convert to a queen-size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="106" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563777002.jpg" isdefault="N" name="Balcony Two Lower Beds" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563777002.jpg" sortweight="40" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>middle</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1032" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="677.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>12</sdecks>
+        <sdecks>11</sdecks>
+      </grade>
+      <grade cabincode="BC" cabinid="107" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:20" grossprice="639.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="994" oldgrossprice="994" pastguestind="N" price="994.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="994" taxes="180" type="cruiseonly" wasprice="994.00">
+        <cabintype cabincode="BC" cabincode2="" cabintype="balcony" caption="" colourcode="A296A5" deckid="92" description="The spacious approximately 237-square-foot Balcony stateroom is appointed with fine amenities and outstanding views from an approximately 46-square-foot private balcony. Some staterooms also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Balcony stateroom:
+
+Balcony with patio furniture.
+Twin beds that convert to a queen-size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="107" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563777386.jpg" isdefault="N" name="Balcony Two Lower Beds" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563777386.jpg" sortweight="40" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>forward</position>
+          <position>middle</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="994" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="639.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>14</sdecks>
+        <sdecks>12</sdecks>
+      </grade>
+      <grade cabincode="BD" cabinid="108" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:2" grossprice="601.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="956" oldgrossprice="956" pastguestind="N" price="956.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="956" taxes="180" type="cruiseonly" wasprice="956.00">
+        <cabintype cabincode="BD" cabincode2="" cabintype="balcony" caption="" colourcode="90A79D" deckid="94" description="The spacious approximately 237-square-foot Balcony stateroom is appointed with fine amenities and outstanding views from an approximately 46-square-foot private balcony. Some staterooms also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Balcony stateroom:
+
+Balcony with patio furniture.
+Twin beds that convert to a queen-size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="108" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563776054.jpg" isdefault="N" name="Balcony Two Lower Beds" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563776054.jpg" sortweight="40" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>rear</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="956" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="601.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+      </grade>
+      <grade cabincode="BF" cabinid="109" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:24" grossprice="525.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="880" oldgrossprice="880" pastguestind="N" price="880.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="880" taxes="180" type="cruiseonly" wasprice="880.00">
+        <cabintype cabincode="BF" cabincode2="" cabintype="balcony" caption="" colourcode="00A651" deckid="92" description="The spacious approximately 237-square-foot Balcony stateroom is appointed with fine amenities and outstanding views from an approximately 46-square-foot private balcony. Some staterooms also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Balcony stateroom:
+
+Balcony with patio furniture.
+Twin beds that convert to a queen-size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="109" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563777443.jpg" isdefault="N" name="Balcony Two Lower Beds" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563777443.jpg" sortweight="40" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>forward</position>
+          <position>rear</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="880" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="525.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>14</sdecks>
+        <sdecks>12</sdecks>
+      </grade>
+      <grade cabincode="BE" cabinid="4890" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:6" grossprice="563.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="918" oldgrossprice="918" pastguestind="N" price="918.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="918" taxes="180" type="cruiseonly" wasprice="918.00">
+        <cabintype cabincode="BE" cabincode2="" cabintype="balcony" caption="" colourcode="00AEEF" deckid="94" description="The spacious approximately 237-square-foot Balcony stateroom is appointed with fine amenities and outstanding views from an approximately 46-square-foot private balcony. Some staterooms also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Balcony stateroom:
+
+Balcony with patio furniture.
+Twin beds that convert to a queen-size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="4890" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563776185.jpg" isdefault="N" name="Balcony Two Lower Beds" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563776185.jpg" sortweight="40" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>forward</position>
+          <position>middle</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="918" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="563.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>12</sdecks>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+      </grade>
+      <grade cabincode="S3" cabinid="13221" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:23" grossprice="1741.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="2096" oldgrossprice="2096" pastguestind="N" price="2096.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="2096" taxes="180" type="cruiseonly" wasprice="2096.00">
+        <cabintype cabincode="S3" cabincode2="" cabintype="suite" caption="" colourcode="C84B9B" deckid="94" description="Premium accommodations and luxurious appointments are the signature of our expansive 319 to 730-square-foot Suites. Suite staterooms include a spacious cabin and large 114 to 181-square-foot balcony, along with special suite-only benefits. All Suites include a separate seating area with a sofabed, walk-in closet, full bathroom and deluxe amenities.
+
+These features and deluxe amenities are standard in a Suite stateroom:
+
+Separate seating area with a sofa bed.
+Upgraded balcony furniture with room for four: two comfortable loungers, a table and two chairs.
+Complimentary mini-bar set-up.
+Walk-in closet with personal safe.
+Comfortable luxury pillow-top mattress.
+Twin beds that convert to a queen-size bed.
+100% Egyptian cotton linens.
+Upgraded bathroom amenities and hair dryer.
+Two flat-panel satellite TVs.
+Evening bed turn-down, chocolates on your pillow.
+Refrigerator.
+Writing desk and phone.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Enhanced nightly turn-down service.
+A host of other benefits and amenities.
+" id="13221" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563776278.jpg" isdefault="N" name="Penthouse Suite with Balcony" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563776278.jpg" sortweight="100" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>forward</position>
+          <position>rear</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2096" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1741.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+      </grade>
+      <grade cabincode="S4" cabinid="13222" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:15" grossprice="1551.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="1906" oldgrossprice="1906" pastguestind="N" price="1906.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="1906" taxes="180" type="cruiseonly" wasprice="1906.00">
+        <cabintype cabincode="S4" cabincode2="" cabintype="suite" caption="" colourcode="F7E6BF" deckid="94" description="Premium accommodations and luxurious appointments are the signature of our expansive 319 to 730-square-foot Suites. Suite staterooms include a spacious cabin and large 114 to 181-square-foot balcony, along with special suite-only benefits. All Suites include a separate seating area with a sofabed, walk-in closet, full bathroom and deluxe amenities.
+
+These features and deluxe amenities are standard in a Suite stateroom:
+
+Separate seating area with a sofa bed.
+Upgraded balcony furniture with room for four: two comfortable loungers, a table and two chairs.
+Complimentary mini-bar set-up.
+Walk-in closet with personal safe.
+Comfortable luxury pillow-top mattress.
+Twin beds that convert to a queen-size bed.
+100% Egyptian cotton linens.
+Upgraded bathroom amenities and hair dryer.
+Two flat-panel satellite TVs.
+Evening bed turn-down, chocolates on your pillow.
+Refrigerator.
+Writing desk and phone.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Enhanced nightly turn-down service.
+A host of other benefits and amenities.
+" id="13222" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563776548.jpg" isdefault="N" name="Penthouse Suite with Balcony" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563776548.jpg" sortweight="100" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>middle</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1906" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1551.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>10</sdecks>
+      </grade>
+      <grade cabincode="S5" cabinid="13223" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:10" grossprice="1361.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="1716" oldgrossprice="1716" pastguestind="N" price="1716.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="1716" taxes="180" type="cruiseonly" wasprice="1716.00">
+        <cabintype cabincode="S5" cabincode2="" cabintype="suite" caption="" colourcode="F04934" deckid="94" description="Premium accommodations and luxurious appointments are the signature of our expansive 319 to 730-square-foot Suites. Suite staterooms include a spacious cabin and large 114 to 181-square-foot balcony, along with special suite-only benefits. All Suites include a separate seating area with a sofabed, walk-in closet, full bathroom and deluxe amenities.
+
+These features and deluxe amenities are standard in a Suite stateroom:
+
+Separate seating area with a sofa bed.
+Upgraded balcony furniture with room for four: two comfortable loungers, a table and two chairs.
+Complimentary mini-bar set-up.
+Walk-in closet with personal safe.
+Comfortable luxury pillow-top mattress.
+Twin beds that convert to a queen-size bed. 
+100% Egyptian cotton linens.
+Upgraded bathroom amenities and hair dryer.
+Two flat-panel satellite TVs.
+Evening bed turn-down, chocolates on your pillow.
+Refrigerator.
+Writing desk and phone.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Enhanced nightly turn-down service.
+A host of other benefits and amenities.
+" id="13223" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563776641.jpg" isdefault="N" name="Premium Suite with Balcony" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563776641.jpg" sortweight="100" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>forward</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1716" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1361.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>12</sdecks>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+      </grade>
+      <grade cabincode="MB" cabinid="13227" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:16" grossprice="791.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="1146" oldgrossprice="1146" pastguestind="N" price="1146.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="1146" taxes="180" type="cruiseonly" wasprice="1146.00">
+        <cabintype cabincode="MB" cabincode2="" cabintype="suite" caption="" colourcode="FFD881" deckid="95" description="The luxurious Mini-Suite offers approximately 354 square feet of comfort and a separate seating area with a sofa bed for lounging or sleeping a third passenger. The spacious balcony is approximately 80 square feet and the bathroom offers a combination tub and shower. Some Mini-Suites also have a pullman bed to accommodate a 4th passenger.
+
+These features and fine amenities are standard in a Mini-Suite stateroom:
+
+Welcome glass of champagne.
+Separate seating area with a sofabed.
+Balcony with patio furniture.
+Twin beds that convert to a queen-size bed.
+Evening bed turn-down, chocolates on your pillow.
+Two flat-panel televisions.
+Private bathroom with combination tub and shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110-volt, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service." id="13227" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563774662.jpg" isdefault="N" name="Mini Suite with Balcony" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563774662.jpg" sortweight="100" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>middle</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1146" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="791.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>09</sdecks>
+      </grade>
+      <grade cabincode="MD" cabinid="13228" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:5" grossprice="715.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="1070" oldgrossprice="1070" pastguestind="N" price="1070.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="1070" taxes="180" type="cruiseonly" wasprice="1070.00">
+        <cabintype cabincode="MD" cabincode2="" cabintype="suite" caption="" colourcode="B28319" deckid="95" description="The luxurious Mini-Suite offers approximately 354 square feet of comfort and a separate seating area with a sofa bed for lounging or sleeping a third passenger. The spacious balcony is approximately 80 square feet and the bathroom offers a combination tub and shower. Some Mini-Suites also have a pullman bed to accommodate a 4th passenger.
+
+These features and fine amenities are standard in a Mini-Suite stateroom:
+
+Welcome glass of champagne.
+Separate seating area with a sofabed.
+Balcony with patio furniture.
+Twin beds that convert to a queen-size bed.
+Evening bed turn-down, chocolates on your pillow.
+Two flat-panel televisions.
+Private bathroom with combination tub and shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110-volt, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service." id="13228" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563774905.jpg" isdefault="N" name="Mini Suite with Balcony" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563774905.jpg" sortweight="100" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>middle</position>
+          <position>rear</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1070" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="715.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>09</sdecks>
+      </grade>
+      <grade cabincode="ME" cabinid="13229" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:27" grossprice="677.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="1032" oldgrossprice="1032" pastguestind="N" price="1032.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="1032" taxes="180" type="cruiseonly" wasprice="1032.00">
+        <cabintype cabincode="ME" cabincode2="" cabintype="suite" caption="" colourcode="74C7B8" deckid="96" description="The luxurious Mini-Suite offers approximately 354 square feet of comfort and a separate seating area with a sofa bed for lounging or sleeping a third passenger. The spacious balcony is approximately 80 square feet and the bathroom offers a combination tub and shower. Some Mini-Suites also have a pullman bed to accommodate a 4th passenger.
+
+These features and fine amenities are standard in a Mini-Suite stateroom:
+
+Welcome glass of champagne.
+Separate seating area with a sofabed.
+Balcony with patio furniture.
+Twin beds that convert to a queen-size bed.
+Evening bed turn-down, chocolates on your pillow.
+Two flat-panel televisions.
+Private bathroom with combination tub and shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110-volt, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service." id="13229" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563773967.jpg" isdefault="N" name="Mini Suite with Balcony" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563773967.jpg" sortweight="100" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>rear</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1032" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="677.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>09</sdecks>
+        <sdecks>08</sdecks>
+      </grade>
+      <grade cabincode="B4" cabinid="13230" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:4" grossprice="791.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="1146" oldgrossprice="1146" pastguestind="N" price="1146.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="1146" taxes="180" type="cruiseonly" wasprice="1146.00">
+        <cabintype cabincode="B4" cabincode2="" cabintype="balcony" caption="" colourcode="DE6D28" deckid="94" description="'The spacious 237 to 277-square-foot Premium Balcony stateroom is appointed with the same fine amenities as our Balcony stateroom.  Select staterooms feature a large balcony of approximately 88 square feet and/or have a rear-facing balcony from which to enjoy dramatic wake views. Some staterooms also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Premium Balcony stateroom:
+
+Balcony with patio furniture.
+Twin beds that convert to a queen-size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="13230" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563773878.jpg" isdefault="N" name="Premium Balcony Two Lower Beds" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563773878.jpg" sortweight="40" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>rear</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1146" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="791.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>12</sdecks>
+        <sdecks>10</sdecks>
+        <sdecks>09</sdecks>
+        <sdecks>08</sdecks>
+      </grade>
+      <grade cabincode="B2" cabinid="13231" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:21" grossprice="791.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="1146" oldgrossprice="1146" pastguestind="N" price="1146.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="1146" taxes="180" type="cruiseonly" wasprice="1146.00">
+        <cabintype cabincode="B2" cabincode2="" cabintype="balcony" caption="" colourcode="FBB480" deckid="94" description="'The spacious 237 to 277-square-foot Premium Balcony stateroom is appointed with the same fine amenities as our Balcony stateroom.  Select staterooms feature a large balcony of approximately 88 square feet and/or have a rear-facing balcony from which to enjoy dramatic wake views. Some staterooms also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Premium Balcony stateroom:
+
+Balcony with patio furniture.
+Twin beds that convert to a queen-size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="13231" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563775959.jpg" isdefault="N" name="Premium Balcony Two Lower Beds" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563775959.jpg" sortweight="40" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>middle</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1146" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="791.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>10</sdecks>
+      </grade>
+      <grade cabincode="O5" cabinid="13232" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:8" grossprice="621.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="976" oldgrossprice="976" pastguestind="N" price="976.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="976" taxes="180" type="cruiseonly" wasprice="976.00">
+        <cabintype cabincode="O5" cabincode2="" cabintype="outside" caption="" colourcode="D2B675" deckid="94" description="The Premium Oceanview stateroom is approximately 200 square feet and features a forward-facing cabin for memorable views. The Premium Oceanview stateroom is richly appointed with fine amenities.
+
+These features and fine amenities are standard in the Premium Oceanview stateroom:
+
+Twin beds convertible to a queen-size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Nightly turn-down service.
+" id="13232" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563775836.jpg" isdefault="N" name="Premium Oceanview Two Lower Beds" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563775836.jpg" sortweight="30" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>forward</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="976" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="621.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+      </grade>
+      <grade cabincode="OF" cabinid="13233" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:25" grossprice="507.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="862" oldgrossprice="862" pastguestind="N" price="862.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="862" taxes="180" type="cruiseonly" wasprice="862.00">
+        <cabintype cabincode="OF" cabincode2="" cabintype="outside" caption="" colourcode="EACA00" deckid="98" description="The Oceanview stateroom is approximately 183 to 194 square feet and features a picture window for memorable views. The Oceanview stateroom is richly appointed with fine amenities. Some also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Oceanview stateroom:
+
+Picture window.
+Twin beds convertible to a queen-size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V AC electrical outlet with U.S. plug fittings.
+Daily housekeeping service.
+Nightly turn-down service.
+" id="13233" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563773017.jpg" isdefault="N" name="Oceanview Two Lower Beds" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563773017.jpg" sortweight="30" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>forward</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="862" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="507.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>08</sdecks>
+        <sdecks>05</sdecks>
+      </grade>
+      <grade cabincode="OC" cabinid="13234" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:17" grossprice="563.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="918" oldgrossprice="918" pastguestind="N" price="918.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="918" taxes="180" type="cruiseonly" wasprice="918.00">
+        <cabintype cabincode="OC" cabincode2="" cabintype="outside" caption="" colourcode="CC8B96" deckid="98" description="The Oceanview stateroom is approximately 183 to 194 square feet and features a picture window for memorable views. The Oceanview stateroom is richly appointed with fine amenities. Some also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Oceanview stateroom:
+
+Picture window.
+Twin beds convertible to a queen-size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V AC electrical outlet with U.S. plug fittings.
+Daily housekeeping service.
+Nightly turn-down service.
+" id="13234" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563772941.jpg" isdefault="N" name="Oceanview Two Lower Beds" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563772941.jpg" sortweight="30" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>middle</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="918" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="563.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>05</sdecks>
+      </grade>
+      <grade cabincode="OV" cabinid="13235" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:3" grossprice="487.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="842" oldgrossprice="842" pastguestind="N" price="842.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="842" taxes="180" type="cruiseonly" wasprice="842.00">
+        <cabintype cabincode="OV" cabincode2="" cabintype="outside" caption="" colourcode="CAA9AE" deckid="96" description="The Obstructed Oceanview stateroom is approximately 183 to 190 square feet and features the same fine amenities as our Oceanview stateroom, but the view from the picture window is either fully or partially obstructed. Some also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Obstructed Oceanview stateroom:
+
+Picture window (fully or partially obstructed).
+Twin beds that convert to a queen size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Nightly turn-down service." id="13235" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563773337.jpg" isdefault="N" name="Oceanview Two Lower Beds (Obstructed View)" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563773337.jpg" sortweight="30" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>middle</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="842" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="487.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>08</sdecks>
+      </grade>
+      <grade cabincode="OW" cabinid="13236" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:22" grossprice="469.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="824" oldgrossprice="824" pastguestind="N" price="824.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="824" taxes="180" type="cruiseonly" wasprice="824.00">
+        <cabintype cabincode="OW" cabincode2="" cabintype="outside" caption="" colourcode="A3BDC3" deckid="96" description="The Obstructed Oceanview stateroom is approximately 183 to 190 square feet and features the same fine amenities as our Oceanview stateroom, but the view from the picture window is either fully or partially obstructed. Some also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Obstructed Oceanview stateroom:
+
+Picture window (fully or partially obstructed).
+Twin beds that convert to a queen size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Nightly turn-down service." id="13236" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563773419.jpg" isdefault="N" name="Oceanview Two Lower Beds (Obstructed View)" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563773419.jpg" sortweight="30" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>middle</position>
+          <position>rear</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="824" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="469.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>08</sdecks>
+      </grade>
+      <grade cabincode="OY" cabinid="13237" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:26" grossprice="449.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="804" oldgrossprice="804" pastguestind="N" price="804.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="804" taxes="180" type="cruiseonly" wasprice="804.00">
+        <cabintype cabincode="OY" cabincode2="" cabintype="outside" caption="" colourcode="D7799B" deckid="94" description="The Obstructed Oceanview stateroom is approximately 183 to 190 square feet and features the same fine amenities as our Oceanview stateroom, but the view from the picture window is either fully or partially obstructed. Some also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Obstructed Oceanview stateroom:
+
+Picture window (fully or partially obstructed).
+Twin beds that convert to a queen size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Nightly turn-down service.
+" id="13237" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563773704.jpg" isdefault="N" name="Oceanview Two Lower Beds (Obstructed View)" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563773704.jpg" sortweight="30" supercedes="" validfrom="0000-00-00" validto="0000-00-00" />
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="804" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="449.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>10</sdecks>
+        <sdecks>08</sdecks>
+      </grade>
+      <grade cabincode="OZ" cabinid="13238" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:7" grossprice="431.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="786" oldgrossprice="786" pastguestind="N" price="786.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="786" taxes="180" type="cruiseonly" wasprice="786.00">
+        <cabintype cabincode="OZ" cabincode2="" cabintype="outside" caption="" colourcode="F15F43" deckid="96" description="The Obstructed Oceanview stateroom is approximately 183 to 190 square feet and features the same fine amenities as our Oceanview stateroom, but the view from the picture window is either fully or partially obstructed. Some also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Obstructed Oceanview stateroom:
+
+Picture window (fully or partially obstructed).
+Twin beds that convert to a queen size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Nightly turn-down service." id="13238" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563773777.jpg" isdefault="N" name="Oceanview Two Lower Beds (Obstructed View)" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563773777.jpg" sortweight="30" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>forward</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="786" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="431.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>08</sdecks>
+      </grade>
+      <grade cabincode="IA" cabinid="13239" currency="USD" description="Inside" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:0" grossprice="449.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="804" oldgrossprice="804" pastguestind="N" price="804.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="804" taxes="180" type="cruiseonly" wasprice="804.00">
+        <cabintype cabincode="IA" cabincode2="" cabintype="inside" caption="" colourcode="DCE2ED" deckid="94" description="The Interior stateroom is approximately 168 to 182 square feet and richly appointed with fine amenities. Some also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Interior stateroom:
+
+Twin beds that convert to a queen size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down.
+" id="13239" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563775386.jpg" isdefault="N" name="Interior Two Lower Beds" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563775386.jpg" sortweight="10" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>middle</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="804" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="449.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+      </grade>
+      <grade cabincode="IB" cabinid="13240" currency="USD" description="Inside" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:12" grossprice="431.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="786" oldgrossprice="786" pastguestind="N" price="786.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="786" taxes="180" type="cruiseonly" wasprice="786.00">
+        <cabintype cabincode="IB" cabincode2="" cabintype="inside" caption="" colourcode="FFCB05" deckid="94" description="The Interior stateroom is approximately 168 to 182 square feet and richly appointed with fine amenities. Some also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Interior stateroom:
+
+Twin beds that convert to a queen size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down.
+" id="13240" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563774290.jpg" isdefault="N" name="Interior Two Lower Beds" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563774290.jpg" sortweight="10" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>middle</position>
+          <position>rear</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="786" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="431.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>12</sdecks>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+        <sdecks>09</sdecks>
+      </grade>
+      <grade cabincode="IC" cabinid="13241" currency="USD" description="Inside" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:9" grossprice="411.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="766" oldgrossprice="766" pastguestind="N" price="766.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="766" taxes="180" type="cruiseonly" wasprice="766.00">
+        <cabintype cabincode="IC" cabincode2="" cabintype="inside" caption="" colourcode="5FA499" deckid="92" description="The Interior stateroom is approximately 168 to 182 square feet and richly appointed with fine amenities. Some also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Interior stateroom:
+
+Twin beds that convert to a queen size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down.
+" id="13241" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563772775.jpg" isdefault="N" name="Interior Two Lower Beds" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563772775.jpg" sortweight="10" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>middle</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="766" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="411.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>14</sdecks>
+        <sdecks>12</sdecks>
+        <sdecks>08</sdecks>
+        <sdecks>05</sdecks>
+      </grade>
+      <grade cabincode="ID" cabinid="13242" currency="USD" description="Inside" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:13" grossprice="393.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="748" oldgrossprice="748" pastguestind="N" price="748.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="748" taxes="180" type="cruiseonly" wasprice="748.00">
+        <cabintype cabincode="ID" cabincode2="" cabintype="inside" caption="" colourcode="EFA492" deckid="94" description="The Interior stateroom is approximately 168 to 182 square feet and richly appointed with fine amenities. Some also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Interior stateroom:
+
+Twin beds that convert to a queen size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down.
+" id="13242" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563774404.jpg" isdefault="N" name="Interior Two Lower Beds" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563774404.jpg" sortweight="10" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>rear</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="748" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="393.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+        <sdecks>09</sdecks>
+      </grade>
+      <grade cabincode="IE" cabinid="13243" currency="USD" description="Inside" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:14" grossprice="373.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="728" oldgrossprice="728" pastguestind="N" price="728.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="728" taxes="180" type="cruiseonly" wasprice="728.00">
+        <cabintype cabincode="IE" cabincode2="" cabintype="inside" caption="" colourcode="B6B2D8" deckid="94" description="The Interior stateroom is approximately 168 to 182 square feet and richly appointed with fine amenities. Some also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Interior stateroom:
+
+Twin beds that convert to a queen size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down.
+" id="13243" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563773180.jpg" isdefault="N" name="Interior Two Lower Beds" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563773180.jpg" sortweight="10" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>forward</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="728" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="373.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>12</sdecks>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+        <sdecks>09</sdecks>
+        <sdecks>08</sdecks>
+      </grade>
+      <grade cabincode="IF" cabinid="13244" currency="USD" description="Inside" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:1" grossprice="355.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="710" oldgrossprice="710" pastguestind="N" price="710.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="710" taxes="180" type="cruiseonly" wasprice="710.00">
+        <cabintype cabincode="IF" cabincode2="" cabintype="inside" caption="" colourcode="98C3E9" deckid="92" description="The Interior stateroom is approximately 168 to 182 square feet and richly appointed with fine amenities. Some also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Interior stateroom:
+
+Twin beds that convert to a queen size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down.
+" id="13244" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1563772850.jpg" isdefault="N" name="Interior Two Lower Beds" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1563772850.jpg" sortweight="10" supercedes="" validfrom="0000-00-00" validto="0000-00-00">
+          <position>forward</position>
+          <position>middle</position>
+        </cabintype>
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="710" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="355.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>14</sdecks>
+        <sdecks>12</sdecks>
+        <sdecks>08</sdecks>
+        <sdecks>05</sdecks>
+      </grade>
+      <grade cabincode="M1" cabinid="25676" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:18" grossprice="981.88" groupfarecode="KIW" groupfarename="RESTRICTED" gst="64.12" iata="CO" nda="110" nettprice="1336" oldgrossprice="1336" pastguestind="N" price="1336.00" resultno="184_23.0" sailingid="H111" scurrency="USD" senior="0" sprice="1336" taxes="180" type="cruiseonly" wasprice="1336.00">
+        <cabintype cabincode="M1" cabincode2="" cabintype="suite" caption="" colourcode="009A93" deckid="95" description="The Club Class Mini-Suite is a premium stateroom category featuring our very best Mini-Suite staterooms, as well as the great amenities found in all Mini-Suites -- plus premier dining benefits and luxurious perks. Mini-Suites include a separate sitting area with sofa bed, premium bathroom amenities and two flat-panel televisions.
+
+These features and fine amenities are enhanced in a Club Class Mini-Suite stateroom:
+
+Club Class Dining:
+Exclusive area of the Main Dining Room.
+Expedited seating with no wait.
+Expanded menu options.
+Dedicated wait staff.
+Uniquely styled d&#233;cor.
+Table-side preparations.
+
+Upgraded Amenities &amp; Services:
+Priority embarkation and disembarkation at the beginning and end of your cruise.
+One-time complimentary wine setup.
+Evening canap&#233;s, upon request.
+Upgraded terry shawl bathrobes.
+" id="25676" isdefault="N" name="Club Class Mini-Suite" ownerid="system" sortweight="100" supercedes="" validfrom="0000-00-00" validto="0000-00-00" />
+        <childreninfo header="Minimum Infant Age" text="6 Months" />
+        <childreninfo header="6 Months - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1336" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="354.12" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="981.88" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="354.12" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/01/1999 to 31/12/2021" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2021-03-25" arrivetime="" day="1" departdate="2021-03-25" departtime="17:00" extrainfo="Check In Starts At 1200p      check In 12:00pm-3:00pm       See Travel Summary For        progressive Check In Times" itinerarydescription="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." itineraryname="Melbourne" latitude="-37.8093" longitude="144.97" shortdescription="" uniqueportid="511" />
+          <itinerary arrivedate="2021-03-26" arrivetime="" day="2" departdate="2021-03-26" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2021-03-27" arrivetime="07:00" day="3" departdate="2021-03-27" departtime="16:00" extrainfo="" itinerarydescription="" itineraryname="Eden" latitude="-37.0632" longitude="149.904" shortdescription="" uniqueportid="91" />
+          <itinerary arrivedate="2021-03-28" arrivetime="06:00" day="4" departdate="2021-03-28" departtime="" extrainfo="" itinerarydescription="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." itineraryname="Sydney" latitude="-33.8675" longitude="151.207" shortdescription="" uniqueportid="3328" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>09</sdecks>
+      </grade>
+    </grades>
+    <itinerary>
+      <item arrivedate="2021-03-25" arrivetime="00:00" day="1" departdate="2021-03-25" departtime="00:00" description="Victoria may be Australia's smallest continental state, but Melbourne, its capital, is big on everything. With a population of 2.7 million people living in 59 separately named communities within 715 square miles, Melbourne is a sprawling city offering culture, art, fashion and friendly, sports-minded Australians. It is also an easy city to explore. At the heart of the city is the Golden Mile, the city's governmental and commercial center, home to hotels, shops, restaurants and theaters.
+
+Originally part of New South Wales, Victoria became a colony in its own right in 1851. The discovery of gold propelled Melbourne's growth to prominence and prosperity." idlcrossed="" latitude="-37.8093" longitude="144.97" name="Melbourne" orderid="1" originalitineraryname="Melbourne" ownerid="system" portid="511" supered_id="3449321" type="port" />
+      <item arrivedate="2021-03-26" arrivetime="00:00" day="2" departdate="2021-03-26" departtime="00:00" description="" idlcrossed="" name="At Sea" orderid="2" originalitineraryname="At Sea" ownerid="system" portid="" supered_id="3449322" type="sailing" />
+      <item arrivedate="2021-03-27" arrivetime="00:00" day="3" departdate="2021-03-27" departtime="00:00" description="" idlcrossed="" latitude="-37.0632" longitude="149.904" name="Eden" orderid="3" originalitineraryname="Eden" ownerid="system" portid="91" supered_id="3449323" type="port" />
+      <item arrivedate="2021-03-28" arrivetime="00:00" day="4" departdate="2021-03-28" departtime="00:00" description="As your ship passes Harbour Heads, you are presented with the shimmering skyline of Sydney - hailed by many seafarers as &quot;the most beautiful harbor in the world.&quot; Two prominent landmarks, Harbour Bridge and the sail-like curves of the Sydney Opera House, grace the backdrop of this picturesque harbor. There is a wealth of adventure waiting in Sydney - from its cosmopolitan city center to miles of beautiful beaches and the Blue Mountains.
+
+Australia's oldest and largest city was born in 1788 with the arrival of the &quot;First Fleet&quot; transporting 760 British convicts. Today, Sydney is the largest port in the South Pacific and is often voted the most popular destination in the South Pacific." idlcrossed="" latitude="-33.8675" longitude="151.207" name="Sydney, Australia " orderid="4" originalitineraryname="Sydney, Australia " ownerid="system" portid="3328" supered_id="3449324" type="port" />
+    </itinerary>
+  </results>
+</response>
