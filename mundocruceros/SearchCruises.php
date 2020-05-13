@@ -12,7 +12,7 @@ use Laminas\I18n\Translator\Translator;
 $translator = new Translator();
 $filter = new \Laminas\I18n\Filter\NumberFormat($NumberFormat);
 $db = new \Laminas\Db\Adapter\Adapter($config);
-error_log("\r\n START MUNDOCRUCEROS  \r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\nStart Mundo Cruceros\r\n", 3, "/srv/www/htdocs/error_log");
 $affiliate_id = 0;
 $branch_filter = "";
 $sql = "select value from settings where name='enablemundocruceros' and affiliate_id=$affiliate_id" . $branch_filter;
@@ -215,7 +215,7 @@ if ($cruisedestinationid > 0) {
         <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
         <method action="createsession" sitename="' . $mundocrucerosWebsite . '" currency="USD" status="Live" />
     </request>';
-
+    
     $ch2 = curl_init();
     curl_setopt($ch2, CURLOPT_URL, $mundocrucerosServiceURL);
     curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false);
@@ -234,12 +234,12 @@ if ($cruisedestinationid > 0) {
     $error2 = curl_error($ch2);
     $headers2 = curl_getinfo($ch2);
     curl_close($ch2);
-
+    
     $inputDoc2 = new DOMDocument();
     $inputDoc2->loadXML($response2);
     $node = $inputDoc2->getElementsByTagName("response");
     $sessionkey = $node->item(0)->getAttribute("sessionkey");
-
+    
     $raw = 'xml=<?xml version="1.0"?>
     <request>
     <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
@@ -248,7 +248,7 @@ if ($cruisedestinationid > 0) {
         </searchdetail>
     </method>
     </request>';
-
+    
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $mundocrucerosServiceURL);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -268,8 +268,8 @@ if ($cruisedestinationid > 0) {
     $error = curl_error($ch);
     $headers = curl_getinfo($ch);
     curl_close($ch);
-    //error_log("\r\n Response - $response \r\n", 3, "/srv/www/htdocs/error_log");
-
+    // error_log("\r\n Response - $response \r\n", 3, "/srv/www/htdocs/error_log");
+    
     try {
         $sql = new Sql($db);
         $insert = $sql->insert();
@@ -309,7 +309,7 @@ if ($cruisedestinationid > 0) {
             if ($results->length > 0) {
                 $cruise = $results->item(0)->getElementsByTagName("cruise");
                 if ($cruise->length > 0) {
-                    for ($xCruise=0; $xCruise < $cruise->length; $xCruise++) { 
+                    for ($xCruise = 0; $xCruise < $cruise->length; $xCruise ++) {
                         $cruiseid = $cruise->item($xCruise)->getAttribute("cruiseid");
                         $codetocruiseid = $cruise->item($xCruise)->getAttribute("codetocruiseid");
                         $airbalcony = $cruise->item($xCruise)->getAttribute("airbalcony");
@@ -387,12 +387,12 @@ if ($cruisedestinationid > 0) {
                         $voyagecode = $cruise->item($xCruise)->getAttribute("voyagecode");
                         $whatsincluded = $cruise->item($xCruise)->getAttribute("whatsincluded");
                         $zoneid = $cruise->item($xCruise)->getAttribute("zoneid");
-
+                        
                         $cruisebalconyprices = $cruise->item($xCruise)->getElementsByTagName("cruisebalconyprices");
                         if ($cruisebalconyprices->length > 0) {
                             $price = $cruisebalconyprices->item(0)->getElementsByTagName("price");
                             if ($price->length > 0) {
-                                for ($i=0; $i < $price->length; $i++) { 
+                                for ($i = 0; $i < $price->length; $i ++) {
                                     $appliesto = $price->item($i)->getAttribute("appliesto");
                                     $marker = $price->item($i)->getAttribute("marker");
                                     $name = $price->item($i)->getAttribute("name");
@@ -406,7 +406,7 @@ if ($cruisedestinationid > 0) {
                         if ($cruiseinsideprices->length > 0) {
                             $price = $cruiseinsideprices->item(0)->getElementsByTagName("price");
                             if ($price->length > 0) {
-                                for ($i=0; $i < $price->length; $i++) { 
+                                for ($i = 0; $i < $price->length; $i ++) {
                                     $appliesto = $price->item($i)->getAttribute("appliesto");
                                     $marker = $price->item($i)->getAttribute("marker");
                                     $name = $price->item($i)->getAttribute("name");
@@ -420,7 +420,7 @@ if ($cruisedestinationid > 0) {
                         if ($cruiseoutsideprices->length > 0) {
                             $price = $cruiseoutsideprices->item(0)->getElementsByTagName("price");
                             if ($price->length > 0) {
-                                for ($i=0; $i < $price->length; $i++) { 
+                                for ($i = 0; $i < $price->length; $i ++) {
                                     $appliesto = $price->item($i)->getAttribute("appliesto");
                                     $marker = $price->item($i)->getAttribute("marker");
                                     $name = $price->item($i)->getAttribute("name");
@@ -434,7 +434,7 @@ if ($cruisedestinationid > 0) {
                         if ($cruisesuiteprices->length > 0) {
                             $price = $cruisesuiteprices->item(0)->getElementsByTagName("price");
                             if ($price->length > 0) {
-                                for ($i=0; $i < $price->length; $i++) { 
+                                for ($i = 0; $i < $price->length; $i ++) {
                                     $appliesto = $price->item($i)->getAttribute("appliesto");
                                     $marker = $price->item($i)->getAttribute("marker");
                                     $name = $price->item($i)->getAttribute("name");
@@ -464,7 +464,7 @@ if ($cruisedestinationid > 0) {
                         if ($ports->length > 0) {
                             $port = $ports->item(0)->getElementsByTagName("port");
                             if ($port->length > 0) {
-                                for ($j=0; $j < $port->length; $j++) { 
+                                for ($j = 0; $j < $port->length; $j ++) {
                                     $portsArray[$count]['id'] = $port->item($j)->getAttribute("id");
                                     $portsArray[$count]['name'] = $port->item($j)->getAttribute("name");
                                     $count = $count + 1;
@@ -475,7 +475,7 @@ if ($cruisedestinationid > 0) {
                         if ($prices->length > 0) {
                             $price = $prices->item(0)->getElementsByTagName("price");
                             if ($price->length > 0) {
-                                for ($i=0; $i < $price->length; $i++) { 
+                                for ($i = 0; $i < $price->length; $i ++) {
                                     $appliesto = $price->item($i)->getAttribute("appliesto");
                                     $marker = $price->item($i)->getAttribute("marker");
                                     $name = $price->item($i)->getAttribute("name");
@@ -507,14 +507,14 @@ if ($cruisedestinationid > 0) {
                         $uniqueportids = $cruise->item($xCruise)->getElementsByTagName("uniqueportids");
                         if ($uniqueportids->length > 0) {
                             $portids = "";
-                            for ($k=0; $k < $uniqueportids->length; $k++) { 
+                            for ($k = 0; $k < $uniqueportids->length; $k ++) {
                                 $portids = $uniqueportids[$k];
                             }
                         }
                         $uniqueportnames = $cruise->item($xCruise)->getElementsByTagName("uniqueportnames");
                         if ($uniqueportnames->length > 0) {
                             $portnames = "";
-                            for ($y=0; $y < $uniqueportnames->length ; $y++) { 
+                            for ($y = 0; $y < $uniqueportnames->length; $y ++) {
                                 $portnames = $uniqueportnames[$y];
                             }
                         }
@@ -604,15 +604,15 @@ if ($cruisedestinationid > 0) {
                         $cruises[$counter]["cruiseline"]["seo"] = $cruiseline_seo;
                         $cruisesfrom = 0;
                         $cruisesfrom_publish = 0;
-
+                        
                         $duration = 0;
-
+                        
                         // B2C Price
                         $IN_PricePublish = $cruiseinside; // Displays the Inside cabin publish price.
                         $ST_PricePublish = $cruisesuite; // Displays the suite cabin publish price.
                         $BL_PricePublish = $cruisebalcony; // Displays the balcony cabin publish price.
                         $OV_PricePublish = $cruiseoutside; // Displays the ocean view cabin publish price.
-                                                                                                            // B2B Price
+                                                           // B2B Price
                         $IN_Price = $cruiseinside; // Displays the Inside cabin price.
                         $ST_Price = $cruisesuite; // Displays the suite cabin price.
                         $BL_Price = $cruisebalcony; // Displays the balcony cabin price.
@@ -728,7 +728,7 @@ if ($cruisedestinationid > 0) {
                                 }
                             }
                         }
-
+                        
                         $cruises[$counter]['product_id'][$xCruise] = md5(uniqid($session_id, true)) . "-" . $counter . "-" . $xCruise;
                         $cruises[$counter]['departure'][$xCruise] = $saildate;
                         $cruises[$counter]['arrival'][$xCruise] = $returndate;
@@ -829,7 +829,7 @@ if ($cruisedestinationid > 0) {
                             $cruises[$counter]['suite'][$xCruise] = $filter->filter($ST_Price);
                             $cruises[$counter]['suite_plain'][$xCruise] = $ST_Price;
                             $cruises[$counter]["ST_Price_plain"][$xCruise] = $ST_Price;
-                        } 
+                        }
                         if ($IN_Price > 0) {
                             if ($currency != $scurrency) {
                                 $cruisesfrom = $CurrencyConverter->convert($cruisesfrom, $currency, $scurrency);
@@ -951,6 +951,7 @@ if ($cruisedestinationid > 0) {
         }
     }
 }
+error_log("\r\nEOF Mundo Crueros\r\n", 3, "/srv/www/htdocs/error_log");
 $db->getDriver()
     ->getConnection()
     ->disconnect();

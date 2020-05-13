@@ -115,7 +115,6 @@ curl_close($ch);
 echo "<xmp>";
 echo $response;
 echo "</xmp>";
-die();
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.mundocruceros.php');
 $config = [
@@ -229,7 +228,7 @@ if ($success == 'Y') {
                         $ownerid = $cabintype->item($i)->getAttribute("ownerid");
                         $cabincode = $cabintype->item($i)->getAttribute("cabincode");
                         $cabincode2 = $cabintype->item($i)->getAttribute("cabincode2");
-                        $cabintype = $cabintype->item($i)->getAttribute("cabintype");
+                        $cabintype2 = $cabintype->item($i)->getAttribute("cabintype");
                         $caption = $cabintype->item($i)->getAttribute("caption");
                         $colourcode = $cabintype->item($i)->getAttribute("colourcode");
                         $deckid = $cabintype->item($i)->getAttribute("deckid");
@@ -260,7 +259,7 @@ if ($success == 'Y') {
                                 'ownerid' => $ownerid,
                                 'cabincode' => $cabincode,
                                 'cabincode2' => $cabincode2,
-                                'cabintype' => $cabintype,
+                                'cabintype' => $cabintype2,
                                 'caption' => $caption,
                                 'colourcode' => $colourcode,
                                 'deckid' => $deckid,
