@@ -70,28 +70,28 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
          <OTA_CruiseItineraryDescRQ RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-12-29T18:25:50.1Z" TransactionIdentifier="106597" Version="1.0" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
             <POS>
                 <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                    <RequestorID ID="279796" ID_Context="AGENCY1" Type="5"/>
+                    <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
                     <BookingChannel Type="7">
                         <CompanyName CompanyShortName="PULLMANTUR"/>
                     </BookingChannel>
                 </Source>
                 <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                    <RequestorID ID="279796" ID_Context="AGENCY2" Type="5"/>
+                    <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
                     <BookingChannel Type="7">
                         <CompanyName CompanyShortName="PULLMANTUR"/>
                     </BookingChannel>
                 </Source>
                 <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                    <RequestorID ID="279796" ID_Context="AGENT1" Type="5"/>
+                    <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
                     <BookingChannel Type="7">
                         <CompanyName CompanyShortName="PULLMANTUR"/>
                     </BookingChannel>
                 </Source>
             </POS>
             <!--Optional:-->
-            <SelectedSailing Start="2020-08-08" Duration="P7N" ShipCode="SO" Status="36"/>
+            <SelectedSailing Start="2020-09-11" Duration="P7N" VendorCode="PUL" ShipCode="SO" Status="36"/>
             <!--Optional:-->
-            <PackageOption CruisePackageCode="SOPD0745" InclusiveIndicator="false"/>
+            <PackageOption CruisePackageCode="SOPD0757" InclusiveIndicator="false"/>
          </OTA_CruiseItineraryDescRQ>
       </itin:getItineraryDetail>
    </soapenv:Body>
