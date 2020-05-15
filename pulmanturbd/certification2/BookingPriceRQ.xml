@@ -24,23 +24,51 @@
         </Source>
       </POS>
       <SailingInfo>
-        <SelectedSailing Start="2020-08-08">
+        <SelectedSailing Start="2020-07-11">
           <CruiseLine ShipCode="MO" VendorCode="PUL"/>
         </SelectedSailing>
-        <InclusivePackageOption CruisePackageCode="MOPB0751" InclusiveIndicator="false"/>
+        <InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
         <SelectedCategory BerthedCategoryCode="ST" FareCode="BESTRATE" PricedCategoryCode="ST">
-          <SelectedCabin CabinNumber="1520" Status="48"/>
+          <SelectedCabin CabinNumber="1520" Status="36"/>
         </SelectedCategory>
       </SailingInfo>
       <ReservationInfo>
         <GuestDetails>
-          <GuestDetail>
-            <ContactInfo Age="30"/>
-            <GuestTransportation Mode="29" Status="36">
-              <GatewayCity LocationCode="C/O"/>
-            </GuestTransportation>
-            <SelectedDining Sitting="M"/>
-          </GuestDetail>
+            <GuestDetail>
+                <SelectedFareCode FareCode="BESTRATE"/>
+                <ContactInfo Nationality="ES" Age="30" ContactType="CNT">
+                <PersonName>
+                    <GivenName>David</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
+                    <NameTitle>MR</NameTitle>
+                </PersonName>
+                </ContactInfo>
+                <ContactInfo ContactType="ALT">
+                    <PersonName>
+                    <GivenName>David</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
+                    </PersonName>
+                    <Address>
+                    <AddressLine>MAhonia 2</AddressLine>
+                    <CityName>Madrid</CityName>
+                    <PostalCode>28043</PostalCode>
+                    <CountryName Code="ES"/>
+                    </Address>
+                    <Email>davizch2004@gmail.com</Email>
+                </ContactInfo>
+                <ContactInfo ContactType="EMG">
+                    <PersonName>
+                    <GivenName>David</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
+                    </PersonName>
+                    <Telephone PhoneNumber="9871236540"/>
+                </ContactInfo>
+                <GuestTransportation Status="36" Mode="29">
+                    <GatewayCity LocationCode="C/O"/>
+                </GuestTransportation>
+                <SelectedDining Status="36" Sitting="M"/>
+                <CruiseDocument DocumentLanguage="ES"/>
+            </GuestDetail>
         </GuestDetails>
       </ReservationInfo>
     </OTA_CruisePriceBookingRQ>

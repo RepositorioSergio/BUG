@@ -22,23 +22,23 @@
             </BookingChannel>
         </Source>
     </POS>
-    <AgentInfo Contact="CMOTEST2" ContactID="CMOtest_MI2"/>
+    <AgentInfo Contact="CMOTEST4" ContactID="CMOtest_MI4"/>
     <SailingInfo>
-        <SelectedSailing Start="2020-08-15">
+        <SelectedSailing Start="2020-07-11">
             <CruiseLine ShipCode="MO"/>
         </SelectedSailing>
-        <InclusivePackageOption CruisePackageCode="MOPB0750"/>
-        <SelectedCategory PricedCategoryCode="FA" BerthedCategoryCode="FA" FareCode="BESTRATE" DeckNumber="9" DeckName="CUBIERTA 9">
+        <InclusivePackageOption CruisePackageCode="MOPN0712"/>
+        <SelectedCategory PricedCategoryCode="JT" BerthedCategoryCode="JT" FareCode="BESTRATE" DeckNumber="10" DeckName="CUBIERTA 10">
             <!--Optional:-->
             <alp:CabinAttributes>
                 <!--1 to 99 repetitions:-->
                 <alp:CabinAttribute CabinAttributeCode="99"/>
             </alp:CabinAttributes>
-            <SelectedCabin Status="39" CabinNumber="9532" MaxOccupancy="4"/>
+            <SelectedCabin Status="39" CabinNumber="1570" MaxOccupancy="3"/>
         </SelectedCategory>
     </SailingInfo>
     <ReservationInfo>
-        <ReservationID LastModifyDateTime="2020-05-08T17:33:07.000Z" StatusCode="42" ID="0000000" Type="14"/>
+        <ReservationID LastModifyDateTime="2020-05-08T17:33:07.000Z" ID="0000000" Type="14"/>
         <GuestDetails>
             <GuestDetail>
                 <SelectedFareCode FareCode="BESTRATE"/>
@@ -67,7 +67,7 @@
                     <GivenName>David</GivenName>
                     <Surname>Sanchez LLorente</Surname>
                     </PersonName>
-                    <Telephone PhoneNumber=" "/>
+                    <Telephone PhoneNumber="9871236540"/>
                 </ContactInfo>
                 <GuestTransportation Status="36" Mode="29">
                     <GatewayCity LocationCode="C/O"/>
@@ -78,23 +78,36 @@
             <GuestDetail>
                 <SelectedFareCode FareCode="BESTRATE"/>
                 <ContactInfo Nationality="ES" Age="10" ContactType="CNT">
+                <PersonName>
+                    <GivenName>Maria</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
+                    <NameTitle>MISS</NameTitle>
+                </PersonName>
+                </ContactInfo>
+                <ContactInfo ContactType="ALT">
                     <PersonName>
-                        <GivenName>Javier</GivenName>
-                        <Surname>Sanchez PEREZ</Surname>
-                        <NameTitle>MR</NameTitle>
+                    <GivenName>David</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
                     </PersonName>
+                    <Address>
+                    <AddressLine>MAhonia 2</AddressLine>
+                    <CityName>Madrid</CityName>
+                    <PostalCode>28043</PostalCode>
+                    <CountryName Code="ES"/>
+                    </Address>
+                    <Email>davizch2004@gmail.com</Email>
                 </ContactInfo>
                 <ContactInfo ContactType="EMG">
                     <PersonName>
-                        <GivenName>David</GivenName>
-                        <Surname>Sanchez LLorente</Surname>
+                    <GivenName>David</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
                     </PersonName>
-                    <Telephone PhoneNumber=""/>
+                    <Telephone PhoneNumber="9871236540"/>
                 </ContactInfo>
                 <GuestTransportation Status="36" Mode="29">
-                <GatewayCity LocationCode="C/O"/>
+                    <GatewayCity LocationCode="C/O"/>
                 </GuestTransportation>
-                <SelectedDining Status="36" Sitting="M" Language="ES"/>
+                <SelectedDining Status="36" Sitting="M"/>
                 <CruiseDocument DocumentLanguage="ES"/>
             </GuestDetail>
             <GuestDetail>
@@ -111,7 +124,7 @@
                         <GivenName>David</GivenName>
                         <Surname>Sanchez LLorente</Surname>
                     </PersonName>
-                    <Telephone PhoneNumber=""/>
+                    <Telephone PhoneNumber="9871236540"/>
                 </ContactInfo>
                 <GuestTransportation Status="36" Mode="29">
                 <GatewayCity LocationCode="C/O"/>

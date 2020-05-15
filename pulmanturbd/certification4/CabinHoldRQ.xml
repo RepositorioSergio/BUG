@@ -28,26 +28,26 @@
             <GuestCount Age="30" Quantity="1"/>
             <GuestCount Age="1" Quantity="1"/>
          </GuestCounts>
-         <SelectedSailing Start="2020-08-15" ShipCode="MO" VendorCode="PUL">
-            <SelectedFare FareCode="BESTRATE" GroupCode="24"/>
-            <SelectedCategory BerthedCategoryCode="GT" PricedCategoryCode="GT">
+         <SelectedSailing Start="2020-07-11" ShipCode="MO" VendorCode="PUL">
+            <SelectedFare FareCode="BESTRATE" GroupCode="2"/>
+            <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A">
                 <!--Optional:-->
                 <CabinAttributes>
                     <!--1 to 99 repetitions:-->
-                    <CabinAttribute CabinAttributeCode="99"/>
+                    <CabinAttribute CabinAttributeCode="86"/>
                 </CabinAttributes>
                 <!--1 to 4 repetitions:-->
-               <SelectedCabin CabinNumber="1034" MaxOccupancy="4"/>
+               <SelectedCabin CabinNumber="9576" MaxOccupancy="2"/>
             </SelectedCategory>
-            <InclusivePackageOption CruisePackageCode="MOPB0750" InclusiveIndicator="false"/>
+            <InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
          </SelectedSailing>
          <!--0 to 9 repetitions:-->
-         <Guest LoyaltyMembershipID="8888890"/>
-         <Guest LoyaltyMembershipID="7777779"/>
+         <Guest LoyaltyMembershipID="0000004"/>
+         <Guest LoyaltyMembershipID="0000005"/>
          <!--Optional:-->
             <alp:Currency CurrencyCode="USD" DecimalPlaces="2"/>
          <!--Optional:-->
-        <SearchQualifiers BerthedCategoryCode="GT" PricedCategoryCode="GT" CabinNumber="1034" GroupCode="24" MaxOccupancy="3" DeckNumber="10" DeckName="CUBIERTA 10">
+        <SearchQualifiers BerthedCategoryCode="A" PricedCategoryCode="A" CabinNumber="9576" GroupCode="2" MaxOccupancy="2" DeckNumber="9" DeckName="CUBIERTA 9">
             <!--0 to 5 repetitions:-->
             <Status Status="36"/>
             <!--Optional:-->

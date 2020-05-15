@@ -105,8 +105,8 @@ if ($result->valid()) {
     $mundocrucerosWebsite = $row['value'];
 }
 
-$sessionkey = '73B05D95-87DDp4FD7-90B0-8C0DED0DF5DA';
-$basketcode = '7SRSCC';
+$sessionkey = '0E2D63E0~6BE1n4F1A-89B6-2C804B5F5B8C';
+$basketcode = '816445325';
 $bedconfig = 'QN';
 $tablesize = '';
 $seating = '';
@@ -114,11 +114,11 @@ $seating = '';
 $raw = 'xml=<?xml version="1.0"?>
 <request>
     <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-    <method action="book" sessionkey="' . $sessionkey . '" status="Test">
+    <method action="book" type="cruise" sessionkey="' . $sessionkey . '" status="Live">
     <contact address1="37 Hawbank Road" address2="College Milton" city="East Kilbride" country="GB" county="Glasgow" email="richard@traveltek.net" firstname="Mary" lastname="Smith" postcode="G74 5EG" telephone="01355 246111" title="MISS" />
     <passengers>
-        <passenger dob="1973-07-24" title="MISS" firstname="Mary" lastname="Smith" paxno="1" paxtype="adult" nationality="GB" passport="26347891107" travelling="" />
-        <passenger dob="1973-07-24" title="MR" firstname="Richard" lastname="Smith" paxno="2" paxtype="adult" nationality="GB" passport="26347891214" travelling=""/>         
+        <passenger dob="1973-07-24" title="MISS" firstname="Mary" middlename="Michael" lastname="Smith" paxno="1" paxtype="adult" nationality="GB" passport="26347891107" passportstart="2020-02-02" passportexpiry="2022-05-31" travelling="" emergencyname="Richard Smith" emergencyphone="01355 246111" emergencyemail="richard@traveltek.net" />
+        <passenger dob="1973-07-24" title="MR" firstname="Richard" middlename="Michael" lastname="Smith" paxno="2" paxtype="adult" nationality="GB" passport="26347891214" passportstart="2020-01-20" passportexpiry="2022-04-21" travelling="" emergencyname="Richard Smith" emergencyphone="01355 246111" emergencyemail="richard@traveltek.net"/>         
     </passengers>
     <allocation>
         <requests basketcode="' . $basketcode . '" request="BOOKING ONLY" />
@@ -126,29 +126,6 @@ $raw = 'xml=<?xml version="1.0"?>
     </allocation>
     <deposits paydepositonly="N" />
 </method>
-</request>';
-
-$raw2 = 'xml=<?xml version="1.0"?>
-<request>
-        <auth password="' . $mundocrucerospassword . '" username="' . $mundocrucerosusername . '" />
-        <method action="book" sessionkey="' . $sessionkey . '" status="Test">
-        <allocation>
-            <requests basketcode="' . $basketcode . '" request="TEST BOOKING ONLY" />
-        </allocation>
-        <contact address1="37 Hawbank Road" address2="College Milton" city="East Kilbride" country="GB" county="Glasgow" email="noreply@traveltek.net" firstname="Mary" lastname="Smith" postcode="G74 5EG" telephone="01355 246111" title="MISS" />
-        <creditcard address1="Hawbank" cardno="4444444444444444" cardtype="VIS" city="Glasgow" country="UK" county="Glasgow" cvv="000" expirymonth="01" expiryyear="2022" firstname="Richard" lastname="Smith" nameoncard="Richard Smith" postcode="G74 5EG" startmonth="01" startyear="2012" title="Mr" />
-        <deposits paydepositonly="Y" />
-        <passengers>
-            <passenger dob="1973-07-24" title="MISS" firstname="Mary" lastname="Smith" paxno="1" paxtype="adult" nationality="GB" passport="26347891107" travelling="" />
-            <passenger dob="1973-07-24" title="MR" firstname="Richard" lastname="Smith" paxno="2" paxtype="adult" nationality="GB" passport="26347891214" travelling=""/>  
-        </passengers>
-        <paymentschedule cardtype="VIS" lowdeposit="Y" token="abcd1234" totaldeposit="9952">
-            <schedule>
-                <item amount="9000" completed="Y" duedate="2021-02-01" type="lowdeposit" />
-                <item amount="9952" completed="Y" duedate="2021-03-01" type="deposit" />
-            </schedule>
-        </paymentschedule>
-        </method>
 </request>';
 
 echo "<xmp>";

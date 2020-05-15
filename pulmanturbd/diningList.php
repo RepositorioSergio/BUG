@@ -88,29 +88,29 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                     </BookingChannel>
                 </Source>
             </POS>
-            <Guest LoyaltyMembershipID="8888889"/>
-            <Guest LoyaltyMembershipID="7777778"/>
+            <Guest Code="10" Age="30" LoyaltyMembershipID="0000016"/>
+            <Guest Code="8" Age="10" LoyaltyMembershipID="0000017"/>
             <GuestCounts>
                 <GuestCount Age="30" Quantity="1"/>
-                <GuestCount Age="5" Quantity="1"/>
+                <GuestCount Age="10" Quantity="1"/>
             </GuestCounts>
             <SailingInfo>
-                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-09-13" Duration="P7N" Status="36" PortsOfCallQuantity="5">
-                    <CruiseLine ShipCode="HR" VendorCode="PUL"/>
+                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-11" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                    <CruiseLine ShipCode="MO" VendorCode="PUL"/>
                     <!--Optional:-->
-                    <Region RegionCode="PISGR" SubRegionCode="PGR"/>
+                    <Region RegionCode="PISFE" SubRegionCode="PGH"/>
                     <!--Optional:-->
-                    <DeparturePort LocationCode="ATH"/>
+                    <DeparturePort LocationCode="REK"/>
                     <!--Optional:-->
-                    <ArrivalPort LocationCode="ATH"/>
+                    <ArrivalPort LocationCode="TRD"/>
                 </SelectedSailing>
                 <!--Optional:-->
-                <alp:InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
+                <alp:InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
                 <!--Optional:-->
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                <SelectedCategory BerthedCategoryCode="GS" PricedCategoryCode="GS"/>
+                <SelectedCategory BerthedCategoryCode="FK" PricedCategoryCode="FK"/>
             </SailingInfo>
-            <SelectedFare GroupCode="24"/>
+            <SelectedFare GroupCode="25"/>
             <TPA_ReservationId Type="14" ID="0"/>
         </OTA_CruiseDiningAvailRQ>
     </din:getDiningList>

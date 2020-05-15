@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://services.rccl.com/Interfaces/CategoryList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha">
+<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://services.rccl.com/Interfaces/CategoryList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha">
 <soapenv:Header/>
 <soapenv:Body>
    <cat:getCategoryList>
@@ -18,30 +17,30 @@
                </BookingChannel>
             </Source>
             <Source ISOCurrency="USD" TerminalID="12502LDJW6">
-               <RequestorID ID="313917" Type="5" ID_Context="AGENT1"/>
-                  <BookingChannel Type="7">
-                     <CompanyName CompanyShortName="PULLMANTUR"/>
-                  </BookingChannel>
-               </Source>
-            </POS>
-             <Guest >
+            <RequestorID ID="313917" Type="5" ID_Context="AGENT1"/>
+               <BookingChannel Type="7">
+                  <CompanyName CompanyShortName="PULLMANTUR"/>
+               </BookingChannel>
+            </Source>
+         </POS>
+             <Guest Code="10" Age="30">
                <GuestTransportation Mode="29" Status="36"/>
             </Guest>
             <GuestCounts>
-               <GuestCount Age="30" Quantity="1"/>        
+               <GuestCount Age="30" Quantity="1"/>      
             </GuestCounts>
             <SailingInfo>
-               <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-08-08" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+               <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-11" Duration="P7N" Status="36" PortsOfCallQuantity="5">
                   <CruiseLine VendorCode="PUL" ShipCode="MO"/>
                   <!--Optional:-->
-                  <Region RegionCode="PBLCS" SubRegionCode="PBC"/>
+                  <Region RegionCode="PISFE" SubRegionCode="PGH"/>
                   <!--Optional:-->
-                  <DeparturePort LocationCode="RLG"/>
+                  <DeparturePort LocationCode="REK"/>
                   <!--Optional:-->
-                  <ArrivalPort LocationCode="HEL"/>
+                  <ArrivalPort LocationCode="TRD"/>
                </SelectedSailing>
                <!--Optional:-->
-               <InclusivePackageOption CruisePackageCode="MOPB0751" InclusiveIndicator="false"/>
+               <InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
                <!--Optional:-->
                <Currency CurrencyCode="USD" DecimalPlaces="2"/>
             </SailingInfo>

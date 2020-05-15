@@ -22,19 +22,19 @@
             </BookingChannel>
         </Source>
     </POS>
-    <AgentInfo Contact="CMOTEST2" ContactID="CMOtest_MI2"/>
+    <AgentInfo Contact="CMOTEST3" ContactID="CMOtest_MI3"/>
     <SailingInfo>
-        <SelectedSailing Start="2020-08-15">
+        <SelectedSailing Start="2020-07-11">
             <CruiseLine ShipCode="MO"/>
         </SelectedSailing>
-        <InclusivePackageOption CruisePackageCode="MOPB0750"/>
-        <SelectedCategory PricedCategoryCode="GT" BerthedCategoryCode="GT" FareCode="BESTRATE" DeckNumber="10" DeckName="CUBIERTA 10">
+        <InclusivePackageOption CruisePackageCode="MOPN0712"/>
+        <SelectedCategory PricedCategoryCode="A" BerthedCategoryCode="A" FareCode="BESTRATE" DeckNumber="9" DeckName="CUBIERTA 9">
             <!--Optional:-->
             <alp:CabinAttributes>
                 <!--1 to 99 repetitions:-->
-                <alp:CabinAttribute CabinAttributeCode="99"/>
+                <alp:CabinAttribute CabinAttributeCode="86"/>
             </alp:CabinAttributes>
-            <SelectedCabin Status="39" CabinNumber="1034" MaxOccupancy="4"/>
+            <SelectedCabin Status="39" CabinNumber="9576" MaxOccupancy="2"/>
         </SelectedCategory>
     </SailingInfo>
     <ReservationInfo>
@@ -67,7 +67,7 @@
                     <GivenName>David</GivenName>
                     <Surname>Sanchez LLorente</Surname>
                     </PersonName>
-                    <Telephone PhoneNumber=" "/>
+                    <Telephone PhoneNumber="9871236540"/>
                 </ContactInfo>
                 <GuestTransportation Status="36" Mode="29">
                     <GatewayCity LocationCode="C/O"/>
@@ -89,7 +89,7 @@
                         <GivenName>David</GivenName>
                         <Surname>Sanchez LLorente</Surname>
                     </PersonName>
-                    <Telephone PhoneNumber=""/>
+                    <Telephone PhoneNumber="9871236540"/>
                 </ContactInfo>
                 <GuestTransportation Status="36" Mode="29">
                 <GatewayCity LocationCode="C/O"/>

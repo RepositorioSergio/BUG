@@ -29,7 +29,7 @@
                     <GatewayCity CodeContext="IATA" LocationCode="BCN"/>
                 </GuestTransportation>
             </Guest>
-            <Guest Age="5">
+            <Guest Age="1">
                 <GuestTransportation Mode="29" Status="36">
                     <GatewayCity CodeContext="IATA" LocationCode="BCN"/>
                 </GuestTransportation>
@@ -39,24 +39,24 @@
                 <GuestCount Age="1" Quantity="1"/>
             </GuestCounts>
             <SailingInfo>
-                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-08-15" Duration="P7N" Status="36" PortsOfCallQuantity="5">
-                    <CruiseLine ShipCode="MO" VendorCode="PUL"/>
+                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-11" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                    <CruiseLine VendorCode="PUL" ShipCode="MO"/>
                     <!--Optional:-->
-                    <Region RegionCode="PBLCS" SubRegionCode="PBC"/>
+                    <Region RegionCode="PISFE" SubRegionCode="PGH"/>
                     <!--Optional:-->
-                    <DeparturePort LocationCode="HEL"/>
+                    <DeparturePort LocationCode="REK"/>
                     <!--Optional:-->
-                    <ArrivalPort LocationCode="RLG"/>
+                    <ArrivalPort LocationCode="TRD"/>
                 </SelectedSailing>
-                <InclusivePackageOption CruisePackageCode="MOPB0750"/>
+                <InclusivePackageOption CruisePackageCode="MOPN0712"/>
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                <SelectedCategory BerthedCategoryCode="GT" PricedCategoryCode="GT" WaitlistIndicator="false">
+                <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A" WaitlistIndicator="false">
                 </SelectedCategory>
             </SailingInfo>
-            <SearchQualifiers BerthedCategoryCode="GT" FareCode="C4443339" GroupCode="24" CategoryLocation="Deluxe">
+            <SearchQualifiers BerthedCategoryCode="A" FareCode="C4443339" GroupCode="2" CategoryLocation="Deluxe">
                 <Status Status="36"/>
             </SearchQualifiers>
-            <SelectedFare GroupCode="24"/>
+            <SelectedFare GroupCode="2"/>
         </OTA_CruiseCabinAvailRQ>
     </cab:getCabinList>
    </soapenv:Body>

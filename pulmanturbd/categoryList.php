@@ -87,25 +87,28 @@ $raw ='<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="ht
                </BookingChannel>
             </Source>
          </POS>
-             <Guest>
+             <Guest Code="10" Age="30">
+               <GuestTransportation Mode="29" Status="36"/>
+            </Guest>
+            <Guest Code="8" Age="10">
                <GuestTransportation Mode="29" Status="36"/>
             </Guest>
             <GuestCounts>
-               <GuestCount Age="30" Quantity="1"/>
-               <GuestCount Age="5" Quantity="1"/>         
+               <GuestCount Age="30" Quantity="1"/>   
+               <GuestCount Age="10" Quantity="1"/>    
             </GuestCounts>
             <SailingInfo>
-               <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-09-13" Duration="P7N" Status="36" PortsOfCallQuantity="5">
-                  <CruiseLine VendorCode="PUL" ShipCode="HR"/>
+               <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-11" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                  <CruiseLine VendorCode="PUL" ShipCode="MO"/>
                   <!--Optional:-->
-                  <Region RegionCode="PISGR" SubRegionCode="PGR"/>
+                  <Region RegionCode="PISFE" SubRegionCode="PGH"/>
                   <!--Optional:-->
-                  <DeparturePort LocationCode="ATH"/>
+                  <DeparturePort LocationCode="REK"/>
                   <!--Optional:-->
-                  <ArrivalPort LocationCode="ATH"/>
+                  <ArrivalPort LocationCode="TRD"/>
                </SelectedSailing>
                <!--Optional:-->
-               <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
+               <InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
                <!--Optional:-->
                <Currency CurrencyCode="USD" DecimalPlaces="2"/>
             </SailingInfo>
@@ -177,10 +180,6 @@ if ($getCategoryListResponse->length > 0) {
             $InclusiveIndicator = $InclusivePackageOption->item(0)->getAttribute("InclusiveIndicator");
          }
       }
-
-      echo $return;
-      echo $RegionCode;
-      echo $return;
 
       try {
          $sql = new Sql($db);

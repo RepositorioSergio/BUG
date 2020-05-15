@@ -5,44 +5,43 @@
       <hol:holdCabin>
       <OTA_CruiseCabinHoldRQ Version="1.0" Target="Test" SequenceNmbr="1" TimeStamp="2008-12-30T18:30:42.720+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
          <POS>
-            <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
-               <RequestorID ID="279796" ID_Context="AGENCY1" Type="5"/>
+            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+               <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
                <BookingChannel Type="7">
                   <CompanyName CompanyShortName="PULLMANTUR"/>
                </BookingChannel>
             </Source>
-            <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
-               <RequestorID ID="279796" ID_Context="AGENCY2" Type="5"/>
+            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+               <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
                <BookingChannel Type="7">
                   <CompanyName CompanyShortName="PULLMANTUR"/>
                </BookingChannel>
             </Source>
-            <Source TerminalID="12502LDJW6" ISOCurrency="EUR">
-               <RequestorID ID="279796" ID_Context="AGENT1" Type="5"/>
+            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+               <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
                <BookingChannel Type="7">
                   <CompanyName CompanyShortName="PULLMANTUR"/>
                </BookingChannel>
             </Source>
          </POS>
          <GuestCounts>
-            <GuestCount Quantity="1"/>
+            <GuestCount Age="30" Quantity="1"/>
          </GuestCounts>
-         <SelectedSailing Start="2020-08-08" ShipCode="MO" VendorCode="PUL">
+         <SelectedSailing Start="2020-07-11" ShipCode="MO" VendorCode="PUL">
             <SelectedFare FareCode="BESTRATE" GroupCode="24"/>
             <SelectedCategory BerthedCategoryCode="ST" PricedCategoryCode="ST">
                 <!--Optional:-->
                 <CabinAttributes>
                     <!--1 to 99 repetitions:-->
-                    <CabinAttribute CabinAttributeCode="15"/>
+                    <CabinAttribute CabinAttributeCode="99"/>
                 </CabinAttributes>
                 <!--1 to 4 repetitions:-->
                <SelectedCabin CabinNumber="1520" MaxOccupancy="4"/>
             </SelectedCategory>
-            <InclusivePackageOption CruisePackageCode="MOPB0751" InclusiveIndicator="false"/>
+            <InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
          </SelectedSailing>
          <!--0 to 9 repetitions:-->
-         <Guest LoyaltyMembershipID="8888888"/>
-         <Guest LoyaltyMembershipID="7777777"/>
+         <Guest Code="10" Age="30" LoyaltyMembershipID="0000015"/>
          <!--Optional:-->
             <alp:Currency CurrencyCode="USD" DecimalPlaces="2"/>
          <!--Optional:-->

@@ -87,13 +87,13 @@ if ($result->valid()) {
     $mundocrucerosWebsite = $row['value'];
 }
 
-$sessionkey = '73B05D95-87DDp4FD7-90B0-8C0DED0DF5DA';
-$resultno = '302_21.0';
+$sessionkey = '0E2D63E0~6BE1n4F1A-89B6-2C804B5F5B8C';
+$resultno = '302_78.0';
 
 $raw = 'xml=<?xml version="1.0"?>
 <request>
   <auth password="' . $mundocrucerospassword . '" username="' . $mundocrucerosusername . '" />
-  <method action="addtobasket" type="cruise" resultno="' . $resultno . '" sessionkey="' . $sessionkey . '" status="Test" resultkey="default" />
+  <method action="addtobasket" type="cruise" resultno="' . $resultno . '" sessionkey="' . $sessionkey . '" status="Live" resultkey="default" />
 </request>';
 
 echo "<xmp>";

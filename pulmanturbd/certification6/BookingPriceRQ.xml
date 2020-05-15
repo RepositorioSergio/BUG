@@ -24,52 +24,143 @@
         </Source>
       </POS>
       <SailingInfo>
-        <SelectedSailing Start="2020-08-09">
+        <SelectedSailing Start="2020-07-05">
           <CruiseLine ShipCode="HR" VendorCode="PUL"/>
         </SelectedSailing>
         <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
-        <SelectedCategory BerthedCategoryCode="FD" FareCode="BESTRATE" PricedCategoryCode="FD">
-          <SelectedCabin CabinNumber="6159" Status="36"/>
+        <SelectedCategory BerthedCategoryCode="FH" FareCode="BESTRATE" PricedCategoryCode="FH">
+          <SelectedCabin CabinNumber="4012" Status="36"/>
         </SelectedCategory>
       </SailingInfo>
       <ReservationInfo>
         <GuestDetails>
-          <GuestDetail>
-            <ContactInfo Age="30"/>
-            <GuestTransportation Mode="29" Status="36">
-              <GatewayCity LocationCode="C/O"/>
-            </GuestTransportation>
-            <SelectedDining Sitting="M"/>
-            <!--0 to 9 repetitions:-->
-            <alp:SelectedInsurance InsuranceCode="TIIR" Status="41"/>
-          </GuestDetail>
-          <GuestDetail>
-            <ContactInfo Age="28"/>
-            <GuestTransportation Mode="29" Status="36">
-              <GatewayCity LocationCode="C/O"/>
-            </GuestTransportation>
-            <SelectedDining Sitting="M"/>
-            <!--0 to 9 repetitions:-->
-            <alp:SelectedInsurance InsuranceCode="TIIR" Status="41"/>
-          </GuestDetail>
-          <GuestDetail>
-            <ContactInfo Age="10"/>
-            <GuestTransportation Mode="29" Status="36">
-              <GatewayCity LocationCode="C/O"/>
-            </GuestTransportation>
-            <SelectedDining Sitting="M"/>
-            <!--0 to 9 repetitions:-->
-            <alp:SelectedInsurance InsuranceCode="TIIR" Status="41"/>
-          </GuestDetail>
-          <GuestDetail>
-            <ContactInfo Age="4"/>
-            <GuestTransportation Mode="29" Status="36">
-              <GatewayCity LocationCode="C/O"/>
-            </GuestTransportation>
-            <SelectedDining Sitting="M"/>
-            <!--0 to 9 repetitions:-->
-            <alp:SelectedInsurance InsuranceCode="TIIR" Status="41"/>
-          </GuestDetail>
+            <GuestDetail>
+                <SelectedFareCode FareCode="BESTRATE"/>
+                <ContactInfo Nationality="ES" Age="30" ContactType="CNT">
+                <PersonName>
+                    <GivenName>David</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
+                    <NameTitle>MR</NameTitle>
+                </PersonName>
+                </ContactInfo>
+                <ContactInfo ContactType="ALT">
+                    <PersonName>
+                    <GivenName>David</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
+                    </PersonName>
+                    <Address>
+                    <AddressLine>MAhonia 2</AddressLine>
+                    <CityName>Madrid</CityName>
+                    <PostalCode>28043</PostalCode>
+                    <CountryName Code="ES"/>
+                    </Address>
+                    <Email>davizch2004@gmail.com</Email>
+                </ContactInfo>
+                <ContactInfo ContactType="EMG">
+                    <PersonName>
+                    <GivenName>David</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
+                    </PersonName>
+                    <Telephone PhoneNumber="9871236540"/>
+                </ContactInfo>
+                <GuestTransportation Status="36" Mode="29">
+                    <GatewayCity LocationCode="C/O"/>
+                </GuestTransportation>
+                <SelectedDining Status="36" Sitting="M"/>
+                <CruiseDocument DocumentLanguage="ES"/>
+            </GuestDetail>
+            <GuestDetail>
+                <SelectedFareCode FareCode="BESTRATE"/>
+                <ContactInfo Nationality="ES" Age="28" ContactType="CNT">
+                <PersonName>
+                    <GivenName>Albertina</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
+                    <NameTitle>MR</NameTitle>
+                </PersonName>
+                </ContactInfo>
+                <ContactInfo ContactType="ALT">
+                    <PersonName>
+                    <GivenName>David</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
+                    </PersonName>
+                    <Address>
+                    <AddressLine>MAhonia 2</AddressLine>
+                    <CityName>Madrid</CityName>
+                    <PostalCode>28043</PostalCode>
+                    <CountryName Code="ES"/>
+                    </Address>
+                    <Email>davizch2004@gmail.com</Email>
+                </ContactInfo>
+                <ContactInfo ContactType="EMG">
+                    <PersonName>
+                    <GivenName>David</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
+                    </PersonName>
+                    <Telephone PhoneNumber="9871236540"/>
+                </ContactInfo>
+                <GuestTransportation Status="36" Mode="29">
+                    <GatewayCity LocationCode="C/O"/>
+                </GuestTransportation>
+                <SelectedDining Status="36" Sitting="M"/>
+                <CruiseDocument DocumentLanguage="ES"/>
+            </GuestDetail>
+            <GuestDetail>
+                <SelectedFareCode FareCode="BESTRATE"/>
+                <ContactInfo Nationality="ES" Age="10" ContactType="CNT">
+                <PersonName>
+                    <GivenName>Maria</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
+                    <NameTitle>MISS</NameTitle>
+                </PersonName>
+                </ContactInfo>
+                <ContactInfo ContactType="ALT">
+                    <PersonName>
+                    <GivenName>David</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
+                    </PersonName>
+                    <Address>
+                    <AddressLine>MAhonia 2</AddressLine>
+                    <CityName>Madrid</CityName>
+                    <PostalCode>28043</PostalCode>
+                    <CountryName Code="ES"/>
+                    </Address>
+                    <Email>davizch2004@gmail.com</Email>
+                </ContactInfo>
+                <ContactInfo ContactType="EMG">
+                    <PersonName>
+                    <GivenName>David</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
+                    </PersonName>
+                    <Telephone PhoneNumber="9871236540"/>
+                </ContactInfo>
+                <GuestTransportation Status="36" Mode="29">
+                    <GatewayCity LocationCode="C/O"/>
+                </GuestTransportation>
+                <SelectedDining Status="36" Sitting="M"/>
+                <CruiseDocument DocumentLanguage="ES"/>
+            </GuestDetail>
+            <GuestDetail>
+                <SelectedFareCode FareCode="BESTRATE"/>
+                <ContactInfo Nationality="ES" Age="1" ContactType="CNT">
+                    <PersonName>
+                        <GivenName>Javier</GivenName>
+                        <Surname>Sanchez PEREZ</Surname>
+                        <NameTitle>MR</NameTitle>
+                    </PersonName>
+                </ContactInfo>
+                <ContactInfo ContactType="EMG">
+                    <PersonName>
+                        <GivenName>David</GivenName>
+                        <Surname>Sanchez LLorente</Surname>
+                    </PersonName>
+                    <Telephone PhoneNumber="9871236540"/>
+                </ContactInfo>
+                <GuestTransportation Status="36" Mode="29">
+                <GatewayCity LocationCode="C/O"/>
+                </GuestTransportation>
+                <SelectedDining Status="36" Sitting="M" Language="ES"/>
+                <CruiseDocument DocumentLanguage="ES"/>
+            </GuestDetail>
         </GuestDetails>
       </ReservationInfo>
     </OTA_CruisePriceBookingRQ>

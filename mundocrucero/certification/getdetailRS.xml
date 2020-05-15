@@ -1,29 +1,29 @@
 <?xml version="1.0"?>
-<response method="getdetail" sessionkey="0DE96AB9~F7F1i4C40-A6B9-3DB46BA547AA" success="Y">
+<response method="getdetail" sessionkey="0E2D63E0~6BE1n4F1A-89B6-2C804B5F5B8C" success="Y">
   <errors>
   </errors>
   <request>
     <auth password="kg02gy05" username="mundocru" />
-    <method action="getdetail" resultkey="default" resultno="302_23.0" sessionkey="0DE96AB9~F7F1i4C40-A6B9-3DB46BA547AA" status="Live" type="cruise">
+    <method action="getdetail" resultkey="default" resultno="302_78.0" sessionkey="0E2D63E0~6BE1n4F1A-89B6-2C804B5F5B8C" status="Live" type="cruise">
       <gradelist>
-        <grade cabinresult="" gradeno="184:19" />
+        <grade cabinresult="184:6_18" gradeno="184:6" />
       </gradelist>
     </method>
   </request>
   <results>
-    <cruise airport="" airportname="" codetocruiseid="1454625" cruiseid="236463" currency="USD" departuk="N" description="" enddate="2021-03-28" engine="Princess" hascruiseonly="Y" hasflights="N" hidden="N" iata="" name="Australia Getaway" nettprice="778.00" nights="3" nofly="N" nofuelsupplement="" ownerid="system" paymentoption="online" price="778.00" priority="999" resultno="184_23.0" returndate="2021-03-28" saildate="2021-03-25" sailnights="3" special="no" startdate="2021-03-25" stoplive="0" type="cruise" voyagecode="H111" zoneid="">
+    <cruise airport="" airportname="" codetocruiseid="1494242" cruiseid="239483" currency="USD" departuk="N" description="" enddate="2021-05-07" engine="Princess" hascruiseonly="Y" hasflights="N" hidden="N" iata="" name="Pacific Coastal" nettprice="880.00" nights="4" nofly="N" nofuelsupplement="" ownerid="system" paymentoption="online" price="880.00" priority="999" resultno="184_78.0" returndate="2021-05-07" saildate="2021-05-03" sailnights="4" special="no" startdate="2021-05-03" stoplive="0" type="cruise" voyagecode="6110" zoneid="">
       <cabin deckcode="" />
       <grade iata="" />
       <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
       <ports>
-        <port id="511" name="Melbourne" />
-        <port id="91" name="Eden" />
-        <port id="3328" name="Sydney, Australia" />
+        <port id="178" name="Los Angeles" />
+        <port id="446" name="Victoria, British Colombia" />
+        <port id="445" name="Vancouver" />
       </ports>
       <regions>
-        <region name="Australasia" regionid="14" />
+        <region name="Pacific" regionid="15" />
       </regions>
-      <ship code="SA" id="114" imagecaption="Sapphire Princess " imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111891.jpg" name="Sapphire Princess" niceurl="princess-cruises/sapphire-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111891.jpg" />
+      <ship code="CO" id="121" imagecaption="Coral Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582110874.jpg" name="Coral Princess" niceurl="princess-cruises/coral-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582110874.jpg" />
     </cruise>
   </results>
 </response>

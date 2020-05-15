@@ -28,7 +28,7 @@
          <alp:GuestCounts>
             <alp:GuestCount Age="30" Quantity="1"/>
         </alp:GuestCounts>
-        <alp:SailingDateRange Start="2020-08-08" End="2020-08-15" MinDuration="P6N" MaxDuration="P8N"/>
+        <alp:SailingDateRange Start="2020-07-08" End="2020-07-15" MinDuration="P6N" MaxDuration="P9N"/>
       </alp:OTA_CruiseSailAvailRQ>
    </sail:getSailingList>
 </soapenv:Body>

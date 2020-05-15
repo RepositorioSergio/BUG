@@ -91,7 +91,7 @@ if ($result->valid()) {
 $raw2 = 'xml=<?xml version="1.0"?>
 <request>
     <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-    <method action="createsession" sitename="' . $mundocrucerosWebsite . '" currency="USD" status="Test" />
+    <method action="createsession" sitename="' . $mundocrucerosWebsite . '" currency="USD" status="Live" />
 </request>';
 
 $ch2 = curl_init();
@@ -118,12 +118,11 @@ $inputDoc2->loadXML($response2);
 $node = $inputDoc2->getElementsByTagName("response");
 $sessionkey = $node->item(0)->getAttribute("sessionkey");
 
-
 $raw = 'xml=<?xml version="1.0"?>
 <request>
   <auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" />
-  <method action="simplesearch" type="cruise" sessionkey="' . $sessionkey . '" userid="3035567" sitename="' . $mundocrucerosWebsite . '" currency="USD" status="Test">
-    <searchdetail type="cruise" startdate="2021-03-20" enddate="2021-03-27" lineid="20" adults="2" children="0" sid="' . $mundocrucerosSID . '" resultkey="default">
+  <method action="simplesearch" type="cruise" sessionkey="' . $sessionkey . '" userid="3035567" sitename="' . $mundocrucerosWebsite . '" currency="USD" status="Live">
+    <searchdetail type="cruise" startdate="2021-05-01" enddate="2021-05-30" lineid="20" adults="2" children="0" sid="' . $mundocrucerosSID . '" resultkey="default">
     </searchdetail>
   </method>
 </request>';

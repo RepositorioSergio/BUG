@@ -1,27 +1,107 @@
 <?xml version="1.0"?>
-<response method="getcabins" sessionkey="0DE96AB9~F7F1i4C40-A6B9-3DB46BA547AA" success="Y">
+<response method="getcabins" sessionkey="0E2D63E0~6BE1n4F1A-89B6-2C804B5F5B8C" success="Y">
   <errors>
   </errors>
   <request>
     <auth password="kg02gy05" username="mundocru" />
-    <method action="getcabins" gradeno="184:19" resultno="302_23.0" sessionkey="0DE96AB9~F7F1i4C40-A6B9-3DB46BA547AA" status="Live" />
+    <method action="getcabins" gradeno="184:6" resultno="302_78.0" sessionkey="0E2D63E0~6BE1n4F1A-89B6-2C804B5F5B8C" status="Live" />
   </request>
   <results>
-    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="105" cabinno="B415" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:19_1" shipside="" x1="406" x2="483" y1="1645" y2="1674">
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="D501" deckcode="DOLPHIN" deckname="DOLPHIN" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_18" shipside="">
       <bedconfig code="T2" description="TWINS" />
       <bedconfig code="QN" description="QUEEN" />
-      <deck id="93" imageid="24067" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344876915.jpg" name="Deck 11 - Baja" sortorder="5" />
+      <deck id="138" imageid="52139" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969632.jpg" name="Deck 9 - Dolphin" sortorder="6" />
     </cabin>
-    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="105" cabinno="B408" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:19_0" shipside="" x1="133" x2="211" y1="1614" y2="1642">
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="B441" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_11" shipside="">
       <bedconfig code="T2" description="TWINS" />
       <bedconfig code="QN" description="QUEEN" />
-      <deck id="93" imageid="24067" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344876915.jpg" name="Deck 11 - Baja" sortorder="5" />
+      <deck id="136" imageid="52137" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969624.jpg" name="Deck 11 - Baja" sortorder="4" />
     </cabin>
-    <cabin bathdescription="" bedcode="" cabingrade="BA" cabinid="105" cabinno="GUAR" farecode="KIW" guaranteed="Y" location="TO BE ASSIGNED/TO BE ASSIGNED/Oceanview" minguests="1" resultno="184:19_2" />
-    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="105" cabinno="B401" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:19_3" shipside="" x1="405" x2="483" y1="1549" y2="1578">
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="C424" deckcode="CARIBE" deckname="CARIBE" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_8" shipside="">
       <bedconfig code="T2" description="TWINS" />
       <bedconfig code="QN" description="QUEEN" />
-      <deck id="93" imageid="24067" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344876915.jpg" name="Deck 11 - Baja" sortorder="5" />
+      <deck id="137" imageid="52138" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969628.jpg" name="Deck 10 - Caribe" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="C501" deckcode="CARIBE" deckname="CARIBE" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_2" shipside="">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="137" imageid="52138" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969628.jpg" name="Deck 10 - Caribe" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="B443" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_3" shipside="">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="136" imageid="52137" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969624.jpg" name="Deck 11 - Baja" sortorder="4" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="C423" deckcode="CARIBE" deckname="CARIBE" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_0" shipside="">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="137" imageid="52138" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969628.jpg" name="Deck 10 - Caribe" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="B515" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_13" shipside="">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="136" imageid="52137" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969624.jpg" name="Deck 11 - Baja" sortorder="4" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="C419" deckcode="CARIBE" deckname="CARIBE" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_6" shipside="">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="137" imageid="52138" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969628.jpg" name="Deck 10 - Caribe" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="C502" deckcode="CARIBE" deckname="CARIBE" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_16" shipside="">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="137" imageid="52138" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969628.jpg" name="Deck 10 - Caribe" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="C422" deckcode="CARIBE" deckname="CARIBE" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_14" shipside="">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="137" imageid="52138" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969628.jpg" name="Deck 10 - Caribe" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="C427" deckcode="CARIBE" deckname="CARIBE" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_5" shipside="">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="137" imageid="52138" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969628.jpg" name="Deck 10 - Caribe" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="" bedcode="" cabingrade="BA" cabinid="135" cabinno="GUAR" farecode="KIW" guaranteed="Y" location="TO BE ASSIGNED/TO BE ASSIGNED/Oceanview" minguests="1" resultno="184:6_10" />
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="D418" deckcode="DOLPHIN" deckname="DOLPHIN" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_4" shipside="">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="138" imageid="52139" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969632.jpg" name="Deck 9 - Dolphin" sortorder="6" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="C421" deckcode="CARIBE" deckname="CARIBE" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_7" shipside="">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="137" imageid="52138" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969628.jpg" name="Deck 10 - Caribe" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="D502" deckcode="DOLPHIN" deckname="DOLPHIN" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_9" shipside="">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="138" imageid="52139" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969632.jpg" name="Deck 9 - Dolphin" sortorder="6" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="C425" deckcode="CARIBE" deckname="CARIBE" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_19" shipside="">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="137" imageid="52138" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969628.jpg" name="Deck 10 - Caribe" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="C426" deckcode="CARIBE" deckname="CARIBE" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_15" shipside="">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="137" imageid="52138" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969628.jpg" name="Deck 10 - Caribe" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="C420" deckcode="CARIBE" deckname="CARIBE" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_17" shipside="">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="137" imageid="52138" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969628.jpg" name="Deck 10 - Caribe" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="C418" deckcode="CARIBE" deckname="CARIBE" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_1" shipside="">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="137" imageid="52138" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969628.jpg" name="Deck 10 - Caribe" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="135" cabinno="D419" deckcode="DOLPHIN" deckname="DOLPHIN" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:6_12" shipside="">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="138" imageid="52139" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1577969632.jpg" name="Deck 9 - Dolphin" sortorder="6" />
     </cabin>
     <essential>
       <errataitem type="header" value="RESTRICTED" />

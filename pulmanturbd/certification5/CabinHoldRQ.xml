@@ -29,27 +29,27 @@
             <GuestCount Age="10" Quantity="1"/>
             <GuestCount Age="1" Quantity="1"/>
          </GuestCounts>
-         <SelectedSailing Start="2020-08-15" ShipCode="MO" VendorCode="PUL">
-            <SelectedFare FareCode="BESTRATE" GroupCode="24"/>
-            <SelectedCategory BerthedCategoryCode="FA" PricedCategoryCode="FA">
+         <SelectedSailing Start="2020-07-11" ShipCode="MO" VendorCode="PUL">
+            <SelectedFare FareCode="BESTRATE" GroupCode="18"/>
+            <SelectedCategory BerthedCategoryCode="JT" PricedCategoryCode="JT">
                 <!--Optional:-->
                 <CabinAttributes>
                     <!--1 to 99 repetitions:-->
                     <CabinAttribute CabinAttributeCode="99"/>
                 </CabinAttributes>
                 <!--1 to 4 repetitions:-->
-               <SelectedCabin CabinNumber="9532" MaxOccupancy="4"/>
+               <SelectedCabin CabinNumber="1570" MaxOccupancy="3"/>
             </SelectedCategory>
-            <InclusivePackageOption CruisePackageCode="MOPB0750" InclusiveIndicator="false"/>
+            <InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
          </SelectedSailing>
          <!--0 to 9 repetitions:-->
-         <Guest LoyaltyMembershipID="8888891"/>
-        <Guest LoyaltyMembershipID="7777780"/>
-        <Guest LoyaltyMembershipID="0000001"/>
+         <Guest Code="10" Age="30" LoyaltyMembershipID="0000006"/>
+        <Guest Code="8" Age="10" LoyaltyMembershipID="0000007"/>
+        <Guest Code="7" Age="1" LoyaltyMembershipID="0000008"/>
          <!--Optional:-->
             <alp:Currency CurrencyCode="USD" DecimalPlaces="2"/>
          <!--Optional:-->
-        <SearchQualifiers BerthedCategoryCode="FA" PricedCategoryCode="FA" CabinNumber="9532" GroupCode="24" MaxOccupancy="3" DeckNumber="9" DeckName="CUBIERTA 9">
+        <SearchQualifiers BerthedCategoryCode="JT" PricedCategoryCode="JT" CabinNumber="1570" GroupCode="18" MaxOccupancy="3" DeckNumber="10" DeckName="CUBIERTA 10">
             <!--0 to 5 repetitions:-->
             <Status Status="36"/>
             <!--Optional:-->

@@ -24,20 +24,20 @@
                     </Source>
                 </POS>
                 <SailingInfo>
-                    <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-08-09" Duration="P7N" Status="36" PortsOfCallQuantity="5">
-                        <CruiseLine ShipCode="HR" VendorCode="PUL"/>
+                    <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-05" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                        <CruiseLine VendorCode="PUL" ShipCode="HR"/>
                         <!--Optional:-->
-                        <Region RegionCode="PBLCS" SubRegionCode="PBC"/>
+                        <Region RegionCode="PISGR" SubRegionCode="PGR"/>
                         <!--Optional:-->
-                        <DeparturePort LocationCode="HEL"/>
+                        <DeparturePort LocationCode="ATH"/>
                         <!--Optional:-->
-                        <ArrivalPort LocationCode="RLG"/>
+                        <ArrivalPort LocationCode="ATH"/>
                     </SelectedSailing>
                     <!--Optional:-->
                     <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
                     <!--Optional:-->
                     <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                    <SelectedCategory BerthedCategoryCode="FD"/>
+                    <SelectedCategory BerthedCategoryCode="FH"/>
                 </SailingInfo>
             </OTA_CruiseSpecialServiceAvailRQ>
         </ol:getOptionList>

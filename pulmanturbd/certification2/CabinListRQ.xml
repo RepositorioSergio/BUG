@@ -24,30 +24,30 @@
                     </BookingChannel>
                 </Source>
             </POS>
-            <Guest Age="30">
+            <Guest Code="10" Age="30">
                 <GuestTransportation Mode="29" Status="36">
-                    <GatewayCity CodeContext="IATA" LocationCode="BCN"/>
+                    <GatewayCity LocationCode="C/O"/>
                 </GuestTransportation>
             </Guest>
             <GuestCounts>
                 <GuestCount Age="30" Quantity="1"/>
             </GuestCounts>
             <SailingInfo>
-                <SelectedSailing Start="2020-08-08">
-                    <CruiseLine ShipCode="MO" VendorCode="PUL"/>
+                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-11" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                    <CruiseLine VendorCode="PUL" ShipCode="MO"/>
                     <!--Optional:-->
-                    <Region RegionCode="PBLCS" SubRegionCode="PBC"/>
+                    <Region RegionCode="PISFE" SubRegionCode="PGH"/>
                     <!--Optional:-->
-                    <DeparturePort LocationCode="RLG"/>
+                    <DeparturePort LocationCode="REK"/>
                     <!--Optional:-->
-                    <ArrivalPort LocationCode="HEL"/>
+                    <ArrivalPort LocationCode="TRD"/>
                 </SelectedSailing>
-                <InclusivePackageOption CruisePackageCode="MOPB0751"/>
+                <InclusivePackageOption CruisePackageCode="MOPN0712"/>
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
                 <SelectedCategory BerthedCategoryCode="ST" PricedCategoryCode="ST" WaitlistIndicator="false">
                 </SelectedCategory>
             </SailingInfo>
-            <SearchQualifiers BerthedCategoryCode="ST" FareCode="C4443339" GroupCode="24" CategoryLocation="Deluxe">
+            <SearchQualifiers BerthedCategoryCode="ST" FareCode="C4443339" GroupCode="24" CategoryLocation="Outside">
                 <Status Status="36"/>
             </SearchQualifiers>
             <SelectedFare GroupCode="24"/>
