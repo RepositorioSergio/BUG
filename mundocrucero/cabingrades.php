@@ -87,8 +87,8 @@ if ($result->valid()) {
     $mundocrucerosWebsite = $row['value'];
 }
 
-$sessionkey = '0E2D63E0~6BE1n4F1A-89B6-2C804B5F5B8C';
-$resultno = '302_78.0';
+$sessionkey = '7AFC0A3E-8086q4C56-9692-68FCC12805B0';
+$resultno = '302_4.0';
 
 $raw = 'xml=<?xml version="1.0"?>
 <request>

@@ -104,8 +104,8 @@ if ($result->valid()) {
     $mundocrucerosWebsite = $row['value'];
 }
 
-$sessionkey = '7413877B-FDEFp4C32-B196-34F355CAAA87';
-$basketcode = 'YYZ3HN';
+$sessionkey = '84F02DF8_8916q4997-BD41-B010943B7C4D';
+$basketcode = 'MDGD58';
 $bedconfig = 'QN';
 $tablesize = '';
 $seating = '';
@@ -127,9 +127,9 @@ $raw = 'xml=<?xml version="1.0"?>
 </method>
 </request>';
 
-echo $return;
+echo '<xmp>';
 echo $raw;
-echo $return;
+echo '</xmp>';
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $mundocrucerosServiceURLBook);
@@ -151,9 +151,9 @@ $error = curl_error($ch);
 $headers = curl_getinfo($ch);
 curl_close($ch);
 
-echo $return;
+echo '<xmp>';
 echo $response;
-echo $return;
+echo '</xmp>';
 die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.mundocruceros.php');
 $config = [
