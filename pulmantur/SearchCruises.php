@@ -185,10 +185,6 @@ if ($departureport != "" and $departureport != "all") {
 }
 if ($cruisedestinationid > 0) {
 
-    $username = 'CONCTMM';
-    $password = 'u73ecKBu73ecKB!';
-
-    $url = "https://stage.services.rccl.com/Reservation_FITWeb/sca";
     $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sail="http://services.rccl.com/Interfaces/SailingList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
     <soapenv:Header/>
     <soapenv:Body>
@@ -229,16 +225,16 @@ if ($cruisedestinationid > 0) {
     </sail:getSailingList>
     </soapenv:Body>
     </soapenv:Envelope>';
-    error_log("\r\n RAW - $raw \r\n", 3, "/srv/www/htdocs/error_log");
+
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url . '/SailingList');
+    curl_setopt($ch, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/SailingList');
     curl_setopt($ch, CURLOPT_HEADER, false);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_VERBOSE, false);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
-    curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
+    curl_setopt($ch, CURLOPT_USERPWD, $cruisespullmanturusername . ":" . $cruisespullmanturpassword);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $cruisespullmanturConnetionTimeout);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_ENCODING, 'gzip');
     $xmlresult = curl_exec($ch);
@@ -402,7 +398,6 @@ if ($cruisedestinationid > 0) {
                         
                         // Sailling Dates
                         $duration = 0; 
-                        $url2 = "https://stage.services.rccl.com/Reservation_FITWeb/sca/CategoryList";
                         $raw2 ='<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://services.rccl.com/Interfaces/CategoryList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha">
                         <soapenv:Header/>
                         <soapenv:Body>
@@ -458,14 +453,14 @@ if ($cruisedestinationid > 0) {
 
 
                         $ch = curl_init();
-                        curl_setopt($ch, CURLOPT_URL, $url . '/CategoryList');
+                        curl_setopt($ch, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/CategoryList');
                         curl_setopt($ch, CURLOPT_HEADER, false);
                         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
                         curl_setopt($ch, CURLOPT_VERBOSE, false);
                         curl_setopt($ch, CURLOPT_POST, true);
                         curl_setopt($ch, CURLOPT_POSTFIELDS, $raw2);
-                        curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
-                        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
+                        curl_setopt($ch, CURLOPT_USERPWD, $cruisespullmanturusername . ":" . $cruisespullmanturpassword);
+                        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $cruisespullmanturConnetionTimeout);
                         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                         curl_setopt($ch, CURLOPT_ENCODING, 'gzip');
                         $response2 = curl_exec($ch);
@@ -851,14 +846,14 @@ if ($cruisedestinationid > 0) {
                                  </soapenv:Envelope>';
 
                                     $ch3 = curl_init();
-                                    curl_setopt($ch3, CURLOPT_URL, $url . '/PackageList');
+                                    curl_setopt($ch3, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/PackageList');
                                     curl_setopt($ch3, CURLOPT_HEADER, false);
                                     curl_setopt($ch3, CURLOPT_SSL_VERIFYPEER, false);
                                     curl_setopt($ch3, CURLOPT_VERBOSE, false);
                                     curl_setopt($ch3, CURLOPT_POST, true);
                                     curl_setopt($ch3, CURLOPT_POSTFIELDS, $raw3);
-                                    curl_setopt($ch3, CURLOPT_USERPWD, $username . ":" . $password);
-                                    curl_setopt($ch3, CURLOPT_CONNECTTIMEOUT, 65000);
+                                    curl_setopt($ch3, CURLOPT_USERPWD, $cruisespullmanturusername . ":" . $cruisespullmanturpassword);
+                                    curl_setopt($ch3, CURLOPT_CONNECTTIMEOUT, $cruisespullmanturConnetionTimeout);
                                     curl_setopt($ch3, CURLOPT_RETURNTRANSFER, true);
                                     curl_setopt($ch3, CURLOPT_ENCODING, 'gzip');
                                     $response3 = curl_exec($ch3);
@@ -899,7 +894,7 @@ if ($cruisedestinationid > 0) {
                                             }
                                         }
                                     }
-
+                                    $Description = '<p style="font-size:20px">' . $Description . '</p>';
 
                                     $nights = str_replace('P', '', $Duration);
                                     $nights = str_replace('N', '', $nights);
