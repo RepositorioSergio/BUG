@@ -37,7 +37,7 @@
                     <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
                     <!--Optional:-->
                     <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                    <SelectedCategory BerthedCategoryCode="FH"/>
+                    <SelectedCategory BerthedCategoryCode="FC"/>
                 </SailingInfo>
             </OTA_CruiseSpecialServiceAvailRQ>
         </ol:getOptionList>

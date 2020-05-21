@@ -28,8 +28,8 @@
           <CruiseLine ShipCode="MO" VendorCode="PUL"/>
         </SelectedSailing>
         <InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
-        <SelectedCategory BerthedCategoryCode="FK" FareCode="BESTRATE" PricedCategoryCode="FK">
-          <SelectedCabin CabinNumber="2529" Status="36"/>
+        <SelectedCategory BerthedCategoryCode="A" FareCode="BESTRATE" PricedCategoryCode="A">
+          <SelectedCabin CabinNumber="9518" Status="36"/>
         </SelectedCategory>
       </SailingInfo>
       <ReservationInfo>
@@ -71,11 +71,11 @@
             </GuestDetail>
             <GuestDetail>
                 <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="10" ContactType="CNT">
+                <ContactInfo Nationality="ES" Age="4" ContactType="CNT">
                 <PersonName>
-                    <GivenName>Maria</GivenName>
+                    <GivenName>Alejandra</GivenName>
                     <Surname>Sanchez LLorente</Surname>
-                    <NameTitle>MISS</NameTitle>
+                    <NameTitle>MR</NameTitle>
                 </PersonName>
                 </ContactInfo>
                 <ContactInfo ContactType="ALT">

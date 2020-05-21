@@ -33,22 +33,22 @@
                <GuestTransportation Mode="29" Status="36"/>
             </Guest>
             <GuestCounts>
-               <GuestCount Age="30" Quantity="1"/>
-               <GuestCount Age="10" Quantity="1"/>
-               <GuestCount Age="1" Quantity="1"/>         
+               <GuestCount Age="30" Quantity="1"/> 
+               <GuestCount Age="10" Quantity="1"/>   
+               <GuestCount Age="1" Quantity="1"/>    
             </GuestCounts>
             <SailingInfo>
-               <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-11" Duration="P7N" Status="36" PortsOfCallQuantity="5">
-                  <CruiseLine VendorCode="PUL" ShipCode="MO"/>
+               <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-05" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                  <CruiseLine VendorCode="PUL" ShipCode="HR"/>
                   <!--Optional:-->
-                  <Region RegionCode="PISFE" SubRegionCode="PGH"/>
+                  <Region RegionCode="PISGR" SubRegionCode="PGR"/>
                   <!--Optional:-->
-                  <DeparturePort LocationCode="REK"/>
+                  <DeparturePort LocationCode="ATH"/>
                   <!--Optional:-->
-                  <ArrivalPort LocationCode="TRD"/>
+                  <ArrivalPort LocationCode="ATH"/>
                </SelectedSailing>
                <!--Optional:-->
-               <InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
+               <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
                <!--Optional:-->
                <Currency CurrencyCode="USD" DecimalPlaces="2"/>
             </SailingInfo>

@@ -93,14 +93,14 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                     <GatewayCity LocationCode="C/O"/>
                 </GuestTransportation>
             </Guest>
-            <Guest Code="8" Age="10">
+            <Guest Code="8" Age="4">
                 <GuestTransportation Mode="29" Status="36">
                     <GatewayCity LocationCode="C/O"/>
                 </GuestTransportation>
             </Guest>
             <GuestCounts>
                 <GuestCount Age="30" Quantity="1"/>
-                <GuestCount Age="10" Quantity="1"/>
+                <GuestCount Age="4" Quantity="1"/>
             </GuestCounts>
             <SailingInfo>
                 <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-11" Duration="P7N" Status="36" PortsOfCallQuantity="5">
@@ -114,10 +114,10 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                 </SelectedSailing>
                 <InclusivePackageOption CruisePackageCode="MOPN0712"/>
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                <SelectedCategory BerthedCategoryCode="FK" PricedCategoryCode="FK" WaitlistIndicator="false">
+                <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A" WaitlistIndicator="false">
                 </SelectedCategory>
             </SailingInfo>
-            <SearchQualifiers BerthedCategoryCode="FK" FareCode="G1802479" GroupCode="25" CategoryLocation="Inside">
+            <SearchQualifiers BerthedCategoryCode="A" FareCode="G1802479" GroupCode="A" CategoryLocation="Deluxe">
                 <Status Status="36"/>
             </SearchQualifiers>
             <SelectedFare GroupCode="25"/>

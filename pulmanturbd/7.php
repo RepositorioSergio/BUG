@@ -121,7 +121,7 @@ $raw ='<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope
 </soapenv:Body>
 </soapenv:Envelope>';
 
-$raw2 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:book="http://services.rccl.com/Interfaces/BookingPrice" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
+$raw3 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:book="http://services.rccl.com/Interfaces/BookingPrice" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
 <soapenv:Header/>
 <soapenv:Body>
    <book:getBookingPrice>
@@ -199,7 +199,7 @@ $raw2 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelo
 </soapenv:Envelope>';
 
 
-$raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:book="http://services.rccl.com/Interfaces/BookingPrice" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
+$raw3 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:book="http://services.rccl.com/Interfaces/BookingPrice" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
   <soapenv:Header/>
   <soapenv:Body>
     <book:getBookingPrice>

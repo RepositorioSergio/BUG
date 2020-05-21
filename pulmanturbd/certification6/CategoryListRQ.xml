@@ -36,10 +36,10 @@
                <GuestTransportation Mode="29" Status="36"/>
             </Guest>
             <GuestCounts>
-               <GuestCount Age="30" Quantity="1"/>
-               <GuestCount Age="28" Quantity="1"/>
-               <GuestCount Age="10" Quantity="1"/>
-               <GuestCount Age="4" Quantity="1"/>         
+               <GuestCount Age="30" Quantity="1"/> 
+               <GuestCount Age="28" Quantity="1"/> 
+               <GuestCount Age="10" Quantity="1"/>   
+               <GuestCount Age="4" Quantity="1"/>    
             </GuestCounts>
             <SailingInfo>
                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-05" Duration="P7N" Status="36" PortsOfCallQuantity="5">

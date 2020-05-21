@@ -28,8 +28,8 @@
           <CruiseLine ShipCode="HR" VendorCode="PUL"/>
         </SelectedSailing>
         <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
-        <SelectedCategory BerthedCategoryCode="FH" FareCode="BESTRATE" PricedCategoryCode="FH">
-          <SelectedCabin CabinNumber="4012" Status="36"/>
+        <SelectedCategory BerthedCategoryCode="FC" FareCode="BESTRATE" PricedCategoryCode="FC">
+          <SelectedCabin CabinNumber="1058" Status="36"/>
         </SelectedCategory>
       </SailingInfo>
       <ReservationInfo>
@@ -73,7 +73,7 @@
                 <SelectedFareCode FareCode="BESTRATE"/>
                 <ContactInfo Nationality="ES" Age="28" ContactType="CNT">
                 <PersonName>
-                    <GivenName>Albertina</GivenName>
+                    <GivenName>Antonia</GivenName>
                     <Surname>Sanchez LLorente</Surname>
                     <NameTitle>MR</NameTitle>
                 </PersonName>
@@ -110,7 +110,7 @@
                 <PersonName>
                     <GivenName>Maria</GivenName>
                     <Surname>Sanchez LLorente</Surname>
-                    <NameTitle>MISS</NameTitle>
+                    <NameTitle>MR</NameTitle>
                 </PersonName>
                 </ContactInfo>
                 <ContactInfo ContactType="ALT">
@@ -141,24 +141,37 @@
             </GuestDetail>
             <GuestDetail>
                 <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="1" ContactType="CNT">
+                <ContactInfo Nationality="ES" Age="4" ContactType="CNT">
+                <PersonName>
+                    <GivenName>Alejandra</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
+                    <NameTitle>MR</NameTitle>
+                </PersonName>
+                </ContactInfo>
+                <ContactInfo ContactType="ALT">
                     <PersonName>
-                        <GivenName>Javier</GivenName>
-                        <Surname>Sanchez PEREZ</Surname>
-                        <NameTitle>MR</NameTitle>
+                    <GivenName>David</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
                     </PersonName>
+                    <Address>
+                    <AddressLine>MAhonia 2</AddressLine>
+                    <CityName>Madrid</CityName>
+                    <PostalCode>28043</PostalCode>
+                    <CountryName Code="ES"/>
+                    </Address>
+                    <Email>davizch2004@gmail.com</Email>
                 </ContactInfo>
                 <ContactInfo ContactType="EMG">
                     <PersonName>
-                        <GivenName>David</GivenName>
-                        <Surname>Sanchez LLorente</Surname>
+                    <GivenName>David</GivenName>
+                    <Surname>Sanchez LLorente</Surname>
                     </PersonName>
                     <Telephone PhoneNumber="9871236540"/>
                 </ContactInfo>
                 <GuestTransportation Status="36" Mode="29">
-                <GatewayCity LocationCode="C/O"/>
+                    <GatewayCity LocationCode="C/O"/>
                 </GuestTransportation>
-                <SelectedDining Status="36" Sitting="M" Language="ES"/>
+                <SelectedDining Status="36" Sitting="M"/>
                 <CruiseDocument DocumentLanguage="ES"/>
             </GuestDetail>
         </GuestDetails>

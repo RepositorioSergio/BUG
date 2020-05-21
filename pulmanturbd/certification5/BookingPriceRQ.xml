@@ -24,12 +24,12 @@
         </Source>
       </POS>
       <SailingInfo>
-        <SelectedSailing Start="2020-07-11">
-          <CruiseLine ShipCode="MO" VendorCode="PUL"/>
+        <SelectedSailing Start="2020-07-05">
+          <CruiseLine ShipCode="HR" VendorCode="PUL"/>
         </SelectedSailing>
-        <InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
-        <SelectedCategory BerthedCategoryCode="JT" FareCode="BESTRATE" PricedCategoryCode="JT">
-          <SelectedCabin CabinNumber="1570" Status="36"/>
+        <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
+        <SelectedCategory BerthedCategoryCode="FA" FareCode="BESTRATE" PricedCategoryCode="FA">
+          <SelectedCabin CabinNumber="1097" Status="36"/>
         </SelectedCategory>
       </SailingInfo>
       <ReservationInfo>
@@ -75,7 +75,7 @@
                 <PersonName>
                     <GivenName>Maria</GivenName>
                     <Surname>Sanchez LLorente</Surname>
-                    <NameTitle>MISS</NameTitle>
+                    <NameTitle>MR</NameTitle>
                 </PersonName>
                 </ContactInfo>
                 <ContactInfo ContactType="ALT">
@@ -102,28 +102,6 @@
                     <GatewayCity LocationCode="C/O"/>
                 </GuestTransportation>
                 <SelectedDining Status="36" Sitting="M"/>
-                <CruiseDocument DocumentLanguage="ES"/>
-            </GuestDetail>
-            <GuestDetail>
-                <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="1" ContactType="CNT">
-                    <PersonName>
-                        <GivenName>Javier</GivenName>
-                        <Surname>Sanchez PEREZ</Surname>
-                        <NameTitle>MR</NameTitle>
-                    </PersonName>
-                </ContactInfo>
-                <ContactInfo ContactType="EMG">
-                    <PersonName>
-                        <GivenName>David</GivenName>
-                        <Surname>Sanchez LLorente</Surname>
-                    </PersonName>
-                    <Telephone PhoneNumber="9871236540"/>
-                </ContactInfo>
-                <GuestTransportation Status="36" Mode="29">
-                <GatewayCity LocationCode="C/O"/>
-                </GuestTransportation>
-                <SelectedDining Status="36" Sitting="M" Language="ES"/>
                 <CruiseDocument DocumentLanguage="ES"/>
             </GuestDetail>
         </GuestDetails>

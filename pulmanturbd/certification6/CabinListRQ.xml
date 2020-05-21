@@ -62,13 +62,13 @@
                 </SelectedSailing>
                 <InclusivePackageOption CruisePackageCode="HRPT0734"/>
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                <SelectedCategory BerthedCategoryCode="FH" PricedCategoryCode="FH" WaitlistIndicator="false">
+                <SelectedCategory BerthedCategoryCode="FC" PricedCategoryCode="FC" WaitlistIndicator="false">
                 </SelectedCategory>
             </SailingInfo>
-            <SearchQualifiers BerthedCategoryCode="FH" FareCode="C4443409" GroupCode="6" CategoryLocation="Outside">
+            <SearchQualifiers BerthedCategoryCode="FC" FareCode="C4443409" GroupCode="FC" CategoryLocation="Outside">
                 <Status Status="36"/>
             </SearchQualifiers>
-            <SelectedFare GroupCode="6"/>
+            <SelectedFare GroupCode="25"/>
         </OTA_CruiseCabinAvailRQ>
     </cab:getCabinList>
    </soapenv:Body>

@@ -83,12 +83,12 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
         </Source>
       </POS>
       <SailingInfo>
-        <SelectedSailing Start="2020-07-11">
-          <CruiseLine ShipCode="MO" VendorCode="PUL"/>
+        <SelectedSailing Start="2020-07-05">
+          <CruiseLine ShipCode="HR" VendorCode="PUL"/>
         </SelectedSailing>
-        <InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
-        <SelectedCategory BerthedCategoryCode="FK" FareCode="BESTRATE" PricedCategoryCode="FK">
-          <SelectedCabin CabinNumber="2529" Status="36"/>
+        <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
+        <SelectedCategory BerthedCategoryCode="FA" FareCode="BESTRATE" PricedCategoryCode="FA">
+          <SelectedCabin CabinNumber="1097" Status="36"/>
         </SelectedCategory>
       </SailingInfo>
       <ReservationInfo>
@@ -134,7 +134,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                 <PersonName>
                     <GivenName>Maria</GivenName>
                     <Surname>Sanchez LLorente</Surname>
-                    <NameTitle>MISS</NameTitle>
+                    <NameTitle>MR</NameTitle>
                 </PersonName>
                 </ContactInfo>
                 <ContactInfo ContactType="ALT">

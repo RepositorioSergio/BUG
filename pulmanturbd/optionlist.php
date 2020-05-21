@@ -89,7 +89,7 @@ $raw ='<?xml version="1.0" encoding="UTF-8"?>
                 </POS>
                 <SailingInfo>
                     <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-11" Duration="P7N" Status="36" PortsOfCallQuantity="5">
-                        <CruiseLine ShipCode="MO" VendorCode="PUL"/>
+                        <CruiseLine VendorCode="PUL" ShipCode="MO"/>
                         <!--Optional:-->
                         <Region RegionCode="PISFE" SubRegionCode="PGH"/>
                         <!--Optional:-->
@@ -101,7 +101,7 @@ $raw ='<?xml version="1.0" encoding="UTF-8"?>
                     <InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
                     <!--Optional:-->
                     <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                    <SelectedCategory BerthedCategoryCode="FK"/>
+                    <SelectedCategory BerthedCategoryCode="A"/>
                 </SailingInfo>
             </OTA_CruiseSpecialServiceAvailRQ>
         </ol:getOptionList>

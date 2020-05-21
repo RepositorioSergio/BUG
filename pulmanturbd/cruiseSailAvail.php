@@ -91,7 +91,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
          <!--Optional:-->
          <alp:GuestCounts>
             <alp:GuestCount Age="30" Quantity="1"/>
-            <alp:GuestCount Age="10" Quantity="1"/>
+            <alp:GuestCount Age="4" Quantity="1"/>
         </alp:GuestCounts>
         <alp:SailingDateRange Start="2020-07-08" End="2020-07-15" MinDuration="P6N" MaxDuration="P9N"/>
       </alp:OTA_CruiseSailAvailRQ>

@@ -88,15 +88,15 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                     </BookingChannel>
                 </Source>
             </POS>
-            <Guest Code="10" Age="30" LoyaltyMembershipID="0000016"/>
-            <Guest Code="8" Age="10" LoyaltyMembershipID="0000017"/>
+            <Guest Code="10" Age="30" LoyaltyMembershipID="0000023"/>
+            <Guest Code="8" Age="4" LoyaltyMembershipID="0000024"/>
             <GuestCounts>
                 <GuestCount Age="30" Quantity="1"/>
-                <GuestCount Age="10" Quantity="1"/>
+                <GuestCount Age="4" Quantity="1"/>
             </GuestCounts>
             <SailingInfo>
                 <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-11" Duration="P7N" Status="36" PortsOfCallQuantity="5">
-                    <CruiseLine ShipCode="MO" VendorCode="PUL"/>
+                    <CruiseLine VendorCode="PUL" ShipCode="MO"/>
                     <!--Optional:-->
                     <Region RegionCode="PISFE" SubRegionCode="PGH"/>
                     <!--Optional:-->
@@ -108,9 +108,9 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                 <alp:InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
                 <!--Optional:-->
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                <SelectedCategory BerthedCategoryCode="FK" PricedCategoryCode="FK"/>
+                <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A"/>
             </SailingInfo>
-            <SelectedFare GroupCode="25"/>
+            <SelectedFare GroupCode="1"/>
             <TPA_ReservationId Type="14" ID="0"/>
         </OTA_CruiseDiningAvailRQ>
     </din:getDiningList>
