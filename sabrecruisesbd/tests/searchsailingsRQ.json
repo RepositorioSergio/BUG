@@ -1,0 +1,12 @@
+{
+    "agencyPOS": {
+      "pcc": "BJ1G",
+      "currencyCode": "USD"
+    },
+    "sailingQualifier": {
+      "startDate": "2020-08-01",
+      "endDate": "2020-08-30",
+      "minDuration": 1,
+      "maxDuration": 10
+    }
+  }

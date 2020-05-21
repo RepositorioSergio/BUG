@@ -1,0 +1,24 @@
+{
+    "agencyPOS": {
+        "pcc": "BJ1G",
+        "currencyCode": "USD"
+    },
+    "sailingInfo": {
+      "vendorCode": "MS",
+      "voyageId": "FA20200801GOAGOA",
+      "agencyGroupId": "43562",
+      "selectedFareCodes": [
+        "BESTFARE"
+      ],
+      "selectedCategory": {
+        "pricedCategoryCode": "B1",
+        "berthedCategoryCode": "B1"
+      }
+    },
+    "cabinQualifiers": {
+        "cabinMediaFlag": true
+    },
+    "reservationInfo": {
+        "guestCount": 2
+    }
+  }
