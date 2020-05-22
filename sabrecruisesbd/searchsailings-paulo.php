@@ -75,12 +75,15 @@ $raw = '{
       "pcc": "BJ1G",
       "currencyCode": "USD"
     },
-    "sailingQualifier": {
-      "startDate": "2020-07-01",
-      "endDate": "2020-07-30",
-      "minDuration": 1,
-      "maxDuration": 10
-    }
+    "itineraryQualifier": {
+        "sailingMediaFlag": true,
+        "voyagePrefs": [
+          {
+            "voyageId": "SC01200701SC04I497",
+            "vendorCode": "RC"
+          }
+        ]
+      }
   }';
 
 echo '<xmp>';
