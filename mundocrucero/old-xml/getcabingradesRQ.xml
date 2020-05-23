@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<request>
+    <auth username="mundocru" password="kg02gy05" />
+    <method action="getcabingrades" sessionkey="EFB28E55_643Cp4907-9DBB-6DDB8C9C9BFC" resultno="302_15.0" status="Test" />
+</request>

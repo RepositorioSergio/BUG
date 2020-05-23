@@ -1,0 +1,766 @@
+<?xml version="1.0"?>
+<response method="getcabingrades" sessionkey="EFB28E55_643Cp4907-9DBB-6DDB8C9C9BFC" success="Y">
+  <errors>
+  </errors>
+  <request>
+    <auth password="kg02gy05" username="mundocru" />
+    <method action="getcabingrades" resultno="302_15.0" sessionkey="EFB28E55_643Cp4907-9DBB-6DDB8C9C9BFC" status="Test" />
+  </request>
+  <results>
+    <grades>
+      <grade cabincode="IB" cabinid="24250" currency="USD" description="Inside" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:13" grossprice="964" groupfarecode="KIW" groupfarename="RESTRICTED" gst="" iata="CO" nda="250" nettprice="1414" oldgrossprice="1414" pastguestind="N" price="1414.00" resultno="184_15.0" sailingid="8048" scurrency="USD" senior="0" sprice="1414" taxes="200" type="cruiseonly" wasprice="1414.00">
+        <cabintype cabincode="IB" cabincode2="" cabintype="inside" caption="" colourcode="FFCB05" deckid="8074" description="The Interior stateroom is approximately 166 to 175 square feet and richly appointed with fine amenities. Some also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Interior stateroom:
+
+Twin beds that convert to a queen size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+." id="24250" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1449303513.jpg" isdefault="N" name="Interior" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1449303513.jpg" sortweight="10" supercedes="" validfrom="0000-00-00" validto="0000-00-00" />
+        <childreninfo header="Minimum Infant Age" text="01" />
+        <childreninfo header="1  Years - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 12 Years " text="Available" />
+        <childreninfo header="13  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1414" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="450.00" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="964" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="450.00" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/03/2019 to 31/12/2020" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2020-08-08" arrivetime="" day="1" departdate="2020-08-08" departtime="17:00" extrainfo="Check In Starts At 1200p" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <itinerary arrivedate="2020-08-09" arrivetime="" day="2" departdate="2020-08-09" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-10" arrivetime="07:00" day="3" departdate="2020-08-10" departtime="17:00" extrainfo="" itinerarydescription="" itineraryname="Yatsushiro" latitude="32.5074" longitude="130.602" shortdescription="" uniqueportid="4532" />
+          <itinerary arrivedate="2020-08-11" arrivetime="07:00" day="4" departdate="2020-08-11" departtime="17:00" extrainfo="" itinerarydescription="The second largest city in South Korea, Busan is your gateway to a fascinating land whose culture is a unique amalgam of old and new. Modern high-rise towers dwarf ancient Buddhist temples. The city's bustling business district offers a stark contrast to the serene grounds of Yongdusan Park. In short, Busan is a microcosm of South Korea, a nation whose startling economic success often obscures one of Asia's most sophisticated and venerable cultures.
+
+Busan was the scene of bitter fighting during the Korean War. The United Nations Memorial Cemetery marks the final resting place for the troops from 16 nations who gave their lives during the conflict." itineraryname="Busan" latitude="35.1579" longitude="129.055" shortdescription="" uniqueportid="1903" />
+          <itinerary arrivedate="2020-08-12" arrivetime="" day="5" departdate="2020-08-12" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-13" arrivetime="07:00" day="6" departdate="2020-08-13" departtime="" extrainfo="" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>15</sdecks>
+        <sdecks>14</sdecks>
+        <sdecks>12</sdecks>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+        <sdecks>09</sdecks>
+        <sdecks>08</sdecks>
+      </grade>
+      <grade cabincode="D4" cabinid="24253" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:9" grossprice="1438" groupfarecode="KIW" groupfarename="RESTRICTED" gst="" iata="CO" nda="250" nettprice="1888" oldgrossprice="1888" pastguestind="N" price="1888.00" resultno="184_15.0" sailingid="8048" scurrency="USD" senior="0" sprice="1888" taxes="200" type="cruiseonly" wasprice="1888.00">
+        <cabintype cabincode="D4" cabincode2="" cabintype="balcony" caption="" colourcode="479FC0" deckid="8074" description="Larger than our Standard Balcony staterooms, Premium Deluxe Balcony cabins provide approximately 233 square feet of comfort, and an approximately 41 square foot balcony and includes all the same features of the Balcony stateroom, plus an additional sofa bed for lounging or sleeping a third passenger. Some also have a pullman bed to accommodate a 4th passenger.
+
+These features and fine amenities are standard in a Premium Deluxe Balcony stateroom:
+
+Seating area with a sofa bed.
+Balcony with patio furniture.
+Twin beds that convert to a queen size bed.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Private bathroom with shower.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="24253" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1449303686.jpg" isdefault="N" name="Premium Deluxe Balcony" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1449303686.jpg" sortweight="40" supercedes="" validfrom="0000-00-00" validto="0000-00-00" />
+        <childreninfo header="Minimum Infant Age" text="01" />
+        <childreninfo header="1  Years - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 12 Years " text="Available" />
+        <childreninfo header="13  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1888" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="450.00" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1438" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="450.00" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/03/2019 to 31/12/2020" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2020-08-08" arrivetime="" day="1" departdate="2020-08-08" departtime="17:00" extrainfo="Check In Starts At 1200p" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <itinerary arrivedate="2020-08-09" arrivetime="" day="2" departdate="2020-08-09" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-10" arrivetime="07:00" day="3" departdate="2020-08-10" departtime="17:00" extrainfo="" itinerarydescription="" itineraryname="Yatsushiro" latitude="32.5074" longitude="130.602" shortdescription="" uniqueportid="4532" />
+          <itinerary arrivedate="2020-08-11" arrivetime="07:00" day="4" departdate="2020-08-11" departtime="17:00" extrainfo="" itinerarydescription="The second largest city in South Korea, Busan is your gateway to a fascinating land whose culture is a unique amalgam of old and new. Modern high-rise towers dwarf ancient Buddhist temples. The city's bustling business district offers a stark contrast to the serene grounds of Yongdusan Park. In short, Busan is a microcosm of South Korea, a nation whose startling economic success often obscures one of Asia's most sophisticated and venerable cultures.
+
+Busan was the scene of bitter fighting during the Korean War. The United Nations Memorial Cemetery marks the final resting place for the troops from 16 nations who gave their lives during the conflict." itineraryname="Busan" latitude="35.1579" longitude="129.055" shortdescription="" uniqueportid="1903" />
+          <itinerary arrivedate="2020-08-12" arrivetime="" day="5" departdate="2020-08-12" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-13" arrivetime="07:00" day="6" departdate="2020-08-13" departtime="" extrainfo="" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>15</sdecks>
+        <sdecks>14</sdecks>
+        <sdecks>12</sdecks>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+        <sdecks>09</sdecks>
+        <sdecks>08</sdecks>
+      </grade>
+      <grade cabincode="DW" cabinid="24255" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:6" grossprice="1124" groupfarecode="KIW" groupfarename="RESTRICTED" gst="" iata="CO" nda="250" nettprice="1574" oldgrossprice="1574" pastguestind="N" price="1574.00" resultno="184_15.0" sailingid="8048" scurrency="USD" senior="0" sprice="1574" taxes="200" type="cruiseonly" wasprice="1574.00">
+        <cabintype cabincode="DW" cabincode2="" cabintype="balcony" caption="" colourcode="80C342" deckid="8078" description="The Obstructed View Deluxe Balcony cabin provides approximately 233 square feet of comfort, and includes all the same features of the Balcony stateroom, but have a partially or fully obstructed view from the approximately 41 square foot balcony. It features a sofa bed for relaxing or accommodating a 3rd passenger. Some also have a pullman bed to accommodate a 4th passenger.
+
+These features and fine amenities are standard in an Obstructed View Deluxe Balcony stateroom:
+
+Seating area with a sofa bed.
+Balcony with patio furniture.
+Twin beds that convert to a queen size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="24255" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1449303916.jpg" isdefault="N" name="Deluxe Balcony Obstructed" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1449303916.jpg" sortweight="40" supercedes="" validfrom="0000-00-00" validto="0000-00-00" />
+        <childreninfo header="Minimum Infant Age" text="01" />
+        <childreninfo header="1  Years - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 12 Years " text="Available" />
+        <childreninfo header="13  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1574" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="450.00" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1124" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="450.00" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/03/2019 to 31/12/2020" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2020-08-08" arrivetime="" day="1" departdate="2020-08-08" departtime="17:00" extrainfo="Check In Starts At 1200p" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <itinerary arrivedate="2020-08-09" arrivetime="" day="2" departdate="2020-08-09" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-10" arrivetime="07:00" day="3" departdate="2020-08-10" departtime="17:00" extrainfo="" itinerarydescription="" itineraryname="Yatsushiro" latitude="32.5074" longitude="130.602" shortdescription="" uniqueportid="4532" />
+          <itinerary arrivedate="2020-08-11" arrivetime="07:00" day="4" departdate="2020-08-11" departtime="17:00" extrainfo="" itinerarydescription="The second largest city in South Korea, Busan is your gateway to a fascinating land whose culture is a unique amalgam of old and new. Modern high-rise towers dwarf ancient Buddhist temples. The city's bustling business district offers a stark contrast to the serene grounds of Yongdusan Park. In short, Busan is a microcosm of South Korea, a nation whose startling economic success often obscures one of Asia's most sophisticated and venerable cultures.
+
+Busan was the scene of bitter fighting during the Korean War. The United Nations Memorial Cemetery marks the final resting place for the troops from 16 nations who gave their lives during the conflict." itineraryname="Busan" latitude="35.1579" longitude="129.055" shortdescription="" uniqueportid="1903" />
+          <itinerary arrivedate="2020-08-12" arrivetime="" day="5" departdate="2020-08-12" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-13" arrivetime="07:00" day="6" departdate="2020-08-13" departtime="" extrainfo="" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>08</sdecks>
+        <sdecks>16</sdecks>
+        <sdecks>15</sdecks>
+      </grade>
+      <grade cabincode="BW" cabinid="24258" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:5" grossprice="1078" groupfarecode="KIW" groupfarename="RESTRICTED" gst="" iata="CO" nda="250" nettprice="1528" oldgrossprice="1528" pastguestind="N" price="1528.00" resultno="184_15.0" sailingid="8048" scurrency="USD" senior="0" sprice="1528" taxes="200" type="cruiseonly" wasprice="1528.00">
+        <cabintype cabincode="BW" cabincode2="" cabintype="balcony" caption="" colourcode="BD9A56" deckid="8072" description="Obstructed View Balcony staterooms are approximately 222 square feet and feature all the comforts and amenities of the Balcony cabins, but have a partially or fully obstructed view from the approximately 41 square foot balcony. Some also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and amenities are standard in the Obstructed View Balcony stateroom:
+
+Balcony with patio furniture.
+Twin beds that convert to a queen size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, mini-fridge, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow." id="24258" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1449304189.jpg" isdefault="N" name="Balcony (Obstructed)" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1449304189.jpg" sortweight="40" supercedes="" validfrom="0000-00-00" validto="0000-00-00" />
+        <childreninfo header="Minimum Infant Age" text="01" />
+        <childreninfo header="1  Years - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 12 Years " text="Available" />
+        <childreninfo header="13  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1528" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="450.00" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1078" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="450.00" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/03/2019 to 31/12/2020" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2020-08-08" arrivetime="" day="1" departdate="2020-08-08" departtime="17:00" extrainfo="Check In Starts At 1200p" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <itinerary arrivedate="2020-08-09" arrivetime="" day="2" departdate="2020-08-09" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-10" arrivetime="07:00" day="3" departdate="2020-08-10" departtime="17:00" extrainfo="" itinerarydescription="" itineraryname="Yatsushiro" latitude="32.5074" longitude="130.602" shortdescription="" uniqueportid="4532" />
+          <itinerary arrivedate="2020-08-11" arrivetime="07:00" day="4" departdate="2020-08-11" departtime="17:00" extrainfo="" itinerarydescription="The second largest city in South Korea, Busan is your gateway to a fascinating land whose culture is a unique amalgam of old and new. Modern high-rise towers dwarf ancient Buddhist temples. The city's bustling business district offers a stark contrast to the serene grounds of Yongdusan Park. In short, Busan is a microcosm of South Korea, a nation whose startling economic success often obscures one of Asia's most sophisticated and venerable cultures.
+
+Busan was the scene of bitter fighting during the Korean War. The United Nations Memorial Cemetery marks the final resting place for the troops from 16 nations who gave their lives during the conflict." itineraryname="Busan" latitude="35.1579" longitude="129.055" shortdescription="" uniqueportid="1903" />
+          <itinerary arrivedate="2020-08-12" arrivetime="" day="5" departdate="2020-08-12" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-13" arrivetime="07:00" day="6" departdate="2020-08-13" departtime="" extrainfo="" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>08</sdecks>
+      </grade>
+      <grade cabincode="MF" cabinid="24262" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:8" grossprice="1552" groupfarecode="KIW" groupfarename="RESTRICTED" gst="" iata="CO" nda="250" nettprice="2002" oldgrossprice="2002" pastguestind="N" price="2002.00" resultno="184_15.0" sailingid="8048" scurrency="USD" senior="0" sprice="2002" taxes="200" type="cruiseonly" wasprice="2002.00">
+        <cabintype cabincode="MF" cabincode2="" cabintype="suite" caption="" colourcode="E6E7E8" deckid="8078" description="The luxurious Mini-Suite offers approximately 299 square feet of comfort and an additional, separate seating area with a sofa bed for lounging or sleeping a third passenger. The spacious balcony is approximately 41 square feet and the bathroom offers a combination tub and shower. Some also have a pullman bed to accommodate a 4th passenger.
+
+These features and fine amenities are standard in a Mini-Suite stateroom:
+
+Welcome glass of champagne.
+Separate seating area with a sofabed.
+Twin beds that convert to a queen size bed.
+Private bathroom with combination tub and shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Balcony with patio furniture.
+Two flat-panel televsions.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="24262" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1449304575.jpg" isdefault="N" name="Mini Suite" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1449304575.jpg" sortweight="100" supercedes="" validfrom="0000-00-00" validto="0000-00-00" />
+        <childreninfo header="Minimum Infant Age" text="01" />
+        <childreninfo header="1  Years - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 12 Years " text="Available" />
+        <childreninfo header="13  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2002" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="450.00" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1552" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="450.00" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/03/2019 to 31/12/2020" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2020-08-08" arrivetime="" day="1" departdate="2020-08-08" departtime="17:00" extrainfo="Check In Starts At 1200p" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <itinerary arrivedate="2020-08-09" arrivetime="" day="2" departdate="2020-08-09" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-10" arrivetime="07:00" day="3" departdate="2020-08-10" departtime="17:00" extrainfo="" itinerarydescription="" itineraryname="Yatsushiro" latitude="32.5074" longitude="130.602" shortdescription="" uniqueportid="4532" />
+          <itinerary arrivedate="2020-08-11" arrivetime="07:00" day="4" departdate="2020-08-11" departtime="17:00" extrainfo="" itinerarydescription="The second largest city in South Korea, Busan is your gateway to a fascinating land whose culture is a unique amalgam of old and new. Modern high-rise towers dwarf ancient Buddhist temples. The city's bustling business district offers a stark contrast to the serene grounds of Yongdusan Park. In short, Busan is a microcosm of South Korea, a nation whose startling economic success often obscures one of Asia's most sophisticated and venerable cultures.
+
+Busan was the scene of bitter fighting during the Korean War. The United Nations Memorial Cemetery marks the final resting place for the troops from 16 nations who gave their lives during the conflict." itineraryname="Busan" latitude="35.1579" longitude="129.055" shortdescription="" uniqueportid="1903" />
+          <itinerary arrivedate="2020-08-12" arrivetime="" day="5" departdate="2020-08-12" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-13" arrivetime="07:00" day="6" departdate="2020-08-13" departtime="" extrainfo="" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>16</sdecks>
+        <sdecks>15</sdecks>
+        <sdecks>08</sdecks>
+      </grade>
+      <grade cabincode="IA" cabinid="24264" currency="USD" description="Inside" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:7" grossprice="982" groupfarecode="KIW" groupfarename="RESTRICTED" gst="" iata="CO" nda="250" nettprice="1432" oldgrossprice="1432" pastguestind="N" price="1432.00" resultno="184_15.0" sailingid="8048" scurrency="USD" senior="0" sprice="1432" taxes="200" type="cruiseonly" wasprice="1432.00">
+        <cabintype cabincode="IA" cabincode2="" cabintype="inside" caption="" colourcode="DCE2ED" deckid="8074" description="The Interior stateroom is approximately 166 to 175 square feet and richly appointed with fine amenities. Some also have pullman beds to accommodate 3rd and 4th passengers.
+
+These features and fine amenities are standard in the Interior stateroom:
+
+Twin beds that convert to a queen size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="24264" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1449304771.jpg" isdefault="N" name="Interior" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1449304771.jpg" sortweight="10" supercedes="" validfrom="0000-00-00" validto="0000-00-00" />
+        <childreninfo header="Minimum Infant Age" text="01" />
+        <childreninfo header="1  Years - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 12 Years " text="Available" />
+        <childreninfo header="13  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1432" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="450.00" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="982" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="450.00" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/03/2019 to 31/12/2020" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2020-08-08" arrivetime="" day="1" departdate="2020-08-08" departtime="17:00" extrainfo="Check In Starts At 1200p" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <itinerary arrivedate="2020-08-09" arrivetime="" day="2" departdate="2020-08-09" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-10" arrivetime="07:00" day="3" departdate="2020-08-10" departtime="17:00" extrainfo="" itinerarydescription="" itineraryname="Yatsushiro" latitude="32.5074" longitude="130.602" shortdescription="" uniqueportid="4532" />
+          <itinerary arrivedate="2020-08-11" arrivetime="07:00" day="4" departdate="2020-08-11" departtime="17:00" extrainfo="" itinerarydescription="The second largest city in South Korea, Busan is your gateway to a fascinating land whose culture is a unique amalgam of old and new. Modern high-rise towers dwarf ancient Buddhist temples. The city's bustling business district offers a stark contrast to the serene grounds of Yongdusan Park. In short, Busan is a microcosm of South Korea, a nation whose startling economic success often obscures one of Asia's most sophisticated and venerable cultures.
+
+Busan was the scene of bitter fighting during the Korean War. The United Nations Memorial Cemetery marks the final resting place for the troops from 16 nations who gave their lives during the conflict." itineraryname="Busan" latitude="35.1579" longitude="129.055" shortdescription="" uniqueportid="1903" />
+          <itinerary arrivedate="2020-08-12" arrivetime="" day="5" departdate="2020-08-12" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-13" arrivetime="07:00" day="6" departdate="2020-08-13" departtime="" extrainfo="" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>14</sdecks>
+        <sdecks>12</sdecks>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+        <sdecks>09</sdecks>
+      </grade>
+      <grade cabincode="BB" cabinid="24266" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:1" grossprice="1324" groupfarecode="KIW" groupfarename="RESTRICTED" gst="" iata="CO" nda="250" nettprice="1774" oldgrossprice="1774" pastguestind="N" price="1774.00" resultno="184_15.0" sailingid="8048" scurrency="USD" senior="0" sprice="1774" taxes="200" type="cruiseonly" wasprice="1774.00">
+        <cabintype cabincode="BB" cabincode2="" cabintype="balcony" caption="" colourcode="CC8B96" deckid="8074" description="The spacious approximately 222 square foot Balcony stateroom is appointed with fine amenities and outstanding views from an approximately 41 square foot private balcony. Some also have pullman beds to accommodate up to 4 passengers.
+
+These features and fine amenities are standard in the Balcony stateroom:
+
+Balcony with patio furniture.
+Twin beds that convert to a queen size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="24266" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1449304876.jpg" isdefault="N" name="Balcony" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1449304876.jpg" sortweight="40" supercedes="" validfrom="0000-00-00" validto="0000-00-00" />
+        <childreninfo header="Minimum Infant Age" text="01" />
+        <childreninfo header="1  Years - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 12 Years " text="Available" />
+        <childreninfo header="13  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1774" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="450.00" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1324" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="450.00" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/03/2019 to 31/12/2020" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2020-08-08" arrivetime="" day="1" departdate="2020-08-08" departtime="17:00" extrainfo="Check In Starts At 1200p" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <itinerary arrivedate="2020-08-09" arrivetime="" day="2" departdate="2020-08-09" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-10" arrivetime="07:00" day="3" departdate="2020-08-10" departtime="17:00" extrainfo="" itinerarydescription="" itineraryname="Yatsushiro" latitude="32.5074" longitude="130.602" shortdescription="" uniqueportid="4532" />
+          <itinerary arrivedate="2020-08-11" arrivetime="07:00" day="4" departdate="2020-08-11" departtime="17:00" extrainfo="" itinerarydescription="The second largest city in South Korea, Busan is your gateway to a fascinating land whose culture is a unique amalgam of old and new. Modern high-rise towers dwarf ancient Buddhist temples. The city's bustling business district offers a stark contrast to the serene grounds of Yongdusan Park. In short, Busan is a microcosm of South Korea, a nation whose startling economic success often obscures one of Asia's most sophisticated and venerable cultures.
+
+Busan was the scene of bitter fighting during the Korean War. The United Nations Memorial Cemetery marks the final resting place for the troops from 16 nations who gave their lives during the conflict." itineraryname="Busan" latitude="35.1579" longitude="129.055" shortdescription="" uniqueportid="1903" />
+          <itinerary arrivedate="2020-08-12" arrivetime="" day="5" departdate="2020-08-12" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-13" arrivetime="07:00" day="6" departdate="2020-08-13" departtime="" extrainfo="" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>15</sdecks>
+        <sdecks>14</sdecks>
+        <sdecks>12</sdecks>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+        <sdecks>09</sdecks>
+      </grade>
+      <grade cabincode="DE" cabinid="24267" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:0" grossprice="1306" groupfarecode="KIW" groupfarename="RESTRICTED" gst="" iata="CO" nda="250" nettprice="1756" oldgrossprice="1756" pastguestind="N" price="1756.00" resultno="184_15.0" sailingid="8048" scurrency="USD" senior="0" sprice="1756" taxes="200" type="cruiseonly" wasprice="1756.00">
+        <cabintype cabincode="DE" cabincode2="" cabintype="balcony" caption="" colourcode="E4A524" deckid="8076" description="Larger than our Standard Balcony staterooms, Deluxe Balcony cabins provide approximately 233 square feet of comfort, and an approximately 41 square foot balcony and includes all the same features of the Balcony stateroom, plus an additional sofa bed for lounging or sleeping a third passenger. Some also have a pullman bed to accommodate a 4th passenger.
+
+These features and fine amenities are standard in a Deluxe Balcony stateroom:
+
+Seating area with a sofa bed.
+Balcony with patio furniture.
+Twin beds that convert to a queen size bed.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Private bathroom with shower.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="24267" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1449304968.jpg" isdefault="N" name="Deluxe Balcony" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1449304968.jpg" sortweight="40" supercedes="" validfrom="0000-00-00" validto="0000-00-00" />
+        <childreninfo header="Minimum Infant Age" text="01" />
+        <childreninfo header="1  Years - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 12 Years " text="Available" />
+        <childreninfo header="13  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1756" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="450.00" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1306" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="450.00" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/03/2019 to 31/12/2020" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2020-08-08" arrivetime="" day="1" departdate="2020-08-08" departtime="17:00" extrainfo="Check In Starts At 1200p" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <itinerary arrivedate="2020-08-09" arrivetime="" day="2" departdate="2020-08-09" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-10" arrivetime="07:00" day="3" departdate="2020-08-10" departtime="17:00" extrainfo="" itinerarydescription="" itineraryname="Yatsushiro" latitude="32.5074" longitude="130.602" shortdescription="" uniqueportid="4532" />
+          <itinerary arrivedate="2020-08-11" arrivetime="07:00" day="4" departdate="2020-08-11" departtime="17:00" extrainfo="" itinerarydescription="The second largest city in South Korea, Busan is your gateway to a fascinating land whose culture is a unique amalgam of old and new. Modern high-rise towers dwarf ancient Buddhist temples. The city's bustling business district offers a stark contrast to the serene grounds of Yongdusan Park. In short, Busan is a microcosm of South Korea, a nation whose startling economic success often obscures one of Asia's most sophisticated and venerable cultures.
+
+Busan was the scene of bitter fighting during the Korean War. The United Nations Memorial Cemetery marks the final resting place for the troops from 16 nations who gave their lives during the conflict." itineraryname="Busan" latitude="35.1579" longitude="129.055" shortdescription="" uniqueportid="1903" />
+          <itinerary arrivedate="2020-08-12" arrivetime="" day="5" departdate="2020-08-12" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-13" arrivetime="07:00" day="6" departdate="2020-08-13" departtime="" extrainfo="" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>15</sdecks>
+        <sdecks>14</sdecks>
+        <sdecks>12</sdecks>
+        <sdecks>09</sdecks>
+        <sdecks>08</sdecks>
+      </grade>
+      <grade cabincode="BD" cabinid="24268" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:12" grossprice="1248" groupfarecode="KIW" groupfarename="RESTRICTED" gst="" iata="CO" nda="250" nettprice="1698" oldgrossprice="1698" pastguestind="N" price="1698.00" resultno="184_15.0" sailingid="8048" scurrency="USD" senior="0" sprice="1698" taxes="200" type="cruiseonly" wasprice="1698.00">
+        <cabintype cabincode="BD" cabincode2="" cabintype="balcony" caption="" colourcode="90A79D" deckid="8074" description="The spacious approximately 222 square foot Balcony stateroom is appointed with fine amenities and outstanding views from an approximately 41 square foot private balcony. Some also have pullman beds to accommodate up to 4 passengers.
+
+These features and fine amenities are standard in the Balcony stateroom:
+
+Balcony with patio furniture.
+Twin beds that convert to a queen size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="24268" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1449305073.jpg" isdefault="N" name="Balcony" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1449305073.jpg" sortweight="40" supercedes="" validfrom="0000-00-00" validto="0000-00-00" />
+        <childreninfo header="Minimum Infant Age" text="01" />
+        <childreninfo header="1  Years - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 12 Years " text="Available" />
+        <childreninfo header="13  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1698" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="450.00" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1248" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="450.00" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/03/2019 to 31/12/2020" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2020-08-08" arrivetime="" day="1" departdate="2020-08-08" departtime="17:00" extrainfo="Check In Starts At 1200p" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <itinerary arrivedate="2020-08-09" arrivetime="" day="2" departdate="2020-08-09" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-10" arrivetime="07:00" day="3" departdate="2020-08-10" departtime="17:00" extrainfo="" itinerarydescription="" itineraryname="Yatsushiro" latitude="32.5074" longitude="130.602" shortdescription="" uniqueportid="4532" />
+          <itinerary arrivedate="2020-08-11" arrivetime="07:00" day="4" departdate="2020-08-11" departtime="17:00" extrainfo="" itinerarydescription="The second largest city in South Korea, Busan is your gateway to a fascinating land whose culture is a unique amalgam of old and new. Modern high-rise towers dwarf ancient Buddhist temples. The city's bustling business district offers a stark contrast to the serene grounds of Yongdusan Park. In short, Busan is a microcosm of South Korea, a nation whose startling economic success often obscures one of Asia's most sophisticated and venerable cultures.
+
+Busan was the scene of bitter fighting during the Korean War. The United Nations Memorial Cemetery marks the final resting place for the troops from 16 nations who gave their lives during the conflict." itineraryname="Busan" latitude="35.1579" longitude="129.055" shortdescription="" uniqueportid="1903" />
+          <itinerary arrivedate="2020-08-12" arrivetime="" day="5" departdate="2020-08-12" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-13" arrivetime="07:00" day="6" departdate="2020-08-13" departtime="" extrainfo="" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>14</sdecks>
+        <sdecks>12</sdecks>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+        <sdecks>09</sdecks>
+      </grade>
+      <grade cabincode="DB" cabinid="24271" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:4" grossprice="1420" groupfarecode="KIW" groupfarename="RESTRICTED" gst="" iata="CO" nda="250" nettprice="1870" oldgrossprice="1870" pastguestind="N" price="1870.00" resultno="184_15.0" sailingid="8048" scurrency="USD" senior="0" sprice="1870" taxes="200" type="cruiseonly" wasprice="1870.00">
+        <cabintype cabincode="DB" cabincode2="" cabintype="balcony" caption="" colourcode="8D87C1" deckid="8074" description="Larger than our Standard Balcony staterooms, Deluxe Balcony cabins provide approximately 233 square feet of comfort, and an approximately 41 square foot balcony and includes all the same features of the Balcony stateroom, plus an additional sofa bed for lounging or sleeping a third passenger. Some also have a pullman bed to accommodate a 4th passenger.
+
+These features and fine amenities are standard in a Deluxe Balcony stateroom:
+
+Seating area with a sofa bed.
+Balcony with patio furniture.
+Twin beds that convert to a queen size bed.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Private bathroom with shower.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="24271" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1449305347.jpg" isdefault="N" name="Deluxe Balcony" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1449305347.jpg" sortweight="40" supercedes="" validfrom="0000-00-00" validto="0000-00-00" />
+        <childreninfo header="Minimum Infant Age" text="01" />
+        <childreninfo header="1  Years - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 12 Years " text="Available" />
+        <childreninfo header="13  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1870" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="450.00" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1420" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="450.00" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/03/2019 to 31/12/2020" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2020-08-08" arrivetime="" day="1" departdate="2020-08-08" departtime="17:00" extrainfo="Check In Starts At 1200p" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <itinerary arrivedate="2020-08-09" arrivetime="" day="2" departdate="2020-08-09" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-10" arrivetime="07:00" day="3" departdate="2020-08-10" departtime="17:00" extrainfo="" itinerarydescription="" itineraryname="Yatsushiro" latitude="32.5074" longitude="130.602" shortdescription="" uniqueportid="4532" />
+          <itinerary arrivedate="2020-08-11" arrivetime="07:00" day="4" departdate="2020-08-11" departtime="17:00" extrainfo="" itinerarydescription="The second largest city in South Korea, Busan is your gateway to a fascinating land whose culture is a unique amalgam of old and new. Modern high-rise towers dwarf ancient Buddhist temples. The city's bustling business district offers a stark contrast to the serene grounds of Yongdusan Park. In short, Busan is a microcosm of South Korea, a nation whose startling economic success often obscures one of Asia's most sophisticated and venerable cultures.
+
+Busan was the scene of bitter fighting during the Korean War. The United Nations Memorial Cemetery marks the final resting place for the troops from 16 nations who gave their lives during the conflict." itineraryname="Busan" latitude="35.1579" longitude="129.055" shortdescription="" uniqueportid="1903" />
+          <itinerary arrivedate="2020-08-12" arrivetime="" day="5" departdate="2020-08-12" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-13" arrivetime="07:00" day="6" departdate="2020-08-13" departtime="" extrainfo="" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>14</sdecks>
+        <sdecks>12</sdecks>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+        <sdecks>09</sdecks>
+      </grade>
+      <grade cabincode="BA" cabinid="24272" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:3" grossprice="1362" groupfarecode="KIW" groupfarename="RESTRICTED" gst="" iata="CO" nda="250" nettprice="1812" oldgrossprice="1812" pastguestind="N" price="1812.00" resultno="184_15.0" sailingid="8048" scurrency="USD" senior="0" sprice="1812" taxes="200" type="cruiseonly" wasprice="1812.00">
+        <cabintype cabincode="BA" cabincode2="" cabintype="balcony" caption="" colourcode="FFCF00" deckid="8074" description="The spacious approximately 222 square foot Balcony stateroom is appointed with fine amenities and outstanding views from an approximately 41 square foot private balcony. Some also have pullman beds to accommodate up to 4 passengers.
+
+These features and fine amenities are standard in the Balcony stateroom:
+
+Balcony with patio furniture.
+Twin beds that convert to a queen size bed.
+Private bathroom with shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="24272" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1449305416.jpg" isdefault="N" name="Balcony" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1449305416.jpg" sortweight="40" supercedes="" validfrom="0000-00-00" validto="0000-00-00" />
+        <childreninfo header="Minimum Infant Age" text="01" />
+        <childreninfo header="1  Years - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 12 Years " text="Available" />
+        <childreninfo header="13  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="1812" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="450.00" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1362" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="450.00" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/03/2019 to 31/12/2020" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2020-08-08" arrivetime="" day="1" departdate="2020-08-08" departtime="17:00" extrainfo="Check In Starts At 1200p" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <itinerary arrivedate="2020-08-09" arrivetime="" day="2" departdate="2020-08-09" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-10" arrivetime="07:00" day="3" departdate="2020-08-10" departtime="17:00" extrainfo="" itinerarydescription="" itineraryname="Yatsushiro" latitude="32.5074" longitude="130.602" shortdescription="" uniqueportid="4532" />
+          <itinerary arrivedate="2020-08-11" arrivetime="07:00" day="4" departdate="2020-08-11" departtime="17:00" extrainfo="" itinerarydescription="The second largest city in South Korea, Busan is your gateway to a fascinating land whose culture is a unique amalgam of old and new. Modern high-rise towers dwarf ancient Buddhist temples. The city's bustling business district offers a stark contrast to the serene grounds of Yongdusan Park. In short, Busan is a microcosm of South Korea, a nation whose startling economic success often obscures one of Asia's most sophisticated and venerable cultures.
+
+Busan was the scene of bitter fighting during the Korean War. The United Nations Memorial Cemetery marks the final resting place for the troops from 16 nations who gave their lives during the conflict." itineraryname="Busan" latitude="35.1579" longitude="129.055" shortdescription="" uniqueportid="1903" />
+          <itinerary arrivedate="2020-08-12" arrivetime="" day="5" departdate="2020-08-12" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-13" arrivetime="07:00" day="6" departdate="2020-08-13" departtime="" extrainfo="" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>14</sdecks>
+        <sdecks>12</sdecks>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+        <sdecks>09</sdecks>
+      </grade>
+      <grade cabincode="MA" cabinid="24277" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:2" grossprice="1790" groupfarecode="KIW" groupfarename="RESTRICTED" gst="" iata="CO" nda="250" nettprice="2240" oldgrossprice="2240" pastguestind="N" price="2240.00" resultno="184_15.0" sailingid="8048" scurrency="USD" senior="0" sprice="2240" taxes="200" type="cruiseonly" wasprice="2240.00">
+        <cabintype cabincode="MA" cabincode2="" cabintype="suite" caption="" colourcode="F287B7" deckid="8074" description="The luxurious Mini-Suite offers approximately 299 square feet of comfort and an additional, separate seating area with a sofa bed for lounging or sleeping a third passenger. The spacious balcony is approximately 41 square feet and the bathroom offers a combination tub and shower. Some also have a pullman bed to accommodate a 4th passenger.
+
+These features and fine amenities are standard in a Mini-Suite stateroom:
+
+Welcome glass of champagne.
+Separate seating area with a sofabed.
+Twin beds that convert to a queen size bed.
+Private bathroom with combination tub and shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Balcony with patio furniture.
+Two flat-panel televsions.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="24277" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1449305950.jpg" isdefault="N" name="Mini Suite" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1449305950.jpg" sortweight="100" supercedes="" validfrom="0000-00-00" validto="0000-00-00" />
+        <childreninfo header="Minimum Infant Age" text="01" />
+        <childreninfo header="1  Years - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 12 Years " text="Available" />
+        <childreninfo header="13  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2240" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="450.00" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1790" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="450.00" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/03/2019 to 31/12/2020" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2020-08-08" arrivetime="" day="1" departdate="2020-08-08" departtime="17:00" extrainfo="Check In Starts At 1200p" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <itinerary arrivedate="2020-08-09" arrivetime="" day="2" departdate="2020-08-09" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-10" arrivetime="07:00" day="3" departdate="2020-08-10" departtime="17:00" extrainfo="" itinerarydescription="" itineraryname="Yatsushiro" latitude="32.5074" longitude="130.602" shortdescription="" uniqueportid="4532" />
+          <itinerary arrivedate="2020-08-11" arrivetime="07:00" day="4" departdate="2020-08-11" departtime="17:00" extrainfo="" itinerarydescription="The second largest city in South Korea, Busan is your gateway to a fascinating land whose culture is a unique amalgam of old and new. Modern high-rise towers dwarf ancient Buddhist temples. The city's bustling business district offers a stark contrast to the serene grounds of Yongdusan Park. In short, Busan is a microcosm of South Korea, a nation whose startling economic success often obscures one of Asia's most sophisticated and venerable cultures.
+
+Busan was the scene of bitter fighting during the Korean War. The United Nations Memorial Cemetery marks the final resting place for the troops from 16 nations who gave their lives during the conflict." itineraryname="Busan" latitude="35.1579" longitude="129.055" shortdescription="" uniqueportid="1903" />
+          <itinerary arrivedate="2020-08-12" arrivetime="" day="5" departdate="2020-08-12" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-13" arrivetime="07:00" day="6" departdate="2020-08-13" departtime="" extrainfo="" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>14</sdecks>
+        <sdecks>12</sdecks>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+      </grade>
+      <grade cabincode="MB" cabinid="24278" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:10" grossprice="1742" groupfarecode="KIW" groupfarename="RESTRICTED" gst="" iata="CO" nda="250" nettprice="2192" oldgrossprice="2192" pastguestind="N" price="2192.00" resultno="184_15.0" sailingid="8048" scurrency="USD" senior="0" sprice="2192" taxes="200" type="cruiseonly" wasprice="2192.00">
+        <cabintype cabincode="MB" cabincode2="" cabintype="suite" caption="" colourcode="FFD881" deckid="8074" description="The luxurious Mini-Suite offers approximately 299 square feet of comfort and an additional, separate seating area with a sofa bed for lounging or sleeping a third passenger. The spacious balcony is approximately 41 square feet and the bathroom offers a combination tub and shower. Some also have a pullman bed to accommodate a 4th passenger.
+
+These features and fine amenities are standard in a Mini-Suite stateroom:
+
+Welcome glass of champagne.
+Separate seating area with a sofabed.
+Twin beds that convert to a queen size bed.
+Private bathroom with combination tub and shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Balcony with patio furniture.
+Two flat-panel televsions.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="24278" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1449306012.jpg" isdefault="N" name="Mini Suite" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1449306012.jpg" sortweight="100" supercedes="" validfrom="0000-00-00" validto="0000-00-00" />
+        <childreninfo header="Minimum Infant Age" text="01" />
+        <childreninfo header="1  Years - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 12 Years " text="Available" />
+        <childreninfo header="13  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2192" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="450.00" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1742" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="450.00" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/03/2019 to 31/12/2020" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2020-08-08" arrivetime="" day="1" departdate="2020-08-08" departtime="17:00" extrainfo="Check In Starts At 1200p" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <itinerary arrivedate="2020-08-09" arrivetime="" day="2" departdate="2020-08-09" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-10" arrivetime="07:00" day="3" departdate="2020-08-10" departtime="17:00" extrainfo="" itinerarydescription="" itineraryname="Yatsushiro" latitude="32.5074" longitude="130.602" shortdescription="" uniqueportid="4532" />
+          <itinerary arrivedate="2020-08-11" arrivetime="07:00" day="4" departdate="2020-08-11" departtime="17:00" extrainfo="" itinerarydescription="The second largest city in South Korea, Busan is your gateway to a fascinating land whose culture is a unique amalgam of old and new. Modern high-rise towers dwarf ancient Buddhist temples. The city's bustling business district offers a stark contrast to the serene grounds of Yongdusan Park. In short, Busan is a microcosm of South Korea, a nation whose startling economic success often obscures one of Asia's most sophisticated and venerable cultures.
+
+Busan was the scene of bitter fighting during the Korean War. The United Nations Memorial Cemetery marks the final resting place for the troops from 16 nations who gave their lives during the conflict." itineraryname="Busan" latitude="35.1579" longitude="129.055" shortdescription="" uniqueportid="1903" />
+          <itinerary arrivedate="2020-08-12" arrivetime="" day="5" departdate="2020-08-12" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-13" arrivetime="07:00" day="6" departdate="2020-08-13" departtime="" extrainfo="" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>15</sdecks>
+        <sdecks>14</sdecks>
+        <sdecks>12</sdecks>
+        <sdecks>11</sdecks>
+        <sdecks>10</sdecks>
+      </grade>
+      <grade cabincode="ME" cabinid="24280" currency="USD" description="Oceanview" destination="" docabinsrequest="1" farecode="KIW" farename="RESTRICTED" gradeno="184:11" grossprice="1600" groupfarecode="KIW" groupfarename="RESTRICTED" gst="" iata="CO" nda="250" nettprice="2050" oldgrossprice="2050" pastguestind="N" price="2050.00" resultno="184_15.0" sailingid="8048" scurrency="USD" senior="0" sprice="2050" taxes="200" type="cruiseonly" wasprice="2050.00">
+        <cabintype cabincode="ME" cabincode2="" cabintype="suite" caption="" colourcode="74C7B8" deckid="8076" description="The luxurious Mini-Suite offers approximately 299 square feet of comfort and an additional, separate seating area with a sofa bed for lounging or sleeping a third passenger. The spacious balcony is approximately 41 square feet and the bathroom offers a combination tub and shower. Some also have a pullman bed to accommodate a 4th passenger.
+
+These features and fine amenities are standard in a Mini-Suite stateroom:
+
+Welcome glass of champagne.
+Separate seating area with a sofabed.
+Twin beds that convert to a queen size bed.
+Private bathroom with combination tub and shower.
+Shampoo, conditioner, body lotion.
+100% Egyptian cotton linens.
+Balcony with patio furniture.
+Two flat-panel televsions.
+Satellite TV, refrigerator, hair dryer, safe, closet, phone and desk.
+110V, 60-cycle alternating current (AC) with standard U.S. plug fittings.
+Daily housekeeping service.
+Evening bed turn-down, chocolates on your pillow.
+" id="24280" imageurl="https://static.traveltek.net/cruisepics/local_cabinimages/1449306262.jpg" isdefault="N" name="Mini Suite" ownerid="system" smallimageurl="https://static.traveltek.net/cruisepics/local_cabinimages_small/1449306262.jpg" sortweight="100" supercedes="" validfrom="0000-00-00" validto="0000-00-00" />
+        <childreninfo header="Minimum Infant Age" text="01" />
+        <childreninfo header="1  Years - 3 Years " text="Available" />
+        <childreninfo header="4  Years - 8 Years " text="Available" />
+        <childreninfo header="9  Years - 12 Years " text="Available" />
+        <childreninfo header="13  Years - 17 Years " text="Available" />
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="2050" />
+          <price appliesto="booking" marker="nett" name="Non Commissionable Addition" runorder="4" type="addition" value="450.00" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="1600" />
+          <price appliesto="booking" marker="noncommadd" name="Non Commissionable Addition" runorder="15" type="addition" value="450.00" />
+        </prices>
+        <rate airavail="1" code="KIW" faretype="gross" insuranceavail="Y" misccharges="" name="RESTRICTED valid from 01/03/2019 to 31/12/2020" nett="0" nonrefundable="0" pastpassenger="0" portcharges="" sortweight="100">
+          <insuranceopts name="Waiver" type="Y" />
+          <itinerary arrivedate="2020-08-08" arrivetime="" day="1" departdate="2020-08-08" departtime="17:00" extrainfo="Check In Starts At 1200p" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <itinerary arrivedate="2020-08-09" arrivetime="" day="2" departdate="2020-08-09" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-10" arrivetime="07:00" day="3" departdate="2020-08-10" departtime="17:00" extrainfo="" itinerarydescription="" itineraryname="Yatsushiro" latitude="32.5074" longitude="130.602" shortdescription="" uniqueportid="4532" />
+          <itinerary arrivedate="2020-08-11" arrivetime="07:00" day="4" departdate="2020-08-11" departtime="17:00" extrainfo="" itinerarydescription="The second largest city in South Korea, Busan is your gateway to a fascinating land whose culture is a unique amalgam of old and new. Modern high-rise towers dwarf ancient Buddhist temples. The city's bustling business district offers a stark contrast to the serene grounds of Yongdusan Park. In short, Busan is a microcosm of South Korea, a nation whose startling economic success often obscures one of Asia's most sophisticated and venerable cultures.
+
+Busan was the scene of bitter fighting during the Korean War. The United Nations Memorial Cemetery marks the final resting place for the troops from 16 nations who gave their lives during the conflict." itineraryname="Busan" latitude="35.1579" longitude="129.055" shortdescription="" uniqueportid="1903" />
+          <itinerary arrivedate="2020-08-12" arrivetime="" day="5" departdate="2020-08-12" departtime="" extrainfo="" itinerarydescription="" itineraryname="At Sea" latitude="" longitude="" shortdescription="" uniqueportid="" />
+          <itinerary arrivedate="2020-08-13" arrivetime="07:00" day="6" departdate="2020-08-13" departtime="" extrainfo="" itinerarydescription="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." itineraryname="Taipei (Keelung)" latitude="25.0911" longitude="121.56" shortdescription="" uniqueportid="442" />
+          <logindetails agency="5610" currency="USD" system="BF" username="Multi Tour Mundo Cruceros" />
+        </rate>
+        <sdecks>14</sdecks>
+        <sdecks>12</sdecks>
+        <sdecks>08</sdecks>
+      </grade>
+    </grades>
+    <itinerary>
+      <item arrivedate="2020-08-08" arrivetime="00:00" day="1" departdate="2020-08-08" departtime="17:00" description="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." idlcrossed="" latitude="25.0911" longitude="121.56" name="Taipei (Keelung)" orderid="1" originalitineraryname="Taipei (Keelung)" ownerid="system" portid="442" supered_id="3666168" type="port" />
+      <item arrivedate="2020-08-09" arrivetime="00:00" day="2" departdate="2020-08-09" departtime="00:00" description="" idlcrossed="" name="At Sea" orderid="2" originalitineraryname="At Sea" ownerid="system" portid="" supered_id="3666169" type="sailing" />
+      <item arrivedate="2020-08-10" arrivetime="07:00" day="3" departdate="2020-08-10" departtime="17:00" description="" idlcrossed="" latitude="32.5074" longitude="130.602" name="Yatsushiro, Japan " orderid="3" originalitineraryname="Yatsushiro, Japan " ownerid="system" portid="4532" supered_id="3666170" type="port" />
+      <item arrivedate="2020-08-11" arrivetime="07:00" day="4" departdate="2020-08-11" departtime="17:00" description="The second largest city in South Korea, Busan is your gateway to a fascinating land whose culture is a unique amalgam of old and new. Modern high-rise towers dwarf ancient Buddhist temples. The city's bustling business district offers a stark contrast to the serene grounds of Yongdusan Park. In short, Busan is a microcosm of South Korea, a nation whose startling economic success often obscures one of Asia's most sophisticated and venerable cultures.
+
+Busan was the scene of bitter fighting during the Korean War. The United Nations Memorial Cemetery marks the final resting place for the troops from 16 nations who gave their lives during the conflict." idlcrossed="" latitude="35.1579" longitude="129.055" name="Busan" orderid="4" originalitineraryname="Busan" ownerid="system" portid="1903" supered_id="3666171" type="port" />
+      <item arrivedate="2020-08-12" arrivetime="00:00" day="5" departdate="2020-08-12" departtime="00:00" description="" idlcrossed="" name="At Sea" orderid="5" originalitineraryname="At Sea" ownerid="system" portid="" supered_id="3666172" type="sailing" />
+      <item arrivedate="2020-08-13" arrivetime="07:00" day="6" departdate="2020-08-13" departtime="00:00" description="The oldest Chinese reference to Taiwan dates back to the Han Dynasty in the 3rd century B.C. However, it wasn't until the 17th century A.D. that Chinese Hakka traders first settled on the island. These bold merchants were soon followed by European and Asian adventurers seeking to control and colonize the strategic island. The most famous migration of all occurred in 1948, when the government of the Republic of China fled the mainland.
+
+Taipei is Taiwan's capital city and one of the world's most important commercial centers. Despite its turbulent history, Taiwan today boasts an economy that is the envy of the world. Modern Taiwan is a world leader in the production of bicycles, computer chips, plastics, chemicals and computer notebooks. Taipei is a sophisticated modern metropolis that has not forgotten its rich traditional past.
+
+The port of Keelung is your gateway to Taiwan. Visit the bustling city of Taipei and other interesting areas surrounding on this fascinating island in the East China Sea." idlcrossed="" latitude="25.0911" longitude="121.56" name="Taipei (Keelung)" orderid="6" originalitineraryname="Taipei (Keelung)" ownerid="system" portid="442" supered_id="3666173" type="port" />
+    </itinerary>
+  </results>
+</response>

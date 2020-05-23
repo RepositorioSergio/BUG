@@ -1,0 +1,94 @@
+
+xml=<?xml version="1.0"?><request><auth password="kg02gy05" username="mundocru" /><method action="getbasket" sessionkey="130279F6-356Ap40A0-9F1E-A270F100F2AD" status="Live" /></request>
+
+<?xml version="1.0"?>
+<response method="getbasket" sessionkey="130279F6-356Ap40A0-9F1E-A270F100F2AD" success="Y">
+  <errors>
+  </errors>
+  <request>
+    <auth password="kg02gy05" username="mundocru" />
+    <method action="getbasket" sessionkey="130279F6-356Ap40A0-9F1E-A270F100F2AD" status="Live" />
+  </request>
+  <results>
+    <basketitem addedtime="1589552931" basketcode="58PKD5" currency="USD" enginename="Princess Cruises" itemkey="816461686" paymentoption="online" price="0.00" scurrency="" searchno="0" sprice="" startdate="2021-05-15 23:59:59" type="cruise">
+      <cardcharges>
+        <cardcharge cardname="American Express" cardtype="AMX" chargetype="none" chargevalue="0.00" />
+        <cardcharge cardname="Visa Credit Card" cardtype="VIS" chargetype="none" chargevalue="0.00" />
+        <cardcharge cardname="Diners Club" cardtype="DIN" chargetype="none" chargevalue="0.00" />
+        <cardcharge cardname="MasterCard Credit Card" cardtype="MSC" chargetype="percentage" chargevalue="0.00" />
+      </cardcharges>
+      <deposits duedate="2021-05-12" price="0" />
+      <item adults="2" airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" children="0" codetocruiseid="1617257" copyandmedia="" cruisebalcony="0" cruisebalconypricecode="" cruiseid="261468" cruiseinside="0" cruiseinsidepricecode="" cruiseoutside="0" cruiseoutsidepricecode="" cruisesuite="0" cruisesuitepricecode="" currency="USD" departuk="N" description="" domesticdeparture="0" enddate="2021-05-22" engine="Princess" enginesource="local" groupids="" hascruiseonly="U" hasflights="U" hidden="N" iata="" infants="0" localpricing="Y" marketid="22" name="Southern Islands" ncf="0.00" nettprice="0.00" nights="7" nofly="N" nofuelsupplement="" ownerid="system" price="0.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="N" resultno="184_24.0" resultweight="0" returndate="2021-05-22" returnuk="N" roundtrip="Y" saildate="2021-05-15" sailnights="7" scurrency="USD" seadays="3" searchdetail="" senior="0" soldout="0" special="no" specialsgroup="" sprice="0" startdate="2021-05-15" startprice="0.00" stoplive="0" systemgroup="" taxes="" type="cruise" voyagecode="M118" whatsincluded="" zoneid="">
+        <grade>
+          <cabin></cabin>
+          <rate></rate>
+        </grade>
+        <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+        <ports>
+          <port id="491" name="Kobe" />
+          <port id="580" name="Okinawa" />
+          <port id="4862" name="Miyake-jima" />
+          <port id="442" name="Taipei" />
+          <port id="491" name="Kobe" />
+        </ports>
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="0" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="0" />
+        </prices>
+        <regions>
+          <region name="Asia &amp; Indian Ocean" regionid="5" />
+        </regions>
+        <sessiondetail></sessiondetail>
+        <ship code="DI" id="119" imagecaption="Diamond Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111011.jpg" name="Diamond Princess" niceurl="princess-cruises/diamond-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111011.jpg" />
+        <uniqueportids>4862</uniqueportids>
+        <uniqueportids>491</uniqueportids>
+        <uniqueportids>580</uniqueportids>
+        <uniqueportids>442</uniqueportids>
+        <uniqueportnames>Miyake-jima</uniqueportnames>
+        <uniqueportnames>Kobe</uniqueportnames>
+        <uniqueportnames>Okinawa</uniqueportnames>
+        <uniqueportnames>Taipei</uniqueportnames>
+        <upropdata></upropdata>
+      </item>
+      <itemdetail adults="2" airport="" airportname="" children="0" codetocruiseid="1617257" cruiseid="261468" currency="USD" departuk="N" description="" enddate="2021-05-22" engine="Princess" hascruiseonly="U" hasflights="U" hidden="N" iata="" infants="0" name="Southern Islands" nettprice="0.00" nights="7" nofly="N" nofuelsupplement="" ownerid="system" paymentoption="online" price="0.00" priority="999" resultno="184_24.0" returndate="2021-05-22" saildate="2021-05-15" sailnights="7" special="no" startdate="2021-05-15" stoplive="0" type="cruise" voyagecode="M118" zoneid="">
+        <cabin deckcode="" />
+        <grade iata="">
+          <cabintype></cabintype>
+          <prices></prices>
+          <rate></rate>
+        </grade>
+        <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+        <ports>
+          <port id="491" name="Kobe" />
+          <port id="580" name="Okinawa" />
+          <port id="4862" name="Miyake-jima" />
+          <port id="442" name="Taipei" />
+          <port id="491" name="Kobe" />
+        </ports>
+        <regions>
+          <region name="Asia &amp; Indian Ocean" regionid="5" />
+        </regions>
+        <ship code="DI" id="119" imagecaption="Diamond Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111011.jpg" name="Diamond Princess" niceurl="princess-cruises/diamond-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111011.jpg" />
+      </itemdetail>
+      <prices>
+      </prices>
+      <reservation>
+        <itemdetail>
+          <bookedsectors></bookedsectors>
+        </itemdetail>
+      </reservation>
+      <searchdetail addins="1" adults="2" allowalldates="" children="0" classificationid="" codetocruiseid="" cruiseandflyuk="" cruiseonly="" cruiseonlynouk="" cruisepax="" cruisetype="" cruiseversion="3" ctcownerid="" defaulthomecity="SCL" departuk="" enddate="2021-05-30" endportid="" flycruise="" forceallocations="" groupid="" homecity="" includesenior="" infants="0" language="en" lineid="20" lowestavailablefare="0" maxchildage="11" maxinfantage="1" maxresults="" military="" nights="" nofly="" nxcacher="" nxfromquote="" parentsid="" parentsite="chilegsa.site.traveltek.net" pastpassenger="" port="" portid="" pricerange="" processed="1" promocode="" regionid="" resultkey="default" searchcreatedat="2020-05-15 15:12:39" searchedon="81.20.75.151" searchno="0" shipid="" shipimages="Y" sid="28111" sidtype="cruises" sitename="chilegsa.site.traveltek.net" source="local" startdate="2021-05-01" startport="" startportid="" supplierpromocode="" systemgroup="" tailormadeid="" totalresults="105" type="cruise" voyagecode="" withprices="Y" withpricesonly="">
+        <childages></childages>
+        <enginemappings>
+          <cruise>
+          </cruise>
+        </enginemappings>
+        <marketid>22</marketid>
+        <resultcounts CruiseSearch="105" />
+        <timings CruiseSearch="5.333916" />
+        <workertimes CruiseSearch="" />
+      </searchdetail>
+    </basketitem>
+  </results>
+</response>
+

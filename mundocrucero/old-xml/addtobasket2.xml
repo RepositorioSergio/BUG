@@ -1,0 +1,13 @@
+
+xml=<?xml version="1.0"?><request><auth password="kg02gy05" username="mundocru" /><method action="addtobasket" type="cruise" resultno="184_69.0" sessionkey="6D4D4B09-7616p44CC-AC96-1FFB40FCE087" status="Live" resultkey="default" /></request>
+
+<?xml version="1.0"?>
+<response basketkey="816462871" method="addtobasket" results="" sessionkey="6D4D4B09-7616p44CC-AC96-1FFB40FCE087" success="Y">
+  <errors>
+  </errors>
+  <request>
+    <auth password="kg02gy05" username="mundocru" />
+    <method action="addtobasket" resultkey="default" resultno="184_69.0" sessionkey="6D4D4B09-7616p44CC-AC96-1FFB40FCE087" status="Live" type="cruise" />
+  </request>
+</response>
+

@@ -61,6 +61,15 @@ if ($result->valid()) {
     $row = $result->current();
     $mundocrucerosuserid = $row['value'];
 }
+$sql = "select value from settings where name='mundocrucerosStatusLiveTest' and affiliate_id=$affiliate_id_mundocruceros";
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$result = $statement->execute();
+$result->buffer();
+if ($result->valid()) {
+    $row = $result->current();
+    $mundocrucerosStatusLiveTest = $row['value'];
+}
 $sql = "select value from settings where name='mundocruceroslineid' and affiliate_id=$affiliate_id_mundocruceros";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -153,6 +162,16 @@ if ($result->valid()) {
     $row = $result->current();
     $mundocrucerosConnetionTimeout = (int) $row['value'];
 }
+$sql = "select value from settings where name='mundocrucerosCurrencyCode' and affiliate_id=$affiliate_id_mundocruceros";
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$result = $statement->execute();
+$result->buffer();
+if ($result->valid()) {
+    $row = $result->current();
+    $mundocrucerosCurrencyCode = $row['value'];
+}
+
 $sql = "select cruises_xml13 from cruises_regions where seo='" . $destination . "'";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -230,7 +249,7 @@ if ($departureport != "" and $departureport != "all") {
     $PortID = 0;
 }
 if ($cruisedestinationid > 0) {
-    $raw2 = 'xml=<?xml version="1.0"?><request><auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" /><method action="createsession" sitename="' . $mundocrucerosWebsite . '" currency="USD" status="Live" /></request>';
+    $raw2 = 'xml=<?xml version="1.0"?><request><auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" /><method action="createsession" sitename="' . $mundocrucerosWebsite . '" currency="' . $mundocrucerosCurrencyCode . '" status="' . $mundocrucerosStatusLiveTest . '" /></request>';
     $ch2 = curl_init();
     curl_setopt($ch2, CURLOPT_URL, $mundocrucerosServiceURL);
     curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false);
@@ -267,7 +286,7 @@ if ($cruisedestinationid > 0) {
             //
             // Possible length filter - nights
             //
-            $raw = 'xml=<?xml version="1.0"?><request><auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" /><method action="simplesearch" type="cruise" sessionkey="' . $sessionkey . '" userid="' . $mundocrucerosuserid . '" sitename="' . $mundocrucerosWebsite . '" currency="USD" status="Live"><searchdetail type="cruise" startdate="' . $departureFrom . '" enddate="' . $departureTo . '" ' . $mundocruceroslineid . ' adults="2" children="0" sid="' . $mundocrucerosSID . '" resultkey="default"></searchdetail></method></request>';
+            $raw = 'xml=<?xml version="1.0"?><request><auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" /><method action="simplesearch" type="cruise" sessionkey="' . $sessionkey . '" userid="' . $mundocrucerosuserid . '" sitename="' . $mundocrucerosWebsite . '" currency="' . mundocrucerosCurrencyCode . '" status="' . $mundocrucerosStatusLiveTest . '"><searchdetail type="cruise" startdate="' . $departureFrom . '" enddate="' . $departureTo . '" ' . $mundocruceroslineid . ' adults="2" children="0" sid="' . $mundocrucerosSID . '" resultkey="default"></searchdetail></method></request>';
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $mundocrucerosServiceURL);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);

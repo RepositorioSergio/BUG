@@ -1,0 +1,121 @@
+
+xml=<?xml version="1.0"?><request><auth username="mundocru" password="kg02gy05" /><method action="getcabins" sessionkey="130279F6-356Ap40A0-9F1E-A270F100F2AD" resultno="302_24.0" gradeno="184:12" status="Live" /></request>
+
+<?xml version="1.0"?>
+<response method="getcabins" sessionkey="130279F6-356Ap40A0-9F1E-A270F100F2AD" success="Y">
+  <errors>
+  </errors>
+  <request>
+    <auth password="kg02gy05" username="mundocru" />
+    <method action="getcabins" gradeno="184:12" resultno="302_24.0" sessionkey="130279F6-356Ap40A0-9F1E-A270F100F2AD" status="Live" />
+  </request>
+  <results>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B424" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:12_16" shipside="" x1="123" x2="196" y1="1758" y2="1783">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B426" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:12_11" shipside="" x1="121" x2="196" y1="1787" y2="1814">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B435" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:12_4" shipside="" x1="394" x2="468" y1="1883" y2="1909">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B431" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:12_5" shipside="" x1="394" x2="468" y1="1820" y2="1849">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B415" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:12_17" shipside="" x1="393" x2="467" y1="1662" y2="1688">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B409" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:12_18" shipside="" x1="395" x2="468" y1="1629" y2="1657">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B419" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:12_3" shipside="" x1="394" x2="471" y1="1694" y2="1721">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B420" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:12_9" shipside="" x1="120" x2="196" y1="1725" y2="1754">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B433" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="4" minguests="1" modified="0" resultno="184:12_0" shipside="" x1="394" x2="469" y1="1852" y2="1879">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B412" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:12_8" shipside="" x1="124" x2="196" y1="1660" y2="1687">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B408" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:12_6" shipside="" x1="122" x2="195" y1="1629" y2="1655">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B432" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:12_10" shipside="" x1="122" x2="197" y1="1883" y2="1909">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B430" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="4" minguests="1" modified="0" resultno="184:12_12" shipside="" x1="121" x2="197" y1="1853" y2="1877">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B434" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:12_1" shipside="" x1="121" x2="196" y1="1915" y2="1944">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B416" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:12_2" shipside="" x1="124" x2="196" y1="1692" y2="1719">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B427" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:12_13" shipside="" x1="394" x2="469" y1="1758" y2="1783">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B428" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Port/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:12_7" shipside="" x1="123" x2="195" y1="1819" y2="1846">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B423" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:12_19" shipside="" x1="397" x2="469" y1="1727" y2="1752">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="Shower" bedcode="" beddescription="" cabingrade="BA" cabinid="73" cabinno="B429" deckcode="BAJA" deckname="BAJA" farecode="KIW" guaranteed="N" location="Midship/Starboard/Oceanview" maxguests="2" minguests="1" modified="0" resultno="184:12_14" shipside="" x1="394" x2="470" y1="1790" y2="1818">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="172" imageid="24124" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1344951049.jpg" name="Deck 11 - Baja" sortorder="5" />
+    </cabin>
+    <cabin bathdescription="" bedcode="" cabingrade="BA" cabinid="73" cabinno="GUAR" farecode="KIW" guaranteed="Y" location="TO BE ASSIGNED/TO BE ASSIGNED/Oceanview" minguests="1" resultno="184:12_15" />
+    <essential>
+      <errataitem type="header" value="RESTRICTED" />
+      <errataitem type="body" value="REST OF WORLD PRINCESS SAVERS - NRD" />
+      <errataitem type="body" value="This promotion has a non-refundable deposit" />
+      <errataitem type="body" value="" />
+      <errataitem type="body" value="************** IMPORTANT INFORMATION REGARDING THIS BOOKING ****************** The deposit for the fare you have selected is 100% non-refundable and          non-transferable. Upon payment, no portion of the deposit is refundable for anyreason." />
+      <errataitem type="body" value="                                                                                                                                               Please be advised this special promotion is not combinable with select         discounts nor is it combinable" />
+      <errataitem type="body" value=" with Princess eZAir discounts.                                                                                                 See the Booking Confirmation and Travel Summary for complete                   Terms &amp;amp;amp; Conditions." />
+      <errataitem type="body" value="BM BN CA CN HK ID KR MO MX MY PR SG TW UN US VN XX" />
+    </essential>
+  </results>
+</response>
+

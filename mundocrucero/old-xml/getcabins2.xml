@@ -1,0 +1,31 @@
+
+xml=<?xml version="1.0"?><request><auth username="mundocru" password="kg02gy05" /><method action="getcabins" sessionkey="6D4D4B09-7616p44CC-AC96-1FFB40FCE087" resultno="184_69.0" gradeno="184:3" status="Live" /></request>
+
+<?xml version="1.0"?>
+<response method="getcabins" sessionkey="6D4D4B09-7616p44CC-AC96-1FFB40FCE087" success="Y">
+  <errors>
+  </errors>
+  <request>
+    <auth password="kg02gy05" username="mundocru" />
+    <method action="getcabins" gradeno="184:3" resultno="184_69.0" sessionkey="6D4D4B09-7616p44CC-AC96-1FFB40FCE087" status="Live" />
+  </request>
+  <results>
+    <cabin bathdescription="Tub With Shower" bedcode="" beddescription="" cabingrade="MF" cabinid="12643" cabinno="M106" deckcode="MARINA" deckname="MARINA" farecode="KIW" guaranteed="N" location="Forward/Port/Oceanview/Partially Obstructed View" maxguests="3" minguests="1" modified="0" resultno="184:3_0" shipside="" x1="111" x2="139" y1="314" y2="370">
+      <bedconfig code="T2" description="TWINS" />
+      <bedconfig code="QN" description="QUEEN" />
+      <deck id="5260" imageid="32564" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1427454738.jpg" name="Deck 15 - Marina" sortorder="4" />
+    </cabin>
+    <cabin bathdescription="" bedcode="" cabingrade="MF" cabinid="12643" cabinno="GUAR" farecode="KIW" guaranteed="Y" location="TO BE ASSIGNED/TO BE ASSIGNED/Oceanview" minguests="1" resultno="184:3_1" />
+    <essential>
+      <errataitem type="header" value="RESTRICTED" />
+      <errataitem type="body" value="REST OF WORLD PRINCESS SAVERS - NRD" />
+      <errataitem type="body" value="This promotion has a non-refundable deposit" />
+      <errataitem type="body" value="" />
+      <errataitem type="body" value="************** IMPORTANT INFORMATION REGARDING THIS BOOKING ****************** The deposit for the fare you have selected is 100% non-refundable and          non-transferable. Upon payment, no portion of the deposit is refundable for anyreason." />
+      <errataitem type="body" value="                                                                                                                                               Please be advised this special promotion is not combinable with select         discounts nor is it combinable" />
+      <errataitem type="body" value=" with Princess eZAir discounts.                                                                                                 See the Booking Confirmation and Travel Summary for complete                   Terms &amp;amp;amp; Conditions." />
+      <errataitem type="body" value="BM BN CA CN HK ID JP KR MO MX MY PR SG TW UN US VN XX" />
+    </essential>
+  </results>
+</response>
+

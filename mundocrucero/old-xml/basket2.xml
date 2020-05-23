@@ -1,0 +1,96 @@
+
+xml=<?xml version="1.0"?><request><auth password="kg02gy05" username="mundocru" /><method action="getbasket" sessionkey="6D4D4B09-7616p44CC-AC96-1FFB40FCE087" status="Live" /></request>
+
+<?xml version="1.0"?>
+<response method="getbasket" sessionkey="6D4D4B09-7616p44CC-AC96-1FFB40FCE087" success="Y">
+  <errors>
+  </errors>
+  <request>
+    <auth password="kg02gy05" username="mundocru" />
+    <method action="getbasket" sessionkey="6D4D4B09-7616p44CC-AC96-1FFB40FCE087" status="Live" />
+  </request>
+  <results>
+    <basketitem addedtime="1589553897" basketcode="W2F4FQ" currency="USD" enginename="Princess Cruises" itemkey="816462871" paymentoption="online" price="0.00" scurrency="" searchno="0" sprice="" startdate="2021-05-08 23:59:59" type="cruise">
+      <cardcharges>
+        <cardcharge cardname="Visa Credit Card" cardtype="VIS" chargetype="none" chargevalue="0.00" />
+        <cardcharge cardname="American Express" cardtype="AMX" chargetype="none" chargevalue="0.00" />
+        <cardcharge cardname="Diners Club" cardtype="DIN" chargetype="none" chargevalue="0.00" />
+        <cardcharge cardname="MasterCard Credit Card" cardtype="MSC" chargetype="percentage" chargevalue="0.00" />
+      </cardcharges>
+      <deposits duedate="2021-05-05" price="0" />
+      <item adults="2" airbalcony="0" airbalconypricecode="" airinside="0" airinsidepricecode="" airoutside="0" airoutsidepricecode="" airport="" airportname="" airsuite="0" airsuitepricecode="" altvoyagecode="" children="0" codetocruiseid="1593560" copyandmedia="" cruisebalcony="0" cruisebalconypricecode="" cruiseid="258273" cruiseinside="0" cruiseinsidepricecode="" cruiseoutside="0" cruiseoutsidepricecode="" cruisesuite="0" cruisesuitepricecode="" currency="USD" departuk="N" description="" domesticdeparture="0" enddate="2021-05-15" engine="Princess" enginesource="local" groupids="" hascruiseonly="U" hasflights="U" hidden="N" iata="" infants="0" localpricing="Y" marketid="22" name="Voyage of the Glaciers (Northbound)" ncf="0.00" nettprice="0.00" nights="7" nofly="N" nofuelsupplement="" ownerid="system" price="0.00" priority="999" privatenotes="" ratecode="" ratecodedescription="" ratecodeiconurl="" resultiscruiseonly="N" resultno="184_69.0" resultweight="0" returndate="2021-05-15" returnuk="N" roundtrip="N" saildate="2021-05-08" sailnights="7" scurrency="USD" seadays="3" searchdetail="" senior="0" soldout="0" special="no" specialsgroup="" sprice="0" startdate="2021-05-08" startprice="0.00" stoplive="0" systemgroup="" taxes="" type="cruise" voyagecode="1122N" whatsincluded="" zoneid="">
+        <grade>
+          <cabin></cabin>
+          <rate></rate>
+        </grade>
+        <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+        <ports>
+          <port id="445" name="Vancouver" />
+          <port id="551" name="Ketchikan" />
+          <port id="400" name="Juneau" />
+          <port id="439" name="Skagway" />
+          <port id="354" name="Anchorage" />
+        </ports>
+        <prices>
+          <price appliesto="booking" marker="nett" name="Supplier Price" runorder="0" type="set" value="0" />
+          <price appliesto="booking" marker="supplier" name="Supplier Price" runorder="5" type="set" value="0" />
+        </prices>
+        <regions>
+          <region name="Alaska" regionid="13" />
+        </regions>
+        <sessiondetail></sessiondetail>
+        <ship code="RP" id="115" imagecaption="Royal Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111717.jpg" name="Royal Princess" niceurl="princess-cruises/royal-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111717.jpg" />
+        <uniqueportids>354</uniqueportids>
+        <uniqueportids>439</uniqueportids>
+        <uniqueportids>551</uniqueportids>
+        <uniqueportids>445</uniqueportids>
+        <uniqueportids>400</uniqueportids>
+        <uniqueportnames>Anchorage</uniqueportnames>
+        <uniqueportnames>Skagway</uniqueportnames>
+        <uniqueportnames>Ketchikan</uniqueportnames>
+        <uniqueportnames>Vancouver</uniqueportnames>
+        <uniqueportnames>Juneau</uniqueportnames>
+        <upropdata></upropdata>
+      </item>
+      <itemdetail adults="2" airport="" airportname="" children="0" codetocruiseid="1593560" cruiseid="258273" currency="USD" departuk="N" description="" enddate="2021-05-15" engine="Princess" hascruiseonly="U" hasflights="U" hidden="N" iata="" infants="0" name="Voyage of the Glaciers (Northbound)" nettprice="0.00" nights="7" nofly="N" nofuelsupplement="" ownerid="system" paymentoption="online" price="0.00" priority="999" resultno="184_69.0" returndate="2021-05-15" saildate="2021-05-08" sailnights="7" special="no" startdate="2021-05-08" stoplive="0" type="cruise" voyagecode="1122N" zoneid="">
+        <cabin deckcode="" />
+        <grade iata="">
+          <cabintype></cabintype>
+          <prices></prices>
+          <rate></rate>
+        </grade>
+        <line code="PC" engine="Princess" id="20" logourl="https://static.traveltek.net/cruisepics/logos/princess.gif" name="Princess Cruises" niceurl="princess-cruises" />
+        <ports>
+          <port id="445" name="Vancouver" />
+          <port id="551" name="Ketchikan" />
+          <port id="400" name="Juneau" />
+          <port id="439" name="Skagway" />
+          <port id="354" name="Anchorage" />
+        </ports>
+        <regions>
+          <region name="Alaska" regionid="13" />
+        </regions>
+        <ship code="RP" id="115" imagecaption="Royal Princess" imageurl="https://static.traveltek.net/cruisepics/local_shipimages/1582111717.jpg" name="Royal Princess" niceurl="princess-cruises/royal-princess" rating="5" smallimageurl="https://static.traveltek.net/cruisepics/local_shipimages_small/1582111717.jpg" />
+      </itemdetail>
+      <prices>
+      </prices>
+      <reservation>
+        <itemdetail>
+          <bookedsectors></bookedsectors>
+        </itemdetail>
+      </reservation>
+      <searchdetail addins="1" adults="2" allowalldates="" children="0" classificationid="" codetocruiseid="" cruiseandflyuk="" cruiseonly="" cruiseonlynouk="" cruisepax="" cruisetype="" cruiseversion="3" ctcownerid="" defaulthomecity="SCL" departuk="" enddate="2021-05-30" endportid="" flycruise="" forceallocations="" groupid="" homecity="" includesenior="" infants="0" language="en" lineid="20" lowestavailablefare="0" maxchildage="11" maxinfantage="1" maxresults="" military="" nights="" nofly="" nxcacher="" nxfromquote="" parentsid="" parentsite="chilegsa.site.traveltek.net" pastpassenger="" port="" portid="" pricerange="" processed="1" promocode="" regionid="" resultkey="default" searchcreatedat="2020-05-15 15:39:26" searchedon="81.20.75.153" searchno="0" shipid="" shipimages="Y" sid="28111" sidtype="cruises" sitename="chilegsa.site.traveltek.net" source="local" startdate="2021-05-01" startport="" startportid="" supplierpromocode="" systemgroup="" tailormadeid="" totalresults="105" type="cruise" voyagecode="" withprices="Y" withpricesonly="">
+        <childages></childages>
+        <enginemappings>
+          <cruise>
+          </cruise>
+        </enginemappings>
+        <marketid>22</marketid>
+        <resultcounts CruiseSearch="105" />
+        <timings CruiseSearch="1.006508" />
+        <workertimes CruiseSearch="" />
+      </searchdetail>
+    </basketitem>
+  </results>
+</response>
+
