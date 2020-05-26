@@ -88,11 +88,6 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                 </alp:BookingChannel>
             </alp:Source>
          </alp:POS>
-         <!--Optional:-->
-         <!--<alp:GuestCounts>
-            <alp:GuestCount Age="30" Quantity="1"/>
-            <alp:GuestCount Age="4" Quantity="1"/>
-        </alp:GuestCounts>-->
         <alp:SailingDateRange Start="2020-07-08"/>
       </alp:OTA_CruiseSailAvailRQ>
    </sail:getSailingList>
@@ -174,91 +169,29 @@ if ($OTA_CruiseSailAvailRS->length > 0) {
                     $InclusiveIndicator = $InclusivePackageOption->item(0)->getAttribute("InclusiveIndicator");
                 }
 
-                $sql = new Sql($db);
-                $select = $sql->select();
-                $select->from('cruisesailavail');
-                $select->where(array(
-                    'id' => $CruisePackageCode
-                ));
-                $statement = $sql->prepareStatementForSqlObject($select);
+                $sql = "select id from mundocruceros_cruisesailavail where id='$CruisePackageCode'";
+                $statement = $db->createStatement($sql);
+                $statement->prepare();
                 try {
-                    $result = $statement->execute();
+                    $row_settings = $statement->execute();
                 } catch (\Exception $e) {
                     echo $return;
-                    echo "Error: " . $e;
+                    echo "Error2: " . $e;
                     echo $return;
                     die();
                 }
-                $result->buffer();
-                $customers = array();
-                if ($result->valid()) {
-                    $data = $result->current();
-                    $idTmp = (string) $data['id'];
-                    if ($idTmp != "") {
-                        $sql = new Sql($db);
-                        $select = $sql->update();
-                        $select->table('cruisesailavail');
-                        $select->where(array(
-                            'id' => $idTmp
-                        ));
-                        $select->set(array(
-                            'datetime_created' => time(),
-                            'datetime_updated' => 0,
-                            'listofsailingdescriptioncode' => $ListOfSailingDescriptionCode,
-                            'duration' => $Duration,
-                            'portsofcallquantity' => $PortsOfCallQuantity,
-                            'start' => $Start,
-                            'status' => $Status,
-                            'shipcode' => $ShipCode,
-                            'vendorcode' => $VendorCode,
-                            'regioncode' => $RegionCode,
-                            'subregioncode' => $SubRegionCode,
-                            'inclusiveindicator' => $InclusiveIndicator,
-                            'mapped_id' => 0
-                        ));
-                        $statement = $sql->prepareStatementForSqlObject($select);
-                        try {
-                            $results = $statement->execute();
-                        } catch (\Exception $e) {
-                            $console->writeLine('');
-                            $console->writeLine($e);
-                            $console->writeLine('');
-                            die();
-                        }
-                    } else {
-                        $sql = new Sql($db);
-                        $insert = $sql->insert();
-                        $insert->into('cruisesailavail');
-                        $insert->values(array(
-                            'id' => $CruisePackageCode,
-                            'datetime_created' => time(),
-                            'datetime_updated' => 0,
-                            'listofsailingdescriptioncode' => $ListOfSailingDescriptionCode,
-                            'duration' => $Duration,
-                            'portsofcallquantity' => $PortsOfCallQuantity,
-                            'start' => $Start,
-                            'status' => $Status,
-                            'shipcode' => $ShipCode,
-                            'vendorcode' => $VendorCode,
-                            'regioncode' => $RegionCode,
-                            'subregioncode' => $SubRegionCode,
-                            'inclusiveindicator' => $InclusiveIndicator,
-                            'mapped_id' => 0
-                        ), $insert::VALUES_MERGE);
-                        $statement = $sql->prepareStatementForSqlObject($insert);
-                        try {
-                            $results = $statement->execute();
-                        } catch (\Exception $e) {
-                            echo $return;
-                            echo "Error: " . $e;
-                            echo $return;
-                            die();
-                        }
-                    }
+                $row_settings->buffer();
+                if ($row_settings->valid()) {
+                    $row = $row_settings->current();
                 } else {
+                    //
+                    // Insert in mundocruceros_cruisesailavail
+                    //
+                    $null = 'null';
+
                     $sql = new Sql($db);
                     $insert = $sql->insert();
-                    $insert->into('cruisesailavail');
+                    $insert->into('mundocruceros_cruisesailavail');
                     $insert->values(array(
                         'id' => $CruisePackageCode,
                         'datetime_created' => time(),
@@ -272,8 +205,10 @@ if ($OTA_CruiseSailAvailRS->length > 0) {
                         'vendorcode' => $VendorCode,
                         'regioncode' => $RegionCode,
                         'subregioncode' => $SubRegionCode,
+                        'departureportlocationcode' => $DeparturePortLocationCode,
+                        'arrivalportlocationcode' => $ArrivalPortLocationCode,
                         'inclusiveindicator' => $InclusiveIndicator,
-                        'mapped_id' => 0
+                        'mapped_id' => $null
                     ), $insert::VALUES_MERGE);
                     $statement = $sql->prepareStatementForSqlObject($insert);
                     try {
@@ -284,6 +219,43 @@ if ($OTA_CruiseSailAvailRS->length > 0) {
                         echo $return;
                         die();
                     }
+                }
+
+                $sql = "select id from cruisesailavail where id='$CruisePackageCode'";
+                $statement = $db->createStatement($sql);
+                $row_settings = $statement->prepare();
+                try {
+                    $row_settings = $statement->execute();
+                } catch (\Exception $e) {
+                    echo $return;
+                    echo "Error: " . $e;
+                    echo $return;
+                }
+                $row_settings->buffer();
+                if ($row_settings->valid()) {
+                    $row_settings = $row_settings->current();
+                    $id_cruises = $row_settings["id"];
+                    //
+                    // Found
+                    // 
+                    $time = time();
+                    $sql = "update mundocruceros_cruisesailavail set mapped_id='$id_cruises', datetime_updated=$time where id='$CruisePackageCode'";
+                    $statement = $db->createStatement($sql);
+                    $statement->prepare();
+                    try {
+                        $row_settings = $statement->execute();
+                    } catch (\Exception $e) {
+                        echo $return;
+                        echo "Error: " . $e;
+                        echo $return;
+                        die();
+                    }
+                } else {
+                    //
+                    // Something is wrong
+                    //
+                    echo "Cruise line does not exist - something is wrong";
+                    die();
                 }
 
                 /* try {
@@ -314,7 +286,7 @@ if ($OTA_CruiseSailAvailRS->length > 0) {
                     echo $return;
                     echo "ERRO 1: " . $e;
                     echo $return;
-                } */
+                }*/
             }
         }
     }
