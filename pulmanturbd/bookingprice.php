@@ -88,7 +88,7 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
         </SelectedSailing>
         <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
         <SelectedCategory BerthedCategoryCode="A" FareCode="BESTRATE" PricedCategoryCode="A">
-          <SelectedCabin CabinNumber="9092" Status="36"/>
+          <SelectedCabin CabinNumber="9098" Status="36"/>
         </SelectedCategory>
       </SailingInfo>
       <ReservationInfo>
@@ -98,41 +98,6 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
                 <ContactInfo Nationality="ES" Age="30" BirthDate="1990-05-01" ContactType="CNT" Code="10">
                 <PersonName>
                     <GivenName>David</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    <NameTitle>MR</NameTitle>
-                </PersonName>
-                </ContactInfo>
-                <ContactInfo ContactType="ALT">
-                    <PersonName>
-                    <GivenName>David</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    </PersonName>
-                    <Address>
-                    <AddressLine>MAhonia 2</AddressLine>
-                    <CityName>Madrid</CityName>
-                    <PostalCode>28043</PostalCode>
-                    <CountryName Code="ES"/>
-                    </Address>
-                    <Email>davizch2004@gmail.com</Email>
-                </ContactInfo>
-                <ContactInfo ContactType="EMG">
-                    <PersonName>
-                    <GivenName>David</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    </PersonName>
-                    <Telephone PhoneNumber="9871236540"/>
-                </ContactInfo>
-                <GuestTransportation Status="36" Mode="29">
-                    <GatewayCity LocationCode="C/O"/>
-                </GuestTransportation>
-                <SelectedDining Status="36" Sitting="M"/>
-                <CruiseDocument DocumentLanguage="ES"/>
-            </GuestDetail>
-            <GuestDetail>
-                <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="1" BirthDate="2019-05-20" ContactType="CNT" Code="7">
-                <PersonName>
-                    <GivenName>Maria</GivenName>
                     <Surname>Sanchez LLorente</Surname>
                     <NameTitle>MR</NameTitle>
                 </PersonName>
@@ -201,15 +166,15 @@ $raw2 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelo
         </SelectedSailing>
         <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
         <SelectedCategory BerthedCategoryCode="A" FareCode="BESTRATE" PricedCategoryCode="A">
-          <SelectedCabin CabinNumber="9092" Status="36"/>
+          <SelectedCabin CabinNumber="9094" Status="36"/>
         </SelectedCategory>
       </SailingInfo>
       <ReservationInfo>
-      <ReservationID ID="1921" Instance="5" Type="14" StatusCode="42"/>
+      <ReservationID ID="0" Instance="5" Type="14" StatusCode="42"/>
         <GuestDetails>
             <GuestDetail>
                 <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="30" BirthDate="1990-05-01" RPH="1" ContactType="CNT" Code="10">
+                <ContactInfo Nationality="ES" Age="30" BirthDate="1990-05-01" ContactType="CNT" Code="10">
                 <PersonName>
                     <GivenName>David</GivenName>
                     <Surname>Sanchez LLorente</Surname>
@@ -244,7 +209,7 @@ $raw2 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelo
             </GuestDetail>
             <GuestDetail>
                 <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="1" BirthDate="2019-05-20" RPH="2" ContactType="CNT" Code="7">
+                <ContactInfo Nationality="ES" Age="1" BirthDate="2019-05-20" ContactType="CNT" Code="7">
                 <PersonName>
                     <GivenName>Maria</GivenName>
                     <Surname>Sanchez LLorente</Surname>
@@ -296,7 +261,7 @@ curl_setopt($ch, CURLOPT_HEADER, false);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_VERBOSE, false);
 curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $raw2);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
 curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

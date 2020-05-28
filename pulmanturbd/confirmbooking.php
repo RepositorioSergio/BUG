@@ -98,7 +98,7 @@ $raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xml
                 <!--1 to 99 repetitions:-->
                 <alp:CabinAttribute CabinAttributeCode="86"/>
             </alp:CabinAttributes>
-            <SelectedCabin Status="39" CabinNumber="9092" MaxOccupancy="2"/>
+            <SelectedCabin Status="39" CabinNumber="9094" MaxOccupancy="2"/>
         </SelectedCategory>
     </SailingInfo>
     <ReservationInfo>

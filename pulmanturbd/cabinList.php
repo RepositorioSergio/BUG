@@ -117,10 +117,10 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                 <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A" WaitlistIndicator="false">
                 </SelectedCategory>
             </SailingInfo>
-            <SearchQualifiers BerthedCategoryCode="A" FareCode="G5499537" GroupCode="14" CategoryLocation="Balcony">
+            <SearchQualifiers BerthedCategoryCode="A" FareCode="G5499537" GroupCode="13" CategoryLocation="Balcony">
                 <Status Status="36"/>
             </SearchQualifiers>
-            <SelectedFare GroupCode="1"/>
+            <SelectedFare GroupCode="13"/>
         </OTA_CruiseCabinAvailRQ>
     </cab:getCabinList>
    </soapenv:Body>

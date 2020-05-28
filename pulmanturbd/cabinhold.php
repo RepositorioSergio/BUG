@@ -93,7 +93,7 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
             <GuestCount Age="1" Quantity="1"/>
          </GuestCounts>
          <SelectedSailing Start="2020-07-05" ShipCode="HR" VendorCode="PUL">
-            <SelectedFare FareCode="BESTRATE" GroupCode="14"/>
+            <SelectedFare FareCode="BESTRATE" GroupCode="13"/>
             <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A">
                 <!--Optional:-->
                 <CabinAttributes>
@@ -101,7 +101,7 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                     <CabinAttribute CabinAttributeCode="86"/>
                 </CabinAttributes>
                 <!--1 to 4 repetitions:-->
-               <SelectedCabin CabinNumber="9092" MaxOccupancy="2"/>
+               <SelectedCabin CabinNumber="9098" MaxOccupancy="2"/>
             </SelectedCategory>
             <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
          </SelectedSailing>
@@ -111,7 +111,7 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
          <!--Optional:-->
             <alp:Currency CurrencyCode="USD" DecimalPlaces="2"/>
          <!--Optional:-->
-        <SearchQualifiers BerthedCategoryCode="A" PricedCategoryCode="A" CabinNumber="9092" GroupCode="14" MaxOccupancy="2" DeckNumber="9" DeckName="CUBIERTA 9">
+        <SearchQualifiers BerthedCategoryCode="A" PricedCategoryCode="A" CabinNumber="9098" GroupCode="13" MaxOccupancy="2" DeckNumber="9" DeckName="CUBIERTA 9">
             <!--0 to 5 repetitions:-->
             <Status Status="36"/>
             <!--Optional:-->

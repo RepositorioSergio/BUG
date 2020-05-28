@@ -110,7 +110,7 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
                 <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A"/>
             </SailingInfo>
-            <SelectedFare GroupCode="14"/>
+            <SelectedFare GroupCode="13"/>
             <TPA_ReservationId Type="14" ID="0"/>
         </OTA_CruiseDiningAvailRQ>
     </din:getDiningList>

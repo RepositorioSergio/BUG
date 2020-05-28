@@ -24,29 +24,29 @@
                     </BookingChannel>
                 </Source>
             </POS>
-            <Guest Code="10" Age="30" LoyaltyMembershipID="0000016"/>
-            <Guest Code="7" Age="1" LoyaltyMembershipID="0000017"/>
+            <Guest Code="10" Age="30"/>
+            <Guest Code="7" Age="1"/>
             <GuestCounts>
                 <GuestCount Age="30" Quantity="1"/>
                 <GuestCount Age="1" Quantity="1"/>
             </GuestCounts>
             <SailingInfo>
-                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-11" Duration="P7N" Status="36" PortsOfCallQuantity="5">
-                    <CruiseLine ShipCode="MO" VendorCode="PUL"/>
+                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-05" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                    <CruiseLine VendorCode="PUL" ShipCode="HR"/>
                     <!--Optional:-->
-                    <Region RegionCode="PISFE" SubRegionCode="PGH"/>
+                    <Region RegionCode="PISGR" SubRegionCode="PGR"/>
                     <!--Optional:-->
-                    <DeparturePort LocationCode="REK"/>
+                    <DeparturePort LocationCode="ATH"/>
                     <!--Optional:-->
-                    <ArrivalPort LocationCode="TRD"/>
+                    <ArrivalPort LocationCode="ATH"/>
                 </SelectedSailing>
                 <!--Optional:-->
-                <alp:InclusivePackageOption CruisePackageCode="G1802479" InclusiveIndicator="false"/>
+                <alp:InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
                 <!--Optional:-->
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                <SelectedCategory BerthedCategoryCode="FI" PricedCategoryCode="FI"/>
+                <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A"/>
             </SailingInfo>
-            <SelectedFare GroupCode="25"/>
+            <SelectedFare GroupCode="13"/>
             <TPA_ReservationId Type="14" ID="0"/>
         </OTA_CruiseDiningAvailRQ>
     </din:getDiningList>

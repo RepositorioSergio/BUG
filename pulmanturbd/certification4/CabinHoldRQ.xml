@@ -28,26 +28,26 @@
             <GuestCount Age="30" Quantity="1"/>
             <GuestCount Age="1" Quantity="1"/>
          </GuestCounts>
-         <SelectedSailing Start="2020-07-11" ShipCode="MO" VendorCode="PUL">
-            <SelectedFare FareCode="BESTRATE" GroupCode="25"/>
-            <SelectedCategory BerthedCategoryCode="FI" PricedCategoryCode="FI">
+         <SelectedSailing Start="2020-07-05" ShipCode="HR" VendorCode="PUL">
+            <SelectedFare FareCode="BESTRATE" GroupCode="14"/>
+            <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A">
                 <!--Optional:-->
                 <CabinAttributes>
                     <!--1 to 99 repetitions:-->
-                    <CabinAttribute CabinAttributeCode="99"/>
+                    <CabinAttribute CabinAttributeCode="86"/>
                 </CabinAttributes>
                 <!--1 to 4 repetitions:-->
-               <SelectedCabin CabinNumber="5033" MaxOccupancy="3"/>
+               <SelectedCabin CabinNumber="9092" MaxOccupancy="2"/>
             </SelectedCategory>
-            <InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
+            <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
          </SelectedSailing>
          <!--0 to 9 repetitions:-->
-         <Guest Code="10" Age="30" LoyaltyMembershipID="0000016"/>
-         <Guest Code="7" Age="1" LoyaltyMembershipID="0000017"/>
+         <Guest Code="10" Age="30"/>
+         <Guest Code="7" Age="1"/>
          <!--Optional:-->
             <alp:Currency CurrencyCode="USD" DecimalPlaces="2"/>
          <!--Optional:-->
-        <SearchQualifiers BerthedCategoryCode="FI" PricedCategoryCode="FI" CabinNumber="5033" GroupCode="25" MaxOccupancy="3" DeckNumber="5" DeckName="CUBIERTA 5">
+        <SearchQualifiers BerthedCategoryCode="A" PricedCategoryCode="A" CabinNumber="9094" GroupCode="13" MaxOccupancy="2" DeckNumber="9" DeckName="CUBIERTA 9">
             <!--0 to 5 repetitions:-->
             <Status Status="36"/>
             <!--Optional:-->
