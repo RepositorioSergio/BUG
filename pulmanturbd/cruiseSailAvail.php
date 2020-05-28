@@ -89,11 +89,11 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
             </alp:Source>
          </alp:POS>
          <!--Optional:-->
-         <!--<alp:GuestCounts>
+         <alp:GuestCounts>
             <alp:GuestCount Age="30" Quantity="1"/>
-            <alp:GuestCount Age="4" Quantity="1"/>
-        </alp:GuestCounts>-->
-        <alp:SailingDateRange Start="2020-07-08"/>
+            <alp:GuestCount Age="1" Quantity="1"/>
+        </alp:GuestCounts>
+        <alp:SailingDateRange Start="2020-07-05" End="2020-07-12" MinDuration="P6N" MaxDuration="P9N"/>
       </alp:OTA_CruiseSailAvailRQ>
    </sail:getSailingList>
 </soapenv:Body>
@@ -118,7 +118,7 @@ curl_close($ch);
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
-
+die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.pulmantur.php');
 $config = [
     'driver' => $config->db->driver,

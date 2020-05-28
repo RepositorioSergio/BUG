@@ -92,13 +92,13 @@ $raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xml
             <CruiseLine ShipCode="HR"/>
         </SelectedSailing>
         <InclusivePackageOption CruisePackageCode="HRPT0734"/>
-        <SelectedCategory PricedCategoryCode="FA" BerthedCategoryCode="FA" FareCode="BESTRATE" DeckNumber="10" DeckName="CUBIERTA 10">
+        <SelectedCategory PricedCategoryCode="A" BerthedCategoryCode="A" FareCode="BESTRATE" DeckNumber="9" DeckName="CUBIERTA 9">
             <!--Optional:-->
             <alp:CabinAttributes>
                 <!--1 to 99 repetitions:-->
                 <alp:CabinAttribute CabinAttributeCode="86"/>
             </alp:CabinAttributes>
-            <SelectedCabin Status="39" CabinNumber="1097" MaxOccupancy="4"/>
+            <SelectedCabin Status="39" CabinNumber="9092" MaxOccupancy="2"/>
         </SelectedCategory>
     </SailingInfo>
     <ReservationInfo>
@@ -106,7 +106,7 @@ $raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xml
         <GuestDetails>
             <GuestDetail>
                 <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="30" ContactType="CNT">
+                <ContactInfo Nationality="ES" Age="30" BirthDate="1990-05-01" ContactType="CNT" Code="10">
                 <PersonName>
                     <GivenName>David</GivenName>
                     <Surname>Sanchez LLorente</Surname>
@@ -141,7 +141,7 @@ $raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xml
             </GuestDetail>
             <GuestDetail>
                 <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="10" ContactType="CNT">
+                <ContactInfo Nationality="ES" Age="1" BirthDate="2019-05-20" ContactType="CNT" Code="7">
                 <PersonName>
                     <GivenName>Maria</GivenName>
                     <Surname>Sanchez LLorente</Surname>

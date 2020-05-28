@@ -90,30 +90,28 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
          </POS>
          <GuestCounts>
             <GuestCount Age="30" Quantity="1"/>
-            <GuestCount Age="10" Quantity="1"/>
             <GuestCount Age="1" Quantity="1"/>
          </GuestCounts>
          <SelectedSailing Start="2020-07-05" ShipCode="HR" VendorCode="PUL">
-            <SelectedFare FareCode="BESTRATE" GroupCode="24"/>
-            <SelectedCategory BerthedCategoryCode="FA" PricedCategoryCode="FA">
+            <SelectedFare FareCode="BESTRATE" GroupCode="14"/>
+            <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A">
                 <!--Optional:-->
                 <CabinAttributes>
                     <!--1 to 99 repetitions:-->
                     <CabinAttribute CabinAttributeCode="86"/>
                 </CabinAttributes>
                 <!--1 to 4 repetitions:-->
-               <SelectedCabin CabinNumber="1097" MaxOccupancy="4"/>
+               <SelectedCabin CabinNumber="9092" MaxOccupancy="2"/>
             </SelectedCategory>
             <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
          </SelectedSailing>
          <!--0 to 9 repetitions:-->
-         <Guest Code="10" Age="30" LoyaltyMembershipID="0000016"/>
-         <Guest Code="8" Age="10" LoyaltyMembershipID="0000017"/>
-         <Guest Code="7" Age="1" LoyaltyMembershipID="0000018"/>
+         <Guest Code="10" Age="30"/>
+         <Guest Code="7" Age="1"/>
          <!--Optional:-->
             <alp:Currency CurrencyCode="USD" DecimalPlaces="2"/>
          <!--Optional:-->
-        <SearchQualifiers BerthedCategoryCode="FA" PricedCategoryCode="FA" CabinNumber="1097" GroupCode="24" MaxOccupancy="4" DeckNumber="10" DeckName="CUBIERTA 10">
+        <SearchQualifiers BerthedCategoryCode="A" PricedCategoryCode="A" CabinNumber="9092" GroupCode="14" MaxOccupancy="2" DeckNumber="9" DeckName="CUBIERTA 9">
             <!--0 to 5 repetitions:-->
             <Status Status="36"/>
             <!--Optional:-->

@@ -60,7 +60,7 @@ $client->setHeaders(array(
 $username = 'CONCTMM';
 $password = 'u73ecKBu73ecKB!';
 
-$url = 'https://stage.services.rccl.com/Reservation_FITWeb/sca/ConfirmBooking';
+$url = 'https://stage.services.rccl.com/Reservation_FITWeb/sca/RetrieveBooking';
 
 $raw ='<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ret="http://services.rccl.com/Interfaces/RetrieveBooking" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
 <soapenv:Header/>
@@ -87,7 +87,7 @@ $raw ='<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope
                 </BookingChannel>
             </Source>
         </POS>
-        <UniqueID ID="0" Type="14"/>
+        <UniqueID ID="1921" Type="14"/>
    </OTA_ReadRQ>
    </ret:retrieveBooking>
    </soapenv:Body>
@@ -134,7 +134,7 @@ curl_setopt($ch, CURLOPT_HEADER, false);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_VERBOSE, false);
 curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $raw2);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
 curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

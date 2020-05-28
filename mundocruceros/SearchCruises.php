@@ -286,7 +286,7 @@ if ($cruisedestinationid > 0) {
             //
             // Possible length filter - nights
             //
-            $raw = 'xml=<?xml version="1.0"?><request><auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" /><method action="simplesearch" type="cruise" sessionkey="' . $sessionkey . '" userid="' . $mundocrucerosuserid . '" sitename="' . $mundocrucerosWebsite . '" currency="' . mundocrucerosCurrencyCode . '" status="' . $mundocrucerosStatusLiveTest . '"><searchdetail type="cruise" startdate="' . $departureFrom . '" enddate="' . $departureTo . '" ' . $mundocruceroslineid . ' adults="2" children="0" sid="' . $mundocrucerosSID . '" resultkey="default"></searchdetail></method></request>';
+            $raw = 'xml=<?xml version="1.0"?><request><auth username="' . $mundocrucerosusername . '" password="' . $mundocrucerospassword . '" /><method action="simplesearch" type="cruise" sessionkey="' . $sessionkey . '" userid="' . $mundocrucerosuserid . '" sitename="' . $mundocrucerosWebsite . '" currency="' . $mundocrucerosCurrencyCode . '" status="' . $mundocrucerosStatusLiveTest . '"><searchdetail type="cruise" startdate="' . $departureFrom . '" enddate="' . $departureTo . '" ' . $mundocruceroslineid . ' adults="2" children="0" sid="' . $mundocrucerosSID . '" resultkey="default"></searchdetail></method></request>';
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $mundocrucerosServiceURL);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -401,10 +401,10 @@ if ($cruisedestinationid > 0) {
                                 $resultkey = $cruise->item($xCruise)->getAttribute("resultkey");
                                 $resultno = $cruise->item($xCruise)->getAttribute("resultno");
                                 $resultweight = $cruise->item($xCruise)->getAttribute("resultweight");
-                                $returndate = $cruise->item($xCruise)->getAttribute("returndate");
+                                $returndate = explode("-", $cruise->item($xCruise)->getAttribute("returndate"));
                                 $returnuk = $cruise->item($xCruise)->getAttribute("returnuk");
                                 $roundtrip = $cruise->item($xCruise)->getAttribute("roundtrip");
-                                $saildate = $cruise->item($xCruise)->getAttribute("saildate");
+                                $saildate = explode("-", $cruise->item($xCruise)->getAttribute("saildate"));
                                 $sailnights = $cruise->item($xCruise)->getAttribute("sailnights");
                                 $scurrency = $cruise->item($xCruise)->getAttribute("scurrency");
                                 $seadays = $cruise->item($xCruise)->getAttribute("seadays");
@@ -424,7 +424,6 @@ if ($cruisedestinationid > 0) {
                                 $voyagecode = $cruise->item($xCruise)->getAttribute("voyagecode");
                                 $whatsincluded = $cruise->item($xCruise)->getAttribute("whatsincluded");
                                 $zoneid = $cruise->item($xCruise)->getAttribute("zoneid");
-                                
                                 $cruisebalconyprices = $cruise->item($xCruise)->getElementsByTagName("cruisebalconyprices");
                                 if ($cruisebalconyprices->length > 0) {
                                     $price = $cruisebalconyprices->item(0)->getElementsByTagName("price");
@@ -765,10 +764,10 @@ if ($cruisedestinationid > 0) {
                                         }
                                     }
                                 }
-                                
                                 $cruises[$counter]['product_id'][$xCruise] = md5(uniqid($session_id, true)) . "-" . $counter . "-" . $xCruise;
-                                $cruises[$counter]['departure'][$xCruise] = $saildate;
-                                $cruises[$counter]['arrival'][$xCruise] = $returndate;
+                                $cruises[$counter]['sailingid'][$xCruise] = $voyagecode;
+                                $cruises[$counter]['departure'][$xCruise] = mktime(0, 0, 0, $saildate[1], $saildate[2], $saildate[0]);
+                                $cruises[$counter]['arrival'][$xCruise] = mktime(0, 0, 0, $returndate[1], $returndate[2], $returndate[0]);
                                 if ($IN_Price == 0 or $IN_Price == - 1) {
                                     if ($IN_Price > 0) {
                                         if ($currency != $scurrency) {
@@ -883,7 +882,8 @@ if ($cruisedestinationid > 0) {
                                 $cruises[$counter]['cruise_destination_id'] = $cruisedestinationid;
                                 $cruises[$counter]['ItineraryId'] = $ItineraryId;
                                 $cruises[$counter]['ShipRating'] = $shiprating;
-                                $cruises[$counter]['MapImg'] = $MapImg;
+                                $cruises[$counter]['sessionkey'] = $sessionkey;
+                                $cruises[$counter]['resultno'] = $resultno;
                                 $cruises[$counter]['departure']['portid'] = $portsArray[0]['id'];
                                 $cruises[$counter]['departure']['portname'] = $portsArray[0]['name'];
                                 // $cruises[$counter]['segments'] = $portsArray;
@@ -955,7 +955,9 @@ if ($cruisedestinationid > 0) {
                                     }
                                 }
                                 $cruises[$counter]['unique_decks'] = $unique_decks;
+                                //
                                 // Public Areas
+                                //
                                 $publicareas = array();
                                 $tmp = array();
                                 $sql = "select decknumber, name, image from ships_publicareas where ship_id=" . $ship_id . " order by decknumber desc";
@@ -990,7 +992,7 @@ if ($cruisedestinationid > 0) {
         }
     }
 }
-error_log("\r\nEOF Mundo Crueros\r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\nEOF Mundo Cruceros\r\n", 3, "/srv/www/htdocs/error_log");
 $db->getDriver()
     ->getConnection()
     ->disconnect();

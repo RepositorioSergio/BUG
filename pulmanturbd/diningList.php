@@ -88,29 +88,29 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                     </BookingChannel>
                 </Source>
             </POS>
-            <Guest Code="10" Age="30" LoyaltyMembershipID="0000023"/>
-            <Guest Code="8" Age="4" LoyaltyMembershipID="0000024"/>
+            <Guest Code="10" Age="30"/>
+            <Guest Code="7" Age="1"/>
             <GuestCounts>
                 <GuestCount Age="30" Quantity="1"/>
-                <GuestCount Age="4" Quantity="1"/>
+                <GuestCount Age="1" Quantity="1"/>
             </GuestCounts>
             <SailingInfo>
-                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-11" Duration="P7N" Status="36" PortsOfCallQuantity="5">
-                    <CruiseLine VendorCode="PUL" ShipCode="MO"/>
+                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-05" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                    <CruiseLine VendorCode="PUL" ShipCode="HR"/>
                     <!--Optional:-->
-                    <Region RegionCode="PISFE" SubRegionCode="PGH"/>
+                    <Region RegionCode="PISGR" SubRegionCode="PGR"/>
                     <!--Optional:-->
-                    <DeparturePort LocationCode="REK"/>
+                    <DeparturePort LocationCode="ATH"/>
                     <!--Optional:-->
-                    <ArrivalPort LocationCode="TRD"/>
+                    <ArrivalPort LocationCode="ATH"/>
                 </SelectedSailing>
                 <!--Optional:-->
-                <alp:InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
+                <alp:InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
                 <!--Optional:-->
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
                 <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A"/>
             </SailingInfo>
-            <SelectedFare GroupCode="1"/>
+            <SelectedFare GroupCode="14"/>
             <TPA_ReservationId Type="14" ID="0"/>
         </OTA_CruiseDiningAvailRQ>
     </din:getDiningList>

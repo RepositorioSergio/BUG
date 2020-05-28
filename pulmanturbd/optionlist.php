@@ -88,17 +88,17 @@ $raw ='<?xml version="1.0" encoding="UTF-8"?>
                     </Source>
                 </POS>
                 <SailingInfo>
-                    <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-11" Duration="P7N" Status="36" PortsOfCallQuantity="5">
-                        <CruiseLine VendorCode="PUL" ShipCode="MO"/>
+                    <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-05" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                        <CruiseLine VendorCode="PUL" ShipCode="HR"/>
                         <!--Optional:-->
-                        <Region RegionCode="PISFE" SubRegionCode="PGH"/>
+                        <Region RegionCode="PISGR" SubRegionCode="PGR"/>
                         <!--Optional:-->
-                        <DeparturePort LocationCode="REK"/>
+                        <DeparturePort LocationCode="ATH"/>
                         <!--Optional:-->
-                        <ArrivalPort LocationCode="TRD"/>
+                        <ArrivalPort LocationCode="ATH"/>
                     </SelectedSailing>
                     <!--Optional:-->
-                    <InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
+                    <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
                     <!--Optional:-->
                     <Currency CurrencyCode="USD" DecimalPlaces="2"/>
                     <SelectedCategory BerthedCategoryCode="A"/>
