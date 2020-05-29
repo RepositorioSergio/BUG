@@ -170,7 +170,7 @@ $raw2 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelo
         </SelectedCategory>
       </SailingInfo>
       <ReservationInfo>
-      <ReservationID ID="0" Instance="5" Type="14" StatusCode="42"/>
+      <ReservationID ID="3170" Instance="5" Type="14" StatusCode="42"/>
         <GuestDetails>
             <GuestDetail>
                 <SelectedFareCode FareCode="BESTRATE"/>

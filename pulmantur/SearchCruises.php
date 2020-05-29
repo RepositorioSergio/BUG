@@ -241,7 +241,7 @@ if ($cruisedestinationid > 0) {
     $error = curl_error($ch);
     $headers = curl_getinfo($ch);
     curl_close($ch);
-    //error_log("\r\n Response - $xmlresult \r\n", 3, "/srv/www/htdocs/error_log");
+    error_log("\r\n Response - $xmlresult \r\n", 3, "/srv/www/htdocs/error_log");
 
     try {
         $sql = new Sql($dbPullmantur);
@@ -309,7 +309,7 @@ if ($cruisedestinationid > 0) {
                             $InclusiveIndicator = $InclusivePackageOption->item(0)->getAttribute("InclusiveIndicator");
                         }
                         
-                        $sql = "select name, logo, seo from cruises_lines where cruises_xml08='" . $ShipCode . "'";
+                        $sql = "select name, logo, seo from cruises_lines where cruises_xml10='" . $ShipCode . "'";
                         $statement = $dbPullmantur->createStatement($sql);
                         try {
                             $statement->prepare();
@@ -332,7 +332,7 @@ if ($cruisedestinationid > 0) {
                             $cruiseline_logo = "";
                             $cruiseline_seo = "";
                         }
-                        $sql = "select id, name, seo, shiprating from ships where cruises_xml08='" . $ShipCode . "'";
+                        $sql = "select id, name, seo, shiprating from ships where cruises_xml10='" . $ShipCode . "'";
                         $statement = $dbPullmantur->createStatement($sql);
                         try {
                             $statement->prepare();
@@ -383,7 +383,7 @@ if ($cruisedestinationid > 0) {
                         $cruises[$counter]["id"] = $counter;
                         $cruises[$counter]["seo"] = $ship_seo;
                         // TODO
-                        // error_log("\r\nUnable to find tourico cruise line TODO - Check - $cruiselineid - alterar para id, db cruises_lines \r\n", 3, "/srv/www/htdocs/error_log");
+                        // error_log("\r\nUnable to find Pullmantur cruise line TODO - Check - $cruiselineid - alterar para id, db cruises_lines \r\n", 3, "/srv/www/htdocs/error_log");
                         $cruises[$counter]["cruise_line_id"] = $ShipCode;
                         $cruises[$counter]["quote_id"] = md5(uniqid($session_id, true)) . "-10-" . $counter;
                         $cruises[$counter]["ship"]["id"] = $ship_id;
@@ -393,6 +393,19 @@ if ($cruisedestinationid > 0) {
                         $cruises[$counter]["cruiseline"]["logo"] = $cruiseline_logo;
                         $cruises[$counter]["cruiseline"]["name"] = utf8_encode(htmlentities($cruiseline_name, ENT_QUOTES));
                         $cruises[$counter]["cruiseline"]["seo"] = $cruiseline_seo;
+                        $cruises[$counter]["listofsailingdescriptioncode"] = $ListOfSailingDescriptionCode;
+                        $cruises[$counter]["duration"] = $Duration;
+                        $cruises[$counter]["portsofcallquantity"] = $PortsOfCallQuantity;
+                        $cruises[$counter]["start"] = $Start;
+                        $cruises[$counter]["status"] = $Status;
+                        $cruises[$counter]["shipcode"] = $ShipCode;
+                        $cruises[$counter]["vendorcode"] = $VendorCode;
+                        $cruises[$counter]["regioncode"] = $RegionCode;
+                        $cruises[$counter]["subregioncode"] = $SubRegionCode;
+                        $cruises[$counter]["departureportlocationcode"] = $DeparturePortLocationCode;
+                        $cruises[$counter]["arrivalportlocationcode"] = $ArrivalPortLocationCode;
+                        $cruises[$counter]["cruisepackagecode"] = $CruisePackageCode;
+                        $cruises[$counter]["inclusiveindicator"] = $InclusiveIndicator;
                         $cruisesfrom = 0;
                         $cruisesfrom_publish = 0;
                         
@@ -450,7 +463,6 @@ if ($cruisedestinationid > 0) {
                             </cat:getCategoryList>
                         </soapenv:Body>
                         </soapenv:Envelope>';
-
 
                         $ch = curl_init();
                         curl_setopt($ch, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/CategoryList');
@@ -677,9 +689,16 @@ if ($cruisedestinationid > 0) {
                                                         }
                                                     }
                                                 }
+                                                $days = str_replace('P', '', $Duration);
+                                                $days = str_replace('N', '', $days);
+                                                $aditionaldays = '+' . $days . ' days';
+                                                $date = date('Y-m-d', strtotime($aditionaldays, strtotime($Start)));
+                                                $from_date = explode("-", $Start);
+                                                $to_date = explode("-", $date);
                                                 $cruises[$counter]['product_id'][$x] = md5(uniqid($session_id, true)) . "-" . $counter . "-" . $x;
-                                                $cruises[$counter]['departure'][$x] = $departureFrom;
-                                                $cruises[$counter]['arrival'][$x] = $departureTo;
+                                                $cruises[$counter]['sailingid'][$x] = $CruisePackageCode;
+                                                $cruises[$counter]['departure'][$x] = mktime(0, 0, 0, $from_date[1], $from_date[2], $from_date[0]);
+                                                $cruises[$counter]['arrival'][$x] = mktime(0, 0, 0, $to_date[1], $to_date[2], $to_date[0]);
                                                 //$cruises[$counter]['Incentive'][$i] = $Incentives;
                                                 //$cruises[$counter]['Incentives'][$i] = $yesIncentives;
                                                 if ($IN_Price == 0 or $IN_Price == - 1) {

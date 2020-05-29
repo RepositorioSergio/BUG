@@ -1,20 +1,456 @@
-<?php //0050f
-// Bug Software LLC
-if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("Site error: the ".(php_sapi_name()=='cli'?'ionCube':'<a href="http://www.ioncube.com">ionCube</a>')." PHP Loader needs to be installed. This is a widely used PHP extension for running ionCube protected PHP code, website security and malware blocking.\n\nPlease visit ".(php_sapi_name()=='cli'?'get-loader.ioncube.com':'<a href="http://get-loader.ioncube.com">get-loader.ioncube.com</a>')." for install assistance.\n\n");exit(199);
+<?php
+// Cruises Pullmantur
+$scurrency = strtoupper($currency);
+use Laminas\Db\Adapter\Adapter;
+use Laminas\Db\Adapter\Driver\ResultInterface;
+use Laminas\Db\ResultSet\ResultSet;
+use Laminas\Db\Sql\Sql;
+use Laminas\Log\Logger;
+use Laminas\Log\Writer;
+use Laminas\Filter\AbstractFilter;
+use Laminas\I18n\Translator\Translator;
+$filter = new \Laminas\I18n\Filter\NumberFormat($NumberFormat);
+$dbPullmantur = new \Laminas\Db\Adapter\Adapter($config);
+$sql = "select value from settings where name='cruisespullmanturusername'";
+$statement = $dbPullmantur->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $cruisespullmanturusername = $row_settings["value"];
+}
+$sql = "select value from settings where name='cruisespullmanturpassword'";
+$statement = $dbPullmantur->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $cruisespullmanturpassword = base64_decode($row_settings["value"]);
+}
+$sql = "select value from settings where name='cruisespullmanturmarkup'";
+$statement = $dbPullmantur->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $cruisespullmanturmarkup = $row_settings["value"];
+}
+$sql = "select value from settings where name='cruisespullmanturServiceURL'";
+$statement = $dbPullmantur->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $cruisespullmanturServiceURL = $row_settings["value"];
+}
+$sql = "select value from settings where name='cruisespullmanturCurrency'";
+$statement = $dbPullmantur->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $cruisespullmanturCurrency = $row_settings["value"];
+}
+$sql = "select value from settings where name='cruisespullmanturb2cmarkup'";
+$statement = $dbPullmantur->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $cruisespullmanturb2cmarkup = $row_settings["value"];
+}
+$sql = "select value from settings where name='cruisespullmanturSearchSortorder'";
+$statement = $dbPullmantur->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $cruisespullmanturSearchSortorder = $row_settings["value"];
+}
+$sql = "select value from settings where name='cruisespullmanturaffiliates_id'";
+$statement = $dbPullmantur->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $cruisespullmanturaffiliates_id = $row_settings["value"];
+}
+$sql = "select value from settings where name='cruisespullmanturbranchs_id'";
+$statement = $dbPullmantur->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $cruisespullmanturbranchs_id = $row_settings["value"];
+}
+$sql = "select value from settings where name='cruisespullmanturConnetionTimeout'";
+$statement = $dbPullmantur->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $cruisespullmanturConnetionTimeout = (int) $row_settings["value"];
+}
+foreach ($data as $key => $value) {
+    if ($quote == $value['quote_id']) {
+        $cruise_line_id = $value['cruise_line_id'];
+        $cruise_destination_id = $value['cruise_destination_id'];
+        $ship_id = $value['ship']['id'];
+        $listofsailingdescriptioncode = $value['listofsailingdescriptioncode'];
+        $duration = $value['duration'];
+        $portsofcallquantity = $value['portsofcallquantity'];
+        $start = $value['start'];
+        $status = $value['status'];
+        $shipcode = $value['shipcode'];
+        $vendorcode = $value['vendorcode'];
+        $regioncode = $value['regioncode'];
+        $subregioncode = $value['subregioncode'];
+        $departureportlocationcode = $value['departureportlocationcode'];
+        $arrivalportlocationcode = $value['arrivalportlocationcode'];
+        $cruisepackagecode = $value['cruisepackagecode'];
+        $inclusiveindicator = $value['inclusiveindicator'];
+        foreach ($value['product_id'] as $productkey => $productvalue) {
+            if ($productvalue == $product) {
+                $sailing_id = $value['sailingid'][$productkey];
+            }
+        }
+        break;
+    }
+}
+
+$categorylocation = $selectedcabin['cabin']['categorylocation'];
+$groupcode = $selectedcabin['cabin']['groupcode'];
+$pricedcategorycode = $selectedcabin['cabin']['pricedcategorycode'];
+$status = $selectedcabin['cabin']['status'];
+$farecode = $selectedcabin['cabin']['farecode'];
+
+if ($cruise_line_id > 0) {
+    $raw = '<?xml version="1.0" encoding="UTF-8"?>
+    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cab="http://services.rccl.com/Interfaces/CabinList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <cab:getCabinList>
+            <OTA_CruiseCabinAvailRQ MaxResponses="50" MoreDataEchoToken="01" Target="Test" RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-11-25T10:08:12.204-05:00" TransactionIdentifier="106597" Version="1.0" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+                <POS>
+                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                        <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+                        <BookingChannel Type="7">
+                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                        </BookingChannel>
+                    </Source>
+                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                        <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+                        <BookingChannel Type="7">
+                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                        </BookingChannel>
+                    </Source>
+                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                        <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+                        <BookingChannel Type="7">
+                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                        </BookingChannel>
+                    </Source>
+                </POS>
+                <SailingInfo>
+                    <SelectedSailing ListOfSailingDescriptionCode="' . $listofsailingdescriptioncode . '" Start="' . $start . '" Duration="' . $duration . '" Status="' . $status . '" PortsOfCallQuantity="' . $portsofcallquantity . '">
+                        <CruiseLine VendorCode="' . $vendorcode . '" ShipCode="' . $shipcode . '"/>
+                        <!--Optional:-->
+                        <Region RegionCode="' . $regioncode . '" SubRegionCode="' . $subregioncode . '"/>
+                        <!--Optional:-->
+                        <DeparturePort LocationCode="' . $departureportlocationcode . '"/>
+                        <!--Optional:-->
+                        <ArrivalPort LocationCode="' . $arrivalportlocationcode . '"/>
+                    </SelectedSailing>
+                    <InclusivePackageOption CruisePackageCode="' . $cruisepackagecode . '"/>
+                    <Currency CurrencyCode="USD" DecimalPlaces="2"/>
+                    <SelectedCategory BerthedCategoryCode="' . $pricedcategorycode . '" PricedCategoryCode="' . $pricedcategorycode . '" WaitlistIndicator="false">
+                    </SelectedCategory>
+                </SailingInfo>
+                <SearchQualifiers BerthedCategoryCode="' . $pricedcategorycode . '" FareCode="' . $farecode . '" GroupCode="' . $groupcode . '" CategoryLocation="' . $categorylocation . '">
+                    <Status Status="' . $status . '"/>
+                </SearchQualifiers>
+                <SelectedFare GroupCode="' . $status . '"/>
+            </OTA_CruiseCabinAvailRQ>
+        </cab:getCabinList>
+    </soapenv:Body>
+    </soapenv:Envelope>';
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/getCabinList');
+    curl_setopt($ch, CURLOPT_HEADER, false);
+    curl_setopt($ch, CURLOPT_VERBOSE, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+    curl_setopt($ch, CURLOPT_USERPWD, $cruisespullmanturusername . ":" . $cruisespullmanturpassword);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $cruisespullmanturConnetionTimeout);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_ENCODING, 'gzip');
+    $response = curl_exec($ch);
+    $error = curl_error($ch);
+    $headers = curl_getinfo($ch);
+    curl_close($ch);
+    
+    try {
+        $sql = new Sql($dbPullmantur);
+        $insert = $sql->insert();
+        $insert->into('log_pullmantur');
+        $insert->values(array(
+            'datetime_created' => time(),
+            'filename' => 'Cabins.php',
+            'errorline' => 0,
+            'errormessage' => $raw,
+            'sqlcontext' => $response,
+            'errcontext' => ''
+        ), $insert::VALUES_MERGE);
+        $statement = $sql->prepareStatementForSqlObject($insert);
+        $results = $statement->execute();
+    } catch (\Exception $e) {
+        $logger = new Logger();
+        $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+        $logger->addWriter($writer);
+        $logger->info($e->getMessage());
+    }
+    
+    $inputDoc = new DOMDocument();
+    $inputDoc->loadXML($response);
+    $Envelope = $inputDoc->getElementsByTagName("Envelope");
+    $Body = $Envelope->item(0)->getElementsByTagName("Body");
+    $getCabinListResponse = $Body->item(0)->getElementsByTagName("getCabinListResponse");
+    if ($getCabinListResponse->length > 0) {
+        $OTA_CruiseCabinAvailRS = $getCabinListResponse->item(0)->getElementsByTagName("OTA_CruiseCabinAvailRS");
+        if ($OTA_CruiseCabinAvailRS->length > 0) {
+            $SailingInfo = $OTA_CruiseCabinAvailRS->item(0)->getElementsByTagName("SailingInfo");
+            if ($SailingInfo->length > 0) {
+                $SelectedSailing = $SailingInfo->item(0)->getElementsByTagName("SelectedSailing");
+                if ($SelectedSailing->length > 0) {
+                    $Start = $SelectedSailing->item(0)->getAttribute("Start");
+                    $Duration = $SelectedSailing->item(0)->getAttribute("Duration");
+
+                    $CruiseLine = $SelectedSailing->item(0)->getElementsByTagName("CruiseLine");
+                    if ($CruiseLine->length > 0) {
+                        $ShipCode = $CruiseLine->item(0)->getAttribute("ShipCode");
+                        $VendorCode = $CruiseLine->item(0)->getAttribute("VendorCode");
+                    }
+                    $Region = $SelectedSailing->item(0)->getElementsByTagName("Region");
+                    if ($Region->length > 0) {
+                        $RegionCode = $Region->item(0)->getAttribute("RegionCode");
+                        $SubRegionCode = $Region->item(0)->getAttribute("SubRegionCode");
+                    }
+                }
+                $InclusivePackageOption = $SailingInfo->item(0)->getElementsByTagName("InclusivePackageOption");
+                if ($InclusivePackageOption->length > 0) {
+                    $CruisePackageCode = $InclusivePackageOption->item(0)->getAttribute("CruisePackageCode");
+                    $InclusiveIndicator = $InclusivePackageOption->item(0)->getAttribute("InclusiveIndicator");
+                }
+            }
+            //SelectedFare
+            $SelectedFare = $OTA_CruiseCabinAvailRS->item(0)->getElementsByTagName("SelectedFare");
+            if ($SelectedFare->length > 0) {
+                $FareCode = $SelectedFare->item(0)->getAttribute("FareCode");
+            }
+            //CabinOptions
+            $CabinOptions = $OTA_CruiseCabinAvailRS->item(0)->getElementsByTagName("CabinOptions");
+            if ($CabinOptions->length > 0) {
+                $CabinOption = $CabinOptions->item(0)->getElementsByTagName("CabinOption");
+                if ($CabinOption->length > 0) {
+                    for ($i=0; $i < $CabinOption->length; $i++) { 
+                        $CabinCategoryCode = $CabinOption->item($i)->getAttribute("CabinCategoryCode");
+                        $decks[$i]['cabinnumber'] = $CabinOption->item($i)->getAttribute("CabinNumber");
+                        $CabinRanking = $CabinOption->item($i)->getAttribute("CabinRanking");
+                        $decks[$i]['deckname'] = $CabinOption->item($i)->getAttribute("DeckName");
+                        $decks[$i]['decknumber'] = $CabinOption->item($i)->getAttribute("DeckNumber");
+                        $MaxOccupancy = $CabinOption->item($i)->getAttribute("MaxOccupancy");
+                        $PositionInShip = $CabinOption->item($i)->getAttribute("PositionInShip");
+                        $Status = $CabinOption->item($i)->getAttribute("Status");
+                        $Remark = $CabinOption->item($i)->getElementsByTagName("Remark");
+                        if ($Remark->length > 0) {
+                            $Remark = $Remark->item(0)->nodeValue;
+                        } else {
+                            $Remark = "";
+                        }
+                        $sql = "select image from ships_decksimages where ship_id=$ship_id and categorycode='" . $selectedcabin['code'] . "'";
+                        $statement = $dbTourico->createStatement($sql);
+                        $statement->prepare();
+                        $row_settings = $statement->execute();
+                        $row_settings->buffer();
+                        if ($row_settings->valid()) {
+                            $row_settings = $row_settings->current();
+                            $decks[$z]['deckimg'] = $row_settings['image'];
+                        }
+                        $CabinConfiguration = $CabinOption->item($i)->getElementsByTagName("CabinConfiguration");
+                        if ($CabinConfiguration->length > 0) {
+                            for ($iAux3=0; $iAux3 < $CabinConfiguration->length; $iAux3++) { 
+                                $BedConfigurationCode = $CabinConfiguration->item($iAux3)->getAttribute("BedConfigurationCode");
+                                if ($iAux3 == 1) {
+                                    $TPA_ViewObstruction = $CabinConfiguration->item($iAux3)->getAttribute("TPA_ViewObstruction");
+                                }
+                            }
+                        }
+                        $MeasurementInfo = $CabinOption->item($i)->getElementsByTagName("MeasurementInfo");
+                        if ($MeasurementInfo->length > 0) {
+                            for ($iAux=0; $iAux < $MeasurementInfo->length; $iAux++) { 
+                                $Name = $MeasurementInfo->item($iAux)->getAttribute("Name");
+                                $UnitOfMeasure = $MeasurementInfo->item($iAux)->getAttribute("UnitOfMeasure");
+                                $UnitOfMeasureCode = $MeasurementInfo->item($iAux)->getAttribute("UnitOfMeasureCode");
+                                $UnitOfMeasureQuantity = $MeasurementInfo->item($iAux)->getAttribute("UnitOfMeasureQuantity");
+                            }
+                        }
+                        $CabinFilters = $CabinOption->item($i)->getElementsByTagName("CabinFilters");
+                        if ($CabinFilters->length > 0) {
+                            $CabinFilter = $CabinFilters->item(0)->getElementsByTagName("CabinFilter");
+                            if ($CabinFilter->length > 0) {
+                                for ($iAux2=0; $iAux2 < $CabinFilter->length; $iAux2++) { 
+                                    $CabinFilterCode = $CabinFilter->item($iAux2)->getAttribute("CabinFilterCode");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    //
+    //Dining
+    //
+    $raw2 = '<?xml version="1.0" encoding="UTF-8"?>
+    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:din="http://services.rccl.com/Interfaces/DiningList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <din:getDiningList>
+            <OTA_CruiseDiningAvailRQ RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-12-29T18:25:50.1Z" TransactionIdentifier="106597" Version="1.0" Target="Test" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+                <POS>
+                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                        <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+                        <BookingChannel Type="7">
+                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                        </BookingChannel>
+                    </Source>
+                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                        <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+                        <BookingChannel Type="7">
+                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                        </BookingChannel>
+                    </Source>
+                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                        <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+                        <BookingChannel Type="7">
+                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                        </BookingChannel>
+                    </Source>
+                </POS>
+                <SailingInfo>
+                    <SelectedSailing ListOfSailingDescriptionCode="' . $listofsailingdescriptioncode . '" Start="' . $start . '" Duration="' . $duration . '" Status="' . $status . '" PortsOfCallQuantity="' . $portsofcallquantity . '">
+                        <CruiseLine VendorCode="' . $vendorcode . '" ShipCode="' . $shipcode . '"/>
+                        <!--Optional:-->
+                        <Region RegionCode="' . $regioncode . '" SubRegionCode="' . $subregioncode . '"/>
+                        <!--Optional:-->
+                        <DeparturePort LocationCode="' . $departureportlocationcode . '"/>
+                        <!--Optional:-->
+                        <ArrivalPort LocationCode="' . $arrivalportlocationcode . '"/>
+                    </SelectedSailing>
+                    <!--Optional:-->
+                    <alp:InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
+                    <!--Optional:-->
+                    <Currency CurrencyCode="USD" DecimalPlaces="2"/>
+                    <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A"/>
+                </SailingInfo>
+                <SelectedFare GroupCode="13"/>
+                <TPA_ReservationId Type="14" ID="0"/>
+            </OTA_CruiseDiningAvailRQ>
+        </din:getDiningList>
+        </soapenv:Body>
+    </soapenv:Envelope>';
+
+    $ch2 = curl_init();
+    curl_setopt($ch2, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/getDiningList');
+    curl_setopt($ch2, CURLOPT_HEADER, false);
+    curl_setopt($ch2, CURLOPT_VERBOSE, false);
+    curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch2, CURLOPT_POST, true);
+    curl_setopt($ch2, CURLOPT_POSTFIELDS, $raw2);
+    curl_setopt($ch2, CURLOPT_USERPWD, $cruisespullmanturusername . ":" . $cruisespullmanturpassword);
+    curl_setopt($ch2, CURLOPT_CONNECTTIMEOUT, 65000);
+    curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch2, CURLOPT_ENCODING, 'gzip');
+    $response2 = curl_exec($ch2);
+    $error = curl_error($ch2);
+    $headers = curl_getinfo($ch2);
+    curl_close($ch2);
+
+    $inputDoc = new DOMDocument();
+    $inputDoc->loadXML($response2);
+    $Envelope = $inputDoc->getElementsByTagName("Envelope");
+    $Body = $Envelope->item(0)->getElementsByTagName("Body");
+    $getDiningListResponse = $Body->item(0)->getElementsByTagName("getDiningListResponse");
+    if ($getDiningListResponse->length > 0) {
+        $OTA_CruiseDiningAvailRS = $getDiningListResponse->item(0)->getElementsByTagName("OTA_CruiseDiningAvailRS");
+        if ($OTA_CruiseDiningAvailRS->length > 0) {
+            $SailingInfo = $OTA_CruiseDiningAvailRS->item(0)->getElementsByTagName("SailingInfo");
+            if ($SailingInfo->length > 0) {
+                $SelectedSailing = $SailingInfo->item(0)->getElementsByTagName("SelectedSailing");
+                if ($SelectedSailing->length > 0) {
+                    $Start = $SelectedSailing->item(0)->getAttribute("Start");
+                    $Duration = $SelectedSailing->item(0)->getAttribute("Duration");
+
+                    $CruiseLine = $SelectedSailing->item(0)->getElementsByTagName("CruiseLine");
+                    if ($CruiseLine->length > 0) {
+                        $ShipCode = $CruiseLine->item(0)->getAttribute("ShipCode");
+                        $VendorCode = $CruiseLine->item(0)->getAttribute("VendorCode");
+                    }
+                    $Region = $SelectedSailing->item(0)->getElementsByTagName("Region");
+                    if ($Region->length > 0) {
+                        $RegionCode = $Region->item(0)->getAttribute("RegionCode");
+                        $SubRegionCode = $Region->item(0)->getAttribute("SubRegionCode");
+                    }
+                }
+                $InclusivePackageOption = $SailingInfo->item(0)->getElementsByTagName("InclusivePackageOption");
+                if ($InclusivePackageOption->length > 0) {
+                    $CruisePackageCode = $InclusivePackageOption->item(0)->getAttribute("CruisePackageCode");
+                    $InclusiveIndicator = $InclusivePackageOption->item(0)->getAttribute("InclusiveIndicator");
+                }
+            }
+            $hasdining = false;
+            $DiningOptions = $OTA_CruiseDiningAvailRS->item(0)->getElementsByTagName("DiningOptions");
+            if ($DiningOptions->length > 0) {
+                $DiningOption = $DiningOptions->item(0)->getElementsByTagName("DiningOption");
+                if ($DiningOption->length > 0) {
+                    for ($i=0; $i < $DiningOption->length; $i++) { 
+                        $hasdining = true;
+                        $CrossReferencingAllowed = $DiningOption->item($i)->getAttribute("CrossReferencingAllowed");
+                        $FamilyTimeIndicator = $DiningOption->item($i)->getAttribute("FamilyTimeIndicator");
+                        $PrepaidGratuityRequired = $DiningOption->item($i)->getAttribute("PrepaidGratuityRequired");
+                        $dining[$i]['diningcode'] = $DiningOption->item($i)->getAttribute("Sitting");
+                        $dining[$i]['diningname'] = $DiningOption->item($i)->getAttribute("SittingInstance");
+                        $dining[$i]['status'] = $DiningOption->item($i)->getAttribute("SittingStatus");
+                        $SittingType = $DiningOption->item($i)->getAttribute("SittingType");
+                        $SmokingAllowed = $DiningOption->item($i)->getAttribute("SmokingAllowed");
+                    }
+                }
+                $TPA_DiningProfileInfo = $DiningOptions->item(0)->getElementsByTagName("TPA_DiningProfileInfo");
+                if ($TPA_DiningProfileInfo->length > 0) {
+                    $RuleLevel = $TPA_DiningProfileInfo->item(0)->getAttribute("RuleLevel");
+                    $RuleName = $TPA_DiningProfileInfo->item(0)->getAttribute("RuleName");
+                    $DiningProfile = $TPA_DiningProfileInfo->item(0)->getElementsByTagName("DiningProfile");
+                    if ($DiningProfile->length > 0) {
+                        $Code = $DiningProfile->item(0)->getAttribute("Code");
+                    }
+                }
+            }
+        }
+    }
+}
+$dbPullmantur->getDriver()
+    ->getConnection()
+    ->disconnect();
 ?>
-HR+cPwH6/L/OhCMGuF9eV7jTPeQC8XoHiGxa2zX6eIPQmSPzING8IUPAr59HbCoBfpekG2vE8ZUL
-W3+lBJYab2DGYuXnIbGFGfUYA0eGbxeb7nkfMyLQ3ajJqeDb6E8GMqo11DWb4rh1Z6EZrXKwNiJN
-w5Pi7+pGpXpkpAnyQeHegDjfv5QZIov55/8rG2fYfK+pxwZxp1BK+2jw6LKc5CFH5hdL4sQm7UDf
-mND4XIN21kjOacGgPb0qrsgfDb0tDMgRMWXye8LWzrxNTIhLgrL6w9CLiPrB27lG/NtWSxj2sAjT
-dRy8MP3sYQNlCttlHAbuiKDC9mmrFzsSA02zlI/lvBWdwQ3hIDPtD2WsNyy/fTWLkVTWgusQ+Jvo
-gDA6scVaSWPvGl5dhFgXuBq+6o9/s91h+lKmLotMFRCgpMRYDz2xTgoyBDN0Ofu1VUFrIqO0TzRN
-oi3z5BJp5vc0UuZqLUaS+WKR5YVwwWHH2gLR8ba1xwdZRqweq3Mgm2YouFnSeuFaNxEslkhs0wN8
-Df40kPM76NXsVR8DD1uJ+LkazhqRMcoVKx2whx0muiEOgnthZ5rVOtI1sSagox49W+0Q1n0DevlP
-TRYrKy1DwvxN0YYYqTcObwAF4KGqk+RwfJD5t84K4kQgXiiP55Z9OoQYYuJ7AbrAccxoTAJgDUC9
-b3SUd2/WbzbRhl08LP0OmzMA0aqir8hmUw+zsXsmEAbI1+bFpie4oNujg1dikeHgN3h/92DvpZK/
-pY0DOmC9qCvz2yPu8YnmAP+vFvrIWOdW/IcuwVD1XYiPK4xwb8ynXkbC9BuuCTbir2jNzLurRn2b
-oZDl8rDV7oQxJW0hHoxcr+wgWcDgRY7x5lWkHYcfA2acCWlxiMV91nYfa1l8LAA6hDDoDeL3ju4Q
-UG8H3mAJ9nvSgh+WHBG7mLt6X1LW9FEVfAgkweaq/KLOqEA1TtJ/0zXJg0u5b20utlNswdYv+OX2
-vxWCS2BJsnj3sP+XMQXt5iz7VoiNer++yrq700JpSM0pRCar4tbGA5VedhFUg41Q4lIp3v/nJrtq
-mOkGbjOqANz0PW1lGOmUT4mpE8VZNoomorhOxdhIZqCFwRxfeo72aBwnM4fiLY9MH8f1AksFdQTG
-gXjgwNNwPUaSVg/Z4Xln
