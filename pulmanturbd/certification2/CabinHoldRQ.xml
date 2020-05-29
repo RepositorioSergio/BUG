@@ -27,25 +27,25 @@
          <GuestCounts>
             <GuestCount Age="30" Quantity="1"/>
          </GuestCounts>
-         <SelectedSailing Start="2020-07-11" ShipCode="MO" VendorCode="PUL">
-            <SelectedFare FareCode="BESTRATE" GroupCode="24"/>
+         <SelectedSailing Start="2020-07-18" ShipCode="MO" VendorCode="PUL">
+            <SelectedFare FareCode="BESTRATE" GroupCode="2"/>
             <SelectedCategory BerthedCategoryCode="ST" PricedCategoryCode="ST">
                 <!--Optional:-->
                 <CabinAttributes>
                     <!--1 to 99 repetitions:-->
-                    <CabinAttribute CabinAttributeCode="99"/>
+                    <CabinAttribute CabinAttributeCode="15"/>
                 </CabinAttributes>
                 <!--1 to 4 repetitions:-->
-               <SelectedCabin CabinNumber="1520" MaxOccupancy="4"/>
+               <SelectedCabin CabinNumber="1520" MaxOccupancy="2"/>
             </SelectedCategory>
-            <InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
+            <InclusivePackageOption CruisePackageCode="MOPF0756" InclusiveIndicator="false"/>
          </SelectedSailing>
          <!--0 to 9 repetitions:-->
-         <Guest Code="10" Age="30" LoyaltyMembershipID="0000015"/>
+         <Guest Code="10" Age="30"/>
          <!--Optional:-->
             <alp:Currency CurrencyCode="USD" DecimalPlaces="2"/>
          <!--Optional:-->
-        <SearchQualifiers BerthedCategoryCode="ST" PricedCategoryCode="ST" CabinNumber="1520" GroupCode="24" MaxOccupancy="4" DeckNumber="10" DeckName="CUBIERTA 10">
+        <SearchQualifiers BerthedCategoryCode="ST" PricedCategoryCode="ST" CabinNumber="1520" GroupCode="2" MaxOccupancy="4" DeckNumber="10" DeckName="CUBIERTA 10">
             <!--0 to 5 repetitions:-->
             <Status Status="36"/>
             <!--Optional:-->

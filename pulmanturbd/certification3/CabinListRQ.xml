@@ -39,24 +39,24 @@
                 <GuestCount Age="4" Quantity="1"/>
             </GuestCounts>
             <SailingInfo>
-                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-11" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-18" Duration="P7N" Status="36" PortsOfCallQuantity="7">
                     <CruiseLine VendorCode="PUL" ShipCode="MO"/>
                     <!--Optional:-->
-                    <Region RegionCode="PISFE" SubRegionCode="PGH"/>
+                    <Region RegionCode="PFIOR" SubRegionCode="PFIOR"/>
                     <!--Optional:-->
-                    <DeparturePort LocationCode="REK"/>
+                    <DeparturePort LocationCode="TRD"/>
                     <!--Optional:-->
-                    <ArrivalPort LocationCode="TRD"/>
+                    <ArrivalPort LocationCode="CPH"/>
                 </SelectedSailing>
-                <InclusivePackageOption CruisePackageCode="MOPN0712"/>
+                <InclusivePackageOption CruisePackageCode="MOPF0756"/>
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A" WaitlistIndicator="false">
+                <SelectedCategory BerthedCategoryCode="JT" PricedCategoryCode="JT" WaitlistIndicator="false">
                 </SelectedCategory>
             </SailingInfo>
-            <SearchQualifiers BerthedCategoryCode="A" FareCode="G1802479" GroupCode="A" CategoryLocation="Deluxe">
+            <SearchQualifiers BerthedCategoryCode="JT" FareCode="G1802540" GroupCode="10" CategoryLocation="Deluxe">
                 <Status Status="36"/>
             </SearchQualifiers>
-            <SelectedFare GroupCode="25"/>
+            <SelectedFare GroupCode="10"/>
         </OTA_CruiseCabinAvailRQ>
     </cab:getCabinList>
    </soapenv:Body>

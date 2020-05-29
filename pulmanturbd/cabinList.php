@@ -93,34 +93,34 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                     <GatewayCity LocationCode="C/O"/>
                 </GuestTransportation>
             </Guest>
-            <Guest Code="7" Age="1">
+            <Guest Code="8" Age="4">
                 <GuestTransportation Mode="29" Status="36">
                     <GatewayCity LocationCode="C/O"/>
                 </GuestTransportation>
             </Guest>
             <GuestCounts>
                 <GuestCount Age="30" Quantity="1"/>
-                <GuestCount Age="1" Quantity="1"/>
+                <GuestCount Age="4" Quantity="1"/>
             </GuestCounts>
             <SailingInfo>
-                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-05" Duration="P7N" Status="36" PortsOfCallQuantity="5">
-                    <CruiseLine VendorCode="PUL" ShipCode="HR"/>
+                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-18" Duration="P7N" Status="36" PortsOfCallQuantity="7">
+                    <CruiseLine VendorCode="PUL" ShipCode="MO"/>
                     <!--Optional:-->
-                    <Region RegionCode="PISGR" SubRegionCode="PGR"/>
+                    <Region RegionCode="PFIOR" SubRegionCode="PFIOR"/>
                     <!--Optional:-->
-                    <DeparturePort LocationCode="ATH"/>
+                    <DeparturePort LocationCode="TRD"/>
                     <!--Optional:-->
-                    <ArrivalPort LocationCode="ATH"/>
+                    <ArrivalPort LocationCode="CPH"/>
                 </SelectedSailing>
-                <InclusivePackageOption CruisePackageCode="HRPT0734"/>
+                <InclusivePackageOption CruisePackageCode="MOPF0756"/>
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A" WaitlistIndicator="false">
+                <SelectedCategory BerthedCategoryCode="JT" PricedCategoryCode="JT" WaitlistIndicator="false">
                 </SelectedCategory>
             </SailingInfo>
-            <SearchQualifiers BerthedCategoryCode="A" FareCode="G5499537" GroupCode="13" CategoryLocation="Balcony">
+            <SearchQualifiers BerthedCategoryCode="JT" FareCode="G1802540" GroupCode="10" CategoryLocation="Deluxe">
                 <Status Status="36"/>
             </SearchQualifiers>
-            <SelectedFare GroupCode="13"/>
+            <SelectedFare GroupCode="10"/>
         </OTA_CruiseCabinAvailRQ>
     </cab:getCabinList>
    </soapenv:Body>

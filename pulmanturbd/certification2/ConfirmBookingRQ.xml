@@ -22,17 +22,17 @@
             </BookingChannel>
         </Source>
     </POS>
-    <AgentInfo Contact="CMOTEST6" ContactID="CMOtest_MI6"/>
+    <AgentInfo Contact="CMOTEST8" ContactID="CMOtest_MI8"/>
     <SailingInfo>
-        <SelectedSailing Start="2020-07-11">
+        <SelectedSailing Start="2020-07-18">
             <CruiseLine ShipCode="MO"/>
         </SelectedSailing>
-        <InclusivePackageOption CruisePackageCode="MOPN0712"/>
+        <InclusivePackageOption CruisePackageCode="MOPF0756"/>
         <SelectedCategory PricedCategoryCode="ST" BerthedCategoryCode="ST" FareCode="BESTRATE" DeckNumber="10" DeckName="CUBIERTA 10">
             <!--Optional:-->
             <alp:CabinAttributes>
                 <!--1 to 99 repetitions:-->
-                <alp:CabinAttribute CabinAttributeCode="99"/>
+                <alp:CabinAttribute CabinAttributeCode="15"/>
             </alp:CabinAttributes>
             <SelectedCabin Status="39" CabinNumber="1520" MaxOccupancy="4"/>
         </SelectedCategory>
@@ -42,7 +42,7 @@
         <GuestDetails>
             <GuestDetail>
                 <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="30" ContactType="CNT">
+                <ContactInfo Nationality="ES" Age="30" BirthDate="1990-05-01" ContactType="CNT" Code="10">
                 <PersonName>
                     <GivenName>David</GivenName>
                     <Surname>Sanchez LLorente</Surname>

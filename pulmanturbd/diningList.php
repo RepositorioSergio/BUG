@@ -89,28 +89,28 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                 </Source>
             </POS>
             <Guest Code="10" Age="30"/>
-            <Guest Code="7" Age="1"/>
+            <Guest Code="8" Age="4"/>
             <GuestCounts>
                 <GuestCount Age="30" Quantity="1"/>
-                <GuestCount Age="1" Quantity="1"/>
+                <GuestCount Age="4" Quantity="1"/>
             </GuestCounts>
             <SailingInfo>
-                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-05" Duration="P7N" Status="36" PortsOfCallQuantity="5">
-                    <CruiseLine VendorCode="PUL" ShipCode="HR"/>
+                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-18" Duration="P7N" Status="36" PortsOfCallQuantity="7">
+                    <CruiseLine VendorCode="PUL" ShipCode="MO"/>
                     <!--Optional:-->
-                    <Region RegionCode="PISGR" SubRegionCode="PGR"/>
+                    <Region RegionCode="PFIOR" SubRegionCode="PFIOR"/>
                     <!--Optional:-->
-                    <DeparturePort LocationCode="ATH"/>
+                    <DeparturePort LocationCode="TRD"/>
                     <!--Optional:-->
-                    <ArrivalPort LocationCode="ATH"/>
+                    <ArrivalPort LocationCode="CPH"/>
                 </SelectedSailing>
                 <!--Optional:-->
-                <alp:InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
+                <alp:InclusivePackageOption CruisePackageCode="MOPF0756" InclusiveIndicator="false"/>
                 <!--Optional:-->
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A"/>
+                <SelectedCategory BerthedCategoryCode="JT" PricedCategoryCode="JT"/>
             </SailingInfo>
-            <SelectedFare GroupCode="13"/>
+            <SelectedFare GroupCode="10"/>
             <TPA_ReservationId Type="14" ID="0"/>
         </OTA_CruiseDiningAvailRQ>
     </din:getDiningList>

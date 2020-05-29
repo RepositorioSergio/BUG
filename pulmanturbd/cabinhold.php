@@ -90,28 +90,27 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
          </POS>
          <GuestCounts>
             <GuestCount Age="30" Quantity="1"/>
-            <GuestCount Age="1" Quantity="1"/>
          </GuestCounts>
-         <SelectedSailing Start="2020-07-05" ShipCode="HR" VendorCode="PUL">
-            <SelectedFare FareCode="BESTRATE" GroupCode="13"/>
-            <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A">
+         <SelectedSailing Start="2020-07-18" ShipCode="MO" VendorCode="PUL">
+            <SelectedFare FareCode="BESTRATE" GroupCode="2"/>
+            <SelectedCategory BerthedCategoryCode="JT" PricedCategoryCode="JT">
                 <!--Optional:-->
                 <CabinAttributes>
                     <!--1 to 99 repetitions:-->
                     <CabinAttribute CabinAttributeCode="86"/>
                 </CabinAttributes>
                 <!--1 to 4 repetitions:-->
-               <SelectedCabin CabinNumber="9098" MaxOccupancy="2"/>
+               <SelectedCabin CabinNumber="1076" MaxOccupancy="3"/>
             </SelectedCategory>
-            <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
+            <InclusivePackageOption CruisePackageCode="MOPF0756" InclusiveIndicator="false"/>
          </SelectedSailing>
          <!--0 to 9 repetitions:-->
          <Guest Code="10" Age="30"/>
-         <Guest Code="7" Age="1"/>
+         <Guest Code="8" Age="4"/>
          <!--Optional:-->
             <alp:Currency CurrencyCode="USD" DecimalPlaces="2"/>
          <!--Optional:-->
-        <SearchQualifiers BerthedCategoryCode="A" PricedCategoryCode="A" CabinNumber="9098" GroupCode="13" MaxOccupancy="2" DeckNumber="9" DeckName="CUBIERTA 9">
+        <SearchQualifiers BerthedCategoryCode="JT" PricedCategoryCode="JT" CabinNumber="1076" GroupCode="10" MaxOccupancy="3" DeckNumber="10" DeckName="CUBIERTA 10">
             <!--0 to 5 repetitions:-->
             <Status Status="36"/>
             <!--Optional:-->

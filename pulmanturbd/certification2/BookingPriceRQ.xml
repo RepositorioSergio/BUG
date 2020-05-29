@@ -24,10 +24,10 @@
         </Source>
       </POS>
       <SailingInfo>
-        <SelectedSailing Start="2020-07-11">
+        <SelectedSailing Start="2020-07-18">
           <CruiseLine ShipCode="MO" VendorCode="PUL"/>
         </SelectedSailing>
-        <InclusivePackageOption CruisePackageCode="MOPN0712" InclusiveIndicator="false"/>
+        <InclusivePackageOption CruisePackageCode="MOPF0756" InclusiveIndicator="false"/>
         <SelectedCategory BerthedCategoryCode="ST" FareCode="BESTRATE" PricedCategoryCode="ST">
           <SelectedCabin CabinNumber="1520" Status="36"/>
         </SelectedCategory>
@@ -36,7 +36,7 @@
         <GuestDetails>
             <GuestDetail>
                 <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="30" ContactType="CNT">
+                <ContactInfo Nationality="ES" Age="30" BirthDate="1990-05-01" ContactType="CNT" Code="10">
                 <PersonName>
                     <GivenName>David</GivenName>
                     <Surname>Sanchez LLorente</Surname>

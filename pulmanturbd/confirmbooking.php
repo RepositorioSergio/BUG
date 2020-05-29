@@ -86,19 +86,19 @@ $raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xml
             </BookingChannel>
         </Source>
     </POS>
-    <AgentInfo Contact="CMOTEST7" ContactID="CMOtest_MI7"/>
+    <AgentInfo Contact="CMOTEST8" ContactID="CMOtest_MI8"/>
     <SailingInfo>
-        <SelectedSailing Start="2020-07-05">
-            <CruiseLine ShipCode="HR"/>
+        <SelectedSailing Start="2020-07-18">
+            <CruiseLine ShipCode="MO"/>
         </SelectedSailing>
-        <InclusivePackageOption CruisePackageCode="HRPT0734"/>
-        <SelectedCategory PricedCategoryCode="A" BerthedCategoryCode="A" FareCode="BESTRATE" DeckNumber="9" DeckName="CUBIERTA 9">
+        <InclusivePackageOption CruisePackageCode="MOPF0756"/>
+        <SelectedCategory PricedCategoryCode="JT" BerthedCategoryCode="JT" FareCode="BESTRATE" DeckNumber="10" DeckName="CUBIERTA 10">
             <!--Optional:-->
             <alp:CabinAttributes>
                 <!--1 to 99 repetitions:-->
                 <alp:CabinAttribute CabinAttributeCode="86"/>
             </alp:CabinAttributes>
-            <SelectedCabin Status="39" CabinNumber="9094" MaxOccupancy="2"/>
+            <SelectedCabin Status="39" CabinNumber="1076" MaxOccupancy="3"/>
         </SelectedCategory>
     </SailingInfo>
     <ReservationInfo>
@@ -141,9 +141,9 @@ $raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xml
             </GuestDetail>
             <GuestDetail>
                 <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="1" BirthDate="2019-05-20" ContactType="CNT" Code="7">
+                <ContactInfo Nationality="ES" Age="4" BirthDate="2016-05-01" ContactType="CNT" Code="8">
                 <PersonName>
-                    <GivenName>Maria</GivenName>
+                    <GivenName>Antonio</GivenName>
                     <Surname>Sanchez LLorente</Surname>
                     <NameTitle>MR</NameTitle>
                 </PersonName>
