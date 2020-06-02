@@ -38,7 +38,7 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
-$access_token = "T1RLAQL5hLWEM0j35ibfKVCFvEseCXKJoxAy8wigVdi3NB6OkGUcCRg9AADA6731oUy1bncdEOnHYVRaTz8jIdqc+5ub7PYzi36iiTrGc7Qdf1d6HFll+tVPq3C6/pH5ZVCGN67yIaUEnN9csalpwT77r3zgzg5Ye+ggnabt94+o9YDigpalGaYbcGsNhrszNZ1YghdROkPSZk5XIqpoayvEU76G9XEcMSHqoqIstmcwafAdFcVoP0CR92jzYyS91UqMj3sqF5V4W4z/Q56td/EQ23oab407P1D7OQBGYxSRhkPCCbi7FcOQyupw";
+$access_token = "T1RLAQKTZ6gz/L9XvyVf3594eqV2cYxNiRDFg+aM/TaC/ik+hv83n/HiAADAMSIaX+ZwEYI5a3KjNzFm+l/bxubRBTCcLV+ol2SRZ/74CB5na3cN0iQ9qF85oUYZ5798sHNLP65AxeynE9Y07bUfEMA3/O7MNmGRCTSipPyLvUT6NZ7O97UIZmdNslCn7EkeE0hqMHR+vxcibsOIh6hGzaAmbQ1n37BXTghtesY8fjBBJKyDWFDCxhrnRgF7Vu7U5fblLk57izQARUU/dof5CzFz3vZAgui2rJ+Fn6InHqumtkMDgFfBBHkcDLp+";
 
 $url = 'https://api-crt.cert.havail.sabre.com/v1/cruise/orders/getPricingDetails';
 
@@ -49,18 +49,18 @@ $raw = '{
   },
   "sailingInfo": {
     "vendorCode": "RC",
-    "voyageId": "QN01200901QN05I658",
+    "voyageId": "MA01201002MA03S135",
     "agencyGroupId": "43562",
     "includeNonRefundablePromos": true,
     "selectedFareCodes": [
       "BVL"
     ],
     "selectedCategory": {
-      "pricedCategoryCode": "RL",
-      "berthedCategoryCode": "RL",
+      "pricedCategoryCode": "GT",
+      "berthedCategoryCode": "GT",
       "groupSeqNo": "1",
-      "cabinNum": "8320",
-      "swapWithCabinNum": "8320"
+      "cabinNum": "8394",
+      "swapWithCabinNum": "8394"
     }
   },
   "reservationInfo": {
@@ -71,9 +71,7 @@ $raw = '{
         "age": "27",
         "personBirthDate": "1992-10-01",
         "loyaltyMembershipId": "MJ735S",
-        "guestRefNum": "839571047",
-        "occupationCode": "",
-        "coupon": "",
+        "guestRefNum": "839571048",
         "guestActionCode": "A",
         "personName": {
           "namePrefix": "MR",
@@ -92,13 +90,13 @@ $raw = '{
         "selectedTransportation": {
           "mode": "O",
           "transportGroupSeqNo": "1",
-          "cityCode": "BTR",
+          "cityCode": "PCV",
           "segmentDirection": "R",
-          "fareCityCode": "BTR",
+          "fareCityCode": "PCV",
           "airAcommodation": {
             "airlineCabinClass": "Y",
-            "departureCity": "BTR",
-            "arrivalCity": "BTR"
+            "departureCity": "PCV",
+            "arrivalCity": "PCV"
           }
         }
       }

@@ -1,0 +1,61 @@
+{
+    "agencyPOS": {
+      "pcc": "BJ1G",
+      "currencyCode": "USD"
+    },
+    "sailingInfo": {
+      "vendorCode": "RC",
+      "voyageId": "SC01200701SC04I497",
+      "agencyGroupId": "43562",
+      "includeNonRefundablePromos": true,
+      "selectedFareCodes": [
+        "G0734489"
+      ],
+      "selectedCategory": {
+        "pricedCategoryCode": "OS",
+        "berthedCategoryCode": "OS",
+        "groupSeqNo": "1",
+        "cabinNum": "15544",
+        "swapWithCabinNum": "15544"
+      }
+    },
+    "reservationInfo": {
+      "guestsDetails": [
+        {
+          "guestNum": "1",
+          "gender": "M",
+          "age": "27",
+          "personBirthDate": "1992-10-01",
+          "loyaltyMembershipId": "MJ735S",
+          "guestRefNum": "839571048",
+          "guestActionCode": "A",
+          "personName": {
+            "namePrefix": "MR",
+            "firstName": "Jhon",
+            "middleName": "William",
+            "lastName": "Doe",
+            "nameSuffix": "Sr."
+          },
+          "nationality": {
+            "countryCode": "US",
+            "stateProvCode": "AL"
+          },
+          "selectedInsurance": {
+            "type": "Y"
+          },
+          "selectedTransportation": {
+            "mode": "O",
+            "transportGroupSeqNo": "1",
+            "cityCode": "SHA",
+            "segmentDirection": "R",
+            "fareCityCode": "SHA",
+            "airAcommodation": {
+              "airlineCabinClass": "Y",
+              "departureCity": "SHA",
+              "arrivalCity": "SHA"
+            }
+          }
+        }
+      ]
+    }
+  }

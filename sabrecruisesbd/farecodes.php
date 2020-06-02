@@ -38,7 +38,7 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
-$access_token = "T1RLAQL1K3msyRKOC0Xks0hS2UiK6itTVBDcLx4NU+Nr95TDLBujyxd8AADALo5g0v4rWM9zkO00jU6QQR7ndhm4u1+4myZNxgtOWXFx9lREWWb9H5MOFsM5W4cdqj5pHctWilHDqqbXChGUbZpzV0/dbhN9ZzoWNqjhKV69r67AIi1rud30M45xhcfcssjyJtmT/rbdTqsPxuDTvOflzXTXgXDCBQlPOzxRlUshaEMgvwNrkITuaMEXbswN8ejoky4ci2kQgfGfJrsM73mUPGqrXRUlo6WK4lAAIGVwUd+9zucw4X6Yce9IlEhO";
+$access_token = "T1RLAQKTZ6gz/L9XvyVf3594eqV2cYxNiRDFg+aM/TaC/ik+hv83n/HiAADAMSIaX+ZwEYI5a3KjNzFm+l/bxubRBTCcLV+ol2SRZ/74CB5na3cN0iQ9qF85oUYZ5798sHNLP65AxeynE9Y07bUfEMA3/O7MNmGRCTSipPyLvUT6NZ7O97UIZmdNslCn7EkeE0hqMHR+vxcibsOIh6hGzaAmbQ1n37BXTghtesY8fjBBJKyDWFDCxhrnRgF7Vu7U5fblLk57izQARUU/dof5CzFz3vZAgui2rJ+Fn6InHqumtkMDgFfBBHkcDLp+";
 $url = 'https://api-crt.cert.havail.sabre.com/v1/cruise/offers/getFareCodes';
 
 $raw = '{
@@ -47,12 +47,12 @@ $raw = '{
       "currencyCode": "USD"
     },
     "sailingInfo": {
-      "vendorCode": "HA",
-      "voyageId": "V045",
+      "vendorCode": "RC",
+      "voyageId": "MA01201002MA03S135",
       "agencyGroupId": "43562",
       "includeNonRefundablePromos": true,
       "fareCodeQualifier": {
-        "cityCode": "YVR",
+        "cityCode": "PCV",
         "fareCodeRulesFlag": true
       }
     },
@@ -61,9 +61,7 @@ $raw = '{
     }
   }';
 
-echo '<xmp>';
-var_dump($raw);
-echo '</xmp>';
+echo '<br/><br/>RAW: ' . $raw;
 
 $headers = array(
     "Accept: application/json",
@@ -89,7 +87,7 @@ $error = curl_error($ch);
 $headers = curl_getinfo($ch);
 curl_close($ch);
 
-echo '<br/>RESPONSE: ' . $response;;
+echo '<br/><br/>RESPONSE: ' . $response;
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.riu.php');
 $config = [

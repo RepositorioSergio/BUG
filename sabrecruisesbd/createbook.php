@@ -38,40 +38,38 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
-$access_token = "T1RLAQJZi0nR/Q9+880Jq2UK1v76ggsAJRCmheZlZJqS6TNvR47IjuUQAADAigAfu4oZE3tYVejeO+/R7aqJUVjlRus3tvBKeFxOiHu/YvNNMlm/10mWVUhLrFowve8+CnRmXV7zcSokvmmlyqd//2OLVlD84CUnn5Sqit/TGgKDOaY0mnv/aM86UPnQ0O5BaQwuiZG6qh6PDBgXi7zcGfN8xEfeXlOex3a2a8o/l+4TgB2RSmQW0/gCRU8+eMHT1KfObFk94Bngt6/b3PqoCU9L2u5AS/N0kXsbp2yRhyvNRqss8AgMfxwoZqSG";
+$access_token = "T1RLAQJFOmb05syXtpjxkLPaNMg8lpHpaxDA81vlNKc/p5iMxCHCeDsaAADARtmnPm+swb77ak1F5zIwqauBJZcR9oJxqiMe+MhmFWhP0yw8wJa5AwZpKMykWyI10aaicWXOzeZLFsdeghlL12saLzu2aSuUzUlyYPPvT1k9H1Im4SLgIp5GyIJLyxr4deYYyrlZr0MSgUiSxmUMPIQ2knWf21YJ8LWodOPKgRN7dCA+JOOgP2rysy2+4k9moOUKDhKMdASaJ+R73tJ2ASnJl3W8hly3V2LxsecvKVk2ajNopzizQlnzvIPlTSF/";
 
 $url = 'https://api-crt.cert.havail.sabre.com/v1/cruise/orders/create';
 
 $raw = '{
     "agencyPOS": {
       "pcc": "IA8H",
-      "branchPcc": "IA8H",
-      "branchPhoneNum": "999999999",
       "currencyCode": "USD"
     },
     "sailingInfo": {
       "vendorCode": "RC",
-      "voyageId": "20200913RD07",
+      "voyageId": "SC01200701SC04I497",
       "agencyGroupId": "43562",
       "selectedFareCodes": {
         "fareCodes": [
-          "BESTFARE"
+          "G0734489"
         ],
-        "cityCode": "DFW"
+        "cityCode": "SHA"
       },
       "selectedCategories": [
         {
-          "pricedCategoryCode": "B1",
-          "berthedCategoryCode": "B1",
+          "pricedCategoryCode": "OS",
+          "berthedCategoryCode": "OS",
           "groupSeqNo": "1",
           "categoryGroupId": "43562",
           "includeNonRefundablePromos": true,
-          "status": "11",
+          "status": "1",
           "selectedCabins": [
             {
-              "cabinNum": "101",
+              "cabinNum": "15544",
               "cabinBedConfigCode": "4",
-              "status": "11"
+              "status": "1"
             }
           ]
         }
@@ -79,8 +77,7 @@ $raw = '{
       "transportationMode": "O"
     },
     "reservationInfo": {
-      "coupon": "CASINO",
-      "selectedDining": "8",
+      "selectedDining": "11",
       "guestDetails": [
         {
           "guestNum": "1",
@@ -90,8 +87,6 @@ $raw = '{
           "email": "johndoe@gmail.com",
           "loyaltyMembershipId": "MJ735S",
           "guestRefNum": "839571047",
-          "occupationCode": "GVT",
-          "coupon": "CASINO",
           "selectedInsurance": "Y",
           "guestActionCode": "A",
           "personName": {
@@ -117,45 +112,29 @@ $raw = '{
           },
           "selectedDiningInfos": [
             {
-              "sitting": "8",
-              "sittingInstance": "MY TIME",
-              "sittingType": "Open",
+              "sitting": "11",
+              "sittingInstance": "05:30 PM",
+              "sittingType": "Traditional",
               "smokingAllowed": false,
               "crossReferencingAllowed": true,
               "familyTimeIndicator": true,
-              "prepaidGratuityRequired": true,
-              "status": "11"
+              "prepaidGratuityRequired": false,
+              "status": "1"
             }
           ],
           "selectedTransportationInfos": [
             {
               "mode": "O",
               "segmentDirection": "R",
-              "fareCityCode": "DFW",
-              "cityCode": "DFW",
+              "fareCityCode": "CLP",
+              "cityCode": "CLP",
               "transportGroupSeqNo": "1",
-              "status": "11",
+              "status": "1",
               "airAccommodation": {
                 "airlineCabinClass": "Y",
-                "departureCity": "DFW",
-                "arrivalCity": "DFW"
+                "departureCity": "CLP",
+                "arrivalCity": "CLP"
               }
-            }
-          ],
-          "selectedSpecialServices": [
-            {
-              "code": "Y",
-              "type": "6",
-              "date": "2019-08-31",
-              "numOfYears": "10"
-            }
-          ],
-          "selectedPackages": [
-            {
-              "code": "NOXFR",
-              "type": "3",
-              "duration": "2",
-              "roomType": "1"
             }
           ],
           "address": {
@@ -180,7 +159,6 @@ $raw = '{
         "H8737TWI"
       ],
       "diningTableInfo": {
-        "diningTableCode": "8",
         "smokingAllowed": false
       },
       "travelAgencyInfo": {
@@ -188,69 +166,11 @@ $raw = '{
         "branchPhoneNum": "1234567890",
         "phoneNumForCredit": "1234567890",
         "email": "johndoe@gmail.com"
-      },
-      "paymentInfo": {
-        "creditCardInfos": [
-          {
-            "cardType": "VI",
-            "cardNum": "4111111111111111",
-            "expireYear": "22",
-            "expireMonth": "03",
-            "CVV": "000",
-            "amount": "500.00",
-            "currencyCode": "USD",
-            "cardHolderInfo": {
-              "name": "John Doe",
-              "addressLine1": "123 Victoria street",
-              "addressLine2": "123 Victoria street",
-              "postalCode": "76890",
-              "cityName": "Dallas",
-              "stateProvCode": "AL",
-              "countryCode": "US"
-            },
-            "guestLevelAllocatePayment": [
-              {
-                "guestNum": "1",
-                "guestRefNum": "839571047",
-                "amount": "1"
-              }
-            ]
-          }
-        ],
-        "checkInfos": [
-          {
-            "checkNum": "839571047",
-            "amount": "500.00",
-            "currencyCode": "USD",
-            "guestLevelAllocatePayment": [
-              {
-                "guestNum": "1",
-                "guestRefNum": "839571047",
-                "amount": "1"
-              }
-            ]
-          }
-        ],
-        "groupDepositInfos": [
-          {
-            "paymentRefNum": "8354103",
-            "paymentDistributionFlag": true,
-            "guestLevelAllocatePayment": [
-              {
-                "guestNum": "1",
-                "guestRefNum": "839571047",
-                "amount": "1"
-              }
-            ]
-          }
-        ]
       }
     }
   }';
 
-echo '<xmp>';
-var_dump($raw);
-echo '</xmp>';
+echo '<br/> RAW: ' . $raw;
 
 $headers = array(
     "Accept: application/json",

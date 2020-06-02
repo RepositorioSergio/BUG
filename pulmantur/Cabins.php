@@ -1,5 +1,6 @@
 <?php
-// Cruises Tourico
+// Cruises Pullmantur
+error_log("\r\nPullmantur Cabins \r\n", 3, "/srv/www/htdocs/error_log");
 $scurrency = strtoupper($currency);
 use Laminas\Db\Adapter\Adapter;
 use Laminas\Db\Adapter\Driver\ResultInterface;
@@ -127,7 +128,14 @@ foreach ($data as $key => $value) {
         break;
     }
 }
-if ($cruise_line_id > 0) {
+
+if ($cruise_line_id != "") {
+    $isstate = $tmpstate === 'true' ? true : false;
+    $issenior = $senior === 'true' ? true : false;
+    $isinterline = $interline === 'true' ? true : false;
+    $ismilitary = $military === 'true' ? true : false;
+    $ispassengernumber = $tmppassengernumber === 'true' ? true : false;
+
     $raw ='<?xml version="1.0" encoding="UTF-8"?>
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://services.rccl.com/Interfaces/CategoryList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha">
     <soapenv:Header/>
@@ -154,6 +162,13 @@ if ($cruise_line_id > 0) {
                 </BookingChannel>
                 </Source>
             </POS>
+                <Guest>
+                    <GuestTransportation Mode="29" Status="36"/>
+                </Guest>
+                <GuestCounts>
+                    <GuestCount Age="30" Quantity="1"/>
+                    <GuestCount Age="5" Quantity="1"/>         
+                </GuestCounts>
                 <SailingInfo>
                     <SelectedSailing ListOfSailingDescriptionCode="' . $listofsailingdescriptioncode . '" Start="' . $start . '" Duration="' . $duration . '" Status="' . $status . '" PortsOfCallQuantity="' . $portsofcallquantity . '">
                         <CruiseLine VendorCode="' . $vendorcode . '" ShipCode="' . $shipcode . '"/>
@@ -190,7 +205,7 @@ if ($cruise_line_id > 0) {
     $error = curl_error($ch);
     $headers = curl_getinfo($ch);
     curl_close($ch);
-    //error_log("\r\n Response - $response \r\n", 3, "/srv/www/htdocs/error_log");
+    error_log("\r\n Response - $response \r\n", 3, "/srv/www/htdocs/error_log");
     
     try {
         $dbPullmantur = new \Laminas\Db\Adapter\Adapter($config);
@@ -233,13 +248,13 @@ if ($cruise_line_id > 0) {
 
                     $CruiseLine = $SelectedSailing->item(0)->getElementsByTagName("CruiseLine");
                     if ($CruiseLine->length > 0) {
-                    $ShipCode = $CruiseLine->item(0)->getAttribute("ShipCode");
-                    $VendorCode = $CruiseLine->item(0)->getAttribute("VendorCode");
+                        $ShipCode = $CruiseLine->item(0)->getAttribute("ShipCode");
+                        $VendorCode = $CruiseLine->item(0)->getAttribute("VendorCode");
                     }
                     $Region = $SelectedSailing->item(0)->getElementsByTagName("Region");
                     if ($Region->length > 0) {
-                    $RegionCode = $Region->item(0)->getAttribute("RegionCode");
-                    $SubRegionCode = $Region->item(0)->getAttribute("SubRegionCode");
+                        $RegionCode = $Region->item(0)->getAttribute("RegionCode");
+                        $SubRegionCode = $Region->item(0)->getAttribute("SubRegionCode");
                     }
                 }
                 $InclusivePackageOption = $SailingInfo->item(0)->getElementsByTagName("InclusivePackageOption");
@@ -313,6 +328,8 @@ if ($cruise_line_id > 0) {
                             $cabins[$cabinscount]['groupcode'] = $GroupCode;
                             $cabins[$cabinscount]['pricedcategorycode'] = $PricedCategoryCode;
                             $cabins[$cabinscount]['status'] = $Status;
+                            error_log("\r\n GroupCode - $GroupCode \r\n", 3, "/srv/www/htdocs/error_log");
+                            error_log("\r\n CategoryLocation - $CategoryLocation \r\n", 3, "/srv/www/htdocs/error_log");
                             
                             $cabincountprice = 0;
                             $PriceInfos = $CategoryOption->item($i)->getElementsByTagName("PriceInfos");
@@ -355,12 +372,17 @@ if ($cruise_line_id > 0) {
                                     $cabins[$cabinscount]['cabin'][$cabincountprice]['price'] = $filter->filter($Amount);
                                     $cabins[$cabinscount]['cabin'][$cabincountprice]['pricenet'] = $NetAmount;
                                     $cabins[$cabinscount]['cabin'][$cabincountprice]['upgradetocategorycode'] = $upgradetocategorycode;
-                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['cabinproductid'] = base64_encode($productid);
+                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['cabinproductid'] = base64_encode($PricedCategoryCode);
                                     $cabins[$cabinscount]['cabin'][$cabincountprice]['nonrefundable'] = $NonRefundableType;
                                     $cabins[$cabinscount]['cabin'][$cabincountprice]['tax'] = $tax;
                                     $cabins[$cabinscount]['cabin'][$cabincountprice]['taxnet'] = $taxnet;
                                     $cabins[$cabinscount]['cabin'][$cabincountprice]['currencynet'] = $scurrency;
                                     $cabins[$cabinscount]['cabin'][$cabincountprice]['currency'] = $scurrency;
+                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['farecode'] = $FareCode;
+                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['categorylocation'] = $CategoryLocation;
+                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['groupcode'] = $GroupCode;
+                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['pricedcategorycode'] = $PricedCategoryCode;
+                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['status'] = $Status;
                                     $cabincountprice ++;
                                     $PriceBreakDowns = $PriceInfo->item(0)->getElementsByTagName("PriceBreakDowns");
                                     if ($PriceBreakDowns->length > 0) {
@@ -413,4 +435,5 @@ if ($cruise_line_id > 0) {
 $dbPullmantur->getDriver()
     ->getConnection()
     ->disconnect();
+    error_log("\r\n EOF CABINS  \r\n", 3, "/srv/www/htdocs/error_log");
 ?>

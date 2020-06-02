@@ -1,0 +1,23 @@
+{
+    "agencyPOS": {
+      "pcc": "BJ1G",
+      "currencyCode": "USD"
+    },
+    "sailingInfo": {
+      "vendorCode": "RC",
+      "voyageId": "SC01200701SC04I497",
+      "agencyGroupId": "43562",
+      "selectedFareCodes": [
+        "G0734489"
+      ],
+      "selectedCategory": {
+        "pricedCategoryCode": "OS",
+        "berthedCategoryCode": "0S",
+        "groupSeqNo": "1",
+        "cabinNum": "15544"
+      }
+    },
+    "reservationInfo": {
+      "guestCount": 1
+    }
+  }

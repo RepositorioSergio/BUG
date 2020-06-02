@@ -1,5 +1,6 @@
 <?php
 // Cruises Pullmantur
+error_log("\r\n COMECOU CABIN \r\n", 3, "/srv/www/htdocs/error_log");
 $scurrency = strtoupper($currency);
 use Laminas\Db\Adapter\Adapter;
 use Laminas\Db\Adapter\Driver\ResultInterface;
@@ -127,14 +128,24 @@ foreach ($data as $key => $value) {
         break;
     }
 }
-
+error_log("\r\n selectedcabin " . print_r($selectedcabin, true) . " \r\n", 3, "/srv/www/htdocs/error_log");
 $categorylocation = $selectedcabin['cabin']['categorylocation'];
 $groupcode = $selectedcabin['cabin']['groupcode'];
 $pricedcategorycode = $selectedcabin['cabin']['pricedcategorycode'];
-$status = $selectedcabin['cabin']['status'];
+$statuscabin = $selectedcabin['cabin']['status'];
 $farecode = $selectedcabin['cabin']['farecode'];
 
-if ($cruise_line_id > 0) {
+/* $regioncode = 'PFIOR';
+$subregioncode = 'PFI';
+$departureportlocationcode = 'TRD';
+$arrivalportlocationcode = 'CPH';
+$start = '2020-07-18';
+$cruisepackagecode = 'MOPF0756';
+$categorylocation = 'Deluxe';
+$pricedcategorycode = 'JT';
+$groupcode = 1; */
+
+if ($cruise_line_id != "") {
     $raw = '<?xml version="1.0" encoding="UTF-8"?>
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cab="http://services.rccl.com/Interfaces/CabinList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
     <soapenv:Header/>
@@ -161,6 +172,20 @@ if ($cruise_line_id > 0) {
                         </BookingChannel>
                     </Source>
                 </POS>
+                <Guest Code="10" Age="30">
+                    <GuestTransportation Mode="29" Status="36">
+                        <GatewayCity LocationCode="C/O"/>
+                    </GuestTransportation>
+                </Guest>
+                <Guest Code="8" Age="4">
+                    <GuestTransportation Mode="29" Status="36">
+                        <GatewayCity LocationCode="C/O"/>
+                    </GuestTransportation>
+                </Guest>
+                <GuestCounts>
+                    <GuestCount Age="30" Quantity="1"/>
+                    <GuestCount Age="4" Quantity="1"/>
+                </GuestCounts>
                 <SailingInfo>
                     <SelectedSailing ListOfSailingDescriptionCode="' . $listofsailingdescriptioncode . '" Start="' . $start . '" Duration="' . $duration . '" Status="' . $status . '" PortsOfCallQuantity="' . $portsofcallquantity . '">
                         <CruiseLine VendorCode="' . $vendorcode . '" ShipCode="' . $shipcode . '"/>
@@ -179,14 +204,14 @@ if ($cruise_line_id > 0) {
                 <SearchQualifiers BerthedCategoryCode="' . $pricedcategorycode . '" FareCode="' . $farecode . '" GroupCode="' . $groupcode . '" CategoryLocation="' . $categorylocation . '">
                     <Status Status="' . $status . '"/>
                 </SearchQualifiers>
-                <SelectedFare GroupCode="' . $status . '"/>
+                <SelectedFare GroupCode="' . $groupcode . '"/>
             </OTA_CruiseCabinAvailRQ>
         </cab:getCabinList>
     </soapenv:Body>
     </soapenv:Envelope>';
-
+    error_log("\r\n RAW - $raw \r\n", 3, "/srv/www/htdocs/error_log");
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/getCabinList');
+    curl_setopt($ch, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/CabinList');
     curl_setopt($ch, CURLOPT_HEADER, false);
     curl_setopt($ch, CURLOPT_VERBOSE, false);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -200,6 +225,7 @@ if ($cruise_line_id > 0) {
     $error = curl_error($ch);
     $headers = curl_getinfo($ch);
     curl_close($ch);
+    error_log("\r\n Response - $response \r\n", 3, "/srv/www/htdocs/error_log");
     
     try {
         $sql = new Sql($dbPullmantur);
@@ -280,7 +306,7 @@ if ($cruise_line_id > 0) {
                             $Remark = "";
                         }
                         $sql = "select image from ships_decksimages where ship_id=$ship_id and categorycode='" . $selectedcabin['code'] . "'";
-                        $statement = $dbTourico->createStatement($sql);
+                        $statement = $dbPullmantur->createStatement($sql);
                         $statement->prepare();
                         $row_settings = $statement->execute();
                         $row_settings->buffer();
@@ -349,6 +375,12 @@ if ($cruise_line_id > 0) {
                         </BookingChannel>
                     </Source>
                 </POS>
+                <Guest Code="10" Age="30"/>
+                <Guest Code="8" Age="4"/>
+                <GuestCounts>
+                    <GuestCount Age="30" Quantity="1"/>
+                    <GuestCount Age="4" Quantity="1"/>
+                </GuestCounts>
                 <SailingInfo>
                     <SelectedSailing ListOfSailingDescriptionCode="' . $listofsailingdescriptioncode . '" Start="' . $start . '" Duration="' . $duration . '" Status="' . $status . '" PortsOfCallQuantity="' . $portsofcallquantity . '">
                         <CruiseLine VendorCode="' . $vendorcode . '" ShipCode="' . $shipcode . '"/>
@@ -360,12 +392,12 @@ if ($cruise_line_id > 0) {
                         <ArrivalPort LocationCode="' . $arrivalportlocationcode . '"/>
                     </SelectedSailing>
                     <!--Optional:-->
-                    <alp:InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
+                    <alp:InclusivePackageOption CruisePackageCode="' . $cruisepackagecode . '" InclusiveIndicator="false"/>
                     <!--Optional:-->
                     <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                    <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A"/>
+                    <SelectedCategory BerthedCategoryCode="' . $pricedcategorycode . '" PricedCategoryCode="' . $pricedcategorycode . '"/>
                 </SailingInfo>
-                <SelectedFare GroupCode="13"/>
+                <SelectedFare GroupCode="' . $pricedcategorycode . '"/>
                 <TPA_ReservationId Type="14" ID="0"/>
             </OTA_CruiseDiningAvailRQ>
         </din:getDiningList>
@@ -373,20 +405,21 @@ if ($cruise_line_id > 0) {
     </soapenv:Envelope>';
 
     $ch2 = curl_init();
-    curl_setopt($ch2, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/getDiningList');
+    curl_setopt($ch2, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/DiningList');
     curl_setopt($ch2, CURLOPT_HEADER, false);
     curl_setopt($ch2, CURLOPT_VERBOSE, false);
     curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch2, CURLOPT_POST, true);
     curl_setopt($ch2, CURLOPT_POSTFIELDS, $raw2);
     curl_setopt($ch2, CURLOPT_USERPWD, $cruisespullmanturusername . ":" . $cruisespullmanturpassword);
-    curl_setopt($ch2, CURLOPT_CONNECTTIMEOUT, 65000);
+    curl_setopt($ch2, CURLOPT_CONNECTTIMEOUT, $cruisespullmanturConnetionTimeout);
     curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch2, CURLOPT_ENCODING, 'gzip');
     $response2 = curl_exec($ch2);
     $error = curl_error($ch2);
     $headers = curl_getinfo($ch2);
     curl_close($ch2);
+    error_log("\r\n Response Dining - $response2 \r\n", 3, "/srv/www/htdocs/error_log");
 
     $inputDoc = new DOMDocument();
     $inputDoc->loadXML($response2);
@@ -453,4 +486,5 @@ if ($cruise_line_id > 0) {
 $dbPullmantur->getDriver()
     ->getConnection()
     ->disconnect();
+    error_log("\r\n EOF CABIN \r\n", 3, "/srv/www/htdocs/error_log");
 ?>

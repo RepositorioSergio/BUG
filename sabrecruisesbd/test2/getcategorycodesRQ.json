@@ -1,0 +1,23 @@
+{
+    "agencyPOS": {
+      "pcc": "BJ1G",
+      "currencyCode": "USD"
+    },
+    "sailingInfo": {
+      "vendorCode": "RC",
+      "voyageId": "SC01200701SC04I497",
+      "includeNonRefundablePromos": true,
+      "categoryCodeQualifier": {
+        "categoryMediaFlag": true,
+        "selectedFareCodes": {
+          "fareCodes": [
+            "BVL"
+          ],
+          "cityCode": "SHA"
+        }
+      }
+    },
+    "reservationInfo": {
+      "guestCount": 1
+    }
+  }

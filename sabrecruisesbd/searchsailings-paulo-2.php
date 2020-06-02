@@ -46,6 +46,7 @@ $client_id = 'V1:43r2fu5rh3m4eh9l:DEVCENTER:EXT';
 $client_secret = 'Sc6P5vpK';
 $secret = base64_encode($client_secret);
 $cred = base64_encode(base64_encode($client_id) . ":" . $secret);
+echo "<br/>CREDENTIALS " . $cred;
 
 $ch = curl_init("https://api-crt.cert.havail.sabre.com/v2/auth/token");
 $vars = "grant_type=client_credentials";
@@ -74,15 +75,19 @@ $raw = '{
       "pcc": "BJ1G",
       "currencyCode": "USD"
     },
-    "sailingQualifier": {
-      "startDate": "2020-10-01",
-      "endDate": "2020-10-30",
-      "minDuration": 1,
-      "maxDuration": 10
-    }
+    "itineraryQualifier": {
+        "sailingMediaFlag": true,
+        "voyagePrefs": [
+          {
+            "vendorCode": "RC"
+          }
+        ]
+      }
   }';
 
-  echo "<br/><br/>RAW: " . $raw;
+echo '<xmp>';
+var_dump($raw);
+echo '</xmp>';
 
 
 $headers = array(
@@ -110,7 +115,7 @@ $error = curl_error($ch);
 $headers = curl_getinfo($ch);
 curl_close($ch);
 
-echo "<br/><br/>RESPONSE: " . $response;
+echo "RESPONSE: " . $response;
 die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.sabre.php');
 $config = [

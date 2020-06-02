@@ -98,17 +98,17 @@ $raw ='<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="ht
                <GuestCount Age="4" Quantity="1"/>      
             </GuestCounts>
             <SailingInfo>
-               <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-18" Duration="P7N" Status="36" PortsOfCallQuantity="7">
-                  <CruiseLine VendorCode="PUL" ShipCode="MO"/>
+               <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-09-06" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                  <CruiseLine VendorCode="PUL" ShipCode="HR"/>
                   <!--Optional:-->
-                  <Region RegionCode="PFIOR" SubRegionCode="PFI"/>
+                  <Region RegionCode="PIGCU" SubRegionCode="PFP"/>
                   <!--Optional:-->
-                  <DeparturePort LocationCode="TRD"/>
+                  <DeparturePort LocationCode="ATH"/>
                   <!--Optional:-->
-                  <ArrivalPort LocationCode="CPH"/>
+                  <ArrivalPort LocationCode="ATH"/>
                </SelectedSailing>
                <!--Optional:-->
-               <InclusivePackageOption CruisePackageCode="MOPF0756" InclusiveIndicator="false"/>
+               <InclusivePackageOption CruisePackageCode="HRPD0750" InclusiveIndicator="false"/>
                <!--Optional:-->
                <Currency CurrencyCode="USD" DecimalPlaces="2"/>
             </SailingInfo>

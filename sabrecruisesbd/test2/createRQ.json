@@ -1,0 +1,127 @@
+{
+    "agencyPOS": {
+      "pcc": "IA8H",
+      "currencyCode": "USD"
+    },
+    "sailingInfo": {
+      "vendorCode": "RC",
+      "voyageId": "SC01200701SC04I497",
+      "agencyGroupId": "43562",
+      "selectedFareCodes": {
+        "fareCodes": [
+          "G0734489"
+        ],
+        "cityCode": "SHA"
+      },
+      "selectedCategories": [
+        {
+          "pricedCategoryCode": "OS",
+          "berthedCategoryCode": "OS",
+          "groupSeqNo": "1",
+          "categoryGroupId": "43562",
+          "includeNonRefundablePromos": true,
+          "status": "1",
+          "selectedCabins": [
+            {
+              "cabinNum": "15544",
+              "cabinBedConfigCode": "4",
+              "status": "1"
+            }
+          ]
+        }
+      ],
+      "transportationMode": "O"
+    },
+    "reservationInfo": {
+      "selectedDining": "11",
+      "guestDetails": [
+        {
+          "guestNum": "1",
+          "gender": "M",
+          "age": "27",
+          "personBirthDate": "1992-10-01",
+          "email": "johndoe@gmail.com",
+          "loyaltyMembershipId": "MJ735S",
+          "guestRefNum": "839571047",
+          "selectedInsurance": "Y",
+          "guestActionCode": "A",
+          "personName": {
+            "namePrefix": "MR",
+            "firstName": "Jhon",
+            "middleName": "William",
+            "lastName": "Doe",
+            "nameSuffix": "Sr."
+          },
+          "contactInfo": {
+            "guestContact": {
+              "type": "7",
+              "number": "999999999"
+            },
+            "emergencyContact": {
+              "name": "John Doe",
+              "number": "999999999"
+            }
+          },
+          "nationality": {
+            "countryCode": "US",
+            "stateProvCode": "AL"
+          },
+          "selectedDiningInfos": [
+            {
+              "sitting": "11",
+              "sittingInstance": "05:30 PM",
+              "sittingType": "Traditional",
+              "smokingAllowed": false,
+              "crossReferencingAllowed": true,
+              "familyTimeIndicator": true,
+              "prepaidGratuityRequired": false,
+              "status": "1"
+            }
+          ],
+          "selectedTransportationInfos": [
+            {
+              "mode": "O",
+              "segmentDirection": "R",
+              "fareCityCode": "CLP",
+              "cityCode": "CLP",
+              "transportGroupSeqNo": "1",
+              "status": "1",
+              "airAccommodation": {
+                "airlineCabinClass": "Y",
+                "departureCity": "CLP",
+                "arrivalCity": "CLP"
+              }
+            }
+          ],
+          "address": {
+            "addressLine1": "123 Victoria street",
+            "addressLine2": "123 Victoria street",
+            "postalCode": "76890",
+            "cityName": "Dallas",
+            "stateProvCode": "AL",
+            "countryCode": "US"
+          },
+          "immigrationDocument": {
+            "placeOfBithCountryCode": "US",
+            "documentIssueCountryCode": "US",
+            "documentNum": "J12H272",
+            "issueDate": "2010-12-01",
+            "expireDate": "2030-12-01",
+            "socialSecurityNum": "23473246"
+          }
+        }
+      ],
+      "travelWithResId": [
+        "H8737TWI"
+      ],
+      "diningTableInfo": {
+        "smokingAllowed": false
+      },
+      "travelAgencyInfo": {
+        "agentName": "John Doe",
+        "branchPhoneNum": "1234567890",
+        "phoneNumForCredit": "1234567890",
+        "email": "johndoe@gmail.com"
+      }
+    }
+  }

@@ -1,6 +1,6 @@
 <?php
 // Cruises PULLMANTUR
-error_log("\r\n COMECOU PULLMANTUR  \r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\nStart Pullmantur\r\n", 3, "/srv/www/htdocs/error_log");
 $scurrency = strtoupper($currency);
 use Laminas\Db\Adapter\Adapter;
 use Laminas\Db\Adapter\Driver\ResultInterface;
@@ -151,7 +151,7 @@ if ($length == "all") {
         $MaxCruiseLength = 9999;
     }
     $MinDuration = 'P' . $MinCruiseLength . 'N';
-    $MaxDuration = 'P' . $MaxCruiseLength . 'N'; 
+    $MaxDuration = 'P' . $MaxCruiseLength . 'N';
 }
 if ($cruiseship != "" and $cruiseship != "all") {
     $sql = "select cruises_xml08 from ships where seo='" . $cruiseship . "'";
@@ -184,7 +184,7 @@ if ($departureport != "" and $departureport != "all") {
     $PortID = 0;
 }
 if ($cruisedestinationid > 0) {
-
+    
     $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sail="http://services.rccl.com/Interfaces/SailingList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
     <soapenv:Header/>
     <soapenv:Body>
@@ -217,15 +217,10 @@ if ($cruisedestinationid > 0) {
                 <alp:GuestCount Age="5" Quantity="1"/>
             </alp:GuestCounts>
             <alp:SailingDateRange Start="' . $departureFrom . '" End="' . $departureTo . '" ';
-            if ($MinDuration !== "") {
-                $raw .= 'MinDuration="' . $MinDuration . '" MaxDuration="' . $MaxDuration . '"';
-            }
-        $raw .= '/>
-        </alp:OTA_CruiseSailAvailRQ>
-    </sail:getSailingList>
-    </soapenv:Body>
-    </soapenv:Envelope>';
-
+    if ($MinDuration !== "") {
+        $raw .= 'MinDuration="' . $MinDuration . '" MaxDuration="' . $MaxDuration . '"';
+    }
+    $raw .= '/></alp:OTA_CruiseSailAvailRQ></sail:getSailingList></soapenv:Body></soapenv:Envelope>';
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/SailingList');
     curl_setopt($ch, CURLOPT_HEADER, false);
@@ -241,8 +236,7 @@ if ($cruisedestinationid > 0) {
     $error = curl_error($ch);
     $headers = curl_getinfo($ch);
     curl_close($ch);
-    error_log("\r\n Response - $xmlresult \r\n", 3, "/srv/www/htdocs/error_log");
-
+    error_log("\r\nPullmantur Response - $xmlresult\r\n", 3, "/srv/www/htdocs/error_log");
     try {
         $sql = new Sql($dbPullmantur);
         $insert = $sql->insert();
@@ -275,7 +269,7 @@ if ($cruisedestinationid > 0) {
             if ($SailingOptions->length > 0) {
                 $SailingOption = $SailingOptions->item(0)->getElementsByTagName("SailingOption");
                 if ($SailingOption->length > 0) {
-                    for ($i=0; $i < $SailingOption->length; $i++) { 
+                    for ($i = 0; $i < $SailingOption->length; $i ++) {
                         $SelectedSailing = $SailingOption->item($i)->getElementsByTagName("SelectedSailing");
                         if ($SelectedSailing->length > 0) {
                             $ListOfSailingDescriptionCode = $SelectedSailing->item(0)->getAttribute("ListOfSailingDescriptionCode");
@@ -283,7 +277,7 @@ if ($cruisedestinationid > 0) {
                             $PortsOfCallQuantity = $SelectedSailing->item(0)->getAttribute("PortsOfCallQuantity");
                             $Start = $SelectedSailing->item(0)->getAttribute("Start");
                             $Status = $SelectedSailing->item(0)->getAttribute("Status");
-
+                            
                             $CruiseLine = $SelectedSailing->item(0)->getElementsByTagName("CruiseLine");
                             if ($CruiseLine->length > 0) {
                                 $ShipCode = $CruiseLine->item(0)->getAttribute("ShipCode");
@@ -308,8 +302,7 @@ if ($cruisedestinationid > 0) {
                             $CruisePackageCode = $InclusivePackageOption->item(0)->getAttribute("CruisePackageCode");
                             $InclusiveIndicator = $InclusivePackageOption->item(0)->getAttribute("InclusiveIndicator");
                         }
-                        
-                        $sql = "select name, logo, seo from cruises_lines where cruises_xml10='" . $ShipCode . "'";
+                        $sql = "select name, logo, seo from cruises_lines where cruises_xml10='" . $VendorCode . "'";
                         $statement = $dbPullmantur->createStatement($sql);
                         try {
                             $statement->prepare();
@@ -410,8 +403,8 @@ if ($cruisedestinationid > 0) {
                         $cruisesfrom_publish = 0;
                         
                         // Sailling Dates
-                        $duration = 0; 
-                        $raw2 ='<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://services.rccl.com/Interfaces/CategoryList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha">
+                        $duration = 0;
+                        $raw2 = '<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://services.rccl.com/Interfaces/CategoryList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha">
                         <soapenv:Header/>
                         <soapenv:Body>
                         <cat:getCategoryList>
@@ -463,7 +456,7 @@ if ($cruisedestinationid > 0) {
                             </cat:getCategoryList>
                         </soapenv:Body>
                         </soapenv:Envelope>';
-
+                        
                         $ch = curl_init();
                         curl_setopt($ch, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/CategoryList');
                         curl_setopt($ch, CURLOPT_HEADER, false);
@@ -480,7 +473,6 @@ if ($cruisedestinationid > 0) {
                         $headers = curl_getinfo($ch);
                         curl_close($ch);
                         //error_log("\r\n Response2 - $response2 \r\n", 3, "/srv/www/htdocs/error_log");
-
                         $inputDoc = new DOMDocument();
                         $inputDoc->loadXML($response2);
                         $Envelope = $inputDoc->getElementsByTagName("Envelope");
@@ -495,7 +487,7 @@ if ($cruisedestinationid > 0) {
                                     if ($SelectedSailing->length > 0) {
                                         $ListOfSailingDescriptionCode2 = $SelectedSailing->item(0)->getAttribute("ListOfSailingDescriptionCode");
                                         $Duration2 = $SelectedSailing->item(0)->getAttribute("Duration");
-
+                                        
                                         $CruiseLine = $SelectedSailing->item(0)->getElementsByTagName("CruiseLine");
                                         if ($CruiseLine->length > 0) {
                                             $ShipCode2 = $CruiseLine->item(0)->getAttribute("ShipCode");
@@ -513,14 +505,14 @@ if ($cruisedestinationid > 0) {
                                         $InclusiveIndicator2 = $InclusivePackageOption->item(0)->getAttribute("InclusiveIndicator");
                                     }
                                 }
-
+                                
                                 $FareOption = $OTA_CruiseCategoryAvailRS->item(0)->getElementsByTagName("FareOption");
                                 if ($FareOption->length > 0) {
                                     $CategoryOptions = $FareOption->item(0)->getElementsByTagName("CategoryOptions");
                                     if ($CategoryOptions->length > 0) {
                                         $CategoryOption = $CategoryOptions->item(0)->getElementsByTagName("CategoryOption");
                                         if ($CategoryOption->length > 0) {
-                                            for ($x=0; $x < $CategoryOption->length; $x++) { 
+                                            for ($x = 0; $x < $CategoryOption->length; $x ++) {
                                                 $AvailableGroupAllocationQty = $CategoryOption->item($x)->getAttribute("AvailableGroupAllocationQty");
                                                 $AvailableRegularCabins = $CategoryOption->item($x)->getAttribute("AvailableRegularCabins");
                                                 $CategoryLocation = $CategoryOption->item($x)->getAttribute("CategoryLocation");
@@ -528,7 +520,7 @@ if ($cruisedestinationid > 0) {
                                                 $ListOfCategoryQualifierCodes = $CategoryOption->item($x)->getAttribute("ListOfCategoryQualifierCodes");
                                                 $PricedCategoryCode = $CategoryOption->item($x)->getAttribute("PricedCategoryCode");
                                                 $Status = $CategoryOption->item($x)->getAttribute("Status");
-
+                                                
                                                 $PriceInfos = $CategoryOption->item($x)->getElementsByTagName("PriceInfos");
                                                 if ($PriceInfos->length > 0) {
                                                     $PriceInfo = $PriceInfos->item(0)->getElementsByTagName("PriceInfo");
@@ -543,7 +535,7 @@ if ($cruisedestinationid > 0) {
                                                         $PromotionDescription = $PriceInfo->item(0)->getAttribute("PromotionDescription");
                                                         $PromotionTypes = $PriceInfo->item(0)->getAttribute("PromotionTypes");
                                                         $FareCode = $PriceInfo->item(0)->getAttribute("FareCode");
-
+                                                        
                                                         $PriceDescription = $PriceInfo->item(0)->getElementsByTagName("PriceDescription");
                                                         if ($PriceDescription->length > 0) {
                                                             $PriceDescription = $PriceDescription->item(0)->nodeValue;
@@ -552,265 +544,265 @@ if ($cruisedestinationid > 0) {
                                                         }
                                                         $PriceBreakDowns = $PriceInfo->item(0)->getElementsByTagName("PriceBreakDowns");
                                                         if ($PriceBreakDowns->length > 0) {
-                                                        $Occupancy = $PriceBreakDowns->item(0)->getAttribute("Occupancy");
-                                                        $PriceBreakDownsStatus = $PriceBreakDowns->item(0)->getAttribute("Status");
-                                                        $PriceBreakDown = $PriceBreakDowns->item(0)->getElementsByTagName("PriceBreakDown");
-                                                        if ($PriceBreakDown->length > 0) {
-                                                            $AgeQualifyingCode = $PriceBreakDown->item(0)->getAttribute("AgeQualifyingCode");
-                                                            $PriceBreakDownAmount = $PriceBreakDown->item(0)->getAttribute("Amount");
-                                                            $NCCFAmount = $PriceBreakDown->item(0)->getAttribute("NCCFAmount");
-                                                            $PriceBreakDownNetAmount = $PriceBreakDown->item(0)->getAttribute("NetAmount");
-                                                            $RPH = $PriceBreakDown->item(0)->getAttribute("RPH");
+                                                            $Occupancy = $PriceBreakDowns->item(0)->getAttribute("Occupancy");
+                                                            $PriceBreakDownsStatus = $PriceBreakDowns->item(0)->getAttribute("Status");
+                                                            $PriceBreakDown = $PriceBreakDowns->item(0)->getElementsByTagName("PriceBreakDown");
+                                                            if ($PriceBreakDown->length > 0) {
+                                                                $AgeQualifyingCode = $PriceBreakDown->item(0)->getAttribute("AgeQualifyingCode");
+                                                                $PriceBreakDownAmount = $PriceBreakDown->item(0)->getAttribute("Amount");
+                                                                $NCCFAmount = $PriceBreakDown->item(0)->getAttribute("NCCFAmount");
+                                                                $PriceBreakDownNetAmount = $PriceBreakDown->item(0)->getAttribute("NetAmount");
+                                                                $RPH = $PriceBreakDown->item(0)->getAttribute("RPH");
+                                                            }
                                                         }
                                                     }
-                                                } 
-                                                
-                                                if ($CategoryLocation === "Inside") {
-                                                    $IN_PricePublish = $Amount; // Displays the Inside cabin publish price.
-                                                    $IN_Price = $Amount; // Displays the Inside cabin price.
-                                                } elseif ($CategoryLocation === "Outside") {
-                                                    $ST_PricePublish = $Amount; // Displays the suite cabin publish price.
-                                                    $ST_Price = $Amount; // Displays the suite cabin price.
-                                                } elseif ($CategoryLocation === "Balcony") {
-                                                    $BL_PricePublish = $Amount; // Displays the balcony cabin publish price.
-                                                    $BL_Price = $Amount; // Displays the balcony cabin price.
-                                                } elseif ($CategoryLocation === "Deluxe") {
-                                                    $OV_PricePublish = $Amount; // Displays the ocean view cabin publish price. 
-                                                    $OV_Price = $Amount; // Displays the ocean view cabin publish price. 
-                                                }                   
-                                                if ($cruisespullmanturmarkup > 0) {
-                                                    if ((int) $IN_Price > 0) {
-                                                        $IN_Price = number_format($IN_Price + (($IN_Price * $cruisespullmanturmarkup) / 100), 2, '.', '');
+                                                    
+                                                    if ($CategoryLocation === "Inside") {
+                                                        $IN_PricePublish = $Amount; // Displays the Inside cabin publish price.
+                                                        $IN_Price = $Amount; // Displays the Inside cabin price.
+                                                    } elseif ($CategoryLocation === "Outside") {
+                                                        $ST_PricePublish = $Amount; // Displays the suite cabin publish price.
+                                                        $ST_Price = $Amount; // Displays the suite cabin price.
+                                                    } elseif ($CategoryLocation === "Balcony") {
+                                                        $BL_PricePublish = $Amount; // Displays the balcony cabin publish price.
+                                                        $BL_Price = $Amount; // Displays the balcony cabin price.
+                                                    } elseif ($CategoryLocation === "Deluxe") {
+                                                        $OV_PricePublish = $Amount; // Displays the ocean view cabin publish price.
+                                                        $OV_Price = $Amount; // Displays the ocean view cabin publish price.
                                                     }
-                                                    if ((int) $ST_Price > 0) {
-                                                        $ST_Price = number_format($ST_Price + (($ST_Price * $cruisespullmanturmarkup) / 100), 2, '.', '');
-                                                    }
-                                                    if ((int) $BL_Price > 0) {
-                                                        $BL_Price = number_format($BL_Price + (($BL_Price * $cruisespullmanturmarkup) / 100), 2, '.', '');
-                                                    }
-                                                    if ((int) $OV_Price > 0) {
-                                                        $OV_Price = number_format($OV_Price + (($OV_Price * $cruisespullmanturmarkup) / 100), 2, '.', '');
-                                                    }
-                                                }
-                                                if ($agent_markup > 0) {
-                                                    if ((int) $IN_Price > 0) {
-                                                        $IN_Price = number_format($IN_Price + (($IN_Price * $agent_markup) / 100), 2, '.', '');
-                                                    }
-                                                    if ((int) $ST_Price > 0) {
-                                                        $ST_Price = number_format($ST_Price + (($ST_Price * $agent_markup) / 100), 2, '.', '');
-                                                    }
-                                                    if ((int) $BL_Price > 0) {
-                                                        $BL_Price = number_format($BL_Price + (($BL_Price * $agent_markup) / 100), 2, '.', '');
-                                                    }
-                                                    if ((int) $OV_Price > 0) {
-                                                        $OV_Price = number_format($OV_Price + (($OV_Price * $agent_markup) / 100), 2, '.', '');
-                                                    }
-                                                }
-                                                if ($cruisesfrom == 0) {
-                                                    $CheapestPricePublish = 0;
-                                                    if ($IN_PricePublish > 0) {
-                                                        $CheapestPricePublish = $IN_PricePublish;
-                                                    }
-                                                    if ($ST_PricePublish > 0) {
-                                                        if ($CheapestPricePublish > $ST_PricePublish or $CheapestPricePublish == 0) {
-                                                            $CheapestPricePublish = $ST_PricePublish;
+                                                    if ($cruisespullmanturmarkup > 0) {
+                                                        if ((int) $IN_Price > 0) {
+                                                            $IN_Price = number_format($IN_Price + (($IN_Price * $cruisespullmanturmarkup) / 100), 2, '.', '');
+                                                        }
+                                                        if ((int) $ST_Price > 0) {
+                                                            $ST_Price = number_format($ST_Price + (($ST_Price * $cruisespullmanturmarkup) / 100), 2, '.', '');
+                                                        }
+                                                        if ((int) $BL_Price > 0) {
+                                                            $BL_Price = number_format($BL_Price + (($BL_Price * $cruisespullmanturmarkup) / 100), 2, '.', '');
+                                                        }
+                                                        if ((int) $OV_Price > 0) {
+                                                            $OV_Price = number_format($OV_Price + (($OV_Price * $cruisespullmanturmarkup) / 100), 2, '.', '');
                                                         }
                                                     }
-                                                    if ($BL_PricePublish > 0) {
-                                                        if ($CheapestPricePublish > $BL_PricePublish or $CheapestPricePublish == 0) {
-                                                            $CheapestPricePublish = $BL_PricePublish;
+                                                    if ($agent_markup > 0) {
+                                                        if ((int) $IN_Price > 0) {
+                                                            $IN_Price = number_format($IN_Price + (($IN_Price * $agent_markup) / 100), 2, '.', '');
+                                                        }
+                                                        if ((int) $ST_Price > 0) {
+                                                            $ST_Price = number_format($ST_Price + (($ST_Price * $agent_markup) / 100), 2, '.', '');
+                                                        }
+                                                        if ((int) $BL_Price > 0) {
+                                                            $BL_Price = number_format($BL_Price + (($BL_Price * $agent_markup) / 100), 2, '.', '');
+                                                        }
+                                                        if ((int) $OV_Price > 0) {
+                                                            $OV_Price = number_format($OV_Price + (($OV_Price * $agent_markup) / 100), 2, '.', '');
                                                         }
                                                     }
-                                                    if ($OV_PricePublish > 0) {
-                                                        if ($CheapestPricePublish > $OV_PricePublish or $CheapestPricePublish == 0) {
-                                                            $CheapestPricePublish = $OV_PricePublish;
+                                                    if ($cruisesfrom == 0) {
+                                                        $CheapestPricePublish = 0;
+                                                        if ($IN_PricePublish > 0) {
+                                                            $CheapestPricePublish = $IN_PricePublish;
+                                                        }
+                                                        if ($ST_PricePublish > 0) {
+                                                            if ($CheapestPricePublish > $ST_PricePublish or $CheapestPricePublish == 0) {
+                                                                $CheapestPricePublish = $ST_PricePublish;
+                                                            }
+                                                        }
+                                                        if ($BL_PricePublish > 0) {
+                                                            if ($CheapestPricePublish > $BL_PricePublish or $CheapestPricePublish == 0) {
+                                                                $CheapestPricePublish = $BL_PricePublish;
+                                                            }
+                                                        }
+                                                        if ($OV_PricePublish > 0) {
+                                                            if ($CheapestPricePublish > $OV_PricePublish or $CheapestPricePublish == 0) {
+                                                                $CheapestPricePublish = $OV_PricePublish;
+                                                            }
+                                                        }
+                                                        $cruisesfrom_publish = $CheapestPricePublish;
+                                                        $CheapestPrice = 0;
+                                                        if ($IN_Price > 0) {
+                                                            $CheapestPrice = $IN_Price;
+                                                        }
+                                                        if ($ST_Price > 0) {
+                                                            if ($CheapestPrice > $ST_Price or $CheapestPrice == 0) {
+                                                                $CheapestPrice = $ST_Price;
+                                                            }
+                                                        }
+                                                        if ($BL_Price > 0) {
+                                                            if ($CheapestPrice > $BL_Price or $CheapestPrice == 0) {
+                                                                $CheapestPrice = $BL_Price;
+                                                            }
+                                                        }
+                                                        if ($OV_Price > 0) {
+                                                            if ($CheapestPrice > $OV_Price or $CheapestPrice == 0) {
+                                                                $CheapestPrice = $OV_Price;
+                                                            }
+                                                        }
+                                                        $cruisesfrom = $CheapestPrice;
+                                                    } else {
+                                                        if ($IN_PricePublish > 0) {
+                                                            if ($IN_PricePublish < $cruisesfrom) {
+                                                                $cruisesfrom_publish = $IN_PricePublish;
+                                                            }
+                                                        }
+                                                        if ($ST_PricePublish > 0) {
+                                                            if ($ST_PricePublish < $cruisesfrom) {
+                                                                $cruisesfrom_publish = $ST_PricePublish;
+                                                            }
+                                                        }
+                                                        if ($BL_PricePublish > 0) {
+                                                            if ($BL_PricePublish < $cruisesfrom) {
+                                                                $cruisesfrom_publish = $BL_PricePublish;
+                                                            }
+                                                        }
+                                                        if ($OV_PricePublish > 0) {
+                                                            if ($OV_PricePublish < $cruisesfrom_publish) {
+                                                                $cruisesfrom_publish = $OV_PricePublish;
+                                                            }
+                                                        }
+                                                        if ($IN_Price > 0) {
+                                                            if ($IN_Price < $cruisesfrom) {
+                                                                $cruisesfrom = $IN_Price;
+                                                            }
+                                                        }
+                                                        if ($ST_Price > 0) {
+                                                            if ($ST_Price < $cruisesfrom) {
+                                                                $cruisesfrom = $ST_Price;
+                                                            }
+                                                        }
+                                                        if ($BL_Price > 0) {
+                                                            if ($BL_Price < $cruisesfrom) {
+                                                                $cruisesfrom = $BL_Price;
+                                                            }
+                                                        }
+                                                        if ($OV_Price > 0) {
+                                                            if ($OV_Price < $cruisesfrom) {
+                                                                $cruisesfrom = $OV_Price;
+                                                            }
                                                         }
                                                     }
-                                                    $cruisesfrom_publish = $CheapestPricePublish;
-                                                    $CheapestPrice = 0;
-                                                    if ($IN_Price > 0) {
-                                                        $CheapestPrice = $IN_Price;
-                                                    }
-                                                    if ($ST_Price > 0) {
-                                                        if ($CheapestPrice > $ST_Price or $CheapestPrice == 0) {
-                                                            $CheapestPrice = $ST_Price;
+                                                    $days = str_replace('P', '', $Duration);
+                                                    $days = str_replace('N', '', $days);
+                                                    $aditionaldays = '+' . $days . ' days';
+                                                    $date = date('Y-m-d', strtotime($aditionaldays, strtotime($Start)));
+                                                    $from_date = explode("-", $Start);
+                                                    $to_date = explode("-", $date);
+                                                    $cruises[$counter]['product_id'][$x] = md5(uniqid($session_id, true)) . "-" . $counter . "-" . $x;
+                                                    $cruises[$counter]['sailingid'][$x] = $CruisePackageCode;
+                                                    $cruises[$counter]['departure'][$x] = mktime(0, 0, 0, $from_date[1], $from_date[2], $from_date[0]);
+                                                    $cruises[$counter]['arrival'][$x] = mktime(0, 0, 0, $to_date[1], $to_date[2], $to_date[0]);
+                                                    // $cruises[$counter]['Incentive'][$i] = $Incentives;
+                                                    // $cruises[$counter]['Incentives'][$i] = $yesIncentives;
+                                                    if ($IN_Price == 0 or $IN_Price == - 1) {
+                                                        if ($IN_Price > 0) {
+                                                            if ($currency != $scurrency) {
+                                                                $IN_PricePublish = $CurrencyConverter->convert($IN_PricePublish, $currency, $scurrency);
+                                                                $IN_Price = $CurrencyConverter->convert($IN_Price, $currency, $scurrency);
+                                                            }
                                                         }
-                                                    }
-                                                    if ($BL_Price > 0) {
-                                                        if ($CheapestPrice > $BL_Price or $CheapestPrice == 0) {
-                                                            $CheapestPrice = $BL_Price;
+                                                        $cruises[$counter]['IN_PricePublish'][$x] = $translator->translate("N/A");
+                                                        $cruises[$counter]["IN_PricePublish_plain"][$x] = 0;
+                                                        $cruises[$counter]['insidecabin'][$x] = $translator->translate("N/A");
+                                                        $cruises[$counter]["insidecabin_plain"][$x] = 0;
+                                                        $cruises[$counter]["IN_Price_plain"][$x] = 0;
+                                                    } else {
+                                                        if ($IN_Price > 0) {
+                                                            if ($currency != $scurrency) {
+                                                                $IN_PricePublish = $CurrencyConverter->convert($IN_PricePublish, $currency, $scurrency);
+                                                                $IN_Price = $CurrencyConverter->convert($IN_Price, $currency, $scurrency);
+                                                            }
                                                         }
+                                                        $cruises[$counter]['IN_PricePublish'][$x] = $filter->filter($IN_PricePublish);
+                                                        $cruises[$counter]["IN_PricePublish_plain"][$x] = $IN_PricePublish;
+                                                        $cruises[$counter]['insidecabin'][$x] = $filter->filter($IN_Price);
+                                                        $cruises[$counter]['insidecabin_plain'][$x] = $IN_Price;
+                                                        $cruises[$counter]["IN_Price_plain"][$x] = $IN_Price;
                                                     }
-                                                    if ($OV_Price > 0) {
-                                                        if ($CheapestPrice > $OV_Price or $CheapestPrice == 0) {
-                                                            $CheapestPrice = $OV_Price;
+                                                    if ($OV_Price == 0 or $OV_Price == - 1) {
+                                                        if ($OV_Price > 0) {
+                                                            if ($currency != $scurrency) {
+                                                                $OV_PricePublish = $CurrencyConverter->convert($OV_PricePublish, $currency, $scurrency);
+                                                                $OV_Price = $CurrencyConverter->convert($OV_Price, $currency, $scurrency);
+                                                            }
                                                         }
-                                                    }
-                                                    $cruisesfrom = $CheapestPrice;
-                                                } else {
-                                                    if ($IN_PricePublish > 0) {
-                                                        if ($IN_PricePublish < $cruisesfrom) {
-                                                            $cruisesfrom_publish = $IN_PricePublish;
+                                                        $cruises[$counter]['OV_PricePublish'][$x] = $translator->translate("N/A");
+                                                        $cruises[$counter]["OV_PricePublish_plain"][$x] = $OV_PricePublish;
+                                                        $cruises[$counter]['oceanview'][$x] = $translator->translate("N/A");
+                                                        $cruises[$counter]["oceanview_plain"][$x] = 0;
+                                                        $cruises[$counter]["OV_Price_plain"][$x] = 0;
+                                                    } else {
+                                                        if ($OV_Price > 0) {
+                                                            if ($currency != $scurrency) {
+                                                                $OV_PricePublish = $CurrencyConverter->convert($OV_PricePublish, $currency, $scurrency);
+                                                                $OV_Price = $CurrencyConverter->convert($OV_Price, $currency, $scurrency);
+                                                            }
                                                         }
+                                                        $cruises[$counter]['OV_PricePublish'][$x] = $filter->filter($OV_PricePublish);
+                                                        $cruises[$counter]["OV_PricePublish_plain"][$x] = $OV_PricePublish;
+                                                        $cruises[$counter]['oceanview'][$x] = $filter->filter($OV_Price);
+                                                        $cruises[$counter]["oceanview_plain"][$x] = $OV_Price;
+                                                        $cruises[$counter]["OV_Price_plain"][$x] = $OV_Price;
                                                     }
-                                                    if ($ST_PricePublish > 0) {
-                                                        if ($ST_PricePublish < $cruisesfrom) {
-                                                            $cruisesfrom_publish = $ST_PricePublish;
+                                                    if ($BL_Price == 0 or $BL_Price == - 1) {
+                                                        if ($BL_Price > 0) {
+                                                            if ($currency != $scurrency) {
+                                                                $BL_PricePublish = $CurrencyConverter->convert($BL_PricePublish, $currency, $scurrency);
+                                                                $BL_Price = $CurrencyConverter->convert($BL_Price, $currency, $scurrency);
+                                                            }
                                                         }
-                                                    }
-                                                    if ($BL_PricePublish > 0) {
-                                                        if ($BL_PricePublish < $cruisesfrom) {
-                                                            $cruisesfrom_publish = $BL_PricePublish;
+                                                        $cruises[$counter]['BL_PricePublish'][$x] = $translator->translate("N/A");
+                                                        $cruises[$counter]["BL_PricePublish_plain"][$x] = 0;
+                                                        $cruises[$counter]['balcony'][$x] = $translator->translate("N/A");
+                                                        $cruises[$counter]["balcony_plain"][$x] = 0;
+                                                        $cruises[$counter]["BL_Price_plain"][$x] = 0;
+                                                    } else {
+                                                        if ($BL_Price > 0) {
+                                                            if ($currency != $scurrency) {
+                                                                $BL_PricePublish = $CurrencyConverter->convert($BL_PricePublish, $currency, $scurrency);
+                                                                $BL_Price = $CurrencyConverter->convert($BL_Price, $currency, $scurrency);
+                                                            }
                                                         }
+                                                        $cruises[$counter]['BL_PricePublish'][$x] = $filter->filter($BL_PricePublish);
+                                                        $cruises[$counter]["BL_PricePublish_plain"][$x] = $BL_PricePublish;
+                                                        $cruises[$counter]['balcony'][$x] = $filter->filter($BL_Price);
+                                                        $cruises[$counter]["balcony_plain"][$x] = $BL_Price;
+                                                        $cruises[$counter]["BL_Price_plain"][$x] = $BL_Price;
                                                     }
-                                                    if ($OV_PricePublish > 0) {
-                                                        if ($OV_PricePublish < $cruisesfrom_publish) {
-                                                            $cruisesfrom_publish = $OV_PricePublish;
+                                                    if ($ST_Price == 0 or $ST_Price == - 1) {
+                                                        if ($ST_Price > 0) {
+                                                            if ($currency != $scurrency) {
+                                                                $ST_PricePublish = $CurrencyConverter->convert($ST_PricePublish, $currency, $scurrency);
+                                                                $ST_Price = $CurrencyConverter->convert($ST_Price, $currency, $scurrency);
+                                                            }
                                                         }
-                                                    }
-                                                    if ($IN_Price > 0) {
-                                                        if ($IN_Price < $cruisesfrom) {
-                                                            $cruisesfrom = $IN_Price;
-                                                        }
-                                                    }
-                                                    if ($ST_Price > 0) {
-                                                        if ($ST_Price < $cruisesfrom) {
-                                                            $cruisesfrom = $ST_Price;
-                                                        }
-                                                    }
-                                                    if ($BL_Price > 0) {
-                                                        if ($BL_Price < $cruisesfrom) {
-                                                            $cruisesfrom = $BL_Price;
-                                                        }
-                                                    }
-                                                    if ($OV_Price > 0) {
-                                                        if ($OV_Price < $cruisesfrom) {
-                                                            $cruisesfrom = $OV_Price;
-                                                        }
-                                                    }
-                                                }
-                                                $days = str_replace('P', '', $Duration);
-                                                $days = str_replace('N', '', $days);
-                                                $aditionaldays = '+' . $days . ' days';
-                                                $date = date('Y-m-d', strtotime($aditionaldays, strtotime($Start)));
-                                                $from_date = explode("-", $Start);
-                                                $to_date = explode("-", $date);
-                                                $cruises[$counter]['product_id'][$x] = md5(uniqid($session_id, true)) . "-" . $counter . "-" . $x;
-                                                $cruises[$counter]['sailingid'][$x] = $CruisePackageCode;
-                                                $cruises[$counter]['departure'][$x] = mktime(0, 0, 0, $from_date[1], $from_date[2], $from_date[0]);
-                                                $cruises[$counter]['arrival'][$x] = mktime(0, 0, 0, $to_date[1], $to_date[2], $to_date[0]);
-                                                //$cruises[$counter]['Incentive'][$i] = $Incentives;
-                                                //$cruises[$counter]['Incentives'][$i] = $yesIncentives;
-                                                if ($IN_Price == 0 or $IN_Price == - 1) {
-                                                    if ($IN_Price > 0) {
-                                                        if ($currency != $scurrency) {
-                                                            $IN_PricePublish = $CurrencyConverter->convert($IN_PricePublish, $currency, $scurrency);
-                                                            $IN_Price = $CurrencyConverter->convert($IN_Price, $currency, $scurrency);
-                                                        }
-                                                    }
-                                                    $cruises[$counter]['IN_PricePublish'][$x] = $translator->translate("N/A");
-                                                    $cruises[$counter]["IN_PricePublish_plain"][$x] = 0;
-                                                    $cruises[$counter]['insidecabin'][$x] = $translator->translate("N/A");
-                                                    $cruises[$counter]["insidecabin_plain"][$x] = 0;
-                                                    $cruises[$counter]["IN_Price_plain"][$x] = 0;
-                                                } else {
-                                                    if ($IN_Price > 0) {
-                                                        if ($currency != $scurrency) {
-                                                            $IN_PricePublish = $CurrencyConverter->convert($IN_PricePublish, $currency, $scurrency);
-                                                            $IN_Price = $CurrencyConverter->convert($IN_Price, $currency, $scurrency);
-                                                        }
-                                                    }
-                                                    $cruises[$counter]['IN_PricePublish'][$x] = $filter->filter($IN_PricePublish);
-                                                    $cruises[$counter]["IN_PricePublish_plain"][$x] = $IN_PricePublish;
-                                                    $cruises[$counter]['insidecabin'][$x] = $filter->filter($IN_Price);
-                                                    $cruises[$counter]['insidecabin_plain'][$x] = $IN_Price;
-                                                    $cruises[$counter]["IN_Price_plain"][$x] = $IN_Price;
-                                                }
-                                                if ($OV_Price == 0 or $OV_Price == - 1) {
-                                                    if ($OV_Price > 0) {
-                                                        if ($currency != $scurrency) {
-                                                            $OV_PricePublish = $CurrencyConverter->convert($OV_PricePublish, $currency, $scurrency);
-                                                            $OV_Price = $CurrencyConverter->convert($OV_Price, $currency, $scurrency);
-                                                        }
-                                                    }
-                                                    $cruises[$counter]['OV_PricePublish'][$x] = $translator->translate("N/A");
-                                                    $cruises[$counter]["OV_PricePublish_plain"][$x] = $OV_PricePublish;
-                                                    $cruises[$counter]['oceanview'][$x] = $translator->translate("N/A");
-                                                    $cruises[$counter]["oceanview_plain"][$x] = 0;
-                                                    $cruises[$counter]["OV_Price_plain"][$x] = 0;
-                                                } else {
-                                                    if ($OV_Price > 0) {
-                                                        if ($currency != $scurrency) {
-                                                            $OV_PricePublish = $CurrencyConverter->convert($OV_PricePublish, $currency, $scurrency);
-                                                            $OV_Price = $CurrencyConverter->convert($OV_Price, $currency, $scurrency);
-                                                        }
-                                                    }
-                                                    $cruises[$counter]['OV_PricePublish'][$x] = $filter->filter($OV_PricePublish);
-                                                    $cruises[$counter]["OV_PricePublish_plain"][$x] = $OV_PricePublish;
-                                                    $cruises[$counter]['oceanview'][$x] = $filter->filter($OV_Price);
-                                                    $cruises[$counter]["oceanview_plain"][$x] = $OV_Price;
-                                                    $cruises[$counter]["OV_Price_plain"][$x] = $OV_Price;
-                                                }
-                                                if ($BL_Price == 0 or $BL_Price == - 1) {
-                                                    if ($BL_Price > 0) {
-                                                        if ($currency != $scurrency) {
-                                                            $BL_PricePublish = $CurrencyConverter->convert($BL_PricePublish, $currency, $scurrency);
-                                                            $BL_Price = $CurrencyConverter->convert($BL_Price, $currency, $scurrency);
-                                                        }
-                                                    }
-                                                    $cruises[$counter]['BL_PricePublish'][$x] = $translator->translate("N/A");
-                                                    $cruises[$counter]["BL_PricePublish_plain"][$x] = 0;
-                                                    $cruises[$counter]['balcony'][$x] = $translator->translate("N/A");
-                                                    $cruises[$counter]["balcony_plain"][$x] = 0;
-                                                    $cruises[$counter]["BL_Price_plain"][$x] = 0;
-                                                } else {
-                                                    if ($BL_Price > 0) {
-                                                        if ($currency != $scurrency) {
-                                                            $BL_PricePublish = $CurrencyConverter->convert($BL_PricePublish, $currency, $scurrency);
-                                                            $BL_Price = $CurrencyConverter->convert($BL_Price, $currency, $scurrency);
-                                                        }
-                                                    }
-                                                    $cruises[$counter]['BL_PricePublish'][$x] = $filter->filter($BL_PricePublish);
-                                                    $cruises[$counter]["BL_PricePublish_plain"][$x] = $BL_PricePublish;
-                                                    $cruises[$counter]['balcony'][$x] = $filter->filter($BL_Price);
-                                                    $cruises[$counter]["balcony_plain"][$x] = $BL_Price;
-                                                    $cruises[$counter]["BL_Price_plain"][$x] = $BL_Price;
-                                                }
-                                                if ($ST_Price == 0 or $ST_Price == - 1) {
-                                                    if ($ST_Price > 0) {
-                                                        if ($currency != $scurrency) {
+                                                        $cruises[$counter]['ST_PricePublish'][$x] = $translator->translate("N/A");
+                                                        $cruises[$counter]["ST_PricePublish_plain"][$x] = 0;
+                                                        $cruises[$counter]['suite'][$x] = $translator->translate("N/A");
+                                                        $cruises[$counter]['suite_plain'][$x] = 0;
+                                                        $cruises[$counter]["ST_Price_plain"][$x] = 0;
+                                                    } else {
+                                                        if ($ST_Price > 0) {
                                                             $ST_PricePublish = $CurrencyConverter->convert($ST_PricePublish, $currency, $scurrency);
                                                             $ST_Price = $CurrencyConverter->convert($ST_Price, $currency, $scurrency);
                                                         }
+                                                        $cruises[$counter]['ST_PricePublish'][$x] = $filter->filter($ST_PricePublish);
+                                                        $cruises[$counter]["ST_PricePublish_plain"][$x] = $ST_PricePublish;
+                                                        $cruises[$counter]['suite'][$x] = $filter->filter($ST_Price);
+                                                        $cruises[$counter]['suite_plain'][$x] = $ST_Price;
+                                                        $cruises[$counter]["ST_Price_plain"][$x] = $ST_Price;
                                                     }
-                                                    $cruises[$counter]['ST_PricePublish'][$x] = $translator->translate("N/A");
-                                                    $cruises[$counter]["ST_PricePublish_plain"][$x] = 0;
-                                                    $cruises[$counter]['suite'][$x] = $translator->translate("N/A");
-                                                    $cruises[$counter]['suite_plain'][$x] = 0;
-                                                    $cruises[$counter]["ST_Price_plain"][$x] = 0;
-                                                } else {
-                                                    if ($ST_Price > 0) {
-                                                        $ST_PricePublish = $CurrencyConverter->convert($ST_PricePublish, $currency, $scurrency);
-                                                        $ST_Price = $CurrencyConverter->convert($ST_Price, $currency, $scurrency);
-                                                    }
-                                                    $cruises[$counter]['ST_PricePublish'][$x] = $filter->filter($ST_PricePublish);
-                                                    $cruises[$counter]["ST_PricePublish_plain"][$x] = $ST_PricePublish;
-                                                    $cruises[$counter]['suite'][$x] = $filter->filter($ST_Price);
-                                                    $cruises[$counter]['suite_plain'][$x] = $ST_Price;
-                                                    $cruises[$counter]["ST_Price_plain"][$x] = $ST_Price;
                                                 }
                                             }
                                         }
-                                    }
-                                    if ($IN_Price > 0) {
-                                        if ($currency != $scurrency) {
-                                            $cruisesfrom = $CurrencyConverter->convert($cruisesfrom, $currency, $scurrency);
-                                            $cruisesfrom_publish = $CurrencyConverter->convert($cruisesfrom_publish, $currency, $scurrency);
+                                        if ($IN_Price > 0) {
+                                            if ($currency != $scurrency) {
+                                                $cruisesfrom = $CurrencyConverter->convert($cruisesfrom, $currency, $scurrency);
+                                                $cruisesfrom_publish = $CurrencyConverter->convert($cruisesfrom_publish, $currency, $scurrency);
+                                            }
                                         }
-                                    }
-
-                                    // Package List
-                                    $raw3 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pac="http://services.rccl.com/Interfaces/PackageList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
+                                        
+                                        // Package List
+                                        $raw3 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pac="http://services.rccl.com/Interfaces/PackageList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
                                     <soapenv:Header/>
                                     <soapenv:Body>
                                        <pac:getPackageList>
@@ -863,48 +855,49 @@ if ($cruisedestinationid > 0) {
                                        </pac:getPackageList>
                                     </soapenv:Body>
                                  </soapenv:Envelope>';
-
-                                    $ch3 = curl_init();
-                                    curl_setopt($ch3, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/PackageList');
-                                    curl_setopt($ch3, CURLOPT_HEADER, false);
-                                    curl_setopt($ch3, CURLOPT_SSL_VERIFYPEER, false);
-                                    curl_setopt($ch3, CURLOPT_VERBOSE, false);
-                                    curl_setopt($ch3, CURLOPT_POST, true);
-                                    curl_setopt($ch3, CURLOPT_POSTFIELDS, $raw3);
-                                    curl_setopt($ch3, CURLOPT_USERPWD, $cruisespullmanturusername . ":" . $cruisespullmanturpassword);
-                                    curl_setopt($ch3, CURLOPT_CONNECTTIMEOUT, $cruisespullmanturConnetionTimeout);
-                                    curl_setopt($ch3, CURLOPT_RETURNTRANSFER, true);
-                                    curl_setopt($ch3, CURLOPT_ENCODING, 'gzip');
-                                    $response3 = curl_exec($ch3);
-                                    $error = curl_error($ch3);
-                                    $headers = curl_getinfo($ch3);
-                                    curl_close($ch3);
-
-                                    $inputDoc = new DOMDocument();
-                                    $inputDoc->loadXML($response3);
-                                    $Envelope = $inputDoc->getElementsByTagName("Envelope");
-                                    $Body = $Envelope->item(0)->getElementsByTagName("Body");
-                                    $getPackageListResponse = $Body->item(0)->getElementsByTagName("getPackageListResponse");
-                                    if ($getPackageListResponse->length > 0) {
-                                        $OTA_CruisePkgAvailRS = $getPackageListResponse->item(0)->getElementsByTagName("OTA_CruisePkgAvailRS");
-                                        if ($OTA_CruisePkgAvailRS->length > 0) {
-                                            $TPA_Extensions = $OTA_CruisePkgAvailRS->item(0)->getElementsByTagName("TPA_Extensions");
-                                            if ($TPA_Extensions->length > 0) {
-                                                $SailingInfos = $TPA_Extensions->item(0)->getElementsByTagName("SailingInfos");
-                                                if ($SailingInfos->length > 0) {
-                                                    $SailingInfo = $SailingInfos->item(0)->getElementsByTagName("SailingInfo");
-                                                    if ($SailingInfo->length > 0) {
-                                                        for ($xSailingInfo=0; $xSailingInfo < $SailingInfo->length; $xSailingInfo++) { 
-                                                            $CruisePackages = $SailingInfo->item($xSailingInfo)->getElementsByTagName("CruisePackages");
-                                                            if ($CruisePackages->length > 0) {
-                                                                $CruisePackage = $CruisePackages->item(0)->getElementsByTagName("CruisePackage");
-                                                                if ($CruisePackage->length > 0) {
-                                                                    $CruisePackageCode3 = $CruisePackage->item(0)->getAttribute("CruisePackageCode");
-                                                                    $Duration3 = $CruisePackage->item(0)->getAttribute("Duration");
-                                                                    $End3 = $CruisePackage->item(0)->getAttribute("End");
-                                                                    $PackageTypeCode3 = $CruisePackage->item(0)->getAttribute("PackageTypeCode");
-                                                                    $Start3 = $CruisePackage->item(0)->getAttribute("Start");
-                                                                    $Description = $CruisePackage->item(0)->getAttribute("Description");
+                                        
+                                        $ch3 = curl_init();
+                                        curl_setopt($ch3, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/PackageList');
+                                        curl_setopt($ch3, CURLOPT_HEADER, false);
+                                        curl_setopt($ch3, CURLOPT_SSL_VERIFYPEER, false);
+                                        curl_setopt($ch3, CURLOPT_VERBOSE, false);
+                                        curl_setopt($ch3, CURLOPT_POST, true);
+                                        curl_setopt($ch3, CURLOPT_POSTFIELDS, $raw3);
+                                        curl_setopt($ch3, CURLOPT_USERPWD, $cruisespullmanturusername . ":" . $cruisespullmanturpassword);
+                                        curl_setopt($ch3, CURLOPT_CONNECTTIMEOUT, $cruisespullmanturConnetionTimeout);
+                                        curl_setopt($ch3, CURLOPT_RETURNTRANSFER, true);
+                                        curl_setopt($ch3, CURLOPT_ENCODING, 'gzip');
+                                        $response3 = curl_exec($ch3);
+                                        $error = curl_error($ch3);
+                                        $headers = curl_getinfo($ch3);
+                                        curl_close($ch3);
+                                        
+                                        $inputDoc = new DOMDocument();
+                                        $inputDoc->loadXML($response3);
+                                        $Envelope = $inputDoc->getElementsByTagName("Envelope");
+                                        $Body = $Envelope->item(0)->getElementsByTagName("Body");
+                                        $getPackageListResponse = $Body->item(0)->getElementsByTagName("getPackageListResponse");
+                                        if ($getPackageListResponse->length > 0) {
+                                            $OTA_CruisePkgAvailRS = $getPackageListResponse->item(0)->getElementsByTagName("OTA_CruisePkgAvailRS");
+                                            if ($OTA_CruisePkgAvailRS->length > 0) {
+                                                $TPA_Extensions = $OTA_CruisePkgAvailRS->item(0)->getElementsByTagName("TPA_Extensions");
+                                                if ($TPA_Extensions->length > 0) {
+                                                    $SailingInfos = $TPA_Extensions->item(0)->getElementsByTagName("SailingInfos");
+                                                    if ($SailingInfos->length > 0) {
+                                                        $SailingInfo = $SailingInfos->item(0)->getElementsByTagName("SailingInfo");
+                                                        if ($SailingInfo->length > 0) {
+                                                            for ($xSailingInfo = 0; $xSailingInfo < $SailingInfo->length; $xSailingInfo ++) {
+                                                                $CruisePackages = $SailingInfo->item($xSailingInfo)->getElementsByTagName("CruisePackages");
+                                                                if ($CruisePackages->length > 0) {
+                                                                    $CruisePackage = $CruisePackages->item(0)->getElementsByTagName("CruisePackage");
+                                                                    if ($CruisePackage->length > 0) {
+                                                                        $CruisePackageCode3 = $CruisePackage->item(0)->getAttribute("CruisePackageCode");
+                                                                        $Duration3 = $CruisePackage->item(0)->getAttribute("Duration");
+                                                                        $End3 = $CruisePackage->item(0)->getAttribute("End");
+                                                                        $PackageTypeCode3 = $CruisePackage->item(0)->getAttribute("PackageTypeCode");
+                                                                        $Start3 = $CruisePackage->item(0)->getAttribute("Start");
+                                                                        $Description = $CruisePackage->item(0)->getAttribute("Description");
+                                                                    }
                                                                 }
                                                             }
                                                         }
@@ -912,120 +905,117 @@ if ($cruisedestinationid > 0) {
                                                 }
                                             }
                                         }
-                                    }
-                                    $Description = '<p style="font-size:20px">' . $Description . '</p>';
-
-                                    $nights = str_replace('P', '', $Duration);
-                                    $nights = str_replace('N', '', $nights);
-                                    $cruises[$counter]['from'] = $filter->filter($cruisesfrom);
-                                    $cruises[$counter]["from_plain"] = $cruisesfrom;
-                                    $cruises[$counter]['from_publish'] = $filter->filter($cruisesfrom_publish);
-                                    $cruises[$counter]["from_plain_publish"] = $cruisesfrom_publish;
-                                    $cruises[$counter]['name'] = $Description;
-                                    $cruises[$counter]['currency'] = $scurrency;
-                                    $cruises[$counter]['length'] = $nights;
-                                    $cruises[$counter]['cruise_destination_id'] = $ShipCode;
-                                    $cruises[$counter]['ItineraryId'] = $ItineraryId;
-                                    $cruises[$counter]['ShipRating'] = $ShipRating;
-                                    $cruises[$counter]['MapImg'] = $MapImg;
-                                    $cruises[$counter]['departure']['portid'] = $DeparturePortLocationCode;
-                                    $cruises[$counter]['departure']['portname'] = $DeparturePortLocationCode;
-                                    $cruises[$counter]['segments'] = $segments;
-                                    // Amenities
-                                    $amenities = array();
-                                    $tmp = array();
-                                    $sql = "select distinct(name), ico from ships_amenities where ship_id=" . $ship_id;
-                                    $statement2 = $dbPullmantur->createStatement($sql);
-                                    try {
+                                        $nights = str_replace('P', '', $Duration);
+                                        $nights = str_replace('N', '', $nights);
+                                        $cruises[$counter]['from'] = $filter->filter($cruisesfrom);
+                                        $cruises[$counter]["from_plain"] = $cruisesfrom;
+                                        $cruises[$counter]['from_publish'] = $filter->filter($cruisesfrom_publish);
+                                        $cruises[$counter]["from_plain_publish"] = $cruisesfrom_publish;
+                                        $cruises[$counter]['name'] = $Description;
+                                        $cruises[$counter]['currency'] = $scurrency;
+                                        $cruises[$counter]['length'] = $nights;
+                                        $cruises[$counter]['cruise_destination_id'] = $ShipCode;
+                                        $cruises[$counter]['ItineraryId'] = $ItineraryId;
+                                        $cruises[$counter]['ShipRating'] = $ShipRating;
+                                        $cruises[$counter]['MapImg'] = $MapImg;
+                                        $cruises[$counter]['departure']['portid'] = $DeparturePortLocationCode;
+                                        $cruises[$counter]['departure']['portname'] = $DeparturePortLocationCode;
+                                        $cruises[$counter]['segments'] = $segments;
+                                        // Amenities
+                                        $amenities = array();
+                                        $tmp = array();
+                                        $sql = "select distinct(name), ico from ships_amenities where ship_id=" . $ship_id;
+                                        $statement2 = $dbPullmantur->createStatement($sql);
+                                        try {
+                                            $statement2->prepare();
+                                            $result2 = $statement2->execute();
+                                        } catch (\Exception $e) {
+                                            $logger = new Logger();
+                                            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+                                            $logger->addWriter($writer);
+                                            $logger->info($e->getMessage());
+                                        }
+                                        $result2->buffer();
+                                        if ($result2 instanceof ResultInterface && $result2->isQueryResult()) {
+                                            $resultSet = new ResultSet();
+                                            $resultSet->initialize($result2);
+                                            foreach ($resultSet as $row) {
+                                                $tmp['name'] = $row->name;
+                                                $tmp['ico'] = $row->ico;
+                                                array_push($amenities, $tmp);
+                                            }
+                                        }
+                                        $cruises[$counter]['amenities'] = $amenities;
+                                        // Decks
+                                        $decks = array();
+                                        $tmp = array();
+                                        $sql = "select deck_number, name, image from ships_decks where ship_id=" . $ship_id . " order by deck_number desc";
+                                        $statement2 = $dbPullmantur->createStatement($sql);
                                         $statement2->prepare();
                                         $result2 = $statement2->execute();
-                                    } catch (\Exception $e) {
-                                        $logger = new Logger();
-                                        $writer = new Writer\Stream('/srv/www/htdocs/error_log');
-                                        $logger->addWriter($writer);
-                                        $logger->info($e->getMessage());
-                                    }
-                                    $result2->buffer();
-                                    if ($result2 instanceof ResultInterface && $result2->isQueryResult()) {
-                                        $resultSet = new ResultSet();
-                                        $resultSet->initialize($result2);
-                                        foreach ($resultSet as $row) {
-                                            $tmp['name'] = $row->name;
-                                            $tmp['ico'] = $row->ico;
-                                            array_push($amenities, $tmp);
+                                        $result2->buffer();
+                                        if ($result2 instanceof ResultInterface && $result2->isQueryResult()) {
+                                            $resultSet = new ResultSet();
+                                            $resultSet->initialize($result2);
+                                            foreach ($resultSet as $row) {
+                                                $tmp['name'] = $row->name;
+                                                $tmp['image'] = $row->image;
+                                                $tmp['deck_number'] = $row->deck_number;
+                                                array_push($decks, $tmp);
+                                            }
                                         }
-                                    }
-                                    $cruises[$counter]['amenities'] = $amenities;
-                                    // Decks
-                                    $decks = array();
-                                    $tmp = array();
-                                    $sql = "select deck_number, name, image from ships_decks where ship_id=" . $ship_id . " order by deck_number desc";
-                                    $statement2 = $dbPullmantur->createStatement($sql);
-                                    $statement2->prepare();
-                                    $result2 = $statement2->execute();
-                                    $result2->buffer();
-                                    if ($result2 instanceof ResultInterface && $result2->isQueryResult()) {
-                                        $resultSet = new ResultSet();
-                                        $resultSet->initialize($result2);
-                                        foreach ($resultSet as $row) {
-                                            $tmp['name'] = $row->name;
-                                            $tmp['image'] = $row->image;
-                                            $tmp['deck_number'] = $row->deck_number;
-                                            array_push($decks, $tmp);
+                                        $cruises[$counter]['decks'] = $decks;
+                                        // Unique Decks
+                                        $unique_decks = array();
+                                        $tmp = array();
+                                        $sql = "select decknumber from ships_publicareas where ship_id=" . $ship_id . " group by decknumber order by decknumber desc";
+                                        $statement2 = $dbPullmantur->createStatement($sql);
+                                        try {
+                                            $statement2->prepare();
+                                            $result2 = $statement2->execute();
+                                        } catch (\Exception $e) {
+                                            $logger = new Logger();
+                                            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+                                            $logger->addWriter($writer);
+                                            $logger->info($e->getMessage());
                                         }
-                                    }
-                                    $cruises[$counter]['decks'] = $decks;
-                                    // Unique Decks
-                                    $unique_decks = array();
-                                    $tmp = array();
-                                    $sql = "select decknumber from ships_publicareas where ship_id=" . $ship_id . " group by decknumber order by decknumber desc";
-                                    $statement2 = $dbPullmantur->createStatement($sql);
-                                    try {
-                                        $statement2->prepare();
-                                        $result2 = $statement2->execute();
-                                    } catch (\Exception $e) {
-                                        $logger = new Logger();
-                                        $writer = new Writer\Stream('/srv/www/htdocs/error_log');
-                                        $logger->addWriter($writer);
-                                        $logger->info($e->getMessage());
-                                    }
-                                    $result2->buffer();
-                                    if ($result2 instanceof ResultInterface && $result2->isQueryResult()) {
-                                        $resultSet = new ResultSet();
-                                        $resultSet->initialize($result2);
-                                        foreach ($resultSet as $row) {
-                                            $tmp['deck_number'] = $row->decknumber;
-                                            array_push($unique_decks, $tmp);
+                                        $result2->buffer();
+                                        if ($result2 instanceof ResultInterface && $result2->isQueryResult()) {
+                                            $resultSet = new ResultSet();
+                                            $resultSet->initialize($result2);
+                                            foreach ($resultSet as $row) {
+                                                $tmp['deck_number'] = $row->decknumber;
+                                                array_push($unique_decks, $tmp);
+                                            }
                                         }
-                                    }
-                                    $cruises[$counter]['unique_decks'] = $unique_decks;
-                                    // Public Areas
-                                    $publicareas = array();
-                                    $tmp = array();
-                                    $sql = "select decknumber, name, image from ships_publicareas where ship_id=" . $ship_id . " order by decknumber desc";
-                                    $statement2 = $dbPullmantur->createStatement($sql);
-                                    try {
-                                        $statement2->prepare();
-                                        $result2 = $statement2->execute();
-                                    } catch (\Exception $e) {
-                                        $logger = new Logger();
-                                        $writer = new Writer\Stream('/srv/www/htdocs/error_log');
-                                        $logger->addWriter($writer);
-                                        $logger->info($e->getMessage());
-                                    }
-                                    $result2->buffer();
-                                    if ($result2 instanceof ResultInterface && $result2->isQueryResult()) {
-                                        $resultSet = new ResultSet();
-                                        $resultSet->initialize($result2);
-                                        foreach ($resultSet as $row) {
-                                            $tmp['deck_number'] = $row->decknumber;
-                                            $tmp['name'] = $row->name;
-                                            $tmp['image'] = $row->image;
-                                            array_push($unique_decks, $tmp);
+                                        $cruises[$counter]['unique_decks'] = $unique_decks;
+                                        // Public Areas
+                                        $publicareas = array();
+                                        $tmp = array();
+                                        $sql = "select decknumber, name, image from ships_publicareas where ship_id=" . $ship_id . " order by decknumber desc";
+                                        $statement2 = $dbPullmantur->createStatement($sql);
+                                        try {
+                                            $statement2->prepare();
+                                            $result2 = $statement2->execute();
+                                        } catch (\Exception $e) {
+                                            $logger = new Logger();
+                                            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+                                            $logger->addWriter($writer);
+                                            $logger->info($e->getMessage());
                                         }
-                                    }
-                                    $cruises[$counter]['publicareas'] = $publicareas;
-                                    $counter ++;
+                                        $result2->buffer();
+                                        if ($result2 instanceof ResultInterface && $result2->isQueryResult()) {
+                                            $resultSet = new ResultSet();
+                                            $resultSet->initialize($result2);
+                                            foreach ($resultSet as $row) {
+                                                $tmp['deck_number'] = $row->decknumber;
+                                                $tmp['name'] = $row->name;
+                                                $tmp['image'] = $row->image;
+                                                array_push($unique_decks, $tmp);
+                                            }
+                                        }
+                                        $cruises[$counter]['publicareas'] = $publicareas;
+                                        $counter ++;
                                     }
                                 }
                             }
@@ -1039,5 +1029,5 @@ if ($cruisedestinationid > 0) {
 $dbPullmantur->getDriver()
     ->getConnection()
     ->disconnect();
-error_log("\r\n EOF PULLMANTUR  \r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\nEOF Pullmantur\r\n", 3, "/srv/www/htdocs/error_log");
 ?>

@@ -89,7 +89,7 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                 </Source>
             </POS>
             <!--Optional:-->
-            <SelectedSailing Start="2020-09-11" Duration="P7N" VendorCode="PUL" ShipCode="SO" Status="36"/>
+            <SelectedSailing Start="2020-09-04" Duration="P7N" VendorCode="PUL" ShipCode="SO" Status="36"/>
             <!--Optional:-->
             <PackageOption CruisePackageCode="SOPD0757" InclusiveIndicator="false"/>
          </OTA_CruiseItineraryDescRQ>
@@ -116,7 +116,7 @@ curl_close($ch);
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
-
+die();
 $config = new \Zend\Config\Config(include '../config/autoload/global.pulmantur.php');
 $config = [
     'driver' => $config->db->driver,
