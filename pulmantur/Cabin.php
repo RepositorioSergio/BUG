@@ -128,22 +128,11 @@ foreach ($data as $key => $value) {
         break;
     }
 }
-error_log("\r\n selectedcabin " . print_r($selectedcabin, true) . " \r\n", 3, "/srv/www/htdocs/error_log");
 $categorylocation = $selectedcabin['cabin']['categorylocation'];
 $groupcode = $selectedcabin['cabin']['groupcode'];
 $pricedcategorycode = $selectedcabin['cabin']['pricedcategorycode'];
 $statuscabin = $selectedcabin['cabin']['status'];
 $farecode = $selectedcabin['cabin']['farecode'];
-
-/* $regioncode = 'PFIOR';
-$subregioncode = 'PFI';
-$departureportlocationcode = 'TRD';
-$arrivalportlocationcode = 'CPH';
-$start = '2020-07-18';
-$cruisepackagecode = 'MOPF0756';
-$categorylocation = 'Deluxe';
-$pricedcategorycode = 'JT';
-$groupcode = 1; */
 
 if ($cruise_line_id != "") {
     $raw = '<?xml version="1.0" encoding="UTF-8"?>
@@ -204,12 +193,12 @@ if ($cruise_line_id != "") {
                 <SearchQualifiers BerthedCategoryCode="' . $pricedcategorycode . '" FareCode="' . $farecode . '" GroupCode="' . $groupcode . '" CategoryLocation="' . $categorylocation . '">
                     <Status Status="' . $status . '"/>
                 </SearchQualifiers>
-                <SelectedFare GroupCode="' . $groupcode . '"/>
+                <SelectedFare FareCode="' . $farecode . '" GroupCode="' . $groupcode . '"/>
             </OTA_CruiseCabinAvailRQ>
         </cab:getCabinList>
     </soapenv:Body>
     </soapenv:Envelope>';
-    error_log("\r\n RAW - $raw \r\n", 3, "/srv/www/htdocs/error_log");
+
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/CabinList');
     curl_setopt($ch, CURLOPT_HEADER, false);
@@ -225,8 +214,7 @@ if ($cruise_line_id != "") {
     $error = curl_error($ch);
     $headers = curl_getinfo($ch);
     curl_close($ch);
-    error_log("\r\n Response - $response \r\n", 3, "/srv/www/htdocs/error_log");
-    
+    //error_log("\r\n Response - $response \r\n", 3, "/srv/www/htdocs/error_log");   
     try {
         $sql = new Sql($dbPullmantur);
         $insert = $sql->insert();
@@ -397,7 +385,7 @@ if ($cruise_line_id != "") {
                     <Currency CurrencyCode="USD" DecimalPlaces="2"/>
                     <SelectedCategory BerthedCategoryCode="' . $pricedcategorycode . '" PricedCategoryCode="' . $pricedcategorycode . '"/>
                 </SailingInfo>
-                <SelectedFare GroupCode="' . $pricedcategorycode . '"/>
+                <SelectedFare FareCode="' . $farecode . '" GroupCode="' . $groupcode . '"/>
                 <TPA_ReservationId Type="14" ID="0"/>
             </OTA_CruiseDiningAvailRQ>
         </din:getDiningList>
@@ -419,7 +407,6 @@ if ($cruise_line_id != "") {
     $error = curl_error($ch2);
     $headers = curl_getinfo($ch2);
     curl_close($ch2);
-    error_log("\r\n Response Dining - $response2 \r\n", 3, "/srv/www/htdocs/error_log");
 
     $inputDoc = new DOMDocument();
     $inputDoc->loadXML($response2);

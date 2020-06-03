@@ -205,7 +205,7 @@ if ($cruise_line_id != "") {
     $error = curl_error($ch);
     $headers = curl_getinfo($ch);
     curl_close($ch);
-    error_log("\r\n Response - $response \r\n", 3, "/srv/www/htdocs/error_log");
+    //error_log("\r\n Response - $response \r\n", 3, "/srv/www/htdocs/error_log");
     
     try {
         $dbPullmantur = new \Laminas\Db\Adapter\Adapter($config);
@@ -288,114 +288,114 @@ if ($cruise_line_id != "") {
                             $PricedCategoryCode = $CategoryOption->item($i)->getAttribute("PricedCategoryCode");
                             $Status = $CategoryOption->item($i)->getAttribute("Status");
 
-                            try {
-                                $dbPullmantur = new \Laminas\Db\Adapter\Adapter($config);
-                                $sql = "select name, image, description, stateroom_area, veranda_area, color from ships_cabincategory where ship_id=" . $ship_id . " and categorycode='" . $PricedCategoryCode . "'";
-                                $statement2 = $dbPullmantur->createStatement($sql);
-                                $statement2->prepare();
-                                $row_cabincategory = $statement2->execute();
-                                if ($row_cabincategory->valid()) {
-                                    $row_cabincategory = $row_cabincategory->current();
-                                    $Name = $row_cabincategory["name"];
-                                    $img = $row_cabincategory["image"];
-                                    $stateroom_area = $row_cabincategory["stateroom_area"];
-                                    $veranda_area = $row_cabincategory["veranda_area"];
-                                    $color = $row_cabincategory["color"];
-                                    $description = $row_cabincategory["description"];
+                            if ($GroupCode != "") {
+                                try {
+                                    $dbPullmantur = new \Laminas\Db\Adapter\Adapter($config);
+                                    $sql = "select name, image, description, stateroom_area, veranda_area, color from ships_cabincategory where ship_id=" . $ship_id . " and categorycode='" . $PricedCategoryCode . "'";
+                                    $statement2 = $dbPullmantur->createStatement($sql);
+                                    $statement2->prepare();
+                                    $row_cabincategory = $statement2->execute();
+                                    if ($row_cabincategory->valid()) {
+                                        $row_cabincategory = $row_cabincategory->current();
+                                        $Name = $row_cabincategory["name"];
+                                        $img = $row_cabincategory["image"];
+                                        $stateroom_area = $row_cabincategory["stateroom_area"];
+                                        $veranda_area = $row_cabincategory["veranda_area"];
+                                        $color = $row_cabincategory["color"];
+                                        $description = $row_cabincategory["description"];
+                                    }
+                                    $dbPullmantur->getDriver()
+                                        ->getConnection()
+                                        ->disconnect();
+                                } catch (Exception $e) {
+                                    $logger = new Logger();
+                                    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+                                    $logger->addWriter($writer);
+                                    $logger->info($e->getMessage());
                                 }
-                                $dbPullmantur->getDriver()
-                                    ->getConnection()
-                                    ->disconnect();
-                            } catch (Exception $e) {
-                                $logger = new Logger();
-                                $writer = new Writer\Stream('/srv/www/htdocs/error_log');
-                                $logger->addWriter($writer);
-                                $logger->info($e->getMessage());
-                            }
-                            $cabins[$cabinscount]['code'] = $PricedCategoryCode;
-                            $cabins[$cabinscount]['name'] = $Name;
-                            $cabins[$cabinscount]['type'] = $type;
-                            $cabins[$cabinscount]['description'] = $description;
-                            $cabins[$cabinscount]['deckname'] = $deckname;
-                            $cabins[$cabinscount]['img'] = $img;
-                            $cabins[$cabinscount]['isguaranteed'] = "";
-                            $cabins[$cabinscount]['clxpolicy'] = "";
-                            $cabins[$cabinscount]['dining'] = "";
-                            $cabins[$cabinscount]['stateroom_area'] = $stateroom_area;
-                            $cabins[$cabinscount]['veranda_area'] = $veranda_area;
-                            $cabins[$cabinscount]['color'] = $color;
-                            $cabins[$cabinscount]['categorylocation'] = $CategoryLocation;
-                            $cabins[$cabinscount]['groupcode'] = $GroupCode;
-                            $cabins[$cabinscount]['pricedcategorycode'] = $PricedCategoryCode;
-                            $cabins[$cabinscount]['status'] = $Status;
-                            error_log("\r\n GroupCode - $GroupCode \r\n", 3, "/srv/www/htdocs/error_log");
-                            error_log("\r\n CategoryLocation - $CategoryLocation \r\n", 3, "/srv/www/htdocs/error_log");
-                            
-                            $cabincountprice = 0;
-                            $PriceInfos = $CategoryOption->item($i)->getElementsByTagName("PriceInfos");
-                            if ($PriceInfos->length > 0) {
-                                $PriceInfo = $PriceInfos->item(0)->getElementsByTagName("PriceInfo");
-                                if ($PriceInfo->length > 0) {
-                                    $Amount = $PriceInfo->item(0)->getAttribute("Amount");
-                                    $AppliedPromotionsQuantity = $PriceInfo->item(0)->getAttribute("AppliedPromotionsQuantity");
-                                    $NetAmount = $PriceInfo->item(0)->getAttribute("NetAmount");
-                                    $NonRefundableType = $PriceInfo->item(0)->getAttribute("NonRefundableType");
-                                    $PriceId = $PriceInfo->item(0)->getAttribute("PriceId");
-                                    $PriceIdType = $PriceInfo->item(0)->getAttribute("PriceIdType");
-                                    $PromotionClass = $PriceInfo->item(0)->getAttribute("PromotionClass");
-                                    $PromotionDescription = $PriceInfo->item(0)->getAttribute("PromotionDescription");
-                                    $PromotionTypes = $PriceInfo->item(0)->getAttribute("PromotionTypes");
-                                    $FareCode = $PriceInfo->item(0)->getAttribute("FareCode");
-                                    $cabins[$cabinscount]['farecode'] = $FareCode;
-
-                                    if ($cruisespullmanturmarkup > 0) {
-                                        $Amount = number_format($Amount + (($Amount * $cruisespullmanturmarkup) / 100), 2, '.', '');
-                                    }
-                                    if ($agent_markup > 0) {
-                                        $Amount = number_format($Amount + (($Amount * $agent_markup) / 100), 2, '.', '');
-                                    }
-                                    if ($cruisespullmanturmarkup > 0) {
-                                        $tax = number_format($tax + (($tax * $cruisespullmanturmarkup) / 100), 2, '.', '');
-                                    }
-                                    if ($agent_markup > 0) {
-                                        $tax = number_format($tax + (($tax * $agent_markup) / 100), 2, '.', '');
-                                    }
-                                    $PriceDescription = $PriceInfo->item(0)->getElementsByTagName("PriceDescription");
-                                    if ($PriceDescription->length > 0) {
-                                        $PriceDescription = $PriceDescription->item(0)->nodeValue;
-                                    } else {
-                                        $PriceDescription = "";
-                                    }
-                                    $taxnet = $tax;
-                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['pricetitle'] = $PriceDescription;
-                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['pricepublish'] = $filter->filter($Amount);
-                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['price'] = $filter->filter($Amount);
-                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['pricenet'] = $NetAmount;
-                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['upgradetocategorycode'] = $upgradetocategorycode;
-                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['cabinproductid'] = base64_encode($PricedCategoryCode);
-                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['nonrefundable'] = $NonRefundableType;
-                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['tax'] = $tax;
-                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['taxnet'] = $taxnet;
-                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['currencynet'] = $scurrency;
-                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['currency'] = $scurrency;
-                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['farecode'] = $FareCode;
-                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['categorylocation'] = $CategoryLocation;
-                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['groupcode'] = $GroupCode;
-                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['pricedcategorycode'] = $PricedCategoryCode;
-                                    $cabins[$cabinscount]['cabin'][$cabincountprice]['status'] = $Status;
-                                    $cabincountprice ++;
-                                    $PriceBreakDowns = $PriceInfo->item(0)->getElementsByTagName("PriceBreakDowns");
-                                    if ($PriceBreakDowns->length > 0) {
-                                        $Occupancy = $PriceBreakDowns->item(0)->getAttribute("Occupancy");
-                                        $PriceBreakDownsStatus = $PriceBreakDowns->item(0)->getAttribute("Status");
-                                        $PriceBreakDown = $PriceBreakDowns->item(0)->getElementsByTagName("PriceBreakDown");
-                                        if ($PriceBreakDown->length > 0) {
-                                            for ($iAux=0; $iAux < $PriceBreakDown->length ; $iAux++) { 
-                                                $AgeQualifyingCode = $PriceBreakDown->item($iAux)->getAttribute("AgeQualifyingCode");
-                                                $PriceBreakDownAmount = $PriceBreakDown->item($iAux)->getAttribute("Amount");
-                                                $NCCFAmount = $PriceBreakDown->item($iAux)->getAttribute("NCCFAmount");
-                                                $PriceBreakDownNetAmount = $PriceBreakDown->item($iAux)->getAttribute("NetAmount");
-                                                $RPH = $PriceBreakDown->item($iAux)->getAttribute("RPH");
+                                $cabins[$cabinscount]['code'] = $PricedCategoryCode;
+                                $cabins[$cabinscount]['name'] = $Name;
+                                $cabins[$cabinscount]['type'] = $type;
+                                $cabins[$cabinscount]['description'] = $description;
+                                $cabins[$cabinscount]['deckname'] = $deckname;
+                                $cabins[$cabinscount]['img'] = $img;
+                                $cabins[$cabinscount]['isguaranteed'] = "";
+                                $cabins[$cabinscount]['clxpolicy'] = "";
+                                $cabins[$cabinscount]['dining'] = "";
+                                $cabins[$cabinscount]['stateroom_area'] = $stateroom_area;
+                                $cabins[$cabinscount]['veranda_area'] = $veranda_area;
+                                $cabins[$cabinscount]['color'] = $color;
+                                $cabins[$cabinscount]['categorylocation'] = $CategoryLocation;
+                                $cabins[$cabinscount]['groupcode'] = $GroupCode;
+                                $cabins[$cabinscount]['pricedcategorycode'] = $PricedCategoryCode;
+                                $cabins[$cabinscount]['status'] = $Status;
+                                
+                                $cabincountprice = 0;
+                                $PriceInfos = $CategoryOption->item($i)->getElementsByTagName("PriceInfos");
+                                if ($PriceInfos->length > 0) {
+                                    $PriceInfo = $PriceInfos->item(0)->getElementsByTagName("PriceInfo");
+                                    if ($PriceInfo->length > 0) {
+                                        $Amount = $PriceInfo->item(0)->getAttribute("Amount");
+                                        $AppliedPromotionsQuantity = $PriceInfo->item(0)->getAttribute("AppliedPromotionsQuantity");
+                                        $NetAmount = $PriceInfo->item(0)->getAttribute("NetAmount");
+                                        $NonRefundableType = $PriceInfo->item(0)->getAttribute("NonRefundableType");
+                                        $PriceId = $PriceInfo->item(0)->getAttribute("PriceId");
+                                        $PriceIdType = $PriceInfo->item(0)->getAttribute("PriceIdType");
+                                        $PromotionClass = $PriceInfo->item(0)->getAttribute("PromotionClass");
+                                        $PromotionDescription = $PriceInfo->item(0)->getAttribute("PromotionDescription");
+                                        $PromotionTypes = $PriceInfo->item(0)->getAttribute("PromotionTypes");
+                                        $FareCode = $PriceInfo->item(0)->getAttribute("FareCode");
+                                        $cabins[$cabinscount]['farecode'] = $FareCode;
+    
+                                        if ($cruisespullmanturmarkup > 0) {
+                                            $Amount = number_format($Amount + (($Amount * $cruisespullmanturmarkup) / 100), 2, '.', '');
+                                        }
+                                        if ($agent_markup > 0) {
+                                            $Amount = number_format($Amount + (($Amount * $agent_markup) / 100), 2, '.', '');
+                                        }
+                                        if ($cruisespullmanturmarkup > 0) {
+                                            $tax = number_format($tax + (($tax * $cruisespullmanturmarkup) / 100), 2, '.', '');
+                                        }
+                                        if ($agent_markup > 0) {
+                                            $tax = number_format($tax + (($tax * $agent_markup) / 100), 2, '.', '');
+                                        }
+                                        $PriceDescription = $PriceInfo->item(0)->getElementsByTagName("PriceDescription");
+                                        if ($PriceDescription->length > 0) {
+                                            $PriceDescription = $PriceDescription->item(0)->nodeValue;
+                                        } else {
+                                            $PriceDescription = "";
+                                        }
+                                        $taxnet = $tax;
+                                        $cabins[$cabinscount]['cabin'][$cabincountprice]['pricetitle'] = $PriceDescription;
+                                        $cabins[$cabinscount]['cabin'][$cabincountprice]['pricepublish'] = $filter->filter($Amount);
+                                        $cabins[$cabinscount]['cabin'][$cabincountprice]['price'] = $filter->filter($Amount);
+                                        $cabins[$cabinscount]['cabin'][$cabincountprice]['pricenet'] = $NetAmount;
+                                        $cabins[$cabinscount]['cabin'][$cabincountprice]['upgradetocategorycode'] = $upgradetocategorycode;
+                                        $cabins[$cabinscount]['cabin'][$cabincountprice]['cabinproductid'] = base64_encode($PricedCategoryCode);
+                                        $cabins[$cabinscount]['cabin'][$cabincountprice]['nonrefundable'] = $NonRefundableType;
+                                        $cabins[$cabinscount]['cabin'][$cabincountprice]['tax'] = $tax;
+                                        $cabins[$cabinscount]['cabin'][$cabincountprice]['taxnet'] = $taxnet;
+                                        $cabins[$cabinscount]['cabin'][$cabincountprice]['currencynet'] = $scurrency;
+                                        $cabins[$cabinscount]['cabin'][$cabincountprice]['currency'] = $scurrency;
+                                        $cabins[$cabinscount]['cabin'][$cabincountprice]['farecode'] = $FareCode;
+                                        $cabins[$cabinscount]['cabin'][$cabincountprice]['categorylocation'] = $CategoryLocation;
+                                        $cabins[$cabinscount]['cabin'][$cabincountprice]['groupcode'] = $GroupCode;
+                                        $cabins[$cabinscount]['cabin'][$cabincountprice]['pricedcategorycode'] = $PricedCategoryCode;
+                                        $cabins[$cabinscount]['cabin'][$cabincountprice]['status'] = $Status;
+                                        $cabincountprice ++;
+                                        $PriceBreakDowns = $PriceInfo->item(0)->getElementsByTagName("PriceBreakDowns");
+                                        if ($PriceBreakDowns->length > 0) {
+                                            $Occupancy = $PriceBreakDowns->item(0)->getAttribute("Occupancy");
+                                            $PriceBreakDownsStatus = $PriceBreakDowns->item(0)->getAttribute("Status");
+                                            $PriceBreakDown = $PriceBreakDowns->item(0)->getElementsByTagName("PriceBreakDown");
+                                            if ($PriceBreakDown->length > 0) {
+                                                for ($iAux=0; $iAux < $PriceBreakDown->length ; $iAux++) { 
+                                                    $AgeQualifyingCode = $PriceBreakDown->item($iAux)->getAttribute("AgeQualifyingCode");
+                                                    $PriceBreakDownAmount = $PriceBreakDown->item($iAux)->getAttribute("Amount");
+                                                    $NCCFAmount = $PriceBreakDown->item($iAux)->getAttribute("NCCFAmount");
+                                                    $PriceBreakDownNetAmount = $PriceBreakDown->item($iAux)->getAttribute("NetAmount");
+                                                    $RPH = $PriceBreakDown->item($iAux)->getAttribute("RPH");
+                                                }
                                             }
                                         }
                                     }

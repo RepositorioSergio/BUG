@@ -456,6 +456,7 @@ if ($cruisedestinationid > 0) {
                             </cat:getCategoryList>
                         </soapenv:Body>
                         </soapenv:Envelope>';
+                        error_log("\r\n RAW - $raw2 \r\n", 3, "/srv/www/htdocs/error_log");
                         
                         $ch = curl_init();
                         curl_setopt($ch, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/CategoryList');
@@ -472,7 +473,7 @@ if ($cruisedestinationid > 0) {
                         $error = curl_error($ch);
                         $headers = curl_getinfo($ch);
                         curl_close($ch);
-                        //error_log("\r\n Response2 - $response2 \r\n", 3, "/srv/www/htdocs/error_log");
+                        error_log("\r\n Response2 - $response2 \r\n", 3, "/srv/www/htdocs/error_log");
                         $inputDoc = new DOMDocument();
                         $inputDoc->loadXML($response2);
                         $Envelope = $inputDoc->getElementsByTagName("Envelope");
