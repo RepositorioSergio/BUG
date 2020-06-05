@@ -90,25 +90,21 @@ $raw ='<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="ht
              <Guest Code="10" Age="30">
                <GuestTransportation Mode="29" Status="36"/>
             </Guest>
-            <Guest Code="8" Age="4">
-               <GuestTransportation Mode="29" Status="36"/>
-            </Guest>
             <GuestCounts>
-               <GuestCount Age="30" Quantity="1"/> 
-               <GuestCount Age="4" Quantity="1"/>      
+               <GuestCount Age="30" Quantity="1"/>     
             </GuestCounts>
             <SailingInfo>
-               <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-09-06" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+               <SelectedSailing ListOfSailingDescriptionCode="6" Start="2021-02-07" Duration="P7N" Status="36" PortsOfCallQuantity="5">
                   <CruiseLine VendorCode="PUL" ShipCode="HR"/>
                   <!--Optional:-->
-                  <Region RegionCode="PIGCU" SubRegionCode="PFP"/>
+                  <Region RegionCode="PDYDO" SubRegionCode="PGS"/>
                   <!--Optional:-->
-                  <DeparturePort LocationCode="ATH"/>
+                  <DeparturePort LocationCode="DXB"/>
                   <!--Optional:-->
-                  <ArrivalPort LocationCode="ATH"/>
+                  <ArrivalPort LocationCode="DXB"/>
                </SelectedSailing>
                <!--Optional:-->
-               <InclusivePackageOption CruisePackageCode="HRPD0750" InclusiveIndicator="false"/>
+               <InclusivePackageOption CruisePackageCode="HRPO0720" InclusiveIndicator="false"/>
                <!--Optional:-->
                <Currency CurrencyCode="USD" DecimalPlaces="2"/>
             </SailingInfo>

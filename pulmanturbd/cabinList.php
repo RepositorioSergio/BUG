@@ -62,70 +62,6 @@ $password = 'u73ecKBu73ecKB!';
 
 $url = "https://stage.services.rccl.com/Reservation_FITWeb/sca/CabinList";
 
-$raw = '<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cab="http://services.rccl.com/Interfaces/CabinList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <cab:getCabinList>
-        <OTA_CruiseCabinAvailRQ MaxResponses="50" MoreDataEchoToken="01" Target="Test" RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-11-25T10:08:12.204-05:00" TransactionIdentifier="106597" Version="1.0" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
-            <POS>
-                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                    <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
-                    <BookingChannel Type="7">
-                        <CompanyName CompanyShortName="PULLMANTUR"/>
-                    </BookingChannel>
-                </Source>
-                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                    <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
-                    <BookingChannel Type="7">
-                        <CompanyName CompanyShortName="PULLMANTUR"/>
-                    </BookingChannel>
-                </Source>
-                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                    <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
-                    <BookingChannel Type="7">
-                        <CompanyName CompanyShortName="PULLMANTUR"/>
-                    </BookingChannel>
-                </Source>
-            </POS>
-            <Guest Code="10" Age="30">
-                <GuestTransportation Mode="29" Status="36">
-                    <GatewayCity LocationCode="C/O"/>
-                </GuestTransportation>
-            </Guest>
-            <Guest Code="8" Age="4">
-                <GuestTransportation Mode="29" Status="36">
-                    <GatewayCity LocationCode="C/O"/>
-                </GuestTransportation>
-            </Guest>
-            <GuestCounts>
-                <GuestCount Age="30" Quantity="1"/>
-                <GuestCount Age="4" Quantity="1"/>
-            </GuestCounts>
-            <SailingInfo>
-                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-18" Duration="P7N" Status="36" PortsOfCallQuantity="7">
-                    <CruiseLine VendorCode="PUL" ShipCode="MO"/>
-                    <!--Optional:-->
-                    <Region RegionCode="PFIOR" SubRegionCode="PFIOR"/>
-                    <!--Optional:-->
-                    <DeparturePort LocationCode="TRD"/>
-                    <!--Optional:-->
-                    <ArrivalPort LocationCode="CPH"/>
-                </SelectedSailing>
-                <InclusivePackageOption CruisePackageCode="MOPF0756"/>
-                <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                <SelectedCategory BerthedCategoryCode="JT" PricedCategoryCode="JT" WaitlistIndicator="false">
-                </SelectedCategory>
-            </SailingInfo>
-            <SearchQualifiers BerthedCategoryCode="JT" FareCode="G1802540" GroupCode="10" CategoryLocation="Deluxe">
-                <Status Status="36"/>
-            </SearchQualifiers>
-            <SelectedFare GroupCode="10"/>
-        </OTA_CruiseCabinAvailRQ>
-    </cab:getCabinList>
-   </soapenv:Body>
-</soapenv:Envelope>';
-
 $raw2 = '<?xml version="1.0" encoding="UTF-8"?>
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cab="http://services.rccl.com/Interfaces/CabinList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
 <soapenv:Header/>
@@ -157,31 +93,25 @@ $raw2 = '<?xml version="1.0" encoding="UTF-8"?>
                     <GatewayCity LocationCode="C/O"/>
                 </GuestTransportation>
             </Guest>
-            <Guest Code="8" Age="4">
-                <GuestTransportation Mode="29" Status="36">
-                    <GatewayCity LocationCode="C/O"/>
-                </GuestTransportation>
-            </Guest>
             <GuestCounts>
                 <GuestCount Age="30" Quantity="1"/>
-                <GuestCount Age="4" Quantity="1"/>
             </GuestCounts>
             <SailingInfo>
-                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-18" Duration="P7N" Status="36" PortsOfCallQuantity="7">
-                    <CruiseLine VendorCode="PUL" ShipCode="MO"/>
+                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2021-02-07" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                    <CruiseLine VendorCode="PUL" ShipCode="HR"/>
                     <!--Optional:-->
-                    <Region RegionCode="PFIOR" SubRegionCode="PFI"/>
+                    <Region RegionCode="PDYDO" SubRegionCode="PGS"/>
                     <!--Optional:-->
-                    <DeparturePort LocationCode="TRD"/>
+                    <DeparturePort LocationCode="DXB"/>
                     <!--Optional:-->
-                    <ArrivalPort LocationCode="CPH"/>
+                    <ArrivalPort LocationCode="DXB"/>
                 </SelectedSailing>
-                <InclusivePackageOption CruisePackageCode="MOPF0756"/>
+                <InclusivePackageOption CruisePackageCode="HRPO0720"/>
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                <SelectedCategory BerthedCategoryCode="JT" PricedCategoryCode="JT" WaitlistIndicator="false">
+                <SelectedCategory BerthedCategoryCode="GS" PricedCategoryCode="GS" WaitlistIndicator="false">
                 </SelectedCategory>
             </SailingInfo>
-            <SearchQualifiers BerthedCategoryCode="JT" FareCode="G5543026" GroupCode="1" CategoryLocation="Deluxe">
+            <SearchQualifiers BerthedCategoryCode="GS" FareCode="F9368551" GroupCode="1" CategoryLocation="Deluxe">
                 <Status Status="36"/>
             </SearchQualifiers>
             <SelectedFare GroupCode="1"/>

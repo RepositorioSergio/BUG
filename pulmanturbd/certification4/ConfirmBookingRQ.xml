@@ -22,19 +22,19 @@
             </BookingChannel>
         </Source>
     </POS>
-    <AgentInfo Contact="CMOTEST7" ContactID="CMOtest_MI7"/>
+    <AgentInfo Contact="CMOTEST12" ContactID="CMOtest_MI12"/>
     <SailingInfo>
-        <SelectedSailing Start="2020-07-05">
+        <SelectedSailing Start="2021-02-14">
             <CruiseLine ShipCode="HR"/>
         </SelectedSailing>
-        <InclusivePackageOption CruisePackageCode="HRPT0734"/>
-        <SelectedCategory PricedCategoryCode="A" BerthedCategoryCode="A" FareCode="BESTRATE" DeckNumber="9" DeckName="CUBIERTA 9">
+        <InclusivePackageOption CruisePackageCode="HRPO0714"/>
+        <SelectedCategory PricedCategoryCode="L" BerthedCategoryCode="L" FareCode="BESTRATE" DeckNumber="4" DeckName="CUBIERTA 4">
             <!--Optional:-->
             <alp:CabinAttributes>
                 <!--1 to 99 repetitions:-->
                 <alp:CabinAttribute CabinAttributeCode="86"/>
             </alp:CabinAttributes>
-            <SelectedCabin Status="39" CabinNumber="9094" MaxOccupancy="2"/>
+            <SelectedCabin Status="39" CabinNumber="4141" MaxOccupancy="2"/>
         </SelectedCategory>
     </SailingInfo>
     <ReservationInfo>
@@ -77,7 +77,7 @@
             </GuestDetail>
             <GuestDetail>
                 <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="1" BirthDate="2019-05-20" ContactType="CNT" Code="7">
+                <ContactInfo Nationality="ES" Age="1" BirthDate="2019-05-01" ContactType="CNT" Code="8">
                 <PersonName>
                     <GivenName>Maria</GivenName>
                     <Surname>Sanchez LLorente</Surname>

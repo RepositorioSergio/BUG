@@ -89,28 +89,26 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                 </Source>
             </POS>
             <Guest Code="10" Age="30"/>
-            <Guest Code="8" Age="4"/>
             <GuestCounts>
                 <GuestCount Age="30" Quantity="1"/>
-                <GuestCount Age="4" Quantity="1"/>
             </GuestCounts>
             <SailingInfo>
-                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-18" Duration="P7N" Status="36" PortsOfCallQuantity="7">
-                    <CruiseLine VendorCode="PUL" ShipCode="MO"/>
+                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2021-02-07" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                    <CruiseLine VendorCode="PUL" ShipCode="HR"/>
                     <!--Optional:-->
-                    <Region RegionCode="PFIOR" SubRegionCode="PFIOR"/>
+                    <Region RegionCode="PDYDO" SubRegionCode="PGS"/>
                     <!--Optional:-->
-                    <DeparturePort LocationCode="TRD"/>
+                    <DeparturePort LocationCode="DXB"/>
                     <!--Optional:-->
-                    <ArrivalPort LocationCode="CPH"/>
+                    <ArrivalPort LocationCode="DXB"/>
                 </SelectedSailing>
                 <!--Optional:-->
-                <alp:InclusivePackageOption CruisePackageCode="MOPF0756" InclusiveIndicator="false"/>
+                <alp:InclusivePackageOption CruisePackageCode="HRPO0720" InclusiveIndicator="false"/>
                 <!--Optional:-->
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                <SelectedCategory BerthedCategoryCode="JT" PricedCategoryCode="JT"/>
+                <SelectedCategory BerthedCategoryCode="GS" PricedCategoryCode="GS"/>
             </SailingInfo>
-            <SelectedFare GroupCode="10"/>
+            <SelectedFare GroupCode="1"/>
             <TPA_ReservationId Type="14" ID="0"/>
         </OTA_CruiseDiningAvailRQ>
     </din:getDiningList>

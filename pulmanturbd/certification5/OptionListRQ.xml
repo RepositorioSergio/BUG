@@ -24,17 +24,17 @@
                     </Source>
                 </POS>
                 <SailingInfo>
-                    <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-05" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                    <SelectedSailing ListOfSailingDescriptionCode="6" Start="2021-02-14" Duration="P7N" Status="36" PortsOfCallQuantity="4">
                         <CruiseLine VendorCode="PUL" ShipCode="HR"/>
                         <!--Optional:-->
-                        <Region RegionCode="PISGR" SubRegionCode="PGR"/>
+                        <Region RegionCode="PDYAD" SubRegionCode="PGQ"/>
                         <!--Optional:-->
-                        <DeparturePort LocationCode="ATH"/>
+                        <DeparturePort LocationCode="DXB"/>
                         <!--Optional:-->
-                        <ArrivalPort LocationCode="ATH"/>
+                        <ArrivalPort LocationCode="DXB"/>
                     </SelectedSailing>
                     <!--Optional:-->
-                    <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
+                    <InclusivePackageOption CruisePackageCode="HRPO0714" InclusiveIndicator="false"/>
                     <!--Optional:-->
                     <Currency CurrencyCode="USD" DecimalPlaces="2"/>
                     <SelectedCategory BerthedCategoryCode="FA"/>

@@ -28,18 +28,18 @@
             <GuestCount Age="30" Quantity="1"/>
             <GuestCount Age="1" Quantity="1"/>
          </GuestCounts>
-         <SelectedSailing Start="2020-07-05" ShipCode="HR" VendorCode="PUL">
-            <SelectedFare FareCode="BESTRATE" GroupCode="14"/>
-            <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A">
+         <SelectedSailing Start="2021-02-14" ShipCode="HR" VendorCode="PUL">
+            <SelectedFare FareCode="BESTRATE" GroupCode="2"/>
+            <SelectedCategory BerthedCategoryCode="L" PricedCategoryCode="L">
                 <!--Optional:-->
                 <CabinAttributes>
                     <!--1 to 99 repetitions:-->
                     <CabinAttribute CabinAttributeCode="86"/>
                 </CabinAttributes>
                 <!--1 to 4 repetitions:-->
-               <SelectedCabin CabinNumber="9092" MaxOccupancy="2"/>
+               <SelectedCabin CabinNumber="4141" MaxOccupancy="2"/>
             </SelectedCategory>
-            <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
+            <InclusivePackageOption CruisePackageCode="HRPO0714" InclusiveIndicator="false"/>
          </SelectedSailing>
          <!--0 to 9 repetitions:-->
          <Guest Code="10" Age="30"/>
@@ -47,7 +47,7 @@
          <!--Optional:-->
             <alp:Currency CurrencyCode="USD" DecimalPlaces="2"/>
          <!--Optional:-->
-        <SearchQualifiers BerthedCategoryCode="A" PricedCategoryCode="A" CabinNumber="9094" GroupCode="13" MaxOccupancy="2" DeckNumber="9" DeckName="CUBIERTA 9">
+        <SearchQualifiers BerthedCategoryCode="L" PricedCategoryCode="L" CabinNumber="4141" GroupCode="2" MaxOccupancy="2" DeckNumber="4" DeckName="CUBIERTA 4">
             <!--0 to 5 repetitions:-->
             <Status Status="36"/>
             <!--Optional:-->

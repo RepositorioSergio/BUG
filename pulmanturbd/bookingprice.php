@@ -83,129 +83,15 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
         </Source>
       </POS>
       <SailingInfo>
-        <SelectedSailing Start="2020-07-18">
-          <CruiseLine ShipCode="MO" VendorCode="PUL"/>
-        </SelectedSailing>
-        <InclusivePackageOption CruisePackageCode="MOPF0756" InclusiveIndicator="false"/>
-        <SelectedCategory BerthedCategoryCode="JT" FareCode="BESTRATE" PricedCategoryCode="JT">
-          <SelectedCabin CabinNumber="1076" Status="36"/>
-        </SelectedCategory>
-      </SailingInfo>
-      <ReservationInfo>
-        <GuestDetails>
-            <GuestDetail>
-                <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="30" BirthDate="1990-05-01" ContactType="CNT" Code="10">
-                <PersonName>
-                    <GivenName>David</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    <NameTitle>MR</NameTitle>
-                </PersonName>
-                </ContactInfo>
-                <ContactInfo ContactType="ALT">
-                    <PersonName>
-                    <GivenName>David</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    </PersonName>
-                    <Address>
-                    <AddressLine>MAhonia 2</AddressLine>
-                    <CityName>Madrid</CityName>
-                    <PostalCode>28043</PostalCode>
-                    <CountryName Code="ES"/>
-                    </Address>
-                    <Email>davizch2004@gmail.com</Email>
-                </ContactInfo>
-                <ContactInfo ContactType="EMG">
-                    <PersonName>
-                    <GivenName>David</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    </PersonName>
-                    <Telephone PhoneNumber="9871236540"/>
-                </ContactInfo>
-                <GuestTransportation Status="36" Mode="29">
-                    <GatewayCity LocationCode="C/O"/>
-                </GuestTransportation>
-                <SelectedDining Status="36" Sitting="M"/>
-                <CruiseDocument DocumentLanguage="ES"/>
-            </GuestDetail>
-            <GuestDetail>
-                <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="4" BirthDate="2016-05-01" ContactType="CNT" Code="8">
-                <PersonName>
-                    <GivenName>Antonio</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    <NameTitle>MR</NameTitle>
-                </PersonName>
-                </ContactInfo>
-                <ContactInfo ContactType="ALT">
-                    <PersonName>
-                    <GivenName>David</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    </PersonName>
-                    <Address>
-                    <AddressLine>MAhonia 2</AddressLine>
-                    <CityName>Madrid</CityName>
-                    <PostalCode>28043</PostalCode>
-                    <CountryName Code="ES"/>
-                    </Address>
-                    <Email>davizch2004@gmail.com</Email>
-                </ContactInfo>
-                <ContactInfo ContactType="EMG">
-                    <PersonName>
-                    <GivenName>David</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    </PersonName>
-                    <Telephone PhoneNumber="9871236540"/>
-                </ContactInfo>
-                <GuestTransportation Status="36" Mode="29">
-                    <GatewayCity LocationCode="C/O"/>
-                </GuestTransportation>
-                <SelectedDining Status="36" Sitting="M"/>
-                <CruiseDocument DocumentLanguage="ES"/>
-            </GuestDetail>
-        </GuestDetails>
-      </ReservationInfo>
-    </OTA_CruisePriceBookingRQ>
-  </book:getBookingPrice>
-</soapenv:Body>
-</soapenv:Envelope>';
-
-$raw2 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:book="http://services.rccl.com/Interfaces/BookingPrice" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
-<soapenv:Header/>
-<soapenv:Body>
-  <book:getBookingPrice>
-    <OTA_CruisePriceBookingRQ Version="1.0" SequenceNmbr="1" Target="Test" TimeStamp="2008-12-30T18:30:42.720+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
-      <POS>
-        <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-            <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
-            <BookingChannel Type="7">
-            <CompanyName CompanyShortName="PULLMANTUR"/>
-            </BookingChannel>
-        </Source>
-        <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-            <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
-            <BookingChannel Type="7">
-            <CompanyName CompanyShortName="PULLMANTUR"/>
-            </BookingChannel>
-        </Source>
-        <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-            <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
-            <BookingChannel Type="7">
-            <CompanyName CompanyShortName="PULLMANTUR"/>
-            </BookingChannel>
-        </Source>
-      </POS>
-      <SailingInfo>
-        <SelectedSailing Start="2020-07-05">
+        <SelectedSailing Start="2021-02-07">
           <CruiseLine ShipCode="HR" VendorCode="PUL"/>
         </SelectedSailing>
-        <InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
-        <SelectedCategory BerthedCategoryCode="A" FareCode="BESTRATE" PricedCategoryCode="A">
-          <SelectedCabin CabinNumber="9094" Status="36"/>
+        <InclusivePackageOption CruisePackageCode="HRPO0720" InclusiveIndicator="false"/>
+        <SelectedCategory BerthedCategoryCode="GS" FareCode="BESTRATE" PricedCategoryCode="GS">
+          <SelectedCabin CabinNumber="1071" Status="36"/>
         </SelectedCategory>
       </SailingInfo>
       <ReservationInfo>
-      <ReservationID ID="3170" Instance="5" Type="14" StatusCode="42"/>
         <GuestDetails>
             <GuestDetail>
                 <SelectedFareCode FareCode="BESTRATE"/>
@@ -239,42 +125,7 @@ $raw2 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelo
                 <GuestTransportation Status="36" Mode="29">
                     <GatewayCity LocationCode="C/O"/>
                 </GuestTransportation>
-                <SelectedDining AgeCode="22" Status="39" Sitting="M"/>
-                <CruiseDocument DocumentLanguage="ES"/>
-            </GuestDetail>
-            <GuestDetail>
-                <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="1" BirthDate="2019-05-20" ContactType="CNT" Code="7">
-                <PersonName>
-                    <GivenName>Maria</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    <NameTitle>MR</NameTitle>
-                </PersonName>
-                </ContactInfo>
-                <ContactInfo ContactType="ALT">
-                    <PersonName>
-                    <GivenName>David</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    </PersonName>
-                    <Address>
-                    <AddressLine>MAhonia 2</AddressLine>
-                    <CityName>Madrid</CityName>
-                    <PostalCode>28043</PostalCode>
-                    <CountryName Code="ES"/>
-                    </Address>
-                    <Email>davizch2004@gmail.com</Email>
-                </ContactInfo>
-                <ContactInfo ContactType="EMG">
-                    <PersonName>
-                    <GivenName>David</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    </PersonName>
-                    <Telephone PhoneNumber="9871236540"/>
-                </ContactInfo>
-                <GuestTransportation Status="36" Mode="29">
-                    <GatewayCity LocationCode="C/O"/>
-                </GuestTransportation>
-                <SelectedDining AgeCode="19" Status="39" Sitting="M"/>
+                <SelectedDining Status="36" Sitting="M"/>
                 <CruiseDocument DocumentLanguage="ES"/>
             </GuestDetail>
         </GuestDetails>

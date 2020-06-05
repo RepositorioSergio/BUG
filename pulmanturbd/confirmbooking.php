@@ -86,19 +86,19 @@ $raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xml
             </BookingChannel>
         </Source>
     </POS>
-    <AgentInfo Contact="CMOTEST8" ContactID="CMOtest_MI8"/>
+    <AgentInfo Contact="CMOTEST13" ContactID="CMOtest_MI13"/>
     <SailingInfo>
-        <SelectedSailing Start="2020-07-18">
-            <CruiseLine ShipCode="MO"/>
+        <SelectedSailing Start="2021-02-07">
+            <CruiseLine ShipCode="HR"/>
         </SelectedSailing>
-        <InclusivePackageOption CruisePackageCode="MOPF0756"/>
-        <SelectedCategory PricedCategoryCode="JT" BerthedCategoryCode="JT" FareCode="BESTRATE" DeckNumber="10" DeckName="CUBIERTA 10">
+        <InclusivePackageOption CruisePackageCode="HRPO0720"/>
+        <SelectedCategory PricedCategoryCode="GS" BerthedCategoryCode="GS" FareCode="BESTRATE" DeckNumber="10" DeckName="CUBIERTA 10">
             <!--Optional:-->
             <alp:CabinAttributes>
                 <!--1 to 99 repetitions:-->
-                <alp:CabinAttribute CabinAttributeCode="86"/>
+                <alp:CabinAttribute CabinAttributeCode="99"/>
             </alp:CabinAttributes>
-            <SelectedCabin Status="39" CabinNumber="1076" MaxOccupancy="3"/>
+            <SelectedCabin Status="39" CabinNumber="1071" MaxOccupancy="4"/>
         </SelectedCategory>
     </SailingInfo>
     <ReservationInfo>
@@ -109,41 +109,6 @@ $raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xml
                 <ContactInfo Nationality="ES" Age="30" BirthDate="1990-05-01" ContactType="CNT" Code="10">
                 <PersonName>
                     <GivenName>David</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    <NameTitle>MR</NameTitle>
-                </PersonName>
-                </ContactInfo>
-                <ContactInfo ContactType="ALT">
-                    <PersonName>
-                    <GivenName>David</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    </PersonName>
-                    <Address>
-                    <AddressLine>MAhonia 2</AddressLine>
-                    <CityName>Madrid</CityName>
-                    <PostalCode>28043</PostalCode>
-                    <CountryName Code="ES"/>
-                    </Address>
-                    <Email>davizch2004@gmail.com</Email>
-                </ContactInfo>
-                <ContactInfo ContactType="EMG">
-                    <PersonName>
-                    <GivenName>David</GivenName>
-                    <Surname>Sanchez LLorente</Surname>
-                    </PersonName>
-                    <Telephone PhoneNumber="9871236540"/>
-                </ContactInfo>
-                <GuestTransportation Status="36" Mode="29">
-                    <GatewayCity LocationCode="C/O"/>
-                </GuestTransportation>
-                <SelectedDining Status="36" Sitting="M"/>
-                <CruiseDocument DocumentLanguage="ES"/>
-            </GuestDetail>
-            <GuestDetail>
-                <SelectedFareCode FareCode="BESTRATE"/>
-                <ContactInfo Nationality="ES" Age="4" BirthDate="2016-05-01" ContactType="CNT" Code="8">
-                <PersonName>
-                    <GivenName>Antonio</GivenName>
                     <Surname>Sanchez LLorente</Surname>
                     <NameTitle>MR</NameTitle>
                 </PersonName>

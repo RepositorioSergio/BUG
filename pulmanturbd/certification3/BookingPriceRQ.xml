@@ -24,12 +24,12 @@
         </Source>
       </POS>
       <SailingInfo>
-        <SelectedSailing Start="2020-07-18">
-          <CruiseLine ShipCode="MO" VendorCode="PUL"/>
+        <SelectedSailing Start="2021-02-07">
+          <CruiseLine ShipCode="HR" VendorCode="PUL"/>
         </SelectedSailing>
-        <InclusivePackageOption CruisePackageCode="MOPF0756" InclusiveIndicator="false"/>
-        <SelectedCategory BerthedCategoryCode="JT" FareCode="BESTRATE" PricedCategoryCode="JT">
-          <SelectedCabin CabinNumber="1076" Status="36"/>
+        <InclusivePackageOption CruisePackageCode="HRPO0720" InclusiveIndicator="false"/>
+        <SelectedCategory BerthedCategoryCode="FE" FareCode="BESTRATE" PricedCategoryCode="FE">
+          <SelectedCabin CabinNumber="5087" Status="36"/>
         </SelectedCategory>
       </SailingInfo>
       <ReservationInfo>

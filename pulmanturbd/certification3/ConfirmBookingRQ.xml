@@ -22,19 +22,19 @@
             </BookingChannel>
         </Source>
     </POS>
-    <AgentInfo Contact="CMOTEST8" ContactID="CMOtest_MI8"/>
+    <AgentInfo Contact="CMOTEST9" ContactID="CMOtest_MI9"/>
     <SailingInfo>
-        <SelectedSailing Start="2020-07-18">
-            <CruiseLine ShipCode="MO"/>
+        <SelectedSailing Start="2021-02-07">
+            <CruiseLine ShipCode="HR"/>
         </SelectedSailing>
-        <InclusivePackageOption CruisePackageCode="MOPF0756"/>
-        <SelectedCategory PricedCategoryCode="JT" BerthedCategoryCode="JT" FareCode="BESTRATE" DeckNumber="10" DeckName="CUBIERTA 10">
+        <InclusivePackageOption CruisePackageCode="HRPO0720"/>
+        <SelectedCategory PricedCategoryCode="FE" BerthedCategoryCode="FE" FareCode="BESTRATE" DeckNumber="5" DeckName="CUBIERTA 5">
             <!--Optional:-->
             <alp:CabinAttributes>
                 <!--1 to 99 repetitions:-->
-                <alp:CabinAttribute CabinAttributeCode="86"/>
+                <alp:CabinAttribute CabinAttributeCode="83"/>
             </alp:CabinAttributes>
-            <SelectedCabin Status="39" CabinNumber="1076" MaxOccupancy="3"/>
+            <SelectedCabin Status="39" CabinNumber="5087" MaxOccupancy="3"/>
         </SelectedCategory>
     </SailingInfo>
     <ReservationInfo>

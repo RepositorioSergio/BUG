@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cab="http://services.rccl.com/Interfaces/CabinList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <cab:getCabinList>
+<soapenv:Header/>
+<soapenv:Body>
+    <cab:getCabinList>
         <OTA_CruiseCabinAvailRQ MaxResponses="50" MoreDataEchoToken="01" Target="Test" RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-11-25T10:08:12.204-05:00" TransactionIdentifier="106597" Version="1.0" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
             <POS>
                 <Source TerminalID="12502LDJW6" ISOCurrency="USD">
@@ -39,25 +39,25 @@
                 <GuestCount Age="1" Quantity="1"/>
             </GuestCounts>
             <SailingInfo>
-                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-05" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2021-02-14" Duration="P7N" Status="36" PortsOfCallQuantity="4">
                     <CruiseLine VendorCode="PUL" ShipCode="HR"/>
                     <!--Optional:-->
-                    <Region RegionCode="PISGR" SubRegionCode="PGR"/>
+                    <Region RegionCode="PDYAD" SubRegionCode="PGQ"/>
                     <!--Optional:-->
-                    <DeparturePort LocationCode="ATH"/>
+                    <DeparturePort LocationCode="DXB"/>
                     <!--Optional:-->
-                    <ArrivalPort LocationCode="ATH"/>
+                    <ArrivalPort LocationCode="DXB"/>
                 </SelectedSailing>
-                <InclusivePackageOption CruisePackageCode="HRPT0734"/>
+                <InclusivePackageOption CruisePackageCode="HRPO0714"/>
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A" WaitlistIndicator="false">
+                <SelectedCategory BerthedCategoryCode="L" PricedCategoryCode="L" WaitlistIndicator="false">
                 </SelectedCategory>
             </SailingInfo>
-            <SearchQualifiers BerthedCategoryCode="A" FareCode="G5499537" GroupCode="13" CategoryLocation="Balcony">
+            <SearchQualifiers BerthedCategoryCode="L" FareCode="F9368706" GroupCode="2" CategoryLocation="Inside">
                 <Status Status="36"/>
             </SearchQualifiers>
-            <SelectedFare GroupCode="13"/>
+            <SelectedFare GroupCode="2"/>
         </OTA_CruiseCabinAvailRQ>
     </cab:getCabinList>
-   </soapenv:Body>
+</soapenv:Body>
 </soapenv:Envelope>

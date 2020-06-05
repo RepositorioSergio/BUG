@@ -31,22 +31,22 @@
                 <GuestCount Age="1" Quantity="1"/>
             </GuestCounts>
             <SailingInfo>
-                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2020-07-05" Duration="P7N" Status="36" PortsOfCallQuantity="5">
+                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2021-02-14" Duration="P7N" Status="36" PortsOfCallQuantity="4">
                     <CruiseLine VendorCode="PUL" ShipCode="HR"/>
                     <!--Optional:-->
-                    <Region RegionCode="PISGR" SubRegionCode="PGR"/>
+                    <Region RegionCode="PDYAD" SubRegionCode="PGQ"/>
                     <!--Optional:-->
-                    <DeparturePort LocationCode="ATH"/>
+                    <DeparturePort LocationCode="DXB"/>
                     <!--Optional:-->
-                    <ArrivalPort LocationCode="ATH"/>
+                    <ArrivalPort LocationCode="DXB"/>
                 </SelectedSailing>
                 <!--Optional:-->
-                <alp:InclusivePackageOption CruisePackageCode="HRPT0734" InclusiveIndicator="false"/>
+                <alp:InclusivePackageOption CruisePackageCode="HRPO0714" InclusiveIndicator="false"/>
                 <!--Optional:-->
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                <SelectedCategory BerthedCategoryCode="A" PricedCategoryCode="A"/>
+                <SelectedCategory BerthedCategoryCode="L" PricedCategoryCode="L"/>
             </SailingInfo>
-            <SelectedFare GroupCode="13"/>
+            <SelectedFare GroupCode="2"/>
             <TPA_ReservationId Type="14" ID="0"/>
         </OTA_CruiseDiningAvailRQ>
     </din:getDiningList>
