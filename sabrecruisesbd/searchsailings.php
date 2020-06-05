@@ -75,10 +75,13 @@ $raw = '{
       "currencyCode": "USD"
     },
     "sailingQualifier": {
-      "startDate": "2020-10-01",
-      "endDate": "2020-10-30",
-      "minDuration": 1,
-      "maxDuration": 10
+        "startDate": "2020-10-01",
+        "endDate": "2020-10-30",
+        "minDuration": 1,
+        "maxDuration": 10,
+        "agencyGroupInd": true,
+        "sailingMediaFlag": true,
+        "itineraryInfoFlag": true
     }
   }';
 
