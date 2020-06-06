@@ -221,13 +221,13 @@ if ($from == "all") {
     $departureTo = $d->format("Y-m-t");
 }
 if ($length == "all") {
-    $MinCruiseLength = 0;
+    $MinCruiseLength = 1;
     $MaxCruiseLength = 9999;
 } else {
     $length = explode("-", $length);
     $MinCruiseLength = (int) $length[0];
     $MaxCruiseLength = (int) $length[1];
-    if ($MaxCruiseLength == 0) {
+    if ($MaxCruiseLength == 1) {
         $MaxCruiseLength = 9999;
     }
 }
@@ -264,7 +264,7 @@ if ($departureport != "" and $departureport != "all") {
 if ($cruisedestinationid > 0) {
     $secret = base64_encode($cruisessabreClientSecret);
     $cred = base64_encode(base64_encode($cruisessabreClientID) . ":" . $secret);
-    $url = 'https://api.havail.sabre.com/';
+
     $ch = curl_init($cruisessabrewebservicesURL . "v2/auth/token");
     $vars = "grant_type=client_credentials";
     $headers = array(
@@ -290,8 +290,8 @@ if ($cruisedestinationid > 0) {
         "sailingQualifier": {
             "startDate": "' . $departureFrom . '",
             "endDate": "' . $departureTo . '",
-            "minDuration": 1,
-            "maxDuration": 10,
+            "minDuration": "' . $MinCruiseLength . '",
+            "maxDuration": "' . $MaxCruiseLength . '",
             "agencyGroupInd": true,
             "sailingMediaFlag": true,
             "itineraryInfoFlag": true
