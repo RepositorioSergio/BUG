@@ -184,7 +184,55 @@ if ($departureport != "" and $departureport != "all") {
     $PortID = 0;
 }
 if ($cruisedestinationid > 0) {
-    
+    $cruiseinitfilter = '<alp:CruiseLinePrefs>';
+    $cruiseendfilter = '</alp:CruiseLinePrefs>';
+    // Cruise Line
+    if ((int) $CruiseLineID > 0) {
+        $cruiselinefilter = '
+        <alp:CruiseLinePref>
+           <alp:InclusivePackageOption CruisePackageCode="' . $CruiseLineID . '" InclusiveIndicator="false"/>
+        </alp:CruiseLinePref>';
+    } else {
+        $cruiselinefilter = "";
+    }
+    error_log("\r\n CruiseLineID : $cruiselinefilter \r\n", 3, "/srv/www/htdocs/error_log");
+    // Departure Port
+    if ($departureport != "" and $departureport != "all") {
+        if ((int) $PortID > 0) {
+            $cruisedepartureportfilter = '
+            <alp:CruiseLinePref>
+               <alp:SearchQualifiers>
+                  <alp:Port PortCode="' . $PortID . '"/>
+               </alp:SearchQualifiers>
+            </alp:CruiseLinePref>';
+        } else {
+            $cruisedepartureportfilter = "";
+        }
+    } else {
+        $cruisedepartureportfilter = "";
+    }
+    error_log("\r\nPort Id : $cruisedepartureportfilter\r\n", 3, "/srv/www/htdocs/error_log");
+    // Shipid
+    if ($ShipID > 0 or $ShipID != "") {
+        $cruiseshipidfilter = '
+        <alp:CruiseLinePref ShipCode="' . $ShipID . '">
+        </alp:CruiseLinePref>';
+    } else {
+        $cruiseshipidfilter = "";
+    }
+    error_log("\r\n Ship Id : $cruiseshipidfilter \r\n", 3, "/srv/www/htdocs/error_log");
+    // Region id
+    if ($destination != "") {
+        if ((int) $cruisedestinationid > 0) {
+            $cruisedestinationfilter = '<alp:RegionPref RegionCode="' . $cruisedestinationid . '"/>';
+            $cruisedestinationfilter = "";
+        } else {
+            $cruisedestinationfilter = "";
+        }
+    } else {
+        $cruisedestinationfilter = "";
+    }
+    error_log("\r\n cruisedestinationfilter : $cruisedestinationfilter \r\n", 3, "/srv/www/htdocs/error_log");
     $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sail="http://services.rccl.com/Interfaces/SailingList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
     <soapenv:Header/>
     <soapenv:Body>
@@ -220,7 +268,13 @@ if ($cruisedestinationid > 0) {
     if ($MinDuration !== "") {
         $raw .= 'MinDuration="' . $MinDuration . '" MaxDuration="' . $MaxDuration . '"';
     }
-    $raw .= '/></alp:OTA_CruiseSailAvailRQ></sail:getSailingList></soapenv:Body></soapenv:Envelope>';
+    if ($cruiselinefilter === "" and $cruisedepartureportfilter === "" and $cruisedestinationfilter === "" and $cruiseshipidfilter === "") {
+        $raw .= '/></alp:OTA_CruiseSailAvailRQ></sail:getSailingList></soapenv:Body></soapenv:Envelope>';
+    } else {
+        $raw .= '/>' . $cruiseinitfilter . ''. $cruiselinefilter .''. $cruisedepartureportfilter .'' . $cruiseshipidfilter . '' . $cruisedestinationfilter . '' . $cruiseendfilter . '</alp:OTA_CruiseSailAvailRQ></sail:getSailingList></soapenv:Body></soapenv:Envelope>';
+    }
+    
+    error_log("\r\n RAW - $raw \r\n", 3, "/srv/www/htdocs/error_log");
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/SailingList');
     curl_setopt($ch, CURLOPT_HEADER, false);
@@ -399,6 +453,103 @@ if ($cruisedestinationid > 0) {
                         $cruises[$counter]["arrivalportlocationcode"] = $ArrivalPortLocationCode;
                         $cruises[$counter]["cruisepackagecode"] = $CruisePackageCode;
                         $cruises[$counter]["inclusiveindicator"] = $InclusiveIndicator;
+                        //
+                        //Itinerary
+                        //
+                        $raw4 = '<?xml version="1.0" encoding="UTF-8"?>
+                        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:itin="http://services.rccl.com/Interfaces/ItineraryDetail" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
+                        <soapenv:Header/>
+                        <soapenv:Body>
+                            <itin:getItineraryDetail>
+                                <OTA_CruiseItineraryDescRQ RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-12-29T18:25:50.1Z" TransactionIdentifier="106597" Version="1.0" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+                                    <POS>
+                                        <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                                            <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+                                            <BookingChannel Type="7">
+                                                <CompanyName CompanyShortName="PULLMANTUR"/>
+                                            </BookingChannel>
+                                        </Source>
+                                        <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                                            <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+                                            <BookingChannel Type="7">
+                                                <CompanyName CompanyShortName="PULLMANTUR"/>
+                                            </BookingChannel>
+                                        </Source>
+                                        <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                                            <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+                                            <BookingChannel Type="7">
+                                                <CompanyName CompanyShortName="PULLMANTUR"/>
+                                            </BookingChannel>
+                                        </Source>
+                                    </POS>
+                                    <!--Optional:-->
+                                    <SelectedSailing Start="' . $Start . '" Duration="' . $Duration . '" VendorCode="' . $VendorCode . '" ShipCode="' . $ShipCode . '" Status="' . $Status . '"/>
+                                    <!--Optional:-->
+                                    <PackageOption CruisePackageCode="' . $CruisePackageCode . '" InclusiveIndicator="false"/>
+                                </OTA_CruiseItineraryDescRQ>
+                            </itin:getItineraryDetail>
+                        </soapenv:Body>
+                        </soapenv:Envelope>';
+
+                        $ch = curl_init();
+                        curl_setopt($ch, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/ItineraryDetail');
+                        curl_setopt($ch, CURLOPT_HEADER, false);
+                        curl_setopt($ch, CURLOPT_VERBOSE, false);
+                        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                        curl_setopt($ch, CURLOPT_POST, true);
+                        curl_setopt($ch, CURLOPT_POSTFIELDS, $raw4);
+                        curl_setopt($ch, CURLOPT_USERPWD, $cruisespullmanturusername . ":" . $cruisespullmanturpassword);
+                        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $cruisespullmanturConnetionTimeout);
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                        curl_setopt($ch, CURLOPT_ENCODING, 'gzip');
+                        $response4 = curl_exec($ch);
+                        $error = curl_error($ch);
+                        $headers = curl_getinfo($ch);
+                        curl_close($ch);
+
+                        $segments = array();
+
+                        $inputDoc = new DOMDocument();
+                        $inputDoc->loadXML($response4);
+                        $Envelope = $inputDoc->getElementsByTagName("Envelope");
+                        $Body = $Envelope->item(0)->getElementsByTagName("Body");
+                        $getItineraryDetailResponse = $Body->item(0)->getElementsByTagName("getItineraryDetailResponse");
+                        if ($getItineraryDetailResponse->length > 0) {
+                            $CruiseItinInfos = $getItineraryDetailResponse->item(0)->getElementsByTagName("CruiseItinInfos");
+                            if ($CruiseItinInfos->length > 0) {
+                                $CruiseItinInfo = $CruiseItinInfos->item(0)->getElementsByTagName("CruiseItinInfo");
+                                if ($CruiseItinInfo->length > 0) {
+                                    for ($i=0; $i < $CruiseItinInfo->length; $i++) { 
+                                        $segments[$i]['portid'] = $CruiseItinInfo->item($i)->getAttribute("PortCode");
+                                        $segments[$i]['portname'] = $CruiseItinInfo->item($i)->getAttribute("PortName");
+
+                                        $Information = $CruiseItinInfo->item($i)->getElementsByTagName("Information");
+                                        if ($Information->length > 0) {
+                                            $Text = $Information->item(0)->getElementsByTagName("Text");
+                                            if ($Text->length > 0) {
+                                                $Text = $Text->item(0)->nodeValue;
+                                            } else {
+                                                $Text = "";
+                                            }
+                                        }
+                                        $DateTimeDescription = $CruiseItinInfo->item($i)->getElementsByTagName("DateTimeDescription");
+                                        if ($DateTimeDescription->length > 0) {
+                                            for ($iAux=0; $iAux < $DateTimeDescription->length; $iAux++) { 
+                                                $DateTimeDetails = $DateTimeDescription->item($iAux)->getAttribute("DateTimeDetails");
+                                                $DateTimeQualifier = $DateTimeDescription->item($iAux)->getAttribute("DateTimeQualifier");
+                                                $DayOfWeek = $DateTimeDescription->item($iAux)->getAttribute("DayOfWeek");
+                                                /* if ($DateTimeQualifier === "departure") {
+                                                    $segments[$i]['departure'] = $DateTimeDetails;
+                                                } else {
+                                                    $segments[$i]['arrival'] = $DateTimeDetails;
+                                                } */
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
                         $cruisesfrom = 0;
                         $cruisesfrom_publish = 0;
                         
@@ -456,7 +607,7 @@ if ($cruisedestinationid > 0) {
                             </cat:getCategoryList>
                         </soapenv:Body>
                         </soapenv:Envelope>';
-                        error_log("\r\n RAW - $raw2 \r\n", 3, "/srv/www/htdocs/error_log");
+                        //error_log("\r\n RAW - $raw2 \r\n", 3, "/srv/www/htdocs/error_log");
                         
                         $ch = curl_init();
                         curl_setopt($ch, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/CategoryList');
@@ -473,7 +624,7 @@ if ($cruisedestinationid > 0) {
                         $error = curl_error($ch);
                         $headers = curl_getinfo($ch);
                         curl_close($ch);
-                        error_log("\r\n Response2 - $response2 \r\n", 3, "/srv/www/htdocs/error_log");
+                        //error_log("\r\n Response2 - $response2 \r\n", 3, "/srv/www/htdocs/error_log");
                         $inputDoc = new DOMDocument();
                         $inputDoc->loadXML($response2);
                         $Envelope = $inputDoc->getElementsByTagName("Envelope");
