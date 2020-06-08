@@ -227,7 +227,7 @@ if ($length == "all") {
     $length = explode("-", $length);
     $MinCruiseLength = (int) $length[0];
     $MaxCruiseLength = (int) $length[1];
-    if ($MaxCruiseLength == 1) {
+    if ($MaxCruiseLength == 0) {
         $MaxCruiseLength = 9999;
     }
 }
@@ -262,6 +262,74 @@ if ($departureport != "" and $departureport != "all") {
     $PortID = 0;
 }
 if ($cruisedestinationid > 0) {
+    //
+    // Cruise Line
+    //
+    if ((int)$CruiseLineID > 0) {
+        $cruiselinefilter = '';
+    } else {
+        $cruiselinefilter = "";
+    }
+    //
+    // Ship ID
+    //
+    if ((int)$ShipID > 0 or $ShipID != "") {
+        $cruiseshipidfilter = ',"cruiseLinePrefs": [
+            {
+              "vendorCode": "RC",
+              "shipCodes": [
+                "' . $ShipID . '"
+              ]
+            }
+          ]';
+    } else {
+        $cruiseshipidfilter = "";
+    }
+    //
+    // Departure Port
+    //
+    if ($departureport != "" or $departureport != "all") {
+       if ((int)$PortID > 0 ) {
+            $cruisedepartureportdestinationfilter = ',
+            "searchQualifiers": {
+              "embarkationPortCodes": [
+                "' . $PortID . '"
+              ]';
+       } else {
+            $cruisedepartureportdestinationfilter = "";
+       }
+    } elseif (($departureport != "" or $departureport != "all") and $destination == "") {
+        $cruisedepartureportdestinationfilter = "}";
+    } else {
+        $cruisedepartureportdestinationfilter = "";
+    }
+    //
+    // Region ID
+    //
+    if ($destination != "" and ($departureport != "" or $departureport != "all")) {
+        if ((int)$cruisedestinationid > 0) {
+            $cruisedepartureportdestinationfilter .= ',
+            "regionCodes": [
+              "' . $cruisedestinationid . '"
+            ]}';
+        } else {
+            $cruisedepartureportdestinationfilter = "";
+        }        
+    } elseif ($destination != "" and ($departureport == "" or $departureport == "all")) {
+        if ((int)$cruisedestinationid > 0) {
+            $cruisedepartureportdestinationfilter .= ',
+            "searchQualifiers": {
+            "regionCodes": [
+              "' . $cruisedestinationid . '"
+            ]}';
+        } else {
+            $cruisedepartureportdestinationfilter = "";
+        }        
+    } else {
+        $cruisedepartureportdestinationfilter = "";
+    }
+    
+    
     $secret = base64_encode($cruisessabreClientSecret);
     $cred = base64_encode(base64_encode($cruisessabreClientID) . ":" . $secret);
 
@@ -294,8 +362,10 @@ if ($cruisedestinationid > 0) {
             "maxDuration": "' . $MaxCruiseLength . '",
             "agencyGroupInd": true,
             "sailingMediaFlag": true,
-            "itineraryInfoFlag": true
-        }
+            "itineraryInfoFlag": true';
+    $raw = $raw . '' . $cruiseshipidfilter;
+    $raw = $raw . '' . $cruisedepartureportdestinationfilter;         
+    $raw .= '}
     }';
     $headers = array(
         "Accept: application/json",
@@ -456,6 +526,57 @@ if ($cruisedestinationid > 0) {
             //
             // Itinerary
             //
+            $segments = array();
+            $itineraryItems = $itineraryInfo['itineraryItems'];
+            if (count($itineraryItems) > 0) {
+                for ($iAux=0; $iAux < count($itineraryItems); $iAux++) { 
+                    $itinRemarkText = $itineraryItems[$iAux]['itinRemarkText'];
+                    $portCode = $itineraryItems[$iAux]['portCode'];
+                    $portDesc = $itineraryItems[$iAux]['portDesc'];
+
+                    $dateTimeDesc = $itineraryItems[$iAux]['dateTimeDesc'];
+                    if (count($dateTimeDesc) > 0) {
+                        for ($iAux2=0; $iAux2 < count($dateTimeDesc); $iAux2++) { 
+                            $dateDetails = $dateTimeDesc[$iAux2]['dateDetails'];
+                            $qualifierCode = $dateTimeDesc[$iAux2]['qualifierCode'];
+                            $timeDetails = $dateTimeDesc[$iAux2]['timeDetails'];
+                            if ($qualifierCode === "DEPART") {
+                                $segments[$iAux]['departure'] = $dateDetails; 
+                            } elseif ($qualifierCode === "ARRIVE") {
+                                $segments[$iAux]['arrival'] = $dateDetails;
+                            }
+                        }
+                    }
+                    $segments[$iAux]['portid'] = $portCode;
+                    if ($portDesc == "") {
+                        $segments[$iAux]['portname'] = $itinRemarkText;
+                    } else {
+                        $segments[$iAux]['portname'] = $portDesc;
+                    }                
+
+                    $sql = "select id, name, latitude, longitude, image, description from cruises_ports where cruises_xml08='" . $segments[$iAux]['PortId'] . "'";
+                    $statement = $db->createStatement($sql);
+                    $statement->prepare();
+                    $row = $statement->execute();
+                    $row->buffer();
+                    if ($row->valid()) {
+                        $row = $row->current();
+                        $segments[$iAux]['port_id'] = $row["id"];
+                        $segments[$iAux]['name'] = $row["name"];
+                        $segments[$iAux]['latitude'] = $row["latitude"];
+                        $segments[$iAux]['longitude'] = $row["longitude"];
+                        $segments[$iAux]['image'] = $row["image"];
+                        $segments[$iAux]['description'] = $row["description"];
+                    } else {
+                        $segments[$iAux]['port_id'] = 0;
+                        $segments[$iAux]['name'] = "";
+                        $segments[$iAux]['latitude'] = 0;
+                        $segments[$iAux]['longitude'] = 0;
+                        $segments[$iAux]['image'] = "";
+                        $segments[$iAux]['description'] = "";
+                    }
+                }
+            }
             // B2C Price
             $IN_PricePublish = 1100; // Displays the Inside cabin publish price.
             $ST_PricePublish = 1150; // Displays the suite cabin publish price.
@@ -702,6 +823,7 @@ if ($cruisedestinationid > 0) {
             $cruises[$counter]["vendorCode"] = $vendorCode;
             $cruises[$counter]["citycode"] = $embarkationPort;
             $cruises[$counter]["token"] = $access_token;
+            $cruises[$counter]['segments'] = $segments;
             // Amenities
             $amenities = array();
             $tmp = array();
