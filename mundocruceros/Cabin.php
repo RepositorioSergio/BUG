@@ -282,7 +282,7 @@ if ($cruise_line_id > 0) {
                     $maxguests = $cabin->item($i)->getAttribute("maxguests");
                     $minguests = $cabin->item($i)->getAttribute("minguests");
                     $modified = $cabin->item($i)->getAttribute("modified");
-                    $resultno = $cabin->item($i)->getAttribute("resultno");
+                    $resultno2 = $cabin->item($i)->getAttribute("resultno");
                     $shipside = $cabin->item($i)->getAttribute("shipside");
                     $x1 = $cabin->item($i)->getAttribute("x1");
                     $x2 = $cabin->item($i)->getAttribute("x2");
@@ -332,17 +332,17 @@ if ($cruise_line_id > 0) {
 //
 //Dining Options
 //
-$cabinresult = $resultno;
+$cabinresult = $resultno2;
 $raw3 = 'xml=<?xml version="1.0"?>
 <request>
   <auth password="' . $mundocrucerospassword . '" username="' . $mundocrucerosusername . '" />
-  <method action="getdetail" type="cruise" resultno="' . $resultno_parent_search . '" sessionkey="' . $sessionkey . '" status="' . $mundocrucerosStatusLiveTest . '" resultkey="default">
+  <method action="getdetail" type="cruise" resultno="' . $resultno_parent_search . '" gradeno="' . $gradeno . '" cabinresult="' . $cabinresult . '"  sessionkey="' . $sessionkey . '" status="' . $mundocrucerosStatusLiveTest . '" resultkey="default">
     <gradelist>
         <grade gradeno="' . $gradeno . '" cabinresult="' . $cabinresult . '" />
     </gradelist>
   </method>
 </request>';
-error_log("\r\nMundo Cruceros Cabin RAW - $raw3 \r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\nMundo Cruceros Cabin RAW - $raw \r\n", 3, "/srv/www/htdocs/error_log");
 $ch3 = curl_init();
 curl_setopt($ch3, CURLOPT_URL, $mundocrucerosServiceURL);
 curl_setopt($ch3, CURLOPT_SSL_VERIFYPEER, false);
@@ -423,24 +423,32 @@ if ($success == 'Y') {
             $type = $cruise->item(0)->getAttribute("type");
             $voyagecode = $cruise->item(0)->getAttribute("voyagecode");
             $zoneid = $cruise->item(0)->getAttribute("zoneid");
-
+            error_log("\r\n Cabin 1 \r\n", 3, "/srv/www/htdocs/error_log");
             $hasdining = false;
-            $dining = $cruise->item(0)->getElementsByTagName("dining");
-            if ($dining->length > 0) {
-                $smoking = $dining->item(0)->getAttribute("smoking");
-                $seatings = $dining->item(0)->getElementsByTagName("seatings");
+            $dining2 = $cruise->item(0)->getElementsByTagName("dining");
+            if ($dining2->length > 0) {
+                error_log("\r\n Cabin 2 \r\n", 3, "/srv/www/htdocs/error_log");
+                $smoking = $dining2->item(0)->getAttribute("smoking");
+                $seatings = $dining2->item(0)->getElementsByTagName("seatings");
                 if ($seatings->length > 0) {
+                    error_log("\r\n Cabin 3 \r\n", 3, "/srv/www/htdocs/error_log");
                     $seating = $seatings->item(0)->getElementsByTagName("seating");
                     if ($seating->length > 0) {
                         for ($i=0; $i < $seating->length; $i++) { 
+                            error_log("\r\n Cabin 10 \r\n", 3, "/srv/www/htdocs/error_log");
                             $hasdining = true;
+                            error_log("\r\n Cabin 11 \r\n", 3, "/srv/www/htdocs/error_log");
                             $dining[$i]['diningcode'] = $seating->item($i)->getAttribute("code");
-                            $dining[$z]['diningname'] = $seating->item($i)->getAttribute("description");
-                            $dining[$z]['status'] = $seating->item($i)->getAttribute("status");
+                            error_log("\r\n Cabin 12 \r\n", 3, "/srv/www/htdocs/error_log");
+                            $dining[$i]['diningname'] = $seating->item($i)->getAttribute("description");
+                            error_log("\r\n Cabin 13 \r\n", 3, "/srv/www/htdocs/error_log");
+                            $dining[$i]['status'] = $seating->item($i)->getAttribute("status");
+                            error_log("\r\n Cabin 4 \r\n", 3, "/srv/www/htdocs/error_log");
                         }
                     }
                 }
-                $tablesizes = $dining->item(0)->getElementsByTagName("tablesizes");
+                error_log("\r\n Cabin 5 \r\n", 3, "/srv/www/htdocs/error_log");
+                $tablesizes = $dining2->item(0)->getElementsByTagName("tablesizes");
                 if ($tablesizes->length > 0) {
                     $tablesize = $tablesizes->item(0)->getElementsByTagName("tablesize");
                     if ($tablesize->length > 0) {
@@ -450,18 +458,9 @@ if ($success == 'Y') {
                         }
                     }
                 }
-                if ($hasdining == false) {
-                    // Ge dining from previous step
-                    
-                    // $cabindata -> nao existe - NOTA              
-                    foreach ($cabindata as $key => $value) {
-                        if ($value['code'] == $cabin) {
-                            $dining = $value['dining'];
-                            break;
-                        }
-                    }
-                }
+                error_log("\r\n Cabin 6 \r\n", 3, "/srv/www/htdocs/error_log");
             }
+            error_log("\r\n Cabin 7 \r\n", 3, "/srv/www/htdocs/error_log");
             $cabin = $cruise->item(0)->getElementsByTagName("cabin");
             if ($cabin->length > 0) {
                 $deckcode = $cabin->item(0)->getAttribute("deckcode");
@@ -511,8 +510,8 @@ if ($success == 'Y') {
         }
     }
 }
-error_log("\r\n EOF Mundo Cruceros Cabin \r\n", 3, "/srv/www/htdocs/error_log");
 $db->getDriver()
     ->getConnection()
     ->disconnect();
+error_log("\r\n EOF Mundo Cruceros Cabin \r\n", 3, "/srv/www/htdocs/error_log");
 ?>
