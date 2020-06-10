@@ -375,9 +375,13 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                                     $idTmp = (int) $data['id'];
                                     if ($idTmp > 0) {
                                         $sql = new Sql($db);
-                                        $data = array(
-                                            'id' => $cabintypeid,
-                                            'datetime_created' => time(),
+                                        $select = $sql->update();
+                                        $select->table('mundocruceros_cabintypes');
+                                        $select->where(array(
+                                            'id' => $idTmp
+                                        ));
+                                        $select->set(array(
+                                            'datetime_updated' => time(),
                                             'datetime_updated' => 0,
                                             'name' => $cabintypename,
                                             'ownerid' => $ownerid,
@@ -397,14 +401,14 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                                             'validto' => $validto,
                                             'position' => $position,
                                             'mapped_id' => 0
-                                        );
-                                        $where['id = ?'] = $idTmp;
+                                        ));
+                                        $statement = $sql->prepareStatementForSqlObject($select);
                                         try {
-                                            $update = $sql->update('mundocruceros_cabintypes', $data, $where);
+                                            $results = $statement->execute();
                                         } catch (\Exception $e) {
-                                            echo $return;
-                                            echo "Error: " . $e;
-                                            echo $return;
+                                            $console->writeLine('');
+                                            $console->writeLine($e);
+                                            $console->writeLine('');
                                             die();
                                         }
                                     } else {
