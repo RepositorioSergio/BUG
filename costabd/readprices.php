@@ -39,7 +39,7 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$filename = 'cruiseprice_individual.xml';
+$filename = 'cruiseprice_basic.xml';
 $response = file_get_contents($filename);
 
 $inputDoc = new DOMDocument();

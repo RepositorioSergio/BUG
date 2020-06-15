@@ -69,7 +69,7 @@ $client->setOptions(array(
 $client->setHeaders(array(
     "Content-type: text/xml;charset=\"utf-8\"",
     "Accept: text/xml",
-    "SOAPAction: http://schemas.costacrociere.com/WebAffiliation/ExportAvailability",
+    "SOAPAction: http://schemas.costacrociere.com/WebAffiliation/ExportCatalog",
     "Content-length: ".strlen($raw)
 ));
 $url = "https://training.costaclick.net/WAWS_1_9/Export.asmx";
@@ -94,7 +94,7 @@ if ($response->isSuccess()) {
 echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
-die();
+
 $config = new \Zend\Config\Config(include '../config/autoload/global.convencional.php');
 $config = [
     'driver' => $config->db->driver,

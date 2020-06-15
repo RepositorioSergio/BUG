@@ -59,7 +59,7 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
     <ExportPriceDetailed xmlns="http://schemas.costacrociere.com/WebAffiliation">
       <destinationCode>Caribbean</destinationCode>
       <expPriceType>Basic</expPriceType>
-      <maxOccupancy></maxOccupancy>
+      <maxOccupancy>FivePax</maxOccupancy>
     </ExportPriceDetailed>
   </soap:Body>
 </soap:Envelope>';
