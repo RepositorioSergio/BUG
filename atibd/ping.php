@@ -49,25 +49,23 @@ echo $return;
 echo $auth;
 echo $return;
 
-$raw = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-xmlns:ns1="http://www.opentravel.org/OTA/2003/05">
+$raw = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://www.opentravel.org/OTA/2003/05">
 <soap:Header/>
-<soap:Body>
-<ns1:OTA_PingRQ Version="1.3">
-<ns1:EchoData>Hello ATI!</ns1:EchoData>
-</ns1:OTA_PingRQ>
-</soap:Body>
+    <soap:Body>
+        <ns1:OTA_PingRQ Version="1.3">
+            <ns1:EchoData>Welcome!</ns1:EchoData>
+        </ns1:OTA_PingRQ>
+    </soap:Body>
 </soap:Envelope>';
 
 $headers = array(
     "Content-type: text/xml;charset=UTF-8",
     "Accept-Encoding: gzip, deflate",
-    "SOAPAction: ",
     "Authorization: Basic " . $auth,
     "Content-length: " . strlen($raw)
 );
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
 curl_setopt($ch, CURLOPT_TIMEOUT, 65000);

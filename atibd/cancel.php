@@ -45,15 +45,12 @@ $username = '5m2z3i432';
 $password = 'bmY9SWPELu';
 $encode = $username . ":" . $password;
 $auth = base64_encode("$encode");
-echo $return;
-echo $auth;
-echo $return;
 
 $raw = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://www.opentravel.org/OTA/2003/05">
 <soap:Header/>
 <soap:Body>
     <ns1:OTA_CancelRQ Version="1.3">
-        <ns1:UniqueID ID="6066019"/>
+        <ns1:UniqueID ID="6066652"/>
     </ns1:OTA_CancelRQ>
 </soap:Body>
 </soap:Envelope>';

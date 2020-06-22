@@ -1,0 +1,1 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><ns1:OTA_PingRS xmlns:ns1="http://www.opentravel.org/OTA/2003/05" Version="1.3" TimeStamp="2020-06-19T02:42:08-07:00"><ns1:EchoData>Service is up message: Welcome!</ns1:EchoData></ns1:OTA_PingRS></soap:Body></soap:Envelope>

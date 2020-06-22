@@ -49,9 +49,9 @@ $auth = base64_encode("$encode");
 $raw = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://www.opentravel.org/OTA/2003/05">
 <soap:Header/>
 <soap:Body>
-    <ns1:OTA_HotelResRQ Version="1.3" TransactionIdentifier="TEST">
+    <ns1:OTA_HotelResRQ Version="1.3" TransactionIdentifier="TEST4">
         <ns1:POS>
-            <ns1:Source ERSP_UserID="' . $username . '"/>
+            <ns1:Source ERSP_UserID="5m2z3i432"/>
         </ns1:POS>
         <ns1:HotelReservations>
             <ns1:HotelReservation>
@@ -60,41 +60,28 @@ $raw = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xm
                         <ns1:RoomRates>
                             <ns1:RoomRate RatePlanCode="Available">
                                 <ns1:Rates>
-                                    <ns1:Rate EffectiveDate="2020-08-02">
-                                        <ns1:Base AmountAfterTax="20400" CurrencyCode="USD"/>
+                                    <ns1:Rate EffectiveDate="2020-06-24">
+                                        <ns1:Base AmountAfterTax="32400" CurrencyCode="USD"/>
                                     </ns1:Rate>
-                                    <ns1:Rate EffectiveDate="2020-08-03">
-                                        <ns1:Base AmountAfterTax="20400" CurrencyCode="USD"/>
+                                    <ns1:Rate EffectiveDate="2020-06-25">
+                                        <ns1:Base AmountAfterTax="32300" CurrencyCode="USD"/>
                                     </ns1:Rate>
-                                    <ns1:Rate EffectiveDate="2020-08-04">
-                                        <ns1:Base AmountAfterTax="20400" CurrencyCode="USD"/>
-                                    </ns1:Rate>
-                                    <ns1:Rate EffectiveDate="2020-08-05">
-                                        <ns1:Base AmountAfterTax="20300" CurrencyCode="USD"/>
-                                    </ns1:Rate>
-                                    <ns1:Rate EffectiveDate="2020-08-06">
-                                        <ns1:Base AmountAfterTax="20300" CurrencyCode="USD"/>
-                                    </ns1:Rate>
-                                    <ns1:Rate EffectiveDate="2020-08-07">
-                                        <ns1:Base AmountAfterTax="19900" CurrencyCode="USD"/>
-                                    </ns1:Rate>
-                                    <ns1:Rate EffectiveDate="2020-08-08">
-                                        <ns1:Base AmountAfterTax="19900" CurrencyCode="USD"/>
+                                    <ns1:Rate EffectiveDate="2020-06-26">
+                                        <ns1:Base AmountAfterTax="31500" CurrencyCode="USD"/>
                                     </ns1:Rate>
                                 </ns1:Rates>
                             </ns1:RoomRate>
                         </ns1:RoomRates>
                         <ns1:CancelPenalties>
                             <ns1:CancelPenalty>
-                                <ns1:Deadline AbsoluteDeadline="2020-07-30T00:00:00-07:00"/>
+                                <ns1:Deadline AbsoluteDeadline="2020-06-21T00:00:00-07:00"/>
                             </ns1:CancelPenalty>
                         </ns1:CancelPenalties>
                         <ns1:GuestCounts>
-                            <ns1:GuestCount AgeQualifyingCode="10" Age="31" ResGuestRPH="1"/>
-                            <ns1:GuestCount AgeQualifyingCode="10" Age="33" ResGuestRPH="2"/>
+                            <ns1:GuestCount AgeQualifyingCode="10" Age="35" ResGuestRPH="1"/>
                         </ns1:GuestCounts>
-                        <ns1:TimeSpan Duration="P0Y0M7D" Start="2020-08-02" End="2020-08-09"/>
-                        <ns1:BasicPropertyInfo HotelCode="HNLAWX-Z06"/>
+                        <ns1:TimeSpan Duration="P0Y0M1D" Start="2020-06-24" End="2020-06-27"/>
+                        <ns1:BasicPropertyInfo HotelCode="HNLAWX-Z21"/>
                     </ns1:RoomStay>
                 </ns1:RoomStays>
                 <ns1:ResGuests>
@@ -106,15 +93,6 @@ $raw = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xm
                                         <ns1:PersonName>
                                             <ns1:GivenName>Walter</ns1:GivenName>
                                             <ns1:NamePrefix>Mr</ns1:NamePrefix>
-                                            <ns1:Surname>Jenkins</ns1:Surname>
-                                        </ns1:PersonName>
-                                    </ns1:Customer>
-                                </ns1:Profile>
-                                <ns1:Profile RPH="2">
-                                    <ns1:Customer>
-                                        <ns1:PersonName>
-                                            <ns1:GivenName>Mary</ns1:GivenName>
-                                            <ns1:NamePrefix>Mrs</ns1:NamePrefix>
                                             <ns1:Surname>Jenkins</ns1:Surname>
                                         </ns1:PersonName>
                                     </ns1:Customer>
@@ -144,8 +122,8 @@ $raw = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xm
             </ns1:HotelReservation>
         </ns1:HotelReservations>
     </ns1:OTA_HotelResRQ>
-</soap:Body>
-</soap:Envelope>';
+    </soap:Body>
+    </soap:Envelope>';
 
 $headers = array(
     "Content-type: text/xml;charset=UTF-8",

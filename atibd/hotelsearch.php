@@ -45,9 +45,6 @@ $username = '5m2z3i432';
 $password = 'bmY9SWPELu';
 $encode = $username . ":" . $password;
 $auth = base64_encode("$encode");
-echo $return;
-echo $auth;
-echo $return;
 
 $raw = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://www.opentravel.org/OTA/2003/05">
 <soap:Header/>
@@ -58,12 +55,11 @@ $raw = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xm
         </POS>
         <AvailRequestSegments>
             <AvailRequestSegment AvailReqType="AMENITIES">
-                <StayDateRange Start="2020-08-02" Duration="P0Y0M7D"></StayDateRange>
+                <StayDateRange Start="2020-06-24" Duration="P0Y0M3D"></StayDateRange>
                 <RoomStayCandidates>
                     <RoomStayCandidate>
                         <GuestCounts>
                             <GuestCount AgeQualifyingCode="10" Count="1"/>
-                            <GuestCount AgeQualifyingCode="08" Age="11" Count="2"/>
                         </GuestCounts>
                     </RoomStayCandidate>
                 </RoomStayCandidates>

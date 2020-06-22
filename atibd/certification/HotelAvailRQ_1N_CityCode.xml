@@ -1,0 +1,27 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://www.opentravel.org/OTA/2003/05">
+<soap:Header/>
+<soap:Body>
+    <ns1:OTA_HotelAvailRQ Version="1.3">
+        <POS>
+            <Source ERSP_UserID="5m2z3i432"/>
+        </POS>
+        <AvailRequestSegments>
+            <AvailRequestSegment AvailReqType="AMENITIES">
+                <StayDateRange Start="2020-10-02" Duration="P0Y0M1D"></StayDateRange>
+                <RoomStayCandidates>
+                    <RoomStayCandidate>
+                        <GuestCounts>
+                            <GuestCount AgeQualifyingCode="10" Count="2"/>
+                        </GuestCounts>
+                    </RoomStayCandidate>
+                </RoomStayCandidates>
+                <HotelSearchCriteria>
+                    <Criterion>
+                        <HotelRef HotelCityCode="10203"/>
+                    </Criterion>
+                </HotelSearchCriteria>
+            </AvailRequestSegment>
+        </AvailRequestSegments>
+    </ns1:OTA_HotelAvailRQ>
+</soap:Body>
+</soap:Envelope>
