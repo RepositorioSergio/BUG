@@ -25,6 +25,8 @@ foreach ($data as $key => $value) {
     }
 }
 if ($orderid !== "") { 
+    //$orderstatus = \Mypos\IPC\Helper::getArrayVal($result->getData(CASE_LOWER), 'orderstatus');
+    //$orderstatus = "Paid";
     echo "OK"; 
 } else { 
     echo "NOT OK"; 

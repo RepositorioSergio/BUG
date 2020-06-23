@@ -12,11 +12,17 @@ $cnf->setWallet('61938166610');
 try{ 
     $responce = \Mypos\IPC\Response::getInstance($cnf, $_POST, \Mypos\IPC\Defines::COMMUNICATION_FORMAT_POST); 
 }catch(\Mypos\IPC\IPC_Exception $e){ 
-    echo 'Error'; 
+    echo 'Error1'; 
 }
 $data = $responce->getData(CASE_LOWER); 
-if('...check and update order'){ 
+$orderid = "";
+foreach ($data as $key => $value) {
+    if ($key === "orderid") {
+        $orderid = $value;
+    }
+}
+if($orderid !== ""){ 
     echo 'OK'; 
 }else{ 
-    echo 'Error'; 
+    echo 'Error2'; 
 }

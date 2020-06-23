@@ -9,6 +9,7 @@ $cnf->setKeyIndex(1);
 $cnf->setSid('000000000000010'); 
 $cnf->setVersion('1.3'); 
 $cnf->setWallet('61938166610');
+echo "PASSOU 1<br/>";
 $rm = new \Mypos\IPC\RequestMoney($cnf);
 $rm->setAmount(10); 
 $rm->setCurrency('EUR'); 
@@ -18,7 +19,7 @@ $rm->setCustomerWalletNumber('61938166612');
 $rm->setReason('Here comes the reason'); 
 $rm->setOutputFormat(Mypos\IPC\Defines::COMMUNICATION_FORMAT_XML);
 $result = $rm->process(); 
- 
+echo "PASSOU 2";
 if ($result->getStatus() == \Mypos\IPC\Defines::STATUS_SUCCESS) { 
     echo $result->getData()['IPC_Trnref']; 
 } else { 

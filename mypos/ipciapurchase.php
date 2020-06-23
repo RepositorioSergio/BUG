@@ -33,7 +33,7 @@ $purchase->setNote('Some note');
 $purchase->setCard($card); 
 $purchase->setAccountSettlement('11111111119');
 $purchase->setCart($cart); 
-$purchase->setOutputFormat(Mypos\IPC\Defines::COMMUNICATION_FORMAT_JSON);
+$purchase->setOutputFormat(\Mypos\IPC\Defines::COMMUNICATION_FORMAT_JSON);
 
 $result = $purchase->process(); 
 if ($result->getStatus() == \Mypos\IPC\Defines::STATUS_SUCCESS) { 

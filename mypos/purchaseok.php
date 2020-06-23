@@ -25,6 +25,6 @@ if($orderid !== ""){
     echo "Your order has been successfully paid."; 
 }else{ 
     //Display Some general error or redirect to merchant store home page 
-    header('Location: http://linux-vyco.demos.bug-software.com/specialtours/mypos/purchase.php');
+    header('Location: https://linux-vyco.demos.bug-software.com/specialtours/mypos/purchase.php');
     exit();
 }
