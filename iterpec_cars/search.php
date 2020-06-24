@@ -112,6 +112,9 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$search_identifier = $response['search_identifier'];
-$issuing_info = $response['issuing_info'];
+$TimeSpan = $response['TimeSpan'];
+$Token = $response['Token'];
+$TotalTime = $response['TotalTime'];
+$TotalCarResults = $response['TotalCarResults'];
+$Cars = $response['Cars'];
 ?>
