@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU TICKETS<br/>";
+echo "COMECOU VENDOR STATIONS<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -38,7 +38,7 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 
-$url = "https://www.saveatrain.com/api/order_images/{identifier}";
+$url = "https://www.saveatrain.com/api/vendor_stations";
 $username = "api.xl";
 $password = "JNpWAfo%3d&";
 
@@ -89,5 +89,6 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$url = $response['url'];
+$search_identifier = $response['search_identifier'];
+$issuing_info = $response['issuing_info'];
 ?>
