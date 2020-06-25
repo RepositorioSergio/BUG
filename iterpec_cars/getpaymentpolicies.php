@@ -47,9 +47,9 @@ $raw = '{
       "Username": "api.xl",
       "Password": "JNpWAfo%3d&"
     },
-    "Token": "917eb346-660e-4e7d-9717-25cb381a4221",
-    "CarId": 1
-   }';
+    "Token": "0883bae1-00f3-4215-8eb5-6ab11eaf53b6",
+    "CarId": 514
+  }';
 
 $client = new Client();
 $client->setOptions(array(
@@ -98,6 +98,81 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$search_identifier = $response['search_identifier'];
-$issuing_info = $response['issuing_info'];
+$TimeSpan = $response['TimeSpan'];
+$TotalTime = $response['TotalTime'];
+$Car = $response['Car'];
+if ($Car != null) {
+    $AirConditioning = $Car['AirConditioning'];
+    $BaggageQuantity = $Car['BaggageQuantity'];
+    $CarModel = $Car['CarModel'];
+    $Currency = $Car['Currency'];
+    $IsAvailable = $Car['IsAvailable'];
+    $NumberOfDoors = $Car['NumberOfDoors'];
+    $PassengerQuantity = $Car['PassengerQuantity'];
+    $ResponseId = $Car['ResponseId'];
+    $TransmissionType = $Car['TransmissionType'];
+    $DropOffLocationDetail = $Car['DropOffLocationDetail'];
+    $DropOffLocationDetail_Address = $DropOffLocationDetail['Address'];
+    $DropOffLocationDetail_Code = $DropOffLocationDetail['Code'];
+    $DropOffLocationDetail_Latitude = $DropOffLocationDetail['Latitude'];
+    $DropOffLocationDetail_Longitude = $DropOffLocationDetail['Longitude'];
+    $DropOffLocationDetail_Phone = $DropOffLocationDetail['Phone'];
+    $DropOffLocationDetail_ProviderId = $DropOffLocationDetail['ProviderId'];
+    $DropOffLocationDetail_StoreId = $DropOffLocationDetail['StoreId'];
+    $Integration = $Car['Integration'];
+    $IntegrationId = $Integration['IntegrationId'];
+    $IntegrationName = $Integration['IntegrationName'];
+    $SippCode = $Integration['SippCode'];
+    $PickUpLocationDetail = $Car['PickUpLocationDetail'];
+    $PickUpLocationDetail_Address = $PickUpLocationDetail['Address'];
+    $PickUpLocationDetail_Code = $PickUpLocationDetail['Code'];
+    $PickUpLocationDetail_Latitude = $PickUpLocationDetail['Latitude'];
+    $PickUpLocationDetail_Longitude = $PickUpLocationDetail['Longitude'];
+    $PickUpLocationDetail_Phone = $PickUpLocationDetail['Phone'];
+    $PickUpLocationDetail_ProviderId = $PickUpLocationDetail['ProviderId'];
+    $PickUpLocationDetail_StoreId = $PickUpLocationDetail['StoreId'];
+    $PriceInformation = $Car['PriceInformation'];
+    $PaymentAtDestination = $PriceInformation['PaymentAtDestination'];
+    $PaymentAtDestinationCurrency = $PaymentAtDestination['Currency'];
+    $PaymentAtDestinationValue = $PaymentAtDestination['Value'];
+    $PrePayment = $PriceInformation['PrePayment'];
+    $PrePaymentCurrency = $PrePayment['Currency'];
+    $PrePaymentValue = $PrePayment['Value'];
+    $TotalPrice = $PriceInformation['TotalPrice'];
+    $Currency = $TotalPrice['Currency'];
+    $Value = $TotalPrice['Value'];
+    $Rental = $Car['Rental'];
+    $GroupName = $Rental['GroupName'];
+    $IdGroup = $Rental['IdGroup'];
+    $ProviderGroup = $Rental['ProviderGroup'];
+    $RateCode = $Rental['RateCode'];
+    $RentalCode = $Rental['RentalCode'];
+    $RentalLogoUrl = $Rental['RentalLogoUrl'];
+    $RentalName = $Rental['RentalName'];
+    $Images = $Car['Images'];
+    if (count($Images) > 0) {
+        $image = "";
+        for ($j=0; $j < count($Images); $j++) { 
+            $image = $Images[$j];
+        }
+    }
+    $CancellationPolicies = $Car['CancellationPolicies'];
+    if (count($CancellationPolicies) > 0) {
+        for ($k=0; $k < count($CancellationPolicies); $k++) { 
+            $EndDate = $CancellationPolicies[$k]['EndDate'];
+            $StartDate = $CancellationPolicies[$k]['StartDate'];
+            $Value = $CancellationPolicies[$k]['Value'];
+            $CancellationPolicies_Currency = $Value['Currency'];
+            $CancellationPolicies_Value = $Value['Value'];
+        }
+    }
+    $Features = $Car['Features'];
+    if (count($Features) > 0) {
+        for ($x=0; $x < count($Features); $x++) { 
+            $EnglishDescription = $Features[$x]['EnglishDescription'];
+            $PortugueseDescription = $Features[$x]['PortugueseDescription'];
+            $SpanishDescription = $Features[$x]['SpanishDescription'];
+        }
+    }
+}
 ?>

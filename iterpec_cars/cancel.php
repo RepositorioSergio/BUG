@@ -38,7 +38,7 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 
-$url = "https://ws-iterpec.cangooroo.net/ws/Rest/RentACar.svc/Cancel";
+$url = "https://ws-iterpec.cangooroo.net/ws/Rest/RentACar.svc/CancelBooking";
 $username = "api.xl";
 $password = "JNpWAfo%3d&";
 
@@ -47,7 +47,7 @@ $raw = '{
       "Username": "' . $username . '",
       "Password": "' . $password . '"
     },
-    "ServiceId": 1394
+    "ServiceId": 177
    }';
 
 $client = new Client();
@@ -97,6 +97,44 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$search_identifier = $response['search_identifier'];
-$issuing_info = $response['issuing_info'];
+$TimeSpan = $response['TimeSpan'];
+$TotalTime = $response['TotalTime'];
+$Car = $response['Car'];
+$BookingDescription = $Car['BookingDescription'];
+$BookingId = $Car['BookingId'];
+$CarModel = $Car['CarModel'];
+$FinalCity = $Car['FinalCity'];
+$FinalServiceDate = $Car['FinalServiceDate'];
+$Luggages = $Car['Luggages'];
+$NumberOfDays = $Car['NumberOfDays'];
+$PaymentStatus = $Car['PaymentStatus'];
+$PriceInformation = $Car['PriceInformation'];
+$PrincipalPicture = $Car['PrincipalPicture'];
+$ProviderCode = $Car['ProviderCode'];
+$ReservationDate = $Car['ReservationDate'];
+$ServiceDate = $Car['ServiceDate'];
+$ServiceId = $Car['ServiceId'];
+$SippCodes = $Car['SippCodes'];
+$Status = $Car['Status'];
+$UsedToken = $Car['UsedToken'];
+$VendorName = $Car['VendorName'];
+$features = $Car['features'];
+$inicialCity = $Car['inicialCity'];
+$Driver = $Car['Driver'];
+$Age = $Driver['Age'];
+$Cpf = $Driver['Cpf'];
+$MainPax = $Driver['MainPax'];
+$Name = $Driver['Name'];
+$Surname = $Driver['Surname'];
+$Title = $Driver['Title'];
+$CancellationPolicies = $Car['CancellationPolicies'];
+if (count($CancellationPolicies) > 0) {
+    for ($k=0; $k < count($CancellationPolicies); $k++) { 
+        $EndDate = $CancellationPolicies[$k]['EndDate'];
+        $StartDate = $CancellationPolicies[$k]['StartDate'];
+        $Value = $CancellationPolicies[$k]['Value'];
+        $CancellationPolicies_Currency = $Value['Currency'];
+        $CancellationPolicies_Value = $Value['Value'];
+    }
+}
 ?>

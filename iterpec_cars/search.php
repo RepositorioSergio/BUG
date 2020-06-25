@@ -49,14 +49,14 @@ $raw = '{
      },
     "Criteria":{
       "Pickup": {
-      "Date": "2020-07-14",
+      "Date": "2020-08-14",
       "Hour": 12,
       "Minutes": 00,
       "LocationCode": "MCO",
       "LocationType": "Airport"
      },
      "Dropoff": {
-      "Date": "2020-07-16",
+      "Date": "2020-08-16",
       "Hour": 12,
       "Minutes": 00,
       "LocationCode": "MIA",
@@ -73,8 +73,6 @@ $client->setOptions(array(
 ));
 $client->setHeaders(array(
     'Content-Type' => 'application/json',
-    'X-Agent-Email' => 'gzip,deflate',
-    'X-Agent-Token' => 'Zend Framework',
     'Content-Length' => strlen($raw)
 ));
 $client->setUri($url);
@@ -117,4 +115,74 @@ $Token = $response['Token'];
 $TotalTime = $response['TotalTime'];
 $TotalCarResults = $response['TotalCarResults'];
 $Cars = $response['Cars'];
+if (count($Cars) > 0) {
+    for ($i=0; $i < count($Cars); $i++) { 
+        $AirConditioning = $Cars[$i]['AirConditioning'];
+        $BaggageQuantity = $Cars[$i]['BaggageQuantity'];
+        $CarModel = $Cars[$i]['CarModel'];
+        $Currency = $Cars[$i]['Currency'];
+        $IsAvailable = $Cars[$i]['IsAvailable'];
+        $NumberOfDoors = $Cars[$i]['NumberOfDoors'];
+        $PassengerQuantity = $Cars[$i]['PassengerQuantity'];
+        $ResponseId = $Cars[$i]['ResponseId'];
+        $TransmissionType = $Cars[$i]['TransmissionType'];
+        $DropOffLocationDetail = $Cars[$i]['DropOffLocationDetail'];
+        $DropOffLocationDetail_Address = $DropOffLocationDetail['Address'];
+        $DropOffLocationDetail_Code = $DropOffLocationDetail['Code'];
+        $DropOffLocationDetail_Latitude = $DropOffLocationDetail['Latitude'];
+        $DropOffLocationDetail_Longitude = $DropOffLocationDetail['Longitude'];
+        $DropOffLocationDetail_Phone = $DropOffLocationDetail['Phone'];
+        $DropOffLocationDetail_ProviderId = $DropOffLocationDetail['ProviderId'];
+        $DropOffLocationDetail_StoreId = $DropOffLocationDetail['StoreId'];
+        $Integration = $Cars[$i]['Integration'];
+        $IntegrationId = $Integration['IntegrationId'];
+        $IntegrationName = $Integration['IntegrationName'];
+        $SippCode = $Integration['SippCode'];
+        $PickUpLocationDetail = $Cars[$i]['PickUpLocationDetail'];
+        $PickUpLocationDetail_Address = $PickUpLocationDetail['Address'];
+        $PickUpLocationDetail_Code = $PickUpLocationDetail['Code'];
+        $PickUpLocationDetail_Latitude = $PickUpLocationDetail['Latitude'];
+        $PickUpLocationDetail_Longitude = $PickUpLocationDetail['Longitude'];
+        $PickUpLocationDetail_Phone = $PickUpLocationDetail['Phone'];
+        $PickUpLocationDetail_ProviderId = $PickUpLocationDetail['ProviderId'];
+        $PickUpLocationDetail_StoreId = $PickUpLocationDetail['StoreId'];
+        $PriceInformation = $Cars[$i]['PriceInformation'];
+        $TotalPrice = $PriceInformation['TotalPrice'];
+        $Currency = $TotalPrice['Currency'];
+        $Value = $TotalPrice['Value'];
+        $Rental = $Cars[$i]['Rental'];
+        $GroupName = $Rental['GroupName'];
+        $IdGroup = $Rental['IdGroup'];
+        $ProviderGroup = $Rental['ProviderGroup'];
+        $RateCode = $Rental['RateCode'];
+        $RentalCode = $Rental['RentalCode'];
+        $RentalLogoUrl = $Rental['RentalLogoUrl'];
+        $RentalName = $Rental['RentalName'];
+        $Images = $Cars[$i]['Images'];
+        if (count($Images) > 0) {
+            $image = "";
+            for ($j=0; $j < count($Images); $j++) { 
+                $image = $Images[$j];
+            }
+        }
+        $CancellationPolicies = $Cars[$i]['CancellationPolicies'];
+        if (count($CancellationPolicies) > 0) {
+            for ($k=0; $k < count($CancellationPolicies); $k++) { 
+                $EndDate = $CancellationPolicies[$k]['EndDate'];
+                $StartDate = $CancellationPolicies[$k]['StartDate'];
+                $Value = $CancellationPolicies[$k]['Value'];
+                $CancellationPolicies_Currency = $Value['Currency'];
+                $CancellationPolicies_Value = $Value['Value'];
+            }
+        }
+        $Features = $Cars[$i]['Features'];
+        if (count($Features) > 0) {
+            for ($x=0; $x < count($Features); $x++) { 
+                $EnglishDescription = $Features[$x]['EnglishDescription'];
+                $PortugueseDescription = $Features[$x]['PortugueseDescription'];
+                $SpanishDescription = $Features[$x]['SpanishDescription'];
+            }
+        }
+    }
+}
 ?>

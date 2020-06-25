@@ -38,23 +38,23 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 
-$url = "https://ws-iterpec.cangooroo.net/ws/Rest/RentACar.svc/Booking";
+$url = "https://ws-iterpec.cangooroo.net/ws/Rest/RentACar.svc/DoBooking";
 $username = "api.xl";
 $password = "JNpWAfo%3d&";
 
 $raw = '{
     "Credential": {
-       "Username": "' . $username . '",
-       "Password": "' . $password . '"
+       "Username": "api.xl",
+       "Password": "JNpWAfo%3d&"
     },
-    "Token": "dca28fe1-7f51-4aab-9faa-c7a990da8451",
-    "CarId": 1408,
+    "Token": "0883bae1-00f3-4215-8eb5-6ab11eaf53b6",
+    "CarId": 514,
     "Driver":{
-       "Name": "Caique",
-       "Surname": "NoBook",
+       "Name": "Test",
+       "Surname": "Test2",
        "Age": 25,
        "Cpf": "40028922080",
-       "Title": "Mr",
+       "Title": "Mr"
     }
  }';
 
@@ -105,6 +105,57 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$search_identifier = $response['search_identifier'];
-$issuing_info = $response['issuing_info'];
+$TimeSpan = $response['TimeSpan'];
+$TotalTime = $response['TotalTime'];
+$Cars = $response['Cars'];
+if (count($Cars) > 0) {
+    for ($i=0; $i < count($Cars); $i++) { 
+        $BookingDescription = $Cars[$i]['BookingDescription'];
+        $BookingId = $Cars[$i]['BookingId'];
+        $CarModel = $Cars[$i]['CarModel'];
+        $FinalCity = $Cars[$i]['FinalCity'];
+        $FinalServiceDate = $Cars[$i]['FinalServiceDate'];
+        $Luggages = $Cars[$i]['Luggages'];
+        $NumberOfDays = $Cars[$i]['NumberOfDays'];
+        $PaymentStatus = $Cars[$i]['PaymentStatus'];
+        $PrincipalPicture = $Cars[$i]['PrincipalPicture'];
+        $ProviderCode = $Cars[$i]['ProviderCode'];
+        $ReservationDate = $Cars[$i]['ReservationDate'];
+        $ServiceDate = $Cars[$i]['ServiceDate'];
+        $ServiceId = $Cars[$i]['ServiceId'];
+        $SippCodes = $Cars[$i]['SippCodes'];
+        $Status = $Cars[$i]['Status'];
+        $UsedToken = $Cars[$i]['UsedToken'];
+        $VendorName = $Cars[$i]['VendorName'];
+        $features = $Cars[$i]['features'];
+        $inicialCity = $Cars[$i]['inicialCity'];
+        $Driver = $Cars[$i]['Driver'];
+        $Age = $Driver['Age'];
+        $Cpf = $Driver['Cpf'];
+        $MainPax = $Driver['MainPax'];
+        $Name = $Driver['Name'];
+        $Surname = $Driver['Surname'];
+        $Title = $Driver['Title'];
+        $PriceInformation = $Cars[$i]['PriceInformation'];
+        $PaymentAtDestination = $PriceInformation['PaymentAtDestination'];
+        $PaymentAtDestinationCurrency = $PaymentAtDestination['Currency'];
+        $PaymentAtDestinationValue = $PaymentAtDestination['Value'];
+        $PrePayment = $PriceInformation['PrePayment'];
+        $PrePaymentCurrency = $PrePayment['Currency'];
+        $PrePaymentValue = $PrePayment['Value'];
+        $TotalPrice = $PriceInformation['TotalPrice'];
+        $TotalPriceCurrency = $TotalPrice['Currency'];
+        $TotalPriceValue = $TotalPrice['Value'];
+        $CancellationPolicies = $Cars[$i]['CancellationPolicies'];
+        if (count($CancellationPolicies) > 0) {
+            for ($k=0; $k < count($CancellationPolicies); $k++) { 
+                $EndDate = $CancellationPolicies[$k]['EndDate'];
+                $StartDate = $CancellationPolicies[$k]['StartDate'];
+                $Value = $CancellationPolicies[$k]['Value'];
+                $CancellationPolicies_Currency = $Value['Currency'];
+                $CancellationPolicies_Value = $Value['Value'];
+            }
+        }
+    }
+}
 ?>
