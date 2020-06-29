@@ -234,10 +234,10 @@ function readCSV(string $filename){
 }
 
 readCSV("aux/18062020_atrESP.csv");
-//readCSV("aux/08082019_atrPTE.csv");
-//readCSV("aux/18062020_atrFRA.csv");
-//readCSV("aux/18062020_atrGER.csv");
-//readCSV("aux/18062020_atrING.csv");
+readCSV("aux/08082019_atrPTE.csv");
+readCSV("aux/18062020_atrFRA.csv");
+readCSV("aux/18062020_atrGER.csv");
+readCSV("aux/18062020_atrING.csv");
 
 // EOF
 $db->getDriver()
