@@ -215,7 +215,7 @@ if ($iterpeclogin != "" and $iterpecpassword != "") {
     curl_close($ch);
     $endTime = microtime();
     error_log("\r\n Response: $response \r\n", 3, "/srv/www/htdocs/error_log");
-    $response = json_decode($response, true);
+    
     try {
         $sql = new Sql($db);
         $insert = $sql->insert();
@@ -236,7 +236,8 @@ if ($iterpeclogin != "" and $iterpecpassword != "") {
         $logger->addWriter($writer);
         $logger->info($e->getMessage());
     }
-    
+    error_log("\r\n PASSOU 1 \r\n", 3, "/srv/www/htdocs/error_log");
+    $response = json_decode($response, true);
     $TimeSpan = $response['TimeSpan'];
     $Token = $response['Token'];
     $TotalTime = $response['TotalTime'];
@@ -285,6 +286,17 @@ if ($iterpeclogin != "" and $iterpecpassword != "") {
             $RentalCode = $Rental['RentalCode'];
             $RentalLogoUrl = $Rental['RentalLogoUrl'];
             $RentalName = $Rental['RentalName'];
+
+            if ($IsAvailable == true) {
+                $status = 'Available';
+            } else {
+                $status = 'No Available';
+            }
+            
+
+            $total = $Value;
+            $nettotal = $total;
+
             $Images = $Cars[$i]['Images'];
             if (count($Images) > 0) {
                 $image = "";
@@ -310,35 +322,35 @@ if ($iterpeclogin != "" and $iterpecpassword != "") {
                     $SpanishDescription = $Features[$x]['SpanishDescription'];
                 }
             }
-
+            error_log("\r\n image  $image \r\n", 3, "/srv/www/htdocs/error_log");
                 
             $cars[$counter]['id'] = $counter;
             $cars[$counter]['quoteid'] = md5(uniqid($session_id, true)) . "-" . $index . "-3-" . $counter;
             $cars[$counter]['vendorpicture'] = $image;
             $cars[$counter]['vendorcode'] = $ResponseId;
-            $cars[$counter]['vendor'] = $RentalName;
+            $cars[$counter]['vendor'] = $CarModel;
             $cars[$counter]['vendorshortname'] = $RentalName;
             $cars[$counter]['size'] = $PassengerQuantity;
             $cars[$counter]['doors'] = $NumberOfDoors;
-            $cars[$counter]['aircondition'] = $AirConditionInd;
+            $cars[$counter]['aircondition'] = $AirConditioning;
             $cars[$counter]['transmission'] = $TransmissionType;
             $cars[$counter]['bags'] = $BaggageQuantity;
-            $cars[$counter]['status'] = $Status;
+            $cars[$counter]['status'] = $status;
             $cars[$counter]['from'] = $from;
             $cars[$counter]['to'] = $to;
             $cars[$counter]['pickup'] = ucwords(strtolower($PickUpLocationDetail_Code));
             $cars[$counter]['dropoff'] = ucwords(strtolower($DropOffLocationDetail_Code));
-            $cars[$counter]['class'] = $CarModel;
+            $cars[$counter]['class'] = $SippCode;
             $cars[$counter]['currency'] = $Currency;
             $cars[$counter]['productId'] = $productId;
             $cars[$counter]['programId'] = $CarProgramId;
-            $cars[$counter]['name'] = $NameVehMakeModel;
+            $cars[$counter]['name'] = $CarModel;
             $cars[$counter]['picture'] = $RentalLogoUrl;
-            $cars[$counter]['programname'] = $CarProgramName;
+            $cars[$counter]['programname'] = $GroupName;//supplier
             $cars[$counter]['coverage'] = $coverage;
             $cars[$counter]['ID_Context'] = $ID_Context;
             $cars[$counter]['netcurrency'] = $Currency;
-            $cars[$counter]['netprice'] = $TotalPrice;
+            $cars[$counter]['netprice'] = $nettotal;
             // Total including VAT in renting country currency
             /*
             * if ($minPrice < $CarProgramPrice) {
@@ -363,11 +375,11 @@ if ($iterpeclogin != "" and $iterpecpassword != "") {
             * }
             * }
             */
-            $dailytotal = $TotalPrice / $nights;
+            $dailytotal = $total / $nights;
             $dailytotal = number_format($dailytotal, 2, ".", "");
             // $minPrice = number_format($minPrice, 2, ".", "");
             $cars[$counter]['currency'] = $CurrencyCode;
-            $cars[$counter]['total'] = $filter->filter($TotalPrice);
+            $cars[$counter]['total'] = $filter->filter($total);
             $cars[$counter]['dailytotal'] = $filter->filter($dailytotal);
             $cars[$counter]['dueatpickupplain'] = $DueAtPickup;
             $cars[$counter]['dueatpickup'] = $filter->filter($DueAtPickup);
