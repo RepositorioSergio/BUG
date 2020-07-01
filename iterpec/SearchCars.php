@@ -351,6 +351,8 @@ if ($iterpeclogin != "" and $iterpecpassword != "") {
             $cars[$counter]['ID_Context'] = $ID_Context;
             $cars[$counter]['netcurrency'] = $Currency;
             $cars[$counter]['netprice'] = $nettotal;
+            $cars[$counter]['token'] = $Token;
+            $cars[$counter]['carid'] = $ResponseId;
             // Total including VAT in renting country currency
             /*
             * if ($minPrice < $CarProgramPrice) {

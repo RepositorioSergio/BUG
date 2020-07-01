@@ -12,9 +12,7 @@ try {
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
-    error_log("\r\n PASSA 1 \r\n", 3, "/srv/www/htdocs/error_log");
     $row_settings->buffer();
-    error_log("\r\n PASSA 2 \r\n", 3, "/srv/www/htdocs/error_log");
 } catch (Exception $e) {
     $logger = new Logger();
     $writer = new Writer\Stream('/srv/www/htdocs/error_log');
@@ -166,21 +164,64 @@ if ((int) $nationality > 0) {
     }
 }
 
-        
-        $item = array();
-        $cancelation_string = "";
-        $cancelation_deadline = 0;
-        $cancelation_details = "";
+$breakdown = array();
+for ($w = 0; $w < count($quoteid); $w ++) {
+    $outputArray = array();
+    $arrIt = new RecursiveIteratorIterator(new RecursiveArrayIterator($data));
+    foreach ($arrIt as $sub) {
+        $subArray = $arrIt->getSubIterator();
+        if (isset($quoteid[$w])) {
+            if (isset($subArray['quoteid'])) {
+                if ($subArray['quoteid'] === $quoteid[$w]) {
+                    $outputArray[] = iterator_to_array($subArray);
+                    $hid = $arrIt->getSubIterator($arrIt->getDepth() - 4)
+                        ->key();
+                }
+            }
+        }
+    }
+    if (! is_array($outputArray)) {
+        $response['error'] = "Unable to handle request #3";
+        return false;
+    } else {
+        array_push($breakdown, $outputArray);
+    }
+}
 
-        error_log("\r\n ID_Context  $ID_Context \r\n", 3, "/srv/www/htdocs/error_log");
+$fromHotelsPRO = DateTime::createFromFormat("d-m-Y", $from);
+$toHotelsPro = DateTime::createFromFormat("d-m-Y", $to);
+$nights = $fromHotelsPRO->diff($toHotelsPro);
+$nights = $nights->format('%a');
+
+$c = 0;
+$response = array();
+$roombreakdown = array();
+foreach ($breakdown as $k => $v) {
+    foreach ($v as $key => $value) {
+        if ($id == 0) {
+            $id = $value['id'];
+        } else {
+            if ($id != $value['id']) {
+                // We can't book two rooms from two suppliers
+                $response['error'] = "Unable to handle request #4";
+                return false;
+            }
+        }
+        $from_date = date('Y-m-d', strtotime($from));
+        $to_date = date('Y-m-d', strtotime($to));
+        $cancelpolicy_deadline = 0;
+        $cancelpolicy = "";
+        $item = array();
+        $token = $value['token'];
+        $carid = $value['carid'];
 
         $raw = '{
             "Credential": {
               "Username": "api.xl",
-              "Password": "JNpWAfo%3d&"
+              "Password": "' . $iterpecpassword . '"
             },
-            "Token": "0883bae1-00f3-4215-8eb5-6ab11eaf53b6",
-            "CarId": 514
+            "Token": "' . $token . '",
+            "CarId": ' . $carid . '
           }';
 
           $headers = array(
@@ -200,17 +241,17 @@ if ((int) $nationality > 0) {
         $response2 = curl_exec($ch);
         curl_close($ch);
         error_log("\r\n RESPONSE: $response2 \r\n", 3, "/srv/www/htdocs/error_log");
-        $response = json_decode($response, true);
+        $response2 = json_decode($response2, true);
         try {
             $sql = new Sql($db);
             $insert = $sql->insert();
             $insert->into('log_carnect');
             $insert->values(array(
                 'datetime_created' => time(),
-                'filename' => 'Policies.php',
+                'filename' => 'PoliciesCars.php',
                 'errorline' => "",
                 'errormessage' => $iterpecServiceURL . $raw,
-                'sqlcontext' => $response,
+                'sqlcontext' => $response2,
                 'errcontext' => ''
             ), $insert::VALUES_MERGE);
             $statement = $sql->prepareStatementForSqlObject($insert);
@@ -222,9 +263,9 @@ if ((int) $nationality > 0) {
             $logger->info($e->getMessage());
         }
 
-        $TimeSpan = $response['TimeSpan'];
-        $TotalTime = $response['TotalTime'];
-        $Car = $response['Car'];
+        $TimeSpan = $response2['TimeSpan'];
+        $TotalTime = $response2['TotalTime'];
+        $Car = $response2['Car'];
         if ($Car != null) {
             $AirConditioning = $Car['AirConditioning'];
             $BaggageQuantity = $Car['BaggageQuantity'];
@@ -299,5 +340,53 @@ if ((int) $nationality > 0) {
                 }
             }
         }
-        error_log("\r\n FIM \r\n", 3, "/srv/www/htdocs/error_log");     
+        //
+        // Policies
+        //
+        $item['code'] = $value['id'];
+        $item['name'] = $value['name'];
+        $item['total'] = $value['total'];
+        $item['nett'] = $value['netprice'];
+        $total = $total + $value['total'];
+        $tot = $value['total'];
+        $item['vendorcode'] = $value['vendorcode'];
+        $item['vendor'] = $value['vendor'];
+        $item['vendorshortname'] = $value['vendorshortname'];
+        $item['doors'] = $value['doors'];
+        $item['size'] = $value['size'];
+        $item['bags'] = $value['bags'];
+        $item['status'] = $value['status'];
+        $item['class'] = $value['class'];
+        $item['total'] = $value['total'];
+        $item['totalplain'] = number_format($tot, 2, '.', '');
+        $avg = $tot / $nights;
+        $item['avgnight'] = $filter->filter($avg);
+        $item['avgplain'] = number_format($avg, 2, '.', '');
+        $item['adults'] = $selectedAdults[$c];
+        $item['children'] = $selectedChildren[$c];
+        $item['children_ages'] = json_decode(json_encode($selectedChildrenAges[$c]), false);
+        
+        $from_date = date('Y-m-d',strtotime($StartDate));
+        $to_date = date('Y-m-d',strtotime($EndDate));
+        $cancelpolicy = "If you cancel booking " . $from_date . " To date " . $to_date . " cost " . $CancellationPolicies_Value. "" . $CancellationPolicies_Currency;
+        if ($IsNonRefundable !== false) {
+            $item['nonrefundable'] = true;
+            $item['cancelpolicy'] = $translator->translate($cancelpolicy);
+            $item['cancelpolicy_details'] = $translator->translate($cancelpolicy);
+            $item['cancelpolicy_deadline'] = strftime("%a, %e %b %Y", strtotime($to_date));
+            $item['cancelpolicy_deadlinetimestamp'] = $to_date;
+        } else {
+            $item['nonrefundable'] = false;
+            $item['cancelpolicy'] = $translator->translate($cancelpolicy);
+            $item['cancelpolicy_details'] = $translator->translate($cancelpolicy);
+            $item['cancelpolicy_deadline'] = strftime("%a, %e %b %Y", strtotime($to_date));
+            $item['cancelpolicy_deadlinetimestamp'] = $to_date;
+        }
+        
+        array_push($roombreakdown, $item);
+    }
+    $c ++;
+}
+        
+error_log("\r\n FIM \r\n", 3, "/srv/www/htdocs/error_log");     
 ?>
