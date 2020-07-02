@@ -28,32 +28,29 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
-    
-function readCSV(string $filename){
-    $config = new \Zend\Config\Config(include '../config/autoload/global.tourico.php');
-    $config = [
-        'driver' => $config->db->driver,
-        'database' => $config->db->database,
-        'username' => $config->db->username,
-        'password' => $config->db->password,
-        'hostname' => $config->db->hostname
-    ];
-    $db = new \Zend\Db\Adapter\Adapter($config);
 
-    $object = fopen($filename, 'r');
-    $line = 0;
+$config = new \Zend\Config\Config(include '../config/autoload/global.tourico.php');
+$config = [
+    'driver' => $config->db->driver,
+    'database' => $config->db->database,
+    'username' => $config->db->username,
+    'password' => $config->db->password,
+    'hostname' => $config->db->hostname
+];
+$db = new \Zend\Db\Adapter\Adapter($config);
 
-    while ($data = fgetcsv($object, 0, "|")) {
-        if ($line > 0) {
-            $hotelid = $data[0];
-            $shortdescription_en_us = $data[1];
-            $shortdescription_pl_pl = $data[2];
-            $longdescription_en_us = $data[3];
-            $longdescription_pl_pl = $data[4];
-            $timestamp = $data[5];
-            $productstatus = $data[6];
+$filename = "THF_Descriptions_pl_PL2.csv";
+$file = fopen($filename, 'r');
+$line = 0;
 
-            $shortdescription_en_us = str_replace('"', '', $shortdescription_en_us);
+while (!feof($file)) {
+        $content = fgets($file);
+        $array = explode("|", $content);
+        list($hotelid, $shortdescription_en_us, $shortdescription_pl_pl, $longdescription_en_us, $longdescription_pl_pl, $timestamp, $productstatus) = $array;
+        echo "hotelid: ". $hotelid . "<br/>";
+    if ($line > 0) {
+        $hotelid = str_replace('"', '', $hotelid);
+        $shortdescription_en_us = str_replace('"', '', $shortdescription_en_us);
             $shortdescription_en_us = mb_convert_encoding($shortdescription_en_us, "UTF-8");
             $shortdescription_pl_pl = str_replace('"', '', $shortdescription_pl_pl);
             $shortdescription_pl_pl = mb_convert_encoding($shortdescription_pl_pl, "UTF-8");
@@ -63,6 +60,7 @@ function readCSV(string $filename){
             $longdescription_pl_pl = mb_convert_encoding($longdescription_pl_pl, "UTF-8");
             $productstatus = str_replace('"', '', $productstatus);
 
+        if ($hotelid != "") {
             try {
                 $sql = new Sql($db);
                 $insert = $sql->insert();
@@ -87,12 +85,10 @@ function readCSV(string $filename){
                 echo $return;
             }
         }
-        $line = $line + 1;
     }
-    fclose($filename);
+    $line = $line + 1;
 }
-
-readCSV("HotelDescriptions/THF_Descriptions_pl_PL.csv");
+fclose($file);
 
 // EOF
 $db->getDriver()
