@@ -39,16 +39,17 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$filename = "THF_Descriptions_zh_TW2.csv";
+$filename = "HotelDescriptions/THF_Descriptions_zh_TW.csv";
 $file = fopen($filename, 'r');
 $line = 0;
 
 while (!feof($file)) {
         $content = fgets($file);
-        $array = explode("|", $content);
-        list($hotelid, $shortdescription_en_us, $shortdescription_zh_tw, $longdescription_en_us, $longdescription_zh_tw, $timestamp, $productstatus) = $array;
-        echo "hotelid: ". $hotelid . "<br/>";
-    if ($line > 0) {
+        $content = mb_convert_encoding($content, "BIG5", "UTF-8");
+        $array = explode('"', $content);
+        list($hotelid, $b1, $shortdescription_en_us, $b2, $shortdescription_zh_tw, $b3, $longdescription_en_us, $longdescription_zh_tw, $timestamp, $productstatus) = $array;
+        echo "longdescription_zh_tw: ". $array[7] . "<br/>";
+    /* if ($line > 0) {
         $hotelid = str_replace('"', '', $hotelid);
         $shortdescription_en_us = str_replace('"', '', $shortdescription_en_us);
         $shortdescription_en_us = mb_convert_encoding($shortdescription_en_us, "UTF-8");
@@ -86,7 +87,7 @@ while (!feof($file)) {
                 echo $return;
             }
         }
-    }
+    } */
     $line = $line + 1;
 }
 fclose($file);
