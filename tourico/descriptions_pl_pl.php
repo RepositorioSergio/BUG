@@ -55,7 +55,7 @@ while (!feof($file)) {
         $longdescription_en_us = str_replace('"', '', $longdescription_en_us);
         $longdescription_pl_pl = str_replace('"', '', $longdescription_pl_pl);
         $productstatus = str_replace('"', '', $productstatus);
-
+        echo "shortdescription_pl_pl: ". $array[2] . "<br/>";
         if ($hotelid != "") {
             try {
                 $sql = new Sql($db);
