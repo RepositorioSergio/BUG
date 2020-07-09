@@ -4,7 +4,7 @@
     <ns1:OTA_ReadRQ Version="1.3">
         <ns1:ReadRequests>
             <ns1:ReadRequest>
-                <ns1:UniqueID ID="6066750"></ns1:UniqueID>
+                <ns1:UniqueID ID="TEST8" Type="REF"></ns1:UniqueID>
             </ns1:ReadRequest>
         </ns1:ReadRequests>
     </ns1:OTA_ReadRQ>

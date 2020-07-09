@@ -55,17 +55,17 @@ $raw = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xm
         </POS>
         <AvailRequestSegments>
             <AvailRequestSegment AvailReqType="AMENITIES">
-                <StayDateRange Start="2020-06-24" Duration="P0Y0M3D"></StayDateRange>
+                <StayDateRange Start="2020-12-12" Duration="P0Y0M2D"></StayDateRange>
                 <RoomStayCandidates>
                     <RoomStayCandidate>
                         <GuestCounts>
-                            <GuestCount AgeQualifyingCode="10" Count="1"/>
+                            <GuestCount AgeQualifyingCode="10" Count="2"/>
                         </GuestCounts>
                     </RoomStayCandidate>
                 </RoomStayCandidates>
                 <HotelSearchCriteria>
                     <Criterion>
-                        <HotelRef HotelCityCode="10203"/>
+                        <HotelRef HotelCityCode="10080"/>
                     </Criterion>
                 </HotelSearchCriteria>
             </AvailRequestSegment>

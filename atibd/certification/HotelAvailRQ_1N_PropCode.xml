@@ -7,7 +7,7 @@
         </POS>
         <AvailRequestSegments>
             <AvailRequestSegment AvailReqType="AMENITIES">
-                <StayDateRange Start="2020-08-02" Duration="P0Y0M1D"></StayDateRange>
+                <StayDateRange Start="2020-10-26" Duration="P0Y0M1D"></StayDateRange>
                 <RoomStayCandidates>
                     <RoomStayCandidate>
                         <GuestCounts>
@@ -17,7 +17,7 @@
                 </RoomStayCandidates>
                 <HotelSearchCriteria>
                     <Criterion>
-                        <HotelRef HotelCode="HNLHYR"/>
+                        <HotelRef HotelCode="MIAESA"/>
                     </Criterion>
                 </HotelSearchCriteria>
             </AvailRequestSegment>
