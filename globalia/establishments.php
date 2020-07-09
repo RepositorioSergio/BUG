@@ -45,15 +45,30 @@ function readCSV(string $filename){
 
     while ($data = fgetcsv($object, 0, "|")) {
         if ($line > 0) {
-            $hoteltype = $data[0];
-            $hoteldesc = $data[1];
-            echo $hoteltype . "<br/>";
+            $id_hotel = $data[0];
+            $id_category = $data[1];
+            $type_hotel = $data[2];
+            $id_cadhot = $data[3];
+            $hotel = $data[4];
+            $id_country = $data[5];
+            $id_province = $data[6];
+            $id_town = $data[7];
+            $name_town = $data[8];
+            $street = $data[9];
+            $zipcode = $data[10];
+            $latitude = $data[11];
+            $longitude = $data[12];
+            $phone = $data[13];
+            $fax = $data[14];
+            $checkin = $data[15];
+            $checkout = $data[16];
+
             try {
                 $sql = new Sql($db);
                 $select = $sql->select();
                 $select->from('establishments');
                 $select->where(array(
-                    'hoteltype' => $hoteltype
+                    'id_hotel' => $id_hotel
                 ));
                 $statement = $sql->prepareStatementForSqlObject($select);
                 $result = $statement->execute();
@@ -61,8 +76,8 @@ function readCSV(string $filename){
                 $customers = array();
                 if ($result->valid()) {
                     $data = $result->current();
-                    $hoteltype = (string)$data['hoteltype'];
-                    if ($hoteltype != "") {
+                    $id_hotel = (int)$data['id_hotel'];
+                    if ($id_hotel > 0) {
                         $config = new \Zend\Config\Config(include '../config/autoload/global.globalia.php');
                         $config = [
                             'driver' => $config->db->driver,
@@ -73,49 +88,29 @@ function readCSV(string $filename){
                         ];
                         $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
 
-                        if (strpos($filename, 'GER') !== false) {
-                            $data = array(
-                                'datetime_created' => time(),
-                                'datetime_updated' => 1,
-                                'hoteldesc_ger' => $hoteldesc
-                                );
-                        } elseif (strpos($filename, 'ING') !== false) {
-                            $data = array(
-                                'datetime_created' => time(),
-                                'datetime_updated' => 1,
-                                'hoteldesc_en' => $hoteldesc
-                                );
-                        } elseif (strpos($filename, 'ITA') !== false) {
-                            $data = array(
-                                'datetime_created' => time(),
-                                'datetime_updated' => 1,
-                                'hoteldesc_it' => $hoteldesc
-                                );
-                        } elseif (strpos($filename, 'PTE') !== false) {
-                            $data = array(
-                                'datetime_created' => time(),
-                                'datetime_updated' => 1,
-                                'hoteldesc_pt' => $hoteldesc
-                                );
-                        } elseif (strpos($filename, 'ESP') !== false) {
-                            $data = array(
-                                'datetime_created' => time(),
-                                'datetime_updated' => 1,
-                                'hoteldesc_es' => $hoteldesc
-                                );
-                        } elseif (strpos($filename, 'FRA') !== false) {
-                            $data = array(
-                                'datetime_created' => time(),
-                                'datetime_updated' => 1,
-                                'hoteldesc_fr' => $hoteldesc
-                                );
-                        }
-      
+                        $data = array(
+                            'id_category' => $id_category, 
+                            'type_hotel' => $type_hotel, 
+                            'id_cadhot' => $id_cadhot, 
+                            'hotel' => $hotel, 
+                            'id_country' => $id_country, 
+                            'id_province' => $id_province,
+                            'id_town' => $id_town,
+                            'name_town' => $name_town, 
+                            'street' => $street, 
+                            'zipcode' => $zipcode, 
+                            'latitude' => $latitude, 
+                            'longitude' => $longitude, 
+                            'phone' => $phone,
+                            'fax' => $fax, 
+                            'checkin' => $checkin, 
+                            'checkout' => $checkout 
+                            );      
                         $sql    = new Sql($dbUpdate);
                         $update = $sql->update();
                         $update->table('establishments');
                         $update->set($data);
-                        $update->where(array('hoteltype' => $hoteltype));
+                        $update->where(array('id_hotel' => $id_hotel));
 
                         $statement = $sql->prepareStatementForSqlObject($update);
                         $results = $statement->execute();
@@ -127,15 +122,23 @@ function readCSV(string $filename){
                         $insert = $sql->insert();
                         $insert->into('establishments');
                         $insert->values(array(
-                            'hoteltype' => $hoteltype,
-                            'datetime_created' => time(),
-                            'datetime_updated' => 0,
-                            'hoteldesc_pt' => $hoteldesc, 
-                            'hoteldesc_es' => "", 
-                            'hoteldesc_en' => "", 
-                            'hoteldesc_it' => "", 
-                            'hoteldesc_fr' => "", 
-                            'hoteldesc_ger' => ""
+                            'id_hotel' => $id_hotel,
+                            'id_category' => $id_category, 
+                            'type_hotel' => $type_hotel, 
+                            'id_cadhot' => $id_cadhot, 
+                            'hotel' => $hotel, 
+                            'id_country' => $id_country, 
+                            'id_province' => $id_province,
+                            'id_town' => $id_town,
+                            'name_town' => $name_town, 
+                            'street' => $street, 
+                            'zipcode' => $zipcode, 
+                            'latitude' => $latitude, 
+                            'longitude' => $longitude, 
+                            'phone' => $phone,
+                            'fax' => $fax, 
+                            'checkin' => $checkin, 
+                            'checkout' => $checkout 
                         ), $insert::VALUES_MERGE);
                         $statement = $sql->prepareStatementForSqlObject($insert);
                         $results = $statement->execute();
@@ -148,15 +151,23 @@ function readCSV(string $filename){
                     $insert = $sql->insert();
                     $insert->into('establishments');
                     $insert->values(array(
-                        'hoteltype' => $hoteltype,
-                        'datetime_created' => time(),
-                        'datetime_updated' => 0,
-                        'hoteldesc_pt' => $hoteldesc, 
-                        'hoteldesc_es' => "", 
-                        'hoteldesc_en' => "", 
-                        'hoteldesc_it' => "", 
-                        'hoteldesc_fr' => "", 
-                        'hoteldesc_ger' => ""  
+                        'id_hotel' => $id_hotel,
+                        'id_category' => $id_category, 
+                        'type_hotel' => $type_hotel, 
+                        'id_cadhot' => $id_cadhot, 
+                        'hotel' => $hotel, 
+                        'id_country' => $id_country, 
+                        'id_province' => $id_province,
+                        'id_town' => $id_town,
+                        'name_town' => $name_town, 
+                        'street' => $street, 
+                        'zipcode' => $zipcode, 
+                        'latitude' => $latitude, 
+                        'longitude' => $longitude, 
+                        'phone' => $phone,
+                        'fax' => $fax, 
+                        'checkin' => $checkin, 
+                        'checkout' => $checkout  
                     ), $insert::VALUES_MERGE);
                     $statement = $sql->prepareStatementForSqlObject($insert);
                     $results = $statement->execute();
@@ -175,12 +186,7 @@ function readCSV(string $filename){
     fclose($filename);
 }
 
-readCSV("aux/18062020_estPTE.csv");
-readCSV("aux/18062020_estESP.csv");
-readCSV("aux/18062020_estING.csv");
-readCSV("aux/18062020_estFRA.csv");
-readCSV("aux/18062020_estITA.csv");
-readCSV("aux/18062020_estGER.csv");
+readCSV("establishments.csv");
 
 // EOF
 $db->getDriver()
