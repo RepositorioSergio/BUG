@@ -49,7 +49,7 @@ $auth = base64_encode("$encode");
 $raw = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://www.opentravel.org/OTA/2003/05">
 <soap:Header/>
 <soap:Body>
-    <ns1:OTA_HotelResRQ Version="1.3" TransactionIdentifier="TEST14">
+    <ns1:OTA_HotelResRQ Version="1.3" TransactionIdentifier="TEST15">
         <ns1:POS>
             <ns1:Source ERSP_UserID="5m2z3i432"/>
         </ns1:POS>
@@ -61,10 +61,25 @@ $raw = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xm
                             <ns1:RoomRate RatePlanCode="Available">
                                 <ns1:Rates>
                                     <ns1:Rate EffectiveDate="2020-12-12">
-                                        <ns1:Base AmountAfterTax="14600" CurrencyCode="USD"/>
+                                        <ns1:Base AmountAfterTax="10000" CurrencyCode="USD"/>
                                     </ns1:Rate>
                                     <ns1:Rate EffectiveDate="2020-12-13">
-                                        <ns1:Base AmountAfterTax="14600" CurrencyCode="USD"/>
+                                        <ns1:Base AmountAfterTax="10000" CurrencyCode="USD"/>
+                                    </ns1:Rate>
+                                    <ns1:Rate EffectiveDate="2020-12-14">
+                                        <ns1:Base AmountAfterTax="10000" CurrencyCode="USD"/>
+                                    </ns1:Rate>
+                                    <ns1:Rate EffectiveDate="2020-12-15">
+                                        <ns1:Base AmountAfterTax="10000" CurrencyCode="USD"/>
+                                    </ns1:Rate>
+                                    <ns1:Rate EffectiveDate="2020-12-16">
+                                        <ns1:Base AmountAfterTax="10000" CurrencyCode="USD"/>
+                                    </ns1:Rate>
+                                    <ns1:Rate EffectiveDate="2020-12-17">
+                                        <ns1:Base AmountAfterTax="10000" CurrencyCode="USD"/>
+                                    </ns1:Rate>
+                                    <ns1:Rate EffectiveDate="2020-12-18">
+                                        <ns1:Base AmountAfterTax="0" CurrencyCode="USD"/>
                                     </ns1:Rate>
                                 </ns1:Rates>
                             </ns1:RoomRate>
@@ -78,8 +93,8 @@ $raw = '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xm
                             <ns1:GuestCount AgeQualifyingCode="10" Age="24" ResGuestRPH="1"/>
                             <ns1:GuestCount AgeQualifyingCode="10" Age="20" ResGuestRPH="2"/>
                         </ns1:GuestCounts>
-                        <ns1:TimeSpan Duration="P0Y0M2D" Start="2020-12-12" End="2020-12-14"/>
-                        <ns1:BasicPropertyInfo HotelCode="SFOBWI-FDX"/>
+                        <ns1:TimeSpan Duration="P0Y0M7D" Start="2020-12-12" End="2020-12-19"/>
+                        <ns1:BasicPropertyInfo HotelCode="ZZZHNL-FIT"/>
                     </ns1:RoomStay>
                 </ns1:RoomStays>
                 <ns1:ResGuests>
