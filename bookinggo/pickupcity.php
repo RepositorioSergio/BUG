@@ -32,7 +32,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $affiliate_id = 0;
 $branch_filter = "";
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.infinitastravel.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.bookingdotcom.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -42,67 +42,96 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-
-$client = new Client();
-$client->setOptions(array(
-    'timeout' => 100,
-    'sslverifypeer' => false,
-    'sslverifyhost' => false
-));
-$client->setHeaders(array(
-    "Content-type: text/xml",
-    "Accept: text/xml",
-    "Content-length: ".strlen($raw)
-));
-
-$url = "https://xml.rentalcars.com/service/ServiceRequest.do";
-
-$raw = '<PickUpCityListRQ version="1.1" preflang="en"> 
-<Credentials username="club1hot944" password="club1hot944"/>
-<Country>Portugal</Country>
-</PickUpCityListRQ>';
-
-$client->setUri($url);
-$client->setMethod('POST');
-$client->setRawBody($raw);
-$response = $client->send();
-if ($response->isSuccess()) {
-    $response = $response->getBody();
-} else {
-    $logger = new Logger();
-    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
-    $logger->addWriter($writer);
-    $logger->info($client->getUri());
-    $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
+$sql = "SELECT name FROM pickupcountries";
+$statement = $db->createStatement($sql);
+try {
+    $statement->prepare();
+} catch (\Exception $e) {
     echo $return;
-    echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
+    echo $e->getMessage();
     echo $return;
     die();
 }
-echo "<br/>RESPONSE";
-echo '<xmp>';
-var_dump($response);
-echo '</xmp>';
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.infinitastravel.php');
-$config = [
-    'driver' => $config->db->driver,
-    'database' => $config->db->database,
-    'username' => $config->db->username,
-    'password' => $config->db->password,
-    'hostname' => $config->db->hostname
-];
-$db = new \Zend\Db\Adapter\Adapter($config);
+$result = $statement->execute();
+$result->buffer();
+if ($result instanceof ResultInterface && $result->isQueryResult()) {
+    $resultSet = new ResultSet();
+    $resultSet->initialize($result);
+    foreach ($resultSet as $row) {
+        $country = $row->name;
 
-$inputDoc = new DOMDocument();
-$inputDoc->loadXML($response);
-$PickUpCityListRS = $inputDoc->getElementsByTagName("PickUpCityListRS");
-$CityList = $PickUpCityListRS->item(0)->getElementsByTagName("CityList");
-if ($CityList->length > 0) {
-    $City = $CityList->item(0)->getElementsByTagName("City");
-    if ($City->length > 0) {
-        for ($i=0; $i < $City->length; $i++) { 
-            $City = $City->item($i)->nodeValue;
+        $url = "https://xml.rentalcars.com/service/ServiceRequest.do";
+
+        $raw = '<PickUpCityListRQ version="1.1" preflang="en"> 
+        <Credentials username="club1hot944" password="club1hot944"/>
+        <Country>' . $country . '</Country>
+        </PickUpCityListRQ>';
+
+        $headers = array(
+            "Content-type: application/xml",
+            "Content-length: " . strlen($raw)
+        );
+        
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 2000);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $response = curl_exec($ch);
+        $error = curl_error($ch);
+        $headers = curl_getinfo($ch);
+        curl_close($ch);
+        echo "<br/>RESPONSE";
+        echo '<xmp>';
+        var_dump($response);
+        echo '</xmp>';
+
+        $config = new \Zend\Config\Config(include '../config/autoload/global.bookingdotcom.php');
+        $config = [
+            'driver' => $config->db->driver,
+            'database' => $config->db->database,
+            'username' => $config->db->username,
+            'password' => $config->db->password,
+            'hostname' => $config->db->hostname
+        ];
+        $db = new \Zend\Db\Adapter\Adapter($config);
+
+        $inputDoc = new DOMDocument();
+        $inputDoc->loadXML($response);
+        $PickUpCityListRS = $inputDoc->getElementsByTagName("PickUpCityListRS");
+        $CityList = $PickUpCityListRS->item(0)->getElementsByTagName("CityList");
+        if ($CityList->length > 0) {
+            $City = $CityList->item(0)->getElementsByTagName("City");
+            if ($City->length > 0) {
+                $nameofcity = "";
+                for ($i=0; $i < $City->length; $i++) { 
+                    $nameofcity = $City->item($i)->nodeValue;
+
+                    try {
+                        $sql = new Sql($db);
+                        $insert = $sql->insert();
+                        $insert->into('pickupcities');
+                        $insert->values(array(
+                            'name' => $nameofcity,
+                            'country' => $country
+                        ), $insert::VALUES_MERGE);
+                        $statement = $sql->prepareStatementForSqlObject($insert);
+                        $results = $statement->execute();
+                        $db->getDriver()
+                            ->getConnection()
+                            ->disconnect();
+                    } catch (\Exception $e) {
+                        echo $return;
+                        echo "ERRO: " . $e;
+                        echo $return;
+                    }
+                }
+            }
         }
     }
 }

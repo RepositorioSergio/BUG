@@ -54,7 +54,7 @@ $client->setHeaders(array(
     "Content-length: ".strlen($raw)
 ));
 
-$url = "https://xmlsandbox.rentalcars.com/service/ServiceRequest.do";
+$url = "https://xml.rentalcars.com/service/ServiceRequest.do";
 
 $raw = '<SearchRQ version="1.1">
     <Credentials username="club1hot944" password="club1hot944" remoteIp="91.151.7.6"/> 

@@ -32,7 +32,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $affiliate_id = 0;
 $branch_filter = "";
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.infinitastravel.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.bookingdotcom.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -42,70 +42,181 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-
-$client = new Client();
-$client->setOptions(array(
-    'timeout' => 100,
-    'sslverifypeer' => false,
-    'sslverifyhost' => false
-));
-$client->setHeaders(array(
-    "Content-type: text/xml",
-    "Accept: text/xml",
-    "Content-length: ".strlen($raw)
-));
-
-$url = "https://xml.rentalcars.com/service/ServiceRequest.do";
-
-$raw = '<DropOffLocationListRQ version="1.1" preflang="en"> 
-    <Credentials username="club1hot944" password="club1hot944"/>
-    <Location id="436113"/>
-    <Country>Portugal</Country>
-    <City>Porto</City>
-</DropOffLocationListRQ>';
-
-$client->setUri($url);
-$client->setMethod('POST');
-$client->setRawBody($raw);
-$response = $client->send();
-if ($response->isSuccess()) {
-    $response = $response->getBody();
-} else {
-    $logger = new Logger();
-    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
-    $logger->addWriter($writer);
-    $logger->info($client->getUri());
-    $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
+$sql = "SELECT id, city, country FROM pickuplocations";
+$statement = $db->createStatement($sql);
+try {
+    $statement->prepare();
+} catch (\Exception $e) {
     echo $return;
-    echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
+    echo $e->getMessage();
     echo $return;
     die();
 }
-echo "<br/>RESPONSE";
-echo '<xmp>';
-var_dump($response);
-echo '</xmp>';
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.infinitastravel.php');
-$config = [
-    'driver' => $config->db->driver,
-    'database' => $config->db->database,
-    'username' => $config->db->username,
-    'password' => $config->db->password,
-    'hostname' => $config->db->hostname
-];
-$db = new \Zend\Db\Adapter\Adapter($config);
+$result = $statement->execute();
+$result->buffer();
+if ($result instanceof ResultInterface && $result->isQueryResult()) {
+    $resultSet = new ResultSet();
+    $resultSet->initialize($result);
+    foreach ($resultSet as $row) {
+        $locationid = $row->id;
+        $city = $row->city;
+        $country = $row->country;
 
-$inputDoc = new DOMDocument();
-$inputDoc->loadXML($response);
-$PickUpLocationListRS = $inputDoc->getElementsByTagName("PickUpLocationListRS");
-$LocationList = $PickUpLocationListRS->item(0)->getElementsByTagName("LocationList");
-if ($LocationList->length > 0) {
-    $Location = $LocationList->item(0)->getElementsByTagName("Location");
-    if ($Location->length > 0) {
-        for ($i=0; $i < $Location->length; $i++) { 
-            $id = $Location->item($i)->getAttribute("id");
-            $Location = $Location->item($i)->nodeValue;
+        $url = "https://xml.rentalcars.com/service/ServiceRequest.do";
+
+        $raw = '<DropOffLocationListRQ version="1.1" preflang="en"> 
+        <Credentials username="club1hot944" password="club1hot944" remoteIp="91.151.7.6"/> 
+        <Location id="' . $locationid . '" country="' . $country . '" city="' . $city . '"/>
+        <Country>' . $country . '</Country>
+        <City>' . $city . '</City>
+         </DropOffLocationListRQ>';
+
+        $headers = array(
+            "Content-type: application/xml",
+            "Content-length: " . strlen($raw)
+        );
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 2000);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $response = curl_exec($ch);
+        $error = curl_error($ch);
+        $headers = curl_getinfo($ch);
+        curl_close($ch);
+        echo "<br/>RESPONSE";
+        echo '<xmp>';
+        var_dump($response);
+        echo '</xmp>';
+
+        $config = new \Zend\Config\Config(include '../config/autoload/global.bookingdotcom.php');
+        $config = [
+            'driver' => $config->db->driver,
+            'database' => $config->db->database,
+            'username' => $config->db->username,
+            'password' => $config->db->password,
+            'hostname' => $config->db->hostname
+        ];
+        $db = new \Zend\Db\Adapter\Adapter($config);
+
+        $inputDoc = new DOMDocument();
+        $inputDoc->loadXML($response);
+        $PickUpLocationListRS = $inputDoc->getElementsByTagName("PickUpLocationListRS");
+        $LocationList = $PickUpLocationListRS->item(0)->getElementsByTagName("LocationList");
+        if ($LocationList->length > 0) {
+            $Location = $LocationList->item(0)->getElementsByTagName("Location");
+            if ($Location->length > 0) {
+                $nameoflocation = "";
+                for ($i=0; $i < $Location->length; $i++) { 
+                    $id = $Location->item($i)->getAttribute("id");
+                    $nameoflocation = $Location->item($i)->nodeValue;
+
+                    try {
+                        $sql = new Sql($db);
+                        $select = $sql->select();
+                        $select->from('dropofflocations');
+                        $select->where(array(
+                            'id' => $id
+                        ));
+                        $statement = $sql->prepareStatementForSqlObject($select);
+                        $result = $statement->execute();
+                        $result->buffer();
+                        $customers = array();
+                        if ($result->valid()) {
+                            $data = $result->current();
+                            $id = (string)$data['id'];
+                            if ($id != "") {
+                                $config = new \Zend\Config\Config(include '../config/autoload/global.bookingdotcom.php');
+                                $config = [
+                                    'driver' => $config->db->driver,
+                                    'database' => $config->db->database,
+                                    'username' => $config->db->username,
+                                    'password' => $config->db->password,
+                                    'hostname' => $config->db->hostname
+                                ];
+                                $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+
+                                $data = array(
+                                    'name' => $nameoflocation
+                                    );
+                                
+                                $sql    = new Sql($dbUpdate);
+                                $update = $sql->update();
+                                $update->table('dropofflocations');
+                                $update->set($data);
+                                $update->where(array('id' => $id));
+        
+                                $statement = $sql->prepareStatementForSqlObject($update);
+                                $results = $statement->execute();
+                                $dbUpdate->getDriver()
+                                ->getConnection()
+                                ->disconnect(); 
+                            } else {
+                                $sql = new Sql($db);
+                                $insert = $sql->insert();
+                                $insert->into('dropofflocations');
+                                $insert->values(array(
+                                    'id' => $id,
+                                    'name' => $nameoflocation,
+                                    'city' => $city,
+                                    'country' => $country 
+                                ), $insert::VALUES_MERGE);
+                                $statement = $sql->prepareStatementForSqlObject($insert);
+                                $results = $statement->execute();
+                                $db->getDriver()
+                                    ->getConnection()
+                                    ->disconnect();
+                            }
+                        } else {
+                            $sql = new Sql($db);
+                            $insert = $sql->insert();
+                            $insert->into('dropofflocations');
+                            $insert->values(array(
+                                'id' => $id,
+                                'name' => $nameoflocation,
+                                'city' => $city,
+                                'country' => $country 
+                            ), $insert::VALUES_MERGE);
+                            $statement = $sql->prepareStatementForSqlObject($insert);
+                            $results = $statement->execute();
+                            $db->getDriver()
+                                ->getConnection()
+                                ->disconnect();
+                        }
+                    } catch (\Exception $e) {
+                        echo $return;
+                        echo "ERRO: ". $e;
+                        echo $return;
+                    }
+
+                    try {
+                        $sql = new Sql($db);
+                        $insert = $sql->insert();
+                        $insert->into('dropofflocations');
+                        $insert->values(array(
+                            'id' => $id,
+                            'name' => $nameoflocation,
+                            'city' => $city,
+                            'country' => $country 
+                        ), $insert::VALUES_MERGE);
+                        $statement = $sql->prepareStatementForSqlObject($insert);
+                        $results = $statement->execute();
+                        $db->getDriver()
+                            ->getConnection()
+                            ->disconnect();
+                    } catch (\Exception $e) {
+                        echo $return;
+                        echo "ERRO: " . $e;
+                        echo $return;
+                    }
+                }
+            }
         }
     }
 }
