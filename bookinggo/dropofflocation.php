@@ -107,8 +107,8 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
 
         $inputDoc = new DOMDocument();
         $inputDoc->loadXML($response);
-        $PickUpLocationListRS = $inputDoc->getElementsByTagName("PickUpLocationListRS");
-        $LocationList = $PickUpLocationListRS->item(0)->getElementsByTagName("LocationList");
+        $DropOffLocationListRS = $inputDoc->getElementsByTagName("DropOffLocationListRS");
+        $LocationList = $DropOffLocationListRS->item(0)->getElementsByTagName("LocationList");
         if ($LocationList->length > 0) {
             $Location = $LocationList->item(0)->getElementsByTagName("Location");
             if ($Location->length > 0) {
@@ -117,83 +117,9 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                     $id = $Location->item($i)->getAttribute("id");
                     $nameoflocation = $Location->item($i)->nodeValue;
 
-                    try {
-                        $sql = new Sql($db);
-                        $select = $sql->select();
-                        $select->from('dropofflocations');
-                        $select->where(array(
-                            'id' => $id
-                        ));
-                        $statement = $sql->prepareStatementForSqlObject($select);
-                        $result = $statement->execute();
-                        $result->buffer();
-                        $customers = array();
-                        if ($result->valid()) {
-                            $data = $result->current();
-                            $id = (string)$data['id'];
-                            if ($id != "") {
-                                $config = new \Zend\Config\Config(include '../config/autoload/global.bookingdotcom.php');
-                                $config = [
-                                    'driver' => $config->db->driver,
-                                    'database' => $config->db->database,
-                                    'username' => $config->db->username,
-                                    'password' => $config->db->password,
-                                    'hostname' => $config->db->hostname
-                                ];
-                                $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
-
-                                $data = array(
-                                    'name' => $nameoflocation
-                                    );
-                                
-                                $sql    = new Sql($dbUpdate);
-                                $update = $sql->update();
-                                $update->table('dropofflocations');
-                                $update->set($data);
-                                $update->where(array('id' => $id));
-        
-                                $statement = $sql->prepareStatementForSqlObject($update);
-                                $results = $statement->execute();
-                                $dbUpdate->getDriver()
-                                ->getConnection()
-                                ->disconnect(); 
-                            } else {
-                                $sql = new Sql($db);
-                                $insert = $sql->insert();
-                                $insert->into('dropofflocations');
-                                $insert->values(array(
-                                    'id' => $id,
-                                    'name' => $nameoflocation,
-                                    'city' => $city,
-                                    'country' => $country 
-                                ), $insert::VALUES_MERGE);
-                                $statement = $sql->prepareStatementForSqlObject($insert);
-                                $results = $statement->execute();
-                                $db->getDriver()
-                                    ->getConnection()
-                                    ->disconnect();
-                            }
-                        } else {
-                            $sql = new Sql($db);
-                            $insert = $sql->insert();
-                            $insert->into('dropofflocations');
-                            $insert->values(array(
-                                'id' => $id,
-                                'name' => $nameoflocation,
-                                'city' => $city,
-                                'country' => $country 
-                            ), $insert::VALUES_MERGE);
-                            $statement = $sql->prepareStatementForSqlObject($insert);
-                            $results = $statement->execute();
-                            $db->getDriver()
-                                ->getConnection()
-                                ->disconnect();
-                        }
-                    } catch (\Exception $e) {
-                        echo $return;
-                        echo "ERRO: ". $e;
-                        echo $return;
-                    }
+                    echo $return;
+                    echo "ID: " . $id;
+                    echo $return;
 
                     try {
                         $sql = new Sql($db);
