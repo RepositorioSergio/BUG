@@ -118,7 +118,7 @@ if ($CostaShipCatalog->length > 0) {
                     $select = $sql->select();
                     $select->from('ships');
                     $select->where(array(
-                        'code' => $Code
+                        'id' => $Code
                     ));
                     $statement = $sql->prepareStatementForSqlObject($select);
                     $result = $statement->execute();
@@ -126,13 +126,12 @@ if ($CostaShipCatalog->length > 0) {
                     $customers = array();
                     if ($result->valid()) {
                         $data = $result->current();
-                        $id = (string) $data['Code'];
+                        $id = (string) $data['id'];
                         if ($id != "") {
                             $sql = new Sql($db);
                             $data = array(
-                                'code' => $Code,
-                                'datetime_created' => time(),
-                                'datetime_updated' => 1,
+                                'id' => $Code,
+                                'datetime_updated' => time(),
                                 'name' => $Name,
                                 'description' => $Description,
                                 'imgurl' => $ImgUrl,
@@ -147,7 +146,7 @@ if ($CostaShipCatalog->length > 0) {
                                 'yearoflaunch' => $YearOfLaunch,
                                 'monthoflaunch' => $MonthOfLaunch
                             );
-                            $where['code = ?'] = $Code;
+                            $where['id = ?'] = $Code;
                             $update = $sql->update('ships', $data, $where);
                             $db->getDriver()
                                 ->getConnection()
@@ -157,9 +156,8 @@ if ($CostaShipCatalog->length > 0) {
                             $insert = $sql->insert();
                             $insert->into('ships');
                             $insert->values(array(
-                                'code' => $Code,
-                                'datetime_created' => time(),
-                                'datetime_updated' => 0,
+                                'id' => $Code,
+                                'datetime_updated' => time(),
                                 'name' => $Name,
                                 'description' => $Description,
                                 'imgurl' => $ImgUrl,
@@ -185,9 +183,8 @@ if ($CostaShipCatalog->length > 0) {
                         $insert = $sql->insert();
                         $insert->into('ships');
                         $insert->values(array(
-                            'code' => $Code,
-                            'datetime_created' => time(),
-                            'datetime_updated' => 0,
+                            'id' => $Code,
+                            'datetime_updated' => time(),
                             'name' => $Name,
                             'description' => $Description,
                             'imgurl' => $ImgUrl,
@@ -227,11 +224,10 @@ if ($CostaShipCatalog->length > 0) {
                             try {
                                 $sql = new Sql($db);
                                 $insert = $sql->insert();
-                                $insert->into('categories');
+                                $insert->into('ships_categories');
                                 $insert->values(array(
+                                    'datetime_updated' => time(),
                                     'categorycode' => $CategoryCode,
-                                    'datetime_created' => time(),
-                                    'datetime_updated' => 0,
                                     'categoryname' => $CategoryName,
                                     'categorydescription' => $CategoryDescription,
                                     'quicktimeurl' => $QuickTimeUrl
@@ -264,8 +260,7 @@ if ($CostaShipCatalog->length > 0) {
                                 $insert->into('ships_decks');
                                 $insert->values(array(
                                     'deckcode' => $DeckCode,
-                                    'datetime_created' => time(),
-                                    'datetime_updated' => 0,
+                                    'datetime_updated' => time(),
                                     'deckdescription' => $DeckDescription,
                                     'shipcode' => $Code
                                 ), $insert::VALUES_MERGE);
