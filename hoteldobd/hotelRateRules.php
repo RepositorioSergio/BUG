@@ -60,9 +60,6 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $HotelDoserviceURL = $row_settings['value'];
 }
-echo $return;
-echo $HotelDoserviceURL;
-echo $return;
     
 $config = new \Zend\Config\Config(include '../config/autoload/global.getaroom.php');
 $config = [
@@ -91,8 +88,8 @@ if ($_SERVER['HTTP_CLIENT_IP']) {
     $ipaddress = "142.44.216.144";
 }
 
-$raw = '/GetHotelRateRules?a=' . $HotelDouser . '&ip=' . $ipaddress . '&co=MX&c=pe&d=2&l=esp&rk=RExYLUFJSU5URVIyMUFJUml1&sd=20200208&ed=20200211&h=2549&ci=1&mi=INTER2&it=BESTDAY&ri=DLX&mp=AI&r1a=2&r1k=0&r1k1a=0&r1k2a=0';
-echo $HotelDoserviceURL . $raw ."<br/>";
+$raw = '/GetHotelRateRules?a=CLUBHTXML&ip=' . $ipaddress . '&co=MX&c=US&d=2&l=ING&rk=TURTVEUtQUlNQVlPUklTVDExQUlSaXU=&sd=20210208&ed=20210211&h=342&ci=11&mi=MAYORIST&it=BESTDAY&ri=MDSTE&mp=AI&r1a=1&r1k=0&r1k1a=0&r1k2a=0';
+echo "<br/>" . $HotelDoserviceURL . $raw . "<br/>";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $HotelDoserviceURL . $raw);
@@ -102,7 +99,7 @@ curl_setopt($ch, CURLOPT_VERBOSE, false);
 curl_setopt($ch, CURLOPT_POST, false);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
-curl_cloes($ch);
+curl_close($ch);
 
 echo "<xmp>";
 var_dump($response);

@@ -60,9 +60,6 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $HotelDoserviceURL = $row_settings['value'];
 }
-echo $return;
-echo $HotelDoserviceURL;
-echo $return;
     
 $config = new \Zend\Config\Config(include '../config/autoload/global.getaroom.php');
 $config = [
@@ -74,8 +71,8 @@ $config = [
 ];
 
 
-$raw = '/GetQuoteHotels?a=' . $HotelDouser . '&co=MX&c=pe&sd=20200108&ed=20200111&h=&rt=&mp=&r=2&r1a=2&r2a=2&r2k=0&r2k1a=0&r2k2a=0&d=2&l=esp&hash=hs:true;hp:true';
-echo $HotelDoserviceURL . $raw ."<br/>";
+$raw = '/GetQuoteHotels?a=CLUBHTXML&co=MX&c=US&sd=20210208&ed=20210211&h=&rt=&mp=&r=1&r1a=1&d=2&l=ING&hash=hs:true;hp:true';
+echo "<br/>" . $HotelDoserviceURL . $raw ."<br/>";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $HotelDoserviceURL . $raw);

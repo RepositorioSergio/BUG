@@ -91,12 +91,12 @@ if ($_SERVER['HTTP_CLIENT_IP']) {
     $ipaddress = "142.44.216.144";
 }
 
-$rooms = 2;
+$rooms = 1;
 
 $raw = '<Request Type="Reservation" Version="1.0">
-    <affiliateid>DIVISAXML</affiliateid>
-    <language>esp</language>
-    <currency>PE</currency>
+    <affiliateid>CLUBHTXML</affiliateid>
+    <language>ING</language>
+    <currency>US</currency>
     <ip>' . $ipaddress . '</ip>
     <uid>m2r32b14es10socxtxs4y4ht</uid>
     <firstname>Quim</firstname>
@@ -108,7 +108,7 @@ $raw = '<Request Type="Reservation" Version="1.0">
     <city>cancun</city>
     <state>QROO</state>
     <zip>77500</zip>
-    <total>26784</total>
+    <total>709.23809814453125</total>
     <naturalperson>
         <gender/>
         <nationality/>
@@ -128,22 +128,22 @@ $raw = '<Request Type="Reservation" Version="1.0">
     </phones>
     <hotels>
         <hotel>
-            <hotelid>2549</hotelid>
-            <roomtype>DLX</roomtype>
+            <hotelid>342</hotelid>
+            <roomtype>MDSTE</roomtype>
             <mealplan>AI</mealplan>
-            <datearrival>20200208</datearrival>
-            <datedeparture>20200211</datedeparture>
-            <marketid>INTER2</marketid>
-            <contractid>1</contractid>
+            <datearrival>20210208</datearrival>
+            <datedeparture>20210211</datedeparture>
+            <marketid>MAYORIST</marketid>
+            <contractid>11</contractid>
             <dutypercent>0</dutypercent>
             <rooms>';
                 if ($rooms == 1) {
                     $raw = $raw . '<room>
                     <name>Quim</name>
                     <lastname>prueba</lastname>
-                    <amount>1650.81494140625</amount>
+                    <amount>709.23809814453125</amount>
                     <status>AV</status>
-                    <ratekey>STDZZ</ratekey>
+                    <ratekey>MDSTEAI</ratekey>
                     <adults>1</adults>
                     <kids>0</kids>
                     <k1a>0</k1a>
@@ -177,9 +177,9 @@ $raw = '<Request Type="Reservation" Version="1.0">
     </hotels>
 <payments>
 <agencycreditpayment>
-    <type></type>
-    <currency>PE</currency>
-    <amount>26784</amount>
+    <type>CREDMX</type>
+    <currency>US</currency>
+    <amount>709.23809814453125</amount>
 </agencycreditpayment>
 </payments>
 </Request>';
