@@ -16,7 +16,7 @@ $valid = 0;
 $db = new \Laminas\Db\Adapter\Adapter($config);
 $affiliate_id = 0;
 $branch_filter = "";
-$sql = "select value from settings where name='enableiterpec' and affiliate_id=$affiliate_id" . $branch_filter;
+$sql = "select value from settings where name='enableiterpecCars' and affiliate_id=$affiliate_id" . $branch_filter;
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
@@ -49,97 +49,88 @@ if ((int) $nationality > 0) {
         $sourceMarket = $row_settings['value'];
     }
 }
-$sql = "select value from settings where name='iterpeclogin' and affiliate_id=$affiliate_id_iterpec";
+$sql = "select value from settings where name='iterpecCarsLogin' and affiliate_id=$affiliate_id_iterpec";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $iterpeclogin = $row_settings['value'];
+    $iterpecCarsLogin = $row_settings['value'];
 }
-$sql = "select value from settings where name='iterpecpassword' and affiliate_id=$affiliate_id_iterpec";
+$sql = "select value from settings where name='iterpecCarspassword' and affiliate_id=$affiliate_id_iterpec";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $iterpecpassword = base64_decode($row_settings['value']);
+    $iterpecCarspassword = base64_decode($row_settings['value']);
 }
-$sql = "select value from settings where name='iterpecServiceURL' and affiliate_id=$affiliate_id_iterpec";
+$sql = "select value from settings where name='iterpecCarswebservicesURL' and affiliate_id=$affiliate_id_iterpec";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $result = $statement->execute();
 $result->buffer();
 if ($result->valid()) {
     $row = $result->current();
-    $iterpecServiceURL = $row['value'];
+    $iterpecCarswebservicesURL = $row['value'];
 }
-$sql = "select value from settings where name='iterpecMarkup' and affiliate_id=$affiliate_id_iterpec";
+$sql = "select value from settings where name='iterpecCarsmarkup' and affiliate_id=$affiliate_id_iterpec";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $iterpecMarkup = (double) $row_settings['value'];
+    $iterpecCarsmarkup = (double) $row_settings['value'];
 } else {
-    $iterpecMarkup = 0;
+    $iterpecCarsmarkup = 0;
 }
-$sql = "select value from settings where name='iterpecaffiliates_id' and affiliate_id=$affiliate_id_iterpec";
+$sql = "select value from settings where name='iterpecCarsaffiliates_id' and affiliate_id=$affiliate_id_iterpec";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $iterpecaffiliates_id = $row_settings['value'];
+    $iterpecCarsaffiliates_id = $row_settings['value'];
 }
-$sql = "select value from settings where name='iterpecb2cMarkup' and affiliate_id=$affiliate_id_iterpec";
+$sql = "select value from settings where name='iterpecCarsb2cmarkup' and affiliate_id=$affiliate_id_iterpec";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $iterpecb2cMarkup = $row_settings['value'];
+    $iterpecCarsb2cmarkup = $row_settings['value'];
 }
-$sql = "select value from settings where name='iterpecbranches_id' and affiliate_id=$affiliate_id_iterpec";
+$sql = "select value from settings where name='iterpecCarsbranchs_id' and affiliate_id=$affiliate_id_iterpec";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $iterpecbranches_id = $row_settings['value'];
+    $iterpecCarsbranchs_id = $row_settings['value'];
 }
-$sql = "select value from settings where name='iterpecParallelSearch' and affiliate_id=$affiliate_id_iterpec";
+$sql = "select value from settings where name='iterpecCarsSortorder' and affiliate_id=$affiliate_id_iterpec";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $iterpecParallelSearch = $row_settings['value'];
+    $iterpecCarsSortorder = $row_settings['value'];
 }
-$sql = "select value from settings where name='iterpecSearchSortorder' and affiliate_id=$affiliate_id_iterpec";
+$sql = "select value from settings where name='iterpecCarsTimeout' and affiliate_id=$affiliate_id_iterpec";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $iterpecSearchSortorder = $row_settings['value'];
-}
-$sql = "select value from settings where name='iterpecTimeout' and affiliate_id=$affiliate_id_iterpec";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$row_settings = $statement->execute();
-$row_settings->buffer();
-if ($row_settings->valid()) {
-    $row_settings = $row_settings->current();
-    $iterpecTimeout = (int)$row_settings['value'];
+    $iterpecCarsTimeout = (int)$row_settings['value'];
 }
 $sql = "select code, airport_code, name, city, latitude, longitude from carlocation where id=" . $pickup_id;
 $statement2 = $db->createStatement($sql);
@@ -149,6 +140,7 @@ $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $pickup = strtolower($row_settings["airport_code"]);
+    $pickup_name = $row_settings["name"];
     $latitude = $row_settings["latitude"];
     $longitude = $row_settings["longitude"];
     $city = $row_settings["city"];
@@ -161,6 +153,7 @@ $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $dropoff = strtolower($row_settings["airport_code"]);
+    $dropoff_name = $row_settings["name"];
     $latitude2 = $row_settings["latitude"];
     $longitude2 = $row_settings["longitude"];
 }
@@ -169,26 +162,34 @@ if ($dropoff == "") {
 }
 error_log("\r\n$pickup -> $dropoff\r\n", 3, "/srv/www/htdocs/error_log");
 
-if ($iterpeclogin != "" and $iterpecpassword != "") {
-    $username = "api.xl";
-    $password = "JNpWAfo%3d&";
+$pickup_name = str_replace("-", "", $pickup_name);
+$dropoff_name = str_replace("-", "", $dropoff_name);
+
+$pickups = explode(":", $pickup_time);
+$pickuphour = $pickups[0];
+$pickupminutes = $pickups[1];
+$dropoffs = explode(":", $dropoff_time);
+$dropoffhour = $dropoffs[0];
+$dropoffminutes = $dropoffs[1];
+if ($iterpecCarsLogin != "" and $iterpecCarspassword != "") {
+    
     $raw = '{
       "Credential": {
-        "Username": "' . $username . '",
-        "Password": "' . $password . '"
+        "Username": "' . $iterpecCarsLogin . '",
+        "Password": "' . $iterpecCarspassword . '"
        },
       "Criteria":{
         "Pickup": {
         "Date": "' . strftime("%Y-%m-%d", $from) . '",
-        "Hour": 12,
-        "Minutes": 00,
+        "Hour": ' . $pickuphour . ',
+        "Minutes": ' . $pickupminutes . ',
         "LocationCode": "' . strtoupper($pickup) . '",
         "LocationType": "Airport"
        },
        "Dropoff": {
         "Date": "' . strftime("%Y-%m-%d", $to) . '",
-        "Hour": 12,
-        "Minutes": 00,
+        "Hour": ' . $dropoffhour . ',
+        "Minutes": ' . $dropoffminutes . ',
         "LocationCode": "' . strtoupper($dropoff) . '",
         "LocationType": "Airport"
        }
@@ -202,10 +203,10 @@ if ($iterpeclogin != "" and $iterpecpassword != "") {
     $startTime = microtime();
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($ch, CURLOPT_URL, $iterpecServiceURL . 'ws/Rest/RentACar.svc/Search');
+    curl_setopt($ch, CURLOPT_URL, $iterpecCarswebservicesURL . 'ws/Rest/RentACar.svc/Search');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
-    curl_setopt($ch, CURLOPT_TIMEOUT, $iterpecTimeout);
+    curl_setopt($ch, CURLOPT_TIMEOUT, $iterpecCarsTimeout);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -236,7 +237,7 @@ if ($iterpeclogin != "" and $iterpecpassword != "") {
         $logger->addWriter($writer);
         $logger->info($e->getMessage());
     }
-    error_log("\r\n PASSOU 1 \r\n", 3, "/srv/www/htdocs/error_log");
+
     $response = json_decode($response, true);
     $TimeSpan = $response['TimeSpan'];
     $Token = $response['Token'];
@@ -322,7 +323,15 @@ if ($iterpeclogin != "" and $iterpecpassword != "") {
                     $SpanishDescription = $Features[$x]['SpanishDescription'];
                 }
             }
-            error_log("\r\n image  $image \r\n", 3, "/srv/www/htdocs/error_log");
+
+            if ($pickup_name === "") {
+                $pickup_name = $PickUpLocationDetail_Code;
+            }
+
+            if ($dropoff_name === "") {
+                $dropoff_name = $DropOffLocationDetail_Code;
+            }
+            
                 
             $cars[$counter]['id'] = $counter;
             $cars[$counter]['quoteid'] = md5(uniqid($session_id, true)) . "-" . $index . "-3-" . $counter;
@@ -338,8 +347,8 @@ if ($iterpeclogin != "" and $iterpecpassword != "") {
             $cars[$counter]['status'] = $status;
             $cars[$counter]['from'] = $from;
             $cars[$counter]['to'] = $to;
-            $cars[$counter]['pickup'] = ucwords(strtolower($PickUpLocationDetail_Code));
-            $cars[$counter]['dropoff'] = ucwords(strtolower($DropOffLocationDetail_Code));
+            $cars[$counter]['pickup'] = ucwords(strtolower($pickup_name));
+            $cars[$counter]['dropoff'] = ucwords(strtolower($dropoff_name));
             $cars[$counter]['class'] = $SippCode;
             $cars[$counter]['currency'] = $Currency;
             $cars[$counter]['productId'] = $productId;
@@ -411,7 +420,7 @@ if ($iterpeclogin != "" and $iterpecpassword != "") {
         $insert->values(array(
             'session_id' => $session_id,
             'xmlrequest' => (string) $raw,
-            'xmlresult' => (string) $xmlresult,
+            'xmlresult' => (string) $response,
             'data' => base64_encode(serialize($cars)),
             'searchsettings' => base64_encode(serialize($requestdata))
         ), $insert::VALUES_MERGE);
