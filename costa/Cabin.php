@@ -332,7 +332,7 @@ if ($cruise_line_id != "") {
         </ListAvailableCabins>
     </soap:Body>
     </soap:Envelope>';
-
+    
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $cruisescostaServiceURL . 'Availability.asmx');
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -346,27 +346,27 @@ if ($cruise_line_id != "") {
         "Content-type: text/xml;charset=\"utf-8\"",
         "Accept: text/xml",
         "SOAPAction: http://schemas.costacrociere.com/WebAffiliation/ListAvailableCabins",
-        "Content-length: ".strlen($raw)
+        "Content-length: " . strlen($raw)
     ));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $response = curl_exec($ch);
     $error = curl_error($ch);
     $headers = curl_getinfo($ch);
     curl_close($ch);
-    //error_log("\r\n Cabin Response - $response\r\n", 3, "/srv/www/htdocs/error_log");
+    // error_log("\r\n Cabin Response - $response\r\n", 3, "/srv/www/htdocs/error_log");
+    $sql = new Sql($db);
+    $insert = $sql->insert();
+    $insert->into('log_costa');
+    $insert->values(array(
+        'datetime_created' => time(),
+        'filename' => 'Cabins.php',
+        'errorline' => 0,
+        'errormessage' => $raw,
+        'sqlcontext' => $response,
+        'errcontext' => ''
+    ), $insert::VALUES_MERGE);
+    $statement = $sql->prepareStatementForSqlObject($insert);
     try {
-        $sql = new Sql($db);
-        $insert = $sql->insert();
-        $insert->into('log_costa');
-        $insert->values(array(
-            'datetime_created' => time(),
-            'filename' => 'Cabins.php',
-            'errorline' => 0,
-            'errormessage' => $xmlrequest,
-            'sqlcontext' => $xmlresult,
-            'errcontext' => ''
-        ), $insert::VALUES_MERGE);
-        $statement = $sql->prepareStatementForSqlObject($insert);
         $results = $statement->execute();
     } catch (\Exception $e) {
         $logger = new Logger();
@@ -375,6 +375,7 @@ if ($cruise_line_id != "") {
         $logger->info($e->getMessage());
     }
 
+    $hasdining = false;
     $inputDoc = new DOMDocument();
     $inputDoc->loadXML($response);
     $Envelope = $inputDoc->getElementsByTagName("Envelope");
@@ -385,7 +386,7 @@ if ($cruise_line_id != "") {
         if ($ListAvailableCabinsResult->length > 0) {
             $Cabin = $ListAvailableCabinsResult->item(0)->getElementsByTagName("Cabin");
             if ($Cabin->length > 0) {
-                for ($z=0; $z < $Cabin->length ; $z++) { 
+                for ($z = 0; $z < $Cabin->length; $z ++) {
                     $Number = $Cabin->item($z)->getElementsByTagName("Number");
                     if ($Number->length > 0) {
                         $Number = $Number->item(0)->nodeValue;
@@ -443,6 +444,8 @@ if ($cruise_line_id != "") {
                     $DiningPreference = $Cabin->item($z)->getElementsByTagName("DiningPreference");
                     if ($DiningPreference->length > 0) {
                         $DiningPreference = $DiningPreference->item(0)->nodeValue;
+                        $hasdining = true;
+                        $dining[$z]['diningname'] = $DiningPreference;
                     } else {
                         $DiningPreference = "";
                     }
@@ -763,56 +766,6 @@ if ($cruise_line_id != "") {
                                 $ShipMonthOfLaunch = "";
                             }
                         }
-                        $Itinerary = $Cruise->item(0)->getElementsByTagName("Itinerary");
-                        if ($Itinerary->length > 0) {
-                            $ItineraryCode = $Itinerary->item(0)->getElementsByTagName("Code");
-                            if ($ItineraryCode->length > 0) {
-                                $ItineraryCode = $ItineraryCode->item(0)->nodeValue;
-                            } else {
-                                $ItineraryCode = "";
-                            }
-                            $ItineraryURL = $Itinerary->item(0)->getElementsByTagName("URL");
-                            if ($ItineraryURL->length > 0) {
-                                $ItineraryURL = $ItineraryURL->item(0)->nodeValue;
-                            } else {
-                                $ItineraryURL = "";
-                            }
-                            $Segments = $Itinerary->item(0)->getElementsByTagName("Segments");
-                            if ($Segments->length > 0) {
-                                $Segment = $Segments->item(0)->getElementsByTagName("Segment");
-                                if ($Segment->length > 0) {
-                                    for ($i=0; $i < $Segment->length; $i++) { 
-                                        $ArrivalTime = $Segment->item($i)->getElementsByTagName("ArrivalTime");
-                                        if ($ArrivalTime->length > 0) {
-                                            $ArrivalTime = $ArrivalTime->item(0)->nodeValue;
-                                        } else {
-                                            $ArrivalTime = "";
-                                        }
-                                        $DepartureTime = $Segment->item($i)->getElementsByTagName("DepartureTime");
-                                        if ($DepartureTime->length > 0) {
-                                            $DepartureTime = $DepartureTime->item(0)->nodeValue;
-                                        } else {
-                                            $DepartureTime = "";
-                                        }
-                                        $Port = $Segment->item($i)->getElementsByTagName("Port");
-                                        if ($Port->length > 0) {
-                                            $PortCode = $Port->item(0)->getElementsByTagName("Code");
-                                            if ($PortCode->length > 0) {
-                                                $PortCode = $PortCode->item(0)->nodeValue;
-                                            } else {
-                                                $PortCode = "";
-                                            }
-                                            $PortDescription = $Port->item(0)->getElementsByTagName("Description");
-                                            if ($PortDescription->length > 0) {
-                                                $PortDescription = $PortDescription->item(0)->nodeValue;
-                                            } else {
-                                                $PortDescription = "";
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
                         $ImmediateConfirm = $Cruise->item(0)->getElementsByTagName("ImmediateConfirm");
                         if ($ImmediateConfirm->length > 0) {
                             $IsImmediateConfirm = $ImmediateConfirm->item(0)->getElementsByTagName("IsImmediateConfirm");
@@ -827,12 +780,6 @@ if ($cruise_line_id != "") {
             }
         }
     }
-}
-$hasdining = false;
-$DiningList = ['Unspecified','Main','Late','OpenSeating','FakeValue'];
-for ($z=0; $z < count($DiningList); $z++) { 
-    $hasdining = true;
-    $dining[$z]['diningname'] = $DiningList[$z];
 }
 $db->getDriver()
     ->getConnection()

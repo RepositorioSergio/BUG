@@ -1,5 +1,5 @@
 <?php
-error_log("\r\n Start Costa - Cabins Cruises\r\n", 3, "/srv/www/htdocs/error_log");
+// error_log("\r\n Start Costa - Cabins Cruises\r\n", 3, "/srv/www/htdocs/error_log");
 $scurrency = strtoupper($currency);
 use Laminas\Db\Adapter\Adapter;
 use Laminas\Db\Adapter\Driver\ResultInterface;
@@ -293,7 +293,7 @@ if ($cruise_line_id != "") {
     $error = curl_error($ch);
     $headers = curl_getinfo($ch);
     curl_close($ch);
-    //error_log("\r\n Cabins Response - $response\r\n", 3, "/srv/www/htdocs/error_log");
+    // error_log("\r\n Cabins Response - $response\r\n", 3, "/srv/www/htdocs/error_log");
     try {
         $db = new \Laminas\Db\Adapter\Adapter($config);
         $sql = new Sql($db);
@@ -318,6 +318,7 @@ if ($cruise_line_id != "") {
         $logger->addWriter($writer);
         $logger->info($e->getMessage());
     }
+ 
     $inputDoc = new DOMDocument();
     $inputDoc->loadXML($response);
     $Envelope = $inputDoc->getElementsByTagName("Envelope");
@@ -335,11 +336,18 @@ if ($cruise_line_id != "") {
                     } else {
                         $Code = "";
                     }
+                    error_log("\r\n Code $Code \r\n", 3, "/srv/www/htdocs/error_log");
                     $Name = $Category->item($i)->getElementsByTagName("Name");
                     if ($Name->length > 0) {
                         $Name = $Name->item(0)->nodeValue;
                     } else {
                         $Name = "";
+                    }
+                    $ShipCode = $Category->item($i)->getElementsByTagName("ShipCode");
+                    if ($ShipCode->length > 0) {
+                        $ShipCode = $ShipCode->item(0)->nodeValue;
+                    } else {
+                        $ShipCode = "";
                     }
                     $Availability = $Category->item($i)->getElementsByTagName("Availability");
                     if ($Availability->length > 0) {
@@ -407,10 +415,11 @@ if ($cruise_line_id != "") {
                     } else {
                         $CurrencyCode = "";
                     }
+
                     //
                     try {
                         $db = new \Laminas\Db\Adapter\Adapter($config);
-                        $sql = "select name, image, description, stateroom_area, veranda_area, color from ships_cabincategory where ship_id=" . $ship_id . " and categorycode='" . $Code . "'";
+                        $sql = "select name, image, description, stateroom_area, veranda_area, color from ships_cabincategory where ship_id=" . $ship_id . " and categorycode='" . $cabincode . "'";
                         $statement2 = $db->createStatement($sql);
                         $statement2->prepare();
                         $row_cabincategory = $statement2->execute();
@@ -444,7 +453,6 @@ if ($cruise_line_id != "") {
                     $cabins[$cabinscount]['stateroom_area'] = $stateroom_area;
                     $cabins[$cabinscount]['veranda_area'] = $veranda_area;
                     $cabins[$cabinscount]['color'] = $color;
-
                     $cabincountprice = 0;
                     $Price = $Category->item($i)->getElementsByTagName("Price");
                     if ($Price->length > 0) {
@@ -503,8 +511,8 @@ if ($cruise_line_id != "") {
                                 if ($agent_markup > 0) {
                                     $price = number_format($price + (($price * $agent_markup) / 100), 2, '.', '');
                                 }
-                                if ($cruisescostamarkup > 0) {
-                                    $tax = number_format($tax + (($tax * $cruisescostamarkup) / 100), 2, '.', '');
+                                if ($cruisestouricoholidaysMarkup > 0) {
+                                    $tax = number_format($tax + (($tax * $cruisestouricoholidaysMarkup) / 100), 2, '.', '');
                                 }
                                 if ($agent_markup > 0) {
                                     $tax = number_format($tax + (($tax * $agent_markup) / 100), 2, '.', '');
@@ -518,8 +526,9 @@ if ($cruise_line_id != "") {
                                     $taxesincluded = 1;
                                 } else {
                                     $taxesincluded = 0;
-                                }                           
-                                $cabins[$cabinscount]['cabin'][$cabincountprice]['pricetitle'] = $Name;
+                                } 
+                           
+                                $cabins[$cabinscount]['cabin'][$cabincountprice]['pricetitle'] = $GuestPriceDescription;
                                 $cabins[$cabinscount]['cabin'][$cabincountprice]['taxesincluded'] = $taxesincluded;
                                 $cabins[$cabinscount]['cabin'][$cabincountprice]['pricepublish'] = $filter->filter($price);
                                 $cabins[$cabinscount]['cabin'][$cabincountprice]['price'] = $filter->filter($price);

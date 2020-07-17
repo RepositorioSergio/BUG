@@ -1,5 +1,5 @@
 <?php
-error_log("\r\nStart Costa - Search Cruises\r\n", 3, "/srv/www/htdocs/error_log");
+// error_log("\r\nStart Costa - Search Cruises\r\n", 3, "/srv/www/htdocs/error_log");
 $scurrency = strtoupper($currency);
 use Laminas\Db\Adapter\Adapter;
 use Laminas\Db\Adapter\Driver\ResultInterface;
@@ -132,26 +132,26 @@ if ($result->valid()) {
     $row = $result->current();
     $cruisescostaCurrency = $row['value'];
 }
-$sql = "select cruises_xml13 from cruises_regions where seo='" . $destination . "'";
+$sql = "select cruises_xml14 from cruises_regions where seo='" . $destination . "'";
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
 $row_settings->buffer();
 if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
-    $cruisedestinationid = $row_settings["cruises_xml13"];
+    $cruisedestinationid = $row_settings["cruises_xml14"];
 } else {
     $cruisedestinationid = 0;
 }
 if ($cruiseline != "all") {
-    $sql = "select cruises_xml13 from cruises_lines where seo='" . $cruiseline . "'";
+    $sql = "select cruises_xml14 from cruises_lines where seo='" . $cruiseline . "'";
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
     $row_settings->buffer();
     if ($row_settings->valid()) {
         $row_settings = $row_settings->current();
-        $CruiseLineID = $row_settings["cruises_xml13"];
+        $CruiseLineID = $row_settings["cruises_xml14"];
     } else {
         $CruiseLineID = 0;
     }
@@ -183,14 +183,14 @@ if ($length == "all") {
     }
 }
 if ($cruiseship != "" and $cruiseship != "all") {
-    $sql = "select cruises_xml13 from ships where seo='" . $cruiseship . "'";
+    $sql = "select cruises_xml14 from ships where seo='" . $cruiseship . "'";
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
     $row_settings->buffer();
     if ($row_settings->valid()) {
         $row_settings = $row_settings->current();
-        $ShipID = $row_settings["cruises_xml13"];
+        $ShipID = $row_settings["cruises_xml14"];
     } else {
         $ShipID = 0;
     }
@@ -198,21 +198,21 @@ if ($cruiseship != "" and $cruiseship != "all") {
     $ShipID = 0;
 }
 if ($departureport != "" and $departureport != "all") {
-    $sql = "select cruises_xml13 from cruises_ports where seo='" . $departureport . "'";
+    $sql = "select cruises_xml14 from cruises_ports where seo='" . $departureport . "'";
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
     $row_settings->buffer();
     if ($row_settings->valid()) {
         $row_settings = $row_settings->current();
-        $PortID = $row_settings["cruises_xml13"];
+        $PortID = $row_settings["cruises_xml14"];
     } else {
         $PortID = 0;
     }
 } else {
     $PortID = 0;
 }
-if ($cruisedestinationid > 0) {
+if ($cruisedestinationid != "") {
     //
     // Paulo
     // TODO: Adults, Children, Currency, Status, Destination ID Filter, Ship Id Filter
@@ -233,50 +233,19 @@ if ($cruisedestinationid > 0) {
     } else {
         $cruisedepartureportfilter = "";
     }
-    // Shipid
+    // Ship Id
     if ($ShipID > 0 or $ShipID != "") {
         $cruiseshipidfilter = $ShipID;
     } else {
         $cruiseshipidfilter = "";
     }
-    // Region id
-    if ($destination != "") {
-        if ((int) $cruisedestinationid > 0) {
-            $cruisedestinationfilter = $cruisedestinationid;
-            // apagar
-            $cruisedestinationfilter = "";
-        } else {
-            $cruisedestinationfilter = "";
-        }
-    } else {
-        $cruisedestinationfilter = "";
-    }
-    // error_log("\r\nCruise Line ID : $CruiseLineID\r\n", 3, "/srv/www/htdocs/error_log");
+    error_log("\r\nCruise Line ID : $CruiseLineID\r\n", 3, "/srv/www/htdocs/error_log");
     error_log("\r\nPort Id : $PortID\r\n", 3, "/srv/www/htdocs/error_log");
     error_log("\r\nDestination Id : $cruisedestinationid\r\n", 3, "/srv/www/htdocs/error_log");
-    $raw = '<?xml version="1.0" encoding="utf-8"?>
-    <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-    <soap:Header>
-        <Agency xmlns="http://schemas.costacrociere.com/WebAffiliation">
-        <Code>' . $cruisescostaAgency . '</Code>
-        </Agency>
-        <Partner xmlns="http://schemas.costacrociere.com/WebAffiliation">
-        <Name>' . $cruisescostausername . '</Name>
-        <Password>' . $cruisescostapassword . '</Password>
-        </Partner>
-    </soap:Header>
-    <soap:Body>
-        <ListAvailableCruises xmlns="http://schemas.costacrociere.com/WebAffiliation">
-            <from>' . $departureFrom . '</from>
-            <to>' . $departureTo . '</to>
-            <destinationCode>' . $cruisedestinationfilter . '</destinationCode>
-            <shipCode>' . $cruiseshipidfilter . '</shipCode>
-            <portCode>' . $cruisedepartureportfilter . '</portCode>
-        </ListAvailableCruises>
-    </soap:Body>
-    </soap:Envelope>';
-    // error_log("\r\n Request - $raw\r\n", 3, "/srv/www/htdocs/error_log");
-    
+    error_log("\r\nPort Code: $cruisedepartureportfilter\r\n", 3, "/srv/www/htdocs/error_log");
+    error_log("\r\nCruise Code: $cruiseshipidfilter\r\n", 3, "/srv/www/htdocs/error_log");
+    $raw = '<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Header><Agency xmlns="http://schemas.costacrociere.com/WebAffiliation"><Code>' . $cruisescostaAgency . '</Code></Agency><Partner xmlns="http://schemas.costacrociere.com/WebAffiliation"><Name>' . $cruisescostausername . '</Name><Password>' . $cruisescostapassword . '</Password></Partner></soap:Header><soap:Body><ListAvailableCruises xmlns="http://schemas.costacrociere.com/WebAffiliation"><from>' . $departureFrom . '</from><to>' . $departureTo . '</to><destinationCode>' . $cruisedestinationid . '</destinationCode><CruiseCode>' . $cruiseshipidfilter . '</CruiseCode><portCode>' . $cruisedepartureportfilter . '</portCode></ListAvailableCruises></soap:Body></soap:Envelope>';
+    // error_log("\r\nCosta Request - $raw\r\n", 3, "/srv/www/htdocs/error_log");
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $cruisescostaServiceURL . 'Availability.asmx');
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -298,19 +267,19 @@ if ($cruisedestinationid > 0) {
     $headers = curl_getinfo($ch);
     curl_close($ch);
     // error_log("\r\nCosta Response - $response\r\n", 3, "/srv/www/htdocs/error_log");
+    $sql = new Sql($db);
+    $insert = $sql->insert();
+    $insert->into('log_costa');
+    $insert->values(array(
+        'datetime_created' => time(),
+        'filename' => 'SearchCruises.php',
+        'errorline' => 0,
+        'errormessage' => $raw,
+        'sqlcontext' => $response,
+        'errcontext' => ''
+    ), $insert::VALUES_MERGE);
+    $statement = $sql->prepareStatementForSqlObject($insert);
     try {
-        $sql = new Sql($db);
-        $insert = $sql->insert();
-        $insert->into('log_costa');
-        $insert->values(array(
-            'datetime_created' => time(),
-            'filename' => 'SearchCruises.php',
-            'errorline' => 0,
-            'errormessage' => $raw,
-            'sqlcontext' => $response,
-            'errcontext' => ''
-        ), $insert::VALUES_MERGE);
-        $statement = $sql->prepareStatementForSqlObject($insert);
         $results = $statement->execute();
     } catch (\Exception $e) {
         $logger = new Logger();
@@ -486,6 +455,42 @@ if ($cruisedestinationid > 0) {
                                 $IsImmediateConfirm = "";
                             }
                         }
+                        
+                        /*
+                         * $segments = array();
+                         * $ports = $cruise->item($i)->getElementsByTagName("ports");
+                         * if ($ports->length > 0) {
+                         * $port = $ports->item(0)->getElementsByTagName("port");
+                         * if ($port->length > 0) {
+                         * for ($j = 0; $j < $port->length; $j ++) {
+                         * $segments[$j]['day'] = ($j + 1);
+                         * $segments[$j]['portid'] = $port->item($j)->getAttribute("id");
+                         * $segments[$j]['portname'] = $port->item($j)->getAttribute("name");
+                         * $sql = "select id, name, latitude, longitude, image, description from cruises_ports where cruises_xml08='" . $segments[$j]['PortId'] . "'";
+                         * $statement = $db->createStatement($sql);
+                         * $statement->prepare();
+                         * $row = $statement->execute();
+                         * $row->buffer();
+                         * if ($row->valid()) {
+                         * $row = $row->current();
+                         * $segments[$j]['port_id'] = $row["id"];
+                         * $segments[$j]['name'] = $row["name"];
+                         * $segments[$j]['latitude'] = $row["latitude"];
+                         * $segments[$j]['longitude'] = $row["longitude"];
+                         * $segments[$j]['image'] = $row["image"];
+                         * $segments[$j]['description'] = $row["description"];
+                         * } else {
+                         * $segments[$j]['port_id'] = 0;
+                         * $segments[$j]['name'] = "";
+                         * $segments[$j]['latitude'] = 0;
+                         * $segments[$j]['longitude'] = 0;
+                         * $segments[$j]['image'] = "";
+                         * $segments[$j]['description'] = "";
+                         * }
+                         * }
+                         * }
+                         * }
+                         */
                         $sql = "select name, logo, seo from cruises_lines where cruises_xml14=1";
                         $statement = $db->createStatement($sql);
                         try {
@@ -737,9 +742,9 @@ if ($cruisedestinationid > 0) {
                         }
                         if ($OV_Price == 0 or $OV_Price == - 1) {
                             if ($OV_Price > 0) {
-                                if ($cruisescostaCurrency != $scurrency) {
-                                    $OV_PricePublish = $CurrencyConverter->convert($OV_PricePublish, $cruisescostaCurrency, $scurrency);
-                                    $OV_Price = $CurrencyConverter->convert($OV_Price, $cruisescostaCurrency, $scurrency);
+                                if ($currency != $scurrency) {
+                                    $OV_PricePublish = $CurrencyConverter->convert($OV_PricePublish, $currency, $scurrency);
+                                    $OV_Price = $CurrencyConverter->convert($OV_Price, $currency, $scurrency);
                                 }
                             }
                             $cruises[$counter]['OV_PricePublish'][$i] = $translator->translate("N/A");
@@ -749,9 +754,9 @@ if ($cruisedestinationid > 0) {
                             $cruises[$counter]["OV_Price_plain"][$i] = 0;
                         } else {
                             if ($OV_Price > 0) {
-                                if ($cruisescostaCurrency != $scurrency) {
-                                    $OV_PricePublish = $CurrencyConverter->convert($OV_PricePublish, $cruisescostaCurrency, $scurrency);
-                                    $OV_Price = $CurrencyConverter->convert($OV_Price, $cruisescostaCurrency, $scurrency);
+                                if ($currency != $scurrency) {
+                                    $OV_PricePublish = $CurrencyConverter->convert($OV_PricePublish, $currency, $scurrency);
+                                    $OV_Price = $CurrencyConverter->convert($OV_Price, $currency, $scurrency);
                                 }
                             }
                             $cruises[$counter]['OV_PricePublish'][$i] = $filter->filter($OV_PricePublish);
@@ -762,9 +767,9 @@ if ($cruisedestinationid > 0) {
                         }
                         if ($BL_Price == 0 or $BL_Price == - 1) {
                             if ($BL_Price > 0) {
-                                if ($cruisescostaCurrency != $scurrency) {
-                                    $BL_PricePublish = $CurrencyConverter->convert($BL_PricePublish, $cruisescostaCurrency, $scurrency);
-                                    $BL_Price = $CurrencyConverter->convert($BL_Price, $cruisescostaCurrency, $scurrency);
+                                if ($currency != $scurrency) {
+                                    $BL_PricePublish = $CurrencyConverter->convert($BL_PricePublish, $currency, $scurrency);
+                                    $BL_Price = $CurrencyConverter->convert($BL_Price, $currency, $scurrency);
                                 }
                             }
                             $cruises[$counter]['BL_PricePublish'][$i] = $translator->translate("N/A");
@@ -774,9 +779,9 @@ if ($cruisedestinationid > 0) {
                             $cruises[$counter]["BL_Price_plain"][$i] = 0;
                         } else {
                             if ($BL_Price > 0) {
-                                if ($cruisescostaCurrency != $scurrency) {
-                                    $BL_PricePublish = $CurrencyConverter->convert($BL_PricePublish, $cruisescostaCurrency, $scurrency);
-                                    $BL_Price = $CurrencyConverter->convert($BL_Price, $cruisescostaCurrency, $scurrency);
+                                if ($currency != $scurrency) {
+                                    $BL_PricePublish = $CurrencyConverter->convert($BL_PricePublish, $currency, $scurrency);
+                                    $BL_Price = $CurrencyConverter->convert($BL_Price, $currency, $scurrency);
                                 }
                             }
                             $cruises[$counter]['BL_PricePublish'][$i] = $filter->filter($BL_PricePublish);
@@ -787,9 +792,9 @@ if ($cruisedestinationid > 0) {
                         }
                         if ($ST_Price == 0 or $ST_Price == - 1) {
                             if ($ST_Price > 0) {
-                                if ($cruisescostaCurrency != $scurrency) {
-                                    $ST_PricePublish = $CurrencyConverter->convert($ST_PricePublish, $cruisescostaCurrency, $scurrency);
-                                    $ST_Price = $CurrencyConverter->convert($ST_Price, $cruisescostaCurrency, $scurrency);
+                                if ($currency != $scurrency) {
+                                    $ST_PricePublish = $CurrencyConverter->convert($ST_PricePublish, $currency, $scurrency);
+                                    $ST_Price = $CurrencyConverter->convert($ST_Price, $currency, $scurrency);
                                 }
                             }
                             $cruises[$counter]['ST_PricePublish'][$i] = $translator->translate("N/A");
@@ -799,8 +804,8 @@ if ($cruisedestinationid > 0) {
                             $cruises[$counter]["ST_Price_plain"][$i] = 0;
                         } else {
                             if ($ST_Price > 0) {
-                                $ST_PricePublish = $CurrencyConverter->convert($ST_PricePublish, $cruisescostaCurrency, $scurrency);
-                                $ST_Price = $CurrencyConverter->convert($ST_Price, $cruisescostaCurrency, $scurrency);
+                                $ST_PricePublish = $CurrencyConverter->convert($ST_PricePublish, $currency, $scurrency);
+                                $ST_Price = $CurrencyConverter->convert($ST_Price, $currency, $scurrency);
                             }
                             $cruises[$counter]['ST_PricePublish'][$i] = $filter->filter($ST_PricePublish);
                             $cruises[$counter]["ST_PricePublish_plain"][$i] = $ST_PricePublish;
@@ -809,9 +814,9 @@ if ($cruisedestinationid > 0) {
                             $cruises[$counter]["ST_Price_plain"][$i] = $ST_Price;
                         }
                         if ($IN_Price > 0) {
-                            if ($cruisescostaCurrency != $scurrency) {
-                                $cruisesfrom = $CurrencyConverter->convert($cruisesfrom, $cruisescostaCurrency, $scurrency);
-                                $cruisesfrom_publish = $CurrencyConverter->convert($cruisesfrom_publish, $cruisescostaCurrency, $scurrency);
+                            if ($currency != $scurrency) {
+                                $cruisesfrom = $CurrencyConverter->convert($cruisesfrom, $currency, $scurrency);
+                                $cruisesfrom_publish = $CurrencyConverter->convert($cruisesfrom_publish, $currency, $scurrency);
                             }
                         }
                         $cruises[$counter]['from'] = $filter->filter($cruisesfrom);
@@ -827,6 +832,7 @@ if ($cruisedestinationid > 0) {
                         $cruises[$counter]['departure']['portid'] = $DeparturePortCode;
                         $cruises[$counter]['departure']['portname'] = $DeparturePortDescription;
                         // $cruises[$counter]['segments'] = $segments;
+                        // error_log("\r\nCosta Code - $Code\r\n", 3, "/srv/www/htdocs/error_log");
                         // Amenities
                         $amenities = array();
                         $tmp = array();
