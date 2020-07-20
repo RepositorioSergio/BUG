@@ -212,8 +212,8 @@ if ($cruise_line_id != "") {
                 <Number></Number>
                 <Category xsi:nil="true" />
                 <Status></Status>
-                <MinOccupancy>4</MinOccupancy>
-                <MaxOccupancy>1</MaxOccupancy>
+                <MinOccupancy>' . $maxoccupancy . '</MinOccupancy>
+                <MaxOccupancy>' . $minoccupancy . '</MaxOccupancy>
                 <DeckName></DeckName>
                 <DeckCode></DeckCode>
                 <Beds xsi:nil="true" />
@@ -353,7 +353,7 @@ if ($cruise_line_id != "") {
     $error = curl_error($ch);
     $headers = curl_getinfo($ch);
     curl_close($ch);
-    // error_log("\r\n Cabin Response - $response\r\n", 3, "/srv/www/htdocs/error_log");
+    error_log("\r\n Cabin Response - $response\r\n", 3, "/srv/www/htdocs/error_log");
     $sql = new Sql($db);
     $insert = $sql->insert();
     $insert->into('log_costa');
@@ -674,6 +674,56 @@ if ($cruise_line_id != "") {
                                 $DestinationDescription = $DestinationDescription->item(0)->nodeValue;
                             } else {
                                 $DestinationDescription = "";
+                            }
+                        }
+                        $Itinerary = $Cruise->item(0)->getElementsByTagName("Itinerary");
+                        if ($Itinerary->length > 0) {
+                            $ItineraryCode = $Itinerary->item(0)->getElementsByTagName("Code");
+                            if ($ItineraryCode->length > 0) {
+                                $ItineraryCode = $ItineraryCode->item(0)->nodeValue;
+                            } else {
+                                $ItineraryCode = "";
+                            }
+                            $ItineraryURL = $Itinerary->item(0)->getElementsByTagName("URL");
+                            if ($ItineraryURL->length > 0) {
+                                $ItineraryURL = $ItineraryURL->item(0)->nodeValue;
+                            } else {
+                                $ItineraryURL = "";
+                            }
+                            $Segments = $Itinerary->item(0)->getElementsByTagName("Segments");
+                            if ($Segments->length > 0) {
+                                $Segment = $Segments->item(0)->getElementsByTagName("Segment");
+                                if ($Segment->length > 0) {
+                                    for ($zAux=0; $zAux < $Segment->length; $zAux++) { 
+                                        $ArrivalTime = $Segment->item($zAux)->getElementsByTagName("ArrivalTime");
+                                        if ($ArrivalTime->length > 0) {
+                                            $ArrivalTime = $ArrivalTime->item(0)->nodeValue;
+                                        } else {
+                                            $ArrivalTime = "";
+                                        }
+                                        $DepartureTime = $Segment->item($zAux)->getElementsByTagName("DepartureTime");
+                                        if ($DepartureTime->length > 0) {
+                                            $DepartureTime = $DepartureTime->item(0)->nodeValue;
+                                        } else {
+                                            $DepartureTime = "";
+                                        }
+                                        $Port = $Segment->item($zAux)->getElementsByTagName("Port");
+                                        if ($Port->length > 0) {
+                                            $PortCode = $Itinerary->item(0)->getElementsByTagName("Code");
+                                            if ($PortCode->length > 0) {
+                                                $PortCode = $PortCode->item(0)->nodeValue;
+                                            } else {
+                                                $PortCode = "";
+                                            }
+                                            $PortDescription = $Itinerary->item(0)->getElementsByTagName("Description");
+                                            if ($PortDescription->length > 0) {
+                                                $PortDescription = $PortDescription->item(0)->nodeValue;
+                                            } else {
+                                                $PortDescription = "";
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                         $DeparturePort = $Cruise->item(0)->getElementsByTagName("DeparturePort");

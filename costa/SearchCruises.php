@@ -266,7 +266,7 @@ if ($cruisedestinationid != "") {
     $error = curl_error($ch);
     $headers = curl_getinfo($ch);
     curl_close($ch);
-    // error_log("\r\nCosta Response - $response\r\n", 3, "/srv/www/htdocs/error_log");
+    error_log("\r\nCosta Response - $response\r\n", 3, "/srv/www/htdocs/error_log");
     $sql = new Sql($db);
     $insert = $sql->insert();
     $insert->into('log_costa');
@@ -305,6 +305,7 @@ if ($cruisedestinationid != "") {
                         } else {
                             $Code = "";
                         }
+                        error_log("\r\n Code - $Code\r\n", 3, "/srv/www/htdocs/error_log");
                         $Description = $Cruise->item($i)->getElementsByTagName("Description");
                         if ($Description->length > 0) {
                             $Description = $Description->item(0)->nodeValue;
@@ -349,6 +350,7 @@ if ($cruisedestinationid != "") {
                             } else {
                                 $DestinationCode = "";
                             }
+                            error_log("\r\n DestinationCode - $DestinationCode\r\n", 3, "/srv/www/htdocs/error_log");
                             $DestinationDescription = $Destination->item(0)->getElementsByTagName("Description");
                             if ($DestinationDescription->length > 0) {
                                 $DestinationDescription = $DestinationDescription->item(0)->nodeValue;
@@ -364,6 +366,7 @@ if ($cruisedestinationid != "") {
                             } else {
                                 $DeparturePortCode = "";
                             }
+                            error_log("\r\n DeparturePortCode - $DeparturePortCode \r\n", 3, "/srv/www/htdocs/error_log");
                             $DeparturePortDescription = $DeparturePort->item(0)->getElementsByTagName("Description");
                             if ($DeparturePortDescription->length > 0) {
                                 $DeparturePortDescription = $DeparturePortDescription->item(0)->nodeValue;
@@ -379,6 +382,7 @@ if ($cruisedestinationid != "") {
                             } else {
                                 $ShipCode = "";
                             }
+                            error_log("\r\n ShipCode - $ShipCode \r\n", 3, "/srv/www/htdocs/error_log");
                             $ShipName = $Ship->item(0)->getElementsByTagName("Name");
                             if ($ShipName->length > 0) {
                                 $ShipName = $ShipName->item(0)->nodeValue;
@@ -455,42 +459,32 @@ if ($cruisedestinationid != "") {
                                 $IsImmediateConfirm = "";
                             }
                         }
+                        /* $segments = array();
+                        $segments[$i]['portid'] = $DeparturePortCode;
+                        $segments[$i]['portname'] = $DeparturePortDescription;
+
+                        $sql = "select id, name, latitude, longitude, image, description from cruises_ports where cruises_xml14='" . $segments[$i]['PortId'] . "'";
+                        $statement = $db->createStatement($sql);
+                        $statement->prepare();
+                        $row = $statement->execute();
+                        $row->buffer();
+                        if ($row->valid()) {
+                            $row = $row->current();
+                            $segments[$i]['port_id'] = $row["id"];
+                            $segments[$i]['name'] = $row["name"];
+                            $segments[$i]['latitude'] = $row["latitude"];
+                            $segments[$i]['longitude'] = $row["longitude"];
+                            $segments[$i]['image'] = $row["image"];
+                            $segments[$i]['description'] = $row["description"];
+                        } else {
+                            $segments[$i]['port_id'] = 0;
+                            $segments[$i]['name'] = "";
+                            $segments[$i]['latitude'] = 0;
+                            $segments[$i]['longitude'] = 0;
+                            $segments[$i]['image'] = "";
+                            $segments[$i]['description'] = "";
+                        } */
                         
-                        /*
-                         * $segments = array();
-                         * $ports = $cruise->item($i)->getElementsByTagName("ports");
-                         * if ($ports->length > 0) {
-                         * $port = $ports->item(0)->getElementsByTagName("port");
-                         * if ($port->length > 0) {
-                         * for ($j = 0; $j < $port->length; $j ++) {
-                         * $segments[$j]['day'] = ($j + 1);
-                         * $segments[$j]['portid'] = $port->item($j)->getAttribute("id");
-                         * $segments[$j]['portname'] = $port->item($j)->getAttribute("name");
-                         * $sql = "select id, name, latitude, longitude, image, description from cruises_ports where cruises_xml08='" . $segments[$j]['PortId'] . "'";
-                         * $statement = $db->createStatement($sql);
-                         * $statement->prepare();
-                         * $row = $statement->execute();
-                         * $row->buffer();
-                         * if ($row->valid()) {
-                         * $row = $row->current();
-                         * $segments[$j]['port_id'] = $row["id"];
-                         * $segments[$j]['name'] = $row["name"];
-                         * $segments[$j]['latitude'] = $row["latitude"];
-                         * $segments[$j]['longitude'] = $row["longitude"];
-                         * $segments[$j]['image'] = $row["image"];
-                         * $segments[$j]['description'] = $row["description"];
-                         * } else {
-                         * $segments[$j]['port_id'] = 0;
-                         * $segments[$j]['name'] = "";
-                         * $segments[$j]['latitude'] = 0;
-                         * $segments[$j]['longitude'] = 0;
-                         * $segments[$j]['image'] = "";
-                         * $segments[$j]['description'] = "";
-                         * }
-                         * }
-                         * }
-                         * }
-                         */
                         $sql = "select name, logo, seo from cruises_lines where cruises_xml14=1";
                         $statement = $db->createStatement($sql);
                         try {
@@ -572,7 +566,7 @@ if ($cruisedestinationid != "") {
                         $cruises[$counter]["id"] = $counter;
                         $cruises[$counter]["seo"] = $ship_seo;
                         // TODO
-                        // error_log("\r\nUnable to find tourico cruise line TODO - Check - $cruiselineid - alterar para id, db cruises_lines \r\n", 3, "/srv/www/htdocs/error_log");
+                        // error_log("\r\nUnable to find costa cruise line TODO - Check - $cruiselineid - alterar para id, db cruises_lines \r\n", 3, "/srv/www/htdocs/error_log");
                         $cruises[$counter]["cruise_line_id"] = $Code;
                         $cruises[$counter]["quote_id"] = md5(uniqid($session_id, true)) . "-14-" . $counter;
                         $cruises[$counter]["ship"]["id"] = $ship_id;
@@ -585,16 +579,95 @@ if ($cruisedestinationid != "") {
                         
                         $cruisesfrom = 0;
                         $cruisesfrom_publish = 0;
-                        // B2C Price
-                        $IN_PricePublish = 1000; // Displays the Inside cabin publish price.
-                        $ST_PricePublish = 1300; // Displays the suite cabin publish price.
-                        $BL_PricePublish = 1200; // Displays the balcony cabin publish price.
-                        $OV_PricePublish = 1150; // Displays the ocean view cabin publish price.
-                                                 // B2B Price
-                        $IN_Price = 1000; // Displays the Inside cabin price.
-                        $ST_Price = 1300; // Displays the suite cabin price.
-                        $BL_Price = 1200; // Displays the balcony cabin price.
-                        $OV_Price = 1150; // Displays the ocean view cabin publish price.
+                        $sql = "select bestprice from costa_cruiseprice_categories where categorycode='BA' and cruisepricecode='" . $Code . "'";
+                        $statement = $db->createStatement($sql);
+                        try {
+                            $statement->prepare();
+                            $row = $statement->execute();
+                        } catch (\Exception $e) {
+                            $logger = new Logger();
+                            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+                            $logger->addWriter($writer);
+                            $logger->info($e->getMessage());
+                        }
+                        $row->buffer();
+                        if ($row->valid()) {
+                            $row = $row->current();
+                            $BL_PricePublish = $row["bestprice"]; // Displays the balcony cabin publish price.
+                            $BL_Price = $row["bestprice"]; // Displays the balcony cabin price.
+                        } else {
+                            // Unable to find cruise line price
+                            // B2C Price
+                            $BL_PricePublish = 0; // Displays the balcony cabin publish price.
+                            $BL_Price = 0; // Displays the balcony cabin price.
+                        }
+                        $sql = "select bestprice from costa_cruiseprice_categories where categorycode='EV' and cruisepricecode='" . $Code . "'";
+                        $statement = $db->createStatement($sql);
+                        try {
+                            $statement->prepare();
+                            $row = $statement->execute();
+                        } catch (\Exception $e) {
+                            $logger = new Logger();
+                            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+                            $logger->addWriter($writer);
+                            $logger->info($e->getMessage());
+                        }
+                        $row->buffer();
+                        if ($row->valid()) {
+                            $row = $row->current();
+                            $OV_PricePublish = $row["bestprice"]; // Displays the balcony cabin publish price.
+                            $OV_Price = $row["bestprice"]; // Displays the balcony cabin price.
+                        } else {
+                            // Unable to find cruise line price
+                            // B2C Price
+                            $OV_PricePublish = 0; // Displays the ocean view cabin publish price.
+                            $OV_Price = 0; // Displays the ocean view cabin publish price.
+                        }
+                        $sql = "select bestprice from costa_cruiseprice_categories where categorycode='IV' and cruisepricecode='" . $Code . "'";
+                        $statement = $db->createStatement($sql);
+                        try {
+                            $statement->prepare();
+                            $row = $statement->execute();
+                        } catch (\Exception $e) {
+                            $logger = new Logger();
+                            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+                            $logger->addWriter($writer);
+                            $logger->info($e->getMessage());
+                        }
+                        $row->buffer();
+                        if ($row->valid()) {
+                            $row = $row->current();
+                            $IN_PricePublish = $row["bestprice"]; // Displays the balcony cabin publish price.
+                            $IN_Price = $row["bestprice"]; // Displays the balcony cabin price.
+                        } else {
+                            // Unable to find cruise line price
+                            // B2C Price
+                            $IN_PricePublish = 0; // Displays the Inside cabin publish price.
+                            $IN_Price = 0; // Displays the Inside cabin price.
+                        }
+                        $sql = "select bestprice from costa_cruiseprice_categories where categorycode='S' and cruisepricecode='" . $Code . "'";
+                        $statement = $db->createStatement($sql);
+                        try {
+                            $statement->prepare();
+                            $row = $statement->execute();
+                        } catch (\Exception $e) {
+                            $logger = new Logger();
+                            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+                            $logger->addWriter($writer);
+                            $logger->info($e->getMessage());
+                        }
+                        $row->buffer();
+                        if ($row->valid()) {
+                            $row = $row->current();
+                            $ST_PricePublish = $row["bestprice"]; // Displays the balcony cabin publish price.
+                            $ST_Price = $row["bestprice"]; // Displays the balcony cabin price.
+                        } else {
+                            // Unable to find cruise line price
+                            // B2C Price
+                            $ST_PricePublish = 0; // Displays the Inside cabin publish price.
+                            $ST_Price = 0; // Displays the Inside cabin price.
+                        }
+
                         if ($cruisescostamarkup > 0) {
                             if ((int) $IN_Price > 0) {
                                 $IN_Price = number_format($IN_Price + (($IN_Price * $cruisescostamarkup) / 100), 2, '.', '');
@@ -831,7 +904,7 @@ if ($cruisedestinationid != "") {
                         $cruises[$counter]['ShipRating'] = "";
                         $cruises[$counter]['departure']['portid'] = $DeparturePortCode;
                         $cruises[$counter]['departure']['portname'] = $DeparturePortDescription;
-                        // $cruises[$counter]['segments'] = $segments;
+                        $cruises[$counter]['segments'] = $segments;
                         // error_log("\r\nCosta Code - $Code\r\n", 3, "/srv/www/htdocs/error_log");
                         // Amenities
                         $amenities = array();
