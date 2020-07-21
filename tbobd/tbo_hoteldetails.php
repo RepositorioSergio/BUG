@@ -238,20 +238,20 @@ if ($HotelDetails->length > 0) {
                 $Attr = $Attraction->item($i)->nodeValue;
 
                 try {
-                        $sql = new Sql($db);
-                        $insert = $sql->insert();
-                        $insert->into('tbo_hoteldetails_attractions');
-                        $insert->values(array(
-                            'datetime_created' => time(),
-                            'datetime_updated' => 0,
-                            'attraction' => $Attr,
-                            'hotelcode' => $HotelCode
-                        ), $insert::VALUES_MERGE);
-                        $statement = $sql->prepareStatementForSqlObject($insert);
-                        $results = $statement->execute();
-                        $db->getDriver()
-                        ->getConnection()
-                        ->disconnect();
+                    $sql = new Sql($db);
+                    $insert = $sql->insert();
+                    $insert->into('tbo_hoteldetails_attractions');
+                    $insert->values(array(
+                        'datetime_created' => time(),
+                        'datetime_updated' => 0,
+                        'attraction' => $Attr,
+                        'hotelcode' => $HotelCode
+                    ), $insert::VALUES_MERGE);
+                    $statement = $sql->prepareStatementForSqlObject($insert);
+                    $results = $statement->execute();
+                    $db->getDriver()
+                    ->getConnection()
+                    ->disconnect();
 
                 } catch (\Exception $e) {
                     echo $return;
@@ -270,20 +270,20 @@ if ($HotelDetails->length > 0) {
                 $hotel = $HotelFacility->item($i)->nodeValue;
 
                 try {
-                        $sql = new Sql($db);
-                        $insert = $sql->insert();
-                        $insert->into('tbo_hoteldetails_hotelfacilities');
-                        $insert->values(array(
-                            'datetime_created' => time(),
-                            'datetime_updated' => 0,
-                            'hotelfacility' => $hotel,
-                            'hotelcode' => $HotelCode
-                        ), $insert::VALUES_MERGE);
-                        $statement = $sql->prepareStatementForSqlObject($insert);
-                        $results = $statement->execute();
-                        $db->getDriver()
-                        ->getConnection()
-                        ->disconnect();
+                    $sql = new Sql($db);
+                    $insert = $sql->insert();
+                    $insert->into('tbo_hoteldetails_hotelfacilities');
+                    $insert->values(array(
+                        'datetime_created' => time(),
+                        'datetime_updated' => 0,
+                        'hotelfacility' => $hotel,
+                        'hotelcode' => $HotelCode
+                    ), $insert::VALUES_MERGE);
+                    $statement = $sql->prepareStatementForSqlObject($insert);
+                    $results = $statement->execute();
+                    $db->getDriver()
+                    ->getConnection()
+                    ->disconnect();
 
                 } catch (\Exception $e) {
                     echo $return;
@@ -302,20 +302,20 @@ if ($HotelDetails->length > 0) {
                 $imgs = $ImageUrl->item($i)->nodeValue;
 
                 try {
-                        $sql = new Sql($db);
-                        $insert = $sql->insert();
-                        $insert->into('tbo_hoteldetails_imageurls');
-                        $insert->values(array(
-                            'datetime_created' => time(),
-                            'datetime_updated' => 0,
-                            'imageurl' => $imgs,
-                            'hotelcode' => $HotelCode
-                        ), $insert::VALUES_MERGE);
-                        $statement = $sql->prepareStatementForSqlObject($insert);
-                        $results = $statement->execute();
-                        $db->getDriver()
-                        ->getConnection()
-                        ->disconnect();
+                    $sql = new Sql($db);
+                    $insert = $sql->insert();
+                    $insert->into('tbo_hoteldetails_imageurls');
+                    $insert->values(array(
+                        'datetime_created' => time(),
+                        'datetime_updated' => 0,
+                        'imageurl' => $imgs,
+                        'hotelcode' => $HotelCode
+                    ), $insert::VALUES_MERGE);
+                    $statement = $sql->prepareStatementForSqlObject($insert);
+                    $results = $statement->execute();
+                    $db->getDriver()
+                    ->getConnection()
+                    ->disconnect();
 
                 } catch (\Exception $e) {
                     echo $return;

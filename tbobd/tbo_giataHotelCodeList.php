@@ -199,9 +199,9 @@ if ($HotelDetails->length > 0) {
             try {
                 $sql = new Sql($db);
                 $select = $sql->select();
-                $select->from('GiataHotelCodes');
+                $select->from('tbo_giatahotelcodes');
                 $select->where(array(
-                    'HotelCode' => $HotelCode
+                    'id' => $HotelCode
                 ));
                 $statement = $sql->prepareStatementForSqlObject($select);
                 $result = $statement->execute();
@@ -209,55 +209,70 @@ if ($HotelDetails->length > 0) {
                 $customers = array();
                 if ($result->valid()) {
                     $data = $result->current();
-                    $id =  $data['HotelCode'];
+                    $id =  $data['id'];
                     if ($id->length > 0) {
-                        $sql = new Sql($db);
+                        $config = new \Zend\Config\Config(include '../config/autoload/global.globalia.php');
+                        $config = [
+                            'driver' => $config->db->driver,
+                            'database' => $config->db->database,
+                            'username' => $config->db->username,
+                            'password' => $config->db->password,
+                            'hostname' => $config->db->hostname
+                        ];
+                        $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+
                         $data = array(
-                            'HotelCode' => $HotelCode,
                             'datetime_created' => time(),
                             'datetime_updated' => 1,
-                            'HotelName' => $HotelName,
-                            'HotelRating' => $HotelRating,
-                            'CityName' => $CityName,
-                            'CountryName' => $CountryName,
-                            'Address' => $Address,
-                            'HotelLocation' => $HotelLocation,
-                            'Description' => $Description,
-                            'PhoneNumber' => $PhoneNumber,
-                            'FaxNumber' => $FaxNumber,
-                            'Map' => $Map,
-                            'PinCode' => $PinCode,
-                            'HotelWebsiteUrl' => $HotelWebsiteUrl,
-                            'TripAdvisorRating' => $TripAdvisorRating,
-                            'TripAdvisorReviewURL' => $TripAdvisorReviewURL
+                            'name' => $HotelName,
+                            'rating' => $HotelRating,
+                            'cityname' => $CityName,
+                            'countryname' => $CountryName,
+                            'address' => $Address,
+                            'hotellocation' => $HotelLocation,
+                            'description' => $Description,
+                            'phonenumber' => $PhoneNumber,
+                            'faxnumber' => $FaxNumber,
+                            'map' => $Map,
+                            'pincode' => $PinCode,
+                            'hotelwebsiteurl' => $HotelWebsiteUrl,
+                            'tripadvisorrating' => $TripAdvisorRating,
+                            'tripadvisorreviewurl' => $TripAdvisorReviewURL
                             );
-                            $where['HotelCode = ?']  = $HotelCode;
-                        $update = $sql->update('GiataHotelCodes', $data, $where);
-                        $db->getDriver()
+                        
+                        $sql    = new Sql($dbUpdate);
+                        $update = $sql->update();
+                        $update->table('tbo_giatahotelcodes');
+                        $update->set($data);
+                        $update->where(array('id' => $HotelCode));
+
+                        $statement = $sql->prepareStatementForSqlObject($update);
+                        $results = $statement->execute();
+                        $dbUpdate->getDriver()
                         ->getConnection()
                         ->disconnect();   
                     } else {
                         $sql = new Sql($db);
                         $insert = $sql->insert();
-                        $insert->into('GiataHotelCodes');
+                        $insert->into('tbo_giatahotelcodes');
                         $insert->values(array(
-                            'HotelCode' => $HotelCode,
+                            'id' => $HotelCode,
                             'datetime_created' => time(),
                             'datetime_updated' => 0,
-                            'HotelName' => $HotelName,
-                            'HotelRating' => $HotelRating,
-                            'CityName' => $CityName,
-                            'CountryName' => $CountryName,
-                            'Address' => $Address,
-                            'HotelLocation' => $HotelLocation,
-                            'Description' => $Description,
-                            'PhoneNumber' => $PhoneNumber,
-                            'FaxNumber' => $FaxNumber,
-                            'Map' => $Map,
-                            'PinCode' => $PinCode,
-                            'HotelWebsiteUrl' => $HotelWebsiteUrl,
-                            'TripAdvisorRating' => $TripAdvisorRating,
-                            'TripAdvisorReviewURL' => $TripAdvisorReviewURL
+                            'name' => $HotelName,
+                            'rating' => $HotelRating,
+                            'cityname' => $CityName,
+                            'countryname' => $CountryName,
+                            'address' => $Address,
+                            'hotellocation' => $HotelLocation,
+                            'description' => $Description,
+                            'phonenumber' => $PhoneNumber,
+                            'faxnumber' => $FaxNumber,
+                            'map' => $Map,
+                            'pincode' => $PinCode,
+                            'hotelwebsiteurl' => $HotelWebsiteUrl,
+                            'tripadvisorrating' => $TripAdvisorRating,
+                            'tripadvisorreviewurl' => $TripAdvisorReviewURL
                         ), $insert::VALUES_MERGE);
                         $statement = $sql->prepareStatementForSqlObject($insert);
                         $results = $statement->execute();
@@ -268,25 +283,25 @@ if ($HotelDetails->length > 0) {
                 } else {
                     $sql = new Sql($db);
                     $insert = $sql->insert();
-                    $insert->into('GiataHotelCodes');
+                    $insert->into('tbo_giatahotelcodes');
                     $insert->values(array(
-                        'HotelCode' => $HotelCode,
+                        'id' => $HotelCode,
                         'datetime_created' => time(),
                         'datetime_updated' => 0,
-                        'HotelName' => $HotelName,
-                        'HotelRating' => $HotelRating,
-                        'CityName' => $CityName,
-                        'CountryName' => $CountryName,
-                        'Address' => $Address,
-                        'HotelLocation' => $HotelLocation,
-                        'Description' => $Description,
-                        'PhoneNumber' => $PhoneNumber,
-                        'FaxNumber' => $FaxNumber,
-                        'Map' => $Map,
-                        'PinCode' => $PinCode,
-                        'HotelWebsiteUrl' => $HotelWebsiteUrl,
-                        'TripAdvisorRating' => $TripAdvisorRating,
-                        'TripAdvisorReviewURL' => $TripAdvisorReviewURL
+                        'name' => $HotelName,
+                        'rating' => $HotelRating,
+                        'cityname' => $CityName,
+                        'countryname' => $CountryName,
+                        'address' => $Address,
+                        'hotellocation' => $HotelLocation,
+                        'description' => $Description,
+                        'phonenumber' => $PhoneNumber,
+                        'faxnumber' => $FaxNumber,
+                        'map' => $Map,
+                        'pincode' => $PinCode,
+                        'hotelwebsiteurl' => $HotelWebsiteUrl,
+                        'tripadvisorrating' => $TripAdvisorRating,
+                        'tripadvisorreviewurl' => $TripAdvisorReviewURL
                     ), $insert::VALUES_MERGE);
                     $statement = $sql->prepareStatementForSqlObject($insert);
                     $results = $statement->execute();
@@ -310,12 +325,12 @@ if ($HotelDetails->length > 0) {
                         try {
                             $sql = new Sql($db);
                             $insert = $sql->insert();
-                            $insert->into('HotelFacilities');
+                            $insert->into('tbo_giatahotelcodes_hotelfacilities');
                             $insert->values(array(
                                 'datetime_created' => time(),
                                 'datetime_updated' => 0,
-                                'HotelFacility' => $hotelFacil,
-                                'HotelCode' => $HotelCode,
+                                'hotelfacility' => $hotelFacil,
+                                'hotelcode' => $HotelCode,
                             ), $insert::VALUES_MERGE);
                             $statement = $sql->prepareStatementForSqlObject($insert);
                             $results = $statement->execute();
@@ -341,12 +356,12 @@ if ($HotelDetails->length > 0) {
                         try {
                             $sql = new Sql($db);
                             $insert = $sql->insert();
-                            $insert->into('Attractions');
+                            $insert->into('tbo_giatahotelcodes_attractions');
                             $insert->values(array(
                                 'datetime_created' => time(),
                                 'datetime_updated' => 0,
-                                'Attraction' => $Attr,
-                                'HotelCode' => $HotelCode,
+                                'attraction' => $Attr,
+                                'hotelcode' => $HotelCode,
                             ), $insert::VALUES_MERGE);
                             $statement = $sql->prepareStatementForSqlObject($insert);
                             $results = $statement->execute();
