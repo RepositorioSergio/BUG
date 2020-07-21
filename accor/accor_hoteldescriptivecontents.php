@@ -77,7 +77,16 @@ if ($HotelDescriptiveContents->length > 0) {
                     $data = $result->current();
                     $id = (string) $data['hotelcode'];
                     if ($id != "") {
-                        $sql = new Sql($db);
+                        $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                        $config = [
+                            'driver' => $config->db->driver,
+                            'database' => $config->db->database,
+                            'username' => $config->db->username,
+                            'password' => $config->db->password,
+                            'hostname' => $config->db->hostname
+                        ];
+                        $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+
                         $data = array(
                             'hotelid' => $ID,
                             'hotelcode' => $HotelCode,
@@ -89,12 +98,18 @@ if ($HotelDescriptiveContents->length > 0) {
                             'currencycode' => $CurrencyCode,
                             'timezone' => $TimeZone,
                             'languagecode' => $LanguageCode
-                            );
-                            $where['hotelcode = ?']  = $HotelCode;
-                        $update = $sql->update('accor_descriptioncontents', $data, $where);
-                        $db->getDriver()
+                        );
+                        $sql    = new Sql($dbUpdate);
+                        $update = $sql->update();
+                        $update->table('accor_descriptioncontents');
+                        $update->set($data);
+                        $update->where(array('hotelcode' => $HotelCode));
+
+                        $statement = $sql->prepareStatementForSqlObject($update);
+                        $results = $statement->execute();
+                        $dbUpdate->getDriver()
                         ->getConnection()
-                        ->disconnect();   
+                        ->disconnect();    
                     } else {
                         $sql = new Sql($db);
                         $insert = $sql->insert();
@@ -186,7 +201,16 @@ if ($HotelDescriptiveContents->length > 0) {
                             $data = $result->current();
                             $id = (string) $data['hotelcode'];
                             if ($id != "") {
-                                $sql = new Sql($db);
+                                $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                $config = [
+                                    'driver' => $config->db->driver,
+                                    'database' => $config->db->database,
+                                    'username' => $config->db->username,
+                                    'password' => $config->db->password,
+                                    'hostname' => $config->db->hostname
+                                ];
+                                $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+
                                 $data = array(
                                     'whenbuilt' => $WhenBuilt,
                                     'hotelstatus' => $HotelStatus,
@@ -196,10 +220,16 @@ if ($HotelDescriptiveContents->length > 0) {
                                     'segmentcategorycode' => $SegmentCategoryCode,
                                     'hotelcategorycode' => $HotelCategoryCode,
                                     'hotelcode' => $HotelCode
-                                    );
-                                    $where['hotelcode = ?']  = $HotelCode;
-                                $update = $sql->update('accor_descriptioncontents_hotelinfo', $data, $where);
-                                $db->getDriver()
+                                );
+                                $sql    = new Sql($dbUpdate);
+                                $update = $sql->update();
+                                $update->table('accor_descriptioncontents_hotelinfo');
+                                $update->set($data);
+                                $update->where(array('hotelcode' => $HotelCode));
+
+                                $statement = $sql->prepareStatementForSqlObject($update);
+                                $results = $statement->execute();
+                                $dbUpdate->getDriver()
                                 ->getConnection()
                                 ->disconnect();   
                             } else {
@@ -270,31 +300,33 @@ if ($HotelDescriptiveContents->length > 0) {
                                     $data = $result->current();
                                     $id = (string) $data['hotelcode'];
                                     if ($id != "") {
-                                        $sql = new Sql($db);
+                                        $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                        $config = [
+                                            'driver' => $config->db->driver,
+                                            'database' => $config->db->database,
+                                            'username' => $config->db->username,
+                                            'password' => $config->db->password,
+                                            'hostname' => $config->db->hostname
+                                        ];
+                                        $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                        
                                         $data = array(
                                             'code' => $Code,
                                             'quantity' => $Quantity,
                                             'hotelcode' => $HotelCode
-                                            );
-                                            $where['hotelcode = ?']  = $HotelCode;
-                                        $update = $sql->update('accor_descriptioncontents_hotelinfo_guestroominfo', $data, $where);
-                                        $db->getDriver()
-                                        ->getConnection()
-                                        ->disconnect();   
-                                    } else {
-                                        $sql = new Sql($db);
-                                        $insert = $sql->insert();
-                                        $insert->into('accor_descriptioncontents_hotelinfo_guestroominfo');
-                                        $insert->values(array(
-                                            'code' => $Code,
-                                            'quantity' => $Quantity,
-                                            'hotelcode' => $HotelCode
-                                        ), $insert::VALUES_MERGE);
-                                        $statement = $sql->prepareStatementForSqlObject($insert);
+                                        );
+                                        $sql    = new Sql($dbUpdate);
+                                        $update = $sql->update();
+                                        $update->table('accor_descriptioncontents_hotelinfo_guestroominfo');
+                                        $update->set($data);
+                                        $update->where(array('code' => $Code,
+                                        'hotelcode' => $HotelCode));
+
+                                        $statement = $sql->prepareStatementForSqlObject($update);
                                         $results = $statement->execute();
-                                        $db->getDriver()
+                                        $dbUpdate->getDriver()
                                         ->getConnection()
-                                        ->disconnect();
+                                        ->disconnect(); 
                                     }
                                 } else {
                                     $sql = new Sql($db);
@@ -342,31 +374,33 @@ if ($HotelDescriptiveContents->length > 0) {
                                                 $data = $result->current();
                                                 $id = (string) $data['hotelcode'];
                                                 if ($id != "") {
-                                                    $sql = new Sql($db);
+                                                    $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                                    $config = [
+                                                        'driver' => $config->db->driver,
+                                                        'database' => $config->db->database,
+                                                        'username' => $config->db->username,
+                                                        'password' => $config->db->password,
+                                                        'hostname' => $config->db->hostname
+                                                    ];
+                                                    $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                                    
                                                     $data = array(
                                                         'language' => $Language,
-                                                        'description' => $text2,
-                                                        'hotelcode' => $HotelCode
-                                                        );
-                                                        $where['hotelcode = ?']  = $HotelCode;
-                                                    $update = $sql->update('accor_descriptioncontents_hotelinfo_guestroominfo_descriptions', $data, $where);
-                                                    $db->getDriver()
-                                                    ->getConnection()
-                                                    ->disconnect();   
-                                                } else {
-                                                    $sql = new Sql($db);
-                                                    $insert = $sql->insert();
-                                                    $insert->into('accor_descriptioncontents_hotelinfo_guestroominfo_descriptions');
-                                                    $insert->values(array(
-                                                        'language' => $Language,
-                                                        'description' => $text2,
-                                                        'hotelcode' => $HotelCode
-                                                    ), $insert::VALUES_MERGE);
-                                                    $statement = $sql->prepareStatementForSqlObject($insert);
+                                                    'description' => $text2,
+                                                    'hotelcode' => $HotelCode
+                                                    );
+                                                    $sql    = new Sql($dbUpdate);
+                                                    $update = $sql->update();
+                                                    $update->table('accor_descriptioncontents_hotelinfo_guestroominfo_descriptions');
+                                                    $update->set($data);
+                                                    $update->where(array('language' => $Language,
+                                                    'hotelcode' => $HotelCode));
+
+                                                    $statement = $sql->prepareStatementForSqlObject($update);
                                                     $results = $statement->execute();
-                                                    $db->getDriver()
+                                                    $dbUpdate->getDriver()
                                                     ->getConnection()
-                                                    ->disconnect();
+                                                    ->disconnect(); 
                                                 }
                                             } else {
                                                 $sql = new Sql($db);
@@ -427,7 +461,16 @@ if ($HotelDescriptiveContents->length > 0) {
                                 $data = $result->current();
                                 $id = (string) $data['hotelcode'];
                                 if ($id != "") {
-                                    $sql = new Sql($db);
+                                    $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                    $config = [
+                                        'driver' => $config->db->driver,
+                                        'database' => $config->db->database,
+                                        'username' => $config->db->username,
+                                        'password' => $config->db->password,
+                                        'hostname' => $config->db->hostname
+                                    ];
+                                    $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                    
                                     $data = array(
                                         'renovationcompletiondate' => $RenovationCompletionDate,
                                         'latitude' => $Latitude,
@@ -435,10 +478,18 @@ if ($HotelDescriptiveContents->length > 0) {
                                         'infocode' => $InfoCode,
                                         'additionaldetailcode' => $AdditionalDetailCode,
                                         'hotelcode' => $HotelCode
-                                        );
-                                        $where['hotelcode = ?']  = $HotelCode;
-                                    $update = $sql->update('accor_descriptioncontents_hotelinfo_descriptions', $data, $where);
-                                    $db->getDriver()
+                                    );
+                                    $sql    = new Sql($dbUpdate);
+                                    $update = $sql->update();
+                                    $update->table('accor_descriptioncontents_hotelinfo_descriptions');
+                                    $update->set($data);
+                                    $update->where(array('infocode' => $InfoCode,
+                                    'additionaldetailcode' => $AdditionalDetailCode,
+                                    'hotelcode' => $HotelCode));
+
+                                    $statement = $sql->prepareStatementForSqlObject($update);
+                                    $results = $statement->execute();
+                                    $dbUpdate->getDriver()
                                     ->getConnection()
                                     ->disconnect();   
                                 } else {
@@ -506,15 +557,31 @@ if ($HotelDescriptiveContents->length > 0) {
                                         $data = $result->current();
                                         $id = (string) $data['hotelcode'];
                                         if ($id != "") {
-                                            $sql = new Sql($db);
+                                            $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                            $config = [
+                                                'driver' => $config->db->driver,
+                                                'database' => $config->db->database,
+                                                'username' => $config->db->username,
+                                                'password' => $config->db->password,
+                                                'hostname' => $config->db->hostname
+                                            ];
+                                            $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                            
                                             $data = array(
                                                 'language' => $Language,
                                                 'description' => $text2,
                                                 'hotelcode' => $HotelCode
-                                                );
-                                                $where['hotelcode = ?']  = $HotelCode;
-                                            $update = $sql->update('accor_descriptioncontents_hotelinfo_descriptions_description', $data, $where);
-                                            $db->getDriver()
+                                            );
+                                            $sql    = new Sql($dbUpdate);
+                                            $update = $sql->update();
+                                            $update->table('accor_descriptioncontents_hotelinfo_descriptions_description');
+                                            $update->set($data);
+                                            $update->where(array('language' => $Language,
+                                            'hotelcode' => $HotelCode));
+
+                                            $statement = $sql->prepareStatementForSqlObject($update);
+                                            $results = $statement->execute();
+                                            $dbUpdate->getDriver()
                                             ->getConnection()
                                             ->disconnect();   
                                         } else {
@@ -584,16 +651,32 @@ if ($HotelDescriptiveContents->length > 0) {
                                     $data = $result->current();
                                     $id = (string) $data['hotelcode'];
                                     if ($id != "") {
-                                        $sql = new Sql($db);
+                                        $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                        $config = [
+                                            'driver' => $config->db->driver,
+                                            'database' => $config->db->database,
+                                            'username' => $config->db->username,
+                                            'password' => $config->db->password,
+                                            'hostname' => $config->db->hostname
+                                        ];
+                                        $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                        
                                         $data = array(
                                             'code' => $Code,
                                             'quantity' => $Quantity,
                                             'proximitycode' => $ProximityCode,
                                             'hotelcode' => $HotelCode
-                                            );
-                                            $where['hotelcode = ?']  = $HotelCode;
-                                        $update = $sql->update('accor_descriptioncontents_hotelinfo_services', $data, $where);
-                                        $db->getDriver()
+                                        );
+                                        $sql    = new Sql($dbUpdate);
+                                        $update = $sql->update();
+                                        $update->table('accor_descriptioncontents_hotelinfo_services');
+                                        $update->set($data);
+                                        $update->where(array('code' => $Code,
+                                        'hotelcode' => $HotelCode));
+
+                                        $statement = $sql->prepareStatementForSqlObject($update);
+                                        $results = $statement->execute();
+                                        $dbUpdate->getDriver()
                                         ->getConnection()
                                         ->disconnect();   
                                     } else {
@@ -665,19 +748,34 @@ if ($HotelDescriptiveContents->length > 0) {
                             $data = $result->current();
                             $id = (string) $data['hotelcode'];
                             if ($id != "") {
-                                $sql = new Sql($db);
+                                $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                $config = [
+                                    'driver' => $config->db->driver,
+                                    'database' => $config->db->database,
+                                    'username' => $config->db->username,
+                                    'password' => $config->db->password,
+                                    'hostname' => $config->db->hostname
+                                ];
+                                $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                
                                 $data = array(
                                     'smallestroomspace' => $SmallestRoomSpace,
                                     'largestroomspace' => $LargestRoomSpace,
                                     'largestseatingcapacity' => $LargestSeatingCapacity,
                                     'smallestseatingcapacity' => $SmallestSeatingCapacity,
                                     'hotelcode' => $HotelCode
-                                    );
-                                    $where['hotelcode = ?']  = $HotelCode;
-                                $update = $sql->update('accor_descriptioncontents_descriptivecontent_meetingrooms', $data, $where);
-                                $db->getDriver()
+                                );
+                                $sql    = new Sql($dbUpdate);
+                                $update = $sql->update();
+                                $update->table('accor_descriptioncontents_descriptivecontent_meetingrooms');
+                                $update->set($data);
+                                $update->where(array('hotelcode' => $HotelCode));
+
+                                $statement = $sql->prepareStatementForSqlObject($update);
+                                $results = $statement->execute();
+                                $dbUpdate->getDriver()
                                 ->getConnection()
-                                ->disconnect();   
+                                ->disconnect();    
                             } else {
                                 $sql = new Sql($db);
                                 $insert = $sql->insert();
@@ -748,7 +846,16 @@ if ($HotelDescriptiveContents->length > 0) {
                                     $data = $result->current();
                                     $id = (string) $data['hotelcode'];
                                     if ($id != "") {
-                                        $sql = new Sql($db);
+                                        $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                        $config = [
+                                            'driver' => $config->db->driver,
+                                            'database' => $config->db->database,
+                                            'username' => $config->db->username,
+                                            'password' => $config->db->password,
+                                            'hostname' => $config->db->hostname
+                                        ];
+                                        $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                        
                                         $data = array(
                                             'meetingroomid' => $ID,
                                             'roomname' => $RoomName,
@@ -757,10 +864,18 @@ if ($HotelDescriptiveContents->length > 0) {
                                             'height' => $Height,
                                             'units' => $Units,
                                             'hotelcode' => $HotelCode
-                                            );
-                                            $where['hotelcode = ?']  = $HotelCode;
-                                        $update = $sql->update('accor_descriptioncontents_descriptivecontent_meetrooms_meet', $data, $where);
-                                        $db->getDriver()
+                                        );
+                                        $sql    = new Sql($dbUpdate);
+                                        $update = $sql->update();
+                                        $update->table('accor_descriptioncontents_descriptivecontent_meetrooms_meet');
+                                        $update->set($data);
+                                        $update->where(array('meetingroomid' => $ID,
+                                        'roomname' => $RoomName,
+                                        'hotelcode' => $HotelCode));
+
+                                        $statement = $sql->prepareStatementForSqlObject($update);
+                                        $results = $statement->execute();
+                                        $dbUpdate->getDriver()
                                         ->getConnection()
                                         ->disconnect();   
                                     } else {
@@ -835,15 +950,31 @@ if ($HotelDescriptiveContents->length > 0) {
                                                 $data = $result->current();
                                                 $id = (string) $data['hotelcode'];
                                                 if ($id != "") {
-                                                    $sql = new Sql($db);
+                                                    $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                                    $config = [
+                                                        'driver' => $config->db->driver,
+                                                        'database' => $config->db->database,
+                                                        'username' => $config->db->username,
+                                                        'password' => $config->db->password,
+                                                        'hostname' => $config->db->hostname
+                                                    ];
+                                                    $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                                    
                                                     $data = array(
                                                         'meetingroomformatcode' => $MeetingRoomFormatCode,
                                                         'maxoccupancy' => $MaxOccupancy,
                                                         'hotelcode' => $HotelCode
-                                                        );
-                                                        $where['hotelcode = ?']  = $HotelCode;
-                                                    $update = $sql->update('accor_descriptioncontents_descriptivecontent_mroomcapacity', $data, $where);
-                                                    $db->getDriver()
+                                                    );
+                                                    $sql    = new Sql($dbUpdate);
+                                                    $update = $sql->update();
+                                                    $update->table('accor_descriptioncontents_descriptivecontent_mroomcapacity');
+                                                    $update->set($data);
+                                                    $update->where(array('meetingroomformatcode' => $MeetingRoomFormatCode,
+                                                    'hotelcode' => $HotelCode));
+
+                                                    $statement = $sql->prepareStatementForSqlObject($update);
+                                                    $results = $statement->execute();
+                                                    $dbUpdate->getDriver()
                                                     ->getConnection()
                                                     ->disconnect();   
                                                 } else {
@@ -922,7 +1053,16 @@ if ($HotelDescriptiveContents->length > 0) {
                                     $data = $result->current();
                                     $id = (string) $data['hotelcode'];
                                     if ($id != "") {
-                                        $sql = new Sql($db);
+                                        $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                        $config = [
+                                            'driver' => $config->db->driver,
+                                            'database' => $config->db->database,
+                                            'username' => $config->db->username,
+                                            'password' => $config->db->password,
+                                            'hostname' => $config->db->hostname
+                                        ];
+                                        $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                        
                                         $data = array(
                                             'guestroomid' => $ID,
                                             'code' => $Code,
@@ -933,12 +1073,20 @@ if ($HotelDescriptiveContents->length > 0) {
                                             'roomcategory' => $RoomCategory,
                                             'bedtypecode' => $BedTypeCode,
                                             'hotelcode' => $HotelCode
-                                            );
-                                            $where['hotelcode = ?']  = $HotelCode;
-                                        $update = $sql->update('accor_descriptioncontents_descriptivecontent_guestrooms', $data, $where);
-                                        $db->getDriver()
+                                        );
+                                        $sql    = new Sql($dbUpdate);
+                                        $update = $sql->update();
+                                        $update->table('accor_descriptioncontents_descriptivecontent_guestrooms');
+                                        $update->set($data);
+                                        $update->where(array('guestroomid' => $ID,
+                                        'code' => $Code,
+                                        'hotelcode' => $HotelCode));
+
+                                        $statement = $sql->prepareStatementForSqlObject($update);
+                                        $results = $statement->execute();
+                                        $dbUpdate->getDriver()
                                         ->getConnection()
-                                        ->disconnect();   
+                                        ->disconnect();  
                                     } else {
                                         $sql = new Sql($db);
                                         $insert = $sql->insert();
@@ -1022,18 +1170,35 @@ if ($HotelDescriptiveContents->length > 0) {
                                                 $data = $result->current();
                                                 $id = (string) $data['hotelcode'];
                                                 if ($id != "") {
-                                                    $sql = new Sql($db);
+                                                    $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                                    $config = [
+                                                        'driver' => $config->db->driver,
+                                                        'database' => $config->db->database,
+                                                        'username' => $config->db->username,
+                                                        'password' => $config->db->password,
+                                                        'hostname' => $config->db->hostname
+                                                    ];
+                                                    $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                                    
                                                     $data = array(
                                                         'roomamenitycode' => $RoomAmenityCode,
                                                         'includedinrateindicator' => $IncludedInRateIndicator,
                                                         'type' => $Type,
                                                         'hotelcode' => $HotelCode
-                                                        );
-                                                        $where['hotelcode = ?']  = $HotelCode;
-                                                    $update = $sql->update('accor_descriptioncontents_descriptivecontent_guestrooms_amen', $data, $where);
-                                                    $db->getDriver()
+                                                    );
+                                                    $sql    = new Sql($dbUpdate);
+                                                    $update = $sql->update();
+                                                    $update->table('accor_descriptioncontents_descriptivecontent_guestrooms_amen');
+                                                    $update->set($data);
+                                                    $update->where(array('roomamenitycode' => $RoomAmenityCode,
+                                                    'type' => $Type,
+                                                    'hotelcode' => $HotelCode));
+
+                                                    $statement = $sql->prepareStatementForSqlObject($update);
+                                                    $results = $statement->execute();
+                                                    $dbUpdate->getDriver()
                                                     ->getConnection()
-                                                    ->disconnect();   
+                                                    ->disconnect();    
                                                 } else {
                                                     $sql = new Sql($db);
                                                     $insert = $sql->insert();
@@ -1099,17 +1264,33 @@ if ($HotelDescriptiveContents->length > 0) {
                                                 $data = $result->current();
                                                 $id = (string) $data['hotelcode'];
                                                 if ($id != "") {
-                                                    $sql = new Sql($db);
+                                                    $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                                    $config = [
+                                                        'driver' => $config->db->driver,
+                                                        'database' => $config->db->database,
+                                                        'username' => $config->db->username,
+                                                        'password' => $config->db->password,
+                                                        'hostname' => $config->db->hostname
+                                                    ];
+                                                    $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                                    
                                                     $data = array(
                                                         'language' => $Language,
                                                         'description' => $text2,
                                                         'hotelcode' => $HotelCode
-                                                        );
-                                                        $where['hotelcode = ?']  = $HotelCode;
-                                                    $update = $sql->update('accor_descriptioncontents_descriptivecontent_guestrooms_desc', $data, $where);
-                                                    $db->getDriver()
+                                                    );
+                                                    $sql    = new Sql($dbUpdate);
+                                                    $update = $sql->update();
+                                                    $update->table('accor_descriptioncontents_descriptivecontent_guestrooms_desc');
+                                                    $update->set($data);
+                                                    $update->where(array('language' => $Language,
+                                                    'hotelcode' => $HotelCode));
+
+                                                    $statement = $sql->prepareStatementForSqlObject($update);
+                                                    $results = $statement->execute();
+                                                    $dbUpdate->getDriver()
                                                     ->getConnection()
-                                                    ->disconnect();   
+                                                    ->disconnect();    
                                                 } else {
                                                     $sql = new Sql($db);
                                                     $insert = $sql->insert();
@@ -1186,7 +1367,16 @@ if ($HotelDescriptiveContents->length > 0) {
                                     $data = $result->current();
                                     $id = (string) $data['hotelcode'];
                                     if ($id != "") {
-                                        $sql = new Sql($db);
+                                        $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                        $config = [
+                                            'driver' => $config->db->driver,
+                                            'database' => $config->db->database,
+                                            'username' => $config->db->username,
+                                            'password' => $config->db->password,
+                                            'hostname' => $config->db->hostname
+                                        ];
+                                        $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                        
                                         $data = array(
                                             'restaurantid' => $ID,
                                             'restaurantname' => $RestaurantName,
@@ -1194,10 +1384,18 @@ if ($HotelDescriptiveContents->length > 0) {
                                             'infocode' => $Code,
                                             'infoname' => $Name,
                                             'hotelcode' => $HotelCode
-                                            );
-                                            $where['hotelcode = ?']  = $HotelCode;
-                                        $update = $sql->update('accor_descriptioncontents_descriptivecontent_restaurants', $data, $where);
-                                        $db->getDriver()
+                                        );
+                                        $sql    = new Sql($dbUpdate);
+                                        $update = $sql->update();
+                                        $update->table('accor_descriptioncontents_descriptivecontent_restaurants');
+                                        $update->set($data);
+                                        $update->where(array('restaurantid' => $ID,
+                                        'restaurantname' => $RestaurantName,
+                                        'hotelcode' => $HotelCode));
+
+                                        $statement = $sql->prepareStatementForSqlObject($update);
+                                        $results = $statement->execute();
+                                        $dbUpdate->getDriver()
                                         ->getConnection()
                                         ->disconnect();   
                                     } else {
@@ -1267,17 +1465,33 @@ if ($HotelDescriptiveContents->length > 0) {
                                                 $data = $result->current();
                                                 $id = (string) $data['hotelcode'];
                                                 if ($id != "") {
-                                                    $sql = new Sql($db);
+                                                    $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                                    $config = [
+                                                        'driver' => $config->db->driver,
+                                                        'database' => $config->db->database,
+                                                        'username' => $config->db->username,
+                                                        'password' => $config->db->password,
+                                                        'hostname' => $config->db->hostname
+                                                    ];
+                                                    $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                                    
                                                     $data = array(
                                                         'language' => $Language,
                                                         'description' => $text2,
                                                         'hotelcode' => $HotelCode
-                                                        );
-                                                        $where['hotelcode = ?']  = $HotelCode;
-                                                    $update = $sql->update('accor_descriptioncontents_descriptivecontent_restdescription', $data, $where);
-                                                    $db->getDriver()
+                                                    );
+                                                    $sql    = new Sql($dbUpdate);
+                                                    $update = $sql->update();
+                                                    $update->table('accor_descriptioncontents_descriptivecontent_restdescription');
+                                                    $update->set($data);
+                                                    $update->where(array('language' => $Language,
+                                                    'hotelcode' => $HotelCode));
+
+                                                    $statement = $sql->prepareStatementForSqlObject($update);
+                                                    $results = $statement->execute();
+                                                    $dbUpdate->getDriver()
                                                     ->getConnection()
-                                                    ->disconnect();   
+                                                    ->disconnect();    
                                                 } else {
                                                     $sql = new Sql($db);
                                                     $insert = $sql->insert();
@@ -1345,17 +1559,33 @@ if ($HotelDescriptiveContents->length > 0) {
                                 $data = $result->current();
                                 $id = (string) $data['hotelcode'];
                                 if ($id != "") {
-                                    $sql = new Sql($db);
+                                    $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                    $config = [
+                                        'driver' => $config->db->driver,
+                                        'database' => $config->db->database,
+                                        'username' => $config->db->username,
+                                        'password' => $config->db->password,
+                                        'hostname' => $config->db->hostname
+                                    ];
+                                    $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                    
                                     $data = array(
                                         'language' => $Language,
                                         'description' => $text2,
                                         'hotelcode' => $HotelCode
-                                        );
-                                        $where['hotelcode = ?']  = $HotelCode;
-                                    $update = $sql->update('accor_descriptioncontents_descriptivecontent_policy', $data, $where);
-                                    $db->getDriver()
+                                    );
+                                    $sql    = new Sql($dbUpdate);
+                                    $update = $sql->update();
+                                    $update->table('accor_descriptioncontents_descriptivecontent_policy');
+                                    $update->set($data);
+                                    $update->where(array('language' => $Language,
+                                    'hotelcode' => $HotelCode));
+
+                                    $statement = $sql->prepareStatementForSqlObject($update);
+                                    $results = $statement->execute();
+                                    $dbUpdate->getDriver()
                                     ->getConnection()
-                                    ->disconnect();   
+                                    ->disconnect();    
                                 } else {
                                     $sql = new Sql($db);
                                     $insert = $sql->insert();
@@ -1424,7 +1654,16 @@ if ($HotelDescriptiveContents->length > 0) {
                                             $data = $result->current();
                                             $id = (string) $data['hotelcode'];
                                             if ($id != "") {
-                                                $sql = new Sql($db);
+                                                $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                                $config = [
+                                                    'driver' => $config->db->driver,
+                                                    'database' => $config->db->database,
+                                                    'username' => $config->db->username,
+                                                    'password' => $config->db->password,
+                                                    'hostname' => $config->db->hostname
+                                                ];
+                                                $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                                
                                                 $data = array(
                                                     'paymentcode' => $PaymentCode,
                                                     'guaranteetype' => $GuaranteeType,
@@ -1437,10 +1676,17 @@ if ($HotelDescriptiveContents->length > 0) {
                                                     'sat' => $Sat,
                                                     'sun' => $Sun,
                                                     'hotelcode' => $HotelCode
-                                                    );
-                                                    $where['hotelcode = ?']  = $HotelCode;
-                                                $update = $sql->update('accor_descriptioncontents_descriptivecontent_policy_guarantee', $data, $where);
-                                                $db->getDriver()
+                                                );
+                                                $sql    = new Sql($dbUpdate);
+                                                $update = $sql->update();
+                                                $update->table('accor_descriptioncontents_descriptivecontent_policy_guarantee');
+                                                $update->set($data);
+                                                $update->where(array('paymentcode' => $PaymentCode,
+                                                'hotelcode' => $HotelCode));
+
+                                                $statement = $sql->prepareStatementForSqlObject($update);
+                                                $results = $statement->execute();
+                                                $dbUpdate->getDriver()
                                                 ->getConnection()
                                                 ->disconnect();   
                                             } else {
@@ -1520,15 +1766,31 @@ if ($HotelDescriptiveContents->length > 0) {
                                                         $data = $result->current();
                                                         $id = (string) $data['hotelcode'];
                                                         if ($id != "") {
-                                                            $sql = new Sql($db);
+                                                            $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                                            $config = [
+                                                                'driver' => $config->db->driver,
+                                                                'database' => $config->db->database,
+                                                                'username' => $config->db->username,
+                                                                'password' => $config->db->password,
+                                                                'hostname' => $config->db->hostname
+                                                            ];
+                                                            $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                                            
                                                             $data = array(
                                                                 'language' => $Language,
                                                                 'description' => $text2,
                                                                 'hotelcode' => $HotelCode
-                                                                );
-                                                                $where['hotelcode = ?']  = $HotelCode;
-                                                            $update = $sql->update('accor_descriptioncontents_descriptivecontent_policy_gp_desc', $data, $where);
-                                                            $db->getDriver()
+                                                            );
+                                                            $sql    = new Sql($dbUpdate);
+                                                            $update = $sql->update();
+                                                            $update->table('accor_descriptioncontents_descriptivecontent_policy_gp_desc');
+                                                            $update->set($data);
+                                                            $update->where(array('language' => $Language,
+                                                            'hotelcode' => $HotelCode));
+
+                                                            $statement = $sql->prepareStatementForSqlObject($update);
+                                                            $results = $statement->execute();
+                                                            $dbUpdate->getDriver()
                                                             ->getConnection()
                                                             ->disconnect();   
                                                         } else {
@@ -1607,7 +1869,16 @@ if ($HotelDescriptiveContents->length > 0) {
                                     $data = $result->current();
                                     $id = (string) $data['hotelcode'];
                                     if ($id != "") {
-                                        $sql = new Sql($db);
+                                        $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                        $config = [
+                                            'driver' => $config->db->driver,
+                                            'database' => $config->db->database,
+                                            'username' => $config->db->username,
+                                            'password' => $config->db->password,
+                                            'hostname' => $config->db->hostname
+                                        ];
+                                        $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                        
                                         $data = array(
                                             'direction' => $Direction,
                                             'distance' => $Distance,
@@ -1617,10 +1888,19 @@ if ($HotelDescriptiveContents->length > 0) {
                                             'name' => $Name,
                                             'tofrom' => $ToFrom,
                                             'hotelcode' => $HotelCode
-                                            );
-                                            $where['hotelcode = ?']  = $HotelCode;
-                                        $update = $sql->update('accor_descriptioncontents_descriptivecontent_areainfo_refpoint', $data, $where);
-                                        $db->getDriver()
+                                        );
+                                        $sql    = new Sql($dbUpdate);
+                                        $update = $sql->update();
+                                        $update->table('accor_descriptioncontents_descriptivecontent_areainfo_refpoint');
+                                        $update->set($data);
+                                        $update->where(array(
+                                        'indexpointcode' => $IndexPointCode,
+                                        'name' => $Name,
+                                        'hotelcode' => $HotelCode));
+
+                                        $statement = $sql->prepareStatementForSqlObject($update);
+                                        $results = $statement->execute();
+                                        $dbUpdate->getDriver()
                                         ->getConnection()
                                         ->disconnect();   
                                     } else {
@@ -1709,7 +1989,16 @@ if ($HotelDescriptiveContents->length > 0) {
                                     $data = $result->current();
                                     $id = (string) $data['hotelcode'];
                                     if ($id != "") {
-                                        $sql = new Sql($db);
+                                        $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                        $config = [
+                                            'driver' => $config->db->driver,
+                                            'database' => $config->db->database,
+                                            'username' => $config->db->username,
+                                            'password' => $config->db->password,
+                                            'hostname' => $config->db->hostname
+                                        ];
+                                        $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                        
                                         $data = array(
                                             'attractionid' => $ID,
                                             'attractioncategorycode' => $AttractionCategoryCode,
@@ -1720,10 +2009,19 @@ if ($HotelDescriptiveContents->length > 0) {
                                             'indexpointcode' => $IndexPointCode,
                                             'tofrom' => $ToFrom,
                                             'hotelcode' => $HotelCode
-                                            );
-                                            $where['hotelcode = ?']  = $HotelCode;
-                                        $update = $sql->update('accor_descriptioncontents_descriptivecontent_areainfo_attrac', $data, $where);
-                                        $db->getDriver()
+                                        );
+                                        $sql    = new Sql($dbUpdate);
+                                        $update = $sql->update();
+                                        $update->table('accor_descriptioncontents_descriptivecontent_areainfo_attrac');
+                                        $update->set($data);
+                                        $update->where(array(
+                                            'attractionid' => $ID,
+                                            'attractioncategorycode' => $AttractionCategoryCode,
+                                            'hotelcode' => $HotelCode));
+
+                                        $statement = $sql->prepareStatementForSqlObject($update);
+                                        $results = $statement->execute();
+                                        $dbUpdate->getDriver()
                                         ->getConnection()
                                         ->disconnect();   
                                     } else {
@@ -1801,16 +2099,33 @@ if ($HotelDescriptiveContents->length > 0) {
                                     $data = $result->current();
                                     $id = (string) $data['hotelcode'];
                                     if ($id != "") {
-                                        $sql = new Sql($db);
+                                        $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                        $config = [
+                                            'driver' => $config->db->driver,
+                                            'database' => $config->db->database,
+                                            'username' => $config->db->username,
+                                            'password' => $config->db->password,
+                                            'hostname' => $config->db->hostname
+                                        ];
+                                        $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                        
                                         $data = array(
                                             'code' => $Code,
                                             'proximitycode' => $ProximityCode,
                                             'included' => $Included,
                                             'hotelcode' => $HotelCode
-                                            );
-                                            $where['hotelcode = ?']  = $HotelCode;
-                                        $update = $sql->update('accor_descriptioncontents_descriptivecontent_areainfo_recrea', $data, $where);
-                                        $db->getDriver()
+                                        );
+                                        $sql    = new Sql($dbUpdate);
+                                        $update = $sql->update();
+                                        $update->table('accor_descriptioncontents_descriptivecontent_areainfo_recrea');
+                                        $update->set($data);
+                                        $update->where(array(
+                                            'code' => $Code,
+                                            'hotelcode' => $HotelCode));
+
+                                        $statement = $sql->prepareStatementForSqlObject($update);
+                                        $results = $statement->execute();
+                                        $dbUpdate->getDriver()
                                         ->getConnection()
                                         ->disconnect();   
                                     } else {
@@ -1881,15 +2196,32 @@ if ($HotelDescriptiveContents->length > 0) {
                                     $data = $result->current();
                                     $id = (string) $data['hotelcode'];
                                     if ($id != "") {
-                                        $sql = new Sql($db);
+                                        $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                        $config = [
+                                            'driver' => $config->db->driver,
+                                            'database' => $config->db->database,
+                                            'username' => $config->db->username,
+                                            'password' => $config->db->password,
+                                            'hostname' => $config->db->hostname
+                                        ];
+                                        $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                        
                                         $data = array(
                                             'provider' => $Provider,
                                             'rating' => $Rating,
                                             'hotelcode' => $HotelCode
-                                            );
-                                            $where['hotelcode = ?']  = $HotelCode;
-                                        $update = $sql->update('accor_descriptioncontents_descriptivecontent_affiliationinfo', $data, $where);
-                                        $db->getDriver()
+                                        );
+                                        $sql    = new Sql($dbUpdate);
+                                        $update = $sql->update();
+                                        $update->table('accor_descriptioncontents_descriptivecontent_affiliationinfo');
+                                        $update->set($data);
+                                        $update->where(array(
+                                            'provider' => $Provider,
+                                            'hotelcode' => $HotelCode));
+
+                                        $statement = $sql->prepareStatementForSqlObject($update);
+                                        $results = $statement->execute();
+                                        $dbUpdate->getDriver()
                                         ->getConnection()
                                         ->disconnect();   
                                     } else {
@@ -2015,7 +2347,16 @@ if ($HotelDescriptiveContents->length > 0) {
                                 $data = $result->current();
                                 $id = (string) $data['hotelcode'];
                                 if ($id != "") {
-                                    $sql = new Sql($db);
+                                    $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                    $config = [
+                                        'driver' => $config->db->driver,
+                                        'database' => $config->db->database,
+                                        'username' => $config->db->username,
+                                        'password' => $config->db->password,
+                                        'hostname' => $config->db->hostname
+                                    ];
+                                    $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                    
                                     $data = array(
                                         'contactprofiletype' => $ContactProfileType,
                                         'location' => $Location,
@@ -2028,12 +2369,20 @@ if ($HotelDescriptiveContents->length > 0) {
                                         'email' => $Email,
                                         'url' => $URL,
                                         'hotelcode' => $HotelCode
-                                        );
-                                        $where['hotelcode = ?']  = $HotelCode;
-                                    $update = $sql->update('accor_descriptioncontents_descriptivecontent_contactinfos', $data, $where);
-                                    $db->getDriver()
+                                    );
+                                    $sql    = new Sql($dbUpdate);
+                                    $update = $sql->update();
+                                    $update->table('accor_descriptioncontents_descriptivecontent_contactinfos');
+                                    $update->set($data);
+                                    $update->where(array(
+                                        'contactprofiletype' => $ContactProfileType,
+                                        'hotelcode' => $HotelCode));
+
+                                    $statement = $sql->prepareStatementForSqlObject($update);
+                                    $results = $statement->execute();
+                                    $dbUpdate->getDriver()
                                     ->getConnection()
-                                    ->disconnect();   
+                                    ->disconnect();    
                                 } else {
                                     $sql = new Sql($db);
                                     $insert = $sql->insert();
@@ -2113,19 +2462,36 @@ if ($HotelDescriptiveContents->length > 0) {
                                             $data = $result->current();
                                             $id = (string) $data['hotelcode'];
                                             if ($id != "") {
-                                                $sql = new Sql($db);
+                                                $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                                $config = [
+                                                    'driver' => $config->db->driver,
+                                                    'database' => $config->db->database,
+                                                    'username' => $config->db->username,
+                                                    'password' => $config->db->password,
+                                                    'hostname' => $config->db->hostname
+                                                ];
+                                                $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                                
                                                 $data = array(
                                                     'phonetechtype' => $PhoneTechType,
                                                     'phonenumber' => $PhoneNumber,
                                                     'phonelocationtype' => $PhoneLocationType,
                                                     'countryaccesscode' => $CountryAccessCode,
                                                     'hotelcode' => $HotelCode
-                                                    );
-                                                    $where['hotelcode = ?']  = $HotelCode;
-                                                $update = $sql->update('accor_descriptioncontents_descriptivecontent_cinfos_phone', $data, $where);
-                                                $db->getDriver()
+                                                );
+                                                $sql    = new Sql($dbUpdate);
+                                                $update = $sql->update();
+                                                $update->table('accor_descriptioncontents_descriptivecontent_cinfos_phone');
+                                                $update->set($data);
+                                                $update->where(array(
+                                                    'countryaccesscode' => $CountryAccessCode,
+                                                    'hotelcode' => $HotelCode));
+
+                                                $statement = $sql->prepareStatementForSqlObject($update);
+                                                $results = $statement->execute();
+                                                $dbUpdate->getDriver()
                                                 ->getConnection()
-                                                ->disconnect();   
+                                                ->disconnect();  
                                             } else {
                                                 $sql = new Sql($db);
                                                 $insert = $sql->insert();
@@ -2205,18 +2571,35 @@ if ($HotelDescriptiveContents->length > 0) {
                         $data = $result->current();
                         $id = (string) $data['hotelcode'];
                         if ($id != "") {
-                            $sql = new Sql($db);
+                            $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                            $config = [
+                                'driver' => $config->db->driver,
+                                'database' => $config->db->database,
+                                'username' => $config->db->username,
+                                'password' => $config->db->password,
+                                'hostname' => $config->db->hostname
+                            ];
+                            $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                            
                             $data = array(
                                 'labelcode' => $Labelcode,
                                 'amount' => $amount,
                                 'currencycode' => $currencyCode,
                                 'hotelcode' => $HotelCode
-                                );
-                                $where['hotelcode = ?']  = $HotelCode;
-                            $update = $sql->update('accor_descriptioncontents_descriptivecontent_tpaextensions', $data, $where);
-                            $db->getDriver()
+                            );
+                            $sql    = new Sql($dbUpdate);
+                            $update = $sql->update();
+                            $update->table('accor_descriptioncontents_descriptivecontent_tpaextensions');
+                            $update->set($data);
+                            $update->where(array(
+                                'currencycode' => $currencyCode,
+                                'hotelcode' => $HotelCode));
+
+                            $statement = $sql->prepareStatementForSqlObject($update);
+                            $results = $statement->execute();
+                            $dbUpdate->getDriver()
                             ->getConnection()
-                            ->disconnect();   
+                            ->disconnect();    
                         } else {
                             $sql = new Sql($db);
                             $insert = $sql->insert();
@@ -2281,17 +2664,34 @@ if ($HotelDescriptiveContents->length > 0) {
                                     $data = $result->current();
                                     $id = (string) $data['hotelcode'];
                                     if ($id != "") {
-                                        $sql = new Sql($db);
+                                        $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                        $config = [
+                                            'driver' => $config->db->driver,
+                                            'database' => $config->db->database,
+                                            'username' => $config->db->username,
+                                            'password' => $config->db->password,
+                                            'hostname' => $config->db->hostname
+                                        ];
+                                        $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                        
                                         $data = array(
                                             'amount' => $amount,
                                             'currencycode' => $CurrencyCode,
                                             'amountbeforetax' => $AmountBeforeTax,
                                             'maximumamountbeforetax' => $MaximumAmountBeforeTax,
                                             'hotelcode' => $HotelCode
-                                            );
-                                            $where['hotelcode = ?']  = $HotelCode;
-                                        $update = $sql->update('accor_descriptioncontents_descriptivecontent_tpa_basebyguest', $data, $where);
-                                        $db->getDriver()
+                                        );
+                                        $sql    = new Sql($dbUpdate);
+                                        $update = $sql->update();
+                                        $update->table('accor_descriptioncontents_descriptivecontent_tpa_basebyguest');
+                                        $update->set($data);
+                                        $update->where(array(
+                                            'currencycode' => $currencyCode,
+                                            'hotelcode' => $HotelCode));
+
+                                        $statement = $sql->prepareStatementForSqlObject($update);
+                                        $results = $statement->execute();
+                                        $dbUpdate->getDriver()
                                         ->getConnection()
                                         ->disconnect();   
                                     } else {
@@ -2365,18 +2765,36 @@ if ($HotelDescriptiveContents->length > 0) {
                                     $data = $result->current();
                                     $id = (string) $data['hotelcode'];
                                     if ($id != "") {
-                                        $sql = new Sql($db);
+                                        $config = new \Zend\Config\Config(include '../config/autoload/global.accor.php');
+                                        $config = [
+                                            'driver' => $config->db->driver,
+                                            'database' => $config->db->database,
+                                            'username' => $config->db->username,
+                                            'password' => $config->db->password,
+                                            'hostname' => $config->db->hostname
+                                        ];
+                                        $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+                                        
                                         $data = array(
                                             'chaincode' => $ChainCode,
                                             'gds_propertycode' => $GDS_PropertyCode,
                                             'gds_name' => $GDS_Name,
                                             'hotelcode' => $HotelCode
-                                            );
-                                            $where['hotelcode = ?']  = $HotelCode;
-                                        $update = $sql->update('accor_descriptioncontents_descriptivecontent_gdsinfo', $data, $where);
-                                        $db->getDriver()
+                                        );
+                                        $sql    = new Sql($dbUpdate);
+                                        $update = $sql->update();
+                                        $update->table('accor_descriptioncontents_descriptivecontent_gdsinfo');
+                                        $update->set($data);
+                                        $update->where(array(
+                                            'gds_propertycode' => $GDS_PropertyCode,
+                                            'gds_name' => $GDS_Name,
+                                            'hotelcode' => $HotelCode));
+
+                                        $statement = $sql->prepareStatementForSqlObject($update);
+                                        $results = $statement->execute();
+                                        $dbUpdate->getDriver()
                                         ->getConnection()
-                                        ->disconnect();   
+                                        ->disconnect();    
                                     } else {
                                         $sql = new Sql($db);
                                         $insert = $sql->insert();

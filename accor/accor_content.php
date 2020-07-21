@@ -131,31 +131,108 @@ if ($hotels->length > 0) {
 
             try {
                 $sql = new Sql($db);
-                $insert = $sql->insert();
-                $insert->into('accor_hotels');
-                $insert->values(array(
-                    'id' => $hotelCode,
-                    'name' => $hotelName,
-                    'file' => $file,
-                    'lastmodified' => $lastModified,
-                    'creationtime' => $creationTime,
-                    'latitude' => $latitude,
-                    'longitude' => $longitude,
-                    'brandcode' => $brandCode,
-                    'brandname' => $brandName,
-                    'cityname' => $cityName,
-                    'countrycode' => $countryCode,
-                    'countryname' => $countryName,
-                    'hotelstatus' => $hotelStatus
-                ), $insert::VALUES_MERGE);
-                $statement = $sql->prepareStatementForSqlObject($insert);
-                $results = $statement->execute();
-                $db->getDriver()
-                ->getConnection()
-                ->disconnect();
+                $select = $sql->select();
+                $select->from('accor_hotels');
+                $select->where(array(
+                    'id' => $id
+                ));
+                $statement = $sql->prepareStatementForSqlObject($select);
+                $result = $statement->execute();
+                $result->buffer();
+                $customers = array();
+                if ($result->valid()) {
+                    $data = $result->current();
+                    $id = (string)$data['id'];
+                    if ($id != "") {
+                        $config = new \Zend\Config\Config(include '../config/autoload/global.globalia.php');
+                        $config = [
+                            'driver' => $config->db->driver,
+                            'database' => $config->db->database,
+                            'username' => $config->db->username,
+                            'password' => $config->db->password,
+                            'hostname' => $config->db->hostname
+                        ];
+                        $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+
+                        $data = array(
+                            'name' => $hotelName,
+                            'file' => $file,
+                            'lastmodified' => $lastModified,
+                            'creationtime' => $creationTime,
+                            'latitude' => $latitude,
+                            'longitude' => $longitude,
+                            'brandcode' => $brandCode,
+                            'brandname' => $brandName,
+                            'cityname' => $cityName,
+                            'countrycode' => $countryCode,
+                            'countryname' => $countryName,
+                            'hotelstatus' => $hotelStatus
+                            );
+      
+                        $sql    = new Sql($dbUpdate);
+                        $update = $sql->update();
+                        $update->table('accor_hotels');
+                        $update->set($data);
+                        $update->where(array('id' => $hotelCode));
+
+                        $statement = $sql->prepareStatementForSqlObject($update);
+                        $results = $statement->execute();
+                        $dbUpdate->getDriver()
+                        ->getConnection()
+                        ->disconnect(); 
+                    } else {
+                        $sql = new Sql($db);
+                        $insert = $sql->insert();
+                        $insert->into('accor_hotels');
+                        $insert->values(array(
+                            'id' => $hotelCode,
+                            'name' => $hotelName,
+                            'file' => $file,
+                            'lastmodified' => $lastModified,
+                            'creationtime' => $creationTime,
+                            'latitude' => $latitude,
+                            'longitude' => $longitude,
+                            'brandcode' => $brandCode,
+                            'brandname' => $brandName,
+                            'cityname' => $cityName,
+                            'countrycode' => $countryCode,
+                            'countryname' => $countryName,
+                            'hotelstatus' => $hotelStatus
+                        ), $insert::VALUES_MERGE);
+                        $statement = $sql->prepareStatementForSqlObject($insert);
+                        $results = $statement->execute();
+                        $db->getDriver()
+                        ->getConnection()
+                        ->disconnect();
+                    }
+                } else {
+                    $sql = new Sql($db);
+                    $insert = $sql->insert();
+                    $insert->into('accor_hotels');
+                    $insert->values(array(
+                        'id' => $hotelCode,
+                        'name' => $hotelName,
+                        'file' => $file,
+                        'lastmodified' => $lastModified,
+                        'creationtime' => $creationTime,
+                        'latitude' => $latitude,
+                        'longitude' => $longitude,
+                        'brandcode' => $brandCode,
+                        'brandname' => $brandName,
+                        'cityname' => $cityName,
+                        'countrycode' => $countryCode,
+                        'countryname' => $countryName,
+                        'hotelstatus' => $hotelStatus
+                    ), $insert::VALUES_MERGE);
+                    $statement = $sql->prepareStatementForSqlObject($insert);
+                    $results = $statement->execute();
+                    $db->getDriver()
+                    ->getConnection()
+                    ->disconnect();
+                }
             } catch (\Exception $e) {
                 echo $return;
-                echo "Error 1: " . $e;
+                echo "ERRO: ". $e;
                 echo $return;
             }
         }
