@@ -455,9 +455,16 @@ if ($HotelInformation->length > 0) {
                 $data = $result->current();
                 $id = (int)$data['id'];
                 if ($id > 0) {
-                    $sql = new Sql($db);
+                    $config = new \Zend\Config\Config(include '../config/autoload/global.hoteldo.php');
+                    $config = [
+                        'driver' => $config->db->driver,
+                        'database' => $config->db->database,
+                        'username' => $config->db->username,
+                        'password' => $config->db->password,
+                        'hostname' => $config->db->hostname
+                    ];
+
                     $data = array(
-                        'id' => $Id,
                         'datetime_created' => time(),
                         'datetime_updated' => 1,
                         'name' => $Name,
@@ -511,11 +518,17 @@ if ($HotelInformation->length > 0) {
                         'source' => $Source,
                         'count' => $Count  
                     );
-                    $where['id = ?'] = $Id;
-                    $update = $sql->update('hotelinformation', $data, $where);
-                    $db->getDriver()
-                        ->getConnection()
-                        ->disconnect();
+                    $sql    = new Sql($dbUpdate);
+                    $update = $sql->update();
+                    $update->table('hotelinformation');
+                    $update->set($data);
+                    $update->where(array('id' => $Id));
+
+                    $statement = $sql->prepareStatementForSqlObject($update);
+                    $results = $statement->execute();
+                    $dbUpdate->getDriver()
+                    ->getConnection()
+                    ->disconnect(); 
                 } else {
                     $sql = new Sql($db);
                     $insert = $sql->insert();
@@ -693,7 +706,8 @@ if ($HotelInformation->length > 0) {
                         $select = $sql->select();
                         $select->from('hotelinformation_bars');
                         $select->where(array(
-                            'id' => $BarId
+                            'id' => $BarId,
+                            'hotelid' => $Id
                         ));
                         $statement = $sql->prepareStatementForSqlObject($select);
                         $result = $statement->execute();
@@ -703,9 +717,16 @@ if ($HotelInformation->length > 0) {
                             $data = $result->current();
                             $id = (string)$data['id'];
                             if ($id != "") {
-                                $sql = new Sql($db);
+                                $config = new \Zend\Config\Config(include '../config/autoload/global.hoteldo.php');
+                                $config = [
+                                    'driver' => $config->db->driver,
+                                    'database' => $config->db->database,
+                                    'username' => $config->db->username,
+                                    'password' => $config->db->password,
+                                    'hostname' => $config->db->hostname
+                                ];
+                                $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
                                 $data = array(
-                                    'id' => $BarId,
                                     'datetime_created' => time(),
                                     'datetime_updated' => 1,
                                     'name' => $Name,
@@ -714,11 +735,20 @@ if ($HotelInformation->length > 0) {
                                     'image' => $Image,
                                     'hotelid' => $Id 
                                 );
-                                $where['id = ?'] = $BarId;
-                                $update = $sql->update('hotelinformation_bars', $data, $where);
-                                $db->getDriver()
-                                    ->getConnection()
-                                    ->disconnect();
+                                $sql    = new Sql($dbUpdate);
+                                $update = $sql->update();
+                                $update->table('hotelinformation_bars');
+                                $update->set($data);
+                                $update->where(array(
+                                    'id' => $BarId,
+                                    'hotelid' => $Id
+                                ));
+
+                                $statement = $sql->prepareStatementForSqlObject($update);
+                                $results = $statement->execute();
+                                $dbUpdate->getDriver()
+                                ->getConnection()
+                                ->disconnect(); 
                             } else {
                                 $sql = new Sql($db);
                                 $insert = $sql->insert();
@@ -808,7 +838,8 @@ if ($HotelInformation->length > 0) {
                         $select = $sql->select();
                         $select->from('hotelinformation_restaurants');
                         $select->where(array(
-                            'id' => $RestaurantId
+                            'id' => $RestaurantId,
+                            'hotelid' => $Id
                         ));
                         $statement = $sql->prepareStatementForSqlObject($select);
                         $result = $statement->execute();
@@ -818,9 +849,16 @@ if ($HotelInformation->length > 0) {
                             $data = $result->current();
                             $id = (string)$data['id'];
                             if ($id != "") {
-                                $sql = new Sql($db);
+                                $config = new \Zend\Config\Config(include '../config/autoload/global.hoteldo.php');
+                                $config = [
+                                    'driver' => $config->db->driver,
+                                    'database' => $config->db->database,
+                                    'username' => $config->db->username,
+                                    'password' => $config->db->password,
+                                    'hostname' => $config->db->hostname
+                                ];
+                                $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
                                 $data = array(
-                                    'id' => $BarId,
                                     'datetime_created' => time(),
                                     'datetime_updated' => 1,
                                     'name' => $Name,
@@ -829,11 +867,20 @@ if ($HotelInformation->length > 0) {
                                     'image' => $Image,
                                     'hotelid' => $Id 
                                 );
-                                $where['id = ?'] = $RestaurantId;
-                                $update = $sql->update('hotelinformation_restaurants', $data, $where);
-                                $db->getDriver()
-                                    ->getConnection()
-                                    ->disconnect();
+                                $sql    = new Sql($dbUpdate);
+                                $update = $sql->update();
+                                $update->table('hotelinformation_restaurants');
+                                $update->set($data);
+                                $update->where(array(
+                                    'id' => $RestaurantId,
+                                    'hotelid' => $Id
+                                ));
+
+                                $statement = $sql->prepareStatementForSqlObject($update);
+                                $results = $statement->execute();
+                                $dbUpdate->getDriver()
+                                ->getConnection()
+                                ->disconnect(); 
                             } else {
                                 $sql = new Sql($db);
                                 $insert = $sql->insert();
@@ -911,7 +958,8 @@ if ($HotelInformation->length > 0) {
                         $select = $sql->select();
                         $select->from('hotelinformation_themes');
                         $select->where(array(
-                            'id' => $ThemeId
+                            'id' => $ThemeId,
+                                    'hotelid' => $Id
                         ));
                         $statement = $sql->prepareStatementForSqlObject($select);
                         $result = $statement->execute();
@@ -921,20 +969,36 @@ if ($HotelInformation->length > 0) {
                             $data = $result->current();
                             $id = (string)$data['id'];
                             if ($id != "") {
-                                $sql = new Sql($db);
+                                $config = new \Zend\Config\Config(include '../config/autoload/global.hoteldo.php');
+                                $config = [
+                                    'driver' => $config->db->driver,
+                                    'database' => $config->db->database,
+                                    'username' => $config->db->username,
+                                    'password' => $config->db->password,
+                                    'hostname' => $config->db->hostname
+                                ];
+                                $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
                                 $data = array(
-                                    'id' => $ThemeId,
                                     'datetime_created' => time(),
                                     'datetime_updated' => 1,
                                     'name' => $Name,
                                     'path' => $Path,
                                     'hotelid' => $Id 
                                 );
-                                $where['id = ?'] = $ThemeId;
-                                $update = $sql->update('hotelinformation_themes', $data, $where);
-                                $db->getDriver()
-                                    ->getConnection()
-                                    ->disconnect();
+                                $sql    = new Sql($dbUpdate);
+                                $update = $sql->update();
+                                $update->table('hotelinformation_themes');
+                                $update->set($data);
+                                $update->where(array(
+                                    'id' => $ThemeId,
+                                    'hotelid' => $Id
+                                ));
+
+                                $statement = $sql->prepareStatementForSqlObject($update);
+                                $results = $statement->execute();
+                                $dbUpdate->getDriver()
+                                ->getConnection()
+                                ->disconnect(); 
                             } else {
                                 $sql = new Sql($db);
                                 $insert = $sql->insert();
@@ -1026,7 +1090,8 @@ if ($HotelInformation->length > 0) {
                         $select = $sql->select();
                         $select->from('hotelinformation_services');
                         $select->where(array(
-                            'id' => $ServiceId
+                            'id' => $ServiceId,
+                            'hotelid' => $Id
                         ));
                         $statement = $sql->prepareStatementForSqlObject($select);
                         $result = $statement->execute();
@@ -1036,9 +1101,16 @@ if ($HotelInformation->length > 0) {
                             $data = $result->current();
                             $id = (string)$data['id'];
                             if ($id != "") {
-                                $sql = new Sql($db);
+                                $config = new \Zend\Config\Config(include '../config/autoload/global.hoteldo.php');
+                                $config = [
+                                    'driver' => $config->db->driver,
+                                    'database' => $config->db->database,
+                                    'username' => $config->db->username,
+                                    'password' => $config->db->password,
+                                    'hostname' => $config->db->hostname
+                                ];
+                                $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
                                 $data = array(
-                                    'id' => $ServiceId,
                                     'datetime_created' => time(),
                                     'datetime_updated' => 1,
                                     'name' => $Name,
@@ -1048,11 +1120,20 @@ if ($HotelInformation->length > 0) {
                                     'order' => $Order,
                                     'hotelid' => $Id
                                 );
-                                $where['id = ?'] = $ServiceId;
-                                $update = $sql->update('hotelinformation_services', $data, $where);
-                                $db->getDriver()
-                                    ->getConnection()
-                                    ->disconnect();
+                                $sql    = new Sql($dbUpdate);
+                                $update = $sql->update();
+                                $update->table('hotelinformation_services');
+                                $update->set($data);
+                                $update->where(array(
+                                    'id' => $ServiceId,
+                                    'hotelid' => $Id
+                                ));
+
+                                $statement = $sql->prepareStatementForSqlObject($update);
+                                $results = $statement->execute();
+                                $dbUpdate->getDriver()
+                                ->getConnection()
+                                ->disconnect(); 
                             } else {
                                 $sql = new Sql($db);
                                 $insert = $sql->insert();
@@ -1174,7 +1255,8 @@ if ($HotelInformation->length > 0) {
                         $select = $sql->select();
                         $select->from('hotelinformation_pointsofinterest');
                         $select->where(array(
-                            'id' => $PointOfInterestId
+                            'id' => $PointOfInterestId,
+                            'hotelid' => $Id
                         ));
                         $statement = $sql->prepareStatementForSqlObject($select);
                         $result = $statement->execute();
@@ -1184,9 +1266,16 @@ if ($HotelInformation->length > 0) {
                             $data = $result->current();
                             $id = (int)$data['id'];
                             if ($id > 0) {
-                                $sql = new Sql($db);
+                                $config = new \Zend\Config\Config(include '../config/autoload/global.hoteldo.php');
+                                $config = [
+                                    'driver' => $config->db->driver,
+                                    'database' => $config->db->database,
+                                    'username' => $config->db->username,
+                                    'password' => $config->db->password,
+                                    'hostname' => $config->db->hostname
+                                ];
+                                $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
                                 $data = array(
-                                    'id' => $PointOfInterestId,
                                     'datetime_created' => time(),
                                     'datetime_updated' => 1,
                                     'name' => $Name,
@@ -1198,11 +1287,20 @@ if ($HotelInformation->length > 0) {
                                     'typename' => $TypeName,
                                     'hotelid' => $Id
                                 );
-                                $where['id = ?'] = $PointOfInterestId;
-                                $update = $sql->update('hotelinformation_pointsofinterest', $data, $where);
-                                $db->getDriver()
-                                    ->getConnection()
-                                    ->disconnect();
+                                $sql    = new Sql($dbUpdate);
+                                $update = $sql->update();
+                                $update->table('hotelinformation_pointsofinterest');
+                                $update->set($data);
+                                $update->where(array(
+                                    'id' => $PointOfInterestId,
+                                    'hotelid' => $Id
+                                ));
+
+                                $statement = $sql->prepareStatementForSqlObject($update);
+                                $results = $statement->execute();
+                                $dbUpdate->getDriver()
+                                ->getConnection()
+                                ->disconnect();
                             } else {
                                 $sql = new Sql($db);
                                 $insert = $sql->insert();
@@ -1304,7 +1402,8 @@ if ($HotelInformation->length > 0) {
                         $select = $sql->select();
                         $select->from('hotelinformation_facilities');
                         $select->where(array(
-                            'id' => $FacilityId
+                            'id' => $FacilityId,
+                            'hotelid' => $Id
                         ));
                         $statement = $sql->prepareStatementForSqlObject($select);
                         $result = $statement->execute();
@@ -1314,9 +1413,16 @@ if ($HotelInformation->length > 0) {
                             $data = $result->current();
                             $id = (string)$data['id'];
                             if ($id != "") {
-                                $sql = new Sql($db);
+                                $config = new \Zend\Config\Config(include '../config/autoload/global.hoteldo.php');
+                                $config = [
+                                    'driver' => $config->db->driver,
+                                    'database' => $config->db->database,
+                                    'username' => $config->db->username,
+                                    'password' => $config->db->password,
+                                    'hostname' => $config->db->hostname
+                                ];
+                                $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
                                 $data = array(
-                                    'id' => $FacilityId,
                                     'datetime_created' => time(),
                                     'datetime_updated' => 1,
                                     'name' => $Name,
@@ -1326,11 +1432,20 @@ if ($HotelInformation->length > 0) {
                                     'order' => $Order,
                                     'hotelid' => $Id
                                 );
-                                $where['id = ?'] = $FacilityId;
-                                $update = $sql->update('hotelinformation_facilities', $data, $where);
-                                $db->getDriver()
-                                    ->getConnection()
-                                    ->disconnect();
+                                $sql    = new Sql($dbUpdate);
+                                $update = $sql->update();
+                                $update->table('hotelinformation_facilities');
+                                $update->set($data);
+                                $update->where(array(
+                                    'id' => $FacilityId,
+                                    'hotelid' => $Id
+                                ));
+
+                                $statement = $sql->prepareStatementForSqlObject($update);
+                                $results = $statement->execute();
+                                $dbUpdate->getDriver()
+                                ->getConnection()
+                                ->disconnect();
                             } else {
                                 $sql = new Sql($db);
                                 $insert = $sql->insert();

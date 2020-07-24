@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU HOTELS";
+echo "COMECOU BOOK";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -91,96 +91,80 @@ if ($_SERVER['HTTP_CLIENT_IP']) {
     $ipaddress = "142.44.216.144";
 }
 
-$rooms = 1;
+$rooms = 2;
 
-$raw = '<Request Type="Reservation" Version="1.0">
-    <affiliateid>CLUBHTXML</affiliateid>
-    <language>ING</language>
-    <currency>US</currency>
-    <ip>' . $ipaddress . '</ip>
-    <uid>m2r32b14es10socxtxs4y4ht</uid>
-    <firstname>Quim</firstname>
-    <lastname>prueba</lastname>
-    <emailaddress>quim.prueba@bestday.com</emailaddress>
-    <clientcountry>MX</clientcountry>
-    <country>MX</country>
-    <address>bonampak 4</address>
-    <city>cancun</city>
-    <state>QROO</state>
-    <zip>77500</zip>
-    <total>709.23809814453125</total>
-    <naturalperson>
-        <gender/>
-        <nationality/>
-        <number/>
-        <type/>
-    </naturalperson>
-    <legalperson>
-        <businessname/>
-        <number/>
-        <type/>
-    </legalperson>
-    <phones>
-        <phone>
-            <type>2</type>
-            <number>9981454221</number>
-        </phone>
-    </phones>
-    <hotels>
-        <hotel>
-            <hotelid>342</hotelid>
-            <roomtype>MDSTE</roomtype>
-            <mealplan>AI</mealplan>
-            <datearrival>20210208</datearrival>
-            <datedeparture>20210211</datedeparture>
-            <marketid>MAYORIST</marketid>
-            <contractid>11</contractid>
-            <dutypercent>0</dutypercent>
-            <rooms>';
-                if ($rooms == 1) {
-                    $raw = $raw . '<room>
-                    <name>Quim</name>
-                    <lastname>prueba</lastname>
-                    <amount>709.23809814453125</amount>
-                    <status>AV</status>
-                    <ratekey>MDSTEAI</ratekey>
-                    <adults>1</adults>
-                    <kids>0</kids>
-                    <k1a>0</k1a>
-                </room>';
-                } else if ($rooms == 2) {
-                    $raw = $raw . '<room>
-                    <name>Quim</name>
-                    <lastname>prueba</lastname>
-                    <amount>13392</amount>
-                    <status>AV</status>
-                    <ratekey>DLXAI</ratekey>
-                    <adults>2</adults>
-                    <kids>0</kids>
-                    <k1a>0</k1a>
-                </room>
-                <room>
-                    <name>Antonio</name>
-                    <lastname>prueba</lastname>
-                    <amount>13392</amount>
-                    <status>AV</status>
-                    <ratekey>DLXAI</ratekey>
-                    <adults>2</adults>
-                    <kids>0</kids>
-                    <k1a>0</k1a>
-                </room>';
-                }
-                
-                
-            $raw = $raw . '</rooms>
-        </hotel>
-    </hotels>
+$raw = '<Request Type="Reservation" Version="1.0"> 
+<affiliateid>CLUBHTXML</affiliateid> 
+<language>ING</language> 
+<currency>US</currency> 
+<firstname>test</firstname> 
+<lastname>test</lastname> 
+<emailaddress>jquroga@gmail.com</emailaddress> 
+<clientcountry>MX</clientcountry> 
+<country>MX</country>
+<address/>
+<city/> 
+<state>MX</state> 
+<zip/>
+<phones> 
+    <phone>
+        <number>2131760500</number>
+        <type>1</type> 
+    </phone>
+</phones> 
+<total>2006.438</total> 
+<hotels>
+    <hotel>
+    <hotelid>128</hotelid> 
+    <roomtype>DBL</roomtype> 
+    <mealplan>AI</mealplan> 
+    <datearrival>20201201</datearrival> 
+    <datedeparture>20201206</datedeparture> 
+    <marketid>MAYORIST</marketid> 
+    <contractid>9</contractid>
+        <rooms>';
+        if ($rooms == 1) {
+            $raw = $raw . '<room>
+            <name>test</name>
+            <lastname>test</lastname>
+            <amount>793.6905517578125</amount>
+            <status>AV</status>
+            <ratekey>SUPGVEP</ratekey>
+            <adults>2</adults>
+            <kids>0</kids>
+            <k1a>0</k1a>
+        </room>';
+        } else if ($rooms == 2) {
+            $raw = $raw . '<room>
+            <name>test</name>
+            <lastname>test</lastname>
+            <amount>1003.21875</amount>
+            <status>AV</status>
+            <ratekey>DBLAI</ratekey>
+            <adults>1</adults>
+            <kids>1</kids>
+            <k1a>3</k1a>
+        </room>
+        <room>
+            <name>testB</name>
+            <lastname>testB</lastname>
+            <amount>1003.21875</amount>
+            <status>AV</status>
+            <ratekey>DBLAI</ratekey>
+            <adults>2</adults>
+            <kids>1</kids>
+            <k1a>5</k1a>
+        </room>';
+        }
+    $raw = $raw . '</rooms>
+    </hotel> 
+</hotels> 
 <payments>
-<agencycreditpayment>
-    <type>CREDMX</type>
-    <currency>US</currency>
-    <amount>709.23809814453125</amount>
-</agencycreditpayment>
+    <depositpayment>
+        <type>WIRE</type>
+        <currency>US</currency>
+        <amount>2006.438</amount>
+    </depositpayment>
 </payments>
 </Request>';
 

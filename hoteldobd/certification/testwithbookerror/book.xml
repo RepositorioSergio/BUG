@@ -1,0 +1,129 @@
+CASE 1:
+
+<Request Type="Reservation" Version="1.0"> 
+<affiliateid>CLUBHTXML</affiliateid> 
+<language>ING</language> 
+<currency>US</currency> 
+<firstname>test</firstname> 
+<lastname>test</lastname> 
+<emailaddress>jquroga@gmail.com</emailaddress> 
+<clientcountry>MX</clientcountry> 
+<country>MX</country>
+<address/>
+<city/> 
+<state>MX</state> 
+<zip/>
+<phones> 
+    <phone>
+        <number>2131760500</number>
+        <type>1</type> 
+    </phone>
+</phones> 
+<total>1629.69287109375</total> 
+<hotels>
+    <hotel>
+    <hotelid>233</hotelid> 
+    <roomtype>SUPGV</roomtype> 
+    <mealplan>EP</mealplan> 
+    <datearrival>20201201</datearrival> 
+    <datedeparture>20201206</datedeparture> 
+    <marketid>MOBILE</marketid> 
+    <contractid>20000</contractid>
+        <rooms><room>
+            <name>test</name>
+            <lastname>test</lastname>
+            <amount>814.846435546875</amount>
+            <status>AV</status>
+            <ratekey>SUPGVEP</ratekey>
+            <adults>2</adults>
+            <kids>0</kids>
+            <k1a>0</k1a>
+        </room>
+        <room>
+            <name>testB</name>
+            <lastname>testB</lastname>
+            <amount>814.846435546875</amount>
+            <status>AV</status>
+            <ratekey>SUPGVEP</ratekey>
+            <adults>2</adults>
+            <kids>0</kids>
+            <k1a>0</k1a>
+        </room></rooms>
+    </hotel> 
+</hotels> 
+<payments>
+    <agencycreditpayment>
+      <type></type>
+      <currency>US</currency>
+      <amount>1629.69287109375</amount>
+  </agencycreditpayment>
+</payments>
+</Request>
+
+<?xml version="1.0" encoding="utf-8"?><BookingResponse xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><confirmationid>0</confirmationid><total>0</total><Error><Id>303</Id><Description>The client has not active payments configured</Description><Data>Affiliate Service</Data></Error></BookingResponse>
+
+
+CASE 2:
+
+<Request Type="Reservation" Version="1.0"> 
+<affiliateid>CLUBHTXML</affiliateid> 
+<language>ING</language> 
+<currency>US</currency> 
+<firstname>test</firstname> 
+<lastname>test</lastname> 
+<emailaddress>jquroga@gmail.com</emailaddress> 
+<clientcountry>MX</clientcountry> 
+<country>MX</country>
+<address/>
+<city/> 
+<state>MX</state> 
+<zip/>
+<phones> 
+    <phone>
+        <number>2131760500</number>
+        <type>1</type> 
+    </phone>
+</phones> 
+<total>1629.69287109375</total> 
+<hotels>
+    <hotel>
+    <hotelid>10126329</hotelid> 
+    <roomtype>SUPGV</roomtype> 
+    <mealplan>EP</mealplan> 
+    <datearrival>20201201</datearrival> 
+    <datedeparture>20201206</datedeparture> 
+    <marketid>MOBILE</marketid> 
+    <contractid>20000</contractid>
+        <rooms><room>
+            <name>test</name>
+            <lastname>test</lastname>
+            <amount>814.846435546875</amount>
+            <status>AV</status>
+            <ratekey>SUPGVEP</ratekey>
+            <adults>2</adults>
+            <kids>0</kids>
+            <k1a>0</k1a>
+        </room>
+        <room>
+            <name>testB</name>
+            <lastname>testB</lastname>
+            <amount>814.846435546875</amount>
+            <status>AV</status>
+            <ratekey>SUPGVEP</ratekey>
+            <adults>2</adults>
+            <kids>0</kids>
+            <k1a>0</k1a>
+        </room></rooms>
+    </hotel> 
+</hotels> 
+<payments>
+    <agencycreditpayment>
+      <type></type>
+      <currency>US</currency>
+      <amount>1629.69287109375</amount>
+  </agencycreditpayment>
+</payments>
+</Request>
+
+
+<?xml version="1.0" encoding="utf-8"?><BookingResponse xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><confirmationid>0</confirmationid><total>0</total><Error><Id>210</Id><Description>No results found</Description><Data>Affiliate Service</Data></Error></BookingResponse>

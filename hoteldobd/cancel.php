@@ -92,9 +92,12 @@ if ($_SERVER['HTTP_CLIENT_IP']) {
 }
 
 
-$raw = '/CancelItineraryServices?a=' . $HotelDouser . '&&ip=' . $ipaddress . '&l=ESP&c=MX&bn=230004016&bc=2&ch=&hash=jumper:true';
+$raw = '/CancelItineraryServices?a=CLUBHTXML&ip=' . $ipaddress . '&l=ESP&c=MX&bn=74894056&bc=2&ch=&hash=jumper:true';
 echo $HotelDoserviceURL . $raw ."<br/>";
-//230000032
+//74892049
+//74892075
+//74892082
+//74892125
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $HotelDoserviceURL . $raw);
