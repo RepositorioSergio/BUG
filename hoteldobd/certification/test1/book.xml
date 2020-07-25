@@ -17,22 +17,22 @@
         <type>1</type> 
     </phone>
 </phones> 
-<total>702.0440673828125</total> 
+<total>1029.957763671875</total> 
 <hotels>
     <hotel>
-    <hotelid>1468</hotelid> 
-    <roomtype>DLX</roomtype> 
-    <mealplan>AI</mealplan> 
-    <datearrival>20210208</datearrival> 
-    <datedeparture>20210211</datedeparture> 
-    <marketid>INTER2</marketid> 
-    <contractid>1</contractid>
+    <hotelid>10105816</hotelid> 
+    <roomtype>DQUEN</roomtype> 
+    <mealplan>EP</mealplan> 
+    <datearrival>20210116</datearrival> 
+    <datedeparture>20210120</datedeparture> 
+    <marketid>MAYORIST</marketid> 
+    <contractid>2</contractid>
         <rooms><room>
             <name>test</name>
             <lastname>test</lastname>
-            <amount>702.0440673828125</amount>
+            <amount>1029.957763671875</amount>
             <status>AV</status>
-            <ratekey>DLXAI</ratekey>
+            <ratekey>DQUENEP</ratekey>
             <adults>1</adults>
             <kids>0</kids>
             <k1a>0</k1a>
@@ -40,7 +40,13 @@
     </hotel> 
 </hotels> 
 <payments>
+    <depositpayment> 
+        <type>WIRE</type> 
+        <currency>US</currency> 
+        <amout>1029.957763671875</amout>
+    </depositpayment>
 </payments>
 </Request>
 
-<?xml version="1.0" encoding="utf-8"?><BookingResponse xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><confirmationid>74892075</confirmationid><airlinepnr/><currency>US</currency><total>702.04</total><statusinternet>CO</statusinternet><statusbooking>NC</statusbooking><statuspayment>NP</statuspayment><effective>N</effective><operatorname>Mayorista USA (Méx)</operatorname><operatoremail>suppliers@hoteldo.com</operatoremail><Rooms><Room><Id>DLX</Id><MealPlanId>AI</MealPlanId><PaxId>A1C0-</PaxId><CancellationPolicy><Id>37</Id><Description>The hotel allows cancellation without surcharge up to 8 days before arrival, from 7 days to 24 hours due to arrival applies 2 nights penalty. In case of No Show, or sudden early departure total booking amount will be charged.</Description><Amount>468.02938842773438</Amount><DaysToApplyCancellation>7</DaysToApplyCancellation><PaymentLimitDay>2021-01-30</PaymentLimitDay><NightsPenalty>2</NightsPenalty><NoShow><DateFrom>2021-02-08</DateFrom><Amount>702.0440673828125</Amount></NoShow><IsNonRefundable>false</IsNonRefundable><DesciptionPolicy>This is a non-modifiable booking. Once this reservation is confirmed, no changes or modifications to this booking will be allowed.  Should a change be required (i.e. change travel dates, adding or subtracting a passenger, name change, room type or category change or to add a meal plan), it will be mandatory that you cancel the existing reservation and book a new reservation accepting the current rate and all of the new conditions.</DesciptionPolicy><IdPolicyInterface>269</IdPolicyInterface></CancellationPolicy></Room></Rooms></BookingResponse>
+
+<?xml version="1.0" encoding="utf-8"?><BookingResponse xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><confirmationid>74897954</confirmationid><airlinepnr/><currency>US</currency><total>1029.96</total><statusinternet>CO</statusinternet><statusbooking>CO</statusbooking><statuspayment>PA</statuspayment><effective>E</effective><operatorname>Mayorista USA (Méx)</operatorname><operatoremail>suppliers@hoteldo.com</operatoremail><Rooms><Room><Id>DQUEN</Id><MealPlanId>EP</MealPlanId><PaxId>A1C0-</PaxId><CancellationPolicy><Id>13</Id><Description>The hotel allows cancellation without surcharge up to 4 days before arrival, from 3 days to 24 hours due to arrival applies 1 night penalty. In case of No Show,  or sudden early departure total booking amount will be charged.</Description><Amount>208.83651733398438</Amount><DaysToApplyCancellation>3</DaysToApplyCancellation><PaymentLimitDay>2021-01-11</PaymentLimitDay><NightsPenalty>1</NightsPenalty><NoShow><DateFrom>2021-01-16</DateFrom><Amount>1029.957763671875</Amount></NoShow><IsNonRefundable>false</IsNonRefundable><DesciptionPolicy>This is a non-modifiable booking. Once this reservation is confirmed, no changes or modifications to this booking will be allowed.  Should a change be required (i.e. change travel dates, adding or subtracting a passenger, name change, room type or category change or to add a meal plan), it will be mandatory that you cancel the existing reservation and book a new reservation accepting the current rate and all of the new conditions.</DesciptionPolicy><IdPolicyInterface>269</IdPolicyInterface></CancellationPolicy></Room></Rooms></BookingResponse>

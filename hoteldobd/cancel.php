@@ -92,7 +92,7 @@ if ($_SERVER['HTTP_CLIENT_IP']) {
 }
 
 
-$raw = '/CancelItineraryServices?a=CLUBHTXML&ip=' . $ipaddress . '&l=ESP&c=MX&bn=74894056&bc=2&ch=&hash=jumper:true';
+$raw = '/CancelItineraryServices?a=CLUBHTXML&ip=' . $ipaddress . '&l=ING&c=MX&bn=74897978&bc=2&ch=';
 echo $HotelDoserviceURL . $raw ."<br/>";
 //74892049
 //74892075

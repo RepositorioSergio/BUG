@@ -1,0 +1,4 @@
+http://xml.e-tsw.com/AffiliateService/V1.0/AffiliateService.svc/restful/CancelItineraryServices?a=CLUBHTXML&ip=82.155.42.18&l=ING&c=MX&bn=74897954&bc=1&ch=
+
+
+<?xml version="1.0" encoding="utf-8"?><Book><affiliate>CLUBHTXML</affiliate><number>74897954</number><consecutive>1</consecutive><status>CA</status><amount>0</amount><currency>US</currency></Book>

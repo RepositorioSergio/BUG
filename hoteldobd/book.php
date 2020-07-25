@@ -112,25 +112,25 @@ $raw = '<Request Type="Reservation" Version="1.0">
         <type>1</type> 
     </phone>
 </phones> 
-<total>2006.438</total> 
+<total>2799.4921875</total> 
 <hotels>
     <hotel>
-    <hotelid>128</hotelid> 
-    <roomtype>DBL</roomtype> 
+    <hotelid>6019</hotelid> 
+    <roomtype>FAMSUP41P</roomtype> 
     <mealplan>AI</mealplan> 
-    <datearrival>20201201</datearrival> 
-    <datedeparture>20201206</datedeparture> 
-    <marketid>MAYORIST</marketid> 
-    <contractid>9</contractid>
+    <datearrival>20210116</datearrival> 
+    <datedeparture>20210120</datedeparture> 
+    <marketid>INTER</marketid> 
+    <contractid>1</contractid>
         <rooms>';
         if ($rooms == 1) {
             $raw = $raw . '<room>
             <name>test</name>
             <lastname>test</lastname>
-            <amount>793.6905517578125</amount>
+            <amount>1029.957763671875</amount>
             <status>AV</status>
-            <ratekey>SUPGVEP</ratekey>
-            <adults>2</adults>
+            <ratekey>DQUENEP</ratekey>
+            <adults>1</adults>
             <kids>0</kids>
             <k1a>0</k1a>
         </room>';
@@ -138,9 +138,9 @@ $raw = '<Request Type="Reservation" Version="1.0">
             $raw = $raw . '<room>
             <name>test</name>
             <lastname>test</lastname>
-            <amount>1003.21875</amount>
+            <amount>1399.74609375</amount>
             <status>AV</status>
-            <ratekey>DBLAI</ratekey>
+            <ratekey>FAMSUP41PAI</ratekey>
             <adults>1</adults>
             <kids>1</kids>
             <k1a>3</k1a>
@@ -148,9 +148,9 @@ $raw = '<Request Type="Reservation" Version="1.0">
         <room>
             <name>testB</name>
             <lastname>testB</lastname>
-            <amount>1003.21875</amount>
+            <amount>1399.74609375</amount>
             <status>AV</status>
-            <ratekey>DBLAI</ratekey>
+            <ratekey>FAMSUP41PAI</ratekey>
             <adults>2</adults>
             <kids>1</kids>
             <k1a>5</k1a>
@@ -160,10 +160,10 @@ $raw = '<Request Type="Reservation" Version="1.0">
     </hotel> 
 </hotels> 
 <payments>
-    <depositpayment>
-        <type>WIRE</type>
-        <currency>US</currency>
-        <amount>2006.438</amount>
+    <depositpayment> 
+        <type>WIRE</type> 
+        <currency>US</currency> 
+        <amout>2799.4921875</amout>
     </depositpayment>
 </payments>
 </Request>';

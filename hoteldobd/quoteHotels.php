@@ -71,7 +71,7 @@ $config = [
 ];
 
 
-$raw = '/GetQuoteHotels?a=CLUBHTXML&co=MX&c=US&sd=20201201&ed=20201206&h=&rt=&mp=&r=2&r1a=1&r1k=1&r1k1a=3&r2a=2&r2k=1&r2k1a=5&d=2&l=ING&hash=ha:true';
+$raw = '/GetQuoteHotels?a=CLUBHTXML&co=MX&c=US&sd=20210116&ed=20210120&h=&rt=&mp=&r=2&r1a=1&r1k=1&r1k1a=3&r2a=2&r2k=1&r2k1a=5&d=321015&l=ING&hash=ha:true';
 echo "<br/>" . $HotelDoserviceURL . $raw ."<br/>";
 
 $ch = curl_init();
