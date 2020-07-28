@@ -42,8 +42,11 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$user = 'wingstest';
-$pass = 'Win@59491374';
+$user = 'clubonehotelsTest';
+$pass = 'Clu@28527768';
+$session_id = '7296c632-9048-4c2b-be08-87ea9e786586';
+$resultindex = 1;
+$hotelcode = 1049198;
 
 $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
 <soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
@@ -54,10 +57,10 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 </soap:Header>
 <soap:Body>
     <hot:HotelRoomAvailabilityRequest>
-        <hot:SessionId>9616db93-3fdf-40e4-9118-63441e133ccd</hot:SessionId>
-        <hot:ResultIndex>4</hot:ResultIndex>
-        <hot:HotelCode>1108025</hot:HotelCode>
-        <hot:ResponseTime>18</hot:ResponseTime>
+        <hot:SessionId>' . $session_id . '</hot:SessionId>
+        <hot:ResultIndex>' . $resultindex . '</hot:ResultIndex>
+        <hot:HotelCode>' . $hotelcode . '</hot:HotelCode>
+        <hot:ResponseTime>23</hot:ResponseTime>
         <hot:IsCancellationPolicyRequired>true</hot:IsCancellationPolicyRequired>
     </hot:HotelRoomAvailabilityRequest>
 </soap:Body>

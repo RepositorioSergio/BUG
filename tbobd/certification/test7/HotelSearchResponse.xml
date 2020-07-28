@@ -1,0 +1,349 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing">
+    <s:Header>
+        <a:Action s:mustUnderstand="1">http://TekTravel/HotelBookingApi/IHotelService/HotelSearchResponse</a:Action>
+    </s:Header>
+    <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <HotelSearchResponse xmlns="http://TekTravel/HotelBookingApi">
+            <Status>
+                <StatusCode>01</StatusCode>
+                <Description>Successful: HotelSearch Successful</Description>
+            </Status>
+            <ResponseTime>27/07/2020 12:48:54</ResponseTime>
+            <SessionId>8fef13c4-ea3e-4279-a985-0cff0917c718</SessionId>
+            <NoOfRoomsRequested>1</NoOfRoomsRequested>
+            <CityId>115936</CityId>
+            <CheckInDate>27/01/2021 00:00:00</CheckInDate>
+            <CheckOutDate>29/01/2021 00:00:00</CheckOutDate>
+            <RoomGuests>
+                <RoomGuest AdultCount="1" ChildCount="0"/>
+            </RoomGuests>
+            <HotelResultList>
+                <HotelResult>
+                    <ResultIndex>1</ResultIndex>
+                    <HotelInfo>
+                        <HotelCode>1356627</HotelCode>
+                        <HotelName>Holiday Inn Express Dubai Airport</HotelName>
+                        <HotelPicture>https://api.tbotechnology.in/imageresource.aspx?img=9eMP+0FIICgCIk6ZClzZH9Cs+1gwAq6BFWcc22yNLMF/UJIXMdxPdc/YiM5ymb8RlvfqrAahlcNQFIOJMDpKEHc2XW1+heE0TckJPDa6qbeeIfid2Q4zRQ==</HotelPicture>
+                        <HotelDescription>Property Location With a stay at Holiday Inn Express Dubai Airport in Dubai (Garhoud), you''ll be within a 10-minute drive of Dubai Tennis Stadium and Deira City Centre.  This hotel is  </HotelDescription>
+                        <Latitude>25.24229</Latitude>
+                        <Longitude>55.35992</Longitude>
+                        <HotelAddress>Opposite Dubai International Airport Terminal 3 P.O. Box 35257 </HotelAddress>
+                        <Rating>TwoStar</Rating>
+                        <HotelPromotion/>
+                        <TripAdvisorRating>3.5</TripAdvisorRating>
+                        <TripAdvisorReviewURL>http://www.tripadvisor.com/Hotel_Review-g295424-d1675299-Reviews-Holiday_Inn_Express_Dubai_Airport-D</TripAdvisorReviewURL>
+                        <TagIds>4</TagIds>
+                    </HotelInfo>
+                    <MinHotelPrice TotalPrice="179.16" Currency="USD" B2CRates="false" OriginalPrice="179.16"/>
+                    <IsPkgProperty>false</IsPkgProperty>
+                    <RoomDetails>
+                        <Room RoomType="" RatePlanCode="OSBNIDH20IDH20" Inclusion=""/>
+                    </RoomDetails>
+                    <IsPackageRate>false</IsPackageRate>
+                    <MappedHotel>true</MappedHotel>
+                    <IsHalal>false</IsHalal>
+                </HotelResult>
+                <HotelResult>
+                    <ResultIndex>2</ResultIndex>
+                    <HotelInfo>
+                        <HotelCode>1261212</HotelCode>
+                        <HotelName>Holiday Inn Express Dubai - Internet City</HotelName>
+                        <HotelPicture>https://api.tbotechnology.in/imageresource.aspx?img=9eMP+0FIICgCIk6ZClzZH9Cs+1gwAq6BFWcc22yNLMF/UJIXMdxPdU6RmZuwTZuifRyb//7vSSKQ46B5kPuXFHzuroxfD/VR1fdPYdFI4fjDVwdCSxXuqA==</HotelPicture>
+                        <HotelDescription>Property Location With a stay at Holiday Inn Express Dubai, Internet City, you''ll be centrally located in Al Sufouh, within a 15-minute drive of Ski Dubai and Mall of the Emirates.  Th </HotelDescription>
+                        <Latitude>25.10435</Latitude>
+                        <Longitude>55.16652</Longitude>
+                        <HotelAddress>Knowledge Village P.O. Box 282647 </HotelAddress>
+                        <Rating>TwoStar</Rating>
+                        <HotelPromotion/>
+                        <TripAdvisorRating>3.5</TripAdvisorRating>
+                        <TripAdvisorReviewURL>http://www.tripadvisor.com/Hotel_Review-g295424-d673962-Reviews-Holiday_Inn_Express_Dubai_Internet_C</TripAdvisorReviewURL>
+                        <TagIds>27,56305</TagIds>
+                    </HotelInfo>
+                    <MinHotelPrice TotalPrice="219.09" Currency="USD" B2CRates="false" OriginalPrice="219.09"/>
+                    <IsPkgProperty>false</IsPkgProperty>
+                    <RoomDetails>
+                        <Room RoomType="" RatePlanCode="KSBSIDH20IDH20" Inclusion=""/>
+                    </RoomDetails>
+                    <IsPackageRate>false</IsPackageRate>
+                    <MappedHotel>true</MappedHotel>
+                    <IsHalal>false</IsHalal>
+                </HotelResult>
+                <HotelResult>
+                    <ResultIndex>3</ResultIndex>
+                    <HotelInfo>
+                        <HotelCode>1249497</HotelCode>
+                        <HotelName>Holiday Inn Express Dubai - Jumeirah</HotelName>
+                        <HotelPicture>https://api.tbotechnology.in/imageresource.aspx?img=9eMP+0FIICgCIk6ZClzZH9Cs+1gwAq6BFWcc22yNLMF/UJIXMdxPdc/YiM5ymb8Rm+qsij8GvGtux4w+31Xrj52QV9gy6jQbI4Fayv58ianrIGTCwtPJ+Q==</HotelPicture>
+                        <HotelDescription>Property Location With a stay at Holiday Inn Express Dubai Jumeirah, you''ll be centrally located in Dubai, within a 15-minute drive of Dubai Mall and Jumeirah Mosque.  This hotel is 5. </HotelDescription>
+                        <Latitude>25.24301</Latitude>
+                        <Longitude>55.27156</Longitude>
+                        <HotelAddress>Jumeirah Road P.O. Box 71256 </HotelAddress>
+                        <Rating>TwoStar</Rating>
+                        <HotelPromotion/>
+                        <TripAdvisorRating>3.5</TripAdvisorRating>
+                        <TripAdvisorReviewURL>http://www.tripadvisor.com/Hotel_Review-g295424-d1186196-Reviews-Holiday_Inn_Express_Dubai_Jumeirah-</TripAdvisorReviewURL>
+                        <TagIds>56118</TagIds>
+                    </HotelInfo>
+                    <MinHotelPrice TotalPrice="223.92" Currency="USD" B2CRates="false" OriginalPrice="223.92"/>
+                    <IsPkgProperty>false</IsPkgProperty>
+                    <RoomDetails>
+                        <Room RoomType="" RatePlanCode="TTWSIDH20IDH20" Inclusion=""/>
+                    </RoomDetails>
+                    <IsPackageRate>false</IsPackageRate>
+                    <MappedHotel>true</MappedHotel>
+                    <IsHalal>false</IsHalal>
+                </HotelResult>
+                <HotelResult>
+                    <ResultIndex>4</ResultIndex>
+                    <HotelInfo>
+                        <HotelCode>1049198</HotelCode>
+                        <HotelName>Crowne Plaza Dubai Deira</HotelName>
+                        <HotelPicture>https://api.tbotechnology.in/imageresource.aspx?img=9eMP+0FIICgCIk6ZClzZH9Cs+1gwAq6BFWcc22yNLMF/UJIXMdxPdc/YiM5ymb8RjghQIDTsh8XwHqUUbJvripAGb8DWfpikcryDyblT4l6YlWTCZOKZPQ==</HotelPicture>
+                        <HotelDescription>Property Location With a stay at Crowne Plaza Dubai Deira, you''ll be centrally located in Dubai, within a 15-minute drive of Sahara Centre and Gold Souk.  This 5-star hotel is 7.7 mi ( </HotelDescription>
+                        <Latitude>25.27045</Latitude>
+                        <Longitude>55.32698</Longitude>
+                        <HotelAddress>Salahuddin Road Deira </HotelAddress>
+                        <Rating>FiveStar</Rating>
+                        <HotelPromotion/>
+                        <TripAdvisorRating>4.5</TripAdvisorRating>
+                        <TripAdvisorReviewURL>http://www.tripadvisor.com/Hotel_Review-g295424-d299810-Reviews-Crowne_Plaza_Dubai_Deira-Dubai_Emira</TripAdvisorReviewURL>
+                        <TagIds>3</TagIds>
+                    </HotelInfo>
+                    <MinHotelPrice TotalPrice="234.19" Currency="USD" B2CRates="false" OriginalPrice="234.19"/>
+                    <IsPkgProperty>false</IsPkgProperty>
+                    <RoomDetails>
+                        <Room RoomType="" RatePlanCode="KDXNIDH20IDH20" Inclusion=""/>
+                    </RoomDetails>
+                    <IsPackageRate>false</IsPackageRate>
+                    <MappedHotel>true</MappedHotel>
+                    <IsHalal>false</IsHalal>
+                </HotelResult>
+                <HotelResult>
+                    <ResultIndex>5</ResultIndex>
+                    <HotelInfo>
+                        <HotelCode>1291661</HotelCode>
+                        <HotelName>Holiday Inn Express Dubai - Safa Park</HotelName>
+                        <HotelPicture>https://api.tbotechnology.in/imageresource.aspx?img=9eMP+0FIICgCIk6ZClzZH9Cs+1gwAq6BFWcc22yNLMF/UJIXMdxPdfIkhJWzpusxcXhV19UZsORM1SKCZ8dfVUgXoVYNsN5ELY6JxAMuWORj7k/nDbqM1Q==</HotelPicture>
+                        <HotelDescription>Property Location Located in Al Wasl, Holiday Inn Express Dubai Safa Park is in the business district, within a 10-minute drive of Dubai Mall and Jumeira Beach and Park.  This hotel is </HotelDescription>
+                        <Latitude>25.1889</Latitude>
+                        <Longitude>55.25533</Longitude>
+                        <HotelAddress>Sheikh Zayed Road and Al Wasl District Dubai </HotelAddress>
+                        <Rating>TwoStar</Rating>
+                        <HotelPromotion/>
+                        <TripAdvisorRating>4.0</TripAdvisorRating>
+                        <TripAdvisorReviewURL>http://www.tripadvisor.com/Hotel_Review-g295424-d1093097-Reviews-Holiday_Inn_Express_Dubai_Safa_Park</TripAdvisorReviewURL>
+                        <TagIds>56119,56133,56306</TagIds>
+                    </HotelInfo>
+                    <MinHotelPrice TotalPrice="240.26" Currency="USD" B2CRates="false" OriginalPrice="240.26"/>
+                    <IsPkgProperty>false</IsPkgProperty>
+                    <RoomDetails>
+                        <Room RoomType="" RatePlanCode="OSBNIDH20IDH20" Inclusion=""/>
+                    </RoomDetails>
+                    <IsPackageRate>false</IsPackageRate>
+                    <MappedHotel>true</MappedHotel>
+                    <IsHalal>false</IsHalal>
+                </HotelResult>
+                <HotelResult>
+                    <ResultIndex>6</ResultIndex>
+                    <HotelInfo>
+                        <HotelCode>1291668</HotelCode>
+                        <HotelName>Holiday Inn Dubai - Al Barsha</HotelName>
+                        <HotelPicture>https://api.tbotechnology.in/imageresource.aspx?img=9eMP+0FIICgCIk6ZClzZH9Cs+1gwAq6BFWcc22yNLMF/UJIXMdxPdfIkhJWzpusxKdhQlLzkkt7jODv1OvODLqkQ48tnZ2R5YuCheCCTlik9130HSZkDKg==</HotelPicture>
+                        <HotelDescription>Property Location A stay at Holiday Inn Dubai - Al Barsha places you in the heart of Dubai, within a 10-minute walk of Ski Dubai and Mall of the Emirates.  This 4-star hotel is 8.4 mi  </HotelDescription>
+                        <Latitude>25.11659</Latitude>
+                        <Longitude>55.19367</Longitude>
+                        <HotelAddress>Sheikh Zayed Road P.O.Box 115443 </HotelAddress>
+                        <Rating>FourStar</Rating>
+                        <HotelPromotion/>
+                        <TripAdvisorRating>4.0</TripAdvisorRating>
+                        <TripAdvisorReviewURL>http://www.tripadvisor.com/Hotel_Review-g295424-d1139697-Reviews-Holiday_Inn_Dubai_Al_Barsha-Dubai_E</TripAdvisorReviewURL>
+                        <TagIds>7,56129,56306,56305</TagIds>
+                    </HotelInfo>
+                    <MinHotelPrice TotalPrice="289.85" Currency="USD" B2CRates="false" OriginalPrice="289.85"/>
+                    <IsPkgProperty>false</IsPkgProperty>
+                    <RoomDetails>
+                        <Room RoomType="" RatePlanCode="CDXNIDH20IDH20" Inclusion=""/>
+                    </RoomDetails>
+                    <IsPackageRate>false</IsPackageRate>
+                    <MappedHotel>true</MappedHotel>
+                    <IsHalal>false</IsHalal>
+                </HotelResult>
+                <HotelResult>
+                    <ResultIndex>7</ResultIndex>
+                    <HotelInfo>
+                        <HotelCode>1180679</HotelCode>
+                        <HotelName>Crowne Plaza Dubai</HotelName>
+                        <HotelPicture>https://api.tbotechnology.in/imageresource.aspx?img=9eMP+0FIICgCIk6ZClzZH9Cs+1gwAq6BFWcc22yNLMF/UJIXMdxPdfIkhJWzpusxHu6+TQpaHcf9AczNTNDFuRuIuRrAkwll2FDttXNLzZSyvVbYEKWJfg==</HotelPicture>
+                        <HotelDescription>Property Location With a stay at Crowne Plaza Dubai, you''ll be centrally located in Dubai, within a 10-minute drive of Dubai Mall and Burj Khalifa.  This 5-star hotel is 9.4 mi (15.1 k </HotelDescription>
+                        <Latitude>25.22007</Latitude>
+                        <Longitude>55.28055</Longitude>
+                        <HotelAddress>Sheikh Zayed Al Nahyan Road Trade Centre </HotelAddress>
+                        <Rating>FiveStar</Rating>
+                        <HotelPromotion/>
+                        <TripAdvisorRating>4.0</TripAdvisorRating>
+                        <TripAdvisorReviewURL>http://www.tripadvisor.com/Hotel_Review-g295424-d299235-Reviews-Crowne_Plaza_Dubai-Dubai_Emirate_of_</TripAdvisorReviewURL>
+                        <TagIds>6,56306</TagIds>
+                    </HotelInfo>
+                    <MinHotelPrice TotalPrice="317.56" Currency="USD" B2CRates="false" OriginalPrice="317.56"/>
+                    <IsPkgProperty>false</IsPkgProperty>
+                    <RoomDetails>
+                        <Room RoomType="" RatePlanCode="CSTNIKB20IKB20" Inclusion=""/>
+                    </RoomDetails>
+                    <IsPackageRate>false</IsPackageRate>
+                    <MappedHotel>true</MappedHotel>
+                    <IsHalal>false</IsHalal>
+                </HotelResult>
+                <HotelResult>
+                    <ResultIndex>8</ResultIndex>
+                    <HotelInfo>
+                        <HotelCode>1259642</HotelCode>
+                        <HotelName>Crowne Plaza Dubai - Festival City</HotelName>
+                        <HotelPicture>https://api.tbotechnology.in/imageresource.aspx?img=9eMP+0FIICgCIk6ZClzZH9Cs+1gwAq6BFWcc22yNLMF/UJIXMdxPdTX9IMA+gOFHusM1IHPBJlB0BsIN4Yz1v5eWbrAK+kbfgL76WXHq4VD7jH9hTvBsxw==</HotelPicture>
+                        <HotelDescription>Property Location With a stay at Crowne Plaza Festival City, you''ll be centrally located in Dubai, a 9-minute walk from Dubai Festival City Mall and 10 minutes by foot from Festival Ce </HotelDescription>
+                        <Latitude>25.22412</Latitude>
+                        <Longitude>55.34943</Longitude>
+                        <HotelAddress>Dubai Festival City P.O.Box 45777 </HotelAddress>
+                        <Rating>FiveStar</Rating>
+                        <HotelPromotion/>
+                        <TripAdvisorRating>4.5</TripAdvisorRating>
+                        <TripAdvisorReviewURL>http://www.tripadvisor.com/Hotel_Review-g295424-d754106-Reviews-Crowne_Plaza_Dubai_Festival_City-Dub</TripAdvisorReviewURL>
+                        <TagIds>16</TagIds>
+                    </HotelInfo>
+                    <MinHotelPrice TotalPrice="318.76" Currency="USD" B2CRates="false" OriginalPrice="318.76"/>
+                    <IsPkgProperty>false</IsPkgProperty>
+                    <RoomDetails>
+                        <Room RoomType="" RatePlanCode="CSPNIDH20IDH20" Inclusion=""/>
+                    </RoomDetails>
+                    <IsPackageRate>false</IsPackageRate>
+                    <MappedHotel>true</MappedHotel>
+                    <IsHalal>false</IsHalal>
+                </HotelResult>
+                <HotelResult>
+                    <ResultIndex>9</ResultIndex>
+                    <HotelInfo>
+                        <HotelCode>1184045</HotelCode>
+                        <HotelName>InterContinental Residence Suites Dubai Festival City</HotelName>
+                        <HotelPicture>https://api.tbotechnology.in/imageresource.aspx?img=9eMP+0FIICgCIk6ZClzZH9Cs+1gwAq6BFWcc22yNLMF/UJIXMdxPdc/YiM5ymb8R04fbikL8allLw0651u/yXP92SbPWlP2LbijQvhX1ufUS+5qV7kzHvg==</HotelPicture>
+                        <HotelDescription>Property Location A stay at InterContinental Residence Suites Dubai Festival City places you in the heart of Dubai, a 5-minute drive from Dubai Festival City Mall and 6 minutes from Fe </HotelDescription>
+                        <Latitude>25.2316</Latitude>
+                        <Longitude>55.34673</Longitude>
+                        <HotelAddress>Dubai Festival City P.O. Box 112225 </HotelAddress>
+                        <Rating>FiveStar</Rating>
+                        <HotelPromotion/>
+                        <TripAdvisorRating>4.5</TripAdvisorRating>
+                        <TripAdvisorReviewURL>http://www.tripadvisor.com/Hotel_Review-g295424-d739160-Reviews-InterContinental_Residence_Suites_Du</TripAdvisorReviewURL>
+                        <TagIds>16</TagIds>
+                    </HotelInfo>
+                    <MinHotelPrice TotalPrice="334.19" Currency="USD" B2CRates="false" OriginalPrice="334.19"/>
+                    <IsPkgProperty>false</IsPkgProperty>
+                    <RoomDetails>
+                        <Room RoomType="" RatePlanCode="CSTGIDH20IDH20" Inclusion=""/>
+                    </RoomDetails>
+                    <IsPackageRate>false</IsPackageRate>
+                    <MappedHotel>true</MappedHotel>
+                    <IsHalal>false</IsHalal>
+                </HotelResult>
+                <HotelResult>
+                    <ResultIndex>10</ResultIndex>
+                    <HotelInfo>
+                        <HotelCode>1265882</HotelCode>
+                        <HotelName>InterContinental Dubai Festival City</HotelName>
+                        <HotelPicture>https://api.tbotechnology.in/imageresource.aspx?img=9eMP+0FIICgCIk6ZClzZH9Cs+1gwAq6BFWcc22yNLMF/UJIXMdxPdc/YiM5ymb8Rj9sPSQu1scErO+Hfa1AF0lBj67BcuZke+MtO6qsnR9oEKGLo7SJc0Q==</HotelPicture>
+                        <HotelDescription>Property Location A stay at InterContinental Dubai Festival City places you in the heart of Dubai, a 3-minute drive from Dubai Festival City Mall and 5 minutes from Festival Center.  T </HotelDescription>
+                        <Latitude>25.2229</Latitude>
+                        <Longitude>55.34933</Longitude>
+                        <HotelAddress>Dubai Festival City P.O. Box 45777 </HotelAddress>
+                        <Rating>FiveStar</Rating>
+                        <HotelPromotion/>
+                        <TripAdvisorRating>4.5</TripAdvisorRating>
+                        <TripAdvisorReviewURL>http://www.tripadvisor.com/Hotel_Review-g295424-d678445-Reviews-InterContinental_Dubai_Festival_City</TripAdvisorReviewURL>
+                        <TagIds>16</TagIds>
+                    </HotelInfo>
+                    <MinHotelPrice TotalPrice="427.04" Currency="USD" B2CRates="false" OriginalPrice="427.04"/>
+                    <IsPkgProperty>false</IsPkgProperty>
+                    <RoomDetails>
+                        <Room RoomType="" RatePlanCode="CDXGIDH20IDH20" Inclusion=""/>
+                    </RoomDetails>
+                    <IsPackageRate>false</IsPackageRate>
+                    <MappedHotel>true</MappedHotel>
+                    <IsHalal>false</IsHalal>
+                </HotelResult>
+                <HotelResult>
+                    <ResultIndex>11</ResultIndex>
+                    <HotelInfo>
+                        <HotelCode>1379461</HotelCode>
+                        <HotelName>Intercontinental Dubai Marina</HotelName>
+                        <HotelPicture>https://api.tbotechnology.in/imageresource.aspx?img=9eMP+0FIICgCIk6ZClzZH9Cs+1gwAq6BFWcc22yNLMF/UJIXMdxPdTX9IMA+gOFH+eiCm32W5xDvNuF7MGEg6dGhMBcKzbVj3a31yCD4SqRQ2OmVx6xtcA==</HotelPicture>
+                        <HotelDescription>Property Location With a stay at Intercontinental Dubai Marina in Dubai (Jumeirah Beach Residence), you''ll be a 4-minute drive from Dubai Marina Mall and 15 minutes from Emirates Golf  </HotelDescription>
+                        <Latitude>25.07876</Latitude>
+                        <Longitude>55.13719</Longitude>
+                        <HotelAddress>Bay Central Dubai Marina </HotelAddress>
+                        <Rating>FiveStar</Rating>
+                        <HotelPromotion/>
+                        <TripAdvisorRating>4.5</TripAdvisorRating>
+                        <TripAdvisorReviewURL>http://www.tripadvisor.com/Hotel_Review-g295424-d7176425-Reviews-InterContinental_Dubai_Marina-Dubai</TripAdvisorReviewURL>
+                        <TagIds>9,11,56305</TagIds>
+                    </HotelInfo>
+                    <MinHotelPrice TotalPrice="428.85" Currency="USD" B2CRates="false" OriginalPrice="428.85"/>
+                    <IsPkgProperty>false</IsPkgProperty>
+                    <RoomDetails>
+                        <Room RoomType="" RatePlanCode="CDXGIDU20IDU20" Inclusion=""/>
+                    </RoomDetails>
+                    <IsPackageRate>false</IsPackageRate>
+                    <MappedHotel>true</MappedHotel>
+                    <IsHalal>false</IsHalal>
+                </HotelResult>
+                <HotelResult>
+                    <ResultIndex>12</ResultIndex>
+                    <HotelInfo>
+                        <HotelCode>1033415</HotelCode>
+                        <HotelName>RAAS Devigarh</HotelName>
+                        <HotelPicture>https://api.tbotechnology.in/imageresource.aspx?img=9eMP+0FIICgCIk6ZClzZH9Cs+1gwAq6BFWcc22yNLMF/UJIXMdxPdTX9IMA+gOFHsbKtofBclQKmls5BduWSP3W2btysWETqfAl4RbMIwyoqN9358CccJ+sTOYm34Li8</HotelPicture>
+                        <HotelDescription>Property Location Located in Delwara, RAAS Devigarh is within a 15-minute drive of Eklingji Temple and Sahastra Bahu Temple.  This family-friendly resort is 14 mi (22.5 km) from Nathdw </HotelDescription>
+                        <Latitude>24.77317</Latitude>
+                        <Longitude>73.74903</Longitude>
+                        <HotelAddress>NH8 Near Eklingji Temple </HotelAddress>
+                        <Rating>ThreeStar</Rating>
+                        <HotelPromotion>Preferred Hotel</HotelPromotion>
+                        <TripAdvisorRating>4.5</TripAdvisorRating>
+                        <TripAdvisorReviewURL>http://www.tripadvisor.com/Hotel_Review-g297670-d302827-Reviews-RAAS_Devigarh-Rajsamand_Rajsamand_Di</TripAdvisorReviewURL>
+                        <TagIds>26634</TagIds>
+                    </HotelInfo>
+                    <MinHotelPrice TotalPrice="4598.00" Currency="USD" B2CRates="false" OriginalPrice="4598.00"/>
+                    <IsPkgProperty>false</IsPkgProperty>
+                    <RoomDetails>
+                        <Room RoomType="Standard-DoubleBed" RatePlanCode="56221_abc055223XT2000.0000XMT0XOR0XRN0XBB1XM0_0" Inclusion="Room Only"/>
+                    </RoomDetails>
+                    <IsPackageRate>false</IsPackageRate>
+                    <MappedHotel>true</MappedHotel>
+                    <IsHalal>false</IsHalal>
+                </HotelResult>
+                <HotelResult>
+                    <ResultIndex>13</ResultIndex>
+                    <HotelInfo>
+                        <HotelCode>1286599</HotelCode>
+                        <HotelName>EllBee Ganga View</HotelName>
+                        <HotelPicture>https://api.tbotechnology.in/imageresource.aspx?img=FbrGPTrju5e5v0qrAGTD8pPBsj8/wYA5fyPRj8rAX+Te1BPSMNsGaimIPXiuPl5Zo8RKw4ivbiwyNLMxG0Yx6qn1Ysm//CIPZNiG4RuSf6Q=</HotelPicture>
+                        <HotelDescription>Property Location A stay at EllBee Ganga View places you in the heart of Rishikesh, a 3-minute drive from Bharat Mandir and 6 minutes from Triveni Ghat.  This 4-star hotel is 9.2 mi (1 </HotelDescription>
+                        <Latitude>30.10248</Latitude>
+                        <Longitude>78.29265</Longitude>
+                        <HotelAddress>355 Haridwar Road Rishikesh 249201 </HotelAddress>
+                        <Rating>FourStar</Rating>
+                        <HotelPromotion>Preferred Hotel</HotelPromotion>
+                        <TripAdvisorRating>4.5</TripAdvisorRating>
+                        <TripAdvisorReviewURL>http://www.tripadvisor.com/Hotel_Review-g580106-d735937-Reviews-EllBee_Ganga_View-Rishikesh_Dehradun</TripAdvisorReviewURL>
+                        <TagIds>40639</TagIds>
+                    </HotelInfo>
+                    <MinHotelPrice TotalPrice="2528.90" Currency="USD" B2CRates="false" OriginalPrice="2528.90"/>
+                    <IsPkgProperty>false</IsPkgProperty>
+                    <RoomDetails>
+                        <Room RoomType="Deluxe-Quad" RatePlanCode="49184_abc049184XT2200.0000XMT0XOR0XRN0XBB1XM0_0" Inclusion="Room Only"/>
+                    </RoomDetails>
+                    <IsPackageRate>false</IsPackageRate>
+                    <MappedHotel>true</MappedHotel>
+                    <IsHalal>false</IsHalal>
+                </HotelResult>
+            </HotelResultList>
+        </HotelSearchResponse>
+    </s:Body>
+</s:Envelope>

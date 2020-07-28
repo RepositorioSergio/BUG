@@ -42,8 +42,10 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$user = 'wingstest';
-$pass = 'Win@59491374';
+$user = 'clubonehotelsTest';
+$pass = 'Clu@28527768';
+$session_id = '7296c632-9048-4c2b-be08-87ea9e786586';
+$resultindex = 1;
 
 $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
 <soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
@@ -54,14 +56,14 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 </soap:Header>
 <soap:Body>
     <hot:AvailabilityAndPricingRequest>
-        <hot:ResultIndex>4</hot:ResultIndex>
+        <hot:ResultIndex>' . $resultindex . '</hot:ResultIndex>
         <hot:HotelCode></hot:HotelCode>
-        <hot:SessionId>9616db93-3fdf-40e4-9118-63441e133ccd</hot:SessionId>
+        <hot:SessionId>' . $session_id . '</hot:SessionId>
         <hot:OptionsForBooking>
             <hot:FixedFormat>true</hot:FixedFormat>
             <hot:RoomCombination>
                 <hot:RoomIndex>1</hot:RoomIndex>
-                <hot:RoomIndex>2</hot:RoomIndex>
+                <hot:RoomIndex>3</hot:RoomIndex>
             </hot:RoomCombination>
         </hot:OptionsForBooking>
     </hot:AvailabilityAndPricingRequest>
@@ -89,17 +91,17 @@ $client->setMethod('POST');
 $client->setRawBody($raw);
 $response = $client->send();
 if ($response->isSuccess()) {
-$response = $response->getBody();
+    $response = $response->getBody();
 } else {
-$logger = new Logger();
-$writer = new Writer\Stream('/srv/www/htdocs/error_log');
-$logger->addWriter($writer);
-$logger->info($client->getUri());
-$logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
-echo $return;
-echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
-echo $return;
-die();
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($client->getUri());
+    $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
+    echo $return;
+    echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
+    echo $return;
+    die();
 }
 echo "<br/>RESPONSE";
 echo '<xmp>';

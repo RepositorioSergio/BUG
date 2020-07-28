@@ -1,5 +1,4 @@
 <?php
-echo "COMECOU HOTEL SEARCH 1<br/>";
 require '../vendor/autoload.php';
 use Zend\Db\Sql\Sql;
 use Zend\Db\Adapter\Adapter;
@@ -12,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU HOTEL SEARCH 2<br/>";
+echo "COMECOU COUNTRIES<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -29,6 +28,9 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
+// Start
+$affiliate_id = 0;
+$branch_filter = "";
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.tbo.php');
 $config = [
@@ -40,8 +42,103 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
+$nrooms = 1;
+$n = 1;
+
 $user = 'wingstest';
 $pass = 'Win@59491374';
+
+/* $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
+<soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing" >
+    <hot:Credentials UserName="' . $user . '" Password="' . $pass . '">
+    </hot:Credentials>
+    <wsa:Action>http://TekTravel/HotelBookingApi/HotelSearch</wsa:Action>
+    <wsa:To>https://api.tbotechnology.in/hotelapi_v7/hotelservice.svc</wsa:To>
+</soap:Header>
+<soap:Body>
+    <hot:HotelSearchRequest>
+        <hot:CheckInDate>2019-10-27</hot:CheckInDate>
+        <hot:CheckOutDate>2019-10-29</hot:CheckOutDate>
+        <hot:CountryName>United Arab Emirates</hot:CountryName>
+        <hot:CityName>Dubai</hot:CityName>
+        <hot:CityId>115936</hot:CityId>
+        <hot:IsNearBySearchAllowed>false</hot:IsNearBySearchAllowed>
+        <hot:NoOfRooms>' . $nrooms . '</hot:NoOfRooms>
+        <hot:GuestNationality>AE</hot:GuestNationality>
+        <hot:IsRoomInfoRequired>true</hot:IsRoomInfoRequired>
+        <hot:RoomGuests>';
+
+        switch ($n) {
+            case 1:
+                $raw = $raw . '<hot:RoomGuest AdultCount="2" ChildCount="0"/>';
+                break;
+            case 2:
+                $raw = $raw . '<hot:RoomGuest AdultCount="1" ChildCount="1">
+                    <hot:ChildAge>
+                        <hot:int>5</hot:int>
+                    </hot:ChildAge>
+                </hot:RoomGuest>';
+                break;
+            case 3:
+                $raw = $raw . '<hot:RoomGuest AdultCount="2" ChildCount="2">
+                    <hot:ChildAge>
+                        <hot:int>3</hot:int>
+                        <hot:int>5</hot:int>
+                    </hot:ChildAge>
+                </hot:RoomGuest>';
+                break;
+            case 4:
+                $raw = $raw . '<hot:RoomGuest AdultCount="1" ChildCount="0"/>
+                <hot:RoomGuest AdultCount="1" ChildCount="0"/>';
+                break;
+            case 5:
+                $raw = $raw . '<hot:RoomGuest AdultCount="1" ChildCount="1">
+                    <hot:ChildAge>
+                        <hot:int>5</hot:int>
+                    </hot:ChildAge>
+                </hot:RoomGuest>
+                <hot:RoomGuest AdultCount="1" ChildCount="0"/>';
+                break;
+            case 6:
+                $raw = $raw . '<hot:RoomGuest AdultCount="1" ChildCount="2">
+                    <hot:ChildAge>
+                        <hot:int>3</hot:int>
+                        <hot:int>5</hot:int>
+                    </hot:ChildAge>
+                </hot:RoomGuest>
+                <hot:RoomGuest AdultCount="2" ChildCount="0"/>';
+                break;
+            case 7:
+                $raw = $raw . '<hot:RoomGuest AdultCount="1" ChildCount="2">
+                    <hot:ChildAge>
+                        <hot:int>3</hot:int>
+                        <hot:int>5</hot:int>
+                    </hot:ChildAge>
+                </hot:RoomGuest>
+                <hot:RoomGuest AdultCount="2" ChildCount="0"/>';
+                break;
+            
+            default:
+                echo "<br/>ERRO.";
+                break;
+        }
+
+    $raw = $raw . '</hot:RoomGuests>
+        <hot:ResultCount>0</hot:ResultCount>
+        <hot:Filters>
+        <hot:StarRating>All</hot:StarRating>
+        <hot:OrderBy>PriceAsc</hot:OrderBy>
+        </hot:Filters>
+        <hot:GeoCodes>
+            <hot:Latitude>25.26899</hot:Latitude>
+            <hot:Longitude>55.37896</hot:Longitude>
+            <hot:SearchRadius>10</hot:SearchRadius>
+            <hot:CountryCode>AE</hot:CountryCode>
+        </hot:GeoCodes>
+        <hot:ResponseTime>23</hot:ResponseTime>
+    </hot:HotelSearchRequest>
+</soap:Body>
+</soap:Envelope>'; */
 
 $sql = "SELECT id, name, countryname FROM tbo_cities";
 $statement = $db->createStatement($sql);
@@ -64,7 +161,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
         $CityName = $row->name;
         $CountryName = $row->countryname;
 
-        $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
+        $raw2 = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
         <soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing"> 
             <hot:Credentials UserName="' . $user . '" Password="' . $pass . '"> </hot:Credentials>
             <wsa:Action>http://TekTravel/HotelBookingApi/HotelSearch</wsa:Action> 
@@ -93,29 +190,39 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
         </soap:Body> 
         </soap:Envelope>';
 
-        $url =  "https://api.tbotechnology.in/HotelAPI_V7/HotelService.svc";
-        $headers = array(
+        $client = new Client();
+        $client->setOptions(array(
+            'timeout' => 100,
+            'sslverifypeer' => false,
+            'sslverifyhost' => false
+        ));
+        $client->setHeaders(array(
             "Content-type: application/soap+xml; charset=utf-8",
-            "Content-length: " . strlen($raw)
-        );
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        $response = curl_exec($ch);
-        $error = curl_error($ch);
-        $headers = curl_getinfo($ch);
-        curl_close($ch);
+            "Content-length: ".strlen($raw2)
+        ));
+        $url =  "https://api.tbotechnology.in/HotelAPI_V7/HotelService.svc";
+
+        $client->setUri($url);
+        $client->setMethod('POST');
+        $client->setRawBody($raw2);
+        $response = $client->send();
+        if ($response->isSuccess()) {
+            $response = $response->getBody();
+        } else {
+            $logger = new Logger();
+            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+            $logger->addWriter($writer);
+            $logger->info($client->getUri());
+            $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
+            echo $return;
+            echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
+            echo $return;
+            die();
+        }
         echo "<br/>RESPONSE";
         echo '<xmp>';
         var_dump($response);
         echo '</xmp>';
-
 
         $config = new \Zend\Config\Config(include '../config/autoload/global.tbo.php');
         $config = [
@@ -489,6 +596,8 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                 }
             }
         }
+    }
+}
 
 // EOF
 $db->getDriver()

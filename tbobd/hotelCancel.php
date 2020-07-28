@@ -42,8 +42,9 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$user = 'wingstest';
-$pass = 'Win@59491374';
+$user = 'clubonehotelsTest';
+$pass = 'Clu@28527768';
+$confirmationno = 'OEA2BR';
 
 $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
 <soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
@@ -54,7 +55,7 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 </soap:Header>
 <soap:Body>
     <hot:HotelCancelRequest>
-        <hot:ConfirmationNo>NGWESK</hot:ConfirmationNo>
+        <hot:ConfirmationNo>' . $confirmationno . '</hot:ConfirmationNo>
         <hot:RequestType>HotelCancel</hot:RequestType>
         <hot:Remarks>test cancelhotel</hot:Remarks>
     </hot:HotelCancelRequest>

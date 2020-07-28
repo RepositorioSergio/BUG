@@ -42,10 +42,11 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$user = 'wingstest';
-$pass = 'Win@59491374';
+$user = 'clubonehotelsTest';
+$pass = 'Clu@28527768';
 
 $option = "BookingId";
+$booking_id = 139962;
 
 $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
 <soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
@@ -56,7 +57,7 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 <soap:Body>
     <hot:HotelBookingDetailRequest>';
     if ($option = "BookingId") {
-        $raw = $raw . '<hot:BookingId>103039</hot:BookingId>';
+        $raw = $raw . '<hot:BookingId>' . $booking_id . '</hot:BookingId>';
     } elseif($option = "ConfirmationNo") {
         $raw = $raw . '<hot:ConfirmationNo>Z7Y1MW</hot:ConfirmationNo>';
     } elseif($option = "ClientReferenceNumber") {
@@ -67,6 +68,7 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 </soap:Body>
 </soap:Envelope>';
 
+echo "<br/>REQUEST";
 echo '<xmp>';
 var_dump($raw);
 echo '</xmp>';
