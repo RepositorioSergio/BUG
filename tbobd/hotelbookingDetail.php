@@ -46,7 +46,7 @@ $user = 'clubonehotelsTest';
 $pass = 'Clu@28527768';
 
 $option = "BookingId";
-$booking_id = 139962;
+$booking_id = 139990;
 
 $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
 <soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">

@@ -44,7 +44,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $user = 'clubonehotelsTest';
 $pass = 'Clu@28527768';
-$session_id = '7296c632-9048-4c2b-be08-87ea9e786586';
+$session_id = 'f2d978c4-235a-4d06-b58b-57e3b1b244df';
 $resultindex = 1;
 
 $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
@@ -63,7 +63,6 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
             <hot:FixedFormat>true</hot:FixedFormat>
             <hot:RoomCombination>
                 <hot:RoomIndex>1</hot:RoomIndex>
-                <hot:RoomIndex>3</hot:RoomIndex>
             </hot:RoomCombination>
         </hot:OptionsForBooking>
     </hot:AvailabilityAndPricingRequest>

@@ -42,8 +42,8 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$nrooms = 2;
-$n = 6;
+$nrooms = 1;
+$n = 1;
 
 $user = 'clubonehotelsTest';
 $pass = 'Clu@28527768';
@@ -57,8 +57,8 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 </soap:Header>
 <soap:Body>
     <hot:HotelSearchRequest>
-        <hot:CheckInDate>2020-11-03</hot:CheckInDate>
-        <hot:CheckOutDate>2020-11-07</hot:CheckOutDate>
+        <hot:CheckInDate>2021-01-03</hot:CheckInDate>
+        <hot:CheckOutDate>2021-01-07</hot:CheckOutDate>
         <hot:CountryName>United Arab Emirates</hot:CountryName>
         <hot:CityName>Dubai</hot:CityName>
         <hot:CityId>115936</hot:CityId>

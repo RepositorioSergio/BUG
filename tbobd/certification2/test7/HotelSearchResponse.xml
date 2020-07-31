@@ -1,0 +1,45 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing">
+    <s:Header>
+        <a:Action s:mustUnderstand="1">http://TekTravel/HotelBookingApi/IHotelService/HotelSearchResponse</a:Action>
+    </s:Header>
+    <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <HotelSearchResponse xmlns="http://TekTravel/HotelBookingApi">
+            <Status>
+                <StatusCode>01</StatusCode>
+                <Description>Successful: HotelSearch Successful</Description>
+            </Status>
+            <ResponseTime>28/07/2020 19:33:19</ResponseTime>
+            <SessionId>f2d978c4-235a-4d06-b58b-57e3b1b244df</SessionId>
+            <NoOfRoomsRequested>1</NoOfRoomsRequested>
+            <CityId>0</CityId>
+            <CheckInDate>27/12/2020 00:00:00</CheckInDate>
+            <CheckOutDate>29/12/2020 00:00:00</CheckOutDate>
+            <RoomGuests>
+                <RoomGuest AdultCount="1" ChildCount="0"/>
+            </RoomGuests>
+            <HotelResultList>
+                <HotelResult>
+                    <ResultIndex>1</ResultIndex>
+                    <HotelInfo>
+                        <HotelCode>1508526</HotelCode>
+                        <HotelName>Al Farej Hotel</HotelName>
+                        <HotelPicture>https://api.tbotechnology.in/imageresource.aspx?img=FbrGPTrju5e5v0qrAGTD8pPBsj8/wYA5lPqBj/Ape0+yXz+XovaV8m/f6tHKTfKD68ga97XPtnONtmw3317sYI5Q4dgIseHH8bYuTJU6WGzXmvW+PwPB6g==</HotelPicture>
+                        <HotelDescription>Property Location With a stay at Al Farej Hotel in Dubai (Deira), you''ll be within a 15-minute drive of Gold Souk and The Dubai Heritage Village.  This hotel is 8 mi (12.9 km) from Dub </HotelDescription>
+                        <Latitude>25.27614</Latitude>
+                        <Longitude>55.31058</Longitude>
+                        <HotelAddress>Fareej Al Murarr Opposite Delhi Restaurant Near Al Futtaim Mosque </HotelAddress>
+                        <Rating>ThreeStar</Rating>
+                        <HotelPromotion/>
+                        <TagIds>3</TagIds>
+                    </HotelInfo>
+                    <MinHotelPrice TotalPrice="360.75" Currency="USD" B2CRates="false" OriginalPrice="360.75"/>
+                    <IsPkgProperty>false</IsPkgProperty>
+                    <RoomDetails/>
+                    <IsPackageRate>false</IsPackageRate>
+                    <MappedHotel>true</MappedHotel>
+                    <IsHalal>false</IsHalal>
+                </HotelResult>
+            </HotelResultList>
+        </HotelSearchResponse>
+    </s:Body>
+</s:Envelope>

@@ -1,0 +1,10 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
+<soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    <hot:Credentials UserName="clubonehotelsTest" Password="Clu@28527768"> </hot:Credentials>
+    <wsa:Action>http://TekTravel/HotelBookingApi/HotelBookingDetail</wsa:Action>
+    <wsa:To>https://api.tbotechnology.in/hotelapi_v7/hotelservice.svc</wsa:To>
+</soap:Header>
+<soap:Body>
+    <hot:HotelBookingDetailRequest><hot:BookingId>139978</hot:BookingId></hot:HotelBookingDetailRequest>
+</soap:Body>
+</soap:Envelope>

@@ -1,0 +1,70 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
+<soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
+<hot:Credentials UserName="clubonehotelsTest" Password="Clu@28527768">
+</hot:Credentials>
+<wsa:Action>http://TekTravel/HotelBookingApi/HotelBook</wsa:Action>
+<wsa:To>https://api.tbotechnology.in/hotelapi_v7/hotelservice.svc</wsa:To>
+</soap:Header>
+<soap:Body>
+    <hot:HotelBookRequest>
+        <hot:ClientReferenceNumber>210314135855789#aaaw</hot:ClientReferenceNumber>
+        <hot:GuestNationality>AE</hot:GuestNationality>
+        <hot:Guests>
+            <hot:Guest LeadGuest="true" GuestType="Adult" GuestInRoom="1">
+                <hot:Title>Mr</hot:Title>
+                <hot:FirstName>Ajayge</hot:FirstName>
+                <hot:LastName>testgea</hot:LastName>
+                <hot:Age>28</hot:Age>
+            </hot:Guest>
+            <hot:Guest LeadGuest="false" GuestType="Child" GuestInRoom="1">
+                <hot:Title>Mr</hot:Title>
+                <hot:FirstName>Mahixe</hot:FirstName>
+                <hot:LastName>testgea</hot:LastName>
+                <hot:Age>5</hot:Age>
+            </hot:Guest>
+            <hot:Guest LeadGuest="false" GuestType="Adult" GuestInRoom="2">
+                <hot:Title>Mr</hot:Title>
+                <hot:FirstName>Mayax</hot:FirstName>
+                <hot:LastName>testgea</hot:LastName>
+                <hot:Age>22</hot:Age>
+            </hot:Guest>
+        </hot:Guests>
+        <hot:AddressInfo>
+            <hot:AddressLine1>testadd1</hot:AddressLine1>
+            <hot:AddressLine2>testadd2</hot:AddressLine2>
+            <hot:CountryCode>91</hot:CountryCode>
+            <hot:AreaCode>11</hot:AreaCode>
+            <hot:PhoneNo>25869696</hot:PhoneNo>
+            <hot:Email>abc@gmail.com</hot:Email>
+            <hot:City>Delhi</hot:City>
+            <hot:State>Delhi</hot:State>
+            <hot:Country>India</hot:Country>
+            <hot:ZipCode>256525</hot:ZipCode>
+        </hot:AddressInfo>
+        <!-- VoucherBooking-true Booking will be Vouchered -->
+        <hot:PaymentInfo VoucherBooking="true" PaymentModeType="Limit">
+        </hot:PaymentInfo>
+        <hot:SessionId>ec068e95-e2bf-4f87-bca2-a1e7a97f750e</hot:SessionId>
+        <hot:NoOfRooms>2</hot:NoOfRooms>
+        <hot:ResultIndex>3</hot:ResultIndex>
+        <hot:HotelCode>1632763</hot:HotelCode>
+        <hot:HotelName>Holiday Inn Dubai Festival City</hot:HotelName>
+        <hot:HotelRooms>
+            <hot:HotelRoom>
+                <hot:RoomIndex>3</hot:RoomIndex>
+                <hot:RoomTypeName>Superior Room</hot:RoomTypeName>
+                <hot:RoomTypeCode>CSPNIDU20|1^^CSPNIDU20IDU20</hot:RoomTypeCode>
+                <hot:RatePlanCode>CSPNIDU20IDU20</hot:RatePlanCode>
+                <hot:RoomRate RoomFare="441.03" Currency="USD" AgentMarkUp="0.00" RoomTax="50.12" TotalFare="491.15"/>
+            </hot:HotelRoom>
+            <hot:HotelRoom>
+                <hot:RoomIndex>6</hot:RoomIndex>
+                <hot:RoomTypeName>Superior Room</hot:RoomTypeName>
+                <hot:RoomTypeCode>CSPNIDU20|2^^CSPNIDU20IDU20</hot:RoomTypeCode>
+                <hot:RatePlanCode>CSPNIDU20IDU20</hot:RatePlanCode>
+                <hot:RoomRate RoomFare="441.03" Currency="USD" AgentMarkUp="0.00" RoomTax="50.12" TotalFare="491.15"/>
+            </hot:HotelRoom>
+        </hot:HotelRooms>
+    </hot:HotelBookRequest>
+</soap:Body>
+</soap:Envelope>

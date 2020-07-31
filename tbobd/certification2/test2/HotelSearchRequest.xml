@@ -1,0 +1,38 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
+<soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing" >
+    <hot:Credentials UserName="clubonehotelsTest" Password="Clu@28527768">
+    </hot:Credentials>
+    <wsa:Action>http://TekTravel/HotelBookingApi/HotelSearch</wsa:Action>
+    <wsa:To>https://api.tbotechnology.in/hotelapi_v7/hotelservice.svc</wsa:To>
+</soap:Header>
+<soap:Body>
+    <hot:HotelSearchRequest>
+        <hot:CheckInDate>2021-01-03</hot:CheckInDate>
+        <hot:CheckOutDate>2021-01-07</hot:CheckOutDate>
+        <hot:CountryName>United Arab Emirates</hot:CountryName>
+        <hot:CityName>Dubai</hot:CityName>
+        <hot:CityId>115936</hot:CityId>
+        <hot:IsNearBySearchAllowed>false</hot:IsNearBySearchAllowed>
+        <hot:NoOfRooms>1</hot:NoOfRooms>
+        <hot:GuestNationality>AE</hot:GuestNationality>
+        <hot:IsRoomInfoRequired>true</hot:IsRoomInfoRequired>
+        <hot:RoomGuests><hot:RoomGuest AdultCount="1" ChildCount="1">
+                    <hot:ChildAge>
+                        <hot:int>5</hot:int>
+                    </hot:ChildAge>
+                </hot:RoomGuest></hot:RoomGuests>
+        <hot:ResultCount>0</hot:ResultCount>
+        <hot:Filters>
+        <hot:StarRating>All</hot:StarRating>
+        <hot:OrderBy>PriceAsc</hot:OrderBy>
+        </hot:Filters>
+        <hot:GeoCodes>
+            <hot:Latitude>25.26899</hot:Latitude>
+            <hot:Longitude>55.37896</hot:Longitude>
+            <hot:SearchRadius>10</hot:SearchRadius>
+            <hot:CountryCode>AE</hot:CountryCode>
+        </hot:GeoCodes>
+        <hot:ResponseTime>23</hot:ResponseTime>
+    </hot:HotelSearchRequest>
+</soap:Body>
+</soap:Envelope>

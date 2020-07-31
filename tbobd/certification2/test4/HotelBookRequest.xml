@@ -1,0 +1,64 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
+<soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
+<hot:Credentials UserName="clubonehotelsTest" Password="Clu@28527768">
+</hot:Credentials>
+<wsa:Action>http://TekTravel/HotelBookingApi/HotelBook</wsa:Action>
+<wsa:To>https://api.tbotechnology.in/hotelapi_v7/hotelservice.svc</wsa:To>
+</soap:Header>
+<soap:Body>
+    <hot:HotelBookRequest>
+        <hot:ClientReferenceNumber>210314135855789#aaax</hot:ClientReferenceNumber>
+        <hot:GuestNationality>AE</hot:GuestNationality>
+        <hot:Guests>
+            <hot:Guest LeadGuest="true" GuestType="Adult" GuestInRoom="1">
+                <hot:Title>Mr</hot:Title>
+                <hot:FirstName>Ajayge</hot:FirstName>
+                <hot:LastName>testgea</hot:LastName>
+                <hot:Age>28</hot:Age>
+            </hot:Guest>
+            <hot:Guest LeadGuest="false" GuestType="Adult" GuestInRoom="2">
+                <hot:Title>Mr</hot:Title>
+                <hot:FirstName>Mayax</hot:FirstName>
+                <hot:LastName>testgea</hot:LastName>
+                <hot:Age>22</hot:Age>
+            </hot:Guest>
+        </hot:Guests>
+        <hot:AddressInfo>
+            <hot:AddressLine1>testadd1</hot:AddressLine1>
+            <hot:AddressLine2>testadd2</hot:AddressLine2>
+            <hot:CountryCode>91</hot:CountryCode>
+            <hot:AreaCode>11</hot:AreaCode>
+            <hot:PhoneNo>25869696</hot:PhoneNo>
+            <hot:Email>abc@gmail.com</hot:Email>
+            <hot:City>Delhi</hot:City>
+            <hot:State>Delhi</hot:State>
+            <hot:Country>India</hot:Country>
+            <hot:ZipCode>256525</hot:ZipCode>
+        </hot:AddressInfo>
+        <!-- VoucherBooking-true Booking will be Vouchered -->
+        <hot:PaymentInfo VoucherBooking="true" PaymentModeType="Limit">
+        </hot:PaymentInfo>
+        <hot:SessionId>29a3097d-c558-4845-b914-d205637fad5b</hot:SessionId>
+        <hot:NoOfRooms>2</hot:NoOfRooms>
+        <hot:ResultIndex>1</hot:ResultIndex>
+        <hot:HotelCode>1313642</hot:HotelCode>
+        <hot:HotelName>Holiday Inn Bur Dubai - Embassy District</hot:HotelName>
+        <hot:HotelRooms>
+            <hot:HotelRoom>
+                <hot:RoomIndex>1</hot:RoomIndex>
+                <hot:RoomTypeName>Standard Room</hot:RoomTypeName>
+                <hot:RoomTypeCode>CSTNIDH20|1^^CSTNIDH20IDH20</hot:RoomTypeCode>
+                <hot:RatePlanCode>CSTNIDH20IDH20</hot:RatePlanCode>
+                <hot:RoomRate RoomFare="248.76" Currency="USD" AgentMarkUp="0.00" RoomTax="28.27" TotalFare="277.03"/>
+            </hot:HotelRoom>
+            <hot:HotelRoom>
+                <hot:RoomIndex>4</hot:RoomIndex>
+                <hot:RoomTypeName>Standard Room</hot:RoomTypeName>
+                <hot:RoomTypeCode>CSTNIDH20|2^^CSTNIDH20IDH20</hot:RoomTypeCode>
+                <hot:RatePlanCode>CSTNIDH20IDH20</hot:RatePlanCode>
+                <hot:RoomRate RoomFare="248.76" Currency="USD" AgentMarkUp="0.00" RoomTax="28.27" TotalFare="277.03"/>
+            </hot:HotelRoom>
+        </hot:HotelRooms>
+    </hot:HotelBookRequest>
+</soap:Body>
+</soap:Envelope>

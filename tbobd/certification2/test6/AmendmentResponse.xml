@@ -1,0 +1,29 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing">
+    <s:Header>
+        <a:Action s:mustUnderstand="1">http://TekTravel/HotelBookingApi/IHotelService/AmendmentResponse</a:Action>
+    </s:Header>
+    <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <AmendmentResponse xmlns="http://TekTravel/HotelBookingApi">
+            <Status>
+                <StatusCode>01</StatusCode>
+                <Description>Successful: Status of amendment has been changed to RequestSent</Description>
+            </Status>
+            <RequestStatus>RequestSent</RequestStatus>
+            <BookingId>139978</BookingId>
+            <AmendmentMessage>Your amendment request has been successfully submitted .Our operations team will update the status soon.</AmendmentMessage>
+            <AmendmentRequested>
+                <CheckIn Date="2020-11-03T00:00:00" DateAction="Changed"/>
+                <CheckOut Date="2020-11-07T00:00:00" DateAction="Changed"/>
+                <Rooms>
+                    <RoomRes Amended="FirstRoom">
+                        <Guest Action="Renamed" GuestType="Adult" Title="Mr." FirstName="Shyam" LastName="Srivastav" Age="25"/>
+                    </RoomRes>
+                    <RoomRes Amended="SecondRoom">
+                        <Guest Action="Retained" GuestType="Adult" Title="Mr" FirstName="Lions" LastName="testgea" Age="27"/>
+                        <Guest Action="Retained" GuestType="Adult" Title="Mr" FirstName="Mayax" LastName="testgea" Age="22"/>
+                    </RoomRes>
+                </Rooms>
+            </AmendmentRequested>
+        </AmendmentResponse>
+    </s:Body>
+</s:Envelope>

@@ -44,14 +44,14 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $user = 'clubonehotelsTest';
 $pass = 'Clu@28527768';
-$session_id = '7296c632-9048-4c2b-be08-87ea9e786586';
+$session_id = 'f2d978c4-235a-4d06-b58b-57e3b1b244df';
 $resultindex = 1;
-$numofrooms = 2;
-$hotelcode = 1049198;
-$hotelName = "Crowne Plaza Dubai Deira";
-$RoomTypeName = "Deluxe Room";
-$RoomTypeCode = "CSTNIDH20|1^^CSTNIDH20IDH20";
-$RatePlanCode = "CSTNIDH20IDH20";
+$numofrooms = 1;
+$hotelcode = 1508526;
+$hotelName = "Al Farej Hotel";
+$RoomTypeName = "Standard Room,1 Double Bed";
+$RoomTypeCode = "201722640|208578389$37316^^1^^201722640|208578389|37316";
+$RatePlanCode = "201722640|208578389|37316";
 $RoomTypeCode2 = "CSTNIDH20|2^^CSTNIDH20IDH20";
 $RatePlanCode2 = "CSTNIDH20IDH20";
 
@@ -64,38 +64,14 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 </soap:Header>
 <soap:Body>
     <hot:HotelBookRequest>
-        <hot:ClientReferenceNumber>210314135855789#aaau</hot:ClientReferenceNumber>
+        <hot:ClientReferenceNumber>210314135855789#aabb</hot:ClientReferenceNumber>
         <hot:GuestNationality>AE</hot:GuestNationality>
-        <hot:Guests>
-            <hot:Guest LeadGuest="true" GuestType="Adult" GuestInRoom="1">
+            <hot:Guests>
+                <hot:Guest LeadGuest="true" GuestType="Adult" GuestInRoom="1">
                 <hot:Title>Mr</hot:Title>
-                <hot:FirstName>Ajayge</hot:FirstName>
+                <hot:FirstName>Ajayxe</hot:FirstName>
                 <hot:LastName>testgea</hot:LastName>
-                <hot:Age>28</hot:Age>
-            </hot:Guest>
-            <hot:Guest LeadGuest="false" GuestType="Child" GuestInRoom="1">
-                <hot:Title>Mr</hot:Title>
-                <hot:FirstName>Terstegen</hot:FirstName>
-                <hot:LastName>testgea</hot:LastName>
-                <hot:Age>3</hot:Age>
-            </hot:Guest>
-            <hot:Guest LeadGuest="false" GuestType="Child" GuestInRoom="1">
-                <hot:Title>Mr</hot:Title>
-                <hot:FirstName>Mahixe</hot:FirstName>
-                <hot:LastName>testgea</hot:LastName>
-                <hot:Age>5</hot:Age>
-            </hot:Guest>
-            <hot:Guest LeadGuest="false" GuestType="Adult" GuestInRoom="2">
-                <hot:Title>Mr</hot:Title>
-                <hot:FirstName>Mayax</hot:FirstName>
-                <hot:LastName>testgea</hot:LastName>
-                <hot:Age>22</hot:Age>
-            </hot:Guest>
-            <hot:Guest LeadGuest="false" GuestType="Adult" GuestInRoom="2">
-                <hot:Title>Mr</hot:Title>
-                <hot:FirstName>Lions</hot:FirstName>
-                <hot:LastName>testgea</hot:LastName>
-                <hot:Age>27</hot:Age>
+                <hot:Age>30</hot:Age>
             </hot:Guest>
         </hot:Guests>
         <hot:AddressInfo>
@@ -114,7 +90,7 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
         <hot:PaymentInfo VoucherBooking="true" PaymentModeType="Limit">
         </hot:PaymentInfo>
         <hot:SessionId>' . $session_id . '</hot:SessionId>
-        <hot:NoOfRooms>2</hot:NoOfRooms>
+        <hot:NoOfRooms>1</hot:NoOfRooms>
         <hot:ResultIndex>' . $resultindex . '</hot:ResultIndex>
         <hot:HotelCode>' . $hotelcode . '</hot:HotelCode>
         <hot:HotelName>' . $hotelName . '</hot:HotelName>
@@ -124,14 +100,10 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
                 <hot:RoomTypeName>' . $RoomTypeName . '</hot:RoomTypeName>
                 <hot:RoomTypeCode>' . $RoomTypeCode . '</hot:RoomTypeCode>
                 <hot:RatePlanCode>' . $RatePlanCode . '</hot:RatePlanCode>
-                <hot:RoomRate RoomFare="333.62" Currency="USD" AgentMarkUp="0.00" RoomTax="37.91" TotalFare="371.54"/>
-            </hot:HotelRoom>
-            <hot:HotelRoom>
-                <hot:RoomIndex>3</hot:RoomIndex>
-                <hot:RoomTypeName>' . $RoomTypeName . '</hot:RoomTypeName>
-                <hot:RoomTypeCode>' . $RoomTypeCode2 . '</hot:RoomTypeCode>
-                <hot:RatePlanCode>' . $RatePlanCode2 . '</hot:RatePlanCode>
-                <hot:RoomRate RoomFare="333.62" Currency="USD" AgentMarkUp="0.00" RoomTax="37.91" TotalFare="371.54"/>
+                <hot:RoomRate RoomFare="294.59" Currency="USD" AgentMarkUp="0.00" RoomTax="66.16" TotalFare="360.75"/>
+                <hot:Supplements>
+                    <hot:SuppInfo Type="PerStaySupplement" SuppID="1" SuppName="mandatory_tax" SuppIsMandatory="true" SuppChargeType="AtProperty" Price="20.00" CurrencyCode="AED" />
+                </hot:Supplements>
             </hot:HotelRoom>
         </hot:HotelRooms>
     </hot:HotelBookRequest>
