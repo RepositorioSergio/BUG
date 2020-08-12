@@ -1,0 +1,11 @@
+<OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" Version="0.1" EchoToken="40e888c4-8f19-4ec2-bfc0-bbde51d8ed4b" CancelType="Commit">
+<POS>
+    <Source>
+        <RequestorID Instance="MF001" ID_Context="AxisData" ID="TEST" Type="22"/>
+    </Source>
+    <Source>
+        <RequestorID Type="88" ID="TEST" MessagePassword="testpass"/>
+    </Source>
+</POS>
+<UniqueID Type="36" ID="AAH" ID_Context="Client"/>
+</OTA_CancelRQ>

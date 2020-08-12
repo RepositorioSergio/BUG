@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="1" EchoToken="4952f2f5-dfc4-4e39-90d0-701988f77ed4" ResResponseType="Committed">
+<Success/>
+<HotelReservations>
+<HotelReservation CreateDateTime="2020-08-08T17:42:07">
+<RoomStays>
+<RoomStay RPH="0" IndexNumber="1">
+<Total CurrencyCode="EUR" AmountAfterTax="1207.65"/>
+</RoomStay>
+</RoomStays>
+<ResGlobalInfo>
+<Total CurrencyCode="EUR" AmountAfterTax="1207.65"/>
+<HotelReservationIDs>
+<HotelReservationID ResID_Type="36" ResID_SourceContext="Client" ResID_Value="AAI"/>
+<HotelReservationID ResID_Value="36046964" ResID_Type="36" ResID_SourceContext="Internal"/>
+<HotelReservationID Item_RPH="0" ResID_Value="AAI_001" ResID_Type="37" ResID_SourceContext="Client"/>
+<HotelReservationID Item_RPH="0" ResID_Value="1" ResID_Type="37" ResID_SourceContext="Internal"/>
+</HotelReservationIDs>
+<CancelPenalties/><BasicPropertyInfo HotelCodeContext="22984" AreaID="13916" HotelName="The Roosevelt Hotel New York City" HotelCode="AUSNYC9WO8"><VendorMessages><VendorMessage Title="IncidentsAndErrata" InfoType="5"><SubSection><Paragraph><Text>Mandatory Charges,  Fee Amount: 40,  charge cycle: per Room per Night,  charge method: cash or card,  Currency: USD,  Extra Types: Resort Fee</Text></Paragraph></SubSection></VendorMessage></VendorMessages></BasicPropertyInfo></ResGlobalInfo>
+<TPA_Extensions>
+<ns1:BookingStatus xmlns:ns1="http://www.opentravel.org/OTA/2003/05/tpa" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:BookingStatusType" ReservationStatusType="Reserved"/>
+</TPA_Extensions>
+</HotelReservation>
+</HotelReservations>
+</OTA_HotelResRS>

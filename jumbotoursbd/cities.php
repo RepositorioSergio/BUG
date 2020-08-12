@@ -39,83 +39,189 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$url = 'https://test.xtravelsystem.com/public/v1_0rc1/basketHandler';
+$sql = "SELECT id FROM countries";
+$statement = $db->createStatement($sql);
+try {
+    $statement->prepare();
+} catch (\Exception $e) {
+    echo $return;
+    echo $e->getMessage();
+    echo $return;
+    die();
+}
 
-$email = 'paulo@corp.bug-software.com';
-$password = 'xA2d@a1X';
+$result = $statement->execute();
+$result->buffer();
+if ($result instanceof ResultInterface && $result->isQueryResult()) {
+    $resultSet = new ResultSet();
+    $resultSet->initialize($result);
+    foreach ($resultSet as $row) {
+        $countrycode = $row->id;
 
-$raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-<soapenv:Body>
-    <tns:getCitiesByArea xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xtravelsystem.com/v1_0rc1/common/types" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-        <GetCitiesByAreaRQ_1>
-            <agencyCode>613</agencyCode>
-            <brandCode>1</brandCode>
-            <pointOfSaleId>1</pointOfSaleId>
-            <areaCode>11</areaCode>
-            <language>en</language>
-        </GetCitiesByAreaRQ_1>
-    </tns:getCitiesByArea>
-</soapenv:Body>
-</soapenv:Envelope>';
+        $url = 'https://test.xtravelsystem.com/public/v1_0rc1/commonsHandler';
 
-$headers = array(
-    "Content-type: text/xml",
-    "Accept-Encoding: gzip, deflate",
-    "Content-length: " . strlen($raw)
-);
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
-curl_setopt($ch, CURLOPT_TIMEOUT, 65000);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
-curl_setopt($ch,CURLOPT_ENCODING , "gzip, deflate");
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-$response = curl_exec($ch);
-$error = curl_error($ch);
-curl_close($ch);
+        $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://xtravelsystem.com/v1_0rc1/common/types">
+        <soapenv:Header/>
+        <soapenv:Body>
+           <typ:getCitiesV22>
+              <GetCitiesRQV22_1>
+                 <agencyCode>266333</agencyCode>
+                 <brandCode>1</brandCode>
+                 <pointOfSaleId>1</pointOfSaleId>
+                 <countryCode>' . $countrycode . '</countryCode>
+                 <language>EN</language>
+                 <extendedLogin>
+                    <channel>B2C</channel>
+                    <loginCountry>ES</loginCountry>
+                    <mainNationality>spain</mainNationality>
+                 </extendedLogin>
+              </GetCitiesRQV22_1>
+           </typ:getCitiesV22>
+        </soapenv:Body>
+     </soapenv:Envelope>';
 
-echo $return;
-echo $error;
-echo $return;
-echo "<xmp>";
-var_dump($response);
-echo "</xmp>"; 
+        $headers = array(
+            "Content-type: text/xml",
+            "Accept-Encoding: gzip, deflate",
+            "Content-length: " . strlen($raw)
+        );
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 65000);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+        curl_setopt($ch,CURLOPT_ENCODING , "gzip, deflate");
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $response = curl_exec($ch);
+        $error = curl_error($ch);
+        curl_close($ch);
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.jumbotours.php');
-$config = [
-    'driver' => $config->db->driver,
-    'database' => $config->db->database,
-    'username' => $config->db->username,
-    'password' => $config->db->password,
-    'hostname' => $config->db->hostname
-];
-$db = new \Zend\Db\Adapter\Adapter($config);
+        echo $return;
+        echo $error;
+        echo $return;
+        echo "<xmp>";
+        var_dump($response);
+        echo "</xmp>"; 
 
-$inputDoc = new DOMDocument();
-$inputDoc->loadXML($response);
-$Envelope = $inputDoc->getElementsByTagName("Envelope");
-$Body = $Envelope->item(0)->getElementsByTagName("Body");
-$getCitiesByAreaResponse = $Body->item(0)->getElementsByTagName("getCitiesByAreaResponse");
-if ($getCitiesByAreaResponse->length > 0) {
-    $result = $getCitiesByAreaResponse->item(0)->getElementsByTagName("result");
-    if ($result->length > 0) {
-        $list = $result->item(0)->getElementsByTagName("list");
-        if ($list->length > 0) {
-            for ($i=0; $i < $list->length; $i++) { 
-                $code = $list->item($i)->getElementsByTagName("code");
-                if ($code->length > 0) {
-                    $code = $code->item(0)->nodeValue;
-                } else {
-                    $code = 0;
-                }
-                $name = $list->item($i)->getElementsByTagName("name");
-                if ($name->length > 0) {
-                    $name = $name->item(0)->nodeValue;
-                } else {
-                    $name = "";
+        $config = new \Zend\Config\Config(include '../config/autoload/global.jumbotours.php');
+        $config = [
+            'driver' => $config->db->driver,
+            'database' => $config->db->database,
+            'username' => $config->db->username,
+            'password' => $config->db->password,
+            'hostname' => $config->db->hostname
+        ];
+        $db = new \Zend\Db\Adapter\Adapter($config);
+
+        $inputDoc = new DOMDocument();
+        $inputDoc->loadXML($response);
+        $Envelope = $inputDoc->getElementsByTagName("Envelope");
+        $Body = $Envelope->item(0)->getElementsByTagName("Body");
+        $getCitiesV22Response = $Body->item(0)->getElementsByTagName("getCitiesV22Response");
+        if ($getCitiesV22Response->length > 0) {
+            $result = $getCitiesV22Response->item(0)->getElementsByTagName("result");
+            if ($result->length > 0) {
+                $list = $result->item(0)->getElementsByTagName("list");
+                if ($list->length > 0) {
+                    for ($i=0; $i < $list->length; $i++) { 
+                        $code = $list->item($i)->getElementsByTagName("code");
+                        if ($code->length > 0) {
+                            $code = $code->item(0)->nodeValue;
+                        } else {
+                            $code = 0;
+                        }
+                        $name = $list->item($i)->getElementsByTagName("name");
+                        if ($name->length > 0) {
+                            $name = $name->item(0)->nodeValue;
+                        } else {
+                            $name = "";
+                        }
+
+                        try {
+                            $sql = new Sql($db);
+                            $select = $sql->select();
+                            $select->from('cities');
+                            $select->where(array(
+                                'id' => $code
+                            ));
+                            $statement = $sql->prepareStatementForSqlObject($select);
+                            $result = $statement->execute();
+                            $result->buffer();
+                            $customers = array();
+                            if ($result->valid()) {
+                                $data = $result->current();
+                                $id = (string)$data['id'];
+                                if ($id != "") {
+                                    $config = new \Zend\Config\Config(include '../config/autoload/global.jumbotours.php');
+                                    $config = [
+                                        'driver' => $config->db->driver,
+                                        'database' => $config->db->database,
+                                        'username' => $config->db->username,
+                                        'password' => $config->db->password,
+                                        'hostname' => $config->db->hostname
+                                    ];
+                                    $dbUpdate = new \Zend\Db\Adapter\Adapter($config);
+            
+                                    $data = array(
+                                        'datetime_updated' => time(),
+                                        'name' => $name,
+                                        'countrycode' => $countrycode
+                                    );
+                
+                                    $sql    = new Sql($dbUpdate);
+                                    $update = $sql->update();
+                                    $update->table('cities');
+                                    $update->set($data);
+                                    $update->where(array('id' => $code));
+            
+                                    $statement = $sql->prepareStatementForSqlObject($update);
+                                    $results = $statement->execute();
+                                    $dbUpdate->getDriver()
+                                    ->getConnection()
+                                    ->disconnect(); 
+                                } else {
+                                    $sql = new Sql($db);
+                                    $insert = $sql->insert();
+                                    $insert->into('cities');
+                                    $insert->values(array(
+                                        'id' => $code,
+                                        'datetime_updated' => time(),
+                                        'name' => $name,
+                                        'countrycode' => $countrycode
+                                    ), $insert::VALUES_MERGE);
+                                    $statement = $sql->prepareStatementForSqlObject($insert);
+                                    $results = $statement->execute();
+                                    $db->getDriver()
+                                        ->getConnection()
+                                        ->disconnect();
+                                }
+                            } else {
+                                $sql = new Sql($db);
+                                $insert = $sql->insert();
+                                $insert->into('cities');
+                                $insert->values(array(
+                                    'id' => $code,
+                                    'datetime_updated' => time(),
+                                    'name' => $name,
+                                    'countrycode' => $countrycode
+                                ), $insert::VALUES_MERGE);
+                                $statement = $sql->prepareStatementForSqlObject($insert);
+                                $results = $statement->execute();
+                                $db->getDriver()
+                                    ->getConnection()
+                                    ->disconnect();
+                            }
+                        } catch (\Exception $e) {
+                            echo $return;
+                            echo "ERRO: ". $e;
+                            echo $return;
+                        }
+
+                    }
                 }
             }
         }

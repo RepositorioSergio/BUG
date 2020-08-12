@@ -41,62 +41,44 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $url = 'https://test.xtravelsystem.com/public/v1_0rc1/hotelBookingHandler';
 
-$email = 'paulo@corp.bug-software.com';
-$password = 'xA2d@a1X';
-
-$raw = '<?xml version="1.0" encoding="UTF-8"?>
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://xtravelsystem.com/v1_0rc1/hotel/types">
-    <soapenv:Header/>
-    <soapenv:Body>
-        <typ:availableHotelsByMultiQueryV22>
-            <AvailableHotelsByMultiQueryRQV22_1>
-                <agencyCode>613</agencyCode>
-                <brandCode>1</brandCode>
-                <pointOfSaleId>1</pointOfSaleId>
-                <checkin>2018-04-22T00:00:00.000Z</checkin>
-                <checkout>2018-04-27T00:00:00.000Z</checkout>
-                <fromPrice>0</fromPrice>
-                <fromRow>0</fromRow>
-                <includeEstablishmentData>false</includeEstablishmentData>
-                <language>en</language>
-                <maxRoomCombinationsPerEstablishment>30</maxRoomCombinationsPerEstablishment>
-                <numRows>100</numRows>
-                <occupancies>
-                    <adults>2</adults>
-                    <children>0</children>
-                    <numberOfRooms>1</numberOfRooms>
-                </occupancies>
-                <onlyOnline>true</onlyOnline>
-                <orderBy/>
-                <productCode/>
-                <toPrice>999999</toPrice>
-                <establishmentId>245479</establishmentId>
-                <extendedLogin>
-                    <channel>B2C</channel>
-                    <loginCountry>ES</loginCountry>
-                    <mainNationality>spain</mainNationality>
-                </extendedLogin>
-                <coordinates>
-                    <latitude>39.55608</latitude>
-                    <longitude>2.6221652</longitude>
-                    <radius>500</radius>
-                </coordinates>
-                <coordinates>
-                    <latitude>39.555206</latitude>
-                    <longitude>2.6202126</longitude>
-                    <radius>500</radius>
-                </coordinates>
-                <coordinates>
-                    <latitude>39.79546</latitude>
-                    <longitude>2.6973152</longitude>
-                    <radius>500</radius>
-                </coordinates>
-                <paxNationalities>
-                    <nationality/>
-                </paxNationalities>
-            </AvailableHotelsByMultiQueryRQV22_1>
-        </typ:availableHotelsByMultiQueryV22>
-    </soapenv:Body>
+$raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://xtravelsystem.com/v1_0rc1/hotel/types">
+<soapenv:Header/>
+<soapenv:Body>
+   <typ:availableHotelsByMultiQueryV22>
+      <AvailableHotelsByMultiQueryRQV22_1>
+         <agencyCode>266333</agencyCode>
+         <brandCode>1</brandCode>
+         <pointOfSaleId>1</pointOfSaleId>
+         <checkin>2021-04-22T00:00:00.000Z</checkin>
+         <checkout>2021-04-27T00:00:00.000Z</checkout>
+         <fromPrice>0</fromPrice>
+         <fromRow>0</fromRow>
+         <includeEstablishmentData>false</includeEstablishmentData>
+         <language>en</language>
+         <maxRoomCombinationsPerEstablishment>30</maxRoomCombinationsPerEstablishment>
+         <numRows>100</numRows>
+         <occupancies>
+            <adults>2</adults>
+            <children>0</children>
+            <!--<childrenAges>0</childrenAges>-->
+            <numberOfRooms>1</numberOfRooms>
+         </occupancies>
+         <onlyOnline>true</onlyOnline>
+         <orderBy/>
+         <productCode/>
+         <toPrice>999999</toPrice>
+         <cityCode>100</cityCode>
+         <extendedLogin>
+            <channel>B2C</channel>
+            <loginCountry>ES</loginCountry>
+            <mainNationality>spain</mainNationality>
+         </extendedLogin>
+         <paxNationalities>
+            <nationality/>
+         </paxNationalities>
+      </AvailableHotelsByMultiQueryRQV22_1>
+   </typ:availableHotelsByMultiQueryV22>
+</soapenv:Body>
 </soapenv:Envelope>';
 
 $headers = array(
@@ -106,6 +88,7 @@ $headers = array(
 );
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
@@ -169,396 +152,398 @@ if ($availableHotelsByMultiQueryV22Response->length > 0) {
         }
         $availableHotels = $result->item(0)->getElementsByTagName("availableHotels");
         if ($availableHotels->length > 0) {
-            $moreCombinations = $availableHotels->item(0)->getElementsByTagName("moreCombinations");
-            if ($moreCombinations->length > 0) {
-                $moreCombinations = $moreCombinations->item(0)->nodeValue;
-            } else {
-                $moreCombinations = "";
-            }
-            $establishment = $availableHotels->item(0)->getElementsByTagName("establishment");
-            if ($establishment->length > 0) {
-                $id = $establishment->item(0)->getElementsByTagName("id");
-                if ($id->length > 0) {
-                    $id = $id->item(0)->nodeValue;
+            for ($k=0; $k < $availableHotels->length; $k++) { 
+                $moreCombinations = $availableHotels->item($k)->getElementsByTagName("moreCombinations");
+                if ($moreCombinations->length > 0) {
+                    $moreCombinations = $moreCombinations->item(0)->nodeValue;
                 } else {
-                    $id = "";
+                    $moreCombinations = "";
                 }
-                $name = $establishment->item(0)->getElementsByTagName("name");
-                if ($name->length > 0) {
-                    $name = $name->item(0)->nodeValue;
-                } else {
-                    $name = "";
-                }
-                $categoryCode = $establishment->item(0)->getElementsByTagName("categoryCode");
-                if ($categoryCode->length > 0) {
-                    $categoryCode = $categoryCode->item(0)->nodeValue;
-                } else {
-                    $categoryCode = "";
-                }
-                $categoryName = $establishment->item(0)->getElementsByTagName("categoryName");
-                if ($categoryName->length > 0) {
-                    $categoryName = $categoryName->item(0)->nodeValue;
-                } else {
-                    $categoryName = "";
-                }
-                $imageUrl = $establishment->item(0)->getElementsByTagName("imageUrl");
-                if ($imageUrl->length > 0) {
-                    $imageUrl = $imageUrl->item(0)->nodeValue;
-                } else {
-                    $imageUrl = "";
-                }
-                $latitude = $establishment->item(0)->getElementsByTagName("latitude");
-                if ($latitude->length > 0) {
-                    $latitude = $latitude->item(0)->nodeValue;
-                } else {
-                    $latitude = "";
-                }
-                $longitude = $establishment->item(0)->getElementsByTagName("longitude");
-                if ($longitude->length > 0) {
-                    $longitude = $longitude->item(0)->nodeValue;
-                } else {
-                    $longitude = "";
-                }
-                $shortDescription = $establishment->item(0)->getElementsByTagName("shortDescription");
-                if ($shortDescription->length > 0) {
-                    $shortDescription = $shortDescription->item(0)->nodeValue;
-                } else {
-                    $shortDescription = "";
-                }
-                $weight = $establishment->item(0)->getElementsByTagName("weight");
-                if ($weight->length > 0) {
-                    $weight = $weight->item(0)->nodeValue;
-                } else {
-                    $weight = "";
-                }
-                $address = $establishment->item(0)->getElementsByTagName("address");
-                if ($address->length > 0) {
-                    $address2 = $address->item(0)->getElementsByTagName("address");
-                    if ($address2->length > 0) {
-                        $address2 = $address2->item(0)->nodeValue;
+                $establishment = $availableHotels->item($k)->getElementsByTagName("establishment");
+                if ($establishment->length > 0) {
+                    $id = $establishment->item(0)->getElementsByTagName("id");
+                    if ($id->length > 0) {
+                        $id = $id->item(0)->nodeValue;
                     } else {
-                        $address2 = "";
+                        $id = "";
                     }
-                    $cityCode = $address->item(0)->getElementsByTagName("cityCode");
-                    if ($cityCode->length > 0) {
-                        $cityCode = $cityCode->item(0)->nodeValue;
+                    $name = $establishment->item(0)->getElementsByTagName("name");
+                    if ($name->length > 0) {
+                        $name = $name->item(0)->nodeValue;
                     } else {
-                        $cityCode = "";
+                        $name = "";
                     }
-                    $cityName = $address->item(0)->getElementsByTagName("cityName");
-                    if ($cityName->length > 0) {
-                        $cityName = $cityName->item(0)->nodeValue;
+                    $categoryCode = $establishment->item(0)->getElementsByTagName("categoryCode");
+                    if ($categoryCode->length > 0) {
+                        $categoryCode = $categoryCode->item(0)->nodeValue;
                     } else {
-                        $cityName = "";
+                        $categoryCode = "";
                     }
-                    $countryCode = $address->item(0)->getElementsByTagName("countryCode");
-                    if ($countryCode->length > 0) {
-                        $countryCode = $countryCode->item(0)->nodeValue;
+                    $categoryName = $establishment->item(0)->getElementsByTagName("categoryName");
+                    if ($categoryName->length > 0) {
+                        $categoryName = $categoryName->item(0)->nodeValue;
                     } else {
-                        $countryCode = "";
+                        $categoryName = "";
                     }
-                    $countryName = $address->item(0)->getElementsByTagName("countryName");
-                    if ($countryName->length > 0) {
-                        $countryName = $countryName->item(0)->nodeValue;
+                    $imageUrl = $establishment->item(0)->getElementsByTagName("imageUrl");
+                    if ($imageUrl->length > 0) {
+                        $imageUrl = $imageUrl->item(0)->nodeValue;
                     } else {
-                        $countryName = "";
+                        $imageUrl = "";
                     }
-                    $email = $address->item(0)->getElementsByTagName("email");
-                    if ($email->length > 0) {
-                        $email = $email->item(0)->nodeValue;
+                    $latitude = $establishment->item(0)->getElementsByTagName("latitude");
+                    if ($latitude->length > 0) {
+                        $latitude = $latitude->item(0)->nodeValue;
                     } else {
-                        $email = "";
+                        $latitude = "";
                     }
-                    $fax = $address->item(0)->getElementsByTagName("fax");
-                    if ($fax->length > 0) {
-                        $fax = $fax->item(0)->nodeValue;
+                    $longitude = $establishment->item(0)->getElementsByTagName("longitude");
+                    if ($longitude->length > 0) {
+                        $longitude = $longitude->item(0)->nodeValue;
                     } else {
-                        $fax = "";
+                        $longitude = "";
                     }
-                    $addressname = $address->item(0)->getElementsByTagName("name");
-                    if ($addressname->length > 0) {
-                        $addressname = $addressname->item(0)->nodeValue;
+                    $shortDescription = $establishment->item(0)->getElementsByTagName("shortDescription");
+                    if ($shortDescription->length > 0) {
+                        $shortDescription = $shortDescription->item(0)->nodeValue;
                     } else {
-                        $addressname = "";
+                        $shortDescription = "";
                     }
-                    $stateCode = $address->item(0)->getElementsByTagName("stateCode");
-                    if ($stateCode->length > 0) {
-                        $stateCode = $stateCode->item(0)->nodeValue;
+                    $weight = $establishment->item(0)->getElementsByTagName("weight");
+                    if ($weight->length > 0) {
+                        $weight = $weight->item(0)->nodeValue;
                     } else {
-                        $stateCode = "";
+                        $weight = "";
                     }
-                    $stateName = $address->item(0)->getElementsByTagName("stateName");
-                    if ($stateName->length > 0) {
-                        $stateName = $stateName->item(0)->nodeValue;
-                    } else {
-                        $stateName = "";
-                    }
-                    $telephone = $address->item(0)->getElementsByTagName("telephone");
-                    if ($telephone->length > 0) {
-                        $telephone = $telephone->item(0)->nodeValue;
-                    } else {
-                        $telephone = "";
-                    }
-                    $zipCode = $address->item(0)->getElementsByTagName("zipCode");
-                    if ($zipCode->length > 0) {
-                        $zipCode = $zipCode->item(0)->nodeValue;
-                    } else {
-                        $zipCode = "";
-                    }
-                }
-                $comments = $establishment->item(0)->getElementsByTagName("comments");
-                if ($comments->length > 0) {
-                    for ($i=0; $i < $comments->length; $i++) { 
-                        $from = $comments->item($i)->getElementsByTagName("from");
-                        if ($from->length > 0) {
-                            $from = $from->item(0)->nodeValue;
+                    $address = $establishment->item(0)->getElementsByTagName("address");
+                    if ($address->length > 0) {
+                        $address2 = $address->item(0)->getElementsByTagName("address");
+                        if ($address2->length > 0) {
+                            $address2 = $address2->item(0)->nodeValue;
                         } else {
-                            $from = "";
+                            $address2 = "";
                         }
-                        $to = $comments->item($i)->getElementsByTagName("to");
-                        if ($to->length > 0) {
-                            $to = $to->item(0)->nodeValue;
+                        $cityCode = $address->item(0)->getElementsByTagName("cityCode");
+                        if ($cityCode->length > 0) {
+                            $cityCode = $cityCode->item(0)->nodeValue;
                         } else {
-                            $to = "";
+                            $cityCode = "";
                         }
-                        $text = $comments->item($i)->getElementsByTagName("text");
-                        if ($text->length > 0) {
-                            $text = $text->item(0)->nodeValue;
+                        $cityName = $address->item(0)->getElementsByTagName("cityName");
+                        if ($cityName->length > 0) {
+                            $cityName = $cityName->item(0)->nodeValue;
                         } else {
-                            $text = "";
+                            $cityName = "";
                         }
-                        $type = $comments->item($i)->getElementsByTagName("type");
-                        if ($type->length > 0) {
-                            $type = $type->item(0)->nodeValue;
+                        $countryCode = $address->item(0)->getElementsByTagName("countryCode");
+                        if ($countryCode->length > 0) {
+                            $countryCode = $countryCode->item(0)->nodeValue;
                         } else {
-                            $type = "";
+                            $countryCode = "";
                         }
-                        $conditions = $comments->item($i)->getElementsByTagName("conditions");
-                        if ($conditions->length > 0) {
-                            $conditions = $conditions->item(0)->nodeValue;
+                        $countryName = $address->item(0)->getElementsByTagName("countryName");
+                        if ($countryName->length > 0) {
+                            $countryName = $countryName->item(0)->nodeValue;
                         } else {
-                            $conditions = "";
+                            $countryName = "";
                         }
-                        $errataType = $comments->item($i)->getElementsByTagName("errataType");
-                        if ($errataType->length > 0) {
-                            $errataType = $errataType->item(0)->nodeValue;
+                        $email = $address->item(0)->getElementsByTagName("email");
+                        if ($email->length > 0) {
+                            $email = $email->item(0)->nodeValue;
                         } else {
-                            $errataType = "";
+                            $email = "";
                         }
-                    }
-                }
-            }
-            $roomCombinations = $availableHotels->item(0)->getElementsByTagName("roomCombinations");
-            if ($roomCombinations->length > 0) {
-                for ($j=0; $j < $roomCombinations->length; $j++) { 
-                    $rooms = $roomCombinations->item($j)->getElementsByTagName("rooms");
-                    if ($rooms->length > 0) {
-                        $adults = $rooms->item(0)->getElementsByTagName("adults");
-                        if ($adults->length > 0) {
-                            $adults = $adults->item(0)->nodeValue;
+                        $fax = $address->item(0)->getElementsByTagName("fax");
+                        if ($fax->length > 0) {
+                            $fax = $fax->item(0)->nodeValue;
                         } else {
-                            $adults = "";
+                            $fax = "";
                         }
-                        $children = $rooms->item(0)->getElementsByTagName("children");
-                        if ($children->length > 0) {
-                            $children = $children->item(0)->nodeValue;
+                        $addressname = $address->item(0)->getElementsByTagName("name");
+                        if ($addressname->length > 0) {
+                            $addressname = $addressname->item(0)->nodeValue;
                         } else {
-                            $children = "";
+                            $addressname = "";
                         }
-                        $priceOfFirstNight = $rooms->item(0)->getElementsByTagName("priceOfFirstNight");
-                        if ($priceOfFirstNight->length > 0) {
-                            $priceOfFirstNight = $priceOfFirstNight->item(0)->nodeValue;
+                        $stateCode = $address->item(0)->getElementsByTagName("stateCode");
+                        if ($stateCode->length > 0) {
+                            $stateCode = $stateCode->item(0)->nodeValue;
                         } else {
-                            $priceOfFirstNight = "";
+                            $stateCode = "";
                         }
-                        $quantity = $rooms->item(0)->getElementsByTagName("quantity");
-                        if ($quantity->length > 0) {
-                            $quantity = $quantity->item(0)->nodeValue;
+                        $stateName = $address->item(0)->getElementsByTagName("stateName");
+                        if ($stateName->length > 0) {
+                            $stateName = $stateName->item(0)->nodeValue;
                         } else {
-                            $quantity = "";
+                            $stateName = "";
                         }
-                        $typeCode = $rooms->item(0)->getElementsByTagName("typeCode");
-                        if ($typeCode->length > 0) {
-                            $typeCode = $typeCode->item(0)->nodeValue;
+                        $telephone = $address->item(0)->getElementsByTagName("telephone");
+                        if ($telephone->length > 0) {
+                            $telephone = $telephone->item(0)->nodeValue;
                         } else {
-                            $typeCode = "";
+                            $telephone = "";
                         }
-                        $typeName = $rooms->item(0)->getElementsByTagName("typeName");
-                        if ($typeName->length > 0) {
-                            $typeName = $typeName->item(0)->nodeValue;
+                        $zipCode = $address->item(0)->getElementsByTagName("zipCode");
+                        if ($zipCode->length > 0) {
+                            $zipCode = $zipCode->item(0)->nodeValue;
                         } else {
-                            $typeName = "";
-                        }
-                        $typeCategoryCode = $rooms->item(0)->getElementsByTagName("typeCategoryCode");
-                        if ($typeCategoryCode->length > 0) {
-                            $typeCategoryCode = $typeCategoryCode->item(0)->nodeValue;
-                        } else {
-                            $typeCategoryCode = "";
-                        }
-                        $typeCategoryName = $rooms->item(0)->getElementsByTagName("typeCategoryName");
-                        if ($typeCategoryName->length > 0) {
-                            $typeCategoryName = $typeCategoryName->item(0)->nodeValue;
-                        } else {
-                            $typeCategoryName = "";
+                            $zipCode = "";
                         }
                     }
-                    $prices = $roomCombinations->item($j)->getElementsByTagName("prices");
-                    if ($prices->length > 0) {
-                        for ($jAux=0; $jAux < $prices->length; $jAux++) { 
-                            $boardCategoryCode = $prices->item($jAux)->getElementsByTagName("boardCategoryCode");
-                            if ($boardCategoryCode->length > 0) {
-                                $boardCategoryCode = $boardCategoryCode->item(0)->nodeValue;
+                    $comments = $establishment->item(0)->getElementsByTagName("comments");
+                    if ($comments->length > 0) {
+                        for ($i=0; $i < $comments->length; $i++) { 
+                            $from = $comments->item($i)->getElementsByTagName("from");
+                            if ($from->length > 0) {
+                                $from = $from->item(0)->nodeValue;
                             } else {
-                                $boardCategoryCode = "";
+                                $from = "";
                             }
-                            $boardTypeCode = $prices->item($jAux)->getElementsByTagName("boardTypeCode");
-                            if ($boardTypeCode->length > 0) {
-                                $boardTypeCode = $boardTypeCode->item(0)->nodeValue;
+                            $to = $comments->item($i)->getElementsByTagName("to");
+                            if ($to->length > 0) {
+                                $to = $to->item(0)->nodeValue;
                             } else {
-                                $boardTypeCode = "";
+                                $to = "";
                             }
-                            $boardTypeName = $prices->item($jAux)->getElementsByTagName("boardTypeName");
-                            if ($boardTypeName->length > 0) {
-                                $boardTypeName = $boardTypeName->item(0)->nodeValue;
+                            $text = $comments->item($i)->getElementsByTagName("text");
+                            if ($text->length > 0) {
+                                $text = $text->item(0)->nodeValue;
                             } else {
-                                $boardTypeName = "";
+                                $text = "";
                             }
-                            $offer = $prices->item($jAux)->getElementsByTagName("offer");
-                            if ($offer->length > 0) {
-                                $offer = $offer->item(0)->nodeValue;
+                            $type = $comments->item($i)->getElementsByTagName("type");
+                            if ($type->length > 0) {
+                                $type = $type->item(0)->nodeValue;
                             } else {
-                                $offer = "";
+                                $type = "";
                             }
-                            $onRequest = $prices->item($jAux)->getElementsByTagName("onRequest");
-                            if ($onRequest->length > 0) {
-                                $onRequest = $onRequest->item(0)->nodeValue;
+                            $conditions = $comments->item($i)->getElementsByTagName("conditions");
+                            if ($conditions->length > 0) {
+                                $conditions = $conditions->item(0)->nodeValue;
                             } else {
-                                $onRequest = "";
+                                $conditions = "";
                             }
-                            $amount = $prices->item($jAux)->getElementsByTagName("amount");
-                            if ($amount->length > 0) {
-                                $currencyCode = $amount->item(0)->getElementsByTagName("currencyCode");
-                                if ($currencyCode->length > 0) {
-                                    $currencyCode = $currencyCode->item(0)->nodeValue;
-                                } else {
-                                    $currencyCode = "";
-                                }
-                                $value = $amount->item(0)->getElementsByTagName("value");
-                                if ($value->length > 0) {
-                                    $value = $value->item(0)->nodeValue;
-                                } else {
-                                    $value = "";
-                                }
+                            $errataType = $comments->item($i)->getElementsByTagName("errataType");
+                            if ($errataType->length > 0) {
+                                $errataType = $errataType->item(0)->nodeValue;
+                            } else {
+                                $errataType = "";
                             }
-                            $roomPrices = $prices->item($jAux)->getElementsByTagName("roomPrices");
-                            if ($roomPrices->length > 0) {
-                                $paxes = $roomPrices->item(0)->getElementsByTagName("paxes");
-                                if ($paxes->length > 0) {
-                                    $paxes = $paxes->item(0)->nodeValue;
+                        }
+                    }
+                }
+                $roomCombinations = $availableHotels->item($k)->getElementsByTagName("roomCombinations");
+                if ($roomCombinations->length > 0) {
+                    for ($j=0; $j < $roomCombinations->length; $j++) { 
+                        $rooms = $roomCombinations->item($j)->getElementsByTagName("rooms");
+                        if ($rooms->length > 0) {
+                            $adults = $rooms->item(0)->getElementsByTagName("adults");
+                            if ($adults->length > 0) {
+                                $adults = $adults->item(0)->nodeValue;
+                            } else {
+                                $adults = "";
+                            }
+                            $children = $rooms->item(0)->getElementsByTagName("children");
+                            if ($children->length > 0) {
+                                $children = $children->item(0)->nodeValue;
+                            } else {
+                                $children = "";
+                            }
+                            $priceOfFirstNight = $rooms->item(0)->getElementsByTagName("priceOfFirstNight");
+                            if ($priceOfFirstNight->length > 0) {
+                                $priceOfFirstNight = $priceOfFirstNight->item(0)->nodeValue;
+                            } else {
+                                $priceOfFirstNight = "";
+                            }
+                            $quantity = $rooms->item(0)->getElementsByTagName("quantity");
+                            if ($quantity->length > 0) {
+                                $quantity = $quantity->item(0)->nodeValue;
+                            } else {
+                                $quantity = "";
+                            }
+                            $typeCode = $rooms->item(0)->getElementsByTagName("typeCode");
+                            if ($typeCode->length > 0) {
+                                $typeCode = $typeCode->item(0)->nodeValue;
+                            } else {
+                                $typeCode = "";
+                            }
+                            $typeName = $rooms->item(0)->getElementsByTagName("typeName");
+                            if ($typeName->length > 0) {
+                                $typeName = $typeName->item(0)->nodeValue;
+                            } else {
+                                $typeName = "";
+                            }
+                            $typeCategoryCode = $rooms->item(0)->getElementsByTagName("typeCategoryCode");
+                            if ($typeCategoryCode->length > 0) {
+                                $typeCategoryCode = $typeCategoryCode->item(0)->nodeValue;
+                            } else {
+                                $typeCategoryCode = "";
+                            }
+                            $typeCategoryName = $rooms->item(0)->getElementsByTagName("typeCategoryName");
+                            if ($typeCategoryName->length > 0) {
+                                $typeCategoryName = $typeCategoryName->item(0)->nodeValue;
+                            } else {
+                                $typeCategoryName = "";
+                            }
+                        }
+                        $prices = $roomCombinations->item($j)->getElementsByTagName("prices");
+                        if ($prices->length > 0) {
+                            for ($jAux=0; $jAux < $prices->length; $jAux++) { 
+                                $boardCategoryCode = $prices->item($jAux)->getElementsByTagName("boardCategoryCode");
+                                if ($boardCategoryCode->length > 0) {
+                                    $boardCategoryCode = $boardCategoryCode->item(0)->nodeValue;
                                 } else {
-                                    $paxes = "";
+                                    $boardCategoryCode = "";
                                 }
-                                $price = $roomPrices->item(0)->getElementsByTagName("price");
-                                if ($price->length > 0) {
-                                    $price = $price->item(0)->nodeValue;
+                                $boardTypeCode = $prices->item($jAux)->getElementsByTagName("boardTypeCode");
+                                if ($boardTypeCode->length > 0) {
+                                    $boardTypeCode = $boardTypeCode->item(0)->nodeValue;
                                 } else {
-                                    $price = "";
+                                    $boardTypeCode = "";
                                 }
-                                $pricePerPaxAndNight = $roomPrices->item(0)->getElementsByTagName("pricePerPaxAndNight");
-                                if ($pricePerPaxAndNight->length > 0) {
-                                    $pricePerPaxAndNight = $pricePerPaxAndNight->item(0)->nodeValue;
+                                $boardTypeName = $prices->item($jAux)->getElementsByTagName("boardTypeName");
+                                if ($boardTypeName->length > 0) {
+                                    $boardTypeName = $boardTypeName->item(0)->nodeValue;
                                 } else {
-                                    $pricePerPaxAndNight = "";
+                                    $boardTypeName = "";
                                 }
-                                $pricePerRoomAndNight = $roomPrices->item(0)->getElementsByTagName("pricePerRoomAndNight");
-                                if ($pricePerRoomAndNight->length > 0) {
-                                    $pricePerRoomAndNight = $pricePerRoomAndNight->item(0)->nodeValue;
+                                $offer = $prices->item($jAux)->getElementsByTagName("offer");
+                                if ($offer->length > 0) {
+                                    $offer = $offer->item(0)->nodeValue;
                                 } else {
-                                    $pricePerRoomAndNight = "";
+                                    $offer = "";
                                 }
-                                $typeCode = $roomPrices->item(0)->getElementsByTagName("typeCode");
-                                if ($typeCode->length > 0) {
-                                    $typeCode = $typeCode->item(0)->nodeValue;
+                                $onRequest = $prices->item($jAux)->getElementsByTagName("onRequest");
+                                if ($onRequest->length > 0) {
+                                    $onRequest = $onRequest->item(0)->nodeValue;
                                 } else {
-                                    $typeCode = "";
+                                    $onRequest = "";
                                 }
-                                $typeName = $roomPrices->item(0)->getElementsByTagName("typeName");
-                                if ($typeName->length > 0) {
-                                    $typeName = $typeName->item(0)->nodeValue;
-                                } else {
-                                    $typeName = "";
-                                }
-                                $description = $roomPrices->item(0)->getElementsByTagName("description");
-                                if ($description->length > 0) {
-                                    $description = $description->item(0)->nodeValue;
-                                } else {
-                                    $description = "";
-                                }
-                                $ratePlanCode = $roomPrices->item(0)->getElementsByTagName("ratePlanCode");
-                                if ($ratePlanCode->length > 0) {
-                                    $ratePlanCode = $ratePlanCode->item(0)->nodeValue;
-                                } else {
-                                    $ratePlanCode = "";
-                                }
-                                $typeCategoryCode = $roomPrices->item(0)->getElementsByTagName("typeCategoryCode");
-                                if ($typeCategoryCode->length > 0) {
-                                    $typeCategoryCode = $typeCategoryCode->item(0)->nodeValue;
-                                } else {
-                                    $typeCategoryCode = "";
-                                }
-                                $typeCategoryName = $roomPrices->item(0)->getElementsByTagName("typeCategoryName");
-                                if ($typeCategoryName->length > 0) {
-                                    $typeCategoryName = $typeCategoryName->item(0)->nodeValue;
-                                } else {
-                                    $typeCategoryName = "";
-                                }
-                                $rates = $roomPrices->item(0)->getElementsByTagName("rates");
-                                if ($rates->length > 0) {
-                                    $rate = $rates->item(0)->getElementsByTagName("rate");
-                                    if ($rate->length > 0) {
-                                        $rate = $rate->item(0)->nodeValue;
+                                $amount = $prices->item($jAux)->getElementsByTagName("amount");
+                                if ($amount->length > 0) {
+                                    $currencyCode = $amount->item(0)->getElementsByTagName("currencyCode");
+                                    if ($currencyCode->length > 0) {
+                                        $currencyCode = $currencyCode->item(0)->nodeValue;
                                     } else {
-                                        $rate = "";
+                                        $currencyCode = "";
+                                    }
+                                    $value = $amount->item(0)->getElementsByTagName("value");
+                                    if ($value->length > 0) {
+                                        $value = $value->item(0)->nodeValue;
+                                    } else {
+                                        $value = "";
                                     }
                                 }
-                                $comments = $roomPrices->item(0)->getElementsByTagName("comments");
-                                if ($comments->length > 0) {
-                                    for ($jAux2=0; $jAux2 < $comments->length; $jAux2++) { 
-                                        $from = $comments->item($jAux2)->getElementsByTagName("from");
-                                        if ($from->length > 0) {
-                                            $from = $from->item(0)->nodeValue;
+                                $roomPrices = $prices->item($jAux)->getElementsByTagName("roomPrices");
+                                if ($roomPrices->length > 0) {
+                                    $paxes = $roomPrices->item(0)->getElementsByTagName("paxes");
+                                    if ($paxes->length > 0) {
+                                        $paxes = $paxes->item(0)->nodeValue;
+                                    } else {
+                                        $paxes = "";
+                                    }
+                                    $price = $roomPrices->item(0)->getElementsByTagName("price");
+                                    if ($price->length > 0) {
+                                        $price = $price->item(0)->nodeValue;
+                                    } else {
+                                        $price = "";
+                                    }
+                                    $pricePerPaxAndNight = $roomPrices->item(0)->getElementsByTagName("pricePerPaxAndNight");
+                                    if ($pricePerPaxAndNight->length > 0) {
+                                        $pricePerPaxAndNight = $pricePerPaxAndNight->item(0)->nodeValue;
+                                    } else {
+                                        $pricePerPaxAndNight = "";
+                                    }
+                                    $pricePerRoomAndNight = $roomPrices->item(0)->getElementsByTagName("pricePerRoomAndNight");
+                                    if ($pricePerRoomAndNight->length > 0) {
+                                        $pricePerRoomAndNight = $pricePerRoomAndNight->item(0)->nodeValue;
+                                    } else {
+                                        $pricePerRoomAndNight = "";
+                                    }
+                                    $typeCode = $roomPrices->item(0)->getElementsByTagName("typeCode");
+                                    if ($typeCode->length > 0) {
+                                        $typeCode = $typeCode->item(0)->nodeValue;
+                                    } else {
+                                        $typeCode = "";
+                                    }
+                                    $typeName = $roomPrices->item(0)->getElementsByTagName("typeName");
+                                    if ($typeName->length > 0) {
+                                        $typeName = $typeName->item(0)->nodeValue;
+                                    } else {
+                                        $typeName = "";
+                                    }
+                                    $description = $roomPrices->item(0)->getElementsByTagName("description");
+                                    if ($description->length > 0) {
+                                        $description = $description->item(0)->nodeValue;
+                                    } else {
+                                        $description = "";
+                                    }
+                                    $ratePlanCode = $roomPrices->item(0)->getElementsByTagName("ratePlanCode");
+                                    if ($ratePlanCode->length > 0) {
+                                        $ratePlanCode = $ratePlanCode->item(0)->nodeValue;
+                                    } else {
+                                        $ratePlanCode = "";
+                                    }
+                                    $typeCategoryCode = $roomPrices->item(0)->getElementsByTagName("typeCategoryCode");
+                                    if ($typeCategoryCode->length > 0) {
+                                        $typeCategoryCode = $typeCategoryCode->item(0)->nodeValue;
+                                    } else {
+                                        $typeCategoryCode = "";
+                                    }
+                                    $typeCategoryName = $roomPrices->item(0)->getElementsByTagName("typeCategoryName");
+                                    if ($typeCategoryName->length > 0) {
+                                        $typeCategoryName = $typeCategoryName->item(0)->nodeValue;
+                                    } else {
+                                        $typeCategoryName = "";
+                                    }
+                                    $rates = $roomPrices->item(0)->getElementsByTagName("rates");
+                                    if ($rates->length > 0) {
+                                        $rate = $rates->item(0)->getElementsByTagName("rate");
+                                        if ($rate->length > 0) {
+                                            $rate = $rate->item(0)->nodeValue;
                                         } else {
-                                            $from = "";
+                                            $rate = "";
                                         }
-                                        $to = $comments->item($jAux2)->getElementsByTagName("to");
-                                        if ($to->length > 0) {
-                                            $to = $to->item(0)->nodeValue;
-                                        } else {
-                                            $to = "";
-                                        }
-                                        $text = $comments->item($jAux2)->getElementsByTagName("text");
-                                        if ($text->length > 0) {
-                                            $text = $text->item(0)->nodeValue;
-                                        } else {
-                                            $text = "";
-                                        }
-                                        $type = $comments->item($jAux2)->getElementsByTagName("type");
-                                        if ($type->length > 0) {
-                                            $type = $type->item(0)->nodeValue;
-                                        } else {
-                                            $type = "";
-                                        }
-                                        $conditions = $comments->item($jAux2)->getElementsByTagName("conditions");
-                                        if ($conditions->length > 0) {
-                                            $conditions = $conditions->item(0)->nodeValue;
-                                        } else {
-                                            $conditions = "";
-                                        }
-                                        $errataType = $comments->item($jAux2)->getElementsByTagName("errataType");
-                                        if ($errataType->length > 0) {
-                                            $errataType = $errataType->item(0)->nodeValue;
-                                        } else {
-                                            $errataType = "";
+                                    }
+                                    $comments = $roomPrices->item(0)->getElementsByTagName("comments");
+                                    if ($comments->length > 0) {
+                                        for ($jAux2=0; $jAux2 < $comments->length; $jAux2++) { 
+                                            $from = $comments->item($jAux2)->getElementsByTagName("from");
+                                            if ($from->length > 0) {
+                                                $from = $from->item(0)->nodeValue;
+                                            } else {
+                                                $from = "";
+                                            }
+                                            $to = $comments->item($jAux2)->getElementsByTagName("to");
+                                            if ($to->length > 0) {
+                                                $to = $to->item(0)->nodeValue;
+                                            } else {
+                                                $to = "";
+                                            }
+                                            $text = $comments->item($jAux2)->getElementsByTagName("text");
+                                            if ($text->length > 0) {
+                                                $text = $text->item(0)->nodeValue;
+                                            } else {
+                                                $text = "";
+                                            }
+                                            $type = $comments->item($jAux2)->getElementsByTagName("type");
+                                            if ($type->length > 0) {
+                                                $type = $type->item(0)->nodeValue;
+                                            } else {
+                                                $type = "";
+                                            }
+                                            $conditions = $comments->item($jAux2)->getElementsByTagName("conditions");
+                                            if ($conditions->length > 0) {
+                                                $conditions = $conditions->item(0)->nodeValue;
+                                            } else {
+                                                $conditions = "";
+                                            }
+                                            $errataType = $comments->item($jAux2)->getElementsByTagName("errataType");
+                                            if ($errataType->length > 0) {
+                                                $errataType = $errataType->item(0)->nodeValue;
+                                            } else {
+                                                $errataType = "";
+                                            }
                                         }
                                     }
                                 }

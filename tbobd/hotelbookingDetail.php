@@ -45,8 +45,8 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $user = 'clubonehotelsTest';
 $pass = 'Clu@28527768';
 
-$option = "BookingId";
-$booking_id = 139990;
+$option = "ClientReferenceNumber";
+$ClientReferenceNumber = "210314135855789#aabp";
 
 $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
 <soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
@@ -55,16 +55,9 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
     <wsa:To>https://api.tbotechnology.in/hotelapi_v7/hotelservice.svc</wsa:To>
 </soap:Header>
 <soap:Body>
-    <hot:HotelBookingDetailRequest>';
-    if ($option = "BookingId") {
-        $raw = $raw . '<hot:BookingId>' . $booking_id . '</hot:BookingId>';
-    } elseif($option = "ConfirmationNo") {
-        $raw = $raw . '<hot:ConfirmationNo>Z7Y1MW</hot:ConfirmationNo>';
-    } elseif($option = "ClientReferenceNumber") {
-        $raw = $raw . '<hot:ClientReferenceNumber>210314135855789#gale</hot:ClientReferenceNumber>';
-    }
-    
- $raw = $raw . '</hot:HotelBookingDetailRequest>
+    <hot:HotelBookingDetailRequest>
+        <hot:ClientReferenceNumber>' . $ClientReferenceNumber . '</hot:ClientReferenceNumber>
+    </hot:HotelBookingDetailRequest>
 </soap:Body>
 </soap:Envelope>';
 
@@ -90,17 +83,17 @@ $client->setMethod('POST');
 $client->setRawBody($raw);
 $response = $client->send();
 if ($response->isSuccess()) {
-$response = $response->getBody();
+    $response = $response->getBody();
 } else {
-$logger = new Logger();
-$writer = new Writer\Stream('/srv/www/htdocs/error_log');
-$logger->addWriter($writer);
-$logger->info($client->getUri());
-$logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
-echo $return;
-echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
-echo $return;
-die();
+    $logger = new Logger();
+    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+    $logger->addWriter($writer);
+    $logger->info($client->getUri());
+    $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
+    echo $return;
+    echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
+    echo $return;
+    die();
 }
 echo "<br/>RESPONSE";
 echo '<xmp>';

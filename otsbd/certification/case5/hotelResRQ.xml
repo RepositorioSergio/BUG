@@ -1,0 +1,181 @@
+<OTA_HotelResRQ ResStatus="Quote" EchoToken="a9904ecc-fdcc-429e-91f3-b7b802367086" Version="2009.1" xmlns="http://www.opentravel.org/OTA/2003/05">
+<POS>
+  <Source>
+    <RequestorID Type="88" ID="TEST" MessagePassword="testpass"/> 
+  </Source>
+  <Source>
+    <RequestorID ID_Context="AxisData" Type="22" ID="TEST"/>
+  </Source>
+</POS>
+<HotelReservations>
+  <HotelReservation>
+    <RoomStays>
+      <RoomStay RPH="0">
+        <RoomTypes>
+          <RoomType RoomTypeCode="RMSDDB0000" />
+        </RoomTypes>
+        <TimeSpan End="2021-02-26" Start="2021-02-22" />
+        <Total AmountAfterTax = "439.28" CurrencyCode ="EUR" />
+        <BasicPropertyInfo HotelCode="AUSNYCB6D4" />
+        <ResGuestRPHs>
+          <ResGuestRPH RPH="1" />
+          <ResGuestRPH RPH="2" />
+        </ResGuestRPHs>
+        <ServiceRPHs>
+          <ServiceRPH RPH="1" />
+        </ServiceRPHs>
+      </RoomStay>
+      <RoomStay RPH="0">
+        <RoomTypes>
+          <RoomType RoomTypeCode="RMSDD20000" />
+        </RoomTypes>
+        <TimeSpan End="2021-02-26" Start="2021-02-22" />
+        <Total AmountAfterTax = "986.36" CurrencyCode ="EUR" />
+        <BasicPropertyInfo HotelCode="AUSNYCB6D4" />
+        <ResGuestRPHs>
+          <ResGuestRPH RPH="3" />
+          <ResGuestRPH RPH="4" />
+          <ResGuestRPH RPH="5" />
+          <ResGuestRPH RPH="6" />
+        </ResGuestRPHs>
+        <ServiceRPHs>
+          <ServiceRPH RPH="2" />
+        </ServiceRPHs>
+      </RoomStay>
+    </RoomStays>
+    <Services>
+      <Service ServiceInventoryCode="BB" ServiceRPH="2" />
+      <Service ServiceInventoryCode="RO" ServiceRPH="1" />
+    </Services>
+    <ResGuests>
+      <ResGuest AgeQualifyingCode="10" ResGuestRPH="1">
+      <Profiles>
+      <ProfileInfo>
+        <Profile>
+          <Customer BirthDate="1992-01-01">
+            <PersonName>
+              <NamePrefix>Mr</NamePrefix>
+              <GivenName>Michael</GivenName>
+              <Surname>Smith</Surname>
+            </PersonName>
+            <Telephone PhoneNumber="+34625625625"/>
+            <Email>michael.smith@provider.com</Email>
+          </Customer>
+        </Profile>
+      </ProfileInfo>
+    </Profiles>
+        <GuestCounts>
+          <GuestCount Age="28" />
+        </GuestCounts>
+      </ResGuest>
+      <ResGuest AgeQualifyingCode="10" ResGuestRPH="2">
+      <Profiles>
+      <ProfileInfo>
+        <Profile>
+          <Customer BirthDate="1992-01-01">
+            <PersonName>
+              <NamePrefix>Mrs</NamePrefix>
+              <GivenName>Kelly</GivenName>
+              <Surname>Smith</Surname>
+            </PersonName>
+            <Telephone PhoneNumber="+34625625625"/>
+            <Email>kelly.smith@provider.com</Email>
+          </Customer>
+        </Profile>
+      </ProfileInfo>
+    </Profiles>
+        <GuestCounts>
+          <GuestCount Age="28" />
+        </GuestCounts>
+      </ResGuest>
+      <ResGuest AgeQualifyingCode="10" ResGuestRPH="3">
+      <Profiles>
+      <ProfileInfo>
+        <Profile>
+          <Customer BirthDate="1994-01-01">
+            <PersonName>
+              <NamePrefix>Mr</NamePrefix>
+              <GivenName>Isaac</GivenName>
+              <Surname>Smith</Surname>
+            </PersonName>
+            <Telephone PhoneNumber="+34625625625"/>
+            <Email>isaac.smith@provider.com</Email>
+          </Customer>
+        </Profile>
+      </ProfileInfo>
+    </Profiles>
+        <GuestCounts>
+          <GuestCount Age="26" />
+        </GuestCounts>
+      </ResGuest>
+      <ResGuest AgeQualifyingCode="10" ResGuestRPH="4">
+      <Profiles>
+      <ProfileInfo>
+        <Profile>
+          <Customer BirthDate="1994-01-01">
+            <PersonName>
+              <NamePrefix>Mr</NamePrefix>
+              <GivenName>Edson</GivenName>
+              <Surname>Smith</Surname>
+            </PersonName>
+            <Telephone PhoneNumber="+34625625625"/>
+            <Email>edson.smith@provider.com</Email>
+          </Customer>
+        </Profile>
+      </ProfileInfo>
+    </Profiles>
+        <GuestCounts>
+          <GuestCount Age="26" />
+        </GuestCounts>
+      </ResGuest>
+      <ResGuest AgeQualifyingCode="10" ResGuestRPH="5">
+      <Profiles>
+      <ProfileInfo>
+        <Profile>
+          <Customer BirthDate="1994-01-01">
+            <PersonName>
+              <NamePrefix>Mrs</NamePrefix>
+              <GivenName>Emily</GivenName>
+              <Surname>Smith</Surname>
+            </PersonName>
+            <Telephone PhoneNumber="+34625625625"/>
+            <Email>emily.smith@provider.com</Email>
+          </Customer>
+        </Profile>
+      </ProfileInfo>
+    </Profiles>
+        <GuestCounts>
+          <GuestCount Age="26" />
+        </GuestCounts>
+      </ResGuest>
+      <ResGuest AgeQualifyingCode="10" ResGuestRPH="6">
+      <Profiles>
+      <ProfileInfo>
+        <Profile>
+          <Customer BirthDate="1994-01-01">
+            <PersonName>
+              <NamePrefix>Mr</NamePrefix>
+              <GivenName>Boris</GivenName>
+              <Surname>Smith</Surname>
+            </PersonName>
+            <Telephone PhoneNumber="+34625625625"/>
+            <Email>boris.smith@provider.com</Email>
+          </Customer>
+        </Profile>
+      </ProfileInfo>
+    </Profiles>
+        <GuestCounts>
+          <GuestCount Age="26" />
+        </GuestCounts>
+      </ResGuest>
+    </ResGuests>
+    <ResGlobalInfo>
+				<HotelReservationIDs>
+					<HotelReservationID ResID_Type="36" ResID_SourceContext="Client" ResID_Value="AAO" /> 
+          <HotelReservationID ResID_SourceContext="Client" ResID_Type="37" ResID_Value="AAO_001" Item_RPH="1"/>
+					<HotelReservationID ResID_SourceContext="Client" ResID_Type="37" ResID_Value="AAO_002" Item_RPH="2"/>
+				</HotelReservationIDs>
+			</ResGlobalInfo>
+  </HotelReservation>
+</HotelReservations>
+</OTA_HotelResRQ>

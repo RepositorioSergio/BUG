@@ -39,25 +39,23 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$url = 'https://test.xtravelsystem.com/public/v1_0rc1/basketHandler';
+$url = 'https://test.xtravelsystem.com/public/v1_0rc1/commonsHandler';
 
-$email = 'paulo@corp.bug-software.com';
-$password = 'xA2d@a1X';
-
-$raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+$raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://xtravelsystem.com/v1_0rc1/common/types">
+<soapenv:Header/>
 <soapenv:Body>
-      <tns:GetEventsByArea xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xtravelsystem.com/v1_0rc1/common/types" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-         <GetEventsByAreaRQ_1>
-            <agencyCode>613</agencyCode>
-            <brandCode>1</brandCode>
-            <pointOfSaleId>1</pointOfSaleId>
-            <areaId>384</areaId>
-            <from>2005-09-12T15:10:00.000Z</from>
-            <language>en</language>
-            <to>2006-11-12T15:10:00.000Z</to>
-         </GetEventsByAreaRQ_1>
-      </tns:GetEventsByArea>
-   </soapenv:Body>
+   <typ:GetEventsByArea>
+      <GetEventsByAreaRQ_1>
+        <agencyCode>266333</agencyCode>
+        <brandCode>1</brandCode>
+        <pointOfSaleId>1</pointOfSaleId>
+         <areaId>398</areaId>
+         <from>2020-08-12T00:00:00.000Z</from>
+         <language>EN</language>
+         <to>2021-12-31T00:00:00.000Z</to>
+      </GetEventsByAreaRQ_1>
+   </typ:GetEventsByArea>
+</soapenv:Body>
 </soapenv:Envelope>';
 
 $headers = array(
@@ -67,6 +65,7 @@ $headers = array(
 );
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
@@ -131,6 +130,23 @@ if ($GetEventsByAreaResponse->length > 0) {
                 } else {
                     $to = "";
                 }
+
+                try {
+                    $sql = new Sql($db);
+                    $insert = $sql->insert();
+                    $insert->into('events');
+                    $insert->values(array(
+                        'datetime_updated' => time(),
+                        'description' => $description,
+                        'name' => $name,
+                        'from' => $from,
+                        'to' => $to
+                    ), $insert::VALUES_MERGE);
+                    $statement = $sql->prepareStatementForSqlObject($insert);
+                    $results = $statement->execute();
+                    $db->getDriver()
+                        ->getConnection()
+                        ->disconnect();
             }
         }
     }

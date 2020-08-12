@@ -44,7 +44,14 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$raw = '<OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" AvailRatesOnly="true" Version="0.1">
+function uuid(){
+    $data = random_bytes(16);
+    $data[6] = chr(ord($data[6]) & 0x0f | 0x40); 
+    $data[8] = chr(ord($data[8]) & 0x3f | 0x80); 
+    return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
+}
+
+$raw = '<OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="' . uuid() . '" SequenceNmbr="1" MaxResponses="10" Version="0.1">
 <POS>
     <Source>
         <RequestorID Instance="MF001" ID_Context="AxisData" ID="TEST" Type="22"/>
@@ -54,17 +61,17 @@ $raw = '<OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" AvailRat
     </Source>
 </POS>
 <AvailRequestSegments>
-    <AvailRequestSegment>
-        <StayDateRange End="2020-07-05" Start="2020-06-29"/>
+    <AvailRequestSegment InfoSource="0">
+        <StayDateRange End="2021-02-06" Start="2021-02-03"/>
         <RoomStayCandidates>
             <RoomStayCandidate Quantity="1" RPH="1">
                 <GuestCounts>
-                    <GuestCount Age="30" Count="2" AgeQualifyingCode="10"/>
+                    <GuestCount Age="28" Count="2" AgeQualifyingCode="10"/>
                 </GuestCounts>
             </RoomStayCandidate>
             <RoomStayCandidate Quantity="1" RPH="2">
                 <GuestCounts>
-                    <GuestCount Age="30" Count="2" AgeQualifyingCode="10"/>
+                    <GuestCount Age="28" Count="2" AgeQualifyingCode="10"/>
                     <GuestCount Age="5" Count="2" AgeQualifyingCode="8"/>
                 </GuestCounts>
             </RoomStayCandidate>
@@ -79,6 +86,10 @@ $raw = '<OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" AvailRat
     </AvailRequestSegment>
 </AvailRequestSegments>
 </OTA_HotelAvailRQ>';
+
+echo '<xmp>';
+var_dump($raw);
+echo '</xmp>';
 
 $headers = array(
     "Accept: application/xml",

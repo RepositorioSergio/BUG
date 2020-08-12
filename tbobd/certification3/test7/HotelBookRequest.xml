@@ -1,0 +1,55 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
+<soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
+<hot:Credentials UserName="clubonehotelsTest" Password="Clu@28527768">
+</hot:Credentials>
+<wsa:Action>http://TekTravel/HotelBookingApi/HotelBook</wsa:Action>
+<wsa:To>https://api.tbotechnology.in/hotelapi_v7/hotelservice.svc</wsa:To>
+</soap:Header>
+<soap:Body>
+    <hot:HotelBookRequest>
+        <hot:AgencyReferenceNumber>BUGSOFT1</hot:AgencyReferenceNumber>
+        <hot:ClientReferenceNumber>210314135855789#aabp</hot:ClientReferenceNumber>
+        <hot:GuestNationality>AE</hot:GuestNationality>
+        <hot:Guests>
+            <hot:Guest LeadGuest="true" GuestType="Adult" GuestInRoom="1">
+                <hot:Title>Mr</hot:Title>
+                <hot:FirstName>Ajayge</hot:FirstName>
+                <hot:LastName>testgea</hot:LastName>
+                <hot:Age>28</hot:Age>
+            </hot:Guest>
+        </hot:Guests>
+        <hot:AddressInfo>
+            <hot:AddressLine1>testadd1</hot:AddressLine1>
+            <hot:AddressLine2>testadd2</hot:AddressLine2>
+            <hot:CountryCode>91</hot:CountryCode>
+            <hot:AreaCode>11</hot:AreaCode>
+            <hot:PhoneNo>25869696</hot:PhoneNo>
+            <hot:Email>abc@gmail.com</hot:Email>
+            <hot:City>Delhi</hot:City>
+            <hot:State>Delhi</hot:State>
+            <hot:Country>India</hot:Country>
+            <hot:ZipCode>256525</hot:ZipCode>
+        </hot:AddressInfo>
+        <!-- VoucherBooking-true Booking will be Vouchered -->
+        <hot:PaymentInfo VoucherBooking="false" PaymentModeType="Limit">
+        </hot:PaymentInfo>
+        <hot:SessionId>f43b7c49-a619-4cb8-9d9b-077b26e9be01</hot:SessionId>
+        <hot:NoOfRooms>1</hot:NoOfRooms>
+        <hot:ResultIndex>1</hot:ResultIndex>
+        <hot:HotelCode>1373182</hot:HotelCode>
+        <hot:HotelName>Grand Sina Hotel</hot:HotelName>
+        <hot:HotelRooms>
+            <hot:HotelRoom>
+                <hot:RoomIndex>1</hot:RoomIndex>
+                <hot:RoomTypeName>Room,1 Large Twin Bed</hot:RoomTypeName>
+                <hot:RoomTypeCode>200911454|204609761$37462^^1^^200911454|204609761|37462</hot:RoomTypeCode>
+                <hot:RatePlanCode>200911454|204609761|37462</hot:RatePlanCode>
+                <hot:RoomRate RoomFare="76.37" Currency="USD" AgentMarkUp="0.00" RoomTax="34.04" TotalFare="110.41"/>
+                <hot:Supplements>
+                    <hot:SuppInfo Type="PerStaySupplement" SuppID="1" SuppName="mandatory_fee,mandatory_tax" SuppIsMandatory="true" SuppChargeType="AtProperty" Price="136.00" CurrencyCode="AED" />
+                </hot:Supplements>
+            </hot:HotelRoom>
+        </hot:HotelRooms>
+    </hot:HotelBookRequest>
+</soap:Body>
+</soap:Envelope>

@@ -1,0 +1,24 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
+<soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing" > 
+    <hot:Credentials UserName="clubonehotelsTest" Password="Clu@28527768"> </hot:Credentials>
+    <wsa:Action>http://TekTravel/HotelBookingApi/Amendment</wsa:Action> 
+    <wsa:To>https://api.tbotechnology.in/hotelapi_v7/hotelservice.svc</wsa:To>
+</soap:Header> 
+<soap:Body>
+    <hot:AmendmentRequest>
+        <!-- if price change information required set PriceChange="InformationRequired" -->
+        <hot:Request Type="OfflineAmendment" PriceChange="Approved" Remarks="guest name amendment requested"/>
+        <hot:BookingId>0</hot:BookingId>
+        <hot:AmendInformation>
+        <hot:CheckIn Date="2021-11-03"/> 
+        <hot:CheckOut Date="2021-11-07"/>
+        <hot:Rooms>
+            <hot:RoomReq Amend="FirstRoom">
+                <hot:Guest Action="Rename" ExistingName="Mr Ajayge testgea" GuestType="Adult" Title="Mr." FirstName="TestAbd" LastName="TestSrivastav" Age="29"/>
+            </hot:RoomReq> 
+        </hot:Rooms>
+        </hot:AmendInformation> 
+        <hot:ConfirmationNo>RUPIWR</hot:ConfirmationNo>
+    </hot:AmendmentRequest>
+</soap:Body> 
+</soap:Envelope>

@@ -1,0 +1,21 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
+<soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
+<hot:Credentials UserName="clubonehotelsTest" Password="Clu@28527768">
+</hot:Credentials>
+<wsa:Action>http://TekTravel/HotelBookingApi/AvailabilityAndPricing</wsa:Action>
+<wsa:To>https://api.tbotechnology.in/hotelapi_v7/hotelservice.svc</wsa:To>
+</soap:Header>
+<soap:Body>
+    <hot:AvailabilityAndPricingRequest>
+        <hot:ResultIndex>1</hot:ResultIndex>
+        <hot:HotelCode></hot:HotelCode>
+        <hot:SessionId>8324c198-05ae-4bb4-98ae-ff986afe3868</hot:SessionId>
+        <hot:OptionsForBooking>
+            <hot:FixedFormat>true</hot:FixedFormat>
+            <hot:RoomCombination>
+                <hot:RoomIndex>2</hot:RoomIndex>
+            </hot:RoomCombination>
+        </hot:OptionsForBooking>
+    </hot:AvailabilityAndPricingRequest>
+</soap:Body>
+</soap:Envelope>

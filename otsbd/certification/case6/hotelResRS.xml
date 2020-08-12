@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><OTA_HotelResRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="2009.1" EchoToken="28a91072-6141-49dc-90b4-a45b3b59d04a">
+<Success/>
+<HotelReservations>
+<HotelReservation>
+<RoomStays>
+<RoomStay RPH="0" IndexNumber="1">
+<Total CurrencyCode="EUR" AmountAfterTax="580.36"/>
+</RoomStay>
+<RoomStay RPH="0" IndexNumber="2">
+<Total CurrencyCode="EUR" AmountAfterTax="523.04"/>
+</RoomStay>
+</RoomStays>
+<ResGlobalInfo>
+<Total CurrencyCode="EUR" AmountAfterTax="1103.40"/>
+<HotelReservationIDs>
+<HotelReservationID ResID_Type="36" ResID_SourceContext="Client" ResID_Value="AAP"/>
+<HotelReservationID Item_RPH="0" ResID_Value="AAP-1" ResID_Type="37" ResID_SourceContext="Client"/>
+<HotelReservationID Item_RPH="0" ResID_Value="1" ResID_Type="37" ResID_SourceContext="Internal"/>
+<HotelReservationID Item_RPH="0" ResID_Value="AAP-1" ResID_Type="37" ResID_SourceContext="Client"/>
+<HotelReservationID Item_RPH="0" ResID_Value="1" ResID_Type="37" ResID_SourceContext="Internal"/>
+</HotelReservationIDs>
+<CancelPenalties/>
+</ResGlobalInfo>
+<TPA_Extensions>
+<ns1:BookingStatus xmlns:ns1="http://www.opentravel.org/OTA/2003/05/tpa" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:BookingStatusType" ReservationStatusType="Available"/>
+</TPA_Extensions>
+</HotelReservation>
+</HotelReservations>
+</OTA_HotelResRS>

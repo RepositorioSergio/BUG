@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-echo "COMECOU COUNTRIES<br/>";
+echo "COMECOU HotelSEARCH<br/>";
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -57,15 +57,14 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 </soap:Header>
 <soap:Body>
     <hot:HotelSearchRequest>
-        <hot:CheckInDate>2021-01-03</hot:CheckInDate>
-        <hot:CheckOutDate>2021-01-07</hot:CheckOutDate>
+        <hot:CheckInDate>2020-10-03</hot:CheckInDate>
+        <hot:CheckOutDate>2020-10-07</hot:CheckOutDate>
         <hot:CountryName>United Arab Emirates</hot:CountryName>
         <hot:CityName>Dubai</hot:CityName>
         <hot:CityId>115936</hot:CityId>
         <hot:IsNearBySearchAllowed>false</hot:IsNearBySearchAllowed>
         <hot:NoOfRooms>' . $nrooms . '</hot:NoOfRooms>
         <hot:GuestNationality>AE</hot:GuestNationality>
-        <hot:IsRoomInfoRequired>true</hot:IsRoomInfoRequired>
         <hot:RoomGuests>';
 
         switch ($n) {
@@ -126,15 +125,9 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
     $raw = $raw . '</hot:RoomGuests>
         <hot:ResultCount>0</hot:ResultCount>
         <hot:Filters>
-        <hot:StarRating>All</hot:StarRating>
-        <hot:OrderBy>PriceAsc</hot:OrderBy>
+            <hot:StarRating>All</hot:StarRating>
+            <hot:OrderBy>PriceAsc</hot:OrderBy>
         </hot:Filters>
-        <hot:GeoCodes>
-            <hot:Latitude>25.26899</hot:Latitude>
-            <hot:Longitude>55.37896</hot:Longitude>
-            <hot:SearchRadius>10</hot:SearchRadius>
-            <hot:CountryCode>AE</hot:CountryCode>
-        </hot:GeoCodes>
         <hot:ResponseTime>23</hot:ResponseTime>
     </hot:HotelSearchRequest>
 </soap:Body>

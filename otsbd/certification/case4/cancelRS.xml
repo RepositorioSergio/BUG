@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><OTA_CancelRS xmlns="http://www.opentravel.org/OTA/2003/05" Version="0.1" EchoToken="016c855d-dea0-4466-b4a8-39322179bc90" CancelType="Commit" Status="Committed">
+<POS>
+<Source>
+<RequestorID Type="22" ID_Context="OTS" ID="TEST"/>
+</Source>
+</POS>
+<Success/>
+<CancelInfoRS>
+<CancelRules>
+<CancelRule CancelByDate="2020-08-08T23:17:06" Amount="0.00" CurrencyCode="EUR"/>
+</CancelRules>
+</CancelInfoRS>
+<UniqueID ID="AAN" ID_Context="Client" Type="36"/>
+<UniqueID ID="36046982" ID_Context="Internal" Type="36"/>
+<UniqueID ID="AAN-1" ID_Context="Client" Type="37"/>
+<UniqueID ID="1" ID_Context="Internal" Type="37"/>
+<UniqueID ID="AAN-2" ID_Context="Client" Type="37"/>
+<UniqueID ID="2" ID_Context="Internal" Type="37"/>
+</OTA_CancelRS>

@@ -44,16 +44,16 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $user = 'clubonehotelsTest';
 $pass = 'Clu@28527768';
-$session_id = 'f2d978c4-235a-4d06-b58b-57e3b1b244df';
+$session_id = 'f43b7c49-a619-4cb8-9d9b-077b26e9be01';
 $resultindex = 1;
 $numofrooms = 1;
-$hotelcode = 1508526;
-$hotelName = "Al Farej Hotel";
-$RoomTypeName = "Standard Room,1 Double Bed";
-$RoomTypeCode = "201722640|208578389$37316^^1^^201722640|208578389|37316";
-$RatePlanCode = "201722640|208578389|37316";
-$RoomTypeCode2 = "CSTNIDH20|2^^CSTNIDH20IDH20";
-$RatePlanCode2 = "CSTNIDH20IDH20";
+$hotelcode = 1373182;
+$hotelName = "Grand Sina Hotel";
+$RoomTypeName = "Room,1 Large Twin Bed";
+$RoomTypeCode = "200911454|204609761$37462^^1^^200911454|204609761|37462";
+$RatePlanCode = "200911454|204609761|37462";
+$RoomTypeCode2 = "200853123|204322003$37341^^2^^200853123|204322003|37341";
+$RatePlanCode2 = "200853123|204322003|37341";
 
 $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
 <soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
@@ -64,14 +64,15 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
 </soap:Header>
 <soap:Body>
     <hot:HotelBookRequest>
-        <hot:ClientReferenceNumber>210314135855789#aabb</hot:ClientReferenceNumber>
+        <hot:AgencyReferenceNumber>BUGSOFT1</hot:AgencyReferenceNumber>
+        <hot:ClientReferenceNumber>210314135855789#aabp</hot:ClientReferenceNumber>
         <hot:GuestNationality>AE</hot:GuestNationality>
-            <hot:Guests>
-                <hot:Guest LeadGuest="true" GuestType="Adult" GuestInRoom="1">
+        <hot:Guests>
+            <hot:Guest LeadGuest="true" GuestType="Adult" GuestInRoom="1">
                 <hot:Title>Mr</hot:Title>
-                <hot:FirstName>Ajayxe</hot:FirstName>
+                <hot:FirstName>Ajayge</hot:FirstName>
                 <hot:LastName>testgea</hot:LastName>
-                <hot:Age>30</hot:Age>
+                <hot:Age>28</hot:Age>
             </hot:Guest>
         </hot:Guests>
         <hot:AddressInfo>
@@ -87,7 +88,7 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
             <hot:ZipCode>256525</hot:ZipCode>
         </hot:AddressInfo>
         <!-- VoucherBooking-true Booking will be Vouchered -->
-        <hot:PaymentInfo VoucherBooking="true" PaymentModeType="Limit">
+        <hot:PaymentInfo VoucherBooking="false" PaymentModeType="Limit">
         </hot:PaymentInfo>
         <hot:SessionId>' . $session_id . '</hot:SessionId>
         <hot:NoOfRooms>1</hot:NoOfRooms>
@@ -100,9 +101,9 @@ $raw = '<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmln
                 <hot:RoomTypeName>' . $RoomTypeName . '</hot:RoomTypeName>
                 <hot:RoomTypeCode>' . $RoomTypeCode . '</hot:RoomTypeCode>
                 <hot:RatePlanCode>' . $RatePlanCode . '</hot:RatePlanCode>
-                <hot:RoomRate RoomFare="294.59" Currency="USD" AgentMarkUp="0.00" RoomTax="66.16" TotalFare="360.75"/>
+                <hot:RoomRate RoomFare="76.37" Currency="USD" AgentMarkUp="0.00" RoomTax="34.04" TotalFare="110.41"/>
                 <hot:Supplements>
-                    <hot:SuppInfo Type="PerStaySupplement" SuppID="1" SuppName="mandatory_tax" SuppIsMandatory="true" SuppChargeType="AtProperty" Price="20.00" CurrencyCode="AED" />
+                    <hot:SuppInfo Type="PerStaySupplement" SuppID="1" SuppName="mandatory_fee,mandatory_tax" SuppIsMandatory="true" SuppChargeType="AtProperty" Price="136.00" CurrencyCode="AED" />
                 </hot:Supplements>
             </hot:HotelRoom>
         </hot:HotelRooms>

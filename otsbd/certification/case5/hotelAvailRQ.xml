@@ -1,0 +1,34 @@
+<OTA_HotelAvailRQ xmlns="http://www.opentravel.org/OTA/2003/05" EchoToken="a9904ecc-fdcc-429e-91f3-b7b802367086" SequenceNmbr="1" MaxResponses="10" Version="0.1">
+<POS>
+    <Source>
+        <RequestorID Instance="MF001" ID_Context="AxisData" ID="TEST" Type="22"/>
+    </Source>
+    <Source>
+        <RequestorID Type="88" ID="TEST" MessagePassword="testpass"/>
+    </Source>
+</POS>
+<AvailRequestSegments>
+    <AvailRequestSegment InfoSource="0">
+    <StayDateRange End="2021-02-26" Start="2021-02-22"/>
+    <RoomStayCandidates>
+        <RoomStayCandidate Quantity="1" RPH="1">
+            <GuestCounts>
+                <GuestCount Age="28" Count="2" AgeQualifyingCode="10"/>
+            </GuestCounts>
+        </RoomStayCandidate>
+        <RoomStayCandidate Quantity="1" RPH="2">
+            <GuestCounts>
+                <GuestCount Age="26" Count="4" AgeQualifyingCode="10"/>
+            </GuestCounts>
+        </RoomStayCandidate>
+    </RoomStayCandidates>
+    <HotelSearchCriteria>
+        <Criterion>
+            <RefPoint CodeContext="CountryCode">US</RefPoint>
+            <RefPoint CodeContext="Destination">New York</RefPoint>
+            <RefPoint CodeContext="Region">New York City Area</RefPoint>
+        </Criterion>
+    </HotelSearchCriteria>
+    </AvailRequestSegment>
+</AvailRequestSegments>
+</OTA_HotelAvailRQ>

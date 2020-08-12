@@ -44,7 +44,9 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$raw = '<OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" Version="0.1" EchoToken="5923005" CancelType="Commit">
+$token = '28a91072-6141-49dc-90b4-a45b3b59d04a';
+
+$raw = '<OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" Version="0.1" EchoToken="' . $token . '" CancelType="Commit">
 <POS>
     <Source>
         <RequestorID Instance="MF001" ID_Context="AxisData" ID="TEST" Type="22"/>
@@ -53,8 +55,12 @@ $raw = '<OTA_CancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" xmlns:xsi="h
         <RequestorID Type="88" ID="TEST" MessagePassword="testpass"/>
     </Source>
 </POS>
-<UniqueID Type="36" ID="AAD" ID_Context="Client"/>
+<UniqueID Type="36" ID="AAP" ID_Context="Client"/>
 </OTA_CancelRQ>';
+
+echo '<xmp>';
+var_dump($raw);
+echo '</xmp>';
 
 $headers = array(
     "Accept: application/xml",

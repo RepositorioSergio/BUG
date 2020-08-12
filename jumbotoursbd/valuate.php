@@ -41,35 +41,32 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $url = 'https://test.xtravelsystem.com/public/v1_0rc1/hotelBookingHandler';
 
-$email = 'paulo@corp.bug-software.com';
-$password = 'xA2d@a1X';
-
 $raw = '<?xml version="1.0" encoding="UTF-8"?>
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://xtravelsystem.com/v1_0rc1/hotel/types">
     <soapenv:Header/>
     <soapenv:Body>
         <typ:valuateExtendsV22>
             <ValuationRQV22_1>
-                <agencyCode>613</agencyCode>
+                <agencyCode>266333</agencyCode>
                 <brandCode>1</brandCode>
                 <pointOfSaleId>1</pointOfSaleId>
-                <checkin>2018-04-22T00:00:00.000Z</checkin>
-                <checkout>2018-04-27T00:00:00.000Z</checkout>
-                <establishmentId>245479</establishmentId>
+                <checkin>2021-04-22T00:00:00.000Z</checkin>
+                <checkout>2021-04-27T00:00:00.000Z</checkout>
+                <establishmentId>1439227</establishmentId>
                 <language>en</language>
                 <occupancies>
                     <adults>2</adults>
                     <children>0</children>
                     <numberOfRooms>1</numberOfRooms>
-                    <ratePlanCode>AP1:FB:STD::PVqMBzMGVmZGExZDMtYzkzMi00MjM5LTlhNjUtNmVmNGE0MTMyN2Fi</ratePlanCode>
+                    <ratePlanCode>1P1:BB:STD::MZYmzoMmYxYzY2NDAtNTEwZS00ODlmLThiMzYtMWJiMTVkNzcyYmE3IyZAJiMxNDM5MjI3</ratePlanCode>
                 </occupancies>
                 <extendedLogin>
-                    <channel>B2B</channel>
-                    <loginCountry>FR</loginCountry>
-                    <mainNationality>GB</mainNationality>
+                    <channel>B2C</channel>
+                    <loginCountry>ES</loginCountry>
+                    <mainNationality>spain</mainNationality>
                 </extendedLogin>
                 <paxNationalities>
-                    <nationality>ES</nationality>
+                    <nationality></nationality>
                 </paxNationalities>
             </ValuationRQV22_1>
         </typ:valuateExtendsV22>
@@ -83,6 +80,7 @@ $headers = array(
 );
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);

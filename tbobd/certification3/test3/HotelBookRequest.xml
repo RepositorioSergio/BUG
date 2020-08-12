@@ -1,0 +1,73 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:hot="http://TekTravel/HotelBookingApi">
+<soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
+<hot:Credentials UserName="clubonehotelsTest" Password="Clu@28527768">
+</hot:Credentials>
+<wsa:Action>http://TekTravel/HotelBookingApi/HotelBook</wsa:Action>
+<wsa:To>https://api.tbotechnology.in/hotelapi_v7/hotelservice.svc</wsa:To>
+</soap:Header>
+<soap:Body>
+    <hot:HotelBookRequest>
+        <hot:AgencyReferenceNumber>BUGSOFT1</hot:AgencyReferenceNumber>
+        <hot:ClientReferenceNumber>210314135855789#aabh</hot:ClientReferenceNumber>
+        <hot:GuestNationality>ES</hot:GuestNationality>
+            <hot:Guests>
+                <hot:Guest LeadGuest="true" GuestType="Adult" GuestInRoom="1">
+                <hot:Title>Mr</hot:Title>
+                <hot:FirstName>Ajayxe</hot:FirstName>
+                <hot:LastName>testgea</hot:LastName>
+                <hot:Age>30</hot:Age>
+            </hot:Guest>
+            <hot:Guest LeadGuest="false" GuestType="Adult" GuestInRoom="1">
+                <hot:Title>Mrs</hot:Title>
+                <hot:FirstName>Edan</hot:FirstName>
+                <hot:LastName>testgea</hot:LastName>
+                <hot:Age>32</hot:Age>
+            </hot:Guest>
+            <hot:Guest LeadGuest="false" GuestType="Child" GuestInRoom="1">
+                <hot:Title>Mr</hot:Title>
+                <hot:FirstName>Albax</hot:FirstName>
+                <hot:LastName>testgea</hot:LastName>
+                <hot:Age>3</hot:Age>
+            </hot:Guest>
+            <hot:Guest LeadGuest="false" GuestType="Child" GuestInRoom="1">
+                <hot:Title>Mr</hot:Title>
+                <hot:FirstName>Antoine</hot:FirstName>
+                <hot:LastName>testgea</hot:LastName>
+                <hot:Age>5</hot:Age>
+            </hot:Guest>
+        </hot:Guests>
+        <hot:AddressInfo>
+            <hot:AddressLine1>testadd1</hot:AddressLine1>
+            <hot:AddressLine2>testadd2</hot:AddressLine2>
+            <hot:CountryCode>91</hot:CountryCode>
+            <hot:AreaCode>11</hot:AreaCode>
+            <hot:PhoneNo>25869696</hot:PhoneNo>
+            <hot:Email>abc@gmail.com</hot:Email>
+            <hot:City>Delhi</hot:City>
+            <hot:State>Delhi</hot:State>
+            <hot:Country>India</hot:Country>
+            <hot:ZipCode>256525</hot:ZipCode>
+        </hot:AddressInfo>
+        <!-- VoucherBooking-true Booking will be Vouchered -->
+        <hot:PaymentInfo VoucherBooking="false" PaymentModeType="Limit">
+        </hot:PaymentInfo>
+        <hot:SessionId>afe84e91-0173-4998-9461-4b6b2578eacc</hot:SessionId>
+        <hot:NoOfRooms>1</hot:NoOfRooms>
+        <hot:ResultIndex>1</hot:ResultIndex>
+        <hot:HotelCode>1265410</hot:HotelCode>
+        <hot:HotelName>Tulip Hotel Apartments</hot:HotelName>
+        <hot:HotelRooms>
+            <hot:HotelRoom>
+                <hot:RoomIndex>5</hot:RoomIndex>
+                <hot:RoomTypeName>Apartment Interconnecting Room,1 King Bed, 2 Twin Beds And 1 Double Sofa Bed</hot:RoomTypeName>
+                <hot:RoomTypeCode>200907390|204592865$37474^^1^^200907390|204592865|37474</hot:RoomTypeCode>
+                <hot:RatePlanCode>200907390|204592865|37474</hot:RatePlanCode>
+                <hot:RoomRate RoomFare="594.39" Currency="USD" AgentMarkUp="0.00" RoomTax="133.57" TotalFare="727.96"/>
+                <hot:Supplements>
+                    <hot:SuppInfo Type="PerStaySupplement" SuppID="1" SuppName="mandatory_tax" SuppIsMandatory="true" SuppChargeType="AtProperty" Price="40.00" CurrencyCode="AED" />
+                </hot:Supplements>
+            </hot:HotelRoom>
+        </hot:HotelRooms>
+    </hot:HotelBookRequest>
+</soap:Body>
+</soap:Envelope>

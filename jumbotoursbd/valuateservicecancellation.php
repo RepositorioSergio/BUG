@@ -41,15 +41,12 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $url = 'https://test.xtravelsystem.com/public/v1_0rc1/basketHandler';
 
-$email = 'paulo@corp.bug-software.com';
-$password = 'xA2d@a1X';
-
 $raw = '<?xml version="1.0" encoding="UTF-8"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://xtravelsystem.com/v1_0rc1/basket/types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
    <soap:Body>
       <tns:valuateServiceCancellation>
          <ValuateServiceCancellationRQ_1>
-            <agencyCode>536</agencyCode>
+            <agencyCode>266333</agencyCode>
             <brandCode>1</brandCode>
             <pointOfSaleId>1</pointOfSaleId>
             <serviceId>77504</serviceId>
@@ -65,6 +62,7 @@ $headers = array(
 );
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
