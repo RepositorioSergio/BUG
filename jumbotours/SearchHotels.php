@@ -185,6 +185,15 @@ if ($result->valid()) {
 } else {
     $jumbotoursgroupHotelsTimeout = 0;
 }
+$sql = "select value from settings where name='jumbotoursgroupHotelspointofsale' and affiliate_id=$affiliate_id_jtg";
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$result = $statement->execute();
+$result->buffer();
+if ($result->valid()) {
+    $row = $result->current();
+    $jumbotoursgroupHotelspointofsale = (int)$row['value'];
+}
 $sql = "select value from settings where name='jumbotoursgroupHotelsaffiliates_id' and affiliate_id=$affiliate_id_jtg";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -213,7 +222,7 @@ if ($jumbotoursgroupHotelsServiceURL != "" and $jumbotoursgroupHotelslogin != ""
         <AvailableHotelsByMultiQueryRQV22_1>
             <agencyCode>' . $jumbotoursgroupHotelsagencycode . '</agencyCode>
             <brandCode>' . $jumbotoursgroupHotelsbrandcode . '</brandCode>
-            <pointOfSaleId>1</pointOfSaleId>
+            <pointOfSaleId>' . $jumbotoursgroupHotelspointofsale . '</pointOfSaleId>
             <checkin>' . strftime("%Y-%m-%d", $from) . 'T10:00:00.000Z</checkin>
             <checkout>' . strftime("%Y-%m-%d", $to) . 'T10:00:00.000Z</checkout>
             <fromPrice>0</fromPrice>
