@@ -282,14 +282,9 @@ if ($jumbotoursgroupHotelsServiceURL != "" and $jumbotoursgroupHotelslogin != ""
     $response = curl_exec($ch);
     $error = curl_error($ch);
     curl_close($ch);
-    // if ($response === false) {
-    // error_log("\r\nCurl error: " . curl_error($ch) . "\r\n", 3, "/srv/www/htdocs/error_log");
-    // } else {
-    // error_log("\r\n Operation completed without any errors \r\n", 3, "/srv/www/htdocs/error_log");
-    // }
     curl_close($ch);
     $endTime = microtime();
-    // error_log("\r\n Response Jumbo: $response \r\n", 3, "/srv/www/htdocs/error_log");
+    error_log("\r\n Response Jumbo: $response \r\n", 3, "/srv/www/htdocs/error_log");
     
     try {
         $sql = new Sql($db);
@@ -760,7 +755,7 @@ if ($jumbotoursgroupHotelsServiceURL != "" and $jumbotoursgroupHotelslogin != ""
                                         $baseCounterDetails = 0;
                                     }
                                     
-                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['name'] = $Name;
+                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['name'] = $name;
                                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['hotelid'] = $id;
                                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['roomid'] = $typeCode;
                                     $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['shid'] = $shid;
@@ -837,14 +832,25 @@ if ($jumbotoursgroupHotelsServiceURL != "" and $jumbotoursgroupHotelslogin != ""
                                     $cancel = explode('-', $cancellationPolicy);
                                     $days = $cancel[0];
                                     $percent = $cancel[1];
+                                    $percent = str_replace(" ", "", $percent);
                                     $daystext = $days . " days";
                                     $from2 = strftime("%Y-%m-%d", $from);
                                     $Date2 = date('Y-m-d', strtotime("- " . $daystext, strtotime($from2)));
                                     $cancelpolicy_deadline = strftime("%a, %e %b %Y", strtotime($Date2));
                                     $cancelpolicy = 'If you Cancel a booking before ' . $cancelpolicy_deadline . ' has a ' . $percent . ' of total booking amount penalty.';
-                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails][$baseCounterDetails]['cancelpolicy'] = $cancelpolicy;
-                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails][$baseCounterDetails]['cancelpolicy_deadline'] = $cancelpolicy_deadline;
-                                    $tmp[$shid]['details'][$zRooms][$baseCounterDetails][$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = $cancelpolicy_deadline;
+                                    if ($percent === "100.00%") {
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nonrefundable'] = true;
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy'] = $translator->translate("This is a non refundable booking.");
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy_details'] = $translator->translate("This is a non refundable booking.");
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy_deadline'] = strftime("%a, %e %b %Y", time());
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = time();
+                                    } else {
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nonrefundable'] = false;
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy'] = $translator->translate($cancelpolicy);
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy_details'] = $translator->translate($cancelpolicy);
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy_deadline'] = $cancelpolicy_deadline;
+                                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = $cancelpolicy_deadline;
+                                    }
                                     $count = $count + 1;
                                 }
                             }

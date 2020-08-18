@@ -39,7 +39,7 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$sql = "SELECT id FROM jumbo_transfers_airports";
+$sql = "SELECT id FROM jumbo_cities";
 $statement = $db->createStatement($sql);
 try {
     $statement->prepare();
@@ -56,7 +56,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
     $resultSet = new ResultSet();
     $resultSet->initialize($result);
     foreach ($resultSet as $row) {
-        $airportcode = $row->id;
+        $citycode = $row->id;
 
         $url = 'https://test.xtravelsystem.com/public/v1_0rc1/transferBookingHandler';
 
@@ -68,9 +68,9 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
                         <agencyCode>266333</agencyCode>
                         <brandCode>1</brandCode>
                         <pointOfSaleId>1</pointOfSaleId>
-                        <airportCode>' . $airportcode . '</airportCode>
+                        <airportCode></airportCode>
                         <areaCode></areaCode>
-                        <cityCode></cityCode>
+                        <cityCode>' . $citycode . '</cityCode>
                         <fromRow>1</fromRow>
                         <language>en</language>
                         <numRows>100</numRows>

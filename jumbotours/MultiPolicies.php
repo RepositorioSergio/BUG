@@ -295,7 +295,7 @@ foreach ($breakdownTmp as $k => $v) {
                     <ValuationRQV22_1>
                         <agencyCode>' . $jumbotoursgroupHotelsagencycode . '</agencyCode>
                         <brandCode>' . $jumbotoursgroupHotelsbrandcode . '</brandCode>
-                        <pointOfSaleId>1</pointOfSaleId>
+                        <pointOfSaleId>' . $jumbotoursgroupHotelspointofsale . '</pointOfSaleId>
                         <checkin>' . $from_date . 'T10:00:00.000Z</checkin>
                         <checkout>' . $to_date . 'T10:00:00.000Z</checkout>
                         <establishmentId>' . $shid . '</establishmentId>
@@ -411,11 +411,11 @@ foreach ($breakdownTmp as $k => $v) {
                     } else {
                         $currencyCode = "";
                     }
-                    $value = $amount->item(0)->getElementsByTagName("value");
-                    if ($value->length > 0) {
-                        $value = $value->item(0)->nodeValue;
+                    $amount_value = $amount->item(0)->getElementsByTagName("value");
+                    if ($amount_value->length > 0) {
+                        $amount_value = $amount_value->item(0)->nodeValue;
                     } else {
-                        $value = "";
+                        $amount_value = "";
                     }
                 }
                 $lines = $result->item(0)->getElementsByTagName("lines");
@@ -771,11 +771,11 @@ foreach ($breakdownTmp as $k => $v) {
                         } else {
                             $currencyCode = "";
                         }
-                        $value = $amount->item(0)->getElementsByTagName("value");
-                        if ($value->length > 0) {
-                            $value = $value->item(0)->nodeValue;
+                        $amount_value = $amount->item(0)->getElementsByTagName("value");
+                        if ($amount_value->length > 0) {
+                            $amount_value = $amount_value->item(0)->nodeValue;
                         } else {
-                            $value = "";
+                            $amount_value = "";
                         }
                     }
                     $rates = $occupations->item(0)->getElementsByTagName("rates");
@@ -894,16 +894,25 @@ foreach ($breakdownTmp as $k => $v) {
         $cancel = explode('-', $cancellationPolicy);
         $days = $cancel[0];
         $percent = $cancel[1];
+        $percent = str_replace(" ", "", $percent);
         $daystext = $days . " days";
         $from2 = date('Y-m-d', strtotime($from));
         $Date2 = date('Y-m-d', strtotime("- " . $daystext, strtotime($from2)));
         $cancelpolicy_deadline = strftime("%a, %e %b %Y", strtotime($Date2));
         $cancelpolicy = 'If you Cancel a booking before ' . $cancelpolicy_deadline . ' has a ' . $percent . ' of total booking amount penalty.';
-        // $item['nonrefundable'] = true;
-        $item['cancelpolicy'] = $translator->translate($cancelpolicy);
-        $item['cancelpolicy_details'] = $translator->translate($cancelpolicy);
-        $item['cancelpolicy_deadline'] = $cancelpolicy_deadline;
-        $item['cancelpolicy_deadlinetimestamp'] = $cancelpolicy_deadline;
+        if ($percent === "100.00%") {
+            $item['nonrefundable'] = true;
+            $item['cancelpolicy'] = $translator->translate("This is a non refundable booking.");
+            $item['cancelpolicy_details'] = $translator->translate("This is a non refundable booking.");
+            $item['cancelpolicy_deadline'] = strftime("%a, %e %b %Y", time());
+            $item['cancelpolicy_deadlinetimestamp'] = time();
+        } else {
+            $item['nonrefundable'] = false;
+            $item['cancelpolicy'] = $translator->translate($cancelpolicy);
+            $item['cancelpolicy_details'] = $translator->translate($cancelpolicy);
+            $item['cancelpolicy_deadline'] = $cancelpolicy_deadline;
+            $item['cancelpolicy_deadlinetimestamp'] = $cancelpolicy_deadline;
+        }
         
         array_push($roombreakdown, $item);
         array_push($roombreakdown2, $item);

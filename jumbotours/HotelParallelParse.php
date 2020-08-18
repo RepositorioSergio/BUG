@@ -5,7 +5,7 @@ use Laminas\Db\Sql\Sql;
 use Laminas\Log\Logger;
 use Laminas\Log\Writer;
 if ($response != "") {
-    // error_log("\r\nResponse - $response\r\n", 3, "/srv/www/htdocs/error_log");
+    error_log("\r\nResponse - $response\r\n", 3, "/srv/www/htdocs/error_log");
     $inputDoc = new DOMDocument();
     $inputDoc->loadXML($response);
     $Envelope = $inputDoc->getElementsByTagName("Envelope");
@@ -529,12 +529,20 @@ if ($response != "") {
                                     $Date2 = date('Y-m-d', strtotime("- " . $daystext, strtotime($from2)));
                                     $cancelpolicy_deadline = strftime("%a, %e %b %Y", strtotime($Date2));
                                     $cancelpolicy = 'If you Cancel a booking before ' . $cancelpolicy_deadline . ' has a ' . $percent . ' of total booking amount penalty.';
-                                    
-                                    // $rooms[$baseCounterDetails]['nonrefundable'] = true;
-                                    $rooms[$baseCounterDetails]['cancelpolicy'] = $translator->translate($cancelpolicy);
-                                    $rooms[$baseCounterDetails]['cancelpolicy_details'] = $translator->translate($cancelpolicy);
-                                    $rooms[$baseCounterDetails]['cancelpolicy_deadline'] = $cancelpolicy_deadline;
-                                    $rooms[$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = $cancelpolicy_deadline;
+                                    $percent = str_replace(" ", "", $percent);
+                                    if ($percent === "100.00%") {
+                                        $rooms[$baseCounterDetails]['nonrefundable'] = true;
+                                        $rooms[$baseCounterDetails]['cancelpolicy'] = $translator->translate("This is a non refundable booking.");
+                                        $rooms[$baseCounterDetails]['cancelpolicy_details'] = $translator->translate("This is a non refundable booking.");
+                                        $rooms[$baseCounterDetails]['cancelpolicy_deadline'] = strftime("%a, %e %b %Y", time());
+                                        $rooms[$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = time();
+                                    } else {
+                                        $rooms[$baseCounterDetails]['nonrefundable'] = false;
+                                        $rooms[$baseCounterDetails]['cancelpolicy'] = $translator->translate($cancelpolicy);
+                                        $rooms[$baseCounterDetails]['cancelpolicy_details'] = $translator->translate($cancelpolicy);
+                                        $rooms[$baseCounterDetails]['cancelpolicy_deadline'] = $cancelpolicy_deadline;
+                                        $rooms[$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = $cancelpolicy_deadline;
+                                    }
 
                                     $rooms[$baseCounterDetails]['currency'] = strtoupper($currencyCode);
                                     $baseCounterDetails ++;

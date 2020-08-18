@@ -282,7 +282,7 @@ foreach ($breakdown as $k => $v) {
                     <ValuationRQV22_1>
                         <agencyCode>' . $jumbotoursgroupHotelsagencycode . '</agencyCode>
                         <brandCode>' . $jumbotoursgroupHotelsbrandcode . '</brandCode>
-                        <pointOfSaleId>1</pointOfSaleId>
+                        <pointOfSaleId>' . $jumbotoursgroupHotelspointofsale . '</pointOfSaleId>
                         <checkin>' . $from_date . 'T10:00:00.000Z</checkin>
                         <checkout>' . $to_date . 'T10:00:00.000Z</checkout>
                         <establishmentId>' . $shid . '</establishmentId>
@@ -330,7 +330,7 @@ foreach ($breakdown as $k => $v) {
         $response2 = curl_exec($ch);
         $error = curl_error($ch);
         curl_close($ch);
-        // error_log("\r\n Response: $response2 \r\n", 3, "/srv/www/htdocs/error_log");
+        error_log("\r\n Response: $response2 \r\n", 3, "/srv/www/htdocs/error_log");
         
         try {
             $sql = new Sql($db);
@@ -399,11 +399,11 @@ foreach ($breakdown as $k => $v) {
                     } else {
                         $currencyCode = "";
                     }
-                    $value = $amount->item(0)->getElementsByTagName("value");
-                    if ($value->length > 0) {
-                        $value = $value->item(0)->nodeValue;
+                    $amount_value = $amount->item(0)->getElementsByTagName("value");
+                    if ($amount_value->length > 0) {
+                        $amount_value = $amount_value->item(0)->nodeValue;
                     } else {
-                        $value = "";
+                        $amount_value = "";
                     }
                 }
                 $lines = $result->item(0)->getElementsByTagName("lines");
@@ -759,11 +759,11 @@ foreach ($breakdown as $k => $v) {
                         } else {
                             $currencyCode = "";
                         }
-                        $value = $amount->item(0)->getElementsByTagName("value");
-                        if ($value->length > 0) {
-                            $value = $value->item(0)->nodeValue;
+                        $amount_value = $amount->item(0)->getElementsByTagName("value");
+                        if ($amount_value->length > 0) {
+                            $amount_value = $amount_value->item(0)->nodeValue;
                         } else {
-                            $value = "";
+                            $amount_value = "";
                         }
                     }
                     $rates = $occupations->item(0)->getElementsByTagName("rates");
@@ -856,16 +856,16 @@ foreach ($breakdown as $k => $v) {
         //
         // Policies
         //
-        $item['code'] = $value['shid'];
-        $item['name'] = $value['name'];
+        $item['code'] = $id;
+        $item['name'] = $name;
         $item['total'] = $value['total'];
-        $item['nett'] = $value['nett'];
+        $item['nett'] = $value['nettotal'];
         $total = $total + $value['total'];
         $tot = $value['total'];
-        $item['room'] = $value['room'];
-        $item['RoomTypeCode'] = $value['room_type'];
-        $item['RoomType'] = $value['room_type'];
-        $item['RoomDescription'] = $value['room_description'];
+        $item['room'] = $roomTypeName;
+        $item['RoomTypeCode'] = $roomTypeCode;
+        $item['RoomType'] = $roomTypeCode;
+        $item['RoomDescription'] = $description;
         $item['meal'] = $value['meal'];
         $item['total'] = $value['total'];
         $item['totalplain'] = number_format($tot, 2, '.', '');
@@ -881,17 +881,26 @@ foreach ($breakdown as $k => $v) {
         $cancel = explode('-', $cancellationPolicy);
         $days = $cancel[0];
         $percent = $cancel[1];
+        $percent = str_replace(" ", "", $percent);
         $daystext = $days . " days";
         $from2 = date('Y-m-d', strtotime($from));
         $Date2 = date('Y-m-d', strtotime("- " . $daystext, strtotime($from2)));
         $cancelpolicy_deadline = strftime("%a, %e %b %Y", strtotime($Date2));
         $cancelpolicy = 'If you Cancel a booking before ' . $cancelpolicy_deadline . ' has a ' . $percent . ' of total booking amount penalty.';
 
-        // $item['nonrefundable'] = true;
-        $item['cancelpolicy'] = $translator->translate($cancelpolicy);
-        $item['cancelpolicy_details'] = $translator->translate($cancelpolicy);
-        $item['cancelpolicy_deadline'] = $cancelpolicy_deadline;
-        $item['cancelpolicy_deadlinetimestamp'] = $cancelpolicy_deadline;
+        if ($percent === "100.00%") {
+            $item['nonrefundable'] = true;
+            $item['cancelpolicy'] = $translator->translate("This is a non refundable booking.");
+            $item['cancelpolicy_details'] = $translator->translate("This is a non refundable booking.");
+            $item['cancelpolicy_deadline'] = strftime("%a, %e %b %Y", time());
+            $item['cancelpolicy_deadlinetimestamp'] = time();
+        } else {
+            $item['nonrefundable'] = false;
+            $item['cancelpolicy'] = $translator->translate($cancelpolicy);
+            $item['cancelpolicy_details'] = $translator->translate($cancelpolicy);
+            $item['cancelpolicy_deadline'] = $cancelpolicy_deadline;
+            $item['cancelpolicy_deadlinetimestamp'] = $cancelpolicy_deadline;
+        }
         
         array_push($roombreakdown, $item);
     }

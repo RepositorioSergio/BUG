@@ -78,7 +78,6 @@ if ($hotellist != "") {
             $sourceMarket = $row_settings['value'];
         }
     }
-    error_log("\r\n sourceMarket - $sourceMarket\r\n", 3, "/srv/www/htdocs/error_log");
     $sql = "select value from settings where name='jumbotoursgroupHotelslogin' and affiliate_id=$affiliate_id_jtg";
     $statement = $db->createStatement($sql);
     $statement->prepare();
@@ -221,7 +220,7 @@ if ($hotellist != "") {
                 <AvailableHotelsByMultiQueryRQV22_1>
                     <agencyCode>' . $jumbotoursgroupHotelsagencycode . '</agencyCode>
                     <brandCode>' . $jumbotoursgroupHotelsbrandcode . '</brandCode>
-                    <pointOfSaleId>1</pointOfSaleId>
+                    <pointOfSaleId>' . $jumbotoursgroupHotelspointofsale . '</pointOfSaleId>
                     <checkin>' . strftime("%Y-%m-%d", $from) . 'T10:00:00.000Z</checkin>
                     <checkout>' . strftime("%Y-%m-%d", $to) . 'T10:00:00.000Z</checkout>
                     <fromPrice>0</fromPrice>

@@ -14,6 +14,8 @@ use Laminas\I18n\Translator\Translator;
 $translator = new Translator();
 $filter = new \Laminas\I18n\Filter\NumberFormat($NumberFormat, 2);
 $db = new \Laminas\Db\Adapter\Adapter($config);
+error_log("\r\n origin: $origin \r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\n destination: $destination \r\n", 3, "/srv/www/htdocs/error_log");
 $sorign = $request->getAttribute('origin');
 $sorign = explode(":", $sorign);
 if ($sorign[1] == "ATLAS") {
@@ -94,6 +96,30 @@ if ($row_settings->valid()) {
 } else {
     $affiliate_id_jtg = 0;
 }
+if ((int) $nationality > 0) {
+    $sql = "select iso_code_2 from countries where id=" . (int) $nationality;
+    $statement2 = $db->createStatement($sql);
+    $statement2->prepare();
+    $row_settings = $statement2->execute();
+    $row_settings->buffer();
+    if ($row_settings->valid()) {
+        $row_settings = $row_settings->current();
+        $sourceMarket = $row_settings["iso_code_2"];
+    } else {
+        $sourceMarket = "";
+    }
+} else {
+    $sql = "select value from settings where name='jtgDefaultNationalityCountryCode' and affiliate_id=$affiliate_id_jtg";
+    $statement = $db->createStatement($sql);
+    $statement->prepare();
+    $row_settings = $statement->execute();
+    $row_settings->buffer();
+    if ($row_settings->valid()) {
+        $row_settings = $row_settings->current();
+        $sourceMarket = $row_settings['value'];
+    }
+}
+error_log("\r\n sourceMarket: $sourceMarket \r\n", 3, "/srv/www/htdocs/error_log");
 $sql = "select value from settings where name='jumbotoursgrouplogin' and affiliate_id=$affiliate_id_jtg";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -1243,9 +1269,9 @@ if ($jumbotoursgroupserviceurl != "" and $jumbotoursgrouplogin != "" and $jumbot
                                     $transfersout[$transfer_count_out]['cancelpolicy_deadlinetimestamp'] = $cancelpolicy_deadline;
                                     $transfersout[$transfer_count_out]['cancelpolicy_deadline'] = $cancelpolicy_deadline;
 
-                                    $transfersout[$transfer_count_out]['detailedinfo'] = $locationTextGoing;
+                                    $transfersout[$transfer_count_out]['detailedinfo'] = $locationTextReturn;
 
-                                    $transferdescription = $translator->translate($serviceType);
+                                    $transferdescription = $translator->translate($description);
 
                                     $transfersout[$transfer_count_out]['image'] = $imageUrl;
                                     $transfersout[$transfer_count_out]['transfertype'] = $serviceType;
@@ -1296,7 +1322,7 @@ if ($jumbotoursgroupserviceurl != "" and $jumbotoursgrouplogin != "" and $jumbot
                                     $transfersout[$transfer_count_out]['returndeparturetime'] = $timeComeBack;
                                     $transfersout[$transfer_count_out]['returnpickupdate'] = $dateDep;
                                     $transfersout[$transfer_count_out]['returnjourneytime'] = "";
-                                    // $transfersout[$transfer_count_out]['factsheetId'] = $factsheetId;
+                                    $transfersout[$transfer_count_out]['factsheetId'] = $factsheetId;
                                     // $transfersout[$transfer_count_out]['rateKey'] = $rateKey;
                                     $transfersout[$transfer_count_out]['direction'] = $direction;
                                     $transfer_count_out ++;
