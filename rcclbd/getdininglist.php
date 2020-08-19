@@ -69,22 +69,22 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
       <din:getDiningList>
         <OTA_CruiseDiningAvailRQ RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-12-29T18:25:50.1Z" TransactionIdentifier="106597" Version="1.0" Target="Test" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
             <POS>
-                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                    <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+                <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
+                    <RequestorID ID="313917" ID_Context="AGENCY1" Type="11"/>
                     <BookingChannel Type="7">
-                        <CompanyName CompanyShortName="PULLMANTUR"/>
+                        <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
                     </BookingChannel>
                 </Source>
-                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                    <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+                <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
+                    <RequestorID ID="313917" ID_Context="AGENCY2" Type="11"/>
                     <BookingChannel Type="7">
-                        <CompanyName CompanyShortName="PULLMANTUR"/>
+                        <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
                     </BookingChannel>
                 </Source>
-                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                    <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+                <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
+                    <RequestorID ID="313917" ID_Context="AGENT1" Type="11"/>
                     <BookingChannel Type="7">
-                        <CompanyName CompanyShortName="PULLMANTUR"/>
+                        <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
                     </BookingChannel>
                 </Source>
             </POS>

@@ -68,22 +68,22 @@ $raw ='<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope
    <ret:retrieveBooking>
    <OTA_ReadRQ TimeStamp="2013-09-03T18:35:46.317Z" Version="1.0" SequenceNmbr="1" RetransmissionIndicator="false" TransactionActionCode="RetrievePrice" Target="Test" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
         <POS>
-            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+            <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
+                <RequestorID ID="313917" ID_Context="AGENCY1" Type="11"/>
                 <BookingChannel Type="7">
-                    <CompanyName CompanyShortName="PULLMANTUR"/>
+                    <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
                 </BookingChannel>
             </Source>
-            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+            <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
+                <RequestorID ID="313917" ID_Context="AGENCY2" Type="11"/>
                 <BookingChannel Type="7">
-                    <CompanyName CompanyShortName="PULLMANTUR"/>
+                    <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
                 </BookingChannel>
             </Source>
-            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+            <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
+                <RequestorID ID="313917" ID_Context="AGENT1" Type="11"/>
                 <BookingChannel Type="7">
-                    <CompanyName CompanyShortName="PULLMANTUR"/>
+                    <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
                 </BookingChannel>
             </Source>
         </POS>

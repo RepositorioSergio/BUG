@@ -69,22 +69,22 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
         <alp:OTA_CruisePkgAvailRQ TimeStamp="2008-07-17T12:44:44.866-04:00" Target="Test" Version="1.0" SequenceNmbr="1" PrimaryLangID="en" RetransmissionIndicator="false" MoreIndicator="true" MaxResponses="50">
             <alp:POS>
             <!--1 to 10 repetitions:-->
-            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                <alp:RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+            <alp:Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
+                <alp:RequestorID ID="313917" ID_Context="AGENCY1" Type="11"/>
                 <alp:BookingChannel Type="7">
-                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                    <alp:CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
                 </alp:BookingChannel>
             </alp:Source>
-            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                <alp:RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+            <alp:Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
+                <alp:RequestorID ID="313917" ID_Context="AGENCY2" Type="11"/>
                 <alp:BookingChannel Type="7">
-                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                    <alp:CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
                 </alp:BookingChannel>
             </alp:Source>
-            <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                <alp:RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+            <alp:Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
+                <alp:RequestorID ID="313917" ID_Context="AGENT1" Type="11"/>
                 <alp:BookingChannel Type="7">
-                    <alp:CompanyName CompanyShortName="PULLMANTUR"/>
+                    <alp:CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
                 </alp:BookingChannel>
             </alp:Source>
             </alp:POS>

@@ -62,26 +62,26 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
 <soapenv:Body>
   <book:getBookingPrice>
     <OTA_CruisePriceBookingRQ Version="1.0" SequenceNmbr="1" Target="Test" TimeStamp="2008-12-30T18:30:42.720+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
-      <POS>
-        <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-            <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
-            <BookingChannel Type="7">
-            <CompanyName CompanyShortName="PULLMANTUR"/>
-            </BookingChannel>
-        </Source>
-        <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-            <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
-            <BookingChannel Type="7">
-            <CompanyName CompanyShortName="PULLMANTUR"/>
-            </BookingChannel>
-        </Source>
-        <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-            <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
-            <BookingChannel Type="7">
-            <CompanyName CompanyShortName="PULLMANTUR"/>
-            </BookingChannel>
-        </Source>
-      </POS>
+        <POS>
+            <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
+                <RequestorID ID="313917" ID_Context="AGENCY1" Type="11"/>
+                <BookingChannel Type="7">
+                    <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
+                </BookingChannel>
+            </Source>
+            <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
+                <RequestorID ID="313917" ID_Context="AGENCY2" Type="11"/>
+                <BookingChannel Type="7">
+                    <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
+                </BookingChannel>
+            </Source>
+            <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
+                <RequestorID ID="313917" ID_Context="AGENT1" Type="11"/>
+                <BookingChannel Type="7">
+                    <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
+                </BookingChannel>
+            </Source>
+        </POS>
       <SailingInfo>
         <SelectedSailing Start="2021-02-07">
           <CruiseLine ShipCode="HR" VendorCode="PUL"/>

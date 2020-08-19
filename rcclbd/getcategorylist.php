@@ -62,31 +62,32 @@ $password = 'u73ecKBu73ecKB!';
 
 $url = "https://stage.services.rccl.com/Reservation_FITWeb/sca/CategoryList";
 
-$raw ='<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://services.rccl.com/Interfaces/CategoryList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha">
-<soapenv:Header/>
-<soapenv:Body>
-   <cat:getCategoryList>
-      <OTA_CruiseCategoryAvailRQ Target="Test" MaxResponses="50" MoreIndicator="true" Version="2.0" SequenceNmbr="1" TimeStamp="2008-11-05T19:15:56.692+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
-         <POS>
-            <Source ISOCurrency="USD" TerminalID="12502LDJW6">
-               <RequestorID ID="313917" Type="5" ID_Context="AGENCY1"/>
-               <BookingChannel Type="7">
-                  <CompanyName CompanyShortName="PULLMANTUR"/>
-               </BookingChannel>
-            </Source>
-            <Source ISOCurrency="USD" TerminalID="12502LDJW6">
-               <RequestorID ID="313917" Type="5" ID_Context="AGENCY2"/>
-               <BookingChannel Type="7">
-                  <CompanyName CompanyShortName="PULLMANTUR"/>
-               </BookingChannel>
-            </Source>
-            <Source ISOCurrency="USD" TerminalID="12502LDJW6">
-            <RequestorID ID="313917" Type="5" ID_Context="AGENT1"/>
-               <BookingChannel Type="7">
-                  <CompanyName CompanyShortName="PULLMANTUR"/>
-               </BookingChannel>
-            </Source>
-         </POS>
+$raw ='<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://services.rccl.com/Interfaces/CategoryList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cat:getCategoryList>
+         <OTA_CruiseCategoryAvailRQ Target="Test" MaxResponses="50" MoreIndicator="true" Version="2.0" SequenceNmbr="1" TimeStamp="2008-11-05T19:15:56.692+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+            <POS>
+                  <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
+                     <RequestorID ID="313917" ID_Context="AGENCY1" Type="11"/>
+                     <BookingChannel Type="7">
+                        <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
+                     </BookingChannel>
+                  </Source>
+                  <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
+                     <RequestorID ID="313917" ID_Context="AGENCY2" Type="11"/>
+                     <BookingChannel Type="7">
+                        <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
+                     </BookingChannel>
+                  </Source>
+                  <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
+                     <RequestorID ID="313917" ID_Context="AGENT1" Type="11"/>
+                     <BookingChannel Type="7">
+                        <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
+                     </BookingChannel>
+                  </Source>
+            </POS>
              <Guest Code="10" Age="30">
                <GuestTransportation Mode="29" Status="36"/>
             </Guest>
