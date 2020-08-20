@@ -1,5 +1,5 @@
 <?php
-// Cruises Pullmantur
+// Cruises RCCL
 error_log("\r\n COMECOU CABIN \r\n", 3, "/srv/www/htdocs/error_log");
 $scurrency = strtoupper($currency);
 use Laminas\Db\Adapter\Adapter;
@@ -38,62 +38,6 @@ $result->buffer();
 if ($result->valid()) {
     $row = $result->current();
     $cruisesroyalcaribbeanServiceURL = $row['value'];
-}
-$sql = "select value from settings where name='mundocrucerosuserid'";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$result = $statement->execute();
-$result->buffer();
-if ($result->valid()) {
-    $row = $result->current();
-    $mundocrucerosuserid = $row['value'];
-}
-$sql = "select value from settings where name='mundocrucerosStatusLiveTest'";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$result = $statement->execute();
-$result->buffer();
-if ($result->valid()) {
-    $row = $result->current();
-    $mundocrucerosStatusLiveTest = $row['value'];
-}
-$sql = "select value from settings where name='mundocruceroslineid'";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$result = $statement->execute();
-$result->buffer();
-if ($result->valid()) {
-    $row = $result->current();
-    $mundocruceroslineid = $row['value'];
-} else {
-    $mundocruceroslineid = "";
-}
-$sql = "select value from settings where name='mundocrucerosServiceURLBook'";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$result = $statement->execute();
-$result->buffer();
-if ($result->valid()) {
-    $row = $result->current();
-    $mundocrucerosServiceURLBook = $row['value'];
-}
-$sql = "select value from settings where name='mundocrucerosSID'";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$result = $statement->execute();
-$result->buffer();
-if ($result->valid()) {
-    $row = $result->current();
-    $mundocrucerosSID = $row['value'];
-}
-$sql = "select value from settings where name='mundocrucerosWebsite'";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$result = $statement->execute();
-$result->buffer();
-if ($result->valid()) {
-    $row = $result->current();
-    $mundocrucerosWebsite = $row['value'];
 }
 $sql = "select value from settings where name='cruisesroyalcaribbeanSearchSortorder'";
 $statement = $db->createStatement($sql);
@@ -198,22 +142,22 @@ if ($cruise_line_id != "") {
         <cab:getCabinList>
             <OTA_CruiseCabinAvailRQ MaxResponses="50" MoreDataEchoToken="01" Target="Test" RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-11-25T10:08:12.204-05:00" TransactionIdentifier="106597" Version="1.0" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
                 <POS>
-                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                        <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+                    <Source ISOCurrency="USD" TerminalID="12502LDJW6">
+                        <RequestorID ID="369567" Type="11" ID_Context="AGENCY1"/>
                         <BookingChannel Type="7">
-                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                            <CompanyName CompanyShortName="COSTAMAR"/>
                         </BookingChannel>
                     </Source>
-                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                        <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+                    <Source ISOCurrency="USD" TerminalID="12502LDJW6">
+                        <RequestorID ID="369567" Type="11" ID_Context="AGENCY2"/>
                         <BookingChannel Type="7">
-                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                            <CompanyName CompanyShortName="COSTAMAR"/>
                         </BookingChannel>
                     </Source>
-                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                        <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+                    <Source ISOCurrency="USD" TerminalID="12502LDJW6">
+                        <RequestorID ID="369567" Type="11" ID_Context="AGENT1"/>
                         <BookingChannel Type="7">
-                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                            <CompanyName CompanyShortName="COSTAMAR"/>
                         </BookingChannel>
                     </Source>
                 </POS>
@@ -229,7 +173,7 @@ if ($cruise_line_id != "") {
                 </Guest>
                 <GuestCounts>
                     <GuestCount Age="30" Quantity="1"/>
-                    <GuestCount Age="4" Quantity="1"/>
+                    <GuestCount Age="5" Quantity="1"/>
                 </GuestCounts>
                 <SailingInfo>
                     <SelectedSailing ListOfSailingDescriptionCode="' . $listofsailingdescriptioncode . '" Start="' . $start . '" Duration="' . $duration . '" Status="' . $status . '" PortsOfCallQuantity="' . $portsofcallquantity . '">
@@ -256,25 +200,25 @@ if ($cruise_line_id != "") {
     </soapenv:Envelope>';
 
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/CabinList');
+    curl_setopt($ch, CURLOPT_URL, $cruisesroyalcaribbeanServiceURL . 'Reservation_FITWeb/sca/CabinList');
     curl_setopt($ch, CURLOPT_HEADER, false);
     curl_setopt($ch, CURLOPT_VERBOSE, false);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
-    curl_setopt($ch, CURLOPT_USERPWD, $cruisespullmanturusername . ":" . $cruisespullmanturpassword);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $cruisespullmanturConnetionTimeout);
+    curl_setopt($ch, CURLOPT_USERPWD, $cruisesroyalcaribbeanusername . ":" . $cruisesroyalcaribbeanpassword);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $cruisesroyalcaribbeanConnetionTimeout);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_ENCODING, 'gzip');
     $response = curl_exec($ch);
     $error = curl_error($ch);
     $headers = curl_getinfo($ch);
     curl_close($ch);
-    //error_log("\r\n Response - $response \r\n", 3, "/srv/www/htdocs/error_log");   
+    error_log("\r\n Response - $response \r\n", 3, "/srv/www/htdocs/error_log");   
     try {
-        $sql = new Sql($dbPullmantur);
+        $sql = new Sql($db);
         $insert = $sql->insert();
-        $insert->into('log_pullmantur');
+        $insert->into('log_rccl');
         $insert->values(array(
             'datetime_created' => time(),
             'filename' => 'Cabins.php',
@@ -350,7 +294,7 @@ if ($cruise_line_id != "") {
                             $Remark = "";
                         }
                         $sql = "select image from ships_decksimages where ship_id=$ship_id and categorycode='" . $selectedcabin['code'] . "'";
-                        $statement = $dbPullmantur->createStatement($sql);
+                        $statement = $db->createStatement($sql);
                         $statement->prepare();
                         $row_settings = $statement->execute();
                         $row_settings->buffer();
@@ -401,29 +345,29 @@ if ($cruise_line_id != "") {
             <OTA_CruiseDiningAvailRQ RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-12-29T18:25:50.1Z" TransactionIdentifier="106597" Version="1.0" Target="Test" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
                 <POS>
                     <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                        <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+                        <RequestorID ID="369567" ID_Context="AGENCY1" Type="11"/>
                         <BookingChannel Type="7">
-                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                            <CompanyName CompanyShortName="COSTAMAR"/>
                         </BookingChannel>
                     </Source>
                     <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                        <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+                        <RequestorID ID="369567" ID_Context="AGENCY2" Type="11"/>
                         <BookingChannel Type="7">
-                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                            <CompanyName CompanyShortName="COSTAMAR"/>
                         </BookingChannel>
                     </Source>
                     <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                        <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+                        <RequestorID ID="369567" ID_Context="AGENT1" Type="11"/>
                         <BookingChannel Type="7">
-                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                            <CompanyName CompanyShortName="COSTAMAR"/>
                         </BookingChannel>
                     </Source>
                 </POS>
                 <Guest Code="10" Age="30"/>
-                <Guest Code="8" Age="4"/>
+                <Guest Code="8" Age="5"/>
                 <GuestCounts>
                     <GuestCount Age="30" Quantity="1"/>
-                    <GuestCount Age="4" Quantity="1"/>
+                    <GuestCount Age="5" Quantity="1"/>
                 </GuestCounts>
                 <SailingInfo>
                     <SelectedSailing ListOfSailingDescriptionCode="' . $listofsailingdescriptioncode . '" Start="' . $start . '" Duration="' . $duration . '" Status="' . $status . '" PortsOfCallQuantity="' . $portsofcallquantity . '">
@@ -449,14 +393,14 @@ if ($cruise_line_id != "") {
     </soapenv:Envelope>';
 
     $ch2 = curl_init();
-    curl_setopt($ch2, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/DiningList');
+    curl_setopt($ch2, CURLOPT_URL, $cruisesroyalcaribbeanServiceURL . 'Reservation_FITWeb/sca/DiningList');
     curl_setopt($ch2, CURLOPT_HEADER, false);
     curl_setopt($ch2, CURLOPT_VERBOSE, false);
     curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch2, CURLOPT_POST, true);
     curl_setopt($ch2, CURLOPT_POSTFIELDS, $raw2);
-    curl_setopt($ch2, CURLOPT_USERPWD, $cruisespullmanturusername . ":" . $cruisespullmanturpassword);
-    curl_setopt($ch2, CURLOPT_CONNECTTIMEOUT, $cruisespullmanturConnetionTimeout);
+    curl_setopt($ch2, CURLOPT_USERPWD, $cruisesroyalcaribbeanusername . ":" . $cruisesroyalcaribbeanpassword);
+    curl_setopt($ch2, CURLOPT_CONNECTTIMEOUT, $cruisesroyalcaribbeanConnetionTimeout);
     curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch2, CURLOPT_ENCODING, 'gzip');
     $response2 = curl_exec($ch2);
@@ -526,7 +470,7 @@ if ($cruise_line_id != "") {
         }
     }
 }
-$dbPullmantur->getDriver()
+$db->getDriver()
     ->getConnection()
     ->disconnect();
     error_log("\r\n EOF CABIN \r\n", 3, "/srv/www/htdocs/error_log");

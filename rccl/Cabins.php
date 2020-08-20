@@ -1,5 +1,5 @@
 <?php
-// Cruises Pullmantur
+// Cruises RCCL
 error_log("\r\n RCCL Cabins \r\n", 3, "/srv/www/htdocs/error_log");
 $scurrency = strtoupper($currency);
 use Laminas\Db\Adapter\Adapter;
@@ -38,62 +38,6 @@ $result->buffer();
 if ($result->valid()) {
     $row = $result->current();
     $cruisesroyalcaribbeanServiceURL = $row['value'];
-}
-$sql = "select value from settings where name='mundocrucerosuserid'";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$result = $statement->execute();
-$result->buffer();
-if ($result->valid()) {
-    $row = $result->current();
-    $mundocrucerosuserid = $row['value'];
-}
-$sql = "select value from settings where name='mundocrucerosStatusLiveTest'";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$result = $statement->execute();
-$result->buffer();
-if ($result->valid()) {
-    $row = $result->current();
-    $mundocrucerosStatusLiveTest = $row['value'];
-}
-$sql = "select value from settings where name='mundocruceroslineid'";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$result = $statement->execute();
-$result->buffer();
-if ($result->valid()) {
-    $row = $result->current();
-    $mundocruceroslineid = $row['value'];
-} else {
-    $mundocruceroslineid = "";
-}
-$sql = "select value from settings where name='mundocrucerosServiceURLBook'";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$result = $statement->execute();
-$result->buffer();
-if ($result->valid()) {
-    $row = $result->current();
-    $mundocrucerosServiceURLBook = $row['value'];
-}
-$sql = "select value from settings where name='mundocrucerosSID'";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$result = $statement->execute();
-$result->buffer();
-if ($result->valid()) {
-    $row = $result->current();
-    $mundocrucerosSID = $row['value'];
-}
-$sql = "select value from settings where name='mundocrucerosWebsite'";
-$statement = $db->createStatement($sql);
-$statement->prepare();
-$result = $statement->execute();
-$result->buffer();
-if ($result->valid()) {
-    $row = $result->current();
-    $mundocrucerosWebsite = $row['value'];
 }
 $sql = "select value from settings where name='cruisesroyalcaribbeanSearchSortorder'";
 $statement = $db->createStatement($sql);
@@ -196,28 +140,28 @@ if ($cruise_line_id != "") {
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://services.rccl.com/Interfaces/CategoryList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha">
     <soapenv:Header/>
     <soapenv:Body>
-    <cat:getCategoryList>
-        <OTA_CruiseCategoryAvailRQ Target="Test" MaxResponses="50" MoreIndicator="true" Version="2.0" SequenceNmbr="1" TimeStamp="2008-11-05T19:15:56.692+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
-            <POS>
-                <Source ISOCurrency="USD" TerminalID="12502LDJW6">
-                <RequestorID ID="313917" Type="5" ID_Context="AGENCY1"/>
-                <BookingChannel Type="7">
-                    <CompanyName CompanyShortName="PULLMANTUR"/>
-                </BookingChannel>
-                </Source>
-                <Source ISOCurrency="USD" TerminalID="12502LDJW6">
-                <RequestorID ID="313917" Type="5" ID_Context="AGENCY2"/>
-                <BookingChannel Type="7">
-                    <CompanyName CompanyShortName="PULLMANTUR"/>
-                </BookingChannel>
-                </Source>
-                <Source ISOCurrency="USD" TerminalID="12502LDJW6">
-                <RequestorID ID="313917" Type="5" ID_Context="AGENT1"/>
-                <BookingChannel Type="7">
-                    <CompanyName CompanyShortName="PULLMANTUR"/>
-                </BookingChannel>
-                </Source>
-            </POS>
+        <cat:getCategoryList>
+            <OTA_CruiseCategoryAvailRQ Target="Test" MaxResponses="50" MoreIndicator="true" Version="2.0" SequenceNmbr="1" TimeStamp="2008-11-05T19:15:56.692+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+                <POS>
+                    <Source ISOCurrency="USD" TerminalID="12502LDJW6">
+                        <RequestorID ID="369567" Type="11" ID_Context="AGENCY1"/>
+                        <BookingChannel Type="7">
+                            <CompanyName CompanyShortName="COSTAMAR"/>
+                        </BookingChannel>
+                    </Source>
+                    <Source ISOCurrency="USD" TerminalID="12502LDJW6">
+                        <RequestorID ID="369567" Type="11" ID_Context="AGENCY2"/>
+                        <BookingChannel Type="7">
+                            <CompanyName CompanyShortName="COSTAMAR"/>
+                        </BookingChannel>
+                    </Source>
+                    <Source ISOCurrency="USD" TerminalID="12502LDJW6">
+                        <RequestorID ID="369567" Type="11" ID_Context="AGENT1"/>
+                        <BookingChannel Type="7">
+                            <CompanyName CompanyShortName="COSTAMAR"/>
+                        </BookingChannel>
+                    </Source>
+                </POS>
                 <Guest>
                     <GuestTransportation Mode="29" Status="36"/>
                 </Guest>
@@ -261,11 +205,11 @@ if ($cruise_line_id != "") {
     $error = curl_error($ch);
     $headers = curl_getinfo($ch);
     curl_close($ch);
-    //error_log("\r\n Response - $response \r\n", 3, "/srv/www/htdocs/error_log");
+    error_log("\r\n Response - $response \r\n", 3, "/srv/www/htdocs/error_log");
     
     try {
-        $dbPullmantur = new \Laminas\Db\Adapter\Adapter($config);
-        $sql = new Sql($dbPullmantur);
+        $db = new \Laminas\Db\Adapter\Adapter($config);
+        $sql = new Sql($db);
         $insert = $sql->insert();
         $insert->into('log_rccl');
         $insert->values(array(
@@ -278,7 +222,7 @@ if ($cruise_line_id != "") {
         ), $insert::VALUES_MERGE);
         $statement = $sql->prepareStatementForSqlObject($insert);
         $results = $statement->execute();
-        $dbPullmantur->getDriver()
+        $db->getDriver()
             ->getConnection()
             ->disconnect();
     } catch (Exception $e) {
@@ -346,9 +290,9 @@ if ($cruise_line_id != "") {
 
                             if ($GroupCode != "") {
                                 try {
-                                    $dbPullmantur = new \Laminas\Db\Adapter\Adapter($config);
+                                    $db = new \Laminas\Db\Adapter\Adapter($config);
                                     $sql = "select name, image, description, stateroom_area, veranda_area, color from ships_cabincategory where ship_id=" . $ship_id . " and categorycode='" . $PricedCategoryCode . "'";
-                                    $statement2 = $dbPullmantur->createStatement($sql);
+                                    $statement2 = $db->createStatement($sql);
                                     $statement2->prepare();
                                     $row_cabincategory = $statement2->execute();
                                     if ($row_cabincategory->valid()) {
@@ -360,7 +304,7 @@ if ($cruise_line_id != "") {
                                         $color = $row_cabincategory["color"];
                                         $description = $row_cabincategory["description"];
                                     }
-                                    $dbPullmantur->getDriver()
+                                    $db->getDriver()
                                         ->getConnection()
                                         ->disconnect();
                                 } catch (Exception $e) {
@@ -488,7 +432,7 @@ if ($cruise_line_id != "") {
         }
     }
 }
-$dbPullmantur->getDriver()
+$db->getDriver()
     ->getConnection()
     ->disconnect();
     error_log("\r\n EOF CABINS  \r\n", 3, "/srv/www/htdocs/error_log");
