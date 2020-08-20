@@ -32,7 +32,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $affiliate_id = 0;
 $branch_filter = "";
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.pulmantur.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.rcc.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -57,38 +57,40 @@ $client->setHeaders(array(
     "Content-length: ".strlen($raw)
 ));
 
-$username = 'CONCTMM';
-$password = 'u73ecKBu73ecKB!';
+$username = 'CONSTGCOSTAMAR';
+$password = '3MDQV5F5BzdvcX9';
 
 $url = "https://stage.services.rccl.com/Reservation_FITWeb/sca/SailingList";
 
-$raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sail="http://services.rccl.com/Interfaces/SailingList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
-<soapenv:Header/>
-<soapenv:Body>
-   <sail:getSailingList>
-      <alp:OTA_CruiseSailAvailRQ TimeStamp="2008-07-17T12:44:44.866-04:00" Target="Test" Version="1.0" SequenceNmbr="1" PrimaryLangID="en" RetransmissionIndicator="false" MoreIndicator="true" MaxResponses="50">
-         <alp:POS>
-            <!--1 to 10 repetitions:-->
-            <alp:Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
-                <alp:RequestorID ID="313917" ID_Context="AGENCY1" Type="11"/>
-                <alp:BookingChannel Type="7">
-                    <alp:CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
-                </alp:BookingChannel>
-            </alp:Source>
-            <alp:Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
-                <alp:RequestorID ID="313917" ID_Context="AGENCY2" Type="11"/>
-                <alp:BookingChannel Type="7">
-                    <alp:CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
-                </alp:BookingChannel>
-            </alp:Source>
-            <alp:Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
-                <alp:RequestorID ID="313917" ID_Context="AGENT1" Type="11"/>
-                <alp:BookingChannel Type="7">
-                    <alp:CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
-                </alp:BookingChannel>
-            </alp:Source>
-         </alp:POS>
-        <alp:SailingDateRange Start="2020-11-08"/>
+$raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sail="http://services.rccl.com/Interfaces/SailingList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha"><soapenv:Header/><soapenv:Body><sail:getSailingList>
+<alp:OTA_CruiseSailAvailRQ TimeStamp="2008-07-17T12:44:44.866-04:00" Target="Test" Version="1.0" SequenceNmbr="1" PrimaryLangID="en" RetransmissionIndicator="false" MoreIndicator="true" MaxResponses="50">
+    <alp:POS>
+        <!--1 to 10 repetitions:-->
+        <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+            <alp:RequestorID ID="369567" ID_Context="AGENCY1" Type="11"/>
+            <alp:BookingChannel Type="7">
+                <alp:CompanyName CompanyShortName="COSTAMAR"/>
+            </alp:BookingChannel>
+        </alp:Source>
+        <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+            <alp:RequestorID ID="369567" ID_Context="AGENCY2" Type="11"/>
+            <alp:BookingChannel Type="7">
+                <alp:CompanyName CompanyShortName="COSTAMAR"/>
+            </alp:BookingChannel>
+        </alp:Source>
+        <alp:Source TerminalID="12502LDJW6" ISOCurrency="USD">
+            <alp:RequestorID ID="369567" ID_Context="AGENT1" Type="11"/>
+            <alp:BookingChannel Type="7">
+                <alp:CompanyName CompanyShortName="COSTAMAR"/>
+            </alp:BookingChannel>
+        </alp:Source>
+    </alp:POS>
+    <!--Optional:-->
+    <alp:GuestCounts>
+        <alp:GuestCount Age="30" Quantity="1"/>
+        <alp:GuestCount Age="5" Quantity="1"/>
+    </alp:GuestCounts>
+        <alp:SailingDateRange Start="2021-02-08"/>
       </alp:OTA_CruiseSailAvailRQ>
    </sail:getSailingList>
 </soapenv:Body>
@@ -114,7 +116,7 @@ echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.pulmantur.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.rcc.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -167,6 +169,121 @@ if ($OTA_CruiseSailAvailRS->length > 0) {
                 if ($InclusivePackageOption->length > 0) {
                     $CruisePackageCode = $InclusivePackageOption->item(0)->getAttribute("CruisePackageCode");
                     $InclusiveIndicator = $InclusivePackageOption->item(0)->getAttribute("InclusiveIndicator");
+                }
+
+                try {
+                    $sql = new Sql($db);
+                    $select = $sql->select();
+                    $select->from('cruisesailavail');
+                    $select->where(array(
+                        'id' => $CruisePackageCode
+                    ));
+                    $statement = $sql->prepareStatementForSqlObject($select);
+                    try {
+                        $result = $statement->execute();
+                    } catch (\Exception $e) {
+                        echo $return;
+                        echo "Error: " . $e;
+                        echo $return;
+                        die();
+                    }
+                    $result->buffer();
+                    $customers = array();
+                    if ($result->valid()) {
+                        $data = $result->current();
+                        $idTmp = (string) $data['id'];
+                        if ($idTmp != "") {
+                            $sql = new Sql($db);
+                            $select = $sql->update();
+                            $select->table('cruisesailavail');
+                            $select->where(array(
+                                'id' => $idTmp
+                            ));
+                            $select->set(array(
+                                'datetime_updated' => time(),
+                                'listofsailingdescriptioncode' => $ListOfSailingDescriptionCode,
+                                'duration' => $Duration,
+                                'portsofcallquantity' => $PortsOfCallQuantity,
+                                'start' => $Start,
+                                'status' => $Status,
+                                'shipcode' => $ShipCode,
+                                'vendorcode' => $VendorCode,
+                                'regioncode' => $RegionCode,
+                                'subregioncode' => $SubRegionCode,
+                                'inclusiveindicator' => $InclusiveIndicator,
+                                'mapped_id' => 0
+                            ));
+                            $statement = $sql->prepareStatementForSqlObject($select);
+                            try {
+                                $results = $statement->execute();
+                            } catch (\Exception $e) {
+                                $console->writeLine('');
+                                $console->writeLine($e);
+                                $console->writeLine('');
+                                die();
+                            }
+                        } else {
+                            $sql = new Sql($db);
+                            $insert = $sql->insert();
+                            $insert->into('cruisesailavail');
+                            $insert->values(array(
+                                'id' => $CruisePackageCode,
+                                'datetime_updated' => time(),
+                                'listofsailingdescriptioncode' => $ListOfSailingDescriptionCode,
+                                'duration' => $Duration,
+                                'portsofcallquantity' => $PortsOfCallQuantity,
+                                'start' => $Start,
+                                'status' => $Status,
+                                'shipcode' => $ShipCode,
+                                'vendorcode' => $VendorCode,
+                                'regioncode' => $RegionCode,
+                                'subregioncode' => $SubRegionCode,
+                                'inclusiveindicator' => $InclusiveIndicator,
+                                'mapped_id' => 0
+                            ), $insert::VALUES_MERGE);
+                            $statement = $sql->prepareStatementForSqlObject($insert);
+                            try {
+                                $results = $statement->execute();
+                            } catch (\Exception $e) {
+                                echo $return;
+                                echo "Error: " . $e;
+                                echo $return;
+                                die();
+                            }
+                        }
+                    } else {
+                        $sql = new Sql($db);
+                        $insert = $sql->insert();
+                        $insert->into('cruisesailavail');
+                        $insert->values(array(
+                            'id' => $CruisePackageCode,
+                            'datetime_updated' => time(),
+                            'listofsailingdescriptioncode' => $ListOfSailingDescriptionCode,
+                            'duration' => $Duration,
+                            'portsofcallquantity' => $PortsOfCallQuantity,
+                            'start' => $Start,
+                            'status' => $Status,
+                            'shipcode' => $ShipCode,
+                            'vendorcode' => $VendorCode,
+                            'regioncode' => $RegionCode,
+                            'subregioncode' => $SubRegionCode,
+                            'inclusiveindicator' => $InclusiveIndicator,
+                            'mapped_id' => 0
+                        ), $insert::VALUES_MERGE);
+                        $statement = $sql->prepareStatementForSqlObject($insert);
+                        try {
+                            $results = $statement->execute();
+                        } catch (\Exception $e) {
+                            echo $return;
+                            echo "Error: " . $e;
+                            echo $return;
+                            die();
+                        }
+                    }
+                } catch (\Exception $e) {
+                    echo $return;
+                    echo "Error1: " . $e;
+                    echo $return;
                 }
             }
         }

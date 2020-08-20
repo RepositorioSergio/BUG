@@ -345,7 +345,7 @@ if ($cruisedestinationid > 0) {
     } else {
         $raw .= '/>' . $cruiseinitfilter . '' . $cruiselinefilter . '' . $cruisedepartureportfilter . '' . $cruiseshipidfilter . '' . $cruisedestinationfilter . '' . $cruiseendfilter . '</alp:OTA_CruiseSailAvailRQ></sail:getSailingList></soapenv:Body></soapenv:Envelope>';
     }
-    // error_log("\r\n Request RAW - $raw\r\n", 3, "/srv/www/htdocs/error_log");
+    error_log("\r\n Request RAW - $raw\r\n", 3, "/srv/www/htdocs/error_log");
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $cruisesroyalcaribbeanServiceURL . 'Reservation_FITWeb/sca/SailingList');
     curl_setopt($ch, CURLOPT_HEADER, false);
@@ -361,7 +361,7 @@ if ($cruisedestinationid > 0) {
     $error = curl_error($ch);
     $headers = curl_getinfo($ch);
     curl_close($ch);
-    // error_log("\r\nRCCL Response - $xmlresult\r\n", 3, "/srv/www/htdocs/error_log");
+    error_log("\r\nRCCL Response - $xmlresult\r\n", 3, "/srv/www/htdocs/error_log");
     try {
         $sql = new Sql($db);
         $insert = $sql->insert();
