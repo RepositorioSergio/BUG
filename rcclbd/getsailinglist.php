@@ -174,6 +174,127 @@ if ($OTA_CruiseSailAvailRS->length > 0) {
                 try {
                     $sql = new Sql($db);
                     $select = $sql->select();
+                    $select->from('rcc_ships');
+                    $select->where(array(
+                        'id' => $ShipCode
+                    ));
+                    $statement = $sql->prepareStatementForSqlObject($select);
+                    try {
+                        $result = $statement->execute();
+                    } catch (\Exception $e) {
+                        echo $return;
+                        echo "Error: " . $e;
+                        echo $return;
+                        die();
+                    }
+                    $result->buffer();
+                    $customers = array();
+                    if ($result->valid()) {
+                        $data = $result->current();
+                        $idTmp = (string) $data['id'];
+                        if ($idTmp != "") {
+                            $sql = new Sql($db);
+                            $select = $sql->update();
+                            $select->table('rcc_ships');
+                            $select->where(array(
+                                'id' => $idTmp
+                            ));
+                            $select->set(array(
+                                'datetime_updated' => time(),
+                                'listofsailingdescriptioncode' => $ListOfSailingDescriptionCode,
+                                'duration' => $Duration,
+                                'portsofcallquantity' => $PortsOfCallQuantity,
+                                'start' => $Start,
+                                'status' => $Status,
+                                'vendorcode' => $VendorCode,
+                                'regioncode' => $RegionCode,
+                                'subregioncode' => $SubRegionCode,
+                                'departureportlocationcode' => $DeparturePortLocationCode,
+                                'arrivalportlocationcode' => $ArrivalPortLocationCode,
+                                'cruisepackagecode' => $CruisePackageCode,
+                                'inclusiveindicator' => $InclusiveIndicator,
+                                'mapped_id' => 0
+                            ));
+                            $statement = $sql->prepareStatementForSqlObject($select);
+                            try {
+                                $results = $statement->execute();
+                            } catch (\Exception $e) {
+                                $console->writeLine('');
+                                $console->writeLine($e);
+                                $console->writeLine('');
+                                die();
+                            }
+                        } else {
+                            $sql = new Sql($db);
+                            $insert = $sql->insert();
+                            $insert->into('rcc_ships');
+                            $insert->values(array(
+                                'id' => $ShipCode,
+                                'datetime_updated' => time(),
+                                'listofsailingdescriptioncode' => $ListOfSailingDescriptionCode,
+                                'duration' => $Duration,
+                                'portsofcallquantity' => $PortsOfCallQuantity,
+                                'start' => $Start,
+                                'status' => $Status,
+                                'vendorcode' => $VendorCode,
+                                'regioncode' => $RegionCode,
+                                'subregioncode' => $SubRegionCode,
+                                'departureportlocationcode' => $DeparturePortLocationCode,
+                                'arrivalportlocationcode' => $ArrivalPortLocationCode,
+                                'cruisepackagecode' => $CruisePackageCode,
+                                'inclusiveindicator' => $InclusiveIndicator,
+                                'mapped_id' => 0
+                            ), $insert::VALUES_MERGE);
+                            $statement = $sql->prepareStatementForSqlObject($insert);
+                            try {
+                                $results = $statement->execute();
+                            } catch (\Exception $e) {
+                                echo $return;
+                                echo "Error: " . $e;
+                                echo $return;
+                                die();
+                            }
+                        }
+                    } else {
+                        $sql = new Sql($db);
+                        $insert = $sql->insert();
+                        $insert->into('rcc_ships');
+                        $insert->values(array(
+                            'id' => $ShipCode,
+                            'datetime_updated' => time(),
+                            'listofsailingdescriptioncode' => $ListOfSailingDescriptionCode,
+                            'duration' => $Duration,
+                            'portsofcallquantity' => $PortsOfCallQuantity,
+                            'start' => $Start,
+                            'status' => $Status,
+                            'vendorcode' => $VendorCode,
+                            'regioncode' => $RegionCode,
+                            'subregioncode' => $SubRegionCode,
+                            'departureportlocationcode' => $DeparturePortLocationCode,
+                            'arrivalportlocationcode' => $ArrivalPortLocationCode,
+                            'cruisepackagecode' => $CruisePackageCode,
+                            'inclusiveindicator' => $InclusiveIndicator,
+                            'mapped_id' => 0
+                        ), $insert::VALUES_MERGE);
+                        $statement = $sql->prepareStatementForSqlObject($insert);
+                        try {
+                            $results = $statement->execute();
+                        } catch (\Exception $e) {
+                            echo $return;
+                            echo "Error: " . $e;
+                            echo $return;
+                            die();
+                        }
+                    }
+                } catch (\Exception $e) {
+                    echo $return;
+                    echo "Error1: " . $e;
+                    echo $return;
+                }
+
+                /* try {
+                    $sql = new Sql($db);
+                    $select = $sql->select();
                     $select->from('cruisesailavail');
                     $select->where(array(
                         'id' => $CruisePackageCode
@@ -210,6 +331,8 @@ if ($OTA_CruiseSailAvailRS->length > 0) {
                                 'vendorcode' => $VendorCode,
                                 'regioncode' => $RegionCode,
                                 'subregioncode' => $SubRegionCode,
+                                'departureportlocationcode' => $DeparturePortLocationCode,
+                                'arrivalportlocationcode' => $ArrivalPortLocationCode,
                                 'inclusiveindicator' => $InclusiveIndicator,
                                 'mapped_id' => 0
                             ));
@@ -238,6 +361,8 @@ if ($OTA_CruiseSailAvailRS->length > 0) {
                                 'vendorcode' => $VendorCode,
                                 'regioncode' => $RegionCode,
                                 'subregioncode' => $SubRegionCode,
+                                'departureportlocationcode' => $DeparturePortLocationCode,
+                                'arrivalportlocationcode' => $ArrivalPortLocationCode,
                                 'inclusiveindicator' => $InclusiveIndicator,
                                 'mapped_id' => 0
                             ), $insert::VALUES_MERGE);
@@ -267,6 +392,8 @@ if ($OTA_CruiseSailAvailRS->length > 0) {
                             'vendorcode' => $VendorCode,
                             'regioncode' => $RegionCode,
                             'subregioncode' => $SubRegionCode,
+                            'departureportlocationcode' => $DeparturePortLocationCode,
+                            'arrivalportlocationcode' => $ArrivalPortLocationCode,
                             'inclusiveindicator' => $InclusiveIndicator,
                             'mapped_id' => 0
                         ), $insert::VALUES_MERGE);
@@ -284,7 +411,7 @@ if ($OTA_CruiseSailAvailRS->length > 0) {
                     echo $return;
                     echo "Error1: " . $e;
                     echo $return;
-                }
+                } */
             }
         }
     }

@@ -32,7 +32,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $affiliate_id = 0;
 $branch_filter = "";
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.rccl.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.rcc.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -42,49 +42,34 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-
-$client = new Client();
-$client->setOptions(array(
-    'timeout' => 100,
-    'sslverifypeer' => false,
-    'sslverifyhost' => false
-));
-$client->setHeaders(array(
-    "Content-type: text/xml",
-    "Accept: text/xml",
-    "Cache-Control: no-cache",
-    "Pragma: no-cache",
-    "Content-length: ".strlen($raw)
-));
-
-$username = 'CONCTMM';
-$password = 'u73ecKBu73ecKB!';
+$username = 'CONSTGCOSTAMAR';
+$password = '3MDQV5F5BzdvcX9';
 
 $url = "https://stage.services.rccl.com/Reservation_FITWeb/sca/CabinList";
 
-$raw2 = '<?xml version="1.0" encoding="UTF-8"?>
+$raw = '<?xml version="1.0" encoding="UTF-8"?>
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cab="http://services.rccl.com/Interfaces/CabinList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
 <soapenv:Header/>
 <soapenv:Body>
     <cab:getCabinList>
         <OTA_CruiseCabinAvailRQ MaxResponses="50" MoreDataEchoToken="01" Target="Test" RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-11-25T10:08:12.204-05:00" TransactionIdentifier="106597" Version="1.0" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
             <POS>
-                <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
-                    <RequestorID ID="313917" ID_Context="AGENCY1" Type="11"/>
+                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                    <RequestorID ID="369567" ID_Context="AGENCY1" Type="11"/>
                     <BookingChannel Type="7">
-                        <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
+                        <CompanyName CompanyShortName="COSTAMAR"/>
                     </BookingChannel>
                 </Source>
-                <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
-                    <RequestorID ID="313917" ID_Context="AGENCY2" Type="11"/>
+                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                    <RequestorID ID="369567" ID_Context="AGENCY2" Type="11"/>
                     <BookingChannel Type="7">
-                        <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
+                        <CompanyName CompanyShortName="COSTAMAR"/>
                     </BookingChannel>
                 </Source>
-                <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
-                    <RequestorID ID="313917" ID_Context="AGENT1" Type="11"/>
+                <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                    <RequestorID ID="369567" ID_Context="AGENT1" Type="11"/>
                     <BookingChannel Type="7">
-                        <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
+                        <CompanyName CompanyShortName="COSTAMAR"/>
                     </BookingChannel>
                 </Source>
             </POS>
@@ -95,6 +80,7 @@ $raw2 = '<?xml version="1.0" encoding="UTF-8"?>
             </Guest>
             <GuestCounts>
                 <GuestCount Age="30" Quantity="1"/>
+                <GuestCount Age="5" Quantity="1"/> 
             </GuestCounts>
             <SailingInfo>
                 <SelectedSailing ListOfSailingDescriptionCode="6" Start="2021-02-07" Duration="P7N" Status="36" PortsOfCallQuantity="5">
@@ -126,7 +112,7 @@ curl_setopt($ch, CURLOPT_HEADER, false);
 curl_setopt($ch, CURLOPT_VERBOSE, false);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $raw2);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
 curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 65000);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -140,7 +126,7 @@ echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
 die();
-$config = new \Zend\Config\Config(include '../config/autoload/global.rccl.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.rcc.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,

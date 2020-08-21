@@ -32,7 +32,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $affiliate_id = 0;
 $branch_filter = "";
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.pulmantur.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.rcc.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -134,6 +134,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $raw);
+        curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
         curl_setopt($ch, CURLOPT_VERBOSE, 1);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -148,8 +149,8 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
         echo '<xmp>';
         var_dump($response);
         echo '</xmp>';
-        die();
-        $config = new \Zend\Config\Config(include '../config/autoload/global.pulmantur.php');
+
+        $config = new \Zend\Config\Config(include '../config/autoload/global.rcc.php');
         $config = [
             'driver' => $config->db->driver,
             'database' => $config->db->database,
@@ -163,43 +164,102 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
         $inputDoc->loadXML($response);
         $Envelope = $inputDoc->getElementsByTagName("Envelope");
         $Body = $Envelope->item(0)->getElementsByTagName("Body");
-        $getOptionListResponse = $Body->item(0)->getElementsByTagName("getOptionListResponse");
-        $OTA_CruiseSpecialServiceAvailRS = $getOptionListResponse->item(0)->getElementsByTagName("OTA_CruiseSpecialServiceAvailRS");
-        $SpecialServices = $OTA_CruiseSpecialServiceAvailRS->item(0)->getElementsByTagName("SpecialServices");
-        $node = $SpecialServices->item(0)->getElementsByTagName("SpecialService");
-        for ($i=0; $i < $node->length; $i++) { 
-            $Code = $node->item($i)->getAttribute("Code");
-            $Description = $node->item($i)->getAttribute("Description");
-            $AssociationType = $node->item($i)->getAttribute("AssociationType");
-
-            $PriceInfo = $node->item($i)->getElementsByTagName("PriceInfo");
-            if ($PriceInfo->length > 0) {
-                $ChargeTypeCode = $PriceInfo->item(0)->getAttribute("ChargeTypeCode");
-                $Amount = $PriceInfo->item(0)->getAttribute("Amount");
+        $getFareListResponse = $Body->item(0)->getElementsByTagName("getFareListResponse");
+        $OTA_CruiseFareAvailRS = $getFareListResponse->item(0)->getElementsByTagName("OTA_CruiseFareAvailRS");
+        if ($OTA_CruiseFareAvailRS->length > 0) {
+            $SailingInfo = $OTA_CruiseFareAvailRS->item(0)->getElementsByTagName("SailingInfo");
+            if ($SailingInfo->length > 0) {
+                $SelectedSailing = $SailingInfo->item(0)->getElementsByTagName("SelectedSailing");
+                if ($SelectedSailing->length > 0) {
+                    $ListOfSailingDescriptionCode = $SelectedSailing->item(0)->getAttribute("ListOfSailingDescriptionCode");
+                    $Duration = $SelectedSailing->item(0)->getAttribute("Duration");
+                    $Start = $SelectedSailing->item(0)->getAttribute("Start");
+                    $CruiseLine = $SelectedSailing->item(0)->getElementsByTagName("CruiseLine");
+                    if ($CruiseLine->length > 0) {
+                        $ShipCode = $CruiseLine->item(0)->getAttribute("ShipCode");
+                    }
+                }
+                $InclusivePackageOption = $SailingInfo->item(0)->getElementsByTagName("InclusivePackageOption");
+                if ($InclusivePackageOption->length > 0) {
+                    $CruisePackageCode = $InclusivePackageOption->item(0)->getAttribute("CruisePackageCode");
+                }
             }
-
-            try {
-                $sql = new Sql($db);
-                $insert = $sql->insert();
-                $insert->into('optionList');
-                $insert->values(array(
-                    'datetime_created' => time(),
-                    'datetime_updated' => 0,
-                    'Code' => $Code,
-                    'Description' => $Description,
-                    'AssociationType' => $AssociationType,
-                    'ChargeTypeCode' => $ChargeTypeCode,
-                    'Amount' => $Amount
-                ), $insert::VALUES_MERGE);
-                $statement = $sql->prepareStatementForSqlObject($insert);
-                $results = $statement->execute();
-                $db->getDriver()
-                    ->getConnection()
-                    ->disconnect();
-            } catch (\Exception $e) {
-                echo $return;
-                echo "ERRO: " . $e;
-                echo $return;
+            $FareCodeOptions = $OTA_CruiseFareAvailRS->item(0)->getElementsByTagName("FareCodeOptions");
+            if ($FareCodeOptions->length > 0) {
+                $FareCodeOption = $FareCodeOptions->item(0)->getElementsByTagName("FareCodeOption");
+                if ($FareCodeOption->length > 0) {
+                    for ($i=0; $i < $FareCodeOption->length; $i++) { 
+                        $DiscountTypes = $FareCodeOption->item($i)->getAttribute("DiscountTypes");
+                        $FareCode = $FareCodeOption->item($i)->getAttribute("FareCode");
+                        $FareDescription = $FareCodeOption->item($i)->getAttribute("FareDescription");
+                        $ListOfFareQualifierCode = $FareCodeOption->item($i)->getAttribute("ListOfFareQualifierCode");
+                        $NonRefundableType = $FareCodeOption->item($i)->getAttribute("NonRefundableType");
+                        $PromoPercentage = $FareCodeOption->item($i)->getAttribute("PromoPercentage");
+                        $PromotionClass = $FareCodeOption->item($i)->getAttribute("PromotionClass");
+                        $PromotionEligibility = $FareCodeOption->item($i)->getAttribute("PromotionEligibility");
+                        $PromotionTypes = $FareCodeOption->item($i)->getAttribute("PromotionTypes");
+                        $Status = $FareCodeOption->item($i)->getAttribute("Status");
+                        $FareRemark = $FareCodeOption->item($i)->getElementsByTagName("FareRemark");
+                        if ($FareRemark->length > 0) {
+                            $FareRemark = $FareRemark->item(0)->nodeValue;
+                        } else {
+                            $FareRemark = "";
+                        }
+                        try {
+                            $sql = new Sql($db);
+                            $insert = $sql->insert();
+                            $insert->into('farelist');
+                            $insert->values(array(
+                               'datetime_updated' => time(),
+                               'farecode' => $FareCode,
+                               'faredescription' => $FareDescription,
+                               'discounttypes' => $DiscountTypes,
+                               'listoffarequalifiercode' => $ListOfFareQualifierCode,
+                               'nonrefundabletype' => $NonRefundableType,
+                               'promopercentage' => $PromoPercentage,
+                               'promotionclass' => $PromotionClass,
+                               'promotioneligibility' => $PromotionEligibility,
+                               'promotiontypes' => $PromotionTypes,
+                               'status' => $Status,
+                               'fareremark' => $FareRemark,
+                               'cruisepackagecode' => $CruisePackageCode
+                            ), $insert::VALUES_MERGE);
+                            $statement = $sql->prepareStatementForSqlObject($insert);
+                            $results = $statement->execute();
+                            $db->getDriver()
+                               ->getConnection()
+                               ->disconnect();
+                      } catch (\Exception $e) {
+                            echo $return;
+                            echo "ERRO 1: " . $e;
+                            echo $return;
+                      }
+                    }
+                }
+            }
+            $TPA_Extensions = $OTA_CruiseFareAvailRS->item(0)->getElementsByTagName("TPA_Extensions");
+            if ($TPA_Extensions->length > 0) {
+                $Taxes = $TPA_Extensions->item(0)->getElementsByTagName("Taxes");
+                if ($Taxes->length > 0) {
+                    $Tax = $Taxes->item(0)->getElementsByTagName("Tax");
+                    if ($Tax->length > 0) {
+                        for ($j=0; $j < $Tax->length; $j++) { 
+                            $Amount = $Tax->item($j)->getAttribute("Amount");
+                        }
+                    }
+                }
+                $Fee = $TPA_Extensions->item(0)->getElementsByTagName("Fee");
+                if ($Fee->length > 0) {
+                    $Taxes = $Fee->item(0)->getElementsByTagName("Taxes");
+                    if ($Taxes->length > 0) {
+                        $Tax = $Taxes->item(0)->getElementsByTagName("Tax");
+                        if ($Tax->length > 0) {
+                            for ($k=0; $k < $Tax->length; $k++) { 
+                                $Amount = $Tax->item($k)->getAttribute("Amount");
+                            }
+                        }
+                    }
+                }
             }
         }
     }
