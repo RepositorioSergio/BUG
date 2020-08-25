@@ -530,7 +530,6 @@ if ($cruisedestinationid != "") {
                         $error = curl_error($ch);
                         $headers = curl_getinfo($ch);
                         curl_close($ch);
-                        
                         $segments = array();
                         if ($response4 != "") {
                             $inputDoc = new DOMDocument();
@@ -648,7 +647,7 @@ if ($cruisedestinationid != "") {
                         $error = curl_error($ch);
                         $headers = curl_getinfo($ch);
                         curl_close($ch);
-                        error_log("\r\nRCCL Response2 - $response2\r\n", 3, "/srv/www/htdocs/error_log");
+                        // error_log("\r\nRCCL Response2 - $response2\r\n", 3, "/srv/www/htdocs/error_log");
                         if ($response2 != "") {
                             $inputDoc = new DOMDocument();
                             $inputDoc->loadXML($response2);
@@ -729,7 +728,6 @@ if ($cruisedestinationid != "") {
                                                                 }
                                                             }
                                                         }
-                                                        
                                                         if ($CategoryLocation === "Inside") {
                                                             $IN_PricePublish = $Amount; // Displays the Inside cabin publish price.
                                                             $IN_Price = $Amount; // Displays the Inside cabin price.
@@ -1040,7 +1038,7 @@ if ($cruisedestinationid != "") {
                                             $error = curl_error($ch3);
                                             $headers = curl_getinfo($ch3);
                                             curl_close($ch3);
-                                            error_log("\r\nRCCL Response3 - $response3 \r\n", 3, "/srv/www/htdocs/error_log");
+                                            // error_log("\r\nRCCL Response3 - $response3\r\n", 3, "/srv/www/htdocs/error_log");
                                             $inputDoc = new DOMDocument();
                                             $inputDoc->loadXML($response3);
                                             $Envelope = $inputDoc->getElementsByTagName("Envelope");

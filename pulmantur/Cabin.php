@@ -1,6 +1,6 @@
 <?php
 // Cruises Pullmantur
-error_log("\r\n COMECOU CABIN \r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\nCruises Pullmantur Cabin\r\n", 3, "/srv/www/htdocs/error_log");
 $scurrency = strtoupper($currency);
 use Laminas\Db\Adapter\Adapter;
 use Laminas\Db\Adapter\Driver\ResultInterface;
@@ -102,6 +102,33 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $cruisespullmanturConnetionTimeout = (int) $row_settings["value"];
 }
+$sql = "select value from settings where name='cruisespullmanturRequestorId'";
+$statement = $dbPullmantur->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $cruisespullmanturRequestorId = $row_settings["value"];
+}
+$sql = "select value from settings where name='cruisespullmanturCompanyShortName'";
+$statement = $dbPullmantur->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $cruisespullmanturCompanyShortName = $row_settings["value"];
+}
+$sql = "select value from settings where name='cruisespullmanturTerminalID'";
+$statement = $dbPullmantur->createStatement($sql);
+$statement->prepare();
+$row_settings = $statement->execute();
+$row_settings->buffer();
+if ($row_settings->valid()) {
+    $row_settings = $row_settings->current();
+    $cruisespullmanturTerminalID = $row_settings["value"];
+}
 foreach ($data as $key => $value) {
     if ($quote == $value['quote_id']) {
         $cruise_line_id = $value['cruise_line_id'];
@@ -142,40 +169,36 @@ if ($cruise_line_id != "") {
         <cab:getCabinList>
             <OTA_CruiseCabinAvailRQ MaxResponses="50" MoreDataEchoToken="01" Target="Test" RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-11-25T10:08:12.204-05:00" TransactionIdentifier="106597" Version="1.0" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
                 <POS>
-                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                        <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+                    <Source TerminalID="' . $cruisespullmanturTerminalID . '" ISOCurrency="' . $cruisespullmanturCurrency . '">
+                        <RequestorID ID="' . $cruisespullmanturRequestorId . '" ID_Context="AGENCY1" Type="5"/>
                         <BookingChannel Type="7">
-                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                            <CompanyName CompanyShortName="' . $cruisespullmanturCompanyShortName . '"/>
                         </BookingChannel>
                     </Source>
-                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                        <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+                    <Source TerminalID="' . $cruisespullmanturTerminalID . '" ISOCurrency="' . $cruisespullmanturCurrency . '">
+                        <RequestorID ID="' . $cruisespullmanturRequestorId . '" ID_Context="AGENCY2" Type="5"/>
                         <BookingChannel Type="7">
-                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                            <CompanyName CompanyShortName="' . $cruisespullmanturCompanyShortName . '"/>
                         </BookingChannel>
                     </Source>
-                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                        <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+                    <Source TerminalID="' . $cruisespullmanturTerminalID . '" ISOCurrency="' . $cruisespullmanturCurrency . '">
+                        <RequestorID ID="' . $cruisespullmanturRequestorId . '" ID_Context="AGENT1" Type="5"/>
                         <BookingChannel Type="7">
-                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                            <CompanyName CompanyShortName="' . $cruisespullmanturCompanyShortName . '"/>
                         </BookingChannel>
                     </Source>
                 </POS>
-                <Guest Code="10" Age="30">
-                    <GuestTransportation Mode="29" Status="36">
-                        <GatewayCity LocationCode="C/O"/>
-                    </GuestTransportation>
-                </Guest>
-                <Guest Code="8" Age="4">
-                    <GuestTransportation Mode="29" Status="36">
-                        <GatewayCity LocationCode="C/O"/>
-                    </GuestTransportation>
-                </Guest>
-                <GuestCounts>
-                    <GuestCount Age="30" Quantity="1"/>
-                    <GuestCount Age="4" Quantity="1"/>
-                </GuestCounts>
-                <SailingInfo>
+                <Guest>
+                    <GuestTransportation Mode="29" Status="36"/>
+                </Guest>';
+                $raw .= '<GuestCounts><GuestCount Age="30" Quantity="' . $adults . '"/>';
+                if ($children > 0) {
+                    for ($z = 0; $z < $children; $z ++) {
+                        error_log("\r\nTODO - Children Ages\r\n", 3, "/srv/www/htdocs/error_log");
+                        $raw .= '<GuestCount Age="15" Quantity="1"/>';
+                    }
+                }
+                $raw .= '</GuestCounts><SailingInfo>
                     <SelectedSailing ListOfSailingDescriptionCode="' . $listofsailingdescriptioncode . '" Start="' . $start . '" Duration="' . $duration . '" Status="' . $status . '" PortsOfCallQuantity="' . $portsofcallquantity . '">
                         <CruiseLine VendorCode="' . $vendorcode . '" ShipCode="' . $shipcode . '"/>
                         <!--Optional:-->
@@ -186,7 +209,7 @@ if ($cruise_line_id != "") {
                         <ArrivalPort LocationCode="' . $arrivalportlocationcode . '"/>
                     </SelectedSailing>
                     <InclusivePackageOption CruisePackageCode="' . $cruisepackagecode . '"/>
-                    <Currency CurrencyCode="USD" DecimalPlaces="2"/>
+                    <Currency CurrencyCode="' . $cruisespullmanturCurrency . '" DecimalPlaces="2"/>
                     <SelectedCategory BerthedCategoryCode="' . $pricedcategorycode . '" PricedCategoryCode="' . $pricedcategorycode . '" WaitlistIndicator="false">
                     </SelectedCategory>
                 </SailingInfo>
@@ -198,7 +221,7 @@ if ($cruise_line_id != "") {
         </cab:getCabinList>
     </soapenv:Body>
     </soapenv:Envelope>';
-
+    
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/CabinList');
     curl_setopt($ch, CURLOPT_HEADER, false);
@@ -214,7 +237,7 @@ if ($cruise_line_id != "") {
     $error = curl_error($ch);
     $headers = curl_getinfo($ch);
     curl_close($ch);
-    //error_log("\r\n Response - $response \r\n", 3, "/srv/www/htdocs/error_log");   
+    // error_log("\r\n Response - $response \r\n", 3, "/srv/www/htdocs/error_log");
     try {
         $sql = new Sql($dbPullmantur);
         $insert = $sql->insert();
@@ -250,7 +273,7 @@ if ($cruise_line_id != "") {
                 if ($SelectedSailing->length > 0) {
                     $Start = $SelectedSailing->item(0)->getAttribute("Start");
                     $Duration = $SelectedSailing->item(0)->getAttribute("Duration");
-
+                    
                     $CruiseLine = $SelectedSailing->item(0)->getElementsByTagName("CruiseLine");
                     if ($CruiseLine->length > 0) {
                         $ShipCode = $CruiseLine->item(0)->getAttribute("ShipCode");
@@ -268,17 +291,17 @@ if ($cruise_line_id != "") {
                     $InclusiveIndicator = $InclusivePackageOption->item(0)->getAttribute("InclusiveIndicator");
                 }
             }
-            //SelectedFare
+            // SelectedFare
             $SelectedFare = $OTA_CruiseCabinAvailRS->item(0)->getElementsByTagName("SelectedFare");
             if ($SelectedFare->length > 0) {
                 $FareCode = $SelectedFare->item(0)->getAttribute("FareCode");
             }
-            //CabinOptions
+            // CabinOptions
             $CabinOptions = $OTA_CruiseCabinAvailRS->item(0)->getElementsByTagName("CabinOptions");
             if ($CabinOptions->length > 0) {
                 $CabinOption = $CabinOptions->item(0)->getElementsByTagName("CabinOption");
                 if ($CabinOption->length > 0) {
-                    for ($i=0; $i < $CabinOption->length; $i++) { 
+                    for ($i = 0; $i < $CabinOption->length; $i ++) {
                         $CabinCategoryCode = $CabinOption->item($i)->getAttribute("CabinCategoryCode");
                         $decks[$i]['cabinnumber'] = $CabinOption->item($i)->getAttribute("CabinNumber");
                         $CabinRanking = $CabinOption->item($i)->getAttribute("CabinRanking");
@@ -300,11 +323,11 @@ if ($cruise_line_id != "") {
                         $row_settings->buffer();
                         if ($row_settings->valid()) {
                             $row_settings = $row_settings->current();
-                            $decks[$z]['deckimg'] = $row_settings['image'];
+                            $decks[$i]['deckimg'] = $row_settings['image'];
                         }
                         $CabinConfiguration = $CabinOption->item($i)->getElementsByTagName("CabinConfiguration");
                         if ($CabinConfiguration->length > 0) {
-                            for ($iAux3=0; $iAux3 < $CabinConfiguration->length; $iAux3++) { 
+                            for ($iAux3 = 0; $iAux3 < $CabinConfiguration->length; $iAux3 ++) {
                                 $BedConfigurationCode = $CabinConfiguration->item($iAux3)->getAttribute("BedConfigurationCode");
                                 if ($iAux3 == 1) {
                                     $TPA_ViewObstruction = $CabinConfiguration->item($iAux3)->getAttribute("TPA_ViewObstruction");
@@ -313,7 +336,7 @@ if ($cruise_line_id != "") {
                         }
                         $MeasurementInfo = $CabinOption->item($i)->getElementsByTagName("MeasurementInfo");
                         if ($MeasurementInfo->length > 0) {
-                            for ($iAux=0; $iAux < $MeasurementInfo->length; $iAux++) { 
+                            for ($iAux = 0; $iAux < $MeasurementInfo->length; $iAux ++) {
                                 $Name = $MeasurementInfo->item($iAux)->getAttribute("Name");
                                 $UnitOfMeasure = $MeasurementInfo->item($iAux)->getAttribute("UnitOfMeasure");
                                 $UnitOfMeasureCode = $MeasurementInfo->item($iAux)->getAttribute("UnitOfMeasureCode");
@@ -324,7 +347,7 @@ if ($cruise_line_id != "") {
                         if ($CabinFilters->length > 0) {
                             $CabinFilter = $CabinFilters->item(0)->getElementsByTagName("CabinFilter");
                             if ($CabinFilter->length > 0) {
-                                for ($iAux2=0; $iAux2 < $CabinFilter->length; $iAux2++) { 
+                                for ($iAux2 = 0; $iAux2 < $CabinFilter->length; $iAux2 ++) {
                                     $CabinFilterCode = $CabinFilter->item($iAux2)->getAttribute("CabinFilterCode");
                                 }
                             }
@@ -335,7 +358,7 @@ if ($cruise_line_id != "") {
         }
     }
     //
-    //Dining
+    // Dining
     //
     $raw2 = '<?xml version="1.0" encoding="UTF-8"?>
     <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:din="http://services.rccl.com/Interfaces/DiningList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha">
@@ -344,32 +367,36 @@ if ($cruise_line_id != "") {
         <din:getDiningList>
             <OTA_CruiseDiningAvailRQ RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-12-29T18:25:50.1Z" TransactionIdentifier="106597" Version="1.0" Target="Test" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
                 <POS>
-                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                        <RequestorID ID="313917" ID_Context="AGENCY1" Type="5"/>
+                    <Source TerminalID="' . $cruisespullmanturTerminalID . '" ISOCurrency="' . $cruisespullmanturCurrency . '">
+                        <RequestorID ID="' . $cruisespullmanturRequestorId . '" ID_Context="AGENCY1" Type="5"/>
                         <BookingChannel Type="7">
-                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                            <CompanyName CompanyShortName="' . $cruisespullmanturCompanyShortName . '"/>
                         </BookingChannel>
                     </Source>
-                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                        <RequestorID ID="313917" ID_Context="AGENCY2" Type="5"/>
+                    <Source TerminalID="' . $cruisespullmanturTerminalID . '" ISOCurrency="' . $cruisespullmanturCurrency . '">
+                        <RequestorID ID="' . $cruisespullmanturRequestorId . '" ID_Context="AGENCY2" Type="5"/>
                         <BookingChannel Type="7">
-                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                            <CompanyName CompanyShortName="' . $cruisespullmanturCompanyShortName . '"/>
                         </BookingChannel>
                     </Source>
-                    <Source TerminalID="12502LDJW6" ISOCurrency="USD">
-                        <RequestorID ID="313917" ID_Context="AGENT1" Type="5"/>
+                    <Source TerminalID="' . $cruisespullmanturTerminalID . '" ISOCurrency="' . $cruisespullmanturCurrency . '">
+                        <RequestorID ID="' . $cruisespullmanturRequestorId . '" ID_Context="AGENT1" Type="5"/>
                         <BookingChannel Type="7">
-                            <CompanyName CompanyShortName="PULLMANTUR"/>
+                            <CompanyName CompanyShortName="' . $cruisespullmanturCompanyShortName . '"/>
                         </BookingChannel>
                     </Source>
                 </POS>
-                <Guest Code="10" Age="30"/>
-                <Guest Code="8" Age="4"/>
-                <GuestCounts>
-                    <GuestCount Age="30" Quantity="1"/>
-                    <GuestCount Age="4" Quantity="1"/>
-                </GuestCounts>
-                <SailingInfo>
+                <Guest>
+                    <GuestTransportation Mode="29" Status="36"/>
+                </Guest>';
+                $raw2 .= '<GuestCounts><GuestCount Age="30" Quantity="' . $adults . '"/>';
+                if ($children > 0) {
+                    for ($z = 0; $z < $children; $z ++) {
+                        error_log("\r\nTODO - Children Ages\r\n", 3, "/srv/www/htdocs/error_log");
+                        $raw2 .= '<GuestCount Age="15" Quantity="1"/>';
+                    }
+                }
+                $raw2 .= '</GuestCounts><SailingInfo>
                     <SelectedSailing ListOfSailingDescriptionCode="' . $listofsailingdescriptioncode . '" Start="' . $start . '" Duration="' . $duration . '" Status="' . $status . '" PortsOfCallQuantity="' . $portsofcallquantity . '">
                         <CruiseLine VendorCode="' . $vendorcode . '" ShipCode="' . $shipcode . '"/>
                         <!--Optional:-->
@@ -382,7 +409,7 @@ if ($cruise_line_id != "") {
                     <!--Optional:-->
                     <alp:InclusivePackageOption CruisePackageCode="' . $cruisepackagecode . '" InclusiveIndicator="false"/>
                     <!--Optional:-->
-                    <Currency CurrencyCode="USD" DecimalPlaces="2"/>
+                    <Currency CurrencyCode="' . $cruisespullmanturCurrency . '" DecimalPlaces="2"/>
                     <SelectedCategory BerthedCategoryCode="' . $pricedcategorycode . '" PricedCategoryCode="' . $pricedcategorycode . '"/>
                 </SailingInfo>
                 <SelectedFare FareCode="' . $farecode . '" GroupCode="' . $groupcode . '"/>
@@ -391,7 +418,7 @@ if ($cruise_line_id != "") {
         </din:getDiningList>
         </soapenv:Body>
     </soapenv:Envelope>';
-
+    
     $ch2 = curl_init();
     curl_setopt($ch2, CURLOPT_URL, $cruisespullmanturServiceURL . 'Reservation_FITWeb/sca/DiningList');
     curl_setopt($ch2, CURLOPT_HEADER, false);
@@ -407,7 +434,7 @@ if ($cruise_line_id != "") {
     $error = curl_error($ch2);
     $headers = curl_getinfo($ch2);
     curl_close($ch2);
-
+    
     $inputDoc = new DOMDocument();
     $inputDoc->loadXML($response2);
     $Envelope = $inputDoc->getElementsByTagName("Envelope");
@@ -422,7 +449,7 @@ if ($cruise_line_id != "") {
                 if ($SelectedSailing->length > 0) {
                     $Start = $SelectedSailing->item(0)->getAttribute("Start");
                     $Duration = $SelectedSailing->item(0)->getAttribute("Duration");
-
+                    
                     $CruiseLine = $SelectedSailing->item(0)->getElementsByTagName("CruiseLine");
                     if ($CruiseLine->length > 0) {
                         $ShipCode = $CruiseLine->item(0)->getAttribute("ShipCode");
@@ -445,7 +472,7 @@ if ($cruise_line_id != "") {
             if ($DiningOptions->length > 0) {
                 $DiningOption = $DiningOptions->item(0)->getElementsByTagName("DiningOption");
                 if ($DiningOption->length > 0) {
-                    for ($i=0; $i < $DiningOption->length; $i++) { 
+                    for ($i = 0; $i < $DiningOption->length; $i ++) {
                         $hasdining = true;
                         $CrossReferencingAllowed = $DiningOption->item($i)->getAttribute("CrossReferencingAllowed");
                         $FamilyTimeIndicator = $DiningOption->item($i)->getAttribute("FamilyTimeIndicator");
@@ -473,5 +500,5 @@ if ($cruise_line_id != "") {
 $dbPullmantur->getDriver()
     ->getConnection()
     ->disconnect();
-    error_log("\r\n EOF CABIN \r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\n EOF CABIN \r\n", 3, "/srv/www/htdocs/error_log");
 ?>
