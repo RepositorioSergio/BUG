@@ -51,7 +51,7 @@ if ($result->valid()) {
     $row = $result->current();
     $cruisesroyalcaribbeanServiceURL = $row['value'];
 }
-error_log("\r\ncruisesroyalcaribbeanServiceURL : $cruisesroyalcaribbeanServiceURL\r\n", 3, "/srv/www/htdocs/error_log");
+// error_log("\r\ncruisesroyalcaribbeanServiceURL : $cruisesroyalcaribbeanServiceURL\r\n", 3, "/srv/www/htdocs/error_log");
 $sql = "select value from settings where name='cruisesroyalcaribbeanCompanyShortName' and affiliate_id=$affiliate_id_cruisesroyalcaribbean";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -143,7 +143,7 @@ if ($result->valid()) {
     $cruisesroyalcaribbeanCurrency = $row['value'];
 }
 $sql = "select cruises_xml11 from cruises_regions where seo='" . $destination . "'";
-error_log("\r\n$sql\r\n", 3, "/srv/www/htdocs/error_log");
+// error_log("\r\n$sql\r\n", 3, "/srv/www/htdocs/error_log");
 $statement = $db->createStatement($sql);
 $statement->prepare();
 $row_settings = $statement->execute();
@@ -152,13 +152,11 @@ if ($row_settings->valid()) {
     $row_settings = $row_settings->current();
     $cruisedestinationid = $row_settings["cruises_xml11"];
 } else {
-    $cruisedestinationid = 0;
+    $cruisedestinationid = "";
 }
-error_log("\r\nRCCL - TODO - TODO - TODO - cruises_xml11 - mapping, then remove cruisedestinationid = 18\r\n", 3, "/srv/www/htdocs/error_log");
-$cruisedestinationid = 18;
 if ($cruiseline != "all") {
     $sql = "select cruises_xml11 from cruises_lines where seo='" . $cruiseline . "'";
-    error_log("\r\n$sql\r\n", 3, "/srv/www/htdocs/error_log");
+    // error_log("\r\n$sql\r\n", 3, "/srv/www/htdocs/error_log");
     $statement = $db->createStatement($sql);
     $statement->prepare();
     $row_settings = $statement->execute();
@@ -230,15 +228,10 @@ if ($departureport != "" and $departureport != "all") {
 } else {
     $PortID = 0;
 }
-if ($cruisedestinationid > 0) {
-    $cruiseinitfilter = '<alp:CruiseLinePrefs>';
-    $cruiseendfilter = '</alp:CruiseLinePrefs>';
+if ($cruisedestinationid != "") {
     // Cruise Line
     if ((int) $CruiseLineID > 0) {
-        $cruiselinefilter = '
-        <alp:CruiseLinePref>
-           <alp:InclusivePackageOption CruisePackageCode="' . $CruiseLineID . '" InclusiveIndicator="false"/>
-        </alp:CruiseLinePref>';
+        $cruiselinefilter = '<alp:CruiseLinePref><alp:InclusivePackageOption CruisePackageCode="' . $CruiseLineID . '" InclusiveIndicator="false"/></alp:CruiseLinePref>';
     } else {
         $cruiselinefilter = "";
     }
@@ -246,12 +239,7 @@ if ($cruisedestinationid > 0) {
     // Departure Port
     if ($departureport != "" and $departureport != "all") {
         if ((int) $PortID > 0) {
-            $cruisedepartureportfilter = '
-            <alp:CruiseLinePref>
-               <alp:SearchQualifiers>
-                  <alp:Port PortCode="' . $PortID . '"/>
-               </alp:SearchQualifiers>
-            </alp:CruiseLinePref>';
+            $cruisedepartureportfilter = '<alp:CruiseLinePref><alp:SearchQualifiers><alp:Port PortCode="' . $PortID . '"/></alp:SearchQualifiers></alp:CruiseLinePref>';
         } else {
             $cruisedepartureportfilter = "";
         }
@@ -261,17 +249,22 @@ if ($cruisedestinationid > 0) {
     // error_log("\r\nPort Id : $cruisedepartureportfilter\r\n", 3, "/srv/www/htdocs/error_log");
     // Shipid
     if ($ShipID > 0 or $ShipID != "") {
-        $cruiseshipidfilter = '
-        <alp:CruiseLinePref ShipCode="' . $ShipID . '"></alp:CruiseLinePref>';
+        $cruiseshipidfilter = '<alp:CruiseLinePref ShipCode="' . $ShipID . '"></alp:CruiseLinePref>';
     } else {
         $cruiseshipidfilter = "";
     }
-    // error_log("\r\n Ship Id : $cruiseshipidfilter \r\n", 3, "/srv/www/htdocs/error_log");
+    if ($cruiseshipidfilter != "" or $cruisedepartureportfilter != "" or $cruiselinefilter != "") {
+        $cruiseinitfilter = '<alp:CruiseLinePrefs>';
+        $cruiseendfilter = '</alp:CruiseLinePrefs>';
+    } else {
+        $cruiseinitfilter = '';
+        $cruiseendfilter = '';
+    }
+    // error_log("\r\nShip Id : $cruiseshipidfilter \r\n", 3, "/srv/www/htdocs/error_log");
     // Region id
     if ($destination != "") {
-        if ((int) $cruisedestinationid > 0) {
+        if ($cruisedestinationid != "") {
             $cruisedestinationfilter = '<alp:RegionPref RegionCode="' . $cruisedestinationid . '"/>';
-            $cruisedestinationfilter = "";
         } else {
             $cruisedestinationfilter = "";
         }
@@ -279,9 +272,7 @@ if ($cruisedestinationid > 0) {
         $cruisedestinationfilter = "";
     }
     // error_log("\r\nCruisedestinationfilter : $cruisedestinationfilter\r\n", 3, "/srv/www/htdocs/error_log");
-    $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sail="http://services.rccl.com/Interfaces/SailingList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha"><soapenv:Header/><soapenv:Body><sail:getSailingList>
-        <alp:OTA_CruiseSailAvailRQ TimeStamp="2008-07-17T12:44:44.866-04:00" Target="Test" Version="1.0" SequenceNmbr="1" PrimaryLangID="en" RetransmissionIndicator="false" MoreIndicator="true" MaxResponses="50">
-            <alp:POS>
+    $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sail="http://services.rccl.com/Interfaces/SailingList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha"><soapenv:Header/><soapenv:Body><sail:getSailingList><alp:OTA_CruiseSailAvailRQ TimeStamp="' . strftime("%Y-%m-%dT%H:%M:%S", time()) . '" Target="Test" Version="1.0" SequenceNmbr="1" PrimaryLangID="en" RetransmissionIndicator="false" MoreIndicator="true" MaxResponses="50"><alp:POS>
                 <!--1 to 10 repetitions:-->
                 <alp:Source TerminalID="' . $cruisesroyalcaribbeanTerminalID . '" ISOCurrency="' . $cruisesroyalcaribbeanCurrency . '">
                     <alp:RequestorID ID="' . $cruisesroyalcaribbeanRequestorId . '" ID_Context="AGENCY1" Type="11"/>
@@ -302,26 +293,21 @@ if ($cruisedestinationid > 0) {
                     </alp:BookingChannel>
                 </alp:Source>
             </alp:POS>';
-            for ($r=0; $r < count($selectedAdults); $r++) { 
-                $raw .= '<alp:GuestCounts>
-                <alp:GuestCount Age="30" Quantity="' . $selectedAdults[$r] . '"/>';
-                if ($selectedChildren[$r] > 0) {
-                    for ($z=0; $z < $selectedChildren[$r]; $z++) { 
-                        $raw .= '<alp:GuestCount Age="' . $selectedChildrenAges[$r][$z] . '" Quantity="1"/>';
-                    }
-                }
-                $raw .= '</alp:GuestCounts>';
-            }
+    // for ($r = 0; $r < count($selectedAdults); $r ++) {
+    // $raw .= '<alp:GuestCounts><alp:GuestCount Age="30" Quantity="' . $selectedAdults[$r] . '"/>';
+    // if ($selectedChildren[$r] > 0) {
+    // for ($z = 0; $z < $selectedChildren[$r]; $z ++) {
+    // $raw .= '<alp:GuestCount Age="' . $selectedChildrenAges[$r][$z] . '" Quantity="1"/>';
+    // }
+    // }
+    // $raw .= '</alp:GuestCounts>';
+    // }
     $raw .= '<alp:SailingDateRange Start="' . $departureFrom . '" End="' . $departureTo . '" ';
     if ($MinDuration !== "") {
         $raw .= 'MinDuration="' . $MinDuration . '" MaxDuration="' . $MaxDuration . '"';
     }
-    if ($cruiselinefilter === "" and $cruisedepartureportfilter === "" and $cruisedestinationfilter === "" and $cruiseshipidfilter === "") {
-        $raw .= '/></alp:OTA_CruiseSailAvailRQ></sail:getSailingList></soapenv:Body></soapenv:Envelope>';
-    } else {
-        $raw .= '/>' . $cruiseinitfilter . '' . $cruiselinefilter . '' . $cruisedepartureportfilter . '' . $cruiseshipidfilter . '' . $cruisedestinationfilter . '' . $cruiseendfilter . '</alp:OTA_CruiseSailAvailRQ></sail:getSailingList></soapenv:Body></soapenv:Envelope>';
-    }
-    error_log("\r\nRCCL Request RAW - $raw\r\n", 3, "/srv/www/htdocs/error_log");
+    $raw .= '/>' . $cruiseinitfilter . '' . $cruisedepartureportfilter . '' . $cruiseshipidfilter . $cruiseendfilter . $cruiselinefilter . $cruisedestinationfilter . '</alp:OTA_CruiseSailAvailRQ></sail:getSailingList></soapenv:Body></soapenv:Envelope>';
+    // error_log("\r\nRCCL Request RAW - $raw\r\n", 3, "/srv/www/htdocs/error_log");
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $cruisesroyalcaribbeanServiceURL . 'Reservation_FITWeb/sca/SailingList');
     curl_setopt($ch, CURLOPT_HEADER, false);
@@ -337,7 +323,7 @@ if ($cruisedestinationid > 0) {
     $error = curl_error($ch);
     $headers = curl_getinfo($ch);
     curl_close($ch);
-    error_log("\r\nRCCL Response - $xmlresult\r\n", 3, "/srv/www/htdocs/error_log");
+    // error_log("\r\nRCCL Response - $xmlresult\r\n", 3, "/srv/www/htdocs/error_log");
     $sql = new Sql($db);
     $insert = $sql->insert();
     $insert->into('log_rccl');
@@ -427,7 +413,6 @@ if ($cruisedestinationid > 0) {
                             $cruiseline_seo = "";
                         }
                         $sql = "select id, name, seo, shiprating from ships where cruises_xml11='" . $ShipCode . "'";
-                        error_log("\r\n$sql\r\n", 3, "/srv/www/htdocs/error_log");
                         $statement = $db->createStatement($sql);
                         try {
                             $statement->prepare();
@@ -468,7 +453,7 @@ if ($cruisedestinationid > 0) {
                             }
                             $cruises[$counter]["images"] = $images;
                         } else {
-                            // Unable to find ship $shipid
+                            error_log("\r\nRCCL - Unable to find ship $shipid - $sql\r\n", 3, "/srv/www/htdocs/error_log");
                             $shipname = "";
                             $cruises[$counter]["images"][0] = "";
                             $ship_id = 0;
@@ -504,7 +489,7 @@ if ($cruisedestinationid > 0) {
                         //
                         // Itinerary
                         //
-                        $raw4 = '<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:itin="http://services.rccl.com/Interfaces/ItineraryDetail" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha"><soapenv:Header/><soapenv:Body><itin:getItineraryDetail><OTA_CruiseItineraryDescRQ RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="2008-12-29T18:25:50.1Z" TransactionIdentifier="106597" Version="1.0" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+                        $raw4 = '<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:itin="http://services.rccl.com/Interfaces/ItineraryDetail" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha"><soapenv:Header/><soapenv:Body><itin:getItineraryDetail><OTA_CruiseItineraryDescRQ RetransmissionIndicator="false" SequenceNmbr="1" TimeStamp="' . strftime("%Y-%m-%dT%H:%M:%S", time()) . '" TransactionIdentifier="106597" Version="1.0" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
                                     <POS>
                                         <Source ISOCurrency="' . $cruisesroyalcaribbeanCurrency . '" TerminalID="' . $cruisesroyalcaribbeanTerminalID . '">
                                             <RequestorID ID="' . $cruisesroyalcaribbeanRequestorId . '" Type="11" ID_Context="AGENCY1"/>
@@ -596,8 +581,7 @@ if ($cruisedestinationid > 0) {
                         // Sailling Dates
                         //
                         $duration = 0;
-                        $raw2 = '<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://services.rccl.com/Interfaces/CategoryList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha"><soapenv:Header/><soapenv:Body><cat:getCategoryList>
-                            <OTA_CruiseCategoryAvailRQ Target="Test" MaxResponses="50" MoreIndicator="true" Version="2.0" SequenceNmbr="1" TimeStamp="2008-11-05T19:15:56.692+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+                        $raw2 = '<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://services.rccl.com/Interfaces/CategoryList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha"><soapenv:Header/><soapenv:Body><cat:getCategoryList><OTA_CruiseCategoryAvailRQ Target="Test" MaxResponses="50" MoreIndicator="true" Version="2.0" SequenceNmbr="1" TimeStamp="' . strftime("%Y-%m-%dT%H:%M:%S", time()) . '" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
                                 <POS>
                                     <Source ISOCurrency="' . $cruisesroyalcaribbeanCurrency . '" TerminalID="' . $cruisesroyalcaribbeanTerminalID . '">
                                         <RequestorID ID="' . $cruisesroyalcaribbeanRequestorId . '" Type="11" ID_Context="AGENCY1"/>
@@ -618,19 +602,17 @@ if ($cruisedestinationid > 0) {
                                         </BookingChannel>
                                     </Source>
                                 </POS>
-                                    <Guest>
-                                        <GuestTransportation Mode="29" Status="36"/>
-                                    </Guest>';
-                                    for ($r=0; $r < count($selectedAdults); $r++) { 
-                                        $raw2 .= '<alp:GuestCounts>
-                                        <alp:GuestCount Age="30" Quantity="' . $selectedAdults[$r] . '"/>';
-                                        if ($selectedChildren[$r] > 0) {
-                                            for ($z=0; $z < $selectedChildren[$r]; $z++) { 
-                                                $raw2 .= '<alp:GuestCount Age="' . $selectedChildrenAges[$r][$z] . '" Quantity="1"/>';
-                                            }
-                                        }
-                                        $raw2 .= '</alp:GuestCounts>';
-                                    }
+                                    <Guest><GuestTransportation Mode="29" Status="36"/></Guest>';
+                        // for ($r = 0; $r < count($selectedAdults); $r ++) {
+                        // $raw2 .= '<alp:GuestCounts>
+                        // <alp:GuestCount Age="30" Quantity="' . $selectedAdults[$r] . '"/>';
+                        // if ($selectedChildren[$r] > 0) {
+                        // for ($z = 0; $z < $selectedChildren[$r]; $z ++) {
+                        // $raw2 .= '<alp:GuestCount Age="' . $selectedChildrenAges[$r][$z] . '" Quantity="1"/>';
+                        // }
+                        // }
+                        // $raw2 .= '</alp:GuestCounts>';
+                        // }
                         $raw2 .= '<SailingInfo>
                                     <SelectedSailing ListOfSailingDescriptionCode="' . $ListOfSailingDescriptionCode . '" Start="' . $Start . '" Duration="' . $Duration . '" Status="' . $Status . '" PortsOfCallQuantity="' . $PortsOfCallQuantity . '">
                                         <CruiseLine VendorCode="' . $VendorCode . '" ShipCode="' . $ShipCode . '"/>
@@ -666,7 +648,7 @@ if ($cruisedestinationid > 0) {
                         $error = curl_error($ch);
                         $headers = curl_getinfo($ch);
                         curl_close($ch);
-                        // error_log("\r\nRCCL Response2 - $response2\r\n", 3, "/srv/www/htdocs/error_log");
+                        error_log("\r\nRCCL Response2 - $response2\r\n", 3, "/srv/www/htdocs/error_log");
                         if ($response2 != "") {
                             $inputDoc = new DOMDocument();
                             $inputDoc->loadXML($response2);
@@ -727,7 +709,6 @@ if ($cruisedestinationid > 0) {
                                                             $PromotionDescription = $PriceInfo->item(0)->getAttribute("PromotionDescription");
                                                             $PromotionTypes = $PriceInfo->item(0)->getAttribute("PromotionTypes");
                                                             $FareCode = $PriceInfo->item(0)->getAttribute("FareCode");
-                                                            
                                                             $PriceDescription = $PriceInfo->item(0)->getElementsByTagName("PriceDescription");
                                                             if ($PriceDescription->length > 0) {
                                                                 $PriceDescription = $PriceDescription->item(0)->nodeValue;
@@ -995,8 +976,7 @@ if ($cruisedestinationid > 0) {
                                             //
                                             // Package List
                                             //
-                                            $raw3 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pac="http://services.rccl.com/Interfaces/PackageList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha"><soapenv:Header/><soapenv:Body><pac:getPackageList>
-                                          <alp:OTA_CruisePkgAvailRQ TimeStamp="2008-07-17T12:44:44.866-04:00" Target="Test" Version="1.0" SequenceNmbr="1" PrimaryLangID="en" RetransmissionIndicator="false" MoreIndicator="true" MaxResponses="50">
+                                            $raw3 = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pac="http://services.rccl.com/Interfaces/PackageList" xmlns:alp="http://www.opentravel.org/OTA/2003/05/alpha"><soapenv:Header/><soapenv:Body><pac:getPackageList><alp:OTA_CruisePkgAvailRQ TimeStamp="' . strftime("%Y-%m-%dT%H:%M:%S", time()) . '" Target="Test" Version="1.0" SequenceNmbr="1" PrimaryLangID="en" RetransmissionIndicator="false" MoreIndicator="true" MaxResponses="50">
                                              <alp:POS>
                                                 <!--1 to 10 repetitions:-->
                                                 <alp:Source TerminalID="' . $cruisesroyalcaribbeanTerminalID . '" ISOCurrency="' . $cruisesroyalcaribbeanCurrency . '">
@@ -1018,17 +998,17 @@ if ($cruisedestinationid > 0) {
                                                     </alp:BookingChannel>
                                                 </alp:Source>
                                              </alp:POS>';
-                                             for ($r=0; $r < count($selectedAdults); $r++) { 
-                                                $raw3 .= '<alp:GuestCounts>
-                                                <alp:GuestCount Age="30" Quantity="' . $selectedAdults[$r] . '"/>';
-                                                if ($selectedChildren[$r] > 0) {
-                                                    for ($z=0; $z < $selectedChildren[$r]; $z++) { 
-                                                        $raw3 .= '<alp:GuestCount Age="' . $selectedChildrenAges[$r][$z] . '" Quantity="1"/>';
-                                                    }
-                                                }
-                                                $raw3 .= '</alp:GuestCounts>';
-                                            }
-                                             $raw3 .= '<alp:SailingInfo>
+                                            // for ($r = 0; $r < count($selectedAdults); $r ++) {
+                                            // $raw3 .= '<alp:GuestCounts>
+                                            // <alp:GuestCount Age="30" Quantity="' . $selectedAdults[$r] . '"/>';
+                                            // if ($selectedChildren[$r] > 0) {
+                                            // for ($z = 0; $z < $selectedChildren[$r]; $z ++) {
+                                            // $raw3 .= '<alp:GuestCount Age="' . $selectedChildrenAges[$r][$z] . '" Quantity="1"/>';
+                                            // }
+                                            // }
+                                            // $raw3 .= '</alp:GuestCounts>';
+                                            // }
+                                            $raw3 .= '<alp:SailingInfo>
                                                 <!--Optional:-->
                                                 <alp:SelectedSailing ListOfSailingDescriptionCode="' . $ListOfSailingDescriptionCode . '" Start="' . $departureFrom . '" Duration="' . $Duration . '" Status="' . $Status . '" PortsOfCallQuantity="' . $PortsOfCallQuantity . '">
                                                    <alp:CruiseLine VendorCode="' . $VendorCode . '" ShipCode="' . $ShipCode . '"/>
@@ -1044,10 +1024,7 @@ if ($cruisedestinationid > 0) {
                                              </alp:SailingInfo>
                                              <!--1 to 8 repetitions:-->
                                              <alp:PackageOption PackageTypeCode="0" CruisePackageCode="' . $CruisePackageCode . '" InclusiveIndicator="' . $InclusiveIndicator . '"/>
-                                          </alp:OTA_CruisePkgAvailRQ>
-                                       </pac:getPackageList>
-                                    </soapenv:Body>
-                                 </soapenv:Envelope>';
+                                          </alp:OTA_CruisePkgAvailRQ></pac:getPackageList></soapenv:Body></soapenv:Envelope>';
                                             $ch3 = curl_init();
                                             curl_setopt($ch3, CURLOPT_URL, $cruisesroyalcaribbeanServiceURL . 'Reservation_FITWeb/sca/PackageList');
                                             curl_setopt($ch3, CURLOPT_HEADER, false);

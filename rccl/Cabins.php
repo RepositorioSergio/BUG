@@ -173,8 +173,7 @@ if ($cruise_line_id != "") {
     $isinterline = $interline === 'true' ? true : false;
     $ismilitary = $military === 'true' ? true : false;
     $ispassengernumber = $tmppassengernumber === 'true' ? true : false;
-    $raw = '<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://services.rccl.com/Interfaces/CategoryList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha"><soapenv:Header/><soapenv:Body><cat:getCategoryList>
-            <OTA_CruiseCategoryAvailRQ Target="Test" MaxResponses="50" MoreIndicator="true" Version="2.0" SequenceNmbr="1" TimeStamp="2008-11-05T19:15:56.692+05:30" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
+    $raw = '<?xml version="1.0" encoding="UTF-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://services.rccl.com/Interfaces/CategoryList" xmlns:m0="http://www.opentravel.org/OTA/2003/05/alpha"><soapenv:Header/><soapenv:Body><cat:getCategoryList><OTA_CruiseCategoryAvailRQ Target="Test" MaxResponses="50" MoreIndicator="true" Version="2.0" SequenceNmbr="1" TimeStamp="' . strftime("%Y-%m-%dT%H:%M:%S", time()) . '" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
                 <POS>
                     <Source ISOCurrency="' . $cruisesroyalcaribbeanCurrency . '" TerminalID="' . $cruisesroyalcaribbeanTerminalID . '">
                         <RequestorID ID="' . $cruisesroyalcaribbeanRequestorId . '" Type="11" ID_Context="AGENCY1"/>
@@ -197,18 +196,15 @@ if ($cruise_line_id != "") {
                 </POS>
                 <Guest>
                     <GuestTransportation Mode="29" Status="36"/>
-                </Guest>';
-                for ($r=0; $r < count($selectedAdults); $r++) { 
-                    $raw .= '<alp:GuestCounts>
-                    <alp:GuestCount Age="30" Quantity="' . $selectedAdults[$r] . '"/>';
-                    if ($selectedChildren[$r] > 0) {
-                        for ($z=0; $z < $selectedChildren[$r]; $z++) { 
-                            $raw .= '<alp:GuestCount Age="' . $selectedChildrenAges[$r][$z] . '" Quantity="1"/>';
-                        }
-                    }
-                    $raw .= '</alp:GuestCounts>';
-                }
-                $raw .= '<SailingInfo>
+                </Guest><GuestCounts>';
+    $raw .= '<GuestCount Age="30" Quantity="' . $adults . '"/>';
+    if ($children > 0) {
+        for ($z = 0; $z < $children; $z ++) {
+            error_log("\r\nTODO - Children Ages\r\n", 3, "/srv/www/htdocs/error_log");
+            $raw .= '<GuestCount Age="15" Quantity="1"/>';
+        }
+    }
+    $raw .= '</GuestCounts><SailingInfo>
                     <SelectedSailing ListOfSailingDescriptionCode="' . $listofsailingdescriptioncode . '" Start="' . $start . '" Duration="' . $duration . '" Status="' . $status . '" PortsOfCallQuantity="' . $portsofcallquantity . '">
                         <CruiseLine VendorCode="' . $vendorcode . '" ShipCode="' . $shipcode . '"/>
                         <!--Optional:-->
@@ -225,6 +221,7 @@ if ($cruise_line_id != "") {
                 </SailingInfo>
                 <SelectedFare FareCode="BESTRATE"/>
             </OTA_CruiseCategoryAvailRQ></cat:getCategoryList></soapenv:Body></soapenv:Envelope>';
+    // error_log("\r\nRCCL Request - $raw\r\n", 3, "/srv/www/htdocs/error_log");
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $cruisesroyalcaribbeanServiceURL . 'Reservation_FITWeb/sca/CategoryList');
     curl_setopt($ch, CURLOPT_HEADER, false);
@@ -240,7 +237,7 @@ if ($cruise_line_id != "") {
     $error = curl_error($ch);
     $headers = curl_getinfo($ch);
     curl_close($ch);
-    error_log("\r\n RCCL Response - $response\r\n", 3, "/srv/www/htdocs/error_log");
+    // error_log("\r\nRCCL Response - $response\r\n", 3, "/srv/www/htdocs/error_log");
     $db = new \Laminas\Db\Adapter\Adapter($config);
     $sql = new Sql($db);
     $insert = $sql->insert();
@@ -378,14 +375,14 @@ if ($cruise_line_id != "") {
                                             $PromotionTypes = $PriceInfo->item(0)->getAttribute("PromotionTypes");
                                             $FareCode = $PriceInfo->item(0)->getAttribute("FareCode");
                                             $cabins[$cabinscount]['farecode'] = $FareCode;
-                                            if ($cruisesroyalcaribbeanmarkup > 0) {
-                                                $Amount = number_format($Amount + (($Amount * $cruisesroyalcaribbeanmarkup) / 100), 2, '.', '');
+                                            if ($cruisespullmanturmarkup > 0) {
+                                                $Amount = number_format($Amount + (($Amount * $cruisespullmanturmarkup) / 100), 2, '.', '');
                                             }
                                             if ($agent_markup > 0) {
                                                 $Amount = number_format($Amount + (($Amount * $agent_markup) / 100), 2, '.', '');
                                             }
-                                            if ($cruisesroyalcaribbeanmarkup > 0) {
-                                                $tax = number_format($tax + (($tax * $cruisesroyalcaribbeanmarkup) / 100), 2, '.', '');
+                                            if ($cruisespullmanturmarkup > 0) {
+                                                $tax = number_format($tax + (($tax * $cruisespullmanturmarkup) / 100), 2, '.', '');
                                             }
                                             if ($agent_markup > 0) {
                                                 $tax = number_format($tax + (($tax * $agent_markup) / 100), 2, '.', '');
@@ -467,5 +464,5 @@ if ($cruise_line_id != "") {
 $db->getDriver()
     ->getConnection()
     ->disconnect();
-error_log("\r\n EOF CABINS  \r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\nRCCL EOF CABINS\r\n", 3, "/srv/www/htdocs/error_log");
 ?>
