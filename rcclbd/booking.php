@@ -28,37 +28,23 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
-// Start
-$affiliate_id = 0;
-$branch_filter = "";
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.pulmantur.php');
-$config = [
-    'driver' => $config->db->driver,
-    'database' => $config->db->database,
-    'username' => $config->db->username,
-    'password' => $config->db->password,
-    'hostname' => $config->db->hostname
-];
-$db = new \Zend\Db\Adapter\Adapter($config);
+$CruisePackageCode = "NV04S238";
+$ListOfSailingDescriptionCode = 6;
+$Duration = "P4N";
+$PortsOfCallQuantity = 3;
+$Start = "2021-02-08";
+$Status = 36;
+$ShipCode = "NV";
+$VendorCode = "RCC";
+$RegionCode = "BAHAM";
+$SubRegionCode = "BAH";
+$DeparturePortLocationCode = "MIA";
+$ArrivalPortLocationCode = "MIA";
+$InclusiveIndicator = false;
 
-
-$client = new Client();
-$client->setOptions(array(
-    'timeout' => 100,
-    'sslverifypeer' => false,
-    'sslverifyhost' => false
-));
-$client->setHeaders(array(
-    "Content-type: text/xml",
-    "Accept: text/xml",
-    "Cache-Control: no-cache",
-    "Pragma: no-cache",
-    "Content-length: ".strlen($raw)
-));
-
-$username = 'CONCTMM';
-$password = 'u73ecKBu73ecKB!';
+$username = 'CONSTGCOSTAMAR';
+$password = '3MDQV5F5BzdvcX9';
 
 $url = 'https://stage.services.rccl.com/Reservation_FITWeb/sca/ConfirmBooking';
 
@@ -67,42 +53,42 @@ $raw ='<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xml
     <conf:confirmBooking>
     <OTA_CruiseBookRQ TransactionActionCode="Commit" Version="1.0" SequenceNmbr="1" TimeStamp="2008-12-30T18:30:42.720+05:30" RetransmissionIndicator="false" Target="Test" xmlns="http://www.opentravel.org/OTA/2003/05/alpha">
         <POS>
-            <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
-                <RequestorID ID="313917" ID_Context="AGENCY1" Type="11"/>
+            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <RequestorID ID="369567" ID_Context="AGENCY1" Type="11"/>
                 <BookingChannel Type="7">
-                    <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
+                    <CompanyName CompanyShortName="COSTAMAR"/>
                 </BookingChannel>
             </Source>
-            <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
-                <RequestorID ID="313917" ID_Context="AGENCY2" Type="11"/>
+            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <RequestorID ID="369567" ID_Context="AGENCY2" Type="11"/>
                 <BookingChannel Type="7">
-                    <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
+                    <CompanyName CompanyShortName="COSTAMAR"/>
                 </BookingChannel>
             </Source>
-            <Source TerminalID="3MDQV5F5BzdvcX9" ISOCurrency="USD">
-                <RequestorID ID="313917" ID_Context="AGENT1" Type="11"/>
+            <Source TerminalID="12502LDJW6" ISOCurrency="USD">
+                <RequestorID ID="369567" ID_Context="AGENT1" Type="11"/>
                 <BookingChannel Type="7">
-                    <CompanyName CompanyShortName="CONSTGCOSTAMAR"/>
+                    <CompanyName CompanyShortName="COSTAMAR"/>
                 </BookingChannel>
             </Source>
         </POS>
-    <AgentInfo Contact="CMOTEST13" ContactID="CMOtest_MI13"/>
+    <AgentInfo Contact="CMOTEST14" ContactID="CMOtest_MI14"/>
     <SailingInfo>
-        <SelectedSailing Start="2021-02-07">
-            <CruiseLine ShipCode="HR"/>
+        <SelectedSailing Start="2021-02-08">
+            <CruiseLine ShipCode="' . $ShipCode . '"/>
         </SelectedSailing>
-        <InclusivePackageOption CruisePackageCode="HRPO0720"/>
-        <SelectedCategory PricedCategoryCode="GS" BerthedCategoryCode="GS" FareCode="BESTRATE" DeckNumber="10" DeckName="CUBIERTA 10">
+        <InclusivePackageOption CruisePackageCode="' . $CruisePackageCode . '"/>
+        <SelectedCategory PricedCategoryCode="RS" BerthedCategoryCode="RS" FareCode="BESTRATE" DeckNumber="10" DeckName="CUBIERTA 10">
             <!--Optional:-->
             <alp:CabinAttributes>
                 <!--1 to 99 repetitions:-->
                 <alp:CabinAttribute CabinAttributeCode="99"/>
             </alp:CabinAttributes>
-            <SelectedCabin Status="39" CabinNumber="1071" MaxOccupancy="4"/>
+            <SelectedCabin Status="39" CabinNumber="1620" MaxOccupancy="5"/>
         </SelectedCategory>
     </SailingInfo>
     <ReservationInfo>
-        <ReservationID LastModifyDateTime="2020-05-08T17:33:07.000Z" ID="0000000" Type="14"/>
+        <ReservationID LastModifyDateTime="2020-11-25T17:33:07.000Z" ID="0000000" Type="14"/>
         <GuestDetails>
             <GuestDetail>
                 <SelectedFareCode FareCode="BESTRATE"/>
@@ -166,7 +152,7 @@ echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
 die();
-$config = new \Zend\Config\Config(include '../config/autoload/global.pulmantur.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.rcc.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,

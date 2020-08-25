@@ -32,7 +32,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $affiliate_id = 0;
 $branch_filter = "";
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.rccl.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.rcc.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -42,25 +42,24 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-
-$client = new Client();
-$client->setOptions(array(
-    'timeout' => 100,
-    'sslverifypeer' => false,
-    'sslverifyhost' => false
-));
-$client->setHeaders(array(
-    "Content-type: text/xml",
-    "Accept: text/xml",
-    "Cache-Control: no-cache",
-    "Pragma: no-cache",
-    "Content-length: ".strlen($raw)
-));
-
-$username = 'CONCTMM';
-$password = 'u73ecKBu73ecKB!';
+$username = 'CONSTGCOSTAMAR';
+$password = '3MDQV5F5BzdvcX9';
 
 $url = "https://stage.services.rccl.com/Reservation_FITWeb/sca/OptionList";
+
+$CruisePackageCode = "NV04S238";
+$ListOfSailingDescriptionCode = 6;
+$Duration = "P4N";
+$PortsOfCallQuantity = 3;
+$Start = "2021-02-08";
+$Status = 36;
+$ShipCode = "NV";
+$VendorCode = "RCC";
+$RegionCode = "BAHAM";
+$SubRegionCode = "BAH";
+$DeparturePortLocationCode = "MIA";
+$ArrivalPortLocationCode = "MIA";
+$InclusiveIndicator = false;
 
 $raw ='<?xml version="1.0" encoding="UTF-8"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -88,20 +87,20 @@ $raw ='<?xml version="1.0" encoding="UTF-8"?>
                     </Source>
                 </POS>
                 <SailingInfo>
-                    <SelectedSailing ListOfSailingDescriptionCode="6" Start="2021-02-07" Duration="P7N" Status="36" PortsOfCallQuantity="5">
-                        <CruiseLine VendorCode="PUL" ShipCode="HR"/>
+                    <SelectedSailing ListOfSailingDescriptionCode="6" Start="2021-02-08" Duration="P4N" Status="36" PortsOfCallQuantity="3">
+                        <CruiseLine VendorCode="' . $VendorCode . '" ShipCode="' . $ShipCode . '"/>
                         <!--Optional:-->
-                        <Region RegionCode="PDYDO" SubRegionCode="PGS"/>
+                        <Region RegionCode="' . $RegionCode . '" SubRegionCode="' . $SubRegionCode . '"/>
                         <!--Optional:-->
-                        <DeparturePort LocationCode="DXB"/>
+                        <DeparturePort LocationCode="' . $DeparturePortLocationCode . '"/>
                         <!--Optional:-->
-                        <ArrivalPort LocationCode="DXB"/>
+                        <ArrivalPort LocationCode="' . $ArrivalPortLocationCode . '"/>
                     </SelectedSailing>
                     <!--Optional:-->
-                    <InclusivePackageOption CruisePackageCode="HRPO0720" InclusiveIndicator="false"/>
+                    <InclusivePackageOption CruisePackageCode="' . $CruisePackageCode . '" InclusiveIndicator="false"/>
                     <!--Optional:-->
                     <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                    <SelectedCategory BerthedCategoryCode="GS"/>
+                    <SelectedCategory BerthedCategoryCode="RS"/>
                 </SailingInfo>
             </OTA_CruiseSpecialServiceAvailRQ>
         </ol:getOptionList>
@@ -128,7 +127,7 @@ echo '<xmp>';
 var_dump($response);
 echo '</xmp>';
 die();
-$config = new \Zend\Config\Config(include '../config/autoload/global.rccl.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.rcc.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,

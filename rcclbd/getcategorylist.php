@@ -40,7 +40,7 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$sql = "SELECT id,listofsailingdescriptioncode, duration, portsofcallquantity, start, status, shipcode, vendorcode, regioncode, subregioncode, departureportlocationcode, arrivalportlocationcode, inclusiveindicator  FROM cruisesailavail";
+/* $sql = "SELECT id,listofsailingdescriptioncode, duration, portsofcallquantity, start, status, shipcode, vendorcode, regioncode, subregioncode, departureportlocationcode, arrivalportlocationcode, inclusiveindicator  FROM cruisesailavail";
 $statement = $db->createStatement($sql);
 try {
     $statement->prepare();
@@ -56,20 +56,20 @@ $result->buffer();
 if ($result instanceof ResultInterface && $result->isQueryResult()) {
     $resultSet = new ResultSet();
     $resultSet->initialize($result);
-    foreach ($resultSet as $row) {
-        $CruisePackageCode = $row->id;
-        $ListOfSailingDescriptionCode = $row->listofsailingdescriptioncode;
-        $Duration = $row->duration;
-        $PortsOfCallQuantity = $row->portsofcallquantity;
-        $Start = $row->start;
-        $Status = $row->status;
-        $ShipCode = $row->shipcode;
-        $VendorCode = $row->vendorcode;
-        $RegionCode = $row->regioncode;
-        $SubRegionCode = $row->subregioncode;
-        $DeparturePortLocationCode = $row->departureportlocationcode;
-        $ArrivalPortLocationCode = $row->arrivalportlocationcode;
-        $InclusiveIndicator = $row->inclusiveindicator;
+    foreach ($resultSet as $row) {*/
+        $CruisePackageCode = "NV04S238";
+        $ListOfSailingDescriptionCode = 6;
+        $Duration = "P4N";
+        $PortsOfCallQuantity = 3;
+        $Start = "2021-02-08";
+        $Status = 36;
+        $ShipCode = "NV";
+        $VendorCode = "RCC";
+        $RegionCode = "BAHAM";
+        $SubRegionCode = "BAH";
+        $DeparturePortLocationCode = "MIA";
+        $ArrivalPortLocationCode = "MIA";
+        $InclusiveIndicator = false;
 
          $username = 'CONSTGCOSTAMAR';
          $password = '3MDQV5F5BzdvcX9';
@@ -149,7 +149,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
          echo '<xmp>';
          var_dump($response);
          echo '</xmp>';
-
+         die();
          $config = new \Zend\Config\Config(include '../config/autoload/global.rcc.php');
          $config = [
             'driver' => $config->db->driver,
@@ -414,8 +414,8 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
             }
          }
       }
-   }
-}
+   // }
+// }
 
 
 // EOF

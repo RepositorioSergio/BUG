@@ -42,6 +42,20 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
+$CruisePackageCode = "NV04S238";
+$ListOfSailingDescriptionCode = 6;
+$Duration = "P4N";
+$PortsOfCallQuantity = 3;
+$Start = "2021-02-08";
+$Status = 36;
+$ShipCode = "NV";
+$VendorCode = "RCC";
+$RegionCode = "BAHAM";
+$SubRegionCode = "BAH";
+$DeparturePortLocationCode = "MIA";
+$ArrivalPortLocationCode = "MIA";
+$InclusiveIndicator = false;
+
 $username = 'CONSTGCOSTAMAR';
 $password = '3MDQV5F5BzdvcX9';
 
@@ -83,21 +97,21 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                 <GuestCount Age="5" Quantity="1"/> 
             </GuestCounts>
             <SailingInfo>
-                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2021-02-07" Duration="P7N" Status="36" PortsOfCallQuantity="5">
-                    <CruiseLine VendorCode="PUL" ShipCode="HR"/>
+                <SelectedSailing ListOfSailingDescriptionCode="6" Start="2021-02-08" Duration="P4N" Status="36" PortsOfCallQuantity="3">
+                    <CruiseLine VendorCode="' . $VendorCode . '" ShipCode="' . $ShipCode . '"/>
                     <!--Optional:-->
-                    <Region RegionCode="PDYDO" SubRegionCode="PGS"/>
+                    <Region RegionCode="' . $RegionCode . '" SubRegionCode="' . $SubRegionCode . '"/>
                     <!--Optional:-->
-                    <DeparturePort LocationCode="DXB"/>
+                    <DeparturePort LocationCode="' . $DeparturePortLocationCode . '"/>
                     <!--Optional:-->
-                    <ArrivalPort LocationCode="DXB"/>
+                    <ArrivalPort LocationCode="' . $ArrivalPortLocationCode . '"/>
                 </SelectedSailing>
-                <InclusivePackageOption CruisePackageCode="HRPO0720"/>
+                <InclusivePackageOption CruisePackageCode="' . $CruisePackageCode . '"/>
                 <Currency CurrencyCode="USD" DecimalPlaces="2"/>
-                <SelectedCategory BerthedCategoryCode="GS" PricedCategoryCode="GS" WaitlistIndicator="false">
+                <SelectedCategory BerthedCategoryCode="RS" PricedCategoryCode="RS" WaitlistIndicator="false">
                 </SelectedCategory>
             </SailingInfo>
-            <SearchQualifiers BerthedCategoryCode="GS" FareCode="F9368551" GroupCode="1" CategoryLocation="Deluxe">
+            <SearchQualifiers BerthedCategoryCode="RS" FareCode="G0738129" GroupCode="1" CategoryLocation="Deluxe">
                 <Status Status="36"/>
             </SearchQualifiers>
             <SelectedFare GroupCode="1"/>
