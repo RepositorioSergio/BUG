@@ -87,7 +87,7 @@ $client->setHeaders(array(
     "Accept-Encoding: gzip",
     "Customer-Ip: " . $ipaddress
 ));
-$url = 'https://test.ean.com/2.2/properties/availability?checkin=2019-09-15&checkout=2019-09-17&currency=USD&language=en-US&country_code=US&occupancy=2&sales_channel=website&sales_environment=hotel_package&sort_type=preferred&property_id=24051641';
+$url = 'https://test.ean.com/2.2/properties/availability?checkin=2020-11-15&checkout=2020-11-17&currency=USD&language=en-US&country_code=US&occupancy=2&sales_channel=website&sales_environment=hotel_package&sort_type=preferred&property_id=24051641';
 
 
 //
