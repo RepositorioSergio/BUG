@@ -49,8 +49,8 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
          <agencyCode>266333</agencyCode>
          <brandCode>1</brandCode>
          <pointOfSaleId>1</pointOfSaleId>
-         <checkin>2021-04-22T00:00:00.000Z</checkin>
-         <checkout>2021-04-27T00:00:00.000Z</checkout>
+         <checkin>2020-11-01T00:00:00.000Z</checkin>
+         <checkout>2020-11-02T00:00:00.000Z</checkout>
          <fromPrice>0</fromPrice>
          <fromRow>0</fromRow>
          <includeEstablishmentData>false</includeEstablishmentData>
@@ -59,19 +59,25 @@ $raw = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelop
          <numRows>100</numRows>
          <occupancies>
             <adults>2</adults>
+            <children>1</children>
+            <childrenAges>8</childrenAges>
+            <numberOfRooms>1</numberOfRooms>
+         </occupancies>
+         <occupancies>
+            <adults>3</adults>
             <children>0</children>
             <!--<childrenAges>0</childrenAges>-->
-            <numberOfRooms>1</numberOfRooms>
+            <numberOfRooms>2</numberOfRooms>
          </occupancies>
          <onlyOnline>true</onlyOnline>
          <orderBy/>
          <productCode/>
          <toPrice>999999</toPrice>
-         <cityCode>100</cityCode>
+         <cityCode>52</cityCode>
          <extendedLogin>
-            <channel>B2C</channel>
+            <channel>B2B</channel>
             <loginCountry>ES</loginCountry>
-            <mainNationality>spain</mainNationality>
+            <mainNationality>ES</mainNationality>
          </extendedLogin>
          <paxNationalities>
             <nationality/>

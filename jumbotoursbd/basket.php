@@ -50,7 +50,7 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
          <agencyCode>266333</agencyCode>
          <brandCode>1</brandCode>
          <pointOfSaleId>1</pointOfSaleId>
-         <basketId>8675272212</basketId>
+         <basketId>8728372214</basketId>
       </GetBasketRQ_1>
    </typ:getBasketExtended>
 </soapenv:Body>

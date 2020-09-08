@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://xtravelsystem.com/v1_0rc1/basket/types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <soap:Body>
+      <tns:cancel>
+         <CancelRQ_1>
+            <agencyCode>266333</agencyCode>
+            <brandCode>1</brandCode>
+            <pointOfSaleId>1</pointOfSaleId>
+            <basketId>8728372214</basketId>
+            <comment/>
+            <language>en</language>
+            <userId/>
+         </CancelRQ_1>
+      </tns:cancel>
+   </soap:Body>
+</soap:Envelope>

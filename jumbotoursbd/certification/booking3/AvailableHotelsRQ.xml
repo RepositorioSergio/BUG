@@ -1,0 +1,39 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://xtravelsystem.com/v1_0rc1/hotel/types">
+<soapenv:Header/>
+<soapenv:Body>
+   <typ:availableHotelsByMultiQueryV22>
+      <AvailableHotelsByMultiQueryRQV22_1>
+         <agencyCode>266333</agencyCode>
+         <brandCode>1</brandCode>
+         <pointOfSaleId>1</pointOfSaleId>
+         <checkin>2020-11-01T00:00:00.000Z</checkin>
+         <checkout>2020-11-02T00:00:00.000Z</checkout>
+         <fromPrice>0</fromPrice>
+         <fromRow>0</fromRow>
+         <includeEstablishmentData>false</includeEstablishmentData>
+         <language>en</language>
+         <maxRoomCombinationsPerEstablishment>30</maxRoomCombinationsPerEstablishment>
+         <numRows>100</numRows>
+         <occupancies>
+            <adults>2</adults>
+            <children>1</children>
+            <childrenAges>5</childrenAges>
+            <numberOfRooms>1</numberOfRooms>
+         </occupancies>
+         <onlyOnline>true</onlyOnline>
+         <orderBy/>
+         <productCode/>
+         <toPrice>999999</toPrice>
+         <cityCode>52</cityCode>
+         <extendedLogin>
+            <channel>B2B</channel>
+            <loginCountry>GB</loginCountry>
+            <mainNationality>GB</mainNationality>
+         </extendedLogin>
+         <paxNationalities>
+            <nationality/>
+         </paxNationalities>
+      </AvailableHotelsByMultiQueryRQV22_1>
+   </typ:availableHotelsByMultiQueryV22>
+</soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://xtravelsystem.com/v1_0rc1/hotel/types">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <typ:valuateExtendsV22>
+            <ValuationRQV22_1>
+                <agencyCode>266333</agencyCode>
+                <brandCode>1</brandCode>
+                <pointOfSaleId>1</pointOfSaleId>
+                <checkin>2020-11-01T00:00:00.000Z</checkin>
+                <checkout>2020-11-02T00:00:00.000Z</checkout>
+                <establishmentId>81389</establishmentId>
+                <language>en</language>
+                <occupancies>
+                    <adults>2</adults>
+                    <children>0</children>
+                    <numberOfRooms>1</numberOfRooms>
+                    <ratePlanCode>VJV:RO:STD::MuhEOPYWIxYWYyNjEtMmFjZi00OTlhLTlkZjYtYzA1NDBlOTJjMDUwIyZAJiMzODI0NTg=</ratePlanCode>
+                </occupancies>
+                <occupancies>
+                    <adults>2</adults>
+                    <children>0</children>
+                    <numberOfRooms>1</numberOfRooms>
+                    <ratePlanCode>VJV:RO:STD::BRmIZRNmEzM2NjNjQtZjQxNi00ZDJmLWIyYmQtNmMxM2UwZDlmM2E0IyZAJiMzODI0NTg=</ratePlanCode>
+                </occupancies>
+                <extendedLogin>
+                    <channel>B2B</channel>
+                    <loginCountry>FR</loginCountry>
+                    <mainNationality>FR</mainNationality>
+                </extendedLogin>
+                <paxNationalities>
+                    <nationality></nationality>
+                </paxNationalities>
+            </ValuationRQV22_1>
+        </typ:valuateExtendsV22>
+    </soapenv:Body>
+</soapenv:Envelope>

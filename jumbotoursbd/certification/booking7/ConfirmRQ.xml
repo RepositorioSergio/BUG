@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://xtravelsystem.com/v1_0rc1/hotel/types">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <typ:confirmExtendsV22>
+            <ConfirmRQV22_1>
+                <agencyCode>266333</agencyCode>
+                <brandCode>1</brandCode>
+                <pointOfSaleId>1</pointOfSaleId>
+                <checkin>2020-11-01T00:00:00.000Z</checkin>
+                <checkout>2020-11-02T00:00:00.000Z</checkout>
+                <establishmentId>849756</establishmentId>
+                <language>en</language>
+                <occupancies>
+                    <adults>2</adults>
+                    <children>0</children>
+                    <numberOfRooms>1</numberOfRooms>
+                    <ratePlanCode>EXK:BB:M00::JGiyeMOWM5Njg5YjgtOTg3NC00ZjRmLTk1OTktY2ExMTA2YWYxNTA1IyZAJiMxNTI3Mzcy</ratePlanCode>
+                </occupancies>
+                <onlyOnline>true</onlyOnline>
+                <extendedLogin>
+                    <channel>B2B</channel>
+                    <loginCountry>EG</loginCountry>
+                    <mainNationality>EG</mainNationality>
+                </extendedLogin>
+                <agencyReference>testtestttest</agencyReference>
+                <closeBasket>false</closeBasket>
+                <paxList>
+                    <pax>
+                        <age>30</age>
+                        <name>TEST</name>
+                        <nationality>GB</nationality>
+                        <residenceCountry/>
+                    </pax>
+                    <pax>
+                        <age>30</age>
+                        <name>TEST2</name>
+                        <nationality>GB</nationality>
+                        <residenceCountry/>
+                    </pax>
+                </paxList>
+                <titular>test</titular>
+            </ConfirmRQV22_1>
+        </typ:confirmExtendsV22>
+    </soapenv:Body>
+</soapenv:Envelope>

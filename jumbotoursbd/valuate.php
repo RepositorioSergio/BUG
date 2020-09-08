@@ -50,20 +50,26 @@ $raw = '<?xml version="1.0" encoding="UTF-8"?>
                 <agencyCode>266333</agencyCode>
                 <brandCode>1</brandCode>
                 <pointOfSaleId>1</pointOfSaleId>
-                <checkin>2021-04-22T00:00:00.000Z</checkin>
-                <checkout>2021-04-27T00:00:00.000Z</checkout>
-                <establishmentId>1439227</establishmentId>
+                <checkin>2020-11-01T00:00:00.000Z</checkin>
+                <checkout>2020-11-02T00:00:00.000Z</checkout>
+                <establishmentId>81389</establishmentId>
                 <language>en</language>
                 <occupancies>
                     <adults>2</adults>
                     <children>0</children>
                     <numberOfRooms>1</numberOfRooms>
-                    <ratePlanCode>1P1:BB:STD::MZYmzoMmYxYzY2NDAtNTEwZS00ODlmLThiMzYtMWJiMTVkNzcyYmE3IyZAJiMxNDM5MjI3</ratePlanCode>
+                    <ratePlanCode>VJV:RO:STD::MuhEOPYWIxYWYyNjEtMmFjZi00OTlhLTlkZjYtYzA1NDBlOTJjMDUwIyZAJiMzODI0NTg=</ratePlanCode>
+                </occupancies>
+                <occupancies>
+                    <adults>2</adults>
+                    <children>0</children>
+                    <numberOfRooms>1</numberOfRooms>
+                    <ratePlanCode>VJV:RO:STD::BRmIZRNmEzM2NjNjQtZjQxNi00ZDJmLWIyYmQtNmMxM2UwZDlmM2E0IyZAJiMzODI0NTg=</ratePlanCode>
                 </occupancies>
                 <extendedLogin>
-                    <channel>B2C</channel>
-                    <loginCountry>ES</loginCountry>
-                    <mainNationality>spain</mainNationality>
+                    <channel>B2B</channel>
+                    <loginCountry>FR</loginCountry>
+                    <mainNationality>FR</mainNationality>
                 </extendedLogin>
                 <paxNationalities>
                     <nationality></nationality>
