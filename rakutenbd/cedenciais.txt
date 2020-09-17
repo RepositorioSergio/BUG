@@ -1,0 +1,9 @@
+Development Specs:  https://dev.rakutentravelxchange.com/
+DEVELOPMENT Key:        c58781b0-ab9b-488b-8e93-57c2c1627f5a
+Integration Notes:
+
+· LIVE Endpoint:  To ensure that you receive similar response times, etc.  please use the LIVE endpoints with this API key (i.e.  https://api-v3.rakutentravelxchange.com/hotel_list).
+
+· Fake Data:  Please note that all data used in the development process is fake.  This includes rates, availability, and any bookings/cancellations that are made.
+
+· Requirements:  To maintain stability, the data we provide is limited.  Please only search for the ‘Test property codes’ below.
