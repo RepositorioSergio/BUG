@@ -178,10 +178,6 @@ $toHotelsPro = DateTime::createFromFormat("d-m-Y", $to);
 $nights = $fromHotelsPRO->diff($toHotelsPro);
 $nights = $nights->format('%a');
 
-/*
- * $fromHotelsPRO = $fromHotelsPRO->getTimestamp();
- * $toHotelsPro = $toHotelsPro->getTimestamp();
- */
 $c = 0;
 $response = array();
 $roombreakdown = array();

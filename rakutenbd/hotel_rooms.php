@@ -112,16 +112,16 @@ if (count($hotels) > 0) {
         $packages = $rates['packages'];
         if (count($packages) > 0) {
             for ($jAux=0; $jAux < count($packages); $jAux++) { 
-                $hotel_id = $hotels[$j]['hotel_id'];
-                $booking_key = $hotels[$j]['booking_key'];
-                $room_rate = $hotels[$j]['room_rate'];
-                $room_rate_currency = $hotels[$j]['room_rate_currency'];
-                $client_commission = $hotels[$j]['client_commission'];
-                $client_commission_currency = $hotels[$j]['client_commission_currency'];
-                $chargeable_rate = $hotels[$j]['chargeable_rate'];
-                $chargeable_rate_currency = $hotels[$j]['chargeable_rate_currency'];
-                $rate_type = $hotels[$j]['rate_type'];
-                $room_details = $hotels[$j]['room_details'];
+                $hotel_id = $packages[$jAux]['hotel_id'];
+                $booking_key = $packages[$jAux]['booking_key'];
+                $room_rate = $packages[$jAux]['room_rate'];
+                $room_rate_currency = $packages[$jAux]['room_rate_currency'];
+                $client_commission = $packages[$jAux]['client_commission'];
+                $client_commission_currency = $packages[$jAux]['client_commission_currency'];
+                $chargeable_rate = $packages[$jAux]['chargeable_rate'];
+                $chargeable_rate_currency = $packages[$jAux]['chargeable_rate_currency'];
+                $rate_type = $packages[$jAux]['rate_type'];
+                $room_details = $packages[$jAux]['room_details'];
                 $room_code = $room_details['room_code'];
                 $rate_plan_code = $room_details['rate_plan_code'];
                 $rate_plan_description = $room_details['rate_plan_description'];
