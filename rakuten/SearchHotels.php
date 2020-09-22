@@ -167,20 +167,30 @@ if ($result->valid()) {
 }
 // error_log("\r\n Request: $raw \r\n", 3, "/srv/www/htdocs/error_log");
 if ($rakutenServiceURL != "" and $rakutenAPIKey != "") {
+    $adults = 0;
+    for ($r=0; $r < count($selectedAdults); $r++) { 
+        $adults = $adults + $selectedAdults[$r];
+    }
     $url = 'hotel_list?check_in_date=' . strftime("%Y-%m-%d", $from) . '&check_out_date=' . strftime("%Y-%m-%d", $to) . '&adult_count=' . $adults;
-    
+    $children = 0;
     $ages = "";
-    if ($children > 0) {
-        for ($i=0; $i < $children; $i++) { 
-            if ($ages != "") {
-                $ages .= ',' . $children_ages[$i]; 
-            } else {
-                $ages  = $children_ages[$i];
-            }    
+    for ($r=0; $r < count($selectedAdults); $r++) { 
+        if ($selectedChildren[$r] > 0) {
+            for ($z=0; $z < $selectedChildren[$r]; $z++) { 
+                if ($ages != "") {
+                    $ages .= ',' . $selectedChildrenAges[$r][$z];
+                } else {
+                    $ages .= $selectedChildrenAges[$r][$z];
+                }
+                $children = $children + 1;
+            }
         }
-        $url .= '&children=' . $ages . '&room_count=1&currency=' . strtoupper($currency) . '&source_market=US&hotel_id_list=' . $hotellist;
+    }
+    
+    if ($children > 0) {
+        $url .= '&children=' . $ages . '&room_count=1&currency=' . strtoupper($currency) . '&source_market=US&hotel_id_list=fst1%2Cfst2%2C%2CreFn%2CTJRf%2CKQQR%2CSvBX';
     } else {
-        $url .= '&room_count=1&currency=' . strtoupper($currency) . '&source_market=US&hotel_id_list=' . $hotellist;
+        $url .= '&room_count=1&currency=' . strtoupper($currency) . '&source_market=US&hotel_id_list=fst1%2Cfst2%2C%2CreFn%2CTJRf%2CKQQR%2CSvBX';
     }
     $client = new Client();
     $client->setOptions(array(
