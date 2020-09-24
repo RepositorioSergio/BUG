@@ -39,54 +39,60 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$url = 'https://api-v3.rakutentravelxchange.com/hotel_list?check_in_date=2020-09-29&check_out_date=2020-09-30&adult_count=2&room_count=1&currency=USD&source_market=PT&hotel_id_list=fst1%2Cfst2%2C%2CreFn%2CTJRf%2CKQQR%2CSvBX&locale=en-US';
-
-$client = new Client();
-$client->setOptions(array(
-    'timeout' => 100,
-    'sslverifypeer' => false,
-    'sslverifyhost' => false
-));
-$client->setHeaders(array(
-    'accept-encoding' => 'gzip',
-    'Content-Type' => 'application/json',
-    'x-api-key' => 'c58781b0-ab9b-488b-8e93-57c2c1627f5a'
-));
-$client->setUri($url);
-$client->setMethod('GET');
-// $client->setRawBody($raw);
-$response = $client->send();
-if ($response->isSuccess()) {
-    $response = $response->getBody();
-} else {
-    $logger = new Logger();
-    $writer = new Writer\Stream('/srv/www/htdocs/error_log');
-    $logger->addWriter($writer);
-    $logger->info($client->getUri());
-    $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
+$url = 'https://api-v3.rakutentravelxchange.com/hotel_list?check_in_date=2020-11-10&check_out_date=2020-11-13&adult_count=2&room_count=1&currency=USD&source_market=PT&hotel_id_list=pbcs';
+$session_idHandler = "";
+for ($rPool=0; $rPool <= 5; $rPool++) { 
     echo $return;
-    echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
+    echo "Pool " . $rPool;
     echo $return;
-    die();
+    $client = new Client();
+    $client->setOptions(array(
+        'timeout' => 100,
+        'sslverifypeer' => false,
+        'sslverifyhost' => false
+    ));
+    if ($session_idHandler != "") {
+        $client->setHeaders(array(
+            'accept-encoding' => 'gzip',
+            'Content-Type' => 'application/json',
+            'x-api-key' => 'c58781b0-ab9b-488b-8e93-57c2c1627f5a',
+            'session_id' => $session_idHandler
+        ));
+    } else {
+        $client->setHeaders(array(
+            'accept-encoding' => 'gzip',
+            'Content-Type' => 'application/json',
+            'x-api-key' => 'c58781b0-ab9b-488b-8e93-57c2c1627f5a'
+        ));
+    }
+    $client->setUri($url);
+    $client->setMethod('GET');
+    $response = $client->send();
+    if ($response->isSuccess()) {
+        $response = $response->getBody();
+    } else {
+        $logger = new Logger();
+        $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+        $logger->addWriter($writer);
+        $logger->info($client->getUri());
+        $logger->info($response->getStatusCode() . " - " . $response->getReasonPhrase());
+        echo $return;
+        echo $response->getStatusCode() . " - " . $response->getReasonPhrase();
+        echo $return;
+        die();
+    }
+    echo $return;
+    echo $response;
+    echo $return; 
+    $response = json_decode($response, true);
+        
+    $session_idHandler = $response['session_id'];
+    $event_id = $response['event_id'];
+    $status = $response['status'];
+    if ($status == "complete") {
+        break;
+    }
 }
-echo $return;
-echo $response;
-echo $return; 
-$response = json_decode($response, true);
-
-$config = new \Zend\Config\Config(include '../config/autoload/global.rakuten.php');
-$config = [
-    'driver' => $config->db->driver,
-    'database' => $config->db->database,
-    'username' => $config->db->username,
-    'password' => $config->db->password,
-    'hostname' => $config->db->hostname
-];
-$db = new \Zend\Db\Adapter\Adapter($config);
-    
-$session_id = $response['session_id'];
-$event_id = $response['event_id'];
-$status = $response['status'];
 $search = $response['search'];
 $check_in_date = $search['check_in_date'];
 $check_out_date = $search['check_out_date'];

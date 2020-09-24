@@ -41,7 +41,7 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $url = 'https://api-v3.rakutentravelxchange.com/cancel';
 $raw = '{
-    "booking_id": "gdvpr9pd"
+    "booking_id": "yk5jv894"
    }';
 
 $client = new Client();

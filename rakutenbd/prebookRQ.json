@@ -1,0 +1,17 @@
+{
+    "booking_policy_id": "9936899c-fe78-11ea-bbd9-564ef3c0029b",
+    "client_reference": "aaaa_0005",
+    "room_lead_guests": [
+    {
+        "first_name": "Test",
+        "last_name": "Smith",
+        "nationality": "US"
+    }
+    ],
+    "contact_person": {
+    "salutation": "Mr.",
+    "first_name": "Test",
+    "last_name": "Smith",
+    "contact_no": "1112313123"
+    }
+   }

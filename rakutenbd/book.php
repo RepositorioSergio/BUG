@@ -39,7 +39,7 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$url = 'https://api-v3.rakutentravelxchange.com/book/gdvpr9pd';
+$url = 'https://api-v3.rakutentravelxchange.com/book/jdlw9yok';
 
 $client = new Client();
 $client->setOptions(array(

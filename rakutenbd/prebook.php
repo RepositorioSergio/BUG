@@ -41,16 +41,11 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 
 $url = 'https://api-v3.rakutentravelxchange.com/pre_book';
 $raw = '{
-    "booking_policy_id": "4a3e5850-f98d-11ea-8ca9-02c1dfce88dd",
-    "client_reference": "aaaa_0001",
+    "booking_policy_id": "9936899c-fe78-11ea-bbd9-564ef3c0029b",
+    "client_reference": "aaaa_0005",
     "room_lead_guests": [
     {
         "first_name": "Test",
-        "last_name": "Smith",
-        "nationality": "US"
-    },
-    {
-        "first_name": "TestB",
         "last_name": "Smith",
         "nationality": "US"
     }

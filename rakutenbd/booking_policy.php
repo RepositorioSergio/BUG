@@ -42,18 +42,18 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $url = 'https://api-v3.rakutentravelxchange.com/booking_policy';
 $raw = '{
     "search": {
-        "hotel_id": "fst2",
-        "check_in_date": "2020-09-29",
-        "check_out_date": "2020-09-30",
+        "hotel_id": "usg1",
+        "check_in_date": "2020-11-10",
+        "check_out_date": "2020-11-13",
         "room_count": 1,
         "adult_count": 2,
         "currency": "USD",
         "locale": "en-US",
-        "source_market": "US",
+        "source_market": "PT",
         "children": null
     },
     "package": {
-        "hotel_id": "fst2",
+        "hotel_id": "pbcs",
         "room_details": {
         "room_code": "",
         "rate_plan_code": "",
@@ -67,12 +67,12 @@ $raw = '{
         },
         "supplier_description": "Standard - 2 Queen Bed"
     },
-    "booking_key": "f5bd0642",
-    "room_rate": 41.21,
+    "booking_key": "a082c4df",
+    "room_rate": 323.57,
     "room_rate_currency": "USD",
-    "client_commission": 2.06,
+    "client_commission": 16.18,
     "client_commission_currency": "USD",
-    "chargeable_rate": 43.27,
+    "chargeable_rate": 339.75,
     "chargeable_rate_currency": "USD",
     "rate_type": "net"
     }

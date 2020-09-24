@@ -1,0 +1,37 @@
+{
+    "search": {
+        "hotel_id": "usg1",
+        "check_in_date": "2020-11-10",
+        "check_out_date": "2020-11-13",
+        "room_count": 1,
+        "adult_count": 2,
+        "currency": "USD",
+        "locale": "en-US",
+        "source_market": "PT",
+        "children": null
+    },
+    "package": {
+        "hotel_id": "pbcs",
+        "room_details": {
+        "room_code": "",
+        "rate_plan_code": "",
+        "description": "Standard Room Queen Beds",
+        "food": 1,
+        "non_refundable": false,
+        "room_type": "Standard",
+        "room_view": "",
+        "beds": {
+            "queen": 2
+        },
+        "supplier_description": "Standard - 2 Queen Bed"
+    },
+    "booking_key": "a082c4df",
+    "room_rate": 323.57,
+    "room_rate_currency": "USD",
+    "client_commission": 16.18,
+    "client_commission_currency": "USD",
+    "chargeable_rate": 339.75,
+    "chargeable_rate_currency": "USD",
+    "rate_type": "net"
+    }
+   }
