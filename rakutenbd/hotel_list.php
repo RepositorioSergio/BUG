@@ -39,7 +39,7 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$url = 'https://api-v3.rakutentravelxchange.com/hotel_list?check_in_date=2020-09-29&check_out_date=2020-09-30&adult_count=2&room_count=1&currency=USD&source_market=US&hotel_id_list=fst1%2Cfst2%2C%2CreFn%2CTJRf%2CKQQR%2CSvBX&locale=en-US';
+$url = 'https://api-v3.rakutentravelxchange.com/hotel_list?check_in_date=2020-09-29&check_out_date=2020-09-30&adult_count=2&room_count=1&currency=USD&source_market=PT&hotel_id_list=fst1%2Cfst2%2C%2CreFn%2CTJRf%2CKQQR%2CSvBX&locale=en-US';
 
 $client = new Client();
 $client->setOptions(array(

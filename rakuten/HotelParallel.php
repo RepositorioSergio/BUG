@@ -124,6 +124,31 @@ if ($hotellist != "") {
         $row = $result->current();
         $rakutenTimeout = (int) $row['value'];
     }
+    if ((int) $nationality > 0) {
+        $sql = "select iso_code_2 from countries where id=" . (int) $nationality;
+        $statement2 = $db->createStatement($sql);
+        $statement2->prepare();
+        $row_settings = $statement2->execute();
+        $row_settings->buffer();
+        if ($row_settings->valid()) {
+            $row_settings = $row_settings->current();
+            $sourceMarket = $row_settings["iso_code_2"];
+        } else {
+            $sourceMarket = "";
+        }
+    } else {
+        $sql = "select value from settings where name='ratukenDefaultNationalityCountryCode' and affiliate_id=$affiliate_id_rakuten";
+        $statement = $db->createStatement($sql);
+        $statement->prepare();
+        $row_settings = $statement->execute();
+        $row_settings->buffer();
+        if ($row_settings->valid()) {
+            $row_settings = $row_settings->current();
+            $sourceMarket = $row_settings['value'];
+        }
+    }
+    $hotellist .= ",PLPo,7uLH,dnhy,9CPH,fst1,fst2,fst4,TJRf,KQQR,SvBX,WijN wijn,reFn,usg1,usj1"; // Test hotels
+    $num_rooms = 1;
     $url = 'hotel_list?check_in_date=' . strftime("%Y-%m-%d", $from) . '&check_out_date=' . strftime("%Y-%m-%d", $to) . '&adult_count=' . $adults;
     
     $ages = "";
@@ -135,12 +160,13 @@ if ($hotellist != "") {
                 $ages  = $children_ages[$i];
             }    
         }
-        $url .= '&children=' . $ages . '&room_count=1&currency=' . strtoupper($currency) . '&source_market=US&hotel_id_list=' . $hotellist;
+        $url .= '&children=' . $ages . '&room_count=' . $num_rooms . '&currency=' . strtoupper($currency) . '&source_market=' . $sourceMarket . '&hotel_id_list=' . urlencode($hotellist);
     } else {
-        $url .= '&room_count=1&currency=' . strtoupper($currency) . '&source_market=US&hotel_id_list=' . $hotellist;
+        $url .= '&room_count=' . $num_rooms . '&currency=' . strtoupper($currency) . '&source_market=' . $sourceMarket . '&hotel_id_list=' . urlencode($hotellist);
     }
-    
+    error_log("\r\n url - $url \r\n", 3, "/srv/www/htdocs/error_log");
     $ch = curl_init();
+
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'accept-encoding: gzip',
         'Content-Type: application/json',

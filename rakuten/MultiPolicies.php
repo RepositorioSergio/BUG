@@ -1,5 +1,5 @@
 <?php
-error_log("\r\nMulti Policies RTS\r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\nMulti Policies RAKUTEN\r\n", 3, "/srv/www/htdocs/error_log");
 use Zend\Db\Adapter\Adapter;
 use Zend\Db\Adapter\Driver\ResultInterface;
 use Zend\Db\ResultSet\ResultSet;
