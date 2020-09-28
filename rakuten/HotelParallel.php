@@ -29,7 +29,7 @@ if ($result instanceof ResultInterface && $result->isQueryResult()) {
         }
     }
 }
-error_log("\r\n hotellist - $hotellist \r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\nRakuten hotellist - $hotellist \r\n", 3, "/srv/www/htdocs/error_log");
 if ($hotellist != "") {
     $affiliate_id_rakuten = 0;
     $sql = "select value from settings where name='rakutenAPIKey' and affiliate_id=$affiliate_id_rakuten";
@@ -150,27 +150,26 @@ if ($hotellist != "") {
     $hotellist .= ",PLPo,7uLH,dnhy,9CPH,fst1,fst2,fst4,TJRf,KQQR,SvBX,WijN wijn,reFn,usg1,usj1"; // Test hotels
     $num_rooms = 1;
     $url = 'hotel_list?check_in_date=' . strftime("%Y-%m-%d", $from) . '&check_out_date=' . strftime("%Y-%m-%d", $to) . '&adult_count=' . $adults;
-    
     $ages = "";
     if ($children > 0) {
-        for ($i=0; $i < $children; $i++) { 
+        for ($i = 0; $i < $children; $i ++) {
             if ($ages != "") {
-                $ages .= ',' . $children_ages[$i]; 
+                $ages .= ',' . $children_ages[$i];
             } else {
-                $ages  = $children_ages[$i];
-            }    
+                $ages = $children_ages[$i];
+            }
         }
         $url .= '&children=' . $ages . '&room_count=' . $num_rooms . '&currency=' . strtoupper($currency) . '&source_market=' . $sourceMarket . '&hotel_id_list=' . urlencode($hotellist);
     } else {
         $url .= '&room_count=' . $num_rooms . '&currency=' . strtoupper($currency) . '&source_market=' . $sourceMarket . '&hotel_id_list=' . urlencode($hotellist);
     }
-    error_log("\r\n url - $url \r\n", 3, "/srv/www/htdocs/error_log");
+    error_log("\r\nRakuten url - $url \r\n", 3, "/srv/www/htdocs/error_log");
     $ch = curl_init();
-
+    
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'accept-encoding: gzip',
         'Content-Type: application/json',
-        'x-api-key: '. $rakutenAPIKey
+        'x-api-key: ' . $rakutenAPIKey
     ));
     curl_setopt($ch, CURLINFO_HEADER_OUT, true);
     curl_setopt($ch, CURLOPT_URL, $rakutenServiceURL . $url);

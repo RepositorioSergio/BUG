@@ -1,5 +1,5 @@
 <?php
-error_log("\r\n COMECOU POLICIES 1 \r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\nRakuten Policies\r\n", 3, "/srv/www/htdocs/error_log");
 use Laminas\Db\Adapter\Adapter;
 use Laminas\Db\Adapter\Driver\ResultInterface;
 use Laminas\Db\ResultSet\ResultSet;
@@ -14,12 +14,11 @@ $valid = 0;
 $hid = 0;
 $shid = 0;
 $total = 0;
-error_log("\r\n COMECOU POLICIES 2 \r\n", 3, "/srv/www/htdocs/error_log");
+$db = new \Laminas\Db\Adapter\Adapter($config);
+$sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_rakuten where session_id='$session_id'";
+$statement = $db->createStatement($sql);
+$statement->prepare();
 try {
-    $db = new \Laminas\Db\Adapter\Adapter($config);
-    $sql = "select data, searchsettings, xmlrequest, xmlresult from quote_session_rakuten where session_id='$session_id'";
-    $statement = $db->createStatement($sql);
-    $statement->prepare();
     $row_settings = $statement->execute();
 } catch (Exception $e) {
     $logger = new Logger();
@@ -41,7 +40,6 @@ if ($row_settings->valid()) {
     $index = $searchsettings['index'];
     $ipaddress = $searchsettings['ipaddress'];
     $nationality = $searchsettings['nationality'];
-    error_log("\r\n nationality  $nationality \r\n", 3, "/srv/www/htdocs/error_log");
     $residency = $searchsettings['residency'];
     $room_type = $searchsettings['room'];
     $adt = $searchsettings['adults'];
@@ -51,7 +49,6 @@ if ($row_settings->valid()) {
     $response['error'] = "Unable to handle request #2";
     return false;
 }
-error_log("\r\n COMECA ENABLE \r\n", 3, "/srv/www/htdocs/error_log");
 $affiliate_id = 0;
 $sql = "select value from settings where name='enablerakuten' and affiliate_id=$affiliate_id" . $branch_filter;
 $statement = $db->createStatement($sql);
@@ -178,7 +175,6 @@ if ((int) $nationality > 0) {
         $sourceMarket = $row_settings['value'];
     }
 }
-
 $breakdown = array();
 for ($w = 0; $w < count($quoteid); $w ++) {
     $outputArray = array();
@@ -202,12 +198,10 @@ for ($w = 0; $w < count($quoteid); $w ++) {
         array_push($breakdown, $outputArray);
     }
 }
-
-$fromHotelsPRO = DateTime::createFromFormat("d-m-Y", $from);
+$fromRakuten = DateTime::createFromFormat("d-m-Y", $from);
 $toHotelsPro = DateTime::createFromFormat("d-m-Y", $to);
-$nights = $fromHotelsPRO->diff($toHotelsPro);
+$nights = $fromRakuten->diff($toHotelsPro);
 $nights = $nights->format('%a');
-
 $c = 0;
 $response = array();
 $roombreakdown = array();
@@ -237,123 +231,49 @@ foreach ($breakdown as $k => $v) {
         $source_market = $value['source_market'];
         $adults = $value['adults'];
         $children = $value['childrenb'];
+        $room_type = $value['room_type'];
 
-        $url = 'hotel_rooms?check_in_date=' . $check_in_date . '&check_out_date=' . $check_out_date . '&adult_count=' . $adults;
-        if (count($children) > 0) {
-            $ages = "";
-            for ($i=0; $i < count($children); $i++) { 
-                if ($i > 0) {
-                    $ages .=  "," . $i;
-                }
-                $ages = $i;
-            }
-            $url .= '&children=' . $ages . '&room_count=' . $room_count . '&currency=' . $currency . '&source_market=' . $source_market . '&locale=' . $locale . '&hotel_id=' . $shid;
-        } else {
-            $url .= '&room_count=' . $room_count . '&currency=' . $currency . '&source_market=' . $source_market . '&locale=' . $locale . '&hotel_id=' . $shid;
-        }
+        $room_code = $value['room_code'];
+        $rate_plan_code = $value['rate_plan_code'];
+        $description = $value['description'];
+        $food = $value['food'];
+        $non_refundable = $value['non_refundable'];
+        $queen = $value['queen'];
+        $supplier_description = $value['supplier_description'];
+        $booking_key = $value['booking_key'];
+        $room_rate = $value['room_rate'];
+        $room_rate_currency = $value['room_rate_currency'];
+        $client_commission = $value['client_commission'];
+        $client_commission_currency = $value['client_commission_currency'];
+        $chargeable_rate = $value['chargeable_rate'];
+        $chargeable_rate_currency = $value['chargeable_rate_currency'];
+        $rate_type = $value['rate_type'];
+        $room_view = $value['room_view'];
         
-        error_log("\r\n url: $url \r\n", 3, "/srv/www/htdocs/error_log");
-        $client = new Client();
-        $client->setOptions(array(
-            'timeout' => 100,
-            'sslverifypeer' => false,
-            'sslverifyhost' => false
-        ));
-        $client->setHeaders(array(
-            'accept-encoding' => 'gzip',
-            'Content-Type' => 'application/json',
-            'x-api-key' => ''. $rakutenAPIKey
-        ));
-        $client->setUri($rakutenServiceURL . $url);
-        $client->setMethod('GET');
-        $response2 = $client->send();
-        if ($response2->isSuccess()) {
-            $response2 = $response2->getBody();
-        } else {
-            $logger = new Logger();
-            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
-            $logger->addWriter($writer);
-            $logger->info($client->getUri());
-            $logger->info($response2->getStatusCode() . " - " . $response2->getReasonPhrase());
-            echo $return;
-            echo $response2->getStatusCode() . " - " . $response2->getReasonPhrase();
-            echo $return;
-            die();
-        }
-        error_log("\r\n Response2: $response2 \r\n", 3, "/srv/www/htdocs/error_log");
-        $response2 = json_decode($response2, true);
-        $event_id = $response2['event_id'];
-        $status = $response2['status'];
-        $search = $response2['search'];
-        $check_in_date = $search['check_in_date'];
-        $check_out_date = $search['check_out_date'];
-        $source_market = $search['source_market'];
-        $room_count = $search['room_count'];
-        $adult_count = $search['adult_count'];
-        $currency = $search['currency'];
-        $locale = $search['locale'];
-        $children = $search['children'];
-        if ($children == "") {
-            $children = "null";
-        }
-        $hotel_id_list = $search['hotel_id_list'];
-        if (count($hotel_id_list) > 0) {
-            $hotel_id = "";
-            for ($i=0; $i < count($hotel_id_list); $i++) { 
-                $hotel_id = $hotel_id_list[$i];
-            }
-        }
-
-        $hotels = $response2['hotels'];
-        if (count($hotels) > 0) {
-            for ($j=0; $j < count($hotels); $j++) { 
-                $id = $hotels[$j]['id'];
-                $rates = $hotels[$j]['rates'];
-                $packages = $rates['packages'];
-                if (count($packages) > 0) {
-                    for ($jAux=0; $jAux < count($packages); $jAux++) { 
-                        if ($jAux == 0) {
-                            $hotel_id = $packages[$jAux]['hotel_id'];
-                            $booking_key = $packages[$jAux]['booking_key'];
-                            $room_rate = $packages[$jAux]['room_rate'];
-                            $room_rate_currency = $packages[$jAux]['room_rate_currency'];
-                            $client_commission = $packages[$jAux]['client_commission'];
-                            $client_commission_currency = $packages[$jAux]['client_commission_currency'];
-                            $chargeable_rate = $packages[$jAux]['chargeable_rate'];
-                            $chargeable_rate_currency = $packages[$jAux]['chargeable_rate_currency'];
-                            $rate_type = $packages[$jAux]['rate_type'];
-                            $room_details = $packages[$jAux]['room_details'];
-                            $room_code = $room_details['room_code'];
-                            $rate_plan_code = $room_details['rate_plan_code'];
-                            $rate_plan_description = $room_details['rate_plan_description'];
-                            $description = $room_details['description'];
-                            $food = $room_details['food'];
-                            $non_refundable = $room_details['non_refundable'];
-                            error_log("\r\n non_refundable: $non_refundable \r\n", 3, "/srv/www/htdocs/error_log");
-                            $room_type = $room_details['room_type'];
-                            $room_view = $room_details['room_view'];
-                            $supplier_description = $room_details['supplier_description'];
-                            $non_smoking = $room_details['non_smoking'];
-                            $room_gender = $room_details['room_gender'];
-                            $benefits = $room_details['benefits'];
-                            $floor = $room_details['floor'];
-                            $amenitites = $room_details['amenitites'];
-                            $beds = $room_details['beds'];
-                            $queen = $beds['queen'];
-                        }
-                    }
-                }
-            }
-        }
         if ($non_refundable == true) {
             $non_refundable = "true";
         } else {
             $non_refundable = "false";
         }
+
+        $ages = "";
+        $childrenb = "";
+        if ($children == "") {
+            $childrenb = "null";
+        } else {
+            for ($i=0; $i < count($children); $i++) { 
+                if ($ages != "") {
+                    $ages .= ',' . $children[$i];
+                } else {
+                    $ages .= $children[$i];
+                }             
+            }
+            $childrenb = '[' . $ages . ']';
+        }
         
         $raw = '{
             "search": {
-                "hotel_id": "' . $hotel_id . '",
+                "hotel_id": "' . $shid . '",
                 "check_in_date": "' . $check_in_date . '",
                 "check_out_date": "' . $check_out_date . '",
                 "room_count": ' . $room_count . ',
@@ -361,10 +281,10 @@ foreach ($breakdown as $k => $v) {
                 "currency": "' . $currency . '",
                 "locale": "' . $locale . '",
                 "source_market": "' . $source_market . '",
-                "children": ' . $children . '
+                "children": ' . $childrenb . '
             },
             "package": {
-                "hotel_id": "' . $hotel_id . '",
+                "hotel_id": "' . $shid . '",
                 "room_details": {
                 "room_code": "' . $room_code . '",
                 "rate_plan_code": "' . $rate_plan_code . '",
@@ -388,7 +308,6 @@ foreach ($breakdown as $k => $v) {
             "rate_type": "' . $rate_type . '"
             }
            }';
-        error_log("\r\n RAW: $raw \r\n", 3, "/srv/www/htdocs/error_log");
         $client = new Client();
         $client->setOptions(array(
             'timeout' => 100,
@@ -417,7 +336,7 @@ foreach ($breakdown as $k => $v) {
             echo $return;
             die();
         }
-        error_log("\r\n Response3: $response3 \r\n", 3, "/srv/www/htdocs/error_log");
+        // error_log("\r\n Response3: $response3 \r\n", 3, "/srv/www/htdocs/error_log");
         try {
             $sql = new Sql($db);
             $insert = $sql->insert();
@@ -446,7 +365,7 @@ foreach ($breakdown as $k => $v) {
         $remarks = $cancellation_policy['remarks'];
         $cancellation_policies = $cancellation_policy['cancellation_policies'];
         if (count($cancellation_policies) > 0) {
-            for ($i=0; $i < count($cancellation_policies); $i++) { 
+            for ($i = 0; $i < count($cancellation_policies); $i ++) {
                 $penalty_percentage = $cancellation_policies[$i]['penalty_percentage'];
                 $date_from = $cancellation_policies[$i]['date_from'];
                 $date_to = $cancellation_policies[$i]['date_to'];
@@ -454,6 +373,117 @@ foreach ($breakdown as $k => $v) {
         }
         // package
         $package = $response3['package'];
+        $hotel_id = $package['hotel_id'];
+        $booking_key = $package['booking_key'];
+        $room_rate = $package['room_rate'];
+        $room_rate_currency = $package['room_rate_currency'];
+        $client_commission = $package['client_commission'];
+        $client_commission_currency = $package['client_commission_currency'];
+        $chargeable_rate = $package['chargeable_rate'];
+        $chargeable_rate_currency = $package['chargeable_rate_currency'];
+        $rate_type = $package['rate_type'];
+        $room_details = $package['room_details'];
+        $room_code = $room_details['room_code'];
+        $rate_plan_code = $room_details['rate_plan_code'];
+        $rate_plan_description = $room_details['rate_plan_description'];
+        $description = $room_details['description'];
+        $food = $room_details['food'];
+        $non_refundable = $room_details['non_refundable'];
+        $room_type = $room_details['room_type'];
+        $room_view = $room_details['room_view'];
+        $supplier_description = $room_details['supplier_description'];
+        $non_smoking = $room_details['non_smoking'];
+        $room_gender = $room_details['room_gender'];
+        $benefits = $room_details['benefits'];
+        $floor = $room_details['floor'];
+        $amenitites = $room_details['amenitites'];
+        $beds = $room_details['beds'];
+        $queen = $beds['queen'];
+        //
+        // GetBookingPolicy
+        //
+        $client = new Client();
+        $client->setOptions(array(
+            'timeout' => 100,
+            'sslverifypeer' => false,
+            'sslverifyhost' => false
+        ));
+        $client->setHeaders(array(
+            'accept-encoding' => 'gzip',
+            'Content-Type' => 'application/json',
+            'x-api-key' => '' . $rakutenAPIKey
+        ));
+        $client->setUri($rakutenServiceURL . 'booking_policy/' . $booking_policy_id);
+        $client->setMethod('GET');
+        $response2 = $client->send();
+        if ($response2->isSuccess()) {
+            $response2 = $response2->getBody();
+        } else {
+            $logger = new Logger();
+            $writer = new Writer\Stream('/srv/www/htdocs/error_log');
+            $logger->addWriter($writer);
+            $logger->info($client->getUri());
+            $logger->info($response2->getStatusCode() . " - " . $response2->getReasonPhrase());
+            echo $return;
+            echo $response2->getStatusCode() . " - " . $response2->getReasonPhrase();
+            echo $return;
+            die();
+        }
+        $response2 = json_decode($response2, true);
+        $session_idHandler = $response2['session_id'];
+        $event_id = $response2['event_id'];
+        $booking_policy_id = $response2['booking_policy_id'];
+        // cancelation policy
+        $cancellation_policy = $response2['cancellation_policy'];
+        $remarks = $cancellation_policy['remarks'];
+        $cancellation_policies = $cancellation_policy['cancellation_policies'];
+        if (count($cancellation_policies) > 0) {
+            for ($i=0; $i < count($cancellation_policies); $i++) { 
+                $penalty_percentage = $cancellation_policies[$i]['penalty_percentage'];
+                $date_from = $cancellation_policies[$i]['date_from'];
+                $date_to = $cancellation_policies[$i]['date_to'];
+            }
+        }
+        // package
+        $package = $response2['package'];
+        $hotel_id = $package['hotel_id'];
+        $booking_key = $package['booking_key'];
+        $room_rate = $package['room_rate'];
+        $room_rate_currency = $package['room_rate_currency'];
+        $client_commission = $package['client_commission'];
+        $client_commission_currency = $package['client_commission_currency'];
+        $chargeable_rate = $package['chargeable_rate'];
+        $chargeable_rate_currency = $package['chargeable_rate_currency'];
+        $rate_type = $package['rate_type'];
+        $room_details = $package['room_details'];
+        $room_code = $room_details['room_code'];
+        $rate_plan_code = $room_details['rate_plan_code'];
+        $rate_plan_description = $room_details['rate_plan_description'];
+        $description = $room_details['description'];
+        $food = $room_details['food'];
+        $non_refundable = $room_details['non_refundable'];
+        $room_type = $room_details['room_type'];
+        $room_view = $room_details['room_view'];
+        $supplier_description = $room_details['supplier_description'];
+        $non_smoking = $room_details['non_smoking'];
+        $room_gender = $room_details['room_gender'];
+        $benefits = $room_details['benefits'];
+        $floor = $room_details['floor'];
+        $amenitites = $room_details['amenitites'];
+        $beds = $room_details['beds'];
+        $queen = $beds['queen'];
+        // request
+        $request = $response2['request'];
+        $search = $request['search'];
+        $check_in_date = $search['check_in_date'];
+        $check_out_date = $search['check_out_date'];
+        $source_market = $search['source_market'];
+        $room_count = $search['room_count'];
+        $adult_count = $search['adult_count'];
+        $currency = $search['currency'];
+        $locale = $search['locale'];
+        $children = $search['children'];
+        $package = $request['package'];
         $hotel_id = $package['hotel_id'];
         $booking_key = $package['booking_key'];
         $room_rate = $package['room_rate'];
@@ -503,16 +533,14 @@ foreach ($breakdown as $k => $v) {
         $item['adults'] = $selectedAdults[$c];
         $item['children'] = $selectedChildren[$c];
         $item['children_ages'] = json_decode(json_encode($selectedChildrenAges[$c]), false);
-
+        
         if ($non_refundable !== false) {
-            error_log("\r\n ENTROU 1 \r\n", 3, "/srv/www/htdocs/error_log");
             $item['nonrefundable'] = true;
             $item['cancelpolicy'] = $translator->translate("This is a non refundable booking.");
             $item['cancelpolicy_details'] = $translator->translate("This is a non refundable booking.");
             $item['cancelpolicy_deadline'] = strftime("%a, %e %b %Y", time());
             $item['cancelpolicy_deadlinetimestamp'] = time();
         } else {
-            error_log("\r\n ENTROU 2 \r\n", 3, "/srv/www/htdocs/error_log");
             $cancelpolicy = $translator->translate("If you cancel this booking Date From ") . strftime("%a, %e %b %Y", strtotime($date_from)) . $translator->translate(" Date To ") . strftime("%a, %e %b %Y", strtotime($date_to)) . $translator->translate(" cost ") . $penalty_percentage . $translator->translate("% of total.");
             $cancelpolicy .= $translator->translate($remarks) . ".";
             $item['nonrefundable'] = false;

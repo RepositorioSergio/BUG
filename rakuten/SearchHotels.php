@@ -224,7 +224,7 @@ if ($hcount > 0) {
         $startTime = microtime();
         $session_idHandler = "";
         error_log("\r\nRakuten Request: $url\r\n", 3, "/srv/www/htdocs/error_log");
-        for ($rPool = 0; $rPool <= 5; $rPool ++) {
+        for ($rPool = 0; $rPool <= 10; $rPool ++) {
             error_log("\r\nPool: $rPool\r\n", 3, "/srv/www/htdocs/error_log");
             $client = new Client();
             $client->setOptions(array(
@@ -288,6 +288,8 @@ if ($hcount > 0) {
             if ($status == "complete") {
                 error_log("\r\nStatus Complete\r\n", 3, "/srv/www/htdocs/error_log");
                 break;
+            } else {
+                sleep(1);
             }
         }
         $search = $response['search'];
@@ -313,7 +315,7 @@ if ($hcount > 0) {
                         $booking_key = $packages[$jAux]['booking_key'];
                         $room_rate = $packages[$jAux]['room_rate'];
                         $room_rate_currency = $packages[$jAux]['room_rate_currency'];
-                        $client_commission = $packages[$j]['client_commission'];
+                        $client_commission = $packages[$jAux]['client_commission'];
                         $client_commission_currency = $packages[$jAux]['client_commission_currency'];
                         $chargeable_rate = $packages[$jAux]['chargeable_rate'];
                         $chargeable_rate_currency = $packages[$jAux]['chargeable_rate_currency'];
@@ -361,6 +363,24 @@ if ($hcount > 0) {
                         $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['childrenb'] = $children;
                         $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['rate_type'] = $rate_type;
                         $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['source_market'] = $source_market;
+                        //
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room_code'] = $room_code;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['rate_plan_code'] = $rate_plan_code;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['description'] = $description;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['food'] = $food;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['non_refundable'] = $non_refundable;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['queen'] = $queen;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['supplier_description'] = $supplier_description;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['booking_key'] = $booking_key;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room_rate'] = $room_rate;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room_rate_currency'] = $room_rate_currency;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['client_commission'] = $client_commission;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['client_commission_currency'] = $client_commission_currency;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['chargeable_rate'] = $chargeable_rate;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['chargeable_rate_currency'] = $chargeable_rate_currency;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['rate_type'] = $rate_type;
+                        $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['room_view'] = $room_view;
+
                         $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['adults'] = $selectedAdults[$zRooms];
                         $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['children'] = $selectedChildren[$zRooms];
                         $tmp[$shid]['details'][$zRooms][$baseCounterDetails]['nettotal'] = $room_rate;

@@ -2,7 +2,7 @@
 use Laminas\Db\Sql\Sql;
 use Laminas\Log\Logger;
 use Laminas\Log\Writer;
-error_log("\r\nRATUKEN - Hotel Parallel Search - Parse\r\n", 3, "/srv/www/htdocs/error_log");
+error_log("\r\nRakuten - Hotel Parallel Search - Parse\r\n", 3, "/srv/www/htdocs/error_log");
 if ($response != "") {
     error_log("\r\nResponse - $response\r\n", 3, "/srv/www/htdocs/error_log");
     $response = json_decode($response, true);
@@ -32,7 +32,7 @@ if ($response != "") {
                     $booking_key = $packages[$jAux]['booking_key'];
                     $room_rate = $packages[$jAux]['room_rate'];
                     $room_rate_currency = $packages[$jAux]['room_rate_currency'];
-                    $client_commission = $packages[$j]['client_commission'];
+                    $client_commission = $packages[$jAux]['client_commission'];
                     $client_commission_currency = $packages[$jAux]['client_commission_currency'];
                     $chargeable_rate = $packages[$jAux]['chargeable_rate'];
                     $chargeable_rate_currency = $packages[$jAux]['chargeable_rate_currency'];
@@ -55,7 +55,6 @@ if ($response != "") {
                     $beds = $room_details['beds'];
                     $queen = $beds['queen'];
                     $total = $chargeable_rate;
-
                     // $rooms[$baseCounterDetails]['name'] = $Name;
                     $rooms[$baseCounterDetails]['hotelid'] = $shid;
                     $rooms[$baseCounterDetails]['roomid'] = $booking_key;
@@ -73,6 +72,24 @@ if ($response != "") {
                     $rooms[$baseCounterDetails]['childrenb'] = $children_array;
                     $rooms[$baseCounterDetails]['rate_type'] = $rate_type;
                     $rooms[$baseCounterDetails]['source_market'] = $source_market;
+                    //
+                    $rooms[$baseCounterDetails]['room_code'] = $room_code;
+                    $rooms[$baseCounterDetails]['rate_plan_code'] = $rate_plan_code;
+                    $rooms[$baseCounterDetails]['description'] = $description;
+                    $rooms[$baseCounterDetails]['food'] = $food;
+                    $rooms[$baseCounterDetails]['non_refundable'] = $non_refundable;
+                    $rooms[$baseCounterDetails]['room_type'] = $room_type;
+                    $rooms[$baseCounterDetails]['room_view'] = $room_view;
+                    $rooms[$baseCounterDetails]['queen'] = $queen;
+                    $rooms[$baseCounterDetails]['supplier_description'] = $supplier_description;
+                    $rooms[$baseCounterDetails]['booking_key'] = $booking_key;
+                    $rooms[$baseCounterDetails]['room_rate'] = $room_rate;
+                    $rooms[$baseCounterDetails]['room_rate_currency'] = $room_rate_currency;
+                    $rooms[$baseCounterDetails]['client_commission'] = $client_commission;
+                    $rooms[$baseCounterDetails]['client_commission_currency'] = $client_commission_currency;
+                    $rooms[$baseCounterDetails]['chargeable_rate'] = $chargeable_rate;
+                    $rooms[$baseCounterDetails]['chargeable_rate_currency'] = $chargeable_rate_currency;
+
                     $rooms[$baseCounterDetails]['adults'] = $adults;
                     $rooms[$baseCounterDetails]['children'] = $children;
                     $rooms[$baseCounterDetails]['nettotal'] = (double) $room_rate;
