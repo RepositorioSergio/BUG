@@ -141,55 +141,59 @@ if ($Hotels->length > 0) {
     }
     $Hotel = $Hotels->item(0)->getElementsByTagName('Hotel');
     if ($Hotel->length > 0) {
-        $Info = $Hotel->item(0)->getElementsByTagName('Info');
-        if ($Info->length > 0) {
-            $HotelCode = $Info->item(0)->getAttribute('HotelCode');
-            $HotelName = $Info->item(0)->getAttribute('HotelName');
-            $HotelCityCode = $Info->item(0)->getAttribute('HotelCityCode');
-            $Rating = $Info->item(0)->getAttribute('Rating');
-            $MasterCode = $Info->item(0)->getAttribute('MasterCode');
-            $Recommended = $Info->item(0)->getAttribute('Recommended');
-            $HotelProvider = $Info->item(0)->getElementsByTagName('HotelProvider');
-            if ($HotelProvider->length > 0) {
-                $HotelProvider = $HotelProvider->item(0)->nodeValue;
-            } else {
-                $HotelProvider = "";
-            }
-            $HotelIdent = $Info->item(0)->getElementsByTagName('HotelIdent');
-            if ($HotelIdent->length > 0) {
-                $HotelIdent = $HotelIdent->item(0)->nodeValue;
-            } else {
-                $HotelIdent = "";
-            }
-        }
-        $BestPrice = $Hotel->item(0)->getElementsByTagName('BestPrice');
-        if ($BestPrice->length > 0) {
-            $Amount = $BestPrice->item(0)->getAttribute('Amount');
-            $Currency = $BestPrice->item(0)->getAttribute('Currency');
-        }
-        $Rooms = $Hotel->item(0)->getElementsByTagName('Rooms');
-        if ($Rooms->length > 0) {
-            $Room = $Rooms->item(0)->getElementsByTagName('Room');
-            if ($Room->length > 0) {
-                $RPH = $Room->item(0)->getAttribute('RPH');
-                $Best = $Room->item(0)->getAttribute('Best');
-                $Status = $Room->item(0)->getAttribute('Status');
-                $RoomType = $Room->item(0)->getElementsByTagName('RoomType');
-                if ($RoomType->length > 0) {
-                    $RoomTypeCode = $RoomType->item(0)->getAttribute('Code');
-                    $RoomTypeName = $RoomType->item(0)->getAttribute('Name');
+        for ($i=0; $i < $Hotel->length; $i++) { 
+            $Info = $Hotel->item($i)->getElementsByTagName('Info');
+            if ($Info->length > 0) {
+                $HotelCode = $Info->item(0)->getAttribute('HotelCode');
+                $HotelName = $Info->item(0)->getAttribute('HotelName');
+                $HotelCityCode = $Info->item(0)->getAttribute('HotelCityCode');
+                $Rating = $Info->item(0)->getAttribute('Rating');
+                $MasterCode = $Info->item(0)->getAttribute('MasterCode');
+                $Recommended = $Info->item(0)->getAttribute('Recommended');
+                $HotelProvider = $Info->item(0)->getElementsByTagName('HotelProvider');
+                if ($HotelProvider->length > 0) {
+                    $HotelProvider = $HotelProvider->item(0)->nodeValue;
+                } else {
+                    $HotelProvider = "";
                 }
-                $RoomRates = $Room->item(0)->getElementsByTagName('RoomRates');
-                if ($RoomRates->length > 0) {
-                    $RoomRate = $RoomRates->item(0)->getElementsByTagName('RoomRate');
-                    if ($RoomRate->length > 0) {
-                        $MealPlan = $RoomRate->item(0)->getAttribute('MealPlan');
-                        $BookingCode = $RoomRate->item(0)->getAttribute('BookingCode');
-                        $Total = $RoomRate->item(0)->getElementsByTagName('Total');
-                        if ($Total->length > 0) {
-                            $Amount = $Total->item(0)->getAttribute('Amount');
-                            $Commission = $Total->item(0)->getAttribute('Commission');
-                            $Currency = $Total->item(0)->getAttribute('Currency');
+                $HotelIdent = $Info->item(0)->getElementsByTagName('HotelIdent');
+                if ($HotelIdent->length > 0) {
+                    $HotelIdent = $HotelIdent->item(0)->nodeValue;
+                } else {
+                    $HotelIdent = "";
+                }
+            }
+            $BestPrice = $Hotel->item($i)->getElementsByTagName('BestPrice');
+            if ($BestPrice->length > 0) {
+                $Amount = $BestPrice->item(0)->getAttribute('Amount');
+                $Currency = $BestPrice->item(0)->getAttribute('Currency');
+            }
+            $Rooms = $Hotel->item($i)->getElementsByTagName('Rooms');
+            if ($Rooms->length > 0) {
+                $Room = $Rooms->item(0)->getElementsByTagName('Room');
+                if ($Room->length > 0) {
+                    for ($iAux=0; $iAux < $Room->length; $iAux++) { 
+                        $RPH = $Room->item($iAux)->getAttribute('RPH');
+                        $Best = $Room->item($iAux)->getAttribute('Best');
+                        $Status = $Room->item($iAux)->getAttribute('Status');
+                        $RoomType = $Room->item($iAux)->getElementsByTagName('RoomType');
+                        if ($RoomType->length > 0) {
+                            $RoomTypeCode = $RoomType->item(0)->getAttribute('Code');
+                            $RoomTypeName = $RoomType->item(0)->getAttribute('Name');
+                        }
+                        $RoomRates = $Room->item($iAux)->getElementsByTagName('RoomRates');
+                        if ($RoomRates->length > 0) {
+                            $RoomRate = $RoomRates->item(0)->getElementsByTagName('RoomRate');
+                            if ($RoomRate->length > 0) {
+                                $MealPlan = $RoomRate->item(0)->getAttribute('MealPlan');
+                                $BookingCode = $RoomRate->item(0)->getAttribute('BookingCode');
+                                $Total = $RoomRate->item(0)->getElementsByTagName('Total');
+                                if ($Total->length > 0) {
+                                    $Amount = $Total->item(0)->getAttribute('Amount');
+                                    $Commission = $Total->item(0)->getAttribute('Commission');
+                                    $Currency = $Total->item(0)->getAttribute('Currency');
+                                }
+                            }
                         }
                     }
                 }
