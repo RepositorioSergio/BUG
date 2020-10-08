@@ -17,7 +17,7 @@ $filter = new \Laminas\I18n\Filter\NumberFormat($NumberFormat, 2);
 unset($tmp);
 $sfilter = array();
 $olympiaeurope = false;
-$sql = "select name, country_id, zone_id,city_xml19, latitude, longitude from cities where id=" . $destination;
+$sql = "select name, country_id, zone_id,city_xml75, latitude, longitude from cities where id=" . $destination;
 $statement2 = $db->createStatement($sql);
 $statement2->prepare();
 $row_settings = $statement2->execute();
@@ -27,13 +27,12 @@ if ($row_settings->valid()) {
     $name = $row_settings["name"];
     $country_id = $row_settings["country_id"];
     $zone_id = $row_settings["zone_id"];
-    $city_xml19 = $row_settings["city_xml19"];
+    $city_xml75 = $row_settings["city_xml75"];
     $latitude = $row_settings["latitude"];
     $longitude = $row_settings["longitude"];
 } else {
-    $city_xml19 = "";
+    $city_xml75 = "";
 }
-$city_xml19 = "HKG";
 $affiliate_id = 0;
 $sql = "select value from settings where name='enableolympiaeurope' and affiliate_id=$affiliate_id" . $branch_filter;
 $statement = $db->createStatement($sql);
@@ -214,6 +213,15 @@ if ($result->valid()) {
     $row = $result->current();
     $olympiaeuropeSearchSortorder = $row['value'];
 }
+$sql = "select value from settings where name='olympiaeuropeCurrencyCode' and affiliate_id=$affiliate_id_olympia";
+$statement = $db->createStatement($sql);
+$statement->prepare();
+$result = $statement->execute();
+$result->buffer();
+if ($result->valid()) {
+    $row = $result->current();
+    $olympiaeuropeCurrencyCode = $row['value'];
+}
 $sql = "select value from settings where name='olympiaeuropeTimeout' and affiliate_id=$affiliate_id_olympia";
 $statement = $db->createStatement($sql);
 $statement->prepare();
@@ -235,8 +243,8 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
 	<soap-env:Body>
 		<OTA_HotelAvailRQ xmlns="http://parsec.es/hotelapi/OTA2014Compact" >
 			<HotelSearch>
-				<Currency Code="EUR"/>
-				<HotelLocation CityCode="7"/>
+				<Currency Code="' . $olympiaeuropeCurrencyCode . '"/>
+				<HotelLocation CityCode="' . $city_xml75 . '"/>
 				<DateRange Start="' . strftime("%Y-%m-%d", $from) . '" End="' . strftime("%Y-%m-%d", $to) . '"/>
                 <RoomCandidates>'; 
                 for ($r=0; $r < count($selectedAdults); $r++) { 

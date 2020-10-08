@@ -177,6 +177,15 @@ if ($hotellist != "") {
         $row = $result->current();
         $olympiaeuropeSearchSortorder = $row['value'];
     }
+    $sql = "select value from settings where name='olympiaeuropeCurrencyCode' and affiliate_id=$affiliate_id_olympia";
+    $statement = $db->createStatement($sql);
+    $statement->prepare();
+    $result = $statement->execute();
+    $result->buffer();
+    if ($result->valid()) {
+        $row = $result->current();
+        $olympiaeuropeCurrencyCode = $row['value'];
+    }
     $sql = "select value from settings where name='olympiaeuropeTimeout' and affiliate_id=$affiliate_id_olympia";
     $statement = $db->createStatement($sql);
     $statement->prepare();
@@ -198,7 +207,7 @@ if ($hotellist != "") {
         <soap-env:Body>
             <OTA_HotelAvailRQ xmlns="http://parsec.es/hotelapi/OTA2014Compact" >
                 <HotelSearch>
-                    <Currency Code="EUR"/>
+                    <Currency Code="' . $olympiaeuropeCurrencyCode . '"/>
                     <HotelRef HotelCode="' . $hotellist . '"/>
                     <DateRange Start="'  . strftime("%Y-%m-%d", $from) .  '" End="'  . strftime("%Y-%m-%d", $to) .  '"/>
                     <RoomCandidates>  
