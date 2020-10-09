@@ -195,38 +195,14 @@ if ($hotellist != "") {
         $row = $result->current();
         $olympiaeuropeTimeout = (int) $row['value'];
     }
-    $raw = '<?xml version="1.0" encoding="utf-8"?>
-    <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/">
-        <soap-env:Header>
-            <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
-                <wsse:Username>' . $olympiaeuropelogin . '</wsse:Username>
-                <wsse:Password>' . $olympiaeuropepassword . '</wsse:Password>
-                <Context>' . $olympiaeuropeContextDatabase . '</Context>
-            </wsse:Security>
-        </soap-env:Header>
-        <soap-env:Body>
-            <OTA_HotelAvailRQ xmlns="http://parsec.es/hotelapi/OTA2014Compact" >
-                <HotelSearch>
-                    <Currency Code="' . $olympiaeuropeCurrencyCode . '"/>
-                    <HotelRef HotelCode="' . $hotellist . '"/>
-                    <DateRange Start="'  . strftime("%Y-%m-%d", $from) .  '" End="'  . strftime("%Y-%m-%d", $to) .  '"/>
-                    <RoomCandidates>  
-                        <RoomCandidate RPH="1">
-                            <Guests>
-                                <Guest AgeCode="A" Count="' . $adults . '" />';
-                if ($children > 0) {
-                    for ($z=0; $z < $children; $z++) { 
-                        $raw .= '<Guest AgeCode="C" Count="1" Age="' . $children_ages[$z] . '"';
-                    }
-                }
-        $raw .= '</Guests>
-                        </RoomCandidate>
-                    </RoomCandidates>
-                </HotelSearch>
-            </OTA_HotelAvailRQ>
-        </soap-env:Body>
-    </soap-env:Envelope>';
-    error_log("\r\n RAW - $raw\r\n", 3, "/srv/www/htdocs/error_log");
+    $raw = '<?xml version="1.0" encoding="utf-8"?><soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"><soap-env:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"><wsse:Username>' . $olympiaeuropelogin . '</wsse:Username><wsse:Password>' . $olympiaeuropepassword . '</wsse:Password><Context>' . $olympiaeuropeContextDatabase . '</Context></wsse:Security></soap-env:Header><soap-env:Body><OTA_HotelAvailRQ xmlns="http://parsec.es/hotelapi/OTA2014Compact" ><HotelSearch><Currency Code="' . $olympiaeuropeCurrencyCode . '"/><HotelRef HotelCode="' . $hotellist . '"/><DateRange Start="' . strftime("%Y-%m-%d", $from) . '" End="' . strftime("%Y-%m-%d", $to) . '"/><RoomCandidates>  <RoomCandidate RPH="1"><Guests><Guest AgeCode="A" Count="' . $adults . '" />';
+    if ($children > 0) {
+        for ($z = 0; $z < $children; $z ++) {
+            $raw .= '<Guest AgeCode="C" Count="1" Age="' . $children_ages[$z] . '"';
+        }
+    }
+    $raw .= '</Guests></RoomCandidate></RoomCandidates></HotelSearch></OTA_HotelAvailRQ></soap-env:Body></soap-env:Envelope>';
+    // error_log("\r\nOlympia Europe RAW - $raw\r\n", 3, "/srv/www/htdocs/error_log");
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         'Content-Type: text/xml; charset=utf-8',

@@ -331,6 +331,12 @@ foreach ($breakdownTmp as $k => $v) {
         $item['adults'] = $selectedAdults[$c];
         $item['children'] = $selectedChildren[$c];
         $item['children_ages'] = json_decode(json_encode($selectedChildrenAges[$c]), false);
+
+        $item['nonrefundable'] = $value['nonrefundable'];
+        $item['cancelpolicy'] = $value['cancelpolicy'];
+        $item['cancelpolicy_details'] = $value['cancelpolicy'];
+        $item['cancelpolicy_deadline'] = $value['cancelpolicy_deadline'];
+        $item['cancelpolicy_deadlinetimestamp'] = $value['cancelpolicy_deadlinetimestamp'];
         
         array_push($roombreakdown, $item);
         array_push($roombreakdown2, $item);

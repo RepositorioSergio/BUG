@@ -4,6 +4,7 @@ use Zend\Db\Sql\Sql;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
 if ($response != "") {
+    $from = date('Y-m-d', $from);
     error_log("\r\nResponse - $response\r\n", 3, "/srv/www/htdocs/error_log");
     $inputDoc = new DOMDocument();
     $inputDoc->loadXML($response);
@@ -32,7 +33,7 @@ if ($response != "") {
         }
         $Hotelb = $Hotelsb->item(0)->getElementsByTagName('Hotel');
         if ($Hotelb->length > 0) {
-            for ($i=0; $i < $Hotelb->length; $i++) { 
+            for ($i = 0; $i < $Hotelb->length; $i ++) {
                 $Info = $Hotelb->item($i)->getElementsByTagName('Info');
                 if ($Info->length > 0) {
                     $HotelCode = $Info->item(0)->getAttribute('HotelCode');
@@ -64,7 +65,7 @@ if ($response != "") {
                 if ($Rooms->length > 0) {
                     $Room = $Rooms->item(0)->getElementsByTagName('Room');
                     if ($Room->length > 0) {
-                        for ($iAux=0; $iAux < $Room->length; $iAux++) { 
+                        for ($iAux = 0; $iAux < $Room->length; $iAux ++) {
                             $RPH = $Room->item($iAux)->getAttribute('RPH');
                             $Best = $Room->item($iAux)->getAttribute('Best');
                             $Status = $Room->item($iAux)->getAttribute('Status');
@@ -85,11 +86,37 @@ if ($response != "") {
                                         $Commission = $Total->item(0)->getAttribute('Commission');
                                         $Currency = $Total->item(0)->getAttribute('Currency');
                                     }
+                                    $total = $Amount;
+                                    $nettotal = $total;
+                                    $CancelPenaltyArray = array();
+                                    $count = 0;
+                                    $CancelPenalties = $RoomRate->item(0)->getElementsByTagName('CancelPenalties');
+                                    if ($CancelPenalties->length > 0) {
+                                        $CancellationCostsToday = $CancelPenalties->item(0)->getAttribute('CancellationCostsToday');
+                                        $NonRefundable = $CancelPenalties->item(0)->getAttribute('NonRefundable');
+                                        $CancelPenalty = $CancelPenalties->item(0)->getElementsByTagName('CancelPenalty');
+                                        if ($CancelPenalty->length > 0) {
+                                            $cancelpolicy = "";
+                                            for ($iAux2=0; $iAux2 < $CancelPenalty->length; $iAux2++) { 
+                                                $Deadline = $CancelPenalty->item($iAux2)->getElementsByTagName('Deadline');
+                                                if ($Deadline->length > 0) {
+                                                    $TimeUnit = $Deadline->item(0)->getAttribute('TimeUnit');
+                                                    $Units = $Deadline->item(0)->getAttribute('Units');
+                                                }
+                                                $Charge = $CancelPenalty->item($iAux2)->getElementsByTagName('Charge');
+                                                if ($Charge->length > 0) {
+                                                    $ChargeAmount = $Charge->item(0)->getAttribute('Amount');
+                                                    $ChargeCurrency = $Charge->item(0)->getAttribute('Currency');
+                                                }
+                                                $CancelPenaltyArray[$count]['Units'] = $Units;
+                                                $cancelpolicy .= $translator->translate("If you cancel booking ") . $Units . " " . $translator->translate($TimeUnit) . "(s) " . $translator->translate(" before checkin cost ") . $ChargeCurrency . $ChargeAmount . " .<br>";
+                                                $count = $count + 1;
+                                            }
+                                        }
+                                    }
                                 }
                             }
-                            $total = $Amount;
-                            $nettotal = $total;
-
+                            
                             $rooms[$baseCounterDetails]['name'] = $HotelName;
                             $rooms[$baseCounterDetails]['hotelid'] = $HotelCode;
                             $rooms[$baseCounterDetails]['roomid'] = $RoomTypeCode;
@@ -160,27 +187,20 @@ if ($response != "") {
                             //
                             $rooms[$baseCounterDetails]['special'] = false;
                             $rooms[$baseCounterDetails]['specialdescription'] = "";
-
+                            
                             //
                             // Cancellation policies
                             //
-                            // $procurar = "Non-Refundable";
-                            // if (strpos($PromotionName, $procurar) !== false) {
-                            //     $rooms[$baseCounterDetails]['nonrefundable'] = true;
-                            //     $rooms[$baseCounterDetails]['cancelpolicy'] = $translator->translate("This is a non refundable booking");
-                            //     $rooms[$baseCounterDetails]['cancelpolicy_details'] = $translator->translate("This is a non refundable booking");
-                            //     $rooms[$baseCounterDetails]['cancelpolicy_deadline'] = strftime("%a, %e %b %Y", time());
-                            //     $rooms[$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = time();
-                            // } else {
-                            //     $rooms[$baseCounterDetails]['cancelpolicy'] = "";
-                            //     $rooms[$baseCounterDetails]['cancelpolicy_deadline'] = 0;
-                            //     $rooms[$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = 0;
-                            // }
-                            $rooms[$baseCounterDetails]['nonrefundable'] = false;
-                            $rooms[$baseCounterDetails]['cancelpolicy'] = "";
-                            $rooms[$baseCounterDetails]['cancelpolicy_deadline'] = 0;
-
-                            $rooms[$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = 0;
+                            if ($NonRefundable == 0) {
+                                $rooms[$baseCounterDetails]['nonrefundable'] = false;
+                            } else {
+                                $rooms[$baseCounterDetails]['nonrefundable'] = true;
+                            }
+                            $days = "- " . $CancelPenaltyArray[0]['Units'] . " days";
+                            $date = strftime("%a, %e %b %Y", strtotime($from.$days));
+                            $rooms[$baseCounterDetails]['cancelpolicy'] = $cancelpolicy;
+                            $rooms[$baseCounterDetails]['cancelpolicy_deadline'] = $date;
+                            $rooms[$baseCounterDetails]['cancelpolicy_deadlinetimestamp'] = $date;
                             $rooms[$baseCounterDetails]['currency'] = strtoupper($ClientCurrencyCode);
                             $baseCounterDetails ++;
                         }
