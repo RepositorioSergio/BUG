@@ -55,15 +55,25 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
 	<soap-env:Body>
 		<OTA_HotelAvailRQ xmlns="http://parsec.es/hotelapi/OTA2014Compact" >
 			<HotelSearch>
-				<Currency Code="EUR"/>
+				<Currency Code="USD"/>
 				<HotelLocation CityCode="7"/>
-				<DateRange Start="2020-11-25" End="2020-11-29"/>
+				<DateRange Start="2021-01-12" End="2021-01-15"/>
 				<RoomCandidates>  
 					<RoomCandidate RPH="1">
 						<Guests>
-							<Guest AgeCode="A" Count="1" />
+                            <Guest AgeCode="A" Count="2" />
 						</Guests>
-					</RoomCandidate>
+                    </RoomCandidate>
+                    <RoomCandidate RPH="2">
+						<Guests>
+                            <Guest AgeCode="A" Count="3" />
+						</Guests>
+                    </RoomCandidate>
+                    <RoomCandidate RPH="3">
+						<Guests>
+                            <Guest AgeCode="A" Count="3" />
+						</Guests>
+                    </RoomCandidate>
 				</RoomCandidates>
 			</HotelSearch>
 		</OTA_HotelAvailRQ>

@@ -42,7 +42,8 @@ $config = [
 $db = new \Zend\Db\Adapter\Adapter($config);
 
 $url = 'http://parsystest.olympia.it/NewAvailabilityServlet/hotelres/OTA2014Compact';
-$bookingcode = "Hh0nLR0Dxlf0HBrmWq4cRUzD1xalqPKHYlgvGXzQi59I746oKBNko2h25R/1pY16eT2vqykBPugssZXusxjeCzfpo1lxqSi9j+2kQ03fNl5RVDLc7j+WH3pZCxNPnKcj2Fp+6FQxXQCO/wX2+zkIHf+TKF5vjQWF/dLcFECmGBEa2Ya1P5b+cvwsEvcRwd7h2fiylqnj0ddJfEWSKfm6uCKPz36pn+HfYE7rDqD6gCZb4TAC4Fsdh76NouLe4oTJ";
+$bookingcode = "Hh0nLR0Dxlf0HBrmWq4cRQ+E+jygn8k97GpsxHwOOmHWA0UzgCrkLD0rU53hh2P/JM6M3cRZOq+op0Jmmev4/gEXMninHh+Ftks6iWcx/bhRVDLc7j+WH3pZCxNPnKcj2Fp+6FQxXQCO/wX2+zkIHWydCvlsyqFrgz11Rchaon58fyqIKuefpCPZ8RDUNmDAWeKjRK1aBaMIho1RpKAAtK9gnBOLzMEfhRTbp2MYoziJQJai1roExlFaxCoVwvdU";
+$bookingcode2 = "Hh0nLR0Dxlf0HBrmWq4cRaqAPPJqa0KIk6LePy4ByaHWA0UzgCrkLD0rU53hh2P/NAXklT4VPTGlHNtULc8PPnGkXLuibq9N4U36WDsUWjN63OPvZji9S9AVA9tG5lNrhSpmhtiJ27PjM00iEoUIAQ5lOYtm03IdVpNG9wECUPU6G/YYEr5Ny2gwqYsMASQm9Umt/tVcZePN7oNFuYQf02Z6sNdvWyWRSXgOKc65a2nnPTf3MHaXHmp9kDtFqJ4Y";
 
 $raw = '<?xml version="1.0" encoding="utf-8"?>
 <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/">
@@ -55,13 +56,39 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
 	</soap-env:Header>
 	<soap-env:Body>
         <OTA_HotelResRQ xmlns="http://parsec.es/hotelapi/OTA2014Compact" Transaction="Booking" DetailLevel="2" RateDetails="1">
-            <UniqueID Type="ClientReference" ID="ABC1235"/>
+            <UniqueID Type="ClientReference" ID="ABC1252"/>
             <HotelRes>
                 <Rooms>
                     <Room>
                         <RoomRate BookingCode="' . $bookingcode . '"/>
                         <Guests>
                             <Guest AgeCode="A" LeadGuest="1">
+                                <PersonName>
+                                    <NamePrefix>Mr.</NamePrefix>
+                                    <GivenName>Test</GivenName>
+                                    <Surname>Test</Surname>
+                                </PersonName>
+                            </Guest>
+                        </Guests>
+                    </Room>
+                    <Room>
+                        <RoomRate BookingCode="' . $bookingcode2 . '"/>
+                        <Guests>
+                            <Guest AgeCode="A">
+                                <PersonName>
+                                    <NamePrefix>Mr.</NamePrefix>
+                                    <GivenName>TestB</GivenName>
+                                    <Surname>Test</Surname>
+                                </PersonName>
+                            </Guest>
+                            <Guest AgeCode="A">
+                                <PersonName>
+                                    <NamePrefix>Mr.</NamePrefix>
+                                    <GivenName>Test</GivenName>
+                                    <Surname>Test</Surname>
+                                </PersonName>
+                            </Guest>
+                            <Guest AgeCode="C" Age="3">
                                 <PersonName>
                                     <NamePrefix>Mr.</NamePrefix>
                                     <GivenName>Test</GivenName>

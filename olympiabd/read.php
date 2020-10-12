@@ -54,7 +54,7 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
 	</soap-env:Header>
 	<soap-env:Body>
         <OTA_ReadRQ xmlns="http://parsec.es/hotelapi/OTA2014Compact" DetailLevel="2" RateDetails="1">
-            <UniqueID Type="Locator" ID="964805" />
+            <UniqueID Type="Locator" ID="964810" />
         </OTA_ReadRQ> 
 	</soap-env:Body>
 </soap-env:Envelope>';

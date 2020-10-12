@@ -54,7 +54,7 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
 	</soap-env:Header>
 	<soap-env:Body>
         <OTA_CancelRQ xmlns="http://parsec.es/hotelapi/OTA2014Compact" EchoToken="abcd-1234-efgh-5678" Transaction="Cancel">
-            <UniqueID Type="Locator" ID="964805"/>
+            <UniqueID Type="Locator" ID="964840"/>
         </OTA_CancelRQ> 
 	</soap-env:Body>
 </soap-env:Envelope>';

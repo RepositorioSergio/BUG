@@ -55,7 +55,7 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
 	<soap-env:Body>
         <OTA_BookingListRQ xmlns="http://parsec.es/hotelapi/OTA2014Compact">
             <BookingSearch>
-                <DateRange Start="2020-11-25" End="2020-11-29" DateType="Arrival"/>
+                <DateRange Start="2021-01-03" End="2021-01-10" DateType="Arrival"/>
                 <!-- <HotelRef HotelCode="364382"/> -->
             </BookingSearch>
         </OTA_BookingListRQ>
