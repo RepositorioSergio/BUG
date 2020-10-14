@@ -42,8 +42,9 @@ $config = [
 $db = new \Zend\Db\Adapter\Adapter($config);
 
 $url = 'http://parsystest.olympia.it/NewAvailabilityServlet/hotelres/OTA2014Compact';
-$bookingcode = "Hh0nLR0Dxlf0HBrmWq4cRQ+E+jygn8k97GpsxHwOOmHWA0UzgCrkLD0rU53hh2P/JM6M3cRZOq+op0Jmmev4/gEXMninHh+Ftks6iWcx/bhRVDLc7j+WH3pZCxNPnKcj2Fp+6FQxXQCO/wX2+zkIHWydCvlsyqFrgz11Rchaon58fyqIKuefpCPZ8RDUNmDAWeKjRK1aBaMIho1RpKAAtK9gnBOLzMEfhRTbp2MYoziJQJai1roExlFaxCoVwvdU";
-$bookingcode2 = "Hh0nLR0Dxlf0HBrmWq4cRaqAPPJqa0KIk6LePy4ByaHWA0UzgCrkLD0rU53hh2P/NAXklT4VPTGlHNtULc8PPnGkXLuibq9N4U36WDsUWjN63OPvZji9S9AVA9tG5lNrhSpmhtiJ27PjM00iEoUIAQ5lOYtm03IdVpNG9wECUPU6G/YYEr5Ny2gwqYsMASQm9Umt/tVcZePN7oNFuYQf02Z6sNdvWyWRSXgOKc65a2nnPTf3MHaXHmp9kDtFqJ4Y";
+$bookingcode = "Hh0nLR0Dxlf0HBrmWq4cRfcpxEe4BuU4tz8EYLOI5Ew3mWm3Gv6befkFSDkHNU6a4hmoqtHpHMop7gD7nIvx71eHcNApbfmhRw0XiiA8cydRVDLc7j+WH3pZCxNPnKcj2Fp+6FQxXQCO/wX2+zkIHRaroxCZ2qeyJaxQfXuGB+T6gvU5O5/2KhXI0R/9GJo6dexL4psT42nbif8C8QPpCYB9CCKLJZsMDCloSU90W6SJn9RT7St/nPCdx9jgWA4a";
+$bookingcode2 = "Hh0nLR0Dxlf0HBrmWq4cRTlJH5Ayv875oTG07ygLRIzYrw4r0z9AseG7cJysEy2Dly5RFNwIvVWuEloPtzvfrJa6orUgSsEGqzsGzJfS9MJRVDLc7j+WH3pZCxNPnKcj2Fp+6FQxXQCO/wX2+zkIHRaroxCZ2qeyJaxQfXuGB+SHKHKLUsuuNm/CTLXbjXUzUgIsXAwO0WR3rtNnQhlp9Bw6tzYl6nQRaZlB3AA1r5Fo+YT9IiwRU54PSWEgcydh";
+$bookingcode3 = "Hh0nLR0Dxlf0HBrmWq4cRcQp4/WOhpuHGIMpNbrXGsLUMG+QW29+ahQFNRfFw3Vxly5RFNwIvVWuEloPtzvfrJa6orUgSsEGqzsGzJfS9MJRVDLc7j+WH3pZCxNPnKcj2Fp+6FQxXQCO/wX2+zkIHRaroxCZ2qeyJaxQfXuGB+RwXdOlyZZ9jfsoILmWuyxtp83Z59KeQey9LglHykNaPnLFYIJBMFu/xV9P1EGRLC5AouNZMyhleX3hURHe9xIQ";
 
 $raw = '<?xml version="1.0" encoding="utf-8"?>
 <soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/">
@@ -56,7 +57,7 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
 	</soap-env:Header>
 	<soap-env:Body>
         <OTA_HotelResRQ xmlns="http://parsec.es/hotelapi/OTA2014Compact" Transaction="Booking" DetailLevel="2" RateDetails="1">
-            <UniqueID Type="ClientReference" ID="ABC1252"/>
+            <UniqueID Type="ClientReference" ID="ABC1257"/>
             <HotelRes>
                 <Rooms>
                     <Room>
@@ -69,6 +70,13 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
                                     <Surname>Test</Surname>
                                 </PersonName>
                             </Guest>
+                            <Guest AgeCode="A">
+                                <PersonName>
+                                    <NamePrefix>Mr.</NamePrefix>
+                                    <GivenName>TestB</GivenName>
+                                    <Surname>Test</Surname>
+                                </PersonName>
+                            </Guest>
                         </Guests>
                     </Room>
                     <Room>
@@ -77,21 +85,47 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
                             <Guest AgeCode="A">
                                 <PersonName>
                                     <NamePrefix>Mr.</NamePrefix>
-                                    <GivenName>TestB</GivenName>
+                                    <GivenName>TestC</GivenName>
                                     <Surname>Test</Surname>
                                 </PersonName>
                             </Guest>
                             <Guest AgeCode="A">
                                 <PersonName>
                                     <NamePrefix>Mr.</NamePrefix>
-                                    <GivenName>Test</GivenName>
+                                    <GivenName>TestD</GivenName>
                                     <Surname>Test</Surname>
                                 </PersonName>
                             </Guest>
-                            <Guest AgeCode="C" Age="3">
+                            <Guest AgeCode="A">
                                 <PersonName>
                                     <NamePrefix>Mr.</NamePrefix>
-                                    <GivenName>Test</GivenName>
+                                    <GivenName>TestE</GivenName>
+                                    <Surname>Test</Surname>
+                                </PersonName>
+                            </Guest>
+                        </Guests>
+                    </Room>
+                    <Room>
+                        <RoomRate BookingCode="' . $bookingcode3 . '"/>
+                        <Guests>
+                            <Guest AgeCode="A">
+                                <PersonName>
+                                    <NamePrefix>Mr.</NamePrefix>
+                                    <GivenName>TestF</GivenName>
+                                    <Surname>Test</Surname>
+                                </PersonName>
+                            </Guest>
+                            <Guest AgeCode="A">
+                                <PersonName>
+                                    <NamePrefix>Mr.</NamePrefix>
+                                    <GivenName>TestG</GivenName>
+                                    <Surname>Test</Surname>
+                                </PersonName>
+                            </Guest>
+                            <Guest AgeCode="A">
+                                <PersonName>
+                                    <NamePrefix>Mr.</NamePrefix>
+                                    <GivenName>TestH</GivenName>
                                     <Surname>Test</Surname>
                                 </PersonName>
                             </Guest>
@@ -102,6 +136,9 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
         </OTA_HotelResRQ>
 	</soap-env:Body>
 </soap-env:Envelope>';
+echo '<xmp>';
+var_dump($raw);
+echo '</xmp>';
 
 $client = new Client();
 $client->setOptions(array(

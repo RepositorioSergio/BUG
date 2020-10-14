@@ -57,7 +57,7 @@ $raw = '<?xml version="1.0" encoding="utf-8"?>
 			<HotelSearch>
 				<Currency Code="USD"/>
 				<HotelLocation CityCode="7"/>
-				<DateRange Start="2021-01-12" End="2021-01-15"/>
+				<DateRange Start="2021-04-12" End="2021-04-14"/>
 				<RoomCandidates>  
 					<RoomCandidate RPH="1">
 						<Guests>
