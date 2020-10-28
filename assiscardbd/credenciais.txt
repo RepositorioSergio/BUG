@@ -1,0 +1,3 @@
+Login ws = WSTEST
+Password ws = 123456
+https://www.assistcard.net/ws/services/AssistCardService?wsdl
