@@ -38,7 +38,7 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 
-$url = 'https://viatorapi.sandbox.viator.com/service/search/products';
+$url = 'https://viatorapi.viator.com/service/search/products';
 
 $raw = '{
     "destId": 684,
@@ -54,9 +54,12 @@ $client->setOptions(array(
     'sslverifyhost' => false
 ));
 $client->setHeaders(array(
-    'Content-Type' => 'application/json'
+    'Content-Type' => 'application/json',
+    'Accept' => 'application/json;version=2.0',
+    'Accept-Language' => 'en-US',
+    'exp-api-key' => '5364bbaf-e4f7-4727-9e91-317e794dfbaa'
 ));
-$client->setUri($abreupackagesserviceURL . 'CircuitDetails/GetStaticCache');
+$client->setUri($url);
 $client->setMethod('POST');
 $client->setRawBody($raw);
 $response = $client->send();

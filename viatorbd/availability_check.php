@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-// echo "COMECOU CITIES";
+
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -29,7 +29,7 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.viator.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -38,7 +38,23 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 
-$url = 'https://viatorapi.viator.com/service/support/terms';
+$url = 'https://api.viator.com/partner/availability/check';
+
+$raw = '{
+    "productCode": "5010SYDNEY",
+    "travelDate": "2020-11-28",
+    "currency": "AUD",
+    "paxMix": [
+      {
+        "ageBand": "ADULT",
+        "numberOfTravelers": 2
+      },
+      {
+        "ageBand": "CHILD",
+        "numberOfTravelers": 2
+      }
+    ]
+  }';
 
 $client = new Client();
 $client->setOptions(array(
@@ -48,13 +64,13 @@ $client->setOptions(array(
 ));
 $client->setHeaders(array(
     'Content-Type' => 'application/json',
-    'Accept' => 'application/json;version=2.0',
+    'exp-api-key' => '5364bbaf-e4f7-4727-9e91-317e794dfbaa',
     'Accept-Language' => 'en-US',
-    'exp-api-key' => '5364bbaf-e4f7-4727-9e91-317e794dfbaa'
+    'Accept' => 'application/json;version=2.0'
 ));
 $client->setUri($url);
-$client->setMethod('GET');
-// $client->setRawBody($raw);
+$client->setMethod('POST');
+$client->setRawBody($raw);
 $response = $client->send();
 if ($response->isSuccess()) {
     $response = $response->getBody();
@@ -76,13 +92,7 @@ echo $return;
 
 $response = json_decode($response, true);
 
-/*
- * echo "<xmp>";
- * var_dump($response);
- * echo "</xmp>";
- */
-
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.viator.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -92,23 +102,33 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$errorReference = $response['errorReference'];
-$dateStamp = $response['dateStamp'];
-$errorType = $response['errorType'];
-$errorCodes = $response['errorCodes'];
-$errorMessage = $response['errorMessage'];
-$errorName = $response['errorName'];
-$extraInfo = $response['extraInfo'];
-$extraObject = $response['extraObject'];
-$success = $response['success'];
-$totalCount = $response['totalCount'];
-$errorMessageText = $response['errorMessageText'];
-$vmid = $response['vmid'];
-//
-$data = $response['data'];
-$url = $data['url'];
-
-
+$currency = $response['currency'];
+$productCode = $response['productCode'];
+$travelDate = $response['travelDate'];
+$bookableItems = $response['bookableItems'];
+if (count($bookableItems) > 0) {
+    for ($i=0; $i < count($bookableItems); $i++) { 
+        $productOptionCode = $bookableItems[$i]['productOptionCode'];
+        $available = $bookableItems[$i]['available'];
+        $totalPrice = $bookableItems[$i]['totalPrice'];
+        $price = $totalPrice['price'];
+        $recommendedRetailPrice = $price['recommendedRetailPrice'];
+        $partnerNetPrice = $price['partnerNetPrice'];
+        $bookingFee = $price['bookingFee'];
+        $partnerTotalPrice = $price['partnerTotalPrice'];
+        $lineItems = $bookableItems[$i]['lineItems'];
+        if (count($lineItems) > 0) {
+            for ($iAux=0; $iAux < count($lineItems); $iAux++) { 
+                $ageBand = $lineItems[$iAux]['ageBand'];
+                $numberOfTravelers = $lineItems[$iAux]['numberOfTravelers'];
+                $subtotalPrice = $lineItems[$iAux]['subtotalPrice'];
+                $price = $subtotalPrice['price'];
+                $recommendedRetailPrice = $price['recommendedRetailPrice'];
+                $partnerNetPrice = $price['partnerNetPrice'];
+            }
+        }
+    }
+}
 
 
 // EOF

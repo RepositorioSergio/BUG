@@ -38,7 +38,7 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 
-$url = 'https://viatorapi.viator.com/service/taxonomy/destinations';
+$url = 'https://api.viator.com/partner/products/booking-questions';
 
 $client = new Client();
 $client->setOptions(array(
@@ -48,9 +48,9 @@ $client->setOptions(array(
 ));
 $client->setHeaders(array(
     'Content-Type' => 'application/json',
-    'Accept' => 'application/json;version=2.0',
+    'exp-api-key' => '5364bbaf-e4f7-4727-9e91-317e794dfbaa',
     'Accept-Language' => 'en-US',
-    'exp-api-key' => '5364bbaf-e4f7-4727-9e91-317e794dfbaa'
+    'Accept' => 'application/json;version=2.0'
 ));
 $client->setUri($url);
 $client->setMethod('GET');
@@ -86,58 +86,35 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$errorReference = $response['errorReference'];
-$dateStamp = $response['dateStamp'];
-$errorType = $response['errorType'];
-$errorCodes = $response['errorCodes'];
-$errorMessage = $response['errorMessage'];
-$errorName = $response['errorName'];
-$extraInfo = $response['extraInfo'];
-$extraObject = $response['extraObject'];
-$success = $response['success'];
-$totalCount = $response['totalCount'];
-$errorMessageText = $response['errorMessageText'];
-$vmid = $response['vmid'];
-$data = $response['data'];
-if (count($data) > 0) {
-    for ($i=0; $i < count($data); $i++) { 
-        $sortOrder = $data[$i]['sortOrder'];
-        $selectable = $data[$i]['selectable'];
-        $destinationUrlName = $data[$i]['destinationUrlName'];
-        $defaultCurrencyCode = $data[$i]['defaultCurrencyCode'];
-        $lookupId = $data[$i]['lookupId'];
-        $parentId = $data[$i]['parentId'];
-        $timeZone = $data[$i]['timeZone'];
-        $iataCode = $data[$i]['iataCode'];
-        $destinationName = $data[$i]['destinationName'];
-        $destinationType = $data[$i]['destinationType'];
-        $destinationId = $data[$i]['destinationId'];
-        $latitude = $data[$i]['latitude'];
-        $longitude = $data[$i]['longitude'];
+$bookingQuestions = $response['bookingQuestions'];
+if (count($bookingQuestions) > 0) {
+    for ($i=0; $i < count($bookingQuestions); $i++) { 
+        $legacyBookingQuestionId = $bookingQuestions[$i]['legacyBookingQuestionId'];
+        $id = $bookingQuestions[$i]['id'];
+        $type = $bookingQuestions[$i]['type'];
+        $group = $bookingQuestions[$i]['group'];
+        $label = $bookingQuestions[$i]['label'];
+        $hint = $bookingQuestions[$i]['hint'];
+        $required = $bookingQuestions[$i]['required'];
+        $maxLength = $bookingQuestions[$i]['maxLength'];
 
         try {
             $sql = new Sql($db);
             $insert = $sql->insert();
-            $insert->into('viator_taxonomydestinations');
+            $insert->into('viator_productsbookingquestions');
             $insert->values(array(
+                'id' => $id,
                 'datetime_updated' => time(),
-                'sortorder' => $sortOrder,
-                'selectable' => $selectable,
-                'destinationurlname' => $destinationUrlName,
-                'defaultcurrencycode' => $defaultCurrencyCode,
-                'lookupid' => $lookupId,
-                'parentid' => $parentId,
-                'timezone' => $timeZone,
-                'iatacode' => $iataCode,
-                'destinationname' => $destinationName,
-                'destinationtype' => $destinationType,
-                'destinationid' => $destinationId,
-                'latitude' => $latitude,
-                'longitude' => $longitude
+                'legacybookingquestionid' => $legacyBookingQuestionId,
+                'type' => $type,
+                'group' => $group,
+                'label' => $label,
+                'hint' => $hint,
+                'required' => $required,
+                'maxlength' => $maxLength
             ), $insert::VALUES_MERGE);
             $statement = $sql->prepareStatementForSqlObject($insert);
             $results = $statement->execute();
-            $LastGeneratedValue = $db->getDriver()->getLastGeneratedValue("id");
             $db->getDriver()
             ->getConnection()
             ->disconnect();
@@ -146,8 +123,37 @@ if (count($data) > 0) {
             echo "Error 1: " . $e;
             echo $return;
         }
+
+        $units = $bookingQuestions[$i]['units'];
+        if (count($units) > 0) {
+            $unit = "";
+            for ($iAux=0; $iAux < count($units); $iAux++) { 
+                $unit = $units[$iAux];
+
+                try {
+                    $sql = new Sql($db);
+                    $insert = $sql->insert();
+                    $insert->into('viator_productsbookingquestions_units');
+                    $insert->values(array(
+                        'datetime_updated' => time(),
+                        'unit' => $unit,
+                        'bookingquestionid' => $id
+                    ), $insert::VALUES_MERGE);
+                    $statement = $sql->prepareStatementForSqlObject($insert);
+                    $results = $statement->execute();
+                    $db->getDriver()
+                    ->getConnection()
+                    ->disconnect();
+                } catch (\Exception $e) {
+                    echo $return;
+                    echo "Error 2: " . $e;
+                    echo $return;
+                }
+            }
+        }       
     }
 }
+
 
 // EOF
 $db->getDriver()

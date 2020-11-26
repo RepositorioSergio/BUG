@@ -38,7 +38,7 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 
-$url = 'https://viatorapi.sandbox.viator.com/service/search/attractions';
+$url = 'https://viatorapi.viator.com/service/search/attractions';
 $raw = '{
     "destId": 684,
     "topX": "1-3",
@@ -53,7 +53,10 @@ $client->setOptions(array(
     'sslverifyhost' => false
 ));
 $client->setHeaders(array(
-    'Content-Type' => 'application/json'
+    'Content-Type' => 'application/json',
+    'Accept' => 'application/json;version=2.0',
+    'Accept-Language' => 'en-US',
+    'exp-api-key' => '5364bbaf-e4f7-4727-9e91-317e794dfbaa'
 ));
 $client->setUri($url);
 $client->setMethod('POST');
@@ -78,12 +81,6 @@ echo $response;
 echo $return;
 
 $response = json_decode($response, true);
-
-/*
- * echo "<xmp>";
- * var_dump($response);
- * echo "</xmp>";
- */
 
 $config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
 $config = [

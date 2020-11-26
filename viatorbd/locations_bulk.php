@@ -11,7 +11,7 @@ use Zend\Json\Json;
 use Zend\Config;
 use Zend\Log\Logger;
 use Zend\Log\Writer;
-// echo "COMECOU CITIES";
+
 if (! $_SERVER['DOCUMENT_ROOT']) {
     // On Command Line
     $return = "\r\n";
@@ -29,7 +29,7 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.viator.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -38,7 +38,17 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 
-$url = 'https://viatorapi.viator.com/service/support/terms';
+$url = 'https://api.viator.com/partner/locations/bulk';
+
+$raw = '{
+    "locations": [
+      "LOC-f698f2a1-a53a-46bb-8708-3d45bf740f59",
+      "LOC-9e88ac35-2e2c-4ecc-af8d-10b76770785f",
+      "LOC-453b3cd4-4afa-414d-a8d8-bedb458d73fe",
+      "CONTACT_SUPPLIER_LATER",
+      "MEET_AT_DEPARTURE_POINT"
+    ]
+  }';
 
 $client = new Client();
 $client->setOptions(array(
@@ -48,13 +58,13 @@ $client->setOptions(array(
 ));
 $client->setHeaders(array(
     'Content-Type' => 'application/json',
-    'Accept' => 'application/json;version=2.0',
+    'exp-api-key' => '5364bbaf-e4f7-4727-9e91-317e794dfbaa',
     'Accept-Language' => 'en-US',
-    'exp-api-key' => '5364bbaf-e4f7-4727-9e91-317e794dfbaa'
+    'Accept' => 'application/json;version=2.0'
 ));
 $client->setUri($url);
-$client->setMethod('GET');
-// $client->setRawBody($raw);
+$client->setMethod('POST');
+$client->setRawBody($raw);
 $response = $client->send();
 if ($response->isSuccess()) {
     $response = $response->getBody();
@@ -76,13 +86,7 @@ echo $return;
 
 $response = json_decode($response, true);
 
-/*
- * echo "<xmp>";
- * var_dump($response);
- * echo "</xmp>";
- */
-
-$config = new \Zend\Config\Config(include '../config/autoload/global.abreu.php');
+$config = new \Zend\Config\Config(include '../config/autoload/global.viator.php');
 $config = [
     'driver' => $config->db->driver,
     'database' => $config->db->database,
@@ -92,24 +96,24 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$errorReference = $response['errorReference'];
-$dateStamp = $response['dateStamp'];
-$errorType = $response['errorType'];
-$errorCodes = $response['errorCodes'];
-$errorMessage = $response['errorMessage'];
-$errorName = $response['errorName'];
-$extraInfo = $response['extraInfo'];
-$extraObject = $response['extraObject'];
-$success = $response['success'];
-$totalCount = $response['totalCount'];
-$errorMessageText = $response['errorMessageText'];
-$vmid = $response['vmid'];
-//
-$data = $response['data'];
-$url = $data['url'];
-
-
-
+$locations = $response['locations'];
+if (count($locations) > 0) {
+    for ($i=0; $i < count($locations); $i++) { 
+        $provider = $locations[$i]['provider'];
+        $reference = $locations[$i]['reference'];
+        $providerReference = $locations[$i]['providerReference'];
+        $name = $locations[$i]['name'];
+        $address = $locations[$i]['address'];
+        $street = $address['street'];
+        $state = $address['state'];
+        $country = $address['country'];
+        $countryCode = $address['countryCode'];
+        $postcode = $address['postcode'];
+        $center = $locations[$i]['center'];
+        $latitude = $center['latitude'];
+        $longitude = $center['longitude'];
+    }
+}
 
 // EOF
 $db->getDriver()

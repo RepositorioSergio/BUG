@@ -38,7 +38,7 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 
-$url = 'https://viatorapi.viator.com/service/taxonomy/destinations';
+$url = 'https://api.viator.com/partner/products/tags';
 
 $client = new Client();
 $client->setOptions(array(
@@ -48,9 +48,9 @@ $client->setOptions(array(
 ));
 $client->setHeaders(array(
     'Content-Type' => 'application/json',
-    'Accept' => 'application/json;version=2.0',
+    'exp-api-key' => '5364bbaf-e4f7-4727-9e91-317e794dfbaa',
     'Accept-Language' => 'en-US',
-    'exp-api-key' => '5364bbaf-e4f7-4727-9e91-317e794dfbaa'
+    'Accept' => 'application/json;version=2.0'
 ));
 $client->setUri($url);
 $client->setMethod('GET');
@@ -86,58 +86,82 @@ $config = [
 ];
 $db = new \Zend\Db\Adapter\Adapter($config);
 
-$errorReference = $response['errorReference'];
-$dateStamp = $response['dateStamp'];
-$errorType = $response['errorType'];
-$errorCodes = $response['errorCodes'];
-$errorMessage = $response['errorMessage'];
-$errorName = $response['errorName'];
-$extraInfo = $response['extraInfo'];
-$extraObject = $response['extraObject'];
-$success = $response['success'];
-$totalCount = $response['totalCount'];
-$errorMessageText = $response['errorMessageText'];
-$vmid = $response['vmid'];
-$data = $response['data'];
-if (count($data) > 0) {
-    for ($i=0; $i < count($data); $i++) { 
-        $sortOrder = $data[$i]['sortOrder'];
-        $selectable = $data[$i]['selectable'];
-        $destinationUrlName = $data[$i]['destinationUrlName'];
-        $defaultCurrencyCode = $data[$i]['defaultCurrencyCode'];
-        $lookupId = $data[$i]['lookupId'];
-        $parentId = $data[$i]['parentId'];
-        $timeZone = $data[$i]['timeZone'];
-        $iataCode = $data[$i]['iataCode'];
-        $destinationName = $data[$i]['destinationName'];
-        $destinationType = $data[$i]['destinationType'];
-        $destinationId = $data[$i]['destinationId'];
-        $latitude = $data[$i]['latitude'];
-        $longitude = $data[$i]['longitude'];
+$tags = $response['tags'];
+if (count($tags) > 0) {
+    for ($j=0; $j < count($tags); $j++) { 
+        $tagId = $tags[$j]['tagId'];
+        $parentTagIds = $tags[$j]['parentTagIds'];
+        if (count($parentTagIds) > 0) {
+            $parentTagId = "";
+            for ($i=0; $i < count($parentTagIds); $i++) { 
+                $parentTagId = $parentTagIds[$i];
+
+                try {
+                    $sql = new Sql($db);
+                    $insert = $sql->insert();
+                    $insert->into('viator_productstags_parenttagids');
+                    $insert->values(array(
+                        'datetime_updated' => time(),
+                        'parenttagid' => $parentTagId
+                    ), $insert::VALUES_MERGE);
+                    $statement = $sql->prepareStatementForSqlObject($insert);
+                    $results = $statement->execute();
+                    $db->getDriver()
+                    ->getConnection()
+                    ->disconnect();
+                } catch (\Exception $e) {
+                    echo $return;
+                    echo "Error 2: " . $e;
+                    echo $return;
+                }
+            }
+        }
+        $allNamesByLocale = $tags[$j]['allNamesByLocale'];
+        $de = $allNamesByLocale['de'];
+        $no = $allNamesByLocale['no'];
+        $sv = $allNamesByLocale['sv'];
+        $pt = $allNamesByLocale['pt'];
+        $en_AU = $allNamesByLocale['en_AU'];
+        $en = $allNamesByLocale['en'];
+        $it = $allNamesByLocale['it'];
+        $fr = $allNamesByLocale['fr'];
+        $en_UK = $allNamesByLocale['en_UK'];
+        $es = $allNamesByLocale['es'];
+        $zh = $allNamesByLocale['zh'];
+        $zh_HK = $allNamesByLocale['zh_HK'];
+        $zh_TW = $allNamesByLocale['zh_TW'];
+        $ja = $allNamesByLocale['ja'];
+        $zh_CN = $allNamesByLocale['zh_CN'];
+        $da = $allNamesByLocale['da'];
+        $nl = $allNamesByLocale['nl'];
 
         try {
             $sql = new Sql($db);
             $insert = $sql->insert();
-            $insert->into('viator_taxonomydestinations');
+            $insert->into('viator_productstags');
             $insert->values(array(
                 'datetime_updated' => time(),
-                'sortorder' => $sortOrder,
-                'selectable' => $selectable,
-                'destinationurlname' => $destinationUrlName,
-                'defaultcurrencycode' => $defaultCurrencyCode,
-                'lookupid' => $lookupId,
-                'parentid' => $parentId,
-                'timezone' => $timeZone,
-                'iatacode' => $iataCode,
-                'destinationname' => $destinationName,
-                'destinationtype' => $destinationType,
-                'destinationid' => $destinationId,
-                'latitude' => $latitude,
-                'longitude' => $longitude
+                'tagid' => $tagId,
+                'de' => $de,
+                'no' => $no,
+                'sv' => $sv,
+                'pt' => $pt,
+                'en_au' => $en_AU,
+                'en' => $en,
+                'it' => $it,
+                'fr' => $fr,
+                'en_uk' => $en_UK,
+                'es' => $es,
+                'zh' => $zh,
+                'zh_hk' => $zh_HK,
+                'zh_tw' => $zh_TW,
+                'ja' => $ja,
+                'zh_cn' => $zh_CN,
+                'da' => $da,
+                'nl' => $nl
             ), $insert::VALUES_MERGE);
             $statement = $sql->prepareStatementForSqlObject($insert);
             $results = $statement->execute();
-            $LastGeneratedValue = $db->getDriver()->getLastGeneratedValue("id");
             $db->getDriver()
             ->getConnection()
             ->disconnect();
@@ -148,6 +172,7 @@ if (count($data) > 0) {
         }
     }
 }
+
 
 // EOF
 $db->getDriver()

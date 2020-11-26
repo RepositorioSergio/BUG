@@ -38,7 +38,7 @@ $config = [
     'hostname' => $config->db->hostname
 ];
 
-$url = 'https://viatorapi.sandbox.viator.com/service/product';
+$url = 'https://viatorapi.viator.com/service/product';
 
 $client = new Client();
 $client->setOptions(array(
@@ -47,7 +47,10 @@ $client->setOptions(array(
     'sslverifyhost' => false
 ));
 $client->setHeaders(array(
-    'Content-Type' => 'application/json'
+    'Content-Type' => 'application/json',
+    'exp-api-key' => '5364bbaf-e4f7-4727-9e91-317e794dfbaa',
+    'Accept-Language' => 'en-US',
+    'Accept' => 'application/json;version=2.0'
 ));
 $client->setUri($url);
 $client->setMethod('GET');
