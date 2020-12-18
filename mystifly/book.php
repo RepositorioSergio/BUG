@@ -40,9 +40,8 @@ $config = [
 $db = new \Zend\Db\Adapter\Adapter($config);
 
 $url = 'https://restapidemo.myfarebox.com/api/v1/Book/Flight';
-$session_id = 'C65B61B4-1CDE-4512-A7BF-E02DB2D40AB8-365';
-$FareSourceCode = 'dEpQUmwrZ2UzOUhzWjIya1pEVk5LMWN1TlJRMWl0Tmh5Vk14cEZKU3RtbHVKazdweDZyN0VqaTIyQmI1WExlMFpUMTl6Mjd3aFBLWkF0QVJqeG9SSVF3RFFiS0FRK3k4d3NvaW5XY2dZSm12L1ZaeDJMcUJ5QkxSNjBDcVFLTklBT1llNVZaUGRpOWRwOE5obC9EaFlBPT0=';
-
+$session_id = '6D1FA18B-9CE5-4D83-B00F-03F1439183C3-1775';
+$FareSourceCode = 'M04xUlZseXpvZXE1KzlVb1drTzVGejd3YzlKQnZaK0U4RG8wY1RoZVAvb0IwZ2FsNUp5TDFRSVBxZEhYYm1XUTNWczhOYjR1Vi9JU2dwV3hBdlhlRjF5Ni9XOXRrL1djbjd4OWc0UTZMeDcyTnJ4NVU0SjFyamFhY1ZBYWhTa2M3eVQ1UlU3K0MwZzdvMXhIL1J3WnhnPT0=';
 $raw = '{
     "FareSourceCode": "' . $FareSourceCode . '",
      "TravelerInfo": {
@@ -69,7 +68,7 @@ $raw = '{
                 "Origin": "BLR",
                 "Destination": "DXB",
                 "FlightNumber": "EK569",
-                "DepartureDateTime": "2020-02-03T00:00:00",
+                "DepartureDateTime": "2021-02-21T10:00:00",
                              "RequestSSRs": [
                   {
                     "SSRCode": "Any",

@@ -1,11 +1,12 @@
 <?php
-error_log("\r\nPolicies Activities - Musement\r\n", 3, "/srv/www/htdocs/error_log");
+// TODO
+error_log("\r\nSearch Activities - Project Expedition\r\n", 3, "/srv/www/htdocs/error_log");
 use Laminas\Db\Adapter\Driver\ResultInterface;
 use Laminas\Db\ResultSet\ResultSet;
 use Laminas\Db\Sql\Sql;
 use Laminas\Log\Logger;
 use Laminas\Log\Writer;
-$sql = "select data from quote_session_musementactivitiesdetails where session_id='$quoteid'";
+$sql = "select data from quote_session_projectexpeditionactivitiesdetails where session_id='$quoteid'";
 $statement = $db->createStatement($sql);
 try {
     $statement->prepare();

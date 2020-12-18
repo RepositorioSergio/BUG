@@ -40,13 +40,13 @@ $config = [
 $db = new \Zend\Db\Adapter\Adapter($config);
 
 $url = 'https://restapidemo.myfarebox.com/api/v1/Revalidate/Flight';
-$session_id = 'C65B61B4-1CDE-4512-A7BF-E02DB2D40AB8-365';
-$FareSourceCode = 'dEpQUmwrZ2UzOUhzWjIya1pEVk5LMWN1TlJRMWl0Tmh5Vk14cEZKU3RtbHVKazdweDZyN0VqaTIyQmI1WExlMFpUMTl6Mjd3aFBLWkF0QVJqeG9SSVF3RFFiS0FRK3k4d3NvaW5XY2dZSm12L1ZaeDJMcUJ5QkxSNjBDcVFLTklBT1llNVZaUGRpOWRwOE5obC9EaFlBPT0=';
+$session_id = '6D1FA18B-9CE5-4D83-B00F-03F1439183C3-1775';
+$FareSourceCode = 'MGt0N0s1YS9jV0NLeS9oU0tyWkJEQzBSck5wUitlQmR5c0ZyS3VnNTIxUDhYeTdTS3FjWmZGL0xQS0pGS1dnZ1JHTDd6K3ZSL25uL3FGSHZOUnJlZ1BSVHpDUFhmelNoZGF2K3BBV0RqMjk0dWRqejVNMWxONjZhazN2SVNoSUVEcDB0TURUQlR5ZVV2SHEyRnVBaVBBPT0=';
 
 $raw = '{
     "FareSourceCode": "' . $FareSourceCode . '",
     "Target": "Test",
-    "ConversationId": "AAA2"
+    "ConversationId": "AAA1"
   }';
 
 $client = new Client();

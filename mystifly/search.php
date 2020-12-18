@@ -42,9 +42,9 @@ $db = new \Zend\Db\Adapter\Adapter($config);
 $url_session = 'https://restapidemo.myfarebox.com/api/CreateSession';
 
 $raw_session = '{
-    "Password": "APIT2018_xml",
-    "AccountNumber": "MCN000322",
-    "UserName": "APITXML"
+    "Password": "TRVL2020@xml",
+    "AccountNumber": "MCN001624",
+    "UserName": "TravelM_XML"
   }';
 
 $client = new Client();
@@ -89,12 +89,12 @@ $url = 'https://restapidemo.myfarebox.com/api/v2/Search/Flight';
 $raw = ' {
     "OriginDestinationInformations": [
       {
-        "DepartureDateTime": "2020-06-03T00:00:00",
+        "DepartureDateTime": "2021-02-21T10:00:00",
         "OriginLocationCode": "BLR",
         "DestinationLocationCode": "DXB"
   },
      {
-        "DepartureDateTime": "2020-06-13T00:00:00",
+        "DepartureDateTime": "2021-02-22T10:00:00",
         "OriginLocationCode": "DXB",
         "DestinationLocationCode": "BLR"
       }
